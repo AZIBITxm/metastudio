@@ -3,21 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    .back-button {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      padding: 0.8rem 1.5rem;
-      background: rgba(139, 69, 19, 0.5);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-
-    .back-button:hover {
-      background: rgba(210, 180, 140, 0.8);
-    }ment w Monachium - MetaStudio</title>
+  <title>Studio w Poznaniu - MetaStudio</title>
   <style>
     :root {
       --color-primary: #8B4513;
@@ -36,7 +22,6 @@
       min-height: 100vh;
     }
 
-    /* Stylizacja tła */
     body::before {
       content: '';
       position: fixed;
@@ -44,11 +29,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('../tlo/jeden.jpg');
+      background-image: url('../../tlo/baner1.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      opacity: 0.3; /* Przyciemnienie tła */
+      opacity: 0.3;
       z-index: -1;
     }
 
@@ -57,12 +42,11 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 2rem;
-      background-color: rgba(253, 245, 230, 0.9); /* Półprzezroczyste tło dla kontenera */
+      background-color: rgba(253, 245, 230, 0.9);
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
 
-    /* Dostosowanie kolorystyki dla lepszej czytelności */
     .project-info {
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
@@ -74,15 +58,11 @@
       background-color: rgba(255, 255, 255, 0.95);
     }
 
-    /* Efekt parallax dla sekcji */
     .project-header {
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .gallery-grid {
-      transform: translateZ(0);
-      will-change: transform;
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      align-items: stretch;
     }
 
     .main-image {
@@ -135,7 +115,6 @@
       transform: scale(1.1);
     }
 
-    /* Modal dla powiększonych zdjęć */
     .modal {
       display: none;
       position: fixed;
@@ -163,48 +142,56 @@
       position: fixed;
       top: 2rem;
       left: 2rem;
-      padding: 0.8rem 1.5rem;
-      background: var(--color-primary);
+      background: rgba(139, 69, 19, 0.5);
       color: white;
+      padding: 1rem 2rem;
       text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      border-radius: 8px;
+      font-weight: bold;
+      z-index: 100;
+      transition: background 0.3s ease;
     }
 
     .back-button:hover {
-      background-color: var(--color-text);
+      background: rgba(210, 180, 140, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .project-header {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .main-image img {
+        height: 400px;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a href="../../MetaStudio.html" class="back-button">Powrót do strony głównej</a>
+  <a href="../../index.html" class="back-button">← Powrót do strony głównej</a>
   
   <div class="container">
     <div class="project-header">
       <div class="main-image">
-        <img src="1.jpg" alt="Apartament w Monachium - Zdjęcie główne">
+        <img src="1.jpg" alt="Studio w Poznaniu" onerror="this.style.display='none'">
       </div>
       <div class="project-info">
-        <h1>Apartament w Monachium</h1>
-        <p>Ekskluzywny projekt wnętrza z wykorzystaniem naturalnych materiałów, który łączy w sobie elementy nowoczesnego designu z ponadczasową elegancją. Przestrzeń została zaprojektowana z myślą o maksymalnym komforcie i funkcjonalności, jednocześnie zachowując luksusowy charakter.</p>
-        <p>Powierzchnia: 180m²</p>
+        <h1>Studio w Poznaniu</h1>
+        <p>Funkcjonalne rozwiązania na małej przestrzeni. Inteligentne wykorzystanie każdego metra kwadratowego z zachowaniem stylu i komfortu.</p>
+        <p>Powierzchnia: 45m²</p>
         <p>Rok realizacji: 2024</p>
-        <p>Lokalizacja: Monachium, Niemcy</p>
+        <p>Lokalizacja: Poznań, Polska</p>
       </div>
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="2.jpg" alt="Apartament w Monachium - Salon">
-      </div>
-      <div class="gallery-item">
-        <img src="3.jpg" alt="Apartament w Monachium - Kuchnia">
-      </div>
-      <div class="gallery-item">
-        <img src="4.jpg" alt="Apartament w Monachium - Sypialnia">
-      </div>
-      <!-- Dodaj więcej zdjęć według potrzeb -->
+      <!-- Obrazy będą dodane dynamicznie gdy będą dostępne -->
     </div>
   </div>
 
@@ -213,26 +200,25 @@
   </div>
 
   <script>
-    // Obsługa modalu ze zdjęciami
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
     const galleryItems = document.querySelectorAll('.gallery-item img');
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
 
-    galleryItems.forEach(img => {
-      img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-      }
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImage.src = this.src;
+      });
     });
 
-    modal.onclick = function() {
-      modal.style.display = "none";
-    }
+    modal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
 
-    // Dodanie efektu parallax
-    window.addEventListener('scroll', function() {
-      const scrolled = window.pageYOffset;
-      document.body.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        modal.style.display = 'none';
+      }
     });
   </script>
 </body>

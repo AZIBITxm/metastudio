@@ -153,6 +153,121 @@ function initializeContentRevealAnimations() {
 }
 
 // ==========================================
+// OBSŁUGA SEKCJI MATERIAŁÓW
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca obsługę sekcji materiałów
+ * Obsługuje najechanie na loga i wyświetlanie odpowiednich informacji
+ */
+function initializeMaterialsSection() {
+    const materialLogos = document.querySelectorAll('.material-logo');
+    const materialInfos = document.querySelectorAll('.material-info');
+    
+    if (materialLogos.length === 0 || materialInfos.length === 0) {
+        return;
+    }
+
+    // Pokazuj pierwszy materiał domyślnie
+    if (materialLogos[0] && materialInfos[0]) {
+        materialLogos[0].classList.add('active');
+        materialInfos[0].classList.add('active');
+    }
+
+    materialLogos.forEach(logo => {
+        logo.addEventListener('mouseenter', function() {
+            const materialType = this.dataset.material;
+            
+            // Usuń aktywne klasy
+            materialLogos.forEach(l => l.classList.remove('active'));
+            materialInfos.forEach(i => i.classList.remove('active'));
+            
+            // Dodaj aktywne klasy
+            this.classList.add('active');
+            const targetInfo = document.getElementById(`${materialType}-info`);
+            if (targetInfo) {
+                targetInfo.classList.add('active');
+            }
+        });
+    });
+}
+
+// ==========================================
+// OBSŁUGA ROZSZERZONEJ GALERII
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca obsługę przełączania galerii
+ * Obsługuje pokazywanie/ukrywanie dodatkowych elementów galerii
+ */
+function initializeGalleryToggle() {
+    const showAllBtn = document.getElementById('showAllGalleryBtn');
+    const gallery = document.querySelector('.gallery');
+    const extendedItems = document.querySelectorAll('.extended-gallery-item');
+    const btnText = showAllBtn.querySelector('.btn-text');
+    const btnIcon = showAllBtn.querySelector('.btn-icon');
+    
+    if (!showAllBtn || !gallery || extendedItems.length === 0) {
+        console.log('Gallery toggle elements not found');
+        return;
+    }
+    
+    let isExpanded = false;
+    
+    showAllBtn.addEventListener('click', function() {
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+            // Rozszerzamy galerię
+            gallery.classList.add('expanded');
+            showAllBtn.classList.add('expanded');
+            btnText.textContent = 'Pokaż mniej';
+            btnIcon.textContent = '−';
+            
+            // Pokazujemy dodatkowe elementy z animacją
+            extendedItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.display = 'block';
+                    // Małe opóźnienie dla efektu fade-in
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 100); // Opóźnienie dla każdego elementu
+            });
+            
+        } else {
+            // Zwijamy galerię
+            gallery.classList.remove('expanded');
+            showAllBtn.classList.remove('expanded');
+            btnText.textContent = 'Pokaż wszystkie';
+            btnIcon.textContent = '+';
+            
+            // Ukrywamy dodatkowe elementy z animacją
+            extendedItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    // Ukrywamy element po animacji
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }, index * 50);
+            });
+        }
+    });
+    
+    // Inicjalizujemy style dla dodatkowych elementów
+    extendedItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    });
+    
+    console.log('Gallery toggle initialized');
+}
+
+// ==========================================
 // UTILITY FUNCTIONS
 // ==========================================
 
@@ -210,6 +325,8 @@ function initializeApp() {
         initializeMenuHandlers();
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
+        initializeMaterialsSection();
+        initializeGalleryToggle();
         
         console.log('MetaStudio JavaScript initialized successfully');
     } catch (error) {

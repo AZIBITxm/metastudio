@@ -105,42 +105,152 @@
     </div>
 </section>
   <section id="realizations">
-    <h2>Nasze Realizacje</h2>
+    <div class="realizations-header">
+        <h2>Nasze Realizacje</h2>
+        <button id="showAllGalleryBtn" class="show-all-btn">
+            <span class="btn-text">Pokaż wszystkie</span>
+            <span class="btn-icon">+</span>
+        </button>
+    </div>
     <div class="gallery">
-        <a href="galeria/1/index.html" class="gallery-item">
+        <a href="galeria/1/index.html" class="gallery-item main-gallery-item">
             <img src="galeria/1/1.jpg" alt="Apartament w Monachium" />
             <div class="gallery-item-info">
                 <h3>Apartament w Monachium</h3>
                 <p>Ekskluzywny projekt wnętrza z wykorzystaniem naturalnych materiałów</p>
             </div>
         </a>
-        <a href="galeria/2/index.html" class="gallery-item">
+        <a href="galeria/2/index.html" class="gallery-item main-gallery-item">
             <img src="galeria/2/1.jpg" alt="Rezydencja w Warszawie" />
             <div class="gallery-item-info">
                 <h3>Rezydencja w Warszawie</h3>
                 <p>Nowoczesny design połączony z klasyką</p>
             </div>
         </a>
-        <a href="galeria/3/index.html" class="gallery-item">
+        <a href="galeria/3/index.html" class="gallery-item main-gallery-item">
             <img src="galeria/3/1.jpg" alt="Penthouse w Berlinie" />
             <div class="gallery-item-info">
                 <h3>Penthouse w Berlinie</h3>
                 <p>Minimalistyczne wnętrze z panoramicznym widokiem</p>
             </div>
         </a>
-        <a href="galeria/4/index.html" class="gallery-item">
+        <a href="galeria/4/index.html" class="gallery-item main-gallery-item">
             <img src="galeria/4/1.jpg" alt="Villa w Hamburgu" />
             <div class="gallery-item-info">
                 <h3>Villa w Hamburgu</h3>
                 <p>Luksusowa przestrzeń w stylu modern classic</p>
             </div>
         </a>
+        
+        <!-- Dodatkowe realizacje - ukryte domyślnie -->
+        <a href="galeria/5/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/5/1.jpg" alt="Loft w Krakowie" />
+            <div class="gallery-item-info">
+                <h3>Loft w Krakowie</h3>
+                <p>Industrialny design z elementami vintage</p>
+            </div>
+        </a>
+        <a href="galeria/6/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/6/1.jpg" alt="Apartament w Gdańsku" />
+            <div class="gallery-item-info">
+                <h3>Apartament w Gdańsku</h3>
+                <p>Skandynawski minimalizm nad morzem</p>
+            </div>
+        </a>
+        <a href="galeria/7/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/7/1.jpg" alt="Dom w Zakopanem" />
+            <div class="gallery-item-info">
+                <h3>Dom w Zakopanem</h3>
+                <p>Góralski styl w nowoczesnym wydaniu</p>
+            </div>
+        </a>
+        <a href="galeria/8/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/8/1.jpg" alt="Studio w Poznaniu" />
+            <div class="gallery-item-info">
+                <h3>Studio w Poznaniu</h3>
+                <p>Funkcjonalne rozwiązania na małej przestrzeni</p>
+            </div>
+        </a>
+        <a href="galeria/10/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/10/1.jpg" alt="Penthouse w Łodzi" />
+            <div class="gallery-item-info">
+                <h3>Penthouse w Łodzi</h3>
+                <p>Luksusowe wnętrze z panoramicznym widokiem</p>
+            </div>
+        </a>
+        <a href="galeria/11/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/11/1.jpg" alt="Loft w Katowicach" />
+            <div class="gallery-item-info">
+                <h3>Loft w Katowicach</h3>
+                <p>Przemysłowy charakter w eleganckim wydaniu</p>
+            </div>
+        </a>
+        <a href="galeria/12/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/12/20160804_164435 (1).jpg" alt="Villa w Sopocie" />
+            <div class="gallery-item-info">
+                <h3>Villa w Sopocie</h3>
+                <p>Nadmorska elegancja z nutą luksusu</p>
+            </div>
+        </a>
+        <a href="galeria/16/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/16/c1.jpg" alt="Apartament w Rzeszowie" />
+            <div class="gallery-item-info">
+                <h3>Apartament w Rzeszowie</h3>
+                <p>Nowoczesność w historycznym centrum</p>
+            </div>
+        </a>
+        <a href="galeria/17/index.html" class="gallery-item extended-gallery-item" style="display: none;">
+            <img src="galeria/17/20231209_114031.jpg" alt="Dom w Bydgoszczy" />
+            <div class="gallery-item-info">
+                <h3>Dom w Bydgoszczy</h3>
+                <p>Rodzinne wnętrze pełne ciepła</p>
+            </div>
+        </a>
     </div>
 </section>
+
   <section id="project">
     <h2>Projekt</h2>
     <div class="content">
-        <!-- Tu będziemy później dodawać elementy -->
+        <div class="materials-logos">
+            <div class="material-logo" data-material="pfleiderer">
+                <img src="logo/materialy/pfleiderer-logo.png" alt="Pfleiderer">
+            </div>
+            <div class="material-logo" data-material="kronospan">
+                <img src="logo/materialy/kronospan-logo.png" alt="Kronospan">
+            </div>
+            <div class="material-logo" data-material="swisscrono">
+                <img src="logo/materialy/swisscrono-logo.png" alt="Swiss Crono">
+            </div>
+            <div class="material-logo" data-material="blum">
+                <img src="logo/materialy/blum-logo.png" alt="Blum">
+            </div>
+            <div class="material-logo" data-material="peka">
+                <img src="logo/materialy/peka-logo.png" alt="Peka">
+            </div>
+        </div>
+        <div class="materials-info">
+            <div class="material-info" id="pfleiderer-info">
+                <h3>Pfleiderer</h3>
+                <p>Niemiecki lider w produkcji płyt drewnopochodnych i dekoracyjnych. Oferuje innowacyjne rozwiązania materiałowe z kolekcją paneli drewnopochodnych 2025-2028. Firma znana z wysokiej jakości płyt laminowanych, powierzchni XTreme o wyjątkowej wytrzymałości oraz zrównoważonego podejścia do produkcji.</p>
+            </div>
+            <div class="material-info" id="kronospan-info">
+                <h3>Kronospan</h3>
+                <p>Międzynarodowy producent płyt drewnopochodnych obecny na wszystkich kontynentach. Kronospan oferuje szeroki asortyment płyt wiórowych, MDF, laminatów oraz podłóg. Firma słynie z zaawansowanych technologii produkcji i wysokiej jakości materiałów.</p>
+            </div>
+            <div class="material-info" id="swisscrono-info">
+                <h3>Swiss Crono</h3>
+                <p>Szwajcarski producent premium płyt laminowanych i podłóg. Specjalizuje się w wysokiej jakości materiałach z zaawansowanymi powierzchniami odpornymi na zarysowania i wilgoć. Swiss Crono łączy tradycyjną szwajcarską precyzję z nowoczesnymi technologiami.</p>
+            </div>
+            <div class="material-info" id="blum-info">
+                <h3>Blum</h3>
+                <p>Austriacki światowy lider w produkcji okuć meblowych. Oferuje systemy podnośników AVENTOS, zawiasy, szuflady LEGRABOX, prowadnice oraz systemy kieszeniowe REVEGO. Blum słynie z innowacyjnych technologii ruchu i wysokiej jakości wykonania.</p>
+            </div>
+            <div class="material-info" id="peka-info">
+                <h3>Peka</h3>
+                <p>Polskie przedsiębiorstwo specjalizujące się w akcesoriach i systemach meblowych do kuchni. Oferuje innowacyjne rozwiązania organizacji przestrzeni: cargo Dispensa, narożniki LeMans, systemy Magic Corner, wkłady na sztućce i akcesoria łazienkowe.</p>
+            </div>
+        </div>
     </div>
   </section>
   <section id="collections">
