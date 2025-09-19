@@ -198,6 +198,15 @@ function scrollToElement(selector, offset = 0) {
 function initializeApp() {
     try {
         initializeHeaderAnimations();
+        // Wymuszanie układu pionowego dla logos-container
+        const logos = document.querySelectorAll('.logos-container');
+        logos.forEach(el => {
+            el.style.display = 'flex';
+            el.style.flexDirection = 'column';
+            el.style.alignItems = 'center';
+            el.style.justifyContent = 'center';
+            el.style.gap = '0.5rem';
+        });
         initializeMenuHandlers();
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
