@@ -434,31 +434,46 @@ function initializeSubBanners() {
         if (targetInfo) {
             targetInfo.style.display = 'block';
         }
+        
+        // W wersji mobilnej pokaż sekcję materials-info
+        if (window.innerWidth <= 768) {
+            const materialsInfoSection = document.querySelector('#project .materials-info');
+            if (materialsInfoSection) {
+                materialsInfoSection.classList.add('mobile-visible');
+            }
+        }
+        
+        // Zmień tło sekcji w zależności od wybranego materiału
+        const projectSection = document.getElementById('project');
+        if (projectSection) {
+            projectSection.setAttribute('data-active-material', materialId);
+        }
     }
     
-    // Funkcja płynnego pokazywania pod-banerów (jeden po drugim) - osobne elementy
-    function showSubBanners(materialId) {
-        const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
+    // Funkcja płynnego pokazywania pod-banerów - wszystkie jednocześnie
+    function showSubBanners(materialLogo) {
+        materialLogo.classList.add('expanded');
+        const subBannersContainer = materialLogo.querySelector('.sub-banners');
         if (subBannersContainer) {
             const subBanners = subBannersContainer.querySelectorAll('.sub-banner');
-            subBanners.forEach((subBanner, index) => {
-                setTimeout(() => {
-                    subBanner.classList.add('show');
-                }, index * 100); // 100ms delay między każdym bannerem
+            subBanners.forEach((subBanner) => {
+                subBanner.classList.add('show');
             });
         }
     }
     
     // Funkcja płynnego ukrywania pod-banerów
-    function hideSubBanners(materialId) {
-        const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
+    function hideSubBanners(materialLogo) {
+        const subBannersContainer = materialLogo.querySelector('.sub-banners');
         if (subBannersContainer) {
             const subBanners = subBannersContainer.querySelectorAll('.sub-banner');
-            subBanners.forEach((subBanner, index) => {
-                setTimeout(() => {
-                    subBanner.classList.remove('show');
-                }, index * 50); // Szybsze ukrywanie
+            subBanners.forEach((subBanner) => {
+                subBanner.classList.remove('show');
             });
+            // Usuń klasę expanded po ukryciu wszystkich pod-banerów
+            setTimeout(() => {
+                materialLogo.classList.remove('expanded');
+            }, 300); // Czas trwania animacji CSS
         }
     }
     
@@ -468,6 +483,14 @@ function initializeSubBanners() {
         allSubBanners.forEach(subBanner => {
             subBanner.classList.remove('show');
         });
+        
+        // W wersji mobilnej ukryj też sekcję materials-info
+        if (window.innerWidth <= 768) {
+            const materialsInfoSection = document.querySelector('#project .materials-info');
+            if (materialsInfoSection) {
+                materialsInfoSection.classList.remove('mobile-visible');
+            }
+        }
     }
     
     // Obsługa kliknięć w pod-banery
@@ -481,6 +504,13 @@ function initializeSubBanners() {
             // Dodaj active do klikniętego
             this.classList.add('active');
             
+            // W wersji mobilnej zwiń wszystkie główne banery po wyborze podbaneru
+            if (window.innerWidth <= 768) {
+                materialLogos.forEach(logo => {
+                    logo.classList.remove('expanded');
+                });
+            }
+            
             // Pokaż odpowiedni opis
             const materialId = this.getAttribute('data-material');
             showMaterialInfo(materialId);
@@ -491,53 +521,47 @@ function initializeSubBanners() {
     materialLogos.forEach(logo => {
         const materialId = logo.getAttribute('data-material');
         
-        // Obsługa hover na desktop
-        logo.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                hideAllSubBanners(); // Ukryj wszystkie inne
-                showSubBanners(materialId);
-                showMaterialInfo(materialId);
-            }
-        });
-        
-        // Obsługa mouseleave na desktop
-        logo.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                hideSubBanners(materialId);
-            }
-        });
-        
-        // Obsługa kliknięć na mobile
+        // Obsługa kliknięć dla wszystkich rozdzielczości (mobile i desktop)
         logo.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                
-                const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
-                const isExpanded = subBannersContainer && subBannersContainer.querySelector('.sub-banner.show');
-                
-                // Zamknij wszystkie inne banery
-                materialLogos.forEach(otherLogo => {
-                    if (otherLogo !== this) {
-                        otherLogo.classList.remove('expanded');
-                        const otherMaterialId = otherLogo.getAttribute('data-material');
-                        hideSubBanners(otherMaterialId);
-                    }
-                });
-                
-                // Toggle obecnego banera
-                if (!isExpanded) {
-                    this.classList.add('expanded');
-                    showSubBanners(materialId);
-                    showMaterialInfo(materialId);
-                } else {
-                    this.classList.remove('expanded');
-                    hideSubBanners(materialId);
+            e.preventDefault();
+            
+            const subBannersContainer = this.querySelector('.sub-banners');
+            const isExpanded = subBannersContainer && subBannersContainer.querySelector('.sub-banner.show');
+            
+            // Zamknij wszystkie inne banery
+            materialLogos.forEach(otherLogo => {
+                if (otherLogo !== this) {
+                    hideSubBanners(otherLogo);
+                    otherLogo.classList.remove('expanded');
                 }
-            } else {
-                // Na desktop - pokaż opis głównej kategorii
+            });
+            
+            // Toggle obecnego banera
+            if (!isExpanded) {
+                this.classList.add('expanded');
+                showSubBanners(this);
                 showMaterialInfo(materialId);
+            } else {
+                this.classList.remove('expanded');
+                hideSubBanners(this);
             }
         });
+    });
+    
+    // Obsługa kliknięć poza banerami - zamykanie wszystkich rozwinięych banerów (mobile i desktop)
+    document.addEventListener('click', function(e) {
+        // Sprawdź czy kliknięty element nie jest częścią material-logo
+        const clickedInsideMaterialLogo = e.target.closest('.material-logo');
+        
+        if (!clickedInsideMaterialLogo) {
+            // Kliknięto poza banerami - zamknij wszystkie
+            materialLogos.forEach(logo => {
+                if (logo.classList.contains('expanded')) {
+                    logo.classList.remove('expanded');
+                    hideSubBanners(logo);
+                }
+            });
+        }
     });
     
     // Pokaż domyślnie pierwszy opis
