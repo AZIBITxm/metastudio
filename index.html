@@ -24,7 +24,7 @@
             <a href="#promotions">Promocje</a>
             <a href="#about">O Nas</a>
             <a href="#realizations">Nasze Realizacje</a>
-            <a href="#project">Projekt</a>
+            <a href="#project">Kategorie Materiałów</a>
             <a href="#collections">Nasze Kolekcje</a>
             <a href="#contact">Kontakt</a>
         </div>
@@ -77,6 +77,26 @@
     </div>
   </section>
   <section id="about">
+    <div class="mobile-about-labels">
+            <div class="mobile-about-group">
+                <div class="mobile-title">O Nas</div>
+                <div class="mobile-separator">→</div>
+                <div class="mobile-expand">
+                    <span>R</span>
+                    <span>O</span>
+                    <span>Z</span>
+                    <span>W</span>
+                    <span>I</span>
+                    <span>Ń</span>
+                </div>
+            </div>
+    </div>
+    
+    <!-- Strzałka w banerze obrazu - widoczna po rozwinięciu -->
+    <div class="banner-collapse-arrow">
+        <span>←</span>
+    </div>
+    
     <h2>O Nas</h2>
     <div class="about-content">
         <p class="about-intro">
@@ -210,45 +230,47 @@
 </section>
 
   <section id="project">
-    <h2>Projekt</h2>
+    <h2>Kategorie Materiałów</h2>
     <div class="content">
         <div class="materials-logos">
-            <div class="material-logo" data-material="pfleiderer">
-                <img src="logo/materialy/pfleiderer-logo.png" alt="Pfleiderer">
+            <div class="material-logo" data-material="plyty-meblowe">
+                <span class="material-title">Płyty Meblowe</span>
             </div>
-            <div class="material-logo" data-material="kronospan">
-                <img src="logo/materialy/kronospan-logo.png" alt="Kronospan">
+            <div class="sub-banners" data-parent="plyty-meblowe">
+                <div class="sub-banner" data-material="plyty-laminowane">
+                    <span class="sub-banner-title">Płyty Laminowane</span>
+                </div>
+                <div class="sub-banner" data-material="plyty-hdf">
+                    <span class="sub-banner-title">Płyty HDF</span>
+                </div>
             </div>
-            <div class="material-logo" data-material="swisscrono">
-                <img src="logo/materialy/swisscrono-logo.png" alt="Swiss Crono">
+            <div class="material-logo" data-material="fronty-meblowe">
+                <span class="material-title">Fronty Meblowe</span>
             </div>
-            <div class="material-logo" data-material="blum">
-                <img src="logo/materialy/blum-logo.png" alt="Blum">
-            </div>
-            <div class="material-logo" data-material="peka">
-                <img src="logo/materialy/peka-logo.png" alt="Peka">
+            <div class="material-logo" data-material="blaty">
+                <span class="material-title">Blaty</span>
             </div>
         </div>
         <div class="materials-info">
-            <div class="material-info" id="pfleiderer-info">
-                <h3>Pfleiderer</h3>
-                <p>Niemiecki lider w produkcji płyt drewnopochodnych i dekoracyjnych. Oferuje innowacyjne rozwiązania materiałowe z kolekcją paneli drewnopochodnych 2025-2028. Firma znana z wysokiej jakości płyt laminowanych, powierzchni XTreme o wyjątkowej wytrzymałości oraz zrównoważonego podejścia do produkcji.</p>
+            <div class="material-info" id="plyty-meblowe-info">
+                <h3>Płyty Meblowe</h3>
+                <p>Wysokiej jakości płyty HDF z laminowanymi powierzchniami od renomowanych producentów. Oferujemy szeroką gamę wzorów, kolorów i struktur - od klasycznych dekori drewnopodobnych po nowoczesne powierzchnie jednokolorowe. Płyty charakteryzują się doskonałą odpornością na wilgoć, zarysowania i codzienne użytkowanie.</p>
             </div>
-            <div class="material-info" id="kronospan-info">
-                <h3>Kronospan</h3>
-                <p>Międzynarodowy producent płyt drewnopochodnych obecny na wszystkich kontynentach. Kronospan oferuje szeroki asortyment płyt wiórowych, MDF, laminatów oraz podłóg. Firma słynie z zaawansowanych technologii produkcji i wysokiej jakości materiałów.</p>
+            <div class="material-info" id="plyty-laminowane-info" style="display: none;">
+                <h3>Płyty Laminowane</h3>
+                <p>Płyty laminowane to wysokiej jakości płyty drewnopochodne pokryte warstwą laminatu. Charakteryzują się wyjątkową odpornością na zarysowania, plamy i codzienne użytkowanie. Dostępne w setках wzorów - od realistycznych dekori drewna po nowoczesne kolory jednorodne. Idealny wybór do frontów kuchennych i mebli codziennego użytku.</p>
             </div>
-            <div class="material-info" id="swisscrono-info">
-                <h3>Swiss Crono</h3>
-                <p>Szwajcarski producent premium płyt laminowanych i podłóg. Specjalizuje się w wysokiej jakości materiałach z zaawansowanymi powierzchniami odpornymi na zarysowania i wilgoć. Swiss Crono łączy tradycyjną szwajcarską precyzję z nowoczesnymi technologiami.</p>
+            <div class="material-info" id="plyty-hdf-info" style="display: none;">
+                <h3>Płyty HDF</h3>
+                <p>Płyty HDF (High Density Fiberboard) to płyty o wysokiej gęstości wykonane z włókien drzewnych. Cechują się wyjątkową gładkością powierzchni, stabilnością wymiarową i doskonałym chwytem śrub. Idealne do frontów lakierowanych i oklejanych. Wysoka gęstość zapewnia trwałość i odporność na deformacje.</p>
             </div>
-            <div class="material-info" id="blum-info">
-                <h3>Blum</h3>
-                <p>Austriacki światowy lider w produkcji okuć meblowych. Oferuje systemy podnośników AVENTOS, zawiasy, szuflady LEGRABOX, prowadnice oraz systemy kieszeniowe REVEGO. Blum słynie z innowacyjnych technologii ruchu i wysokiej jakości wykonania.</p>
+            <div class="material-info" id="fronty-meblowe-info">
+                <h3>Fronty Meblowe</h3>
+                <p>Eleganckie fronty meblowe w różnorodnych wykończeniach: akrylowe o wysokim połysku, matowe lakierowane, fornirowane drewnem naturalnym, masywne drewniane, szklane z możliwością personalizacji oraz nowoczesne gięte i frezowane. Każdy front łączy funkcjonalność z wyjątkowym designem.</p>
             </div>
-            <div class="material-info" id="peka-info">
-                <h3>Peka</h3>
-                <p>Polskie przedsiębiorstwo specjalizujące się w akcesoriach i systemach meblowych do kuchni. Oferuje innowacyjne rozwiązania organizacji przestrzeni: cargo Dispensa, narożniki LeMans, systemy Magic Corner, wkłady na sztućce i akcesoria łazienkowe.</p>
+            <div class="material-info" id="blaty-info">
+                <h3>Blaty</h3>
+                <p>Wytrzymałe i estetyczne blaty z premium materiałów: spieki kwarcowe o niezrównanej twardości, naturalne kamienie, ekskluzywne drewno, praktyczne laminaty oraz innowacyjne powierzchnie z żywicy epoksydowej i solid surface. Każdy materiał gwarantuje długotrwałą funkcjonalność i piękny wygląd.</p>
             </div>
         </div>
     </div>

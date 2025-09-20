@@ -628,7 +628,7 @@ nav {
   content: '';
   position: absolute;
   right: -50px;
-  top: -100px;
+  top: 50%;
   width: 45%;
   height: calc(100% + 200px);
   border: 3px solid var(--color-primary);
@@ -636,6 +636,7 @@ nav {
   background-size: cover;
   background-position: center;
   z-index: 3;
+  transform: translateY(-50%);
   box-shadow: 
       0 -30px 50px rgba(0,0,0,0.2),
       0 30px 50px rgba(0,0,0,0.2);
@@ -644,7 +645,7 @@ nav {
 #about::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
     width: 100%;
     height: 100%;
@@ -652,9 +653,8 @@ nav {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(8px) brightness(0.7);
-    -webkit-filter: blur(8px) brightness(0.7);
     z-index: 1;
+    transform: translateY(-50%);
 }
 
 #about h2 {
@@ -731,6 +731,10 @@ nav {
 .highlight {
     color: var(--color-primary);
     font-weight: 700;
+}
+
+.mobile-about-labels {
+    display: none;
 }
 
 .stats {
@@ -1046,15 +1050,17 @@ nav {
     z-index: 3;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 1.5rem;
     padding: 2rem 1rem;
-    margin-left: -3rem;
+    margin-left: 0;
+    width: 100%;
 }
 
 #project .material-logo {
     background: rgba(255, 255, 255, 0.9);
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
@@ -1085,6 +1091,119 @@ nav {
 #project .material-logo:hover img,
 #project .material-logo.active img {
     filter: grayscale(0);
+}
+
+/* Style dla tekstowych tytułów banerów */
+#project .material-title {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+#project .material-logo:hover .material-title,
+#project .material-logo.active .material-title {
+    color: var(--color-primary-dark);
+}
+
+/* Style dla pod-banerów - osobne elementy poza głównym bannerem */
+.sub-banners {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.sub-banner {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3f566b 100%);
+    padding: 12px 20px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 0 20%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    color: #fff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sub-banner.show {
+    max-height: 50px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sub-banner:first-child {
+    transition-delay: 0.1s;
+}
+
+.sub-banner:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.sub-banner:hover {
+    background: linear-gradient(135deg, #34495e 0%, #3f566b 50%, #4a6078 100%);
+    border-color: var(--color-primary);
+    transform: translateX(3px);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.sub-banner.active {
+    background: linear-gradient(135deg, #3f566b 0%, #4a6078 50%, #556a85 100%);
+    border-color: var(--color-primary);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+.sub-banner-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    text-align: left;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sub-banner:hover .sub-banner-title,
+.sub-banner.active .sub-banner-title {
+    color: var(--color-primary-dark);
+}
+
+/* Pokazywanie pod-banerów przy hover na desktop */
+@media (min-width: 769px) {
+    .sub-banners[data-parent="plyty-meblowe"] .sub-banner.show {
+        max-height: 40px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pokazywanie pod-banerów przy kliknięciu na mobile */
+@media (max-width: 768px) {
+    .sub-banners[data-parent="plyty-meblowe"] .sub-banner.show {
+        max-height: 40px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .sub-banner {
+        margin: 0 15%;
+    }
 }
 
 /* Informacje o materiałach po prawej */
@@ -1126,18 +1245,33 @@ nav {
     }
     
     #project .materials-logos {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1rem 0 1rem 0;
         margin-left: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        left: 0;
+        position: relative;
     }
     
     #project .material-logo {
-        flex: 1;
-        min-width: 100px;
-        max-width: 120px;
+        width: 100vw;
+        min-width: 0;
+        max-width: 100vw;
+        margin-left: 0;
+        box-sizing: border-box;
+        border-radius: 0;
     }
+    
+    #promotions {
+    margin-bottom: 80px;
+  }
+  #about {
+    margin-top: 80px;
+  }
 }
 
 /* ==========================================
@@ -1460,8 +1594,201 @@ footer {
     }
 
     #about {
-        margin-top: 40px;
+        margin-top: 150px;
         padding: 30px 2rem 60px 2rem;
+        height: 35vh;
+        margin-bottom: 100px;
+    }
+
+    #about::before {
+        height: 150%;
+    }
+
+    #about::after {
+        right: auto;
+        left: 25%;
+        width: 75%;
+        transition: all 0.8s ease-in-out;
+    }
+
+    /* Klasa dla rozszerzonej sekcji - przesunięcie baneru w prawo */
+    #about.about-expanded::after {
+        left: 75%;
+        width: 25%;
+    }
+
+    #about h2 {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out 0.3s;
+    }
+
+    #about h2::after {
+        display: none;
+    }
+
+    .about-content {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out 0.3s;
+        height: auto;
+        max-height: none;
+    }
+
+    /* Pokazanie napisów z wersji PC podczas rozwijania */
+    #about.about-expanded h2 {
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        right: 25%;
+        font-size: 1.5rem;
+        margin: 0;
+        z-index: 4;
+        color: var(--color-text-light);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #about.about-expanded h2::after {
+        display: block;
+    }
+
+    #about.about-expanded .about-content {
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 11%;
+        left: 5%;
+        right: 25%;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        z-index: 4;
+        color: var(--color-text-light);
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        max-height: 100% !important;
+        height: auto !important;
+        overflow-y: auto;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Pokazanie treści dopiero po opóźnieniu */
+    #about.about-expanded.content-visible h2 {
+        opacity: 1;
+    }
+
+    #about.about-expanded.content-visible .about-content {
+        opacity: 1;
+    }
+
+    .mobile-about-labels {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        left: 8% !important;
+        top: 0% !important;
+        transform: none !important;
+        z-index: 4;
+        opacity: 1;
+        transition: opacity 0.8s ease-in-out;
+        }
+
+    /* Ukrycie mobile labels podczas rozwijania */
+    .mobile-about-labels.labels-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Strzałka w banerze obrazu - domyślnie ukryta */
+    .banner-collapse-arrow {
+        display: none;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        background: rgba(0,0,0,0.7);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .banner-collapse-arrow span {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .banner-collapse-arrow:hover {
+        background: rgba(0,0,0,0.9);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Pokazanie strzałki po rozwinięciu sekcji */
+    #about.about-expanded .banner-collapse-arrow {
+        display: flex;
+    }
+
+        .mobile-about-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+                position: relative;
+                left: -5px;
+        }
+    }
+
+    .mobile-title,
+    .mobile-expand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+    }
+
+    .mobile-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--color-text-light);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .mobile-expand {
+        flex-direction: column;
+        align-items: center;
+            margin: 0 auto;
+    }
+
+    .letter-break {
+        height: 15px;
+    }
+
+    .mobile-separator {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        margin: 8px 0;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        align-self: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-expand span {
+        font-size: 1rem;
+        color: var(--color-primary);
+        margin-bottom: 2px;
+        cursor: pointer;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        font-weight: 700;
     }
 
     /* Dostosowanie brandingu dla tabletów i mniejszych ekranów */
@@ -1523,8 +1850,73 @@ footer {
     }
 
     #about {
-        margin-top: 30px;
+        margin-top: 150px;
         padding: 20px 1rem 40px 1rem;
+        height: 35vh;
+        margin-bottom: 100px;
+    }
+
+    #about::after {
+        right: auto;
+        left: 25%;
+        width: 75%;
+    }
+
+    #about h2 {
+        display: none;
+    }
+
+    #about h2::after {
+        display: none;
+    }
+
+    .about-content {
+        display: none;
+    }
+
+    .mobile-title,
+    .mobile-expand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+    }
+
+    .mobile-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--color-text-light);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .mobile-expand {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .letter-break {
+        height: 15px;
+    }
+
+    .mobile-separator {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        margin: 8px 0;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        align-self: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-expand span {
+        font-size: 1rem;
+        color: var(--color-primary);
+        margin-bottom: 2px;
+        cursor: pointer;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        font-weight: 700;
     }
 
     /* Agresywne zmniejszenie brandingu dla małych telefonów */

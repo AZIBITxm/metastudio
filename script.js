@@ -326,7 +326,9 @@ function initializeApp() {
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
         initializeMaterialsSection();
+        initializeSubBanners();
         initializeGalleryToggle();
+        initializeMobileAboutAnimation();
         
         console.log('MetaStudio JavaScript initialized successfully');
     } catch (error) {
@@ -352,6 +354,195 @@ window.addEventListener('scroll', function() {
     // Tutaj można dodać funkcje reagujące na scroll strony
     // Uwaga: funkcja scroll dla sekcji "O Nas" jest osobno w initializeAboutSectionScroll
 });
+
+// ==========================================
+// OBSŁUGA ANIMACJI SEKCJI "O NAS" - MOBILE
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca obsługę przycisku ROZWIŃ w sekcji mobile
+ * Obsługuje animację rozwijania i zwijania sekcji O NAS
+ */
+function initializeMobileAboutAnimation() {
+    const expandButton = document.querySelector('.mobile-expand');
+    const collapseButton = document.querySelector('.banner-collapse-arrow');
+    const aboutSection = document.querySelector('#about');
+    const mobileLabels = document.querySelector('.mobile-about-labels');
+    
+    if (!expandButton || !aboutSection || !mobileLabels || !collapseButton) return;
+    
+    let isExpanded = false;
+    
+    // Funkcja do rozwijania sekcji
+    function expandSection() {
+        aboutSection.classList.add('about-expanded');
+        mobileLabels.classList.add('labels-hidden');
+        
+        // Dodanie klasy do pokazania tekstu z opóźnieniem (po zakończeniu animacji prostokąta)
+        setTimeout(() => {
+            aboutSection.classList.add('content-visible');
+        }, 1000); // Opóźnienie 1 sekunda - po zakończeniu animacji prostokąta
+        
+        isExpanded = true;
+    }
+    
+    // Funkcja do zwijania sekcji
+    function collapseSection() {
+        aboutSection.classList.remove('about-expanded');
+        aboutSection.classList.remove('content-visible');
+        mobileLabels.classList.remove('labels-hidden');
+        isExpanded = false;
+    }
+    
+    // Obsługa kliknięcia w przycisk ROZWIŃ
+    expandButton.addEventListener('click', function() {
+        if (!isExpanded) {
+            expandSection();
+        }
+    });
+    
+    // Obsługa kliknięcia w strzałkę zwijania
+    collapseButton.addEventListener('click', function() {
+        if (isExpanded) {
+            collapseSection();
+        }
+    });
+}
+
+// ==========================================
+// OBSŁUGA POD-BANERÓW MATERIAŁÓW
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca obsługę pod-banerów w sekcji materiałów
+ * Obsługuje hover na desktop i kliknięcia na mobile z płynnymi animacjami
+ */
+function initializeSubBanners() {
+    const materialLogos = document.querySelectorAll('.material-logo');
+    const subBanners = document.querySelectorAll('.sub-banner');
+    const materialsInfo = document.querySelectorAll('.material-info');
+    
+    // Funkcja pokazująca odpowiedni opis materiału
+    function showMaterialInfo(materialId) {
+        // Ukryj wszystkie opisy
+        materialsInfo.forEach(info => {
+            info.style.display = 'none';
+        });
+        
+        // Pokaż wybrany opis
+        const targetInfo = document.getElementById(materialId + '-info');
+        if (targetInfo) {
+            targetInfo.style.display = 'block';
+        }
+    }
+    
+    // Funkcja płynnego pokazywania pod-banerów (jeden po drugim) - osobne elementy
+    function showSubBanners(materialId) {
+        const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
+        if (subBannersContainer) {
+            const subBanners = subBannersContainer.querySelectorAll('.sub-banner');
+            subBanners.forEach((subBanner, index) => {
+                setTimeout(() => {
+                    subBanner.classList.add('show');
+                }, index * 100); // 100ms delay między każdym bannerem
+            });
+        }
+    }
+    
+    // Funkcja płynnego ukrywania pod-banerów
+    function hideSubBanners(materialId) {
+        const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
+        if (subBannersContainer) {
+            const subBanners = subBannersContainer.querySelectorAll('.sub-banner');
+            subBanners.forEach((subBanner, index) => {
+                setTimeout(() => {
+                    subBanner.classList.remove('show');
+                }, index * 50); // Szybsze ukrywanie
+            });
+        }
+    }
+    
+    // Funkcja ukrywająca wszystkie pod-banery
+    function hideAllSubBanners() {
+        const allSubBanners = document.querySelectorAll('.sub-banner');
+        allSubBanners.forEach(subBanner => {
+            subBanner.classList.remove('show');
+        });
+    }
+    
+    // Obsługa kliknięć w pod-banery
+    subBanners.forEach(subBanner => {
+        subBanner.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Usuń active ze wszystkich pod-banerów
+            subBanners.forEach(sb => sb.classList.remove('active'));
+            
+            // Dodaj active do klikniętego
+            this.classList.add('active');
+            
+            // Pokaż odpowiedni opis
+            const materialId = this.getAttribute('data-material');
+            showMaterialInfo(materialId);
+        });
+    });
+    
+    // Obsługa głównych banerów
+    materialLogos.forEach(logo => {
+        const materialId = logo.getAttribute('data-material');
+        
+        // Obsługa hover na desktop
+        logo.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                hideAllSubBanners(); // Ukryj wszystkie inne
+                showSubBanners(materialId);
+                showMaterialInfo(materialId);
+            }
+        });
+        
+        // Obsługa mouseleave na desktop
+        logo.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                hideSubBanners(materialId);
+            }
+        });
+        
+        // Obsługa kliknięć na mobile
+        logo.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                
+                const subBannersContainer = document.querySelector(`.sub-banners[data-parent="${materialId}"]`);
+                const isExpanded = subBannersContainer && subBannersContainer.querySelector('.sub-banner.show');
+                
+                // Zamknij wszystkie inne banery
+                materialLogos.forEach(otherLogo => {
+                    if (otherLogo !== this) {
+                        otherLogo.classList.remove('expanded');
+                        const otherMaterialId = otherLogo.getAttribute('data-material');
+                        hideSubBanners(otherMaterialId);
+                    }
+                });
+                
+                // Toggle obecnego banera
+                if (!isExpanded) {
+                    this.classList.add('expanded');
+                    showSubBanners(materialId);
+                    showMaterialInfo(materialId);
+                } else {
+                    this.classList.remove('expanded');
+                    hideSubBanners(materialId);
+                }
+            } else {
+                // Na desktop - pokaż opis głównej kategorii
+                showMaterialInfo(materialId);
+            }
+        });
+    });
+    
+    // Pokaż domyślnie pierwszy opis
+    showMaterialInfo('plyty-meblowe');
+}
 
 // ==========================================
 // EKSPORT FUNKCJI (dla ewentualnego użycia w innych plikach)
