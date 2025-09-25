@@ -1140,8 +1140,8 @@ nav {
    ========================================== */
 #project {
     position: relative;
-    padding: 40px 0 200px 0; /* Zwiększony padding-bottom dla większych sekcji */
-    overflow: visible; /* Zmieniono z hidden na visible dla pełnej widoczności */
+    padding: 40px 0 100px 0;
+    overflow: hidden;
 }
 
 #project h2 {
@@ -1150,33 +1150,6 @@ nav {
     color: var(--color-text-dark);
     margin-left: 2rem;
     margin-bottom: 3rem;
-}
-
-/* Desktop: nagłówek nad prawą kolumną (baner ze zdjęciem) */
-@media (min-width: 769px) {
-    #project h2 {
-        position: absolute;
-        top: -80px;
-        right: 2rem;
-        left: auto;
-        margin-left: 0;
-        margin-right: 0;
-        text-align: right;
-        width: calc(50% - 4rem);
-        z-index: 15;
-    }
-    
-    /* Separator pod nagłówkiem wyrównany do prawej */
-    #project h2::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        left: auto;
-        bottom: -10px;
-        width: 200px;
-        height: 2px;
-        background-color: var(--color-primary);
-    }
 }
 
 #project::before {
@@ -1189,13 +1162,6 @@ nav {
     border: 3px solid var(--color-primary);
     background: linear-gradient(45deg, var(--color-secondary), var(--color-background));
     z-index: 1;
-}
-
-/* Desktop: zmniejsz szerokość szarego gradientu o połowę */
-@media (min-width: 769px) {
-    #project::before {
-        width: 22%;
-    }
 }
 
 /* Animacja unoszenia */
@@ -1214,14 +1180,6 @@ nav {
     gap: 4rem;
     align-items: start;
     padding: 0 2rem;
-}
-
-/* Desktop: dodaj przestrzeń na nagłówek nad prawą kolumną */
-@media (min-width: 769px) {
-    #project .content {
-        padding-top: 100px;
-        overflow: visible; /* Pozwól na wystające elementy */
-    }
 }
 
 /* Loga materiałów w lewym prostokącie */
@@ -1256,32 +1214,11 @@ nav {
     text-align: left;
 }
 
-/* Hover efekty tylko dla urządzeń z obsługą hover (desktop) */
-@media (hover: hover) {
-    #project .material-logo:hover {
-        transform: translateY(-3px);
-        border-color: var(--color-primary);
-        background: white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-}
-
-/* Fallback dla starszych przeglądarek - wyłącz hover na mobile */
-@media (max-width: 768px) {
-    #project .material-logo:hover {
-        transform: none;
-        border-color: inherit;
-        background: inherit;
-        box-shadow: none;
-    }
-    
-    #project .material-logo:hover img {
-        filter: inherit;
-    }
-    
-    #project .material-logo:hover .material-title {
-        color: inherit;
-    }
+#project .material-logo:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-primary);
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 #project .material-logo.active {
@@ -1297,26 +1234,9 @@ nav {
     transition: filter 0.3s ease;
 }
 
-/* Hover efekty tylko dla urządzeń z obsługą hover (desktop) */
-@media (hover: hover) {
-    #project .material-logo:hover img,
-    #project .material-logo.active img {
-        filter: grayscale(0);
-    }
-    
-    #project .material-logo:hover .material-title,
-    #project .material-logo.active .material-title {
-        color: var(--color-primary-dark);
-    }
-}
-
-/* Dla urządzeń bez hover - tylko aktywne stany działają */
+#project .material-logo:hover img,
 #project .material-logo.active img {
     filter: grayscale(0);
-}
-
-#project .material-logo.active .material-title {
-    color: var(--color-primary-dark);
 }
 
 /* Style dla tekstowych tytułów banerów */
@@ -1330,80 +1250,9 @@ nav {
     letter-spacing: 0.5px;
 }
 
-/* ==========================================
-   ANIMACJE CYKLICZNE BANERÓW
-   ========================================== */
-
-/* Klasa dla animacji pulsowania */
-.material-logo.pulse {
-    animation: materialPulse 1.5s ease-in-out;
-    border-color: var(--color-primary);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(237, 210, 173, 0.1));
-    box-shadow: 0 8px 25px rgba(237, 210, 173, 0.4);
-    transform: translateY(-5px) scale(1.02);
-}
-
-/* Animacja pulsowania */
-@keyframes materialPulse {
-    0% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    50% {
-        transform: translateY(-8px) scale(1.05);
-        box-shadow: 0 12px 30px rgba(237, 210, 173, 0.5);
-    }
-    100% {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 8px 25px rgba(237, 210, 173, 0.4);
-    }
-}
-
-/* Animacja świecenia tytułu */
-.material-logo.pulse .material-title {
+#project .material-logo:hover .material-title,
+#project .material-logo.active .material-title {
     color: var(--color-primary-dark);
-    text-shadow: 0 0 15px rgba(237, 210, 173, 0.6);
-    animation: titleGlow 1.5s ease-in-out;
-}
-
-@keyframes titleGlow {
-    0% {
-        text-shadow: 0 0 5px rgba(237, 210, 173, 0.3);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(237, 210, 173, 0.8);
-    }
-    100% {
-        text-shadow: 0 0 15px rgba(237, 210, 173, 0.6);
-    }
-}
-
-/* Animacja pojawiania się opisu */
-.materials-info .material-info {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.materials-info .material-info.active {
-    opacity: 1;
-    transform: translateX(0);
-    display: block !important; /* Nadpisz inline style="display: none" */
-}
-
-.materials-info .material-info.fade-in {
-    animation: fadeInSlide 0.8s ease-out;
-}
-
-@keyframes fadeInSlide {
-    0% {
-        opacity: 0;
-        transform: translateX(30px) translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) translateY(0);
-    }
 }
 
 /* Style dla pod-banerów - osobne elementy poza głównym bannerem */
@@ -1424,7 +1273,7 @@ nav {
 
 .sub-banner {
     background: rgba(255, 255, 255, 0.95);
-    padding: 8px 2px;
+    padding: 8px 16px;
     border-radius: 0;
     cursor: pointer;
     transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1454,7 +1303,7 @@ nav {
     min-height: 50px;
     max-height: 100px;
     opacity: 1;
-    padding: 15px 2px;
+    padding: 15px 16px;
 }
 
 .sub-banner:first-child {
@@ -1480,7 +1329,7 @@ nav {
 }
 
 .sub-banner-title {
-    font-size: 0.675rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--color-text-dark);
     display: block;
@@ -1519,122 +1368,16 @@ nav {
     border-radius: 0;
     padding: 2rem;
     box-shadow: none;
-    min-height: 650px; /* Zwiększona wysokość dla obrazów materiałów */
+    min-height: 350px;
 }
 
-/* Desktop: podnieś prawą kolumnę do góry */
-@media (min-width: 769px) {
-    #project .materials-info {
-        margin-top: -60px;
-        padding-top: 3rem;
-        overflow: visible; /* Pozwól na wystające elementy */
-    }
-    
-    /* BANER W STYLU GALLERY-ITEM Z SEKCJI NASZE REALIZACJE */
-    #project .material-info {
-        display: none;
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 400px; /* Zmniejszona wysokość jak w gallery-item */
-        margin: 2rem auto;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 0;
-        border: none;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        transform: perspective(1000px) rotateY(0deg);
-        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow: hidden;
-    }
-    
-    #project .material-info::before {
-        content: '';
-        position: absolute;
-        top: -15px;
-        left: -15px;
-        right: 15px;
-        bottom: 15px;
-        border: 2px solid var(--color-primary);
-        z-index: -1;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    #project .material-info.active {
-        display: block !important;
-    }
-    
-    /* Ustaw obrazy jako tło dla każdego bannera */
-    #project .material-info#plyty-meblowe-info {
-        background-image: url('materiały/fronty/płyty.png');
-    }
-    
-    #project .material-info#fronty-meblowe-info {
-        background-image: url('materiały/fronty/fronty.png');
-    }
-    
-    #project .material-info#blaty-info {
-        background-image: url('materiały/fronty/blaty.png');
-    }
-    
-    /* POLE TEKSTOWE DOKŁADNIE JAK W GALLERY-ITEM-INFO */
-    #project .material-info .material-content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 33.33%; /* Dokładnie 1/3 wysokości bannera */
-        background: rgba(0,0,0,0.6);
-        padding: 2rem;
-        transform: translateY(0); /* Zawsze widoczne */
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border-top: 2px solid var(--color-primary);
-        overflow-y: auto;
-        
-        /* Ukryj scrollbar */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-    }
-    
-    /* Ukryj scrollbar dla WebKit (Chrome, Safari, Edge) */
-    #project .material-info .material-content::-webkit-scrollbar {
-        display: none;
-    }
-    
-    #project .material-info .material-content h3 {
-        color: var(--color-primary) !important;
-        font-size: 1.5rem !important;
-        margin: 0 0 0.5rem 0 !important;
-        transform: translateY(0); /* Zawsze widoczne */
-        opacity: 1; /* Zawsze widoczne */
-        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-        text-shadow: none !important;
-        border-bottom: none !important;
-    }
-    
-    #project .material-info .material-content p {
-        color: var(--color-text-light) !important;
-        font-size: 1rem;
-        line-height: 1.6;
-        margin: 0 0 1rem 0 !important;
-        transform: translateY(0); /* Zawsze widoczne */
-        opacity: 1; /* Zawsze widoczne */
-        transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-        text-shadow: none !important;
-    }
-    
-    /* UKRYJ NIEPOTRZEBNE ELEMENTY */
-    #project .material-info .material-image {
-        display: none !important;
-    }
+#project .material-info {
+    display: none;
+    animation: fadeIn 0.5s ease;
 }
 
-/* Mobile: display block dla active */
-@media (max-width: 768px) {
-    #project .material-info.active {
-        display: block;
-    }
+#project .material-info.active {
+    display: block;
 }
 
 #project .material-info h3 {
@@ -1657,13 +1400,12 @@ nav {
 .material-modules-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto; /* 5 rzędów dla większych sekcji */
+    grid-template-rows: auto auto;
     gap: 1rem;
     margin: 1rem 0;
     padding: 0 1rem;
     max-width: 100%;
     box-sizing: border-box;
-    min-height: auto; /* Zapewnij elastyczną wysokość */
 }
 
 /* Zapewnij, że wszystkie listy i ich elementy w material-info mają czarne czcionki */
@@ -1690,51 +1432,6 @@ nav {
 .material-info strong {
     color: black !important;
     text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
-}
-
-/* Obrazy materiałów */
-.material-image {
-    width: 100%;
-    max-width: 350px; /* Zwiększona szerokość */
-    margin: 0 auto 1.5rem auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.material-image img {
-    width: 100%;
-    height: auto;
-    max-height: 250px; /* Zwiększona wysokość obrazu */
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.material-image img:hover {
-    transform: scale(1.05);
-}
-
-/* Responsive obrazy materiałów */
-@media (max-width: 768px) {
-    .material-image {
-        max-width: 280px; /* Zwiększona szerokość na mobile */
-        margin-bottom: 1rem;
-    }
-    
-    .material-image img {
-        max-height: 180px; /* Zwiększona wysokość na mobile */
-    }
-    
-    #project .materials-info {
-        min-height: 550px; /* Zwiększona wysokość na mobile */
-    }
-    
-    #project .material-info {
-        min-height: 400px; /* Zwiększona wysokość sekcji na mobile */
-    }
 }
 
 .material-module {
@@ -1949,6 +1646,69 @@ nav {
     text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
 }
 
+/* Moduł innowacji i trendów */
+.innovations {
+    background: transparent;
+    border-left: 5px solid #FF9800;
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.innovations h4 {
+    color: black;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
+}
+
+.innovations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.innovation-category {
+    background: rgba(255, 152, 0, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 152, 0, 0.2);
+}
+
+.innovation-category h5 {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
+}
+
+.innovation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.innovation-list li {
+    color: black;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+    text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 152, 0, 0.1);
+}
+
+.innovation-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.innovation-list li strong {
+    color: #FF9800;
+    font-weight: 600;
+}
+
 /* Responsive design dla modułów */
 @media (max-width: 768px) {
     .material-modules-container {
@@ -1989,57 +1749,29 @@ nav {
 @media (max-width: 768px) {
     #project {
         padding: 40px 0 69px 0;
-        position: relative;
-    }
-    
-    #project h2 {
-        transform: translateY(-100px);
     }
     
     #project .content {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0;
-        transform: translateY(-60px);
     }
     
     #project .materials-logos {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 0;
         margin-left: 0;
         width: 100%;
-        transform: translateY(-60px);
     }
     
     #project .material-logo {
-        width: 30%;
-        max-width: 30%;
+        width: 100%;
+        max-width: 100%;
         min-width: 0;
         margin-left: 0;
         border-radius: 0;
-        align-self: flex-start;
-        height: auto;
-        max-height: 80px;
-        overflow: hidden;
-    }
-    
-    /* Po rozwinięciu pozwól na pełną wysokość sub-banerów */
-    #project .material-logo.expanded {
-        max-height: none;
-        overflow: visible;
-        height: auto;
-    }
-    
-    #project .material-title {
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.1;
-        letter-spacing: 0.3px;
-        padding: 0.3rem;
-        text-align: left;
-        width: 100%;
     }
     
     #project .materials-info {
@@ -2048,33 +1780,15 @@ nav {
         max-height: 0;
         overflow: hidden;
         transition: opacity 0.5s ease, max-height 0.5s ease;
-        position: absolute;
-        top: -100px; /* Podnieś cały kontener o 60px */
-        left: 30%;
-        right: 10px;
-        width: calc(70% - 10px);
-        z-index: 10;
+        margin-left: 25%;
+        margin-right: 10px;
+        width: calc(75% - 10px);
     }
     
     #project .materials-info.mobile-visible {
         opacity: 1;
-        max-height: 3500px; /* Zwiększona wysokość dla bardziej rozbudowanych sekcji */
-        margin-top: 0;
-    }
-    
-    /* Usuń tylko cień z bannera na mobile, zachowaj resztę */
-    #project .material-info {
-        box-shadow: none !important;
-    }
-    
-    /* Usuń cień i zaokrąglenia z obrazów materiałów na mobile */
-    .material-image {
-        box-shadow: none !important;
-        border-radius: 0 !important;
-    }
-    
-    #project .material-info::before {
-        display: none;
+        max-height: 2000px;
+        margin-top: 2rem;
     }
     
     #promotions {
@@ -2968,7 +2682,7 @@ section:first-of-type {
         padding: 1rem;
         max-height: 500px;
     }
-    
+
     .producer-details ul li {
         font-size: 1rem;
     }

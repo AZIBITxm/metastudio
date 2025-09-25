@@ -4,6 +4,35 @@
  */
 
 // ==========================================
+// GLOBALNE ZMIENNE DLA ANIMACJI CYKLICZNYCH
+// ==========================================
+
+let globalAnimationInterval = null;
+let globalUserInteracting = false;
+let globalUserInteractionTimeout = null;
+
+// Funkcja do zatrzymywania animacji cyklicznych (dostępna globalnie)
+function stopCyclicAnimation() {
+    console.log('Stopping cyclic animation globally');
+    globalUserInteracting = true;
+    clearTimeout(globalUserInteractionTimeout);
+    
+    // Zatrzymaj interval jeśli istnieje
+    if (globalAnimationInterval) {
+        console.log('Clearing global animation interval');
+        clearInterval(globalAnimationInterval);
+        globalAnimationInterval = null;
+    }
+    
+    // Wznów automatyczną animację po 8 sekundach od ostatniej interakcji
+    globalUserInteractionTimeout = setTimeout(() => {
+        console.log('Resuming cyclic animation after timeout');
+        globalUserInteracting = false;
+        // Nie uruchamiamy ponownie interwału automatycznie - to będzie obsłużone przez IntersectionObserver
+    }, 8000);
+}
+
+// ==========================================
 // INICJALIZACJA ANIMACJI TEKSTU W NAGŁÓWKU
 // ==========================================
 
@@ -175,20 +204,23 @@ function initializeMaterialsSection() {
     }
 
     materialLogos.forEach(logo => {
-        logo.addEventListener('mouseenter', function() {
-            const materialType = this.dataset.material;
-            
-            // Usuń aktywne klasy
-            materialLogos.forEach(l => l.classList.remove('active'));
-            materialInfos.forEach(i => i.classList.remove('active'));
-            
-            // Dodaj aktywne klasy
-            this.classList.add('active');
-            const targetInfo = document.getElementById(`${materialType}-info`);
-            if (targetInfo) {
-                targetInfo.classList.add('active');
-            }
-        });
+        // Tylko w wersji desktop dodaj obsługę hover
+        if (window.innerWidth > 768) {
+            logo.addEventListener('mouseenter', function() {
+                const materialType = this.dataset.material;
+                
+                // Usuń aktywne klasy
+                materialLogos.forEach(l => l.classList.remove('active'));
+                materialInfos.forEach(i => i.classList.remove('active'));
+                
+                // Dodaj aktywne klasy
+                this.classList.add('active');
+                const targetInfo = document.getElementById(`${materialType}-info`);
+                if (targetInfo) {
+                    targetInfo.classList.add('active');
+                }
+            });
+        }
     });
 }
 
@@ -268,6 +300,125 @@ function initializeGalleryToggle() {
 }
 
 // ==========================================
+// OBSŁUGA SCROLL-REVEAL DLA GALERII W WERSJI MOBILNEJ
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca scroll-reveal dla elementów galerii w wersji mobilnej
+ * Płynnie kontroluje widoczność opisów na podstawie pozycji elementu względem centrum ekranu
+ */
+function initializeMobileGalleryScrollReveal() {
+    // Sprawdź czy to urządzenie mobilne
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+    
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    if (galleryItems.length === 0) {
+        console.log('Gallery items not found');
+        return;
+    }
+    
+    // Funkcja do obliczania pozycji elementu względem centrum ekranu
+    function calculateVisibilityLevel(element) {
+        const rect = element.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const viewportCenter = window.innerHeight / 2;
+        
+        // Oblicz odległość od centrum
+        const distance = Math.abs(elementCenter - viewportCenter);
+        
+        // Strefa pełnej widoczności - element jest w 100% widoczny w tym zakresie
+        const fullVisibilityZone = window.innerHeight * 0.15; // 15% wysokości ekranu w każdą stronę od centrum
+        
+        // Maksymalna odległość, przy której element jest jeszcze aktywny
+        const maxActiveDistance = window.innerHeight * 0.4; // 40% wysokości ekranu
+        
+        let visibilityLevel;
+        
+        if (distance <= fullVisibilityZone) {
+            // Element jest w strefie pełnej widoczności - 100%
+            visibilityLevel = 1.0;
+        } else {
+            // Element jest poza strefą pełnej widoczności - oblicz stopniową widoczność
+            const fadeDistance = distance - fullVisibilityZone;
+            const maxFadeDistance = maxActiveDistance - fullVisibilityZone;
+            visibilityLevel = 1 - (fadeDistance / maxFadeDistance);
+            
+            // Ograniczamy do zakresu 0-1
+            visibilityLevel = Math.max(0, Math.min(1, visibilityLevel));
+            
+            // Stosujemy funkcję easing dla płynniejszego przejścia tylko w strefie fade
+            visibilityLevel = easeInOutCubic(visibilityLevel);
+        }
+        
+        return visibilityLevel;
+    }
+    
+    // Funkcja easing dla płynniejszych przejść
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    // Funkcja do aktualizacji elementu na podstawie jego pozycji
+    function updateElementVisibility(element) {
+        const visibilityLevel = calculateVisibilityLevel(element);
+        
+        if (visibilityLevel > 0) {
+            // Element jest aktywny - dodaj klasę i ustaw poziom widoczności
+            element.classList.add('mobile-active');
+            element.style.setProperty('--visibility-level', visibilityLevel.toFixed(3));
+        } else {
+            // Element jest nieaktywny - usuń klasę i zresetuj poziom
+            element.classList.remove('mobile-active');
+            element.style.removeProperty('--visibility-level');
+        }
+    }
+    
+    // Główna funkcja obsługi scroll
+    function handleScroll() {
+        galleryItems.forEach(updateElementVisibility);
+    }
+    
+    // Debounced scroll handler dla lepszej wydajności
+    let scrollRAF = null;
+    function smoothScrollHandler() {
+        if (scrollRAF) return;
+        
+        scrollRAF = requestAnimationFrame(() => {
+            handleScroll();
+            scrollRAF = null;
+        });
+    }
+    
+    // Dodanie event listenera
+    window.addEventListener('scroll', smoothScrollHandler, { passive: true });
+    
+    // Inicjalne wywołanie
+    handleScroll();
+    
+    // Obsługa zmiany orientacji/rozmiaru ekranu
+    window.addEventListener('resize', () => {
+        const isMobileNow = window.innerWidth <= 768;
+        
+        if (!isMobileNow) {
+            // Jeśli nie mobile, wyczyść wszystko
+            galleryItems.forEach(item => {
+                item.classList.remove('mobile-active');
+                item.style.removeProperty('--visibility-level');
+            });
+            // Usuń event listener
+            window.removeEventListener('scroll', smoothScrollHandler);
+        } else {
+            // Jeśli mobile, ponownie oceń elementy
+            handleScroll();
+        }
+    });
+    
+    console.log('Mobile gallery scroll reveal initialized with smooth interpolation');
+}
+
+// ==========================================
 // UTILITY FUNCTIONS
 // ==========================================
 
@@ -325,9 +476,11 @@ function initializeApp() {
         initializeMenuHandlers();
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
-        initializeMaterialsSection();
+        initializeCyclicBannerAnimation(); // Zastąpienie initializeMaterialsSection()
         initializeSubBanners();
+        initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
         initializeGalleryToggle();
+        initializeMobileGalleryScrollReveal();
         initializeMobileAboutAnimation();
         
         console.log('MetaStudio JavaScript initialized successfully');
@@ -347,6 +500,9 @@ document.addEventListener('DOMContentLoaded', initializeApp);
 window.addEventListener('resize', function() {
     // Tutaj można dodać funkcje reagujące na zmianę rozmiaru okna
     console.log('Window resized');
+    
+    // Event listenery są już prawidłowo skonfigurowane z warunkami window.innerWidth
+    // Nie ma potrzeby ponownej inicjalizacji
 });
 
 // Obsługa scroll'a strony (ogólne)
@@ -424,15 +580,24 @@ function initializeSubBanners() {
     
     // Funkcja pokazująca odpowiedni opis materiału
     function showMaterialInfo(materialId) {
-        // Ukryj wszystkie opisy
+        console.log('showMaterialInfo called with:', materialId);
+        
+        // Ukryj wszystkie opisy i usuń klasy active
         materialsInfo.forEach(info => {
             info.style.display = 'none';
+            info.classList.remove('active', 'fade-in');
         });
         
-        // Pokaż wybrany opis
+        // Pokaż wybrany opis z odpowiednimi klasami
         const targetInfo = document.getElementById(materialId + '-info');
+        console.log('Target element found:', targetInfo);
+        
         if (targetInfo) {
             targetInfo.style.display = 'block';
+            targetInfo.classList.add('active');
+            console.log('Element shown and active class added:', materialId + '-info');
+        } else {
+            console.error('Element not found:', materialId + '-info');
         }
         
         // W wersji mobilnej pokaż sekcję materials-info
@@ -440,6 +605,12 @@ function initializeSubBanners() {
             const materialsInfoSection = document.querySelector('#project .materials-info');
             if (materialsInfoSection) {
                 materialsInfoSection.classList.add('mobile-visible');
+                // Dostosuj wysokość sekcji po pokazaniu bannera
+                setTimeout(() => {
+                    if (window.adjustProjectSectionHeight) {
+                        window.adjustProjectSectionHeight();
+                    }
+                }, 100);
             }
         }
         
@@ -489,6 +660,12 @@ function initializeSubBanners() {
             const materialsInfoSection = document.querySelector('#project .materials-info');
             if (materialsInfoSection) {
                 materialsInfoSection.classList.remove('mobile-visible');
+                // Dostosuj wysokość sekcji po ukryciu bannera
+                setTimeout(() => {
+                    if (window.adjustProjectSectionHeight) {
+                        window.adjustProjectSectionHeight();
+                    }
+                }, 100);
             }
         }
     }
@@ -497,6 +674,10 @@ function initializeSubBanners() {
     subBanners.forEach(subBanner => {
         subBanner.addEventListener('click', function(e) {
             e.stopPropagation();
+            
+            // ZATRZYMAJ ANIMACJE CYKLICZNE po wyborze sub-bannera
+            console.log('Sub-banner clicked, stopping cyclic animation');
+            stopCyclicAnimation();
             
             // Usuń active ze wszystkich pod-banerów
             subBanners.forEach(sb => sb.classList.remove('active'));
@@ -569,8 +750,326 @@ function initializeSubBanners() {
 }
 
 // ==========================================
+// OBSŁUGA ROZWIJANIA SZCZEGÓŁÓW PRODUCENTÓW
+// ==========================================
+
+/**
+ * Funkcja do rozwijania/zwijania szczegółów producentów
+ * @param {string} producerId - ID producenta
+ */
+function toggleProducerDetails(producerId) {
+    const detailsElement = document.getElementById(producerId + '-details');
+    const headerElement = document.querySelector(`[onclick="toggleProducerDetails('${producerId}')"]`);
+    const toggleIcon = headerElement.querySelector('.toggle-icon');
+    
+    if (!detailsElement) return;
+    
+    // Sprawdź czy szczegóły są obecnie widoczne
+    const isVisible = detailsElement.style.display !== 'none';
+    
+    if (isVisible) {
+        // Ukryj szczegóły
+        detailsElement.style.display = 'none';
+        toggleIcon.textContent = '▼';
+        headerElement.classList.remove('active');
+    } else {
+        // Pokaż szczegóły
+        detailsElement.style.display = 'block';
+        toggleIcon.textContent = '▲';
+        headerElement.classList.add('active');
+    }
+}
+
+// ==========================================
+// CYKLICZNA ANIMACJA BANERÓW MATERIAŁÓW
+// ==========================================
+
+/**
+ * Funkcja inicjalizująca cykliczną animację banerów materiałów
+ * Co 4 sekundy zmienia aktywny baner z ładnymi animacjami
+ */
+function initializeCyclicBannerAnimation() {
+    const materialLogos = document.querySelectorAll('.material-logo');
+    const materialInfos = document.querySelectorAll('.material-info');
+    
+    if (materialLogos.length === 0 || materialInfos.length === 0) {
+        console.warn('Material banners not found for cyclic animation');
+        return;
+    }
+
+    let currentIndex = 0;
+    let animationInterval;
+    let isUserInteracting = false;
+    let userInteractionTimeout;
+
+    // Funkcja do zmiany aktywnego bannera
+    function switchToMaterial(index) {
+        // Usuń wszystkie aktywne klasy i animacje
+        materialLogos.forEach((logo, i) => {
+            logo.classList.remove('active', 'pulse');
+            if (i !== index) {
+                logo.style.transform = '';
+                logo.style.boxShadow = '';
+                logo.style.background = '';
+                logo.style.borderColor = '';
+            }
+        });
+        
+        materialInfos.forEach(info => {
+            info.classList.remove('active', 'fade-in');
+            info.style.display = 'none';
+        });
+
+        // Aktywuj nowy baner z animacją
+        const activeLogo = materialLogos[index];
+        const activeInfo = document.getElementById(`${activeLogo.dataset.material}-info`);
+        
+        if (activeLogo && activeInfo) {
+            // Dodaj animację pulsowania do bannera
+            activeLogo.classList.add('pulse', 'active');
+            
+            // Pokaż odpowiedni opis z animacją
+            setTimeout(() => {
+                activeInfo.style.display = 'block';
+                setTimeout(() => {
+                    activeInfo.classList.add('active', 'fade-in');
+                    // Dostosuj wysokość sekcji po zmianie bannera
+                    if (window.adjustProjectSectionHeight) {
+                        setTimeout(() => window.adjustProjectSectionHeight(), 100);
+                    }
+                }, 50);
+            }, 200);
+        }
+
+        currentIndex = index;
+    }
+
+    // Funkcja do automatycznego przełączania
+    function autoSwitchMaterial() {
+        if (!globalUserInteracting && !isUserInteracting) {
+            const nextIndex = (currentIndex + 1) % materialLogos.length;
+            switchToMaterial(nextIndex);
+        }
+    }
+
+    // Funkcja do zatrzymywania animacji podczas interakcji użytkownika
+    function handleUserInteraction() {
+        // Wywołaj globalną funkcję
+        stopCyclicAnimation();
+        
+        // Lokalne zatrzymanie
+        isUserInteracting = true;
+        clearTimeout(userInteractionTimeout);
+        
+        // Wznów automatyczną animację po 8 sekundach od ostatniej interakcji
+        userInteractionTimeout = setTimeout(() => {
+            isUserInteracting = false;
+        }, 8000);
+    }
+
+    // Dodaj obsługę zdarzeń dla każdego bannera
+    materialLogos.forEach((logo, index) => {
+        // Tylko w wersji desktop dodaj obsługę hover
+        if (window.innerWidth > 768) {
+            logo.addEventListener('mouseenter', function() {
+                handleUserInteraction();
+                
+                // Usuń animacje cykliczne
+                materialLogos.forEach(l => l.classList.remove('pulse'));
+                
+                // Aktywuj baner najechany
+                switchToMaterial(index);
+            });
+        }
+
+        logo.addEventListener('click', function() {
+            handleUserInteraction();
+            switchToMaterial(index);
+        });
+    });
+
+    // Dodaj obsługę hover również dla banerów material-info (tylko desktop)
+    if (window.innerWidth > 768) {
+        materialInfos.forEach((info, index) => {
+            info.addEventListener('mouseenter', function() {
+                handleUserInteraction();
+                
+                // Usuń animacje cykliczne
+                materialLogos.forEach(l => l.classList.remove('pulse'));
+            });
+
+            info.addEventListener('mouseleave', function() {
+                // Gdy mysz opuści baner, wznów animacje po krótkim czasie
+                setTimeout(() => {
+                    if (!isUserInteracting) {
+                        // Dodaj animację pulsowania do aktywnego logo
+                        const activeLogo = materialLogos[currentIndex];
+                        if (activeLogo) {
+                            activeLogo.classList.add('pulse');
+                        }
+                    }
+                }, 500);
+            });
+        });
+    }
+
+    // Uruchom pierwszy baner
+    switchToMaterial(0);
+
+    // Uruchom cykliczną animację co 4 sekundy
+    animationInterval = setInterval(autoSwitchMaterial, 4000);
+    globalAnimationInterval = animationInterval; // Zapisz globalnie
+
+    // Zatrzymaj animację gdy użytkownik opuści sekcję
+    const projectSection = document.getElementById('project');
+    if (projectSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Sekcja jest widoczna - uruchom animację tylko jeśli user nie interaguje
+                    if (!animationInterval && !globalUserInteracting) {
+                        animationInterval = setInterval(autoSwitchMaterial, 4000);
+                        globalAnimationInterval = animationInterval; // Zapisz globalnie
+                    }
+                } else {
+                    // Sekcja nie jest widoczna - zatrzymaj animację
+                    if (animationInterval) {
+                        clearInterval(animationInterval);
+                        animationInterval = null;
+                    }
+                    if (globalAnimationInterval) {
+                        clearInterval(globalAnimationInterval);
+                        globalAnimationInterval = null;
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(projectSection);
+    }
+
+    // Czyść interwał przy odświeżeniu strony
+    window.addEventListener('beforeunload', () => {
+        if (globalAnimationInterval) {
+            clearInterval(globalAnimationInterval);
+        }
+        if (animationInterval) {
+            clearInterval(animationInterval);
+        }
+        if (userInteractionTimeout) {
+            clearTimeout(userInteractionTimeout);
+        }
+    });
+}
+
+// ==========================================
+// DYNAMICZNE USTAWIANIE WYSOKOŚCI SEKCJI PROJECT
+// ==========================================
+
+/**
+ * Funkcja dynamicznie ustawiająca wysokość sekcji project
+ * tak aby kończyła się zaraz pod aktualnie widocznym banerem
+ */
+function adjustProjectSectionHeight() {
+    const projectSection = document.getElementById('project');
+    const materialsInfoSection = document.querySelector('#project .materials-info');
+    
+    if (!projectSection) return;
+    
+    // Sprawdź czy to mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Na mobile sprawdź czy materials-info jest widoczne
+        const isInfoVisible = materialsInfoSection && materialsInfoSection.classList.contains('mobile-visible');
+        
+        if (isInfoVisible) {
+            // Znajdź aktywny baner
+            const activeMaterialInfo = document.querySelector('.material-info.active');
+            
+            if (activeMaterialInfo) {
+                // Oblicz pozycję końca aktywnego banera względem sekcji project
+                const projectRect = projectSection.getBoundingClientRect();
+                const bannerRect = activeMaterialInfo.getBoundingClientRect();
+                
+                // Oblicz gdzie powinien kończyć się project (zaraz pod banerem)
+                const bannerBottom = bannerRect.bottom;
+                const projectTop = projectRect.top;
+                const bannerEndRelativeToProject = bannerBottom - projectTop;
+                
+                // Ustaw minimalną wysokość sekcji tak, aby kończyła się pod banerem
+                const currentProjectHeight = projectSection.offsetHeight;
+                const neededHeight = Math.max(bannerEndRelativeToProject + 20, currentProjectHeight);
+                
+                projectSection.style.minHeight = neededHeight + 'px';
+                
+                console.log(`Adjusted project section height to ${neededHeight}px to end just below banner`);
+            }
+        } else {
+            // Jeśli baner nie jest widoczny, usuń minimalną wysokość
+            projectSection.style.minHeight = '';
+        }
+    } else {
+        // Na desktop usuń minimalną wysokość
+        projectSection.style.minHeight = '';
+    }
+}
+
+/**
+ * Inicjalizacja obserwatora zmian dla automatycznego dopasowywania wysokości
+ */
+function initializeProjectHeightObserver() {
+    const materialsInfoSection = document.querySelector('#project .materials-info');
+    const materialInfos = document.querySelectorAll('.material-info');
+    
+    if (!materialsInfoSection) return;
+    
+    // Observer do obserwowania zmian klas w materials-info
+    const classObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                setTimeout(adjustProjectSectionHeight, 100); // Małe opóźnienie na renderowanie
+            }
+        });
+    });
+    
+    classObserver.observe(materialsInfoSection, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    
+    // Observer do obserwowania zmian w material-info elementach
+    materialInfos.forEach((info) => {
+        const infoObserver = new MutationObserver(() => {
+            setTimeout(adjustProjectSectionHeight, 100);
+        });
+        
+        infoObserver.observe(info, {
+            attributes: true,
+            attributeFilter: ['class'],
+            childList: true,
+            subtree: true
+        });
+    });
+    
+    // Observer do obserwowania zmian rozmiaru okna
+    window.addEventListener('resize', () => {
+        setTimeout(adjustProjectSectionHeight, 100);
+    });
+    
+    // Inicjalne ustawienie
+    setTimeout(adjustProjectSectionHeight, 200);
+    
+    console.log('Project height observer initialized');
+}
+
+// Udostępnij funkcje globalnie
+window.toggleProducerDetails = toggleProducerDetails;
+window.adjustProjectSectionHeight = adjustProjectSectionHeight;
+
+// ==========================================
 // EKSPORT FUNKCJI (dla ewentualnego użycia w innych plikach)
 // ==========================================
 
 // Jeśli używasz modułów ES6, możesz eksportować funkcje:
-// export { initializeApp, scrollToElement, isElementVisible };
+// export { initializeApp, scrollToElement, isElementVisible, toggleProducerDetails };
