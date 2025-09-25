@@ -687,9 +687,11 @@ function initializeSubBanners() {
             
             // W wersji mobilnej zwiń wszystkie główne banery po wyborze podbaneru
             if (window.innerWidth <= 768) {
+                const materialsLogosContainer = document.querySelector('.materials-logos');
                 materialLogos.forEach(logo => {
                     logo.classList.remove('expanded');
                 });
+                materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
             }
             
             // Pokaż odpowiedni opis
@@ -701,6 +703,7 @@ function initializeSubBanners() {
     // Obsługa głównych banerów
     materialLogos.forEach(logo => {
         const materialId = logo.getAttribute('data-material');
+        const materialsLogosContainer = document.querySelector('.materials-logos');
         
         // Obsługa kliknięć dla wszystkich rozdzielczości (mobile i desktop)
         logo.addEventListener('click', function(e) {
@@ -720,10 +723,12 @@ function initializeSubBanners() {
             // Toggle obecnego banera
             if (!isExpanded) {
                 this.classList.add('expanded');
+                materialsLogosContainer.classList.add('banner-expanded'); // Ukryj pozostałe banery
                 showSubBanners(this);
                 showMaterialInfo(materialId);
             } else {
                 this.classList.remove('expanded');
+                materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
                 hideSubBanners(this);
             }
         });
@@ -736,12 +741,14 @@ function initializeSubBanners() {
         
         if (!clickedInsideMaterialLogo) {
             // Kliknięto poza banerami - zamknij wszystkie
+            const materialsLogosContainer = document.querySelector('.materials-logos');
             materialLogos.forEach(logo => {
                 if (logo.classList.contains('expanded')) {
                     logo.classList.remove('expanded');
                     hideSubBanners(logo);
                 }
             });
+            materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
         }
     });
     
