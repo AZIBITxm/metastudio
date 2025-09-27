@@ -837,6 +837,7 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
     padding: 3rem 0;
+    justify-items: center;
 }
 
 .gallery-item {
@@ -1021,9 +1022,20 @@ nav {
     }
     
     .show-all-btn {
-        align-self: flex-start;
+        align-self: center;
         font-size: 0.9rem;
         padding: 0.8rem 1.5rem;
+    }
+    
+    /* Ograniczenie szerokości głównych banerów w mobile */
+    .gallery:not(.expanded) {
+        margin: 0 -2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .gallery:not(.expanded) .gallery-item {
+        max-width: 400px;
+        width: 100%;
     }
     
     /* MOBILNA FUNKCJONALNOŚĆ SCROLL-REVEAL DLA GALERII */
