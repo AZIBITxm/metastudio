@@ -5,6 +5,10 @@
 }
     background: rgba(237, 210, 173, 0.8) !important;
 @media (max-width: 768px) {
+    #project .material-logo[data-material="plyty-meblowe"] .material-title {
+        white-space: pre-line;
+        word-break: break-word;
+    }
     .foundation-separator {
         margin: 8px auto 0 auto;
     }
