@@ -1030,12 +1030,17 @@ nav {
     /* Ograniczenie szerokości głównych banerów w mobile */
     .gallery:not(.expanded) {
         margin: 0 -2rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     .gallery:not(.expanded) .gallery-item {
-        max-width: 400px;
+        max-width: 450px;
         width: 100%;
+        height: 440px;
+    }
+    
+    .gallery:not(.expanded) .gallery-item img {
+        height: 440px;
     }
     
     /* MOBILNA FUNKCJONALNOŚĆ SCROLL-REVEAL DLA GALERII */
@@ -1206,6 +1211,24 @@ nav {
         overflow: hidden;
     }
     
+    /* Style dla głównych banerów na małych telefonach */
+    .gallery:not(.expanded) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        margin: 0 0.5rem;
+        padding: 0;
+    }
+    
+    .gallery:not(.expanded) .gallery-item {
+        max-width: none;
+        width: 100%;
+        height: 380px;
+    }
+    
+    .gallery:not(.expanded) .gallery-item img {
+        height: 380px;
+    }
+    
     /* Animowany element pulsujący sugerujący kliknięcie */
     .show-all-btn::before {
         content: '';
@@ -1225,6 +1248,43 @@ nav {
         transform: scale(0.98);
         transition: transform 0.1s ease;
     }
+}
+
+/* ==========================================
+   SEKCJA KATALOG
+   ========================================== */
+#catalog {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#catalog::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tlo/baner22.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: none;
+    z-index: -1;
+}
+
+#catalog::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, black 0%, transparent 40px);
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* ==========================================
@@ -2969,6 +3029,27 @@ footer {
     /* Dostosowanie nawigacji dla małych telefonów */
     nav {
         padding: 1rem 1rem;
+    }
+    
+    /* Wyśrodkowanie banerów materiałowych na małych ekranach */
+    #project .content {
+        padding: 0 1rem;
+    }
+    
+    #project .materials-logos {
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 1rem 0;
+        margin: 0;
+    }
+    
+    #project .material-logo {
+        width: 30%;
+        max-width: 30%;
+        min-width: 90px;
+        margin: 0;
+        padding: 0.4rem;
+        font-size: 0.9rem;
     }
 }
 
