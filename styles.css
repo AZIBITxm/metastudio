@@ -1279,12 +1279,12 @@ nav {
 #catalog::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(to bottom, black 0%, transparent 40px);
+        linear-gradient(to top, black 0%, transparent 40px);
     z-index: 1;
     pointer-events: none;
 }
@@ -1300,6 +1300,10 @@ nav {
 
 /* Responsywne dopasowanie obrazu dla mobile */
 @media (max-width: 768px) {
+    #catalog {
+        padding: 0;
+    }
+    
     #catalog img {
         width: 100%;
         height: auto;
@@ -1309,6 +1313,10 @@ nav {
 }
 
 @media (max-width: 480px) {
+    #catalog {
+        padding: 0;
+    }
+    
     #catalog img {
         width: 100%;
         height: auto;
