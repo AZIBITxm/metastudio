@@ -35,10 +35,16 @@
 </header>
 
   <section id="catalog">
-    <div style="position:relative;padding-top:max(60%,324px);width:100%;height:0;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/xyupn/mxox/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
-</section>
+    <img src="katalog/spl.png" alt="Katalog" onclick="openCatalogModal()" style="cursor: pointer;" />
+  </section>
 
-  <section id="promotions">
+  <!-- Modal dla katalogu -->
+  <div id="catalogModal" class="catalog-modal">
+    <div class="catalog-modal-content">
+      <span class="catalog-modal-close" onclick="closeCatalogModal()">&times;</span>
+      <div class="catalog-iframe-container" style="position:relative;padding-top:max(60%,324px);width:140%;height:0;left:-20%;top:0;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/xyupn/mxox/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" ></iframe></div>
+    </div>
+  </div>  <section id="promotions">
     <h2>Aktualne Promocje</h2>
     <div class="content">
         <div class="promo-grid">
@@ -1709,6 +1715,35 @@
   <footer>
     <p>&copy; 2025 MetaStudio. Wszelkie prawa zastrzeżone.</p>
   </footer>
+  
+  <script>
+    // Funkcje dla modalu katalogu
+    function openCatalogModal() {
+        document.getElementById('catalogModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Blokuj scroll na stronie
+    }
+
+    function closeCatalogModal() {
+        document.getElementById('catalogModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Przywróć scroll
+    }
+
+    // Zamknij modal po kliknięciu poza nim
+    window.onclick = function(event) {
+        const modal = document.getElementById('catalogModal');
+        if (event.target == modal) {
+            closeCatalogModal();
+        }
+    }
+
+    // Zamknij modal po naciśnięciu ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeCatalogModal();
+        }
+    });
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
