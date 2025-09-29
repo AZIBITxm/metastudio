@@ -1,0 +1,689 @@
+/* Gallery Modal Styles */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-modal.show {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+}
+
+.modal-content {
+    position: relative;
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 1% auto;
+    padding: 0;
+    border: 2px solid var(--color-primary, #edd2ad);
+    width: 90%;
+    max-width: 1200px;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 0 40px rgba(237, 210, 173, 0.3), 0 20px 80px rgba(0, 0, 0, 0.8);
+    transform: scale(0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 25px 35px 20px 35px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(237, 210, 173, 0.3);
+    color: var(--color-primary, #edd2ad);
+    position: relative;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    flex-shrink: 0;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: var(--color-primary, #edd2ad);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(237, 210, 173, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background: rgba(237, 210, 173, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(237, 210, 173, 0.4);
+}
+
+
+
+.modal-body {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    min-height: 320px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.9);
+    flex-shrink: 0;
+    order: 1;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: rgba(41, 41, 41, 0.9);
+    transition: opacity 0.3s ease;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-primary, #edd2ad);
+    border: 1px solid rgba(237, 210, 173, 0.3);
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-nav:hover {
+    background: rgba(237, 210, 173, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(237, 210, 173, 0.5);
+}
+
+.gallery-nav.prev {
+    left: 20px;
+}
+
+.gallery-nav.next {
+    right: 20px;
+}
+
+.gallery-thumbnails {
+    padding: 15px 20px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(237, 210, 173, 0.2);
+    flex-shrink: 0;
+    order: 2;
+}
+
+.thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(237, 210, 173, 0.3);
+    filter: brightness(0.8);
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    border-color: var(--color-primary, #edd2ad);
+    filter: brightness(1);
+    box-shadow: 0 0 10px rgba(237, 210, 173, 0.4);
+}
+
+.thumbnail.active {
+    border-color: var(--color-primary, #edd2ad);
+    filter: brightness(1);
+    box-shadow: 0 0 15px rgba(237, 210, 173, 0.6);
+}
+
+/* Modal Description Section */
+.modal-description {
+    padding: 18px 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(237, 210, 173, 0.3);
+    color: var(--color-primary, #edd2ad);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    flex-shrink: 0;
+    min-height: auto;
+    order: 3;
+}
+
+.modal-description p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(237, 210, 173, 0.9);
+}
+
+/* Dynamiczne dostosowanie dla krótkich opisów */
+.modal-description:empty {
+    display: none;
+}
+
+.modal-description p:empty {
+    display: none;
+}
+
+/* Gdy opis jest krótki (mniej niż 50 znaków), zmniejsz padding */
+.modal-description.short-text {
+    padding: 15px 30px;
+}
+
+.modal-description.short-text p {
+    font-size: 0.95rem;
+}
+
+/* Modal Footer for Mobile - zawsze ukryty */
+.modal-footer {
+    display: none;
+}
+
+.modal-subtitle-mobile {
+    display: none;
+}
+
+/* Sekcja opisu została usunięta - opis wyświetla się tylko w overlay */
+
+.gallery-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-primary, #edd2ad);
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    z-index: 10;
+    border: 1px solid rgba(237, 210, 173, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-weight: 600;
+}
+
+.gallery-info-btn {
+    display: none;
+}
+
+/* Usunięte style dla ukrytego przycisku info */
+
+/* Usunięte style dla ukrytego przycisku info */
+
+.gallery-image-overlay {
+    display: none;
+}
+
+/* Usunięte style dla ukrytego overlay */
+
+/* Loading spinner */
+.gallery-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(237, 210, 173, 0.2);
+    border-top: 3px solid var(--color-primary, #edd2ad);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Desktop optimization */
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 85%;
+        max-width: 1100px;
+        max-height: 90vh;
+        margin: 2vh auto;
+    }
+    
+    .gallery-container {
+        height: 40vh;
+        min-height: 350px;
+    }
+    
+    .modal-header {
+        padding: 20px 30px 15px 30px;
+    }
+    
+    .modal-description {
+        padding: 15px 35px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+    .modal-content {
+        width: 80%;
+        max-width: 1200px;
+        max-height: 85vh;
+    }
+    
+    .gallery-container {
+        height: 45vh;
+        min-height: 380px;
+    }
+    
+    .modal-header {
+        padding: 25px 35px 18px 35px;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-modal {
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+    
+    .modal-content {
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 20px);
+        margin: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .modal-header {
+        padding: 20px 25px 15px 25px;
+        flex-shrink: 0;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-description {
+        padding: 15px 25px;
+    }
+    
+    .modal-description.short-text {
+        padding: 12px 25px;
+    }
+    
+    .modal-description p {
+        font-size: 0.9rem;
+    }
+
+
+    
+    .gallery-container {
+        height: 35vh;
+        min-height: 280px;
+        flex-shrink: 0;
+    }
+    
+    .gallery-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .gallery-nav.prev {
+        left: 10px;
+    }
+    
+    .gallery-nav.next {
+        right: 10px;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .modal-description {
+        padding: 20px;
+    }
+    
+    .gallery-counter {
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    /* Usunięte style dla ukrytych elementów overlay i info button */
+}
+
+/* Fullscreen Mode */
+.gallery-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 20000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-fullscreen.show {
+    display: flex;
+    opacity: 1;
+}
+
+.gallery-fullscreen img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    cursor: zoom-out;
+}
+
+.fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--color-primary, #edd2ad);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20001;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(237, 210, 173, 0.3);
+    width: 60px;
+    height: 60px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fullscreen-close:hover {
+    background: rgba(237, 210, 173, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(237, 210, 173, 0.4);
+}
+
+/* Draggable thumbnails */
+.gallery-thumbnails {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(237, 210, 173, 0.2);
+    cursor: default;
+    user-select: none;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color:rgba(0, 0, 0, 0.9) #f8f8f8;
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb {
+    background: rgba(237, 210, 173, 0.6);
+    border: 1px solid rgba(237, 210, 173, 0.3);
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb:hover {
+    background: rgba(237, 210, 173, 0.8);
+}
+
+.gallery-thumbnails:active {
+    cursor: grabbing;
+}
+
+.gallery-thumbnails.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.gallery-thumbnails.dragging .thumbnail {
+    pointer-events: none;
+}
+
+.gallery-main-image {
+    cursor: zoom-in;
+}
+
+@media (max-width: 480px) {
+    .gallery-counter {
+        bottom: 10px;
+        left: 10px;
+        right: auto;
+    }
+    
+    .fullscreen-close {
+        top: 10px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-modal.show {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-height: calc(100vh - 10px);
+        border-radius: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .modal-header {
+        padding: 15px 20px 12px 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-description {
+        padding: 12px 20px;
+    }
+    
+    .modal-description.short-text {
+        padding: 10px 20px;
+    }
+    
+    .modal-description p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+
+    
+    .gallery-container {
+        height: 30vh;
+        min-height: 220px;
+    }
+    
+    .gallery-thumbnails {
+        padding: 15px;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    
+    .thumbnail {
+        width: 50px;
+        height: 38px;
+    }
+}
+
+/* Extra small devices (bardzo małe telefony) */
+@media (max-width: 360px) {
+    .gallery-modal.show {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-height: calc(100vh - 5px);
+        border-radius: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .modal-header {
+        padding: 12px 15px 10px 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-description {
+        padding: 10px 15px;
+    }
+    
+    .modal-description.short-text {
+        padding: 8px 15px;
+    }
+    
+    .modal-description p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+
+    
+    .gallery-container {
+        height: 28vh;
+        min-height: 180px;
+    }
+    
+    .gallery-thumbnails {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+    
+    .thumbnail {
+        width: 45px;
+        height: 34px;
+    }
+}
+
+/* Extra small devices - bardzo małe telefony */
+@media (max-width: 320px) {
+    .gallery-modal.show {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-height: calc(100vh - 5px);
+        border-radius: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .modal-header {
+        padding: 10px 12px 8px 12px;
+    }
+    
+    .modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .gallery-container {
+        height: 25vh;
+        min-height: 160px;
+    }
+    
+    .modal-description {
+        padding: 8px 12px;
+    }
+    
+    .modal-description p {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .gallery-thumbnails {
+        padding: 8px 12px;
+        gap: 4px;
+    }
+    
+    .thumbnail {
+        width: 40px;
+        height: 30px;
+    }
+}
