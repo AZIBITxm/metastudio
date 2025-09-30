@@ -482,7 +482,7 @@ function initializeApp() {
         initializeGalleryToggle();
         initializeMobileGalleryScrollReveal();
         initializeMobileAboutAnimation();
-        setupDynamicScrollBanner(); // Stabilne pozycjonowanie scroll bannera na mobile
+        setupDynamicScrollBannerForMobile(); // Dynamiczne pozycjonowanie dla banerm.png na 33%
         
         console.log('MetaStudio JavaScript initialized successfully');
     } catch (error) {
@@ -1072,28 +1072,13 @@ function initializeProjectHeightObserver() {
 }
 
 // ==========================================
-// DYNAMICZNE POZYCJONOWANIE SCROLL BANNERA (TYLKO MOBILE)
+// DYNAMICZNE POZYCJONOWANIE SCROLL BANNERA DLA BANERM.PNG
 // ==========================================
 
 /**
- * Funkcja debounce dla ograniczenia częstotliwości wywołań
+ * Funkcja do dynamicznego pozycjonowania scroll bannera na 34% wysokości banerm.png
  */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-/**
- * Funkcja do precyzyjnego pozycjonowania scroll bannera na mobile
- */
-function setupDynamicScrollBanner() {
+function setupDynamicScrollBannerForMobile() {
     const scrollBanner = document.querySelector('.scroll-banner');
     const header = document.querySelector('header');
     
@@ -1102,77 +1087,84 @@ function setupDynamicScrollBanner() {
         return;
     }
 
-    let currentPosition = null;
-
     function updateScrollBannerPosition() {
-        // Sprawdź czy to urządzenie mobilne (max-width: 767px)
-        if (window.innerWidth <= 767) {
+        // Sprawdź czy to urządzenie mobilne z banerm.png (≤480px)
+        if (window.innerWidth <= 480) {
             const bannerImage = header.querySelector('img[src*="baner"]');
             if (bannerImage) {
-                // Poczekaj aż obraz się załaduje
+                // Sprawdź czy obraz się załadował
                 if (bannerImage.complete && bannerImage.naturalHeight !== 0) {
-                    const imageHeight = bannerImage.offsetHeight;
-                    const headerOffsetTop = header.offsetTop;
+                    // Pobierz pozycję obrazka w dokumencie
+                    const imageRect = bannerImage.getBoundingClientRect();
+                    const imageHeight = imageRect.height;
+                    const imageTopInDocument = imageRect.top + window.pageYOffset;
                     
-                    // Oblicz pozycję jako 38% wysokości obrazka od góry headera
-                    const newPosition = headerOffsetTop + (imageHeight * 0.38);
+                    // 33% wysokości obrazka od góry MINUS połowa wysokości bannera (15px)
+                    // żeby banner był wyśrodkowany na pozycji 33%
+                    const targetPosition = imageTopInDocument + (imageHeight * 0.33) - 15;
                     
-                    // Aktualizuj tylko jeśli pozycja się znacząco zmieniła (więcej niż 2px)
-                    if (currentPosition === null || Math.abs(currentPosition - newPosition) > 2) {
-                        currentPosition = newPosition;
-                        
-                        scrollBanner.style.position = 'absolute';
-                        scrollBanner.style.top = `${newPosition}px`;
-                        scrollBanner.style.left = '0';
-                        scrollBanner.style.width = '100%';
-                        scrollBanner.style.zIndex = '10';
-                        
-                        console.log(`Scroll banner positioned at: ${newPosition}px (38% of ${imageHeight}px image height)`);
-                    }
+                    // Ustaw pozycjonowanie absolutne
+                    scrollBanner.style.position = 'absolute';
+                    scrollBanner.style.top = `${targetPosition}px`;
+                    scrollBanner.style.left = '0';
+                    scrollBanner.style.width = '100%';
+                    scrollBanner.style.zIndex = '10';
+                    scrollBanner.style.margin = '0';
+                    
+                    console.log(`Mobile banner positioned at: ${targetPosition.toFixed(1)}px`);
+                    console.log(`Image starts at: ${imageTopInDocument.toFixed(1)}px, height: ${imageHeight.toFixed(1)}px`);
+                    console.log(`33% of image height = ${(imageHeight * 0.33).toFixed(1)}px, minus 15px banner offset`);
                 } else {
-                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie po chwili
+                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie
                     setTimeout(updateScrollBannerPosition, 100);
                 }
             }
         } else {
             // Na większych ekranach przywróć domyślne pozycjonowanie CSS
-            if (currentPosition !== null) {
-                scrollBanner.style.position = '';
-                scrollBanner.style.top = '';
-                scrollBanner.style.left = '';
-                scrollBanner.style.width = '';
-                scrollBanner.style.zIndex = '';
-                currentPosition = null;
-                console.log('Scroll banner reset to default CSS positioning');
-            }
+            scrollBanner.style.position = '';
+            scrollBanner.style.top = '';
+            scrollBanner.style.left = '';
+            scrollBanner.style.width = '';
+            scrollBanner.style.zIndex = '';
+            scrollBanner.style.margin = '';
+            console.log('Desktop mode - scroll banner reset to CSS positioning');
         }
     }
 
-    // Utwórz wersję z debounce dla resize (200ms opóźnienie)
-    const debouncedUpdate = debounce(updateScrollBannerPosition, 200);
+    // Funkcja debounce dla lepszej wydajności
+    let resizeTimeout;
+    function debouncedUpdate() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateScrollBannerPosition, 100);
+    }
     
-    // Ustaw początkową pozycję po załadowaniu DOM
+    // Ustaw początkową pozycję
     setTimeout(updateScrollBannerPosition, 50);
     
-    // Nasłuchuj zmian rozmiaru okna z debounce
+    // Nasłuchuj zmian rozmiaru okna
     window.addEventListener('resize', debouncedUpdate);
     
-    // Nasłuchuj załadowania obrazów
+    // Nasłuchuj załadowania obrazu
     const bannerImage = header.querySelector('img[src*="baner"]');
     if (bannerImage) {
         bannerImage.addEventListener('load', updateScrollBannerPosition);
     }
     
-    // Dodatkowe sprawdzenie po pełnym załadowaniu strony
+    // Nasłuchuj orientacji urządzenia
+    window.addEventListener('orientationchange', () => {
+        setTimeout(updateScrollBannerPosition, 300);
+    });
+    
+    // Dodatkowe sprawdzenie po załadowaniu strony
     window.addEventListener('load', updateScrollBannerPosition);
     
-    console.log('Dynamic scroll banner positioning initialized (mobile only, 38% image height)');
+    console.log('Dynamic scroll banner positioning for banerm.png initialized (33% minus banner height)');
 }
 
 // Udostępnij funkcje globalnie
 window.toggleProducerDetails = toggleProducerDetails;
 window.adjustProjectSectionHeight = adjustProjectSectionHeight;
-window.setupDynamicScrollBanner = setupDynamicScrollBanner;
+window.setupDynamicScrollBannerForMobile = setupDynamicScrollBannerForMobile;
 
 // ==========================================
 // EKSPORT FUNKCJI (dla ewentualnego użycia w innych plikach)
