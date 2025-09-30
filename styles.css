@@ -1054,6 +1054,16 @@ nav {
     text-align: justify;
 }
 
+/* Kontener dla wyśrodkowania przycisku */
+.realizations-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.realizations-header .show-all-btn {
+    align-self: center;
+}
+
 /* Przycisk "Pokaż wszystkie" - styl jak btn-gold */
 .show-all-btn {
     display: inline-flex;
@@ -1074,26 +1084,13 @@ nav {
     transition: all 0.3s ease;
     text-decoration: none;
     white-space: nowrap;
-}
-
-.show-all-btn:hover {
-    background: var(--color-primary);
-    color: white;
-    box-shadow: 0 6px 20px rgba(237, 210, 173, 0.4);
-    transform: scale(1.05);
+    margin: 0 auto;
 }
 
 .show-all-btn .btn-arrow,
 .show-all-btn .btn-arrow-left {
     font-size: 1.1rem;
     font-weight: bold;
-    transition: transform 0.3s ease;
-    animation: bounce-vertical 2s infinite ease-in-out;
-}
-
-.show-all-btn:hover .btn-arrow,
-.show-all-btn:hover .btn-arrow-left {
-    animation-play-state: paused;
 }
 
 .show-all-btn.expanded .btn-arrow,
@@ -1102,29 +1099,17 @@ nav {
     animation: none;
 }
 
-@keyframes bounce-vertical {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(3px);
-    }
-    60% {
-        transform: translateY(1px);
-    }
-}
+
 
 /* Responsywność dla header */
 @media (max-width: 768px) {
     .realizations-header {
         flex-direction: column;
-        align-items: flex-start;
         gap: 1rem;
         margin-bottom: 2rem;
     }
     
     .show-all-btn {
-        align-self: center;
         font-size: 0.9rem;
         padding: 0.8rem 1.5rem;
     }
@@ -1244,6 +1229,15 @@ nav {
     }
 }
 
+/* Wyśrodkowanie przycisku dla tabletu */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .show-all-btn {
+        margin: 0 auto;
+        display: block;
+        width: fit-content;
+    }
+}
+
 @media (max-width: 768px) {
     .gallery.expanded {
         grid-template-columns: repeat(2, 1fr);
@@ -1309,8 +1303,6 @@ nav {
         font-size: 1.2rem; /* Większa czcionka */
         padding: 0.8rem 1.5rem; /* Zachowujemy wysokość */
         justify-content: center;
-        position: relative;
-        overflow: hidden;
     }
     
     /* Style dla głównych banerów na małych telefonach - jeszcze szersze */
@@ -1331,26 +1323,6 @@ nav {
     
     .gallery:not(.expanded) .gallery-item img {
         height: 450px; /* Wyższe obrazy */
-    }
-    
-    /* Animowany element pulsujący sugerujący kliknięcie */
-    .show-all-btn::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        animation: pulseClick 2s infinite;
-    }
-    
-    /* Dodatkowa animacja hover dla mobilnych */
-    .show-all-btn:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
     }
 }
 

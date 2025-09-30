@@ -1079,33 +1079,28 @@ function initializeProjectHeightObserver() {
  * Funkcja do dynamicznego pozycjonowania scroll bannera na 34% wysokości banerm.png
  */
 function setupDynamicScrollBannerForMobile() {
-    console.log('setupDynamicScrollBannerForMobile started');
     const scrollBanner = document.querySelector('.scroll-banner');
     const header = document.querySelector('header');
     
-    console.log('Scroll banner found:', !!scrollBanner, 'Header found:', !!header);
     if (!scrollBanner || !header) {
         console.warn('Scroll banner or header not found');
         return;
     }
 
     function updateScrollBannerPosition() {
-        console.log('updateScrollBannerPosition called, window width:', window.innerWidth);
         // Sprawdź czy to urządzenie mobilne z banerm.png (≤480px)
         if (window.innerWidth <= 480) {
             const bannerImage = header.querySelector('img[src*="baner"]');
-            console.log('Banner image found:', bannerImage ? bannerImage.src : 'none');
             if (bannerImage) {
                 // Sprawdź czy obraz się załadował
-                console.log('Image complete:', bannerImage.complete, 'naturalHeight:', bannerImage.naturalHeight);
                 if (bannerImage.complete && bannerImage.naturalHeight !== 0) {
                     // Pobierz pozycję obrazka w dokumencie
                     const imageRect = bannerImage.getBoundingClientRect();
                     const imageHeight = imageRect.height;
                     const imageTopInDocument = imageRect.top + window.pageYOffset;
                     
-                    // 32.5% wysokości obrazka od góry MINUS wysokość bannera (30px)
-                    // żeby banner był pozycjonowany na pozycji 32.5%
+                    // 32.5% wysokości obrazka od góry MINUS połowa wysokości bannera (15px)
+                    // żeby banner był wyśrodkowany na pozycji 32.5%
                     const targetPosition = imageTopInDocument + (imageHeight * 0.325) - 30;
                     
                     // Ustaw pozycjonowanie absolutne
@@ -1118,11 +1113,10 @@ function setupDynamicScrollBannerForMobile() {
                     
                     console.log(`Mobile banner positioned at: ${targetPosition.toFixed(1)}px`);
                     console.log(`Image starts at: ${imageTopInDocument.toFixed(1)}px, height: ${imageHeight.toFixed(1)}px`);
-                    console.log(`32.5% of image height = ${(imageHeight * 0.325).toFixed(1)}px, minus 30px banner offset`);
+                    console.log(`33% of image height = ${(imageHeight * 0.33).toFixed(1)}px, minus 15px banner offset`);
                 } else {
-                    // Jeśli obraz się jeszcze nie załadował, dodaj małe opóźnienie żeby uniknąć nieskończonej pętli
-                    console.log('Image not ready, retrying in 50ms...');
-                    setTimeout(updateScrollBannerPosition, 50);
+                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie
+                    updateScrollBannerPosition();
                 }
             }
         } else {
@@ -1155,7 +1149,7 @@ function setupDynamicScrollBannerForMobile() {
     // Dodatkowe sprawdzenie po załadowaniu strony
     window.addEventListener('load', updateScrollBannerPosition);
     
-    console.log('Dynamic scroll banner positioning for banerm.png initialized (32.5% minus banner height)');
+    console.log('Dynamic scroll banner positioning for banerm.png initialized (33% minus banner height)');
 }
 
 // Udostępnij funkcje globalnie

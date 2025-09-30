@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dom w Zakopanem - MetaStudio</title>
+  <title>Rezydencja w Warszawie - MetaStudio</title>
   <style>
     :root {
       --color-primary: #8B4513;
@@ -22,6 +22,7 @@
       min-height: 100vh;
     }
 
+    /* Stylizacja tła */
     body::before {
       content: '';
       position: fixed;
@@ -29,7 +30,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('../../tlo/baner31.jpg');
+      background-image: url('../../tlo/baner.JPG');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -107,22 +108,15 @@
       transition: transform 0.5s ease;
     }
 
-    .gallery-item video {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
     .gallery-item:hover {
       transform: translateY(-5px);
     }
 
-    .gallery-item:hover img,
-    .gallery-item:hover video {
+    .gallery-item:hover img {
       transform: scale(1.1);
     }
 
+    /* Modal dla powiększonych zdjęć */
     .modal {
       display: none;
       position: fixed;
@@ -187,53 +181,32 @@
   <div class="container">
     <div class="project-header">
       <div class="main-image">
-        <img src="1.jpg" alt="Dom w Zakopanem">
+        <img src="1.jpg" alt="Rezydencja w Warszawie">
       </div>
       <div class="project-info">
-        <h1>Dom w Zakopanem</h1>
-        <p>Góralski styl w nowoczesnym wydaniu. Tradycyjne formy architektoniczne połączone z współczesnymi rozwiązaniami tworzą unikalną atmosferę górskiego domu.</p>
-        <p>Powierzchnia: 200m²</p>
+        <h1>Rezydencja w Warszawie</h1>
+        <p>Nowoczesny design połączony z klasyką - elegancka rezydencja która łączy w sobie tradycyjne formy z nowoczesnymi rozwiązaniami technologicznymi. Przestrzeń zaprojektowana z myślą o komforcie całej rodziny.</p>
+        <p>Powierzchnia: 250m²</p>
         <p>Rok realizacji: 2024</p>
-        <p>Lokalizacja: Zakopane, Polska</p>
+        <p>Lokalizacja: Warszawa, Polska</p>
       </div>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="2.jpg" alt="Dom w Zakopanem - Salon">
+        <img src="2.jpg" alt="Rezydencja w Warszawie - Salon">
       </div>
       <div class="gallery-item">
-        <img src="3.jpg" alt="Dom w Zakopanem - Jadalnia">
+        <img src="3.jpg" alt="Rezydencja w Warszawie - Kuchnia">
       </div>
       <div class="gallery-item">
-        <img src="4.jpg" alt="Dom w Zakopanem - Kuchnia">
+        <img src="4.jpg" alt="Rezydencja w Warszawie - Sypialnia">
       </div>
       <div class="gallery-item">
-        <img src="5.jpg" alt="Dom w Zakopanem - Sypialnia">
+        <img src="5.jpg" alt="Rezydencja w Warszawie - Łazienka">
       </div>
       <div class="gallery-item">
-        <img src="6.jpg" alt="Dom w Zakopanem - Łazienka">
-      </div>
-      <div class="gallery-item">
-        <img src="7.jpg" alt="Dom w Zakopanem - Kominek">
-      </div>
-      <div class="gallery-item">
-        <video controls preload="metadata">
-          <source src="8.mp4" type="video/mp4">
-          <p>Twoja przeglądarka nie obsługuje video HTML5.</p>
-        </video>
-      </div>
-      <div class="gallery-item">
-        <img src="9.jpg" alt="Dom w Zakopanem - Wnętrze">
-      </div>
-      <div class="gallery-item">
-        <img src="10.jpg" alt="Dom w Zakopanem - Detale">
-      </div>
-      <div class="gallery-item">
-        <img src="11.jpg" alt="Dom w Zakopanem - Przestrzeń">
-      </div>
-      <div class="gallery-item">
-        <img src="12.jpg" alt="Dom w Zakopanem - Widok">
+        <img src="6.jpg" alt="Rezydencja w Warszawie - Gabinet">
       </div>
     </div>
   </div>
@@ -243,6 +216,7 @@
   </div>
 
   <script>
+    // Obsługa modala dla zdjęć
     const galleryItems = document.querySelectorAll('.gallery-item img');
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
@@ -258,22 +232,11 @@
       modal.style.display = 'none';
     });
 
+    // Zamykanie modala klawiszem ESC
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         modal.style.display = 'none';
       }
-    });
-
-    // Obsługa video - zatrzymanie innych filmów po rozpoczęciu odtwarzania
-    const videos = document.querySelectorAll('.gallery-item video');
-    videos.forEach(video => {
-      video.addEventListener('play', function() {
-        videos.forEach(otherVideo => {
-          if (otherVideo !== this) {
-            otherVideo.pause();
-          }
-        });
-      });
     });
   </script>
 </body>
