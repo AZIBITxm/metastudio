@@ -909,6 +909,31 @@ nav {
     justify-items: center;
 }
 
+/* Style dla głównych banerów na PC - zawsze 4 w rzędzie */
+@media (min-width: 1025px) {
+    .gallery:not(.expanded) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .gallery:not(.expanded) .gallery-item {
+        width: 100%;
+    }
+}
+
+/* Style dla głównych banerów na tablet - 2-3 w rzędzie */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery:not(.expanded) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .gallery:not(.expanded) .gallery-item {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -1201,11 +1226,14 @@ nav {
 
 .gallery.expanded .gallery-item {
     height: 250px;
+    width: 100%;
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .gallery.expanded .gallery-item img {
     height: 250px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .gallery.expanded .gallery-item-info {
@@ -1246,10 +1274,13 @@ nav {
     
     .gallery.expanded .gallery-item {
         height: 200px;
+        width: 100%;
     }
     
     .gallery.expanded .gallery-item img {
         height: 200px;
+        width: 100%;
+        object-fit: cover;
     }
     
     .gallery.expanded .gallery-item-info {
@@ -1273,10 +1304,13 @@ nav {
     
     .gallery.expanded .gallery-item {
         height: 180px;
+        width: 100%;
     }
     
     .gallery.expanded .gallery-item img {
         height: 180px;
+        width: 100%;
+        object-fit: cover;
     }
     
     .gallery.expanded .gallery-item-info {

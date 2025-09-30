@@ -408,18 +408,9 @@
         flex-shrink: 0;
     }
     
+    /* Ukryj przyciski nawigacji na urządzeniach mobilnych */
     .gallery-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    .gallery-nav.prev {
-        left: 10px;
-    }
-    
-    .gallery-nav.next {
-        right: 10px;
+        display: none !important;
     }
     
     .thumbnail {
@@ -442,34 +433,40 @@
 }
 
 /* Fullscreen Mode */
-.gallery-fullscreen {
+.gallery-fullscreen, .fullscreen-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 20000;
     display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    /* Styles for touch gestures */
+    touch-action: pan-y; /* Allow vertical scrolling but capture horizontal swipes */
+    user-select: none; /* Prevent text selection during swipe */
 }
 
-.gallery-fullscreen.show {
+.gallery-fullscreen.show, .fullscreen-container.show {
     display: flex;
     opacity: 1;
 }
 
-.gallery-fullscreen img {
+.gallery-fullscreen #fullscreen-image,
+.fullscreen-container .fullscreen-image {
     max-width: 95vw;
     max-height: 95vh;
     object-fit: contain;
     cursor: zoom-out;
+    transition: opacity 0.3s ease;
 }
 
-.gallery-fullscreen video {
+.gallery-fullscreen #fullscreen-video,
+.fullscreen-container .fullscreen-video {
     max-width: 95vw;
     max-height: 95vh;
     object-fit: contain;
