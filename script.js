@@ -4,6 +4,131 @@
  */
 
 // ==========================================
+// AUTOMATYCZNE ŁADOWANIE ZDJĘĆ GALERII
+// ==========================================
+
+/**
+ * Funkcja do automatycznego ładowania pierwszego dostępnego zdjęcia z katalogu galerii
+ * Próbuje różne rozszerzenia i nazwy plików w określonej kolejności
+ */
+function loadFirstImageFromGallery(galleryNumber, imgElement) {
+    // Lista możliwych rozszerzeń i nazw plików do sprawdzenia
+    const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    const possibleFileNames = [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', // numerowane
+        'main', 'cover', 'thumbnail', 'index', 'hero', // typowe nazwy głównych
+    ];
+    
+    let imageLoaded = false;
+    let attemptIndex = 0;
+    
+    function tryLoadImage() {
+        if (imageLoaded || attemptIndex >= possibleFileNames.length * imageExtensions.length) {
+            // Jeśli nie udało się załadować żadnego obrazu, sprawdź czy są pliki z datą
+            if (!imageLoaded) {
+                tryLoadDateNamedImage();
+            }
+            return;
+        }
+        
+        const fileNameIndex = Math.floor(attemptIndex / imageExtensions.length);
+        const extensionIndex = attemptIndex % imageExtensions.length;
+        
+        const fileName = possibleFileNames[fileNameIndex];
+        const extension = imageExtensions[extensionIndex];
+        const imagePath = `galeria/${galleryNumber}/${fileName}.${extension}`;
+        
+        const testImg = new Image();
+        testImg.onload = function() {
+            if (!imageLoaded) {
+                imgElement.src = imagePath;
+                imageLoaded = true;
+                console.log(`Loaded image for gallery ${galleryNumber}: ${imagePath}`);
+            }
+        };
+        testImg.onerror = function() {
+            attemptIndex++;
+            tryLoadImage();
+        };
+        testImg.src = imagePath;
+    }
+    
+    function tryLoadDateNamedImage() {
+        // Mapowanie specyficznych pattern nazw dla różnych katalogów
+        const specificPatterns = {
+            '12': ['20160804_164435 (1)', '20160804_164444', '20160804_164501 (1)', '20160804_164549'],
+            '16': ['20150519_153445 (1)', '20150519_153456 (1)', '20150521_104956 (1)', 'c1', 'city (1)'],
+            '17': ['20231209_114031', '20231209_114046', '20231209_114048', '20231209_114106', '20231209_114243', '20231209_114251', '20231209_114253']
+        };
+        
+        // Użyj pattern specyficznych dla danego katalogu lub ogólnych
+        const patterns = specificPatterns[galleryNumber] || [
+            // Ogólne pattern dat i nazw
+            '20160804_164435 (1)', '20160804_164444', '20160804_164501 (1)', '20160804_164549',
+            '20231209_114031', '20231209_114046', '20231209_114048',
+            '20150519_153445 (1)', '20150519_153456 (1)', '20150521_104956 (1)',
+            'c1', 'city (1)', 'main', 'cover', 'image', 'photo', 'pic'
+        ];
+        
+        let dateAttemptIndex = 0;
+        
+        function tryDatePattern() {
+            if (imageLoaded || dateAttemptIndex >= patterns.length * imageExtensions.length) {
+                return;
+            }
+            
+            const patternIndex = Math.floor(dateAttemptIndex / imageExtensions.length);
+            const extensionIndex = dateAttemptIndex % imageExtensions.length;
+            
+            const pattern = patterns[patternIndex];
+            const extension = imageExtensions[extensionIndex];
+            const imagePath = `galeria/${galleryNumber}/${pattern}.${extension}`;
+            
+            const testImg = new Image();
+            testImg.onload = function() {
+                if (!imageLoaded) {
+                    imgElement.src = imagePath;
+                    imageLoaded = true;
+                    console.log(`Loaded specific pattern image for gallery ${galleryNumber}: ${imagePath}`);
+                }
+            };
+            testImg.onerror = function() {
+                dateAttemptIndex++;
+                tryDatePattern();
+            };
+            testImg.src = imagePath;
+        }
+        
+        tryDatePattern();
+    }
+    
+    tryLoadImage();
+}
+
+/**
+ * Inicjalizuje automatyczne ładowanie zdjęć dla wszystkich elementów galerii
+ */
+function initializeAutoImageLoading() {
+    const galleryItems = document.querySelectorAll('.gallery-item[data-gallery]');
+    
+    console.log(`Found ${galleryItems.length} gallery items to load images for`);
+    
+    galleryItems.forEach((item, index) => {
+        const galleryNumber = item.getAttribute('data-gallery');
+        const imgElement = item.querySelector('img');
+        
+        if (galleryNumber && imgElement) {
+            console.log(`Loading image for gallery ${galleryNumber} (item ${index + 1})`);
+            loadFirstImageFromGallery(galleryNumber, imgElement);
+        } else {
+            console.log(`Skipping item ${index + 1}: galleryNumber=${galleryNumber}, imgElement=${!!imgElement}`);
+        }
+    });
+    
+    console.log('Auto image loading initialized for gallery items');
+}
+
+// ==========================================
 // GLOBALNE ZMIENNE DLA ANIMACJI CYKLICZNYCH
 // ==========================================
 
@@ -237,12 +362,19 @@ function initializeGalleryToggle() {
     const gallery = document.querySelector('.gallery');
     const extendedItems = document.querySelectorAll('.extended-gallery-item');
     const btnText = showAllBtn.querySelector('.btn-text');
-    const btnIcon = showAllBtn.querySelector('.btn-icon');
+    const btnArrowLeft = showAllBtn.querySelector('.btn-arrow-left');
+    const btnArrowRight = showAllBtn.querySelector('.btn-arrow');
     
     if (!showAllBtn || !gallery || extendedItems.length === 0) {
-        console.log('Gallery toggle elements not found');
+        console.log('Gallery toggle elements not found:', {
+            showAllBtn: !!showAllBtn,
+            gallery: !!gallery,
+            extendedItemsCount: extendedItems.length
+        });
         return;
     }
+    
+    console.log(`Gallery toggle found ${extendedItems.length} extended items`);
     
     let isExpanded = false;
     
@@ -253,11 +385,15 @@ function initializeGalleryToggle() {
             // Rozszerzamy galerię
             gallery.classList.add('expanded');
             showAllBtn.classList.add('expanded');
-            btnText.textContent = 'Pokaż mniej';
-            btnIcon.textContent = '−';
+            btnText.textContent = 'POKAŻ MNIEJ';
+            if (btnArrowLeft) btnArrowLeft.textContent = '↑';
+            if (btnArrowRight) btnArrowRight.textContent = '↑';
             
             // Pokazujemy dodatkowe elementy z animacją
+            console.log(`Showing ${extendedItems.length} extended items`);
             extendedItems.forEach((item, index) => {
+                const galleryNum = item.getAttribute('data-gallery');
+                console.log(`Showing extended item ${index + 1}: gallery-${galleryNum}`);
                 setTimeout(() => {
                     item.style.display = 'block';
                     // Małe opóźnienie dla efektu fade-in
@@ -272,11 +408,15 @@ function initializeGalleryToggle() {
             // Zwijamy galerię
             gallery.classList.remove('expanded');
             showAllBtn.classList.remove('expanded');
-            btnText.textContent = 'Pokaż wszystkie';
-            btnIcon.textContent = '+';
+            btnText.textContent = 'POKAŻ WSZYSTKIE';
+            if (btnArrowLeft) btnArrowLeft.textContent = '↓';
+            if (btnArrowRight) btnArrowRight.textContent = '↓';
             
             // Ukrywamy dodatkowe elementy z animacją
+            console.log(`Hiding ${extendedItems.length} extended items`);
             extendedItems.forEach((item, index) => {
+                const galleryNum = item.getAttribute('data-gallery');
+                console.log(`Hiding extended item ${index + 1}: gallery-${galleryNum}`);
                 setTimeout(() => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(20px)';
@@ -480,6 +620,7 @@ function initializeApp() {
         initializeSubBanners();
         initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
         initializeGalleryToggle();
+        initializeAutoImageLoading(); // Automatyczne ładowanie pierwszych zdjęć z katalogów - po toggle
         initializeMobileGalleryScrollReveal();
         initializeMobileAboutAnimation();
         setupDynamicScrollBannerForMobile(); // Dynamiczne pozycjonowanie dla banerm.png na 33%
