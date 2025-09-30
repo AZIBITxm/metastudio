@@ -56,9 +56,8 @@ function loadFirstImageFromGallery(galleryNumber, imgElement) {
     function tryLoadDateNamedImage() {
         // Mapowanie specyficznych pattern nazw dla różnych katalogów
         const specificPatterns = {
-            '12': ['20160804_164435 (1)', '20160804_164444', '20160804_164501 (1)', '20160804_164549'],
-            '16': ['20150519_153445 (1)', '20150519_153456 (1)', '20150521_104956 (1)', 'c1', 'city (1)'],
-            '17': ['20231209_114031', '20231209_114046', '20231209_114048', '20231209_114106', '20231209_114243', '20231209_114251', '20231209_114253']
+            '12': ['20160804_164435 (1)', '20160804_164444', '20160804_164501 (1)', '20160804_164549']
+            // Usunięto mapowania dla 16 i 17 - te katalogi nie istnieją
         };
         
         // Użyj pattern specyficznych dla danego katalogu lub ogólnych

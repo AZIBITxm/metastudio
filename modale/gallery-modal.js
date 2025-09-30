@@ -172,6 +172,12 @@ class GalleryModal {
     }
     
     closeModal() {
+        // Zatrzymaj wszystkie wideo w modal
+        const modalVideo = this.modal.querySelector('.gallery-main-video');
+        if (modalVideo) {
+            modalVideo.pause();
+        }
+        
         this.modal.classList.remove('show');
         
         // Only restore overflow if fullscreen is not active
@@ -202,19 +208,34 @@ class GalleryModal {
             return await this.loadImagesWithoutThumbnails(galleryId, imageExtensions);
         }
         
-        // Dla każdej miniaturki, stwórz obiekt z thumb i pełnym obrazem
+        // Dla każdej miniaturki, stwórz obiekt z thumb i pełnym obrazem/filmem
         for (const thumb of thumbnails) {
-            const imageNumber = thumb.number;
-            const fullImagePath = await this.findFullImage(galleryId, imageNumber, imageExtensions);
+            const itemNumber = thumb.number;
+            let fullPath;
+            let mediaType = 'image';
+            
+            if (thumb.type === 'video') {
+                // Szukaj pliku wideo
+                fullPath = await this.findVideoFile(galleryId, itemNumber);
+                mediaType = 'video';
+            } else {
+                // Szukaj pełnego obrazu
+                fullPath = await this.findFullImage(galleryId, itemNumber, imageExtensions);
+                mediaType = 'image';
+            }
             
             images.push({
-                number: imageNumber,
+                number: itemNumber,
                 thumbnail: thumb.path,
-                src: fullImagePath || thumb.path, // fallback do miniaturki jeśli nie ma pełnego
-                alt: `${this.getProjectTitle(galleryId)} - Zdjęcie ${imageNumber}`,
-                loaded: false // czy pełny obraz został już załadowany
+                src: fullPath || thumb.path, // fallback do miniaturki jeśli nie ma pełnego
+                alt: `${this.getProjectTitle(galleryId)} - ${mediaType === 'video' ? 'Film' : 'Zdjęcie'} ${itemNumber}`,
+                loaded: false, // czy pełny obraz został już załadowany
+                type: mediaType // 'image' lub 'video'
             });
         }
+        
+        // Sortuj według numeru aby zachować właściwą kolejność
+        images.sort((a, b) => a.number - b.number);
         
         this.images = images;
         console.log('Prepared images array:', this.images);
@@ -232,7 +253,7 @@ class GalleryModal {
     async findAvailableThumbnails(galleryId, extensions) {
         const thumbnails = [];
         
-        // Sprawdź miniaturki od m1 do m20
+        // Sprawdź miniaturki od m1 do m20 (zdjęcia)
         for (let i = 1; i <= 20; i++) {
             for (const ext of extensions) {
                 const thumbPath = `galeria/${galleryId}/m${i}.${ext}`;
@@ -242,7 +263,29 @@ class GalleryModal {
                     if (exists) {
                         thumbnails.push({
                             number: i,
-                            path: thumbPath
+                            path: thumbPath,
+                            type: 'image'
+                        });
+                        break; // Found thumbnail, try next number
+                    }
+                } catch (e) {
+                    // Continue to next extension
+                }
+            }
+        }
+        
+        // Sprawdź miniaturki wideo od v1 do v20 (filmy)
+        for (let i = 1; i <= 20; i++) {
+            for (const ext of extensions) {
+                const thumbPath = `galeria/${galleryId}/v${i}.${ext}`;
+                
+                try {
+                    const exists = await this.checkImageExists(thumbPath);
+                    if (exists) {
+                        thumbnails.push({
+                            number: i,
+                            path: thumbPath,
+                            type: 'video'
                         });
                         break; // Found thumbnail, try next number
                     }
@@ -271,6 +314,40 @@ class GalleryModal {
         }
         
         return null; // Nie znaleziono pełnego obrazu
+    }
+
+    async findVideoFile(galleryId, videoNumber) {
+        // Znajdź plik wideo dla danego numeru
+        const videoExtensions = ['mp4', 'webm', 'ogg', 'mov'];
+        
+        for (const ext of videoExtensions) {
+            const videoPath = `galeria/${galleryId}/${videoNumber}.${ext}`;
+            
+            try {
+                // Sprawdzamy czy plik wideo istnieje podobnie jak obrazy
+                const exists = await this.checkVideoExists(videoPath);
+                if (exists) {
+                    return videoPath;
+                }
+            } catch (e) {
+                // Continue to next extension
+            }
+        }
+        
+        return null; // Nie znaleziono pliku wideo
+    }
+
+    async checkVideoExists(src) {
+        return new Promise((resolve) => {
+            // Dla wideo używamy fetch HEAD request
+            fetch(src, { method: 'HEAD' })
+                .then(response => {
+                    resolve(response.ok);
+                })
+                .catch(() => {
+                    resolve(false);
+                });
+        });
     }
     
     async loadImagesWithoutThumbnails(galleryId, extensions) {
@@ -309,21 +386,28 @@ class GalleryModal {
             return; // Już załadowany lub nie istnieje
         }
         
-        const imageObj = this.images[imageIndex];
-        console.log(`Preloading full image ${imageIndex + 1}: ${imageObj.src}`);
+        const mediaObj = this.images[imageIndex];
+        
+        // Nie preloaduj wideo - są za duże
+        if (mediaObj.type === 'video') {
+            mediaObj.loaded = true; // Oznacz jako "załadowane" żeby nie próbować ponownie
+            return Promise.resolve(mediaObj);
+        }
+        
+        console.log(`Preloading full image ${imageIndex + 1}: ${mediaObj.src}`);
         
         return new Promise((resolve, reject) => {
             const img = new Image();
             img.onload = () => {
-                imageObj.loaded = true;
+                mediaObj.loaded = true;
                 console.log(`Successfully preloaded image ${imageIndex + 1}`);
-                resolve(imageObj);
+                resolve(mediaObj);
             };
             img.onerror = () => {
-                console.warn(`Failed to preload image ${imageIndex + 1}: ${imageObj.src}`);
-                resolve(imageObj); // Resolve anyway, będziemy używać miniaturki
+                console.warn(`Failed to preload image ${imageIndex + 1}: ${mediaObj.src}`);
+                resolve(mediaObj); // Resolve anyway, będziemy używać miniaturki
             };
-            img.src = imageObj.src;
+            img.src = mediaObj.src;
         });
     }
     
@@ -402,11 +486,40 @@ class GalleryModal {
         thumbnailsContainer.innerHTML = '';
         
         this.images.forEach((image, index) => {
+            const thumbnailWrapper = document.createElement('div');
+            thumbnailWrapper.className = 'thumbnail-wrapper';
+            thumbnailWrapper.style.position = 'relative';
+            thumbnailWrapper.style.display = 'inline-block';
+            
             const thumbnail = document.createElement('img');
             thumbnail.src = image.thumbnail; // Użyj miniaturki zamiast pełnego obrazu
             thumbnail.alt = image.alt;
             thumbnail.className = 'thumbnail';
             thumbnail.style.cursor = 'pointer';
+            
+            // Dodaj ikonę play dla wideo
+            if (image.type === 'video') {
+                const playIcon = document.createElement('div');
+                playIcon.className = 'video-play-icon';
+                playIcon.innerHTML = '▶';
+                playIcon.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 0, 0, 0.7);
+                    color: white;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    pointer-events: none;
+                `;
+                thumbnailWrapper.appendChild(playIcon);
+            }
             
             // Add click handler with proper binding
             thumbnail.addEventListener('click', (e) => {
@@ -431,7 +544,8 @@ class GalleryModal {
                 }
             });
             
-            thumbnailsContainer.appendChild(thumbnail);
+            thumbnailWrapper.appendChild(thumbnail);
+            thumbnailsContainer.appendChild(thumbnailWrapper);
         });
         
         // Add drag & drop functionality
@@ -442,37 +556,27 @@ class GalleryModal {
         if (index < 0 || index >= this.images.length) return;
         
         this.currentImageIndex = index;
-        const imageObj = this.images[index];
+        const mediaObj = this.images[index];
         
         // Hide overlay when changing image
         this.hideOverlay();
         
-        // Update main image
-        const mainImage = this.modal.querySelector('.gallery-main-image');
-        if (mainImage) {
-            // Add loading effect
-            mainImage.style.opacity = '0.5';
-            
-            // Użyj pełnego obrazu jeśli jest załadowany, w przeciwnym razie miniaturkę
-            let imageToShow = imageObj.loaded ? imageObj.src : imageObj.thumbnail;
-            
-            // Create new image to preload
-            const newImg = new Image();
-            newImg.onload = () => {
-                mainImage.src = newImg.src;
-                mainImage.alt = imageObj.alt;
-                mainImage.style.opacity = '1';
-                
-                // Jeśli pokazaliśmy miniaturkę, załaduj pełny obraz w tle
-                if (!imageObj.loaded && imageToShow === imageObj.thumbnail) {
-                    this.loadFullImageInBackground(index, mainImage);
-                }
-            };
-            newImg.onerror = () => {
-                console.error('Error loading image:', imageToShow);
-                mainImage.style.opacity = '1';
-            };
-            newImg.src = imageToShow;
+        // Zatrzymaj poprzednie wideo jeśli było odtwarzane
+        const currentVideo = this.modal.querySelector('.gallery-main-video');
+        if (currentVideo) {
+            currentVideo.pause();
+        }
+        
+        // Get gallery container
+        const galleryContainer = this.modal.querySelector('.gallery-container');
+        if (!galleryContainer) return;
+        
+        if (mediaObj.type === 'video') {
+            // Obsługa wideo
+            this.showVideo(mediaObj, galleryContainer);
+        } else {
+            // Obsługa obrazu (istniejący kod)
+            this.showImageContent(mediaObj, galleryContainer);
         }
         
         // Preload sąsiednie obrazy w tle
@@ -481,16 +585,92 @@ class GalleryModal {
         // Update thumbnail states and counter
         this.updateActiveThumbnail(index);
     }
+
+    showVideo(mediaObj, container) {
+        // Usuń istniejący obraz i zastąp wideo
+        let mainVideo = container.querySelector('.gallery-main-video');
+        
+        if (!mainVideo) {
+            // Ukryj obraz i stwórz element wideo
+            const mainImage = container.querySelector('.gallery-main-image');
+            if (mainImage) {
+                mainImage.style.display = 'none';
+            }
+            
+            mainVideo = document.createElement('video');
+            mainVideo.className = 'gallery-main-video';
+            mainVideo.controls = true;
+            mainVideo.style.cssText = `
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                position: absolute;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+            `;
+            container.appendChild(mainVideo);
+        } else {
+            mainVideo.style.display = 'block';
+            // Ukryj obraz
+            const mainImage = container.querySelector('.gallery-main-image');
+            if (mainImage) {
+                mainImage.style.display = 'none';
+            }
+        }
+        
+        // Załaduj wideo
+        mainVideo.src = mediaObj.src;
+        mainVideo.poster = mediaObj.thumbnail; // Użyj miniaturki jako plakat
+        
+        // Dodaj obsługę kliknięcia dla fullscreen
+        mainVideo.onclick = () => this.openFullscreen();
+    }
+
+    showImageContent(mediaObj, container) {
+        // Pokaż obraz i ukryj wideo (jeśli istnieje)
+        const mainVideo = container.querySelector('.gallery-main-video');
+        if (mainVideo) {
+            mainVideo.style.display = 'none';
+        }
+        
+        const mainImage = container.querySelector('.gallery-main-image');
+        if (mainImage) {
+            mainImage.style.display = 'block';
+            mainImage.style.opacity = '0.5';
+            
+            // Użyj pełnego obrazu jeśli jest załadowany, w przeciwnym razie miniaturkę
+            let imageToShow = mediaObj.loaded ? mediaObj.src : mediaObj.thumbnail;
+            
+            // Create new image to preload
+            const newImg = new Image();
+            newImg.onload = () => {
+                mainImage.src = newImg.src;
+                mainImage.alt = mediaObj.alt;
+                mainImage.style.opacity = '1';
+                
+                // Jeśli pokazaliśmy miniaturkę, załaduj pełny obraz w tle
+                if (!mediaObj.loaded && imageToShow === mediaObj.thumbnail) {
+                    this.loadFullImageInBackground(this.currentImageIndex, mainImage);
+                }
+            };
+            newImg.onerror = () => {
+                console.error('Error loading image:', imageToShow);
+                mainImage.style.opacity = '1';
+            };
+            newImg.src = imageToShow;
+        }
+    }
     
     async loadFullImageInBackground(index, mainImageElement) {
         // Ładuj pełny obraz w tle i zamień gdy będzie gotowy
-        const imageObj = this.images[index];
+        const mediaObj = this.images[index];
         
-        if (imageObj.loaded || imageObj.src === imageObj.thumbnail) {
-            return; // Już załadowany lub nie ma pełnego obrazu
+        if (mediaObj.loaded || mediaObj.src === mediaObj.thumbnail || mediaObj.type === 'video') {
+            return; // Już załadowany lub nie ma pełnego obrazu lub to wideo
         }
         
-        console.log(`Loading full image in background: ${imageObj.src}`);
+        console.log(`Loading full image in background: ${mediaObj.src}`);
         
         const fullImg = new Image();
         fullImg.onload = () => {
@@ -503,23 +683,23 @@ class GalleryModal {
                     mainImageElement.style.opacity = '0.8';
                     
                     setTimeout(() => {
-                        mainImageElement.src = imageObj.src;
+                        mainImageElement.src = mediaObj.src;
                         mainImageElement.style.opacity = '1';
-                        imageObj.loaded = true;
-                        console.log(`Upgraded to full image: ${imageObj.src}`);
+                        mediaObj.loaded = true;
+                        console.log(`Upgraded to full image: ${mediaObj.src}`);
                     }, 150);
                 };
-                tempImg.src = imageObj.src;
+                tempImg.src = mediaObj.src;
             } else {
                 // User już przeszedł do innego obrazu, tylko oznacz jako załadowany
-                imageObj.loaded = true;
-                console.log(`Full image loaded (not displayed): ${imageObj.src}`);
+                mediaObj.loaded = true;
+                console.log(`Full image loaded (not displayed): ${mediaObj.src}`);
             }
         };
         fullImg.onerror = () => {
-            console.warn(`Failed to load full image: ${imageObj.src}`);
+            console.warn(`Failed to load full image: ${mediaObj.src}`);
         };
-        fullImg.src = imageObj.src;
+        fullImg.src = mediaObj.src;
     }
     
     updateActiveThumbnail(index) {
@@ -644,19 +824,35 @@ class GalleryModal {
         if (!this.fullscreen || this.images.length === 0) return;
         
         const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
-        const currentImage = this.images[this.currentImageIndex];
+        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
+        const currentMedia = this.images[this.currentImageIndex];
         
-        if (fullscreenImage && currentImage) {
-            fullscreenImage.src = currentImage.src;
-            fullscreenImage.alt = currentImage.alt;
-            
-            this.fullscreen.classList.add('show');
-            document.body.style.overflow = 'hidden';
+        if (currentMedia.type === 'video' && fullscreenVideo) {
+            // Pokaż wideo w fullscreen
+            fullscreenImage.style.display = 'none';
+            fullscreenVideo.style.display = 'block';
+            fullscreenVideo.src = currentMedia.src;
+            fullscreenVideo.poster = currentMedia.thumbnail;
+        } else if (fullscreenImage) {
+            // Pokaż obraz w fullscreen
+            fullscreenVideo.style.display = 'none';
+            fullscreenImage.style.display = 'block';
+            fullscreenImage.src = currentMedia.src;
+            fullscreenImage.alt = currentMedia.alt;
         }
+        
+        this.fullscreen.classList.add('show');
+        document.body.style.overflow = 'hidden';
     }
     
     closeFullscreen() {
         if (this.fullscreen) {
+            // Zatrzymaj wideo jeśli jest odtwarzane
+            const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
+            if (fullscreenVideo) {
+                fullscreenVideo.pause();
+            }
+            
             this.fullscreen.classList.remove('show');
             
             // Only restore overflow if modal is not active
@@ -670,11 +866,21 @@ class GalleryModal {
         if (!this.fullscreen || !this.fullscreen.classList.contains('show')) return;
         
         const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
-        const currentImage = this.images[this.currentImageIndex];
+        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
+        const currentMedia = this.images[this.currentImageIndex];
         
-        if (fullscreenImage && currentImage) {
-            fullscreenImage.src = currentImage.src;
-            fullscreenImage.alt = currentImage.alt;
+        if (currentMedia.type === 'video' && fullscreenVideo) {
+            // Aktualizuj wideo w fullscreen
+            fullscreenImage.style.display = 'none';
+            fullscreenVideo.style.display = 'block';
+            fullscreenVideo.src = currentMedia.src;
+            fullscreenVideo.poster = currentMedia.thumbnail;
+        } else if (fullscreenImage) {
+            // Aktualizuj obraz w fullscreen
+            fullscreenVideo.style.display = 'none';
+            fullscreenImage.style.display = 'block';
+            fullscreenImage.src = currentMedia.src;
+            fullscreenImage.alt = currentMedia.alt;
         }
     }
     

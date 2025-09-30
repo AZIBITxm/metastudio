@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Galerii z Wideo</title>
+    <link rel="stylesheet" href="modale/gallery-modal.css">
+</head>
+<body>
+    <h1>Test Galerii z Obsługą Wideo</h1>
+    
+    <div style="margin: 20px;">
+        <p>Kliknij na galerię aby sprawdzić obsługę wideo:</p>
+        
+        <!-- Test gallery z wideo -->
+        <div data-gallery="10" style="border: 2px solid #ccc; padding: 20px; margin: 10px; cursor: pointer; display: inline-block;">
+            <strong>Galeria 10</strong> (ma wideo: 4.mp4 z miniaturką v4.png)
+        </div>
+        
+        <div data-gallery="11" style="border: 2px solid #ccc; padding: 20px; margin: 10px; cursor: pointer; display: inline-block;">
+            <strong>Galeria 11</strong> (ma wideo: 3.mp4 i 4.mp4 z miniaturkami v3.png i v4.png)
+        </div>
+        
+        <div data-gallery="1" style="border: 2px solid #ccc; padding: 20px; margin: 10px; cursor: pointer; display: inline-block;">
+            <strong>Galeria 1</strong> (tylko zdjęcia)
+        </div>
+    </div>
+    
+    <!-- Gallery Modal (kopiowane z index.html) -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Tytuł projektu</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="gallery-container">
+                    <img class="gallery-main-image" src="" alt="">
+                    <button class="gallery-nav prev">‹</button>
+                    <button class="gallery-nav next">›</button>
+                    <div class="gallery-counter">1 / 5</div>
+                    <button class="gallery-info-btn">Pokaż opis</button>
+                    <div class="gallery-image-overlay">
+                        <div class="gallery-image-info">
+                            <h3 class="image-title">Nazwa projektu</h3>
+                            <p class="image-description">Opis projektu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-thumbnails"></div>
+                <div class="modal-description">
+                    <p class="description-text">Opis projektu</p>
+                </div>
+                <div class="modal-footer">
+                    <p class="modal-subtitle-mobile">Lokalizacja</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Gallery -->
+    <div id="gallery-fullscreen" class="gallery-fullscreen">
+        <span class="fullscreen-close">&times;</span>
+        <img id="fullscreen-image" src="" alt="">
+        <video id="fullscreen-video" controls style="display: none;">
+            Twoja przeglądarka nie obsługuje wideo.
+        </video>
+    </div>
+
+    <!-- Projects data (prostą wersję) -->
+    <script type="application/json" id="projects-data">
+    {
+        "10": {
+            "title": "Projekt Testowy 10",
+            "location": "Test Location",
+            "description": "Projekt z mieszanką zdjęć i filmów"
+        },
+        "11": {
+            "title": "Projekt Testowy 11", 
+            "location": "Test Location 2",
+            "description": "Kolejny projekt z filmami"
+        },
+        "1": {
+            "title": "Projekt Testowy 1",
+            "location": "Test Location 3", 
+            "description": "Projekt tylko ze zdjęciami"
+        }
+    }
+    </script>
+
+    <script src="modale/gallery-modal.js"></script>
+</body>
+</html>
