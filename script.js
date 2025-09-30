@@ -482,6 +482,7 @@ function initializeApp() {
         initializeGalleryToggle();
         initializeMobileGalleryScrollReveal();
         initializeMobileAboutAnimation();
+        setupDynamicScrollBanner(); // Stabilne pozycjonowanie scroll bannera na mobile
         
         console.log('MetaStudio JavaScript initialized successfully');
     } catch (error) {
@@ -1070,9 +1071,108 @@ function initializeProjectHeightObserver() {
     console.log('Project height observer initialized');
 }
 
+// ==========================================
+// DYNAMICZNE POZYCJONOWANIE SCROLL BANNERA (TYLKO MOBILE)
+// ==========================================
+
+/**
+ * Funkcja debounce dla ograniczenia częstotliwości wywołań
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Funkcja do precyzyjnego pozycjonowania scroll bannera na mobile
+ */
+function setupDynamicScrollBanner() {
+    const scrollBanner = document.querySelector('.scroll-banner');
+    const header = document.querySelector('header');
+    
+    if (!scrollBanner || !header) {
+        console.warn('Scroll banner or header not found');
+        return;
+    }
+
+    let currentPosition = null;
+
+    function updateScrollBannerPosition() {
+        // Sprawdź czy to urządzenie mobilne (max-width: 767px)
+        if (window.innerWidth <= 767) {
+            const bannerImage = header.querySelector('img[src*="baner"]');
+            if (bannerImage) {
+                // Poczekaj aż obraz się załaduje
+                if (bannerImage.complete && bannerImage.naturalHeight !== 0) {
+                    const imageHeight = bannerImage.offsetHeight;
+                    const headerOffsetTop = header.offsetTop;
+                    
+                    // Oblicz pozycję jako 38% wysokości obrazka od góry headera
+                    const newPosition = headerOffsetTop + (imageHeight * 0.38);
+                    
+                    // Aktualizuj tylko jeśli pozycja się znacząco zmieniła (więcej niż 2px)
+                    if (currentPosition === null || Math.abs(currentPosition - newPosition) > 2) {
+                        currentPosition = newPosition;
+                        
+                        scrollBanner.style.position = 'absolute';
+                        scrollBanner.style.top = `${newPosition}px`;
+                        scrollBanner.style.left = '0';
+                        scrollBanner.style.width = '100%';
+                        scrollBanner.style.zIndex = '10';
+                        
+                        console.log(`Scroll banner positioned at: ${newPosition}px (38% of ${imageHeight}px image height)`);
+                    }
+                } else {
+                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie po chwili
+                    setTimeout(updateScrollBannerPosition, 100);
+                }
+            }
+        } else {
+            // Na większych ekranach przywróć domyślne pozycjonowanie CSS
+            if (currentPosition !== null) {
+                scrollBanner.style.position = '';
+                scrollBanner.style.top = '';
+                scrollBanner.style.left = '';
+                scrollBanner.style.width = '';
+                scrollBanner.style.zIndex = '';
+                currentPosition = null;
+                console.log('Scroll banner reset to default CSS positioning');
+            }
+        }
+    }
+
+    // Utwórz wersję z debounce dla resize (200ms opóźnienie)
+    const debouncedUpdate = debounce(updateScrollBannerPosition, 200);
+    
+    // Ustaw początkową pozycję po załadowaniu DOM
+    setTimeout(updateScrollBannerPosition, 50);
+    
+    // Nasłuchuj zmian rozmiaru okna z debounce
+    window.addEventListener('resize', debouncedUpdate);
+    
+    // Nasłuchuj załadowania obrazów
+    const bannerImage = header.querySelector('img[src*="baner"]');
+    if (bannerImage) {
+        bannerImage.addEventListener('load', updateScrollBannerPosition);
+    }
+    
+    // Dodatkowe sprawdzenie po pełnym załadowaniu strony
+    window.addEventListener('load', updateScrollBannerPosition);
+    
+    console.log('Dynamic scroll banner positioning initialized (mobile only, 38% image height)');
+}
+
 // Udostępnij funkcje globalnie
 window.toggleProducerDetails = toggleProducerDetails;
 window.adjustProjectSectionHeight = adjustProjectSectionHeight;
+window.setupDynamicScrollBanner = setupDynamicScrollBanner;
 
 // ==========================================
 // EKSPORT FUNKCJI (dla ewentualnego użycia w innych plikach)
