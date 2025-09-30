@@ -459,6 +459,8 @@ nav {
     font-size: 1.4rem;
     padding-bottom: 0px;
     margin-left: 0;
+    margin-top: 8px;
+    margin-bottom: -3px;
     flex-shrink: 0;
 }
 
