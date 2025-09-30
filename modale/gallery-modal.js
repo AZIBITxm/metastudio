@@ -188,23 +188,110 @@ class GalleryModal {
     }
     
     async loadGalleryImages(galleryId) {
-        // Common image extensions
+        console.log('Loading gallery images for:', galleryId);
         const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
         const images = [];
         
-        // Try to load images from 1 to 20 (reasonable limit)
+        // Najpierw znajdź wszystkie dostępne miniaturki (m1, m2, m3...)
+        const thumbnails = await this.findAvailableThumbnails(galleryId, imageExtensions);
+        console.log(`Found ${thumbnails.length} thumbnails for gallery ${galleryId}`);
+        
+        if (thumbnails.length === 0) {
+            // Fallback - spróbuj załadować bez miniaturek (stary sposób)
+            console.log('No thumbnails found, falling back to original images');
+            return await this.loadImagesWithoutThumbnails(galleryId, imageExtensions);
+        }
+        
+        // Dla każdej miniaturki, stwórz obiekt z thumb i pełnym obrazem
+        for (const thumb of thumbnails) {
+            const imageNumber = thumb.number;
+            const fullImagePath = await this.findFullImage(galleryId, imageNumber, imageExtensions);
+            
+            images.push({
+                number: imageNumber,
+                thumbnail: thumb.path,
+                src: fullImagePath || thumb.path, // fallback do miniaturki jeśli nie ma pełnego
+                alt: `${this.getProjectTitle(galleryId)} - Zdjęcie ${imageNumber}`,
+                loaded: false // czy pełny obraz został już załadowany
+            });
+        }
+        
+        this.images = images;
+        console.log('Prepared images array:', this.images);
+        
+        if (this.images.length === 0) {
+            throw new Error('No images found for this gallery');
+        }
+        
+        // Załaduj pierwszy pełny obraz od razu
+        if (this.images.length > 0) {
+            await this.preloadFullImage(0);
+        }
+    }
+    
+    async findAvailableThumbnails(galleryId, extensions) {
+        const thumbnails = [];
+        
+        // Sprawdź miniaturki od m1 do m20
         for (let i = 1; i <= 20; i++) {
-            for (const ext of imageExtensions) {
+            for (const ext of extensions) {
+                const thumbPath = `galeria/${galleryId}/m${i}.${ext}`;
+                
+                try {
+                    const exists = await this.checkImageExists(thumbPath);
+                    if (exists) {
+                        thumbnails.push({
+                            number: i,
+                            path: thumbPath
+                        });
+                        break; // Found thumbnail, try next number
+                    }
+                } catch (e) {
+                    // Continue to next extension
+                }
+            }
+        }
+        
+        return thumbnails;
+    }
+    
+    async findFullImage(galleryId, imageNumber, extensions) {
+        // Znajdź pełny obraz dla danego numeru (bez 'm')
+        for (const ext of extensions) {
+            const imagePath = `galeria/${galleryId}/${imageNumber}.${ext}`;
+            
+            try {
+                const exists = await this.checkImageExists(imagePath);
+                if (exists) {
+                    return imagePath;
+                }
+            } catch (e) {
+                // Continue to next extension
+            }
+        }
+        
+        return null; // Nie znaleziono pełnego obrazu
+    }
+    
+    async loadImagesWithoutThumbnails(galleryId, extensions) {
+        // Fallback - stary sposób ładowania (bez miniaturek)
+        const images = [];
+        
+        for (let i = 1; i <= 20; i++) {
+            for (const ext of extensions) {
                 const imagePath = `galeria/${galleryId}/${i}.${ext}`;
                 
                 try {
                     const exists = await this.checkImageExists(imagePath);
                     if (exists) {
                         images.push({
+                            number: i,
+                            thumbnail: imagePath, // używaj pełnego obrazu jako miniaturka
                             src: imagePath,
-                            alt: `${this.getProjectTitle(galleryId)} - Zdjęcie ${i}`
+                            alt: `${this.getProjectTitle(galleryId)} - Zdjęcie ${i}`,
+                            loaded: true
                         });
-                        break; // Found image with this number, try next number
+                        break;
                     }
                 } catch (e) {
                     // Continue to next extension
@@ -213,9 +300,50 @@ class GalleryModal {
         }
         
         this.images = images;
+        return images;
+    }
+    
+    async preloadFullImage(imageIndex) {
+        // Załaduj pełny obraz dla danego indeksu
+        if (!this.images[imageIndex] || this.images[imageIndex].loaded) {
+            return; // Już załadowany lub nie istnieje
+        }
         
-        if (this.images.length === 0) {
-            throw new Error('No images found for this gallery');
+        const imageObj = this.images[imageIndex];
+        console.log(`Preloading full image ${imageIndex + 1}: ${imageObj.src}`);
+        
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                imageObj.loaded = true;
+                console.log(`Successfully preloaded image ${imageIndex + 1}`);
+                resolve(imageObj);
+            };
+            img.onerror = () => {
+                console.warn(`Failed to preload image ${imageIndex + 1}: ${imageObj.src}`);
+                resolve(imageObj); // Resolve anyway, będziemy używać miniaturki
+            };
+            img.src = imageObj.src;
+        });
+    }
+    
+    async preloadAdjacentImages(currentIndex) {
+        // Załaduj obrazy przed i po aktualnym
+        const promises = [];
+        
+        // Poprzedni obraz
+        if (currentIndex > 0 && !this.images[currentIndex - 1].loaded) {
+            promises.push(this.preloadFullImage(currentIndex - 1));
+        }
+        
+        // Następny obraz
+        if (currentIndex < this.images.length - 1 && !this.images[currentIndex + 1].loaded) {
+            promises.push(this.preloadFullImage(currentIndex + 1));
+        }
+        
+        if (promises.length > 0) {
+            console.log(`Preloading ${promises.length} adjacent images...`);
+            await Promise.all(promises);
         }
     }
     
@@ -275,7 +403,7 @@ class GalleryModal {
         
         this.images.forEach((image, index) => {
             const thumbnail = document.createElement('img');
-            thumbnail.src = image.src;
+            thumbnail.src = image.thumbnail; // Użyj miniaturki zamiast pełnego obrazu
             thumbnail.alt = image.alt;
             thumbnail.className = 'thumbnail';
             thumbnail.style.cursor = 'pointer';
@@ -310,10 +438,11 @@ class GalleryModal {
         this.setupThumbnailsDrag(thumbnailsContainer);
     }
     
-    showImage(index) {
+    async showImage(index) {
         if (index < 0 || index >= this.images.length) return;
         
         this.currentImageIndex = index;
+        const imageObj = this.images[index];
         
         // Hide overlay when changing image
         this.hideOverlay();
@@ -324,20 +453,76 @@ class GalleryModal {
             // Add loading effect
             mainImage.style.opacity = '0.5';
             
+            // Użyj pełnego obrazu jeśli jest załadowany, w przeciwnym razie miniaturkę
+            let imageToShow = imageObj.loaded ? imageObj.src : imageObj.thumbnail;
+            
             // Create new image to preload
             const newImg = new Image();
             newImg.onload = () => {
                 mainImage.src = newImg.src;
-                mainImage.alt = this.images[index].alt;
+                mainImage.alt = imageObj.alt;
                 mainImage.style.opacity = '1';
+                
+                // Jeśli pokazaliśmy miniaturkę, załaduj pełny obraz w tle
+                if (!imageObj.loaded && imageToShow === imageObj.thumbnail) {
+                    this.loadFullImageInBackground(index, mainImage);
+                }
             };
             newImg.onerror = () => {
-                console.error('Error loading image:', this.images[index].src);
+                console.error('Error loading image:', imageToShow);
                 mainImage.style.opacity = '1';
             };
-            newImg.src = this.images[index].src;
+            newImg.src = imageToShow;
         }
         
+        // Preload sąsiednie obrazy w tle
+        this.preloadAdjacentImages(index);
+        
+        // Update thumbnail states and counter
+        this.updateActiveThumbnail(index);
+    }
+    
+    async loadFullImageInBackground(index, mainImageElement) {
+        // Ładuj pełny obraz w tle i zamień gdy będzie gotowy
+        const imageObj = this.images[index];
+        
+        if (imageObj.loaded || imageObj.src === imageObj.thumbnail) {
+            return; // Już załadowany lub nie ma pełnego obrazu
+        }
+        
+        console.log(`Loading full image in background: ${imageObj.src}`);
+        
+        const fullImg = new Image();
+        fullImg.onload = () => {
+            // Sprawdź czy user nadal patrzy na ten sam obraz
+            if (this.currentImageIndex === index) {
+                // Smooth transition do pełnego obrazu
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    mainImageElement.style.transition = 'opacity 0.3s ease';
+                    mainImageElement.style.opacity = '0.8';
+                    
+                    setTimeout(() => {
+                        mainImageElement.src = imageObj.src;
+                        mainImageElement.style.opacity = '1';
+                        imageObj.loaded = true;
+                        console.log(`Upgraded to full image: ${imageObj.src}`);
+                    }, 150);
+                };
+                tempImg.src = imageObj.src;
+            } else {
+                // User już przeszedł do innego obrazu, tylko oznacz jako załadowany
+                imageObj.loaded = true;
+                console.log(`Full image loaded (not displayed): ${imageObj.src}`);
+            }
+        };
+        fullImg.onerror = () => {
+            console.warn(`Failed to load full image: ${imageObj.src}`);
+        };
+        fullImg.src = imageObj.src;
+    }
+    
+    updateActiveThumbnail(index) {
         // Update active thumbnail
         const thumbnails = this.modal.querySelectorAll('.thumbnail');
         thumbnails.forEach((thumb, i) => {

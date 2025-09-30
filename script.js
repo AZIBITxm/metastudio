@@ -603,6 +603,9 @@ function scrollToElement(selector, offset = 0) {
  */
 function initializeApp() {
     try {
+        // Wczesne wywołanie pozycjonowania scroll bannera
+        setupDynamicScrollBannerForMobile();
+        
         initializeHeaderAnimations();
         // Wymuszanie układu pionowego dla logos-container
         const logos = document.querySelectorAll('.logos-container');
@@ -623,7 +626,6 @@ function initializeApp() {
         initializeAutoImageLoading(); // Automatyczne ładowanie pierwszych zdjęć z katalogów - po toggle
         initializeMobileGalleryScrollReveal();
         initializeMobileAboutAnimation();
-        setupDynamicScrollBannerForMobile(); // Dynamiczne pozycjonowanie dla banerm.png na 33%
         
         console.log('MetaStudio JavaScript initialized successfully');
     } catch (error) {
@@ -1227,6 +1229,8 @@ function setupDynamicScrollBannerForMobile() {
         console.warn('Scroll banner or header not found');
         return;
     }
+    
+    console.log('Setting up dynamic scroll banner positioning...');
 
     function updateScrollBannerPosition() {
         // Sprawdź czy to urządzenie mobilne z banerm.png (≤480px)
@@ -1256,8 +1260,9 @@ function setupDynamicScrollBannerForMobile() {
                     console.log(`Image starts at: ${imageTopInDocument.toFixed(1)}px, height: ${imageHeight.toFixed(1)}px`);
                     console.log(`33% of image height = ${(imageHeight * 0.33).toFixed(1)}px, minus 15px banner offset`);
                 } else {
-                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie
-                    updateScrollBannerPosition();
+                    // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie po krótkim opóźnieniu
+                    console.log('Banner image not loaded yet, retrying in 100ms...');
+                    setTimeout(updateScrollBannerPosition, 100);
                 }
             }
         } else {
@@ -1272,8 +1277,14 @@ function setupDynamicScrollBannerForMobile() {
         }
     }
 
-    // Ustaw początkową pozycję
+    // Ustaw początkową pozycję od razu
     updateScrollBannerPosition();
+    
+    // Dodatkowe wywołania z opóźnieniem dla pewności
+    setTimeout(updateScrollBannerPosition, 100);  // Po 100ms
+    setTimeout(updateScrollBannerPosition, 300);  // Po 300ms
+    setTimeout(updateScrollBannerPosition, 500);  // Po 500ms
+    setTimeout(updateScrollBannerPosition, 1000); // Po 1s
     
     // Nasłuchuj zmian rozmiaru okna
     window.addEventListener('resize', updateScrollBannerPosition);
@@ -1282,13 +1293,32 @@ function setupDynamicScrollBannerForMobile() {
     const bannerImage = header.querySelector('img[src*="baner"]');
     if (bannerImage) {
         bannerImage.addEventListener('load', updateScrollBannerPosition);
+        // Jeśli obraz jest już załadowany, wywołaj od razu
+        if (bannerImage.complete) {
+            setTimeout(updateScrollBannerPosition, 50);
+        }
     }
     
     // Nasłuchuj orientacji urządzenia
-    window.addEventListener('orientationchange', updateScrollBannerPosition);
+    window.addEventListener('orientationchange', function() {
+        setTimeout(updateScrollBannerPosition, 100);
+    });
     
     // Dodatkowe sprawdzenie po załadowaniu strony
-    window.addEventListener('load', updateScrollBannerPosition);
+    window.addEventListener('load', function() {
+        setTimeout(updateScrollBannerPosition, 100);
+    });
+    
+    // Sprawdzenie po pełnym załadowaniu DOM i obrazów
+    if (document.readyState === 'complete') {
+        setTimeout(updateScrollBannerPosition, 50);
+    } else {
+        document.addEventListener('readystatechange', function() {
+            if (document.readyState === 'complete') {
+                setTimeout(updateScrollBannerPosition, 100);
+            }
+        });
+    }
     
     console.log('Dynamic scroll banner positioning for banerm.png initialized (33% minus banner height)');
 }
