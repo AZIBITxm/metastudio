@@ -1,16 +1,69 @@
-pl
-ELEGANCKA REZYDENCJA
+﻿pl
+WNĘTRZE PIZZERII W STYLU INDUSTRIALNYM
+Kompleksowa realizacja umeblowania i elementów wykończenia wnętrza pizzerii zlokalizowanej w galerii handlowej. Projekt łączy w sobie styl industrialny z nowoczesnymi elementami, tworząc przytulną, ale dynamiczną przestrzeń. Centralnym punktem lokalu jest wyrazista lada barowa, w której, podobnie jak w całym wnętrzu, zastosowano surowe materiały (cegła, metal) ocieplone drewnem i komfortowymi siedziskami.
+MATERIAŁY:
+* Sala konsumpcyjna:
+   * Stoły: Blaty z płyty laminowanej w dekorze dębu, podstawy stołów metalowe, malowane na czarno.
+   * Siedziska: Loże tapicerowane beżową ekoskórą na czarnych stelażach, nowoczesne krzesła z tworzywa w kolorach białym i czarnym.
+   * Wykończenie ścian: Płytki z cegły, tynk strukturalny w kolorze szarym.
+* Lada barowa:
+   * Front lady: Płytki ceramiczne w kolorze białym z połyskiem, ułożone z przesunięciem (typu "subway").
+   * Blat dla klienta: Płyta laminowana o dekorze dębu, o widocznej grubości.
+   * Ściana tylna (za barem): Płytki z cegły rozbiórkowej.
+   * Elementy dodatkowe: Szklana osłona higieniczna (witrynka) na ladzie.
+SYSTEMY:
+* Oświetlenie: Dedykowane instalacje oświetleniowe nad stołami w formie białych, przestrzennych stelaży z dekoracyjnymi żarówkami typu Edison. Funkcjonalne oświetlenie strefy roboczej za barem za pomocą czarnych reflektorów sufitowych.
+* Integracja wyposażenia: Konstrukcja lady zaprojektowana pod integrację sprzętu gastronomicznego, w tym pieca do pizzy i okapu ze stali nierdzewnej.
+CHARAKTERYSTYCZNE ELEMENTY:
+* Autorskie lampy sufitowe: Dwa duże, podwieszane stelaże z chaotycznie rozmieszczonymi przewodami i żarówkami, stanowiące główny element dekoracyjny wnętrza.
+* Kontrast faktur i materiałów: Zestawienie gładkich powierzchni (tapicerka, krzesła) z porowatą strukturą cegły, lśniącą bielą płytek na ladzie i ciepłym rysunkiem drewna.
+* Otwarta strefa pracy: Projekt lady pozwala na wgląd w proces przygotowywania pizzy, co buduje relację z klientem i stanowi dodatkową atrakcję.
+* Spójność z identyfikacją wizualną: Czarne i białe elementy wystroju oraz logotyp pizzerii umieszczony na froncie lady nawiązują do kolorystyki i znaku marki.
+________________
 
-Przestronna rezydencja łącząca klasyczną elegancję z nowoczesnymi rozwiązaniami.
 
----
 en
-ELEGANT RESIDENCE
+INTERIOR OF AN INDUSTRIAL-STYLE PIZZERIA
+A comprehensive implementation of furniture and interior finishing elements for a pizzeria located in a shopping mall. The project combines an industrial style with modern elements, creating a cozy yet dynamic space. The focal point of the establishment is a distinctive bar counter, where, like in the rest of the interior, raw materials (brick, metal) are warmed by wood and comfortable seating.
+MATERIALS:
+* Dining Area:
+   * Tables: Tabletops made of laminated board in oak decor, table bases made of black-painted metal.
+   * Seating: Booths upholstered in beige eco-leather on black frames, modern plastic chairs in white and black.
+   * Wall finishes: Brick tiles, structural plaster in a gray color.
+* Bar Counter:
+   * Counter Front: Glossy white ceramic tiles, laid in an offset pattern ("subway" style).
+   * Customer Countertop: Laminated board in oak decor, with a visible thickness.
+   * Back Wall (behind the bar): Reclaimed brick tiles.
+   * Additional Elements: Glass hygiene guard (sneeze guard) on the counter.
+SYSTEMS:
+* Lighting: Custom lighting installations over the tables in the form of white, spatial frames with decorative Edison-type bulbs. Functional lighting for the work area behind the bar is provided by black ceiling spotlights.
+* Equipment Integration: The counter's structure is designed to integrate gastronomic equipment, including a pizza oven and a stainless steel hood.
+DISTINCTIVE FEATURES:
+* Custom Ceiling Lamps: Two large, suspended frames with chaotically arranged cables and bulbs, serving as the main decorative element of the interior.
+* Contrast of Textures and Materials: A juxtaposition of smooth surfaces (upholstery, chairs) with the porous structure of brick, the glossy white of the counter tiles, and the warm grain of wood.
+* Open Work Area: The counter's design allows customers to see the pizza-making process, which builds a connection and serves as an additional attraction.
+* Cohesion with Visual Identity: The black and white elements of the decor and the pizzeria's logotype on the counter front correspond to the brand's color scheme and trademark.
+________________
 
-Spacious residence combining classic elegance with modern solutions.
 
----
 de
-ELEGANTE RESIDENZ
-
-Geräumige Residenz, die klassische Eleganz mit modernen Lösungen verbindet.
+INNENAUSSTATTUNG EINER PIZZERIA IM INDUSTRIELLEN STIL
+Umfassende Realisierung von Möbeln und Innenausstattungselementen für eine Pizzeria in einem Einkaufszentrum. Das Projekt verbindet industriellen Stil mit modernen Elementen und schafft so einen gemütlichen, aber dennoch dynamischen Raum. Der Mittelpunkt des Lokals ist eine markante Bartheke, bei der, wie im gesamten Interieur, rohe Materialien (Ziegel, Metall) durch Holz und bequeme Sitzgelegenheiten aufgewärmt werden.
+MATERIALIEN:
+* Essbereich:
+   * Tische: Tischplatten aus Laminat in Eichendekor, Tischgestelle aus schwarz lackiertem Metall.
+   * Sitzgelegenheiten: Sitzbänke mit beigem Kunstleder auf schwarzen Gestellen gepolstert, moderne Kunststoffstühle in Weiß und Schwarz.
+   * Wandverkleidung: Ziegelriemchen, Strukturputz in Grau.
+* Bartheke:
+   * Thekenfront: Glänzend weiße Keramikfliesen, im Versatz verlegt ("Subway"-Stil).
+   * Kunden-Arbeitsplatte: Laminatplatte in Eichendekor, mit sichtbarer Stärke.
+   * Rückwand (hinter der Bar): Ziegelriemchen aus Abbruchziegeln.
+   * Zusätzliche Elemente: Hygieneschutz aus Glas (Spuckschutz) auf der Theke.
+SYSTEME:
+* Beleuchtung: Maßgefertigte Beleuchtungsinstallationen über den Tischen in Form von weißen, räumlichen Rahmen mit dekorativen Edison-Glühbirnen. Die funktionale Beleuchtung des Arbeitsbereichs hinter der Theke erfolgt durch schwarze Deckenstrahler.
+* Geräteintegration: Die Konstruktion der Theke ist für die Integration von Gastronomiegeräten ausgelegt, einschließlich eines Pizzaofens und einer Edelstahl-Dunstabzugshaube.
+CHARAKTERISTISCHE ELEMENTE:
+* Individuelle Deckenleuchten: Zwei große, abgehängte Rahmen mit chaotisch angeordneten Kabeln und Glühbirnen, die das Hauptdekorationselement des Innenraums bilden.
+* Kontrast von Texturen und Materialien: Das Nebeneinander von glatten Oberflächen (Polster, Stühle) mit der porösen Struktur von Ziegeln, dem glänzenden Weiß der Thekenfliesen und der warmen Holzmaserung.
+* Offener Arbeitsbereich: Das Design der Theke ermöglicht den Kunden einen Einblick in den Prozess der Pizzazubereitung, was eine Beziehung aufbaut und eine zusätzliche Attraktion darstellt.
+* Kohärenz mit der visuellen Identität: Die schwarzen und weißen Elemente der Einrichtung sowie das Logo der Pizzeria auf der Thekenfront entsprechen dem Farbschema und dem Markenzeichen der Marke.
