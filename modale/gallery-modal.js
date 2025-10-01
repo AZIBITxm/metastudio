@@ -36,10 +36,6 @@ class GalleryModal {
         this.lastTouchY = 0;
         this.isPanning = false;
         
-        // Double-tap to zoom
-        this.lastTapTime = 0;
-        this.tapTimeout = null;
-        
         this.init();
     }
     
@@ -1236,11 +1232,13 @@ class GalleryModal {
             /* Style dla fullscreen media */
             #fullscreen-image, #fullscreen-video {
                 cursor: zoom-out !important;
-                transition: filter 0.2s ease, transform 0.3s ease !important;
+                transition: filter 0.2s ease !important;
                 touch-action: none !important;
                 user-select: none !important;
                 -webkit-user-select: none !important;
                 -webkit-touch-callout: none !important;
+                -webkit-user-drag: none !important;
+                -webkit-tap-highlight-color: transparent !important;
             }
             
             #fullscreen-image:hover, #fullscreen-video:hover {
@@ -1385,11 +1383,6 @@ class GalleryModal {
             this.fullscreenImageClickHandler = (e) => {
                 e.stopPropagation();
                 
-                // Na mobile sprawdź double-tap
-                if (this.isMobile() && this.handleDoubleTap(e, fullscreenImage)) {
-                    return; // Double-tap obsłużony
-                }
-                
                 // Jeśli obraz jest powiększony, zresetuj zoom zamiast zamykać
                 if (this.currentScale > 1.1) {
                     console.log('🔄 Image is zoomed - resetting zoom');
@@ -1407,11 +1400,6 @@ class GalleryModal {
         if (fullscreenVideo) {
             this.fullscreenVideoClickHandler = (e) => {
                 e.stopPropagation();
-                
-                // Na mobile sprawdź double-tap
-                if (this.isMobile() && this.handleDoubleTap(e, fullscreenVideo)) {
-                    return; // Double-tap obsłużony
-                }
                 
                 // Jeśli wideo jest powiększone, zresetuj zoom zamiast zamykać
                 if (this.currentScale > 1.1) {
@@ -1457,13 +1445,20 @@ class GalleryModal {
         // Usuń poprzednie listenery jeśli istnieją
         this.removePinchListeners();
         
+        // Stwórz bound functions żeby można je było później usunąć
+        this.boundTouchStart = this.handleTouchStart.bind(this);
+        this.boundTouchMove = this.handleTouchMove.bind(this);
+        this.boundTouchEnd = this.handleTouchEnd.bind(this);
+        
         [fullscreenImage, fullscreenVideo].forEach(element => {
             if (!element) return;
             
+            console.log('🤏 Adding touch listeners to:', element.id);
+            
             // Touch events dla pinch-to-zoom
-            element.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
-            element.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
-            element.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
+            element.addEventListener('touchstart', this.boundTouchStart, { passive: false });
+            element.addEventListener('touchmove', this.boundTouchMove, { passive: false });
+            element.addEventListener('touchend', this.boundTouchEnd, { passive: false });
             
             // Zapobiegaj domyślnemu zachowaniu przeglądarki (scroll, zoom)
             element.addEventListener('gesturestart', (e) => e.preventDefault());
@@ -1471,28 +1466,35 @@ class GalleryModal {
             element.addEventListener('gestureend', (e) => e.preventDefault());
         });
         
-        console.log('🤏 Pinch-to-zoom listeners added');
+        console.log('🤏 Pinch-to-zoom listeners added successfully');
     }
     
     removePinchListeners() {
         const fullscreenImage = this.fullscreen?.querySelector('#fullscreen-image');
         const fullscreenVideo = this.fullscreen?.querySelector('#fullscreen-video');
         
-        [fullscreenImage, fullscreenVideo].forEach(element => {
-            if (!element) return;
-            
-            element.removeEventListener('touchstart', this.handleTouchStart);
-            element.removeEventListener('touchmove', this.handleTouchMove);
-            element.removeEventListener('touchend', this.handleTouchEnd);
-        });
+        if (this.boundTouchStart && this.boundTouchMove && this.boundTouchEnd) {
+            [fullscreenImage, fullscreenVideo].forEach(element => {
+                if (!element) return;
+                
+                console.log('🤏 Removing touch listeners from:', element.id);
+                
+                element.removeEventListener('touchstart', this.boundTouchStart);
+                element.removeEventListener('touchmove', this.boundTouchMove);
+                element.removeEventListener('touchend', this.boundTouchEnd);
+            });
+        }
     }
     
     handleTouchStart(e) {
+        console.log('👆 Touch start, touches:', e.touches.length);
+        
         if (e.touches.length === 1) {
             // Single touch - możliwy początek panning
             this.lastTouchX = e.touches[0].clientX;
             this.lastTouchY = e.touches[0].clientY;
             this.isPanning = false;
+            console.log('👆 Single touch at:', this.lastTouchX, this.lastTouchY);
         } else if (e.touches.length === 2) {
             // Pinch start
             e.preventDefault();
@@ -1503,7 +1505,7 @@ class GalleryModal {
             const touch2 = e.touches[1];
             this.initialDistance = this.getDistance(touch1, touch2);
             
-            console.log('🤏 Pinch start, distance:', this.initialDistance);
+            console.log('🤏 Pinch start, distance:', this.initialDistance, 'current scale:', this.currentScale);
         }
     }
     
@@ -1519,6 +1521,8 @@ class GalleryModal {
             const scale = (currentDistance / this.initialDistance) * this.currentScale;
             const newScale = Math.min(Math.max(scale, this.minScale), this.maxScale);
             
+            console.log('🤏 Pinching - distance:', currentDistance, 'scale:', newScale.toFixed(2));
+            
             this.applyTransform(e.target, newScale, this.currentX, this.currentY);
             
         } else if (e.touches.length === 1 && this.currentScale > 1) {
@@ -1531,6 +1535,7 @@ class GalleryModal {
             
             if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
                 this.isPanning = true;
+                console.log('👋 Panning started');
             }
             
             if (this.isPanning) {
@@ -1563,14 +1568,10 @@ class GalleryModal {
             }
         }
         
-        // Jeśli nie było panningu, traktuj jako zwykłe kliknięcie
+        // Reset panning state
         setTimeout(() => {
-            if (!this.isPanning && e.touches.length === 0 && this.currentScale <= 1.1) {
-                // Tylko jeśli nie ma zoom - zamknij fullscreen
-                this.closeFullscreen();
-            }
             this.isPanning = false;
-        }, 100);
+        }, 50);
     }
     
     getDistance(touch1, touch2) {
@@ -1582,8 +1583,11 @@ class GalleryModal {
     applyTransform(element, scale, x, y) {
         if (!element) return;
         
-        element.style.transform = `scale(${scale}) translate(${x / scale}px, ${y / scale}px)`;
+        const transformValue = `scale(${scale}) translate(${x / scale}px, ${y / scale}px)`;
+        element.style.transform = transformValue;
         element.style.transformOrigin = 'center center';
+        
+        console.log('🔄 Applying transform:', transformValue, 'to', element.id);
         
         // Dodaj/usuń klasę CSS dla wskazówek
         if (scale > 1.1) {
@@ -1648,48 +1652,7 @@ class GalleryModal {
         }
     }
     
-    isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-               ('ontouchstart' in window) || 
-               window.innerWidth <= 768;
-    }
-    
-    handleDoubleTap(e, element) {
-        const now = Date.now();
-        const timeSinceLastTap = now - this.lastTapTime;
-        
-        if (timeSinceLastTap < 300 && timeSinceLastTap > 50) {
-            // Double tap detected
-            console.log('📱 Double tap detected');
-            
-            if (this.tapTimeout) {
-                clearTimeout(this.tapTimeout);
-                this.tapTimeout = null;
-            }
-            
-            if (this.currentScale > 1.1) {
-                // Jeśli powiększone - zresetuj
-                this.resetZoom(element);
-            } else {
-                // Jeśli normalne - powiększ 2x w miejscu dotkniecia
-                const rect = element.getBoundingClientRect();
-                const centerX = (e.clientX - rect.left - rect.width / 2);
-                const centerY = (e.clientY - rect.top - rect.height / 2);
-                
-                this.currentScale = 2;
-                this.currentX = -centerX;
-                this.currentY = -centerY;
-                
-                this.applyTransform(element, this.currentScale, this.currentX, this.currentY);
-            }
-            
-            this.lastTapTime = 0; // Reset
-            return true; // Oznacz że double-tap został obsłużony
-        }
-        
-        this.lastTapTime = now;
-        return false;
-    }
+
     
     updateFullscreenImage() {
         if (!this.fullscreen || !this.fullscreen.classList.contains('show')) return;
