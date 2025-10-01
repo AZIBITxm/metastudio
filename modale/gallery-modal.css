@@ -446,9 +446,8 @@
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    /* Styles for touch gestures */
-    touch-action: pan-y; /* Allow vertical scrolling but capture horizontal swipes */
-    user-select: none; /* Prevent text selection during swipe */
+    /* Allow natural touch interactions including zoom */
+    touch-action: manipulation; /* Enables pinch-to-zoom and panning */
 }
 
 .gallery-fullscreen.show, .fullscreen-container.show {
@@ -461,7 +460,7 @@
     max-width: 95vw;
     max-height: 95vh;
     object-fit: contain;
-    cursor: zoom-out;
+    cursor: default;
     transition: opacity 0.3s ease;
 }
 
@@ -470,7 +469,7 @@
     max-width: 95vw;
     max-height: 95vh;
     object-fit: contain;
-    cursor: zoom-out;
+    cursor: default;
     transition: opacity 0.3s ease;
 }
 

@@ -1307,31 +1307,23 @@ class GalleryModal {
             fullscreenVideo.removeEventListener('click', this.fullscreenVideoClickHandler);
         }
         
-        // Dodaj nowe listenery
+        // Allow natural zoom behavior - no click handler on image
         if (fullscreenImage) {
-            this.fullscreenImageClickHandler = (e) => {
-                e.stopPropagation();
-                console.log('🔥 Fullscreen image clicked - closing fullscreen');
-                this.closeFullscreen();
-            };
-            fullscreenImage.addEventListener('click', this.fullscreenImageClickHandler);
+            // Remove any existing click handlers to allow natural zoom
+            this.fullscreenImageClickHandler = null;
             
-            // Zwykły cursor zoom-out
-            fullscreenImage.style.cursor = 'zoom-out';
-            fullscreenImage.title = 'Kliknij aby zamknąć pełny ekran';
+            // Natural cursor to indicate zoom capability
+            fullscreenImage.style.cursor = 'default';
+            fullscreenImage.title = 'Użyj gestów do powiększania lub kliknij tło aby zamknąć';
         }
         
         if (fullscreenVideo) {
-            this.fullscreenVideoClickHandler = (e) => {
-                e.stopPropagation();
-                console.log('🔥 Fullscreen video clicked - closing fullscreen');
-                this.closeFullscreen();
-            };
-            fullscreenVideo.addEventListener('click', this.fullscreenVideoClickHandler);
+            // Allow natural zoom behavior - no click handler on video
+            this.fullscreenVideoClickHandler = null;
             
-            // Zwykły cursor zoom-out
-            fullscreenVideo.style.cursor = 'zoom-out';
-            fullscreenVideo.title = 'Kliknij aby zamknąć pełny ekran';
+            // Natural cursor
+            fullscreenVideo.style.cursor = 'default';
+            fullscreenVideo.title = 'Użyj gestów lub kliknij tło aby zamknąć';
         }
     }
     
