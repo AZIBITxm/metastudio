@@ -1,1858 +1,278 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MetaStudio - Luksusowe Wnętrza i Meble</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="modale/gallery-modal.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaStudio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1a1a1a);
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            color: white; 
+            overflow: hidden;
+        }
+        
+        .container { 
+            text-align: center; 
+            max-width: 600px; 
+            padding: 40px; 
+        }
+        
+        .logo { 
+            width: 150px; 
+            margin-bottom: 30px; 
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.2s forwards; 
+            cursor: pointer; 
+        }
+        
+        .logo:hover { 
+            transform: scale(1.05); 
+        }
+        
+        .brand { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            color: #d4af37;
+            margin-bottom: 10px; 
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 0.4s forwards; 
+        }
+        
+        .subtitle { 
+            font-size: 1.2rem; 
+            color: #ccc; 
+            margin-bottom: 40px;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 0.6s forwards; 
+        }
+        
+        .welcome { 
+            font-size: 3rem; 
+            font-weight: 700; 
+            margin-bottom: 30px;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 0.8s forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        
+        .loader { 
+            position: relative; 
+            width: 80px; 
+            height: 80px; 
+            margin: 40px auto;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 1s forwards; 
+        }
+        
+        .ring { 
+            position: absolute; 
+            border: 4px solid rgba(212,175,55,0.1);
+            border-top: 4px solid #d4af37; 
+            border-radius: 50%; 
+            width: 80px; 
+            height: 80px;
+            animation: spin 1.5s linear infinite; 
+        }
+        
+        .inner { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px;
+            border: 3px solid rgba(255,255,255,0.1); 
+            border-top: 3px solid white;
+            border-radius: 50%; 
+            width: 40px; 
+            height: 40px;
+            animation: spin 1s linear infinite reverse; 
+        }
+        
+        .info { 
+            font-size: 1rem; 
+            color: #999; 
+            margin-top: 30px;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 1.2s forwards; 
+        }
+        
+        .progress { 
+            width: 300px; 
+            height: 4px; 
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px; 
+            margin: 30px auto; 
+            overflow: hidden;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 1.4s forwards; 
+        }
+        
+        .fill { 
+            height: 100%; 
+            background: linear-gradient(90deg, #d4af37, #f4e28c, #d4af37);
+            border-radius: 2px; 
+            width: 0%; 
+            animation: progress 3s ease-in-out 1.5s forwards; 
+        }
+        
+        .hint { 
+            position: absolute; 
+            bottom: 30px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            font-size: 0.9rem; 
+            color: #666; 
+            opacity: 0; 
+            animation: fadeIn 1s ease-out 2s forwards; 
+        }
+        
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        }
+        
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+        
+        @keyframes progress { 
+            0% { width: 0%; } 
+            30% { width: 40%; } 
+            60% { width: 75%; } 
+            100% { width: 100%; } 
+        }
+        
+        @media (max-width: 768px) {
+            .container { 
+                padding: 20px; 
+            } 
+            .brand { 
+                font-size: 2rem; 
+            }
+            .welcome { 
+                font-size: 2.2rem; 
+            } 
+            .progress { 
+                width: 250px; 
+            }
+            .hint { 
+                bottom: 20px; 
+                font-size: 0.8rem; 
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <div class="brand">
-        <img src="logo/logo2.png" alt="MetaStudio Logo" class="brand-logo">
-        <span class="brand-suffix">META STUDIO DESIGN</span>
-    </div>
-    <div class="menu-container">
-        <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="container">
+        <img src="logo/logo2.png" alt="MetaStudio" class="logo" id="logo">
+        <div class="brand">META STUDIO</div>
+        <div class="subtitle">DESIGN</div>
+        <div class="welcome" id="welcome">WITAMY</div>
+        <div class="loader">
+            <div class="ring"></div>
+            <div class="inner"></div>
         </div>
-        <div class="menu-dropdown">
-            <a href="#foundation-support">Wsparcie</a>
-            <a href="#promotions">Promocje</a>
-            <a href="#about">O Nas</a>
-            <a href="#realizations">Nasze Realizacje</a>
-            <a href="#project">Kategorie Materiałów</a>
-            <a href="#collections">Nasze Kolekcje</a>
-            <a href="#contact">Kontakt</a>
+        <div class="progress">
+            <div class="fill"></div>
         </div>
+        <div class="info" id="info">Wykrywanie języka przeglądarki...</div>
     </div>
-  </nav>
-  <header style="padding-top:80px; margin:0; background:none; min-height:0; height:auto;">
-    <img src="tlo/baner1.png" alt="Baner" style="width:100%; display:block; height:auto; margin:0; padding:0;"/>
-</header>
+    <div class="hint">Naciśnij ESC lub kliknij logo aby pominąć</div>
 
-    <!-- Baner przewijany -->
-    <div class="scroll-banner">
-        <marquee behavior="scroll" direction="left" scrollamount="7">SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG</marquee>
-    </div>
-
-  <section id="promotions">
-    <h2>Aktualne Promocje</h2>
-    <div class="content">
-        <div class="promo-grid">
-            <div class="promo-item">
-                <h3>Wiosenna Kolekcja -15%</h3>
-                <p>Zamów meble z nowej kolekcji wiosennej do końca maja i skorzystaj z wyjątkowego rabatu.</p>
-                <a href="#" class="btn-gold">Szczegóły oferty</a>
-            </div>
-            <div class="promo-item">
-                <h3>Darmowa Wizualizacja</h3>
-                <p>Przy zamówieniu kompleksowego projektu wnętrza, wizualizacja 3D w prezencie!</p>
-                <a href="#" class="btn-gold">Dowiedz się więcej</a>
-            </div>
-        </div>
-    </div>
-  </section>
-  <section id="about">
-    <div class="mobile-about-labels">
-            <div class="mobile-about-group">
-                <div class="mobile-title">O Nas</div>
-                <div class="mobile-separator">→</div>
-                <div class="mobile-expand">
-                    <span>R</span>
-                    <span>O</span>
-                    <span>Z</span>
-                    <span>W</span>
-                    <span>I</span>
-                    <span>Ń</span>
-                </div>
-            </div>
-    </div>
-    
-    <!-- Strzałka w banerze obrazu - widoczna po rozwinięciu -->
-    <div class="banner-collapse-arrow">
-        <span>←</span>
-    </div>
-    
-    <h2>O Nas</h2>
-    <div class="about-content">
-        <p class="about-intro">
-            <span class="highlight">Meta Studio Design</span> to zespół profesjonalistów z ponad dziesięcioletnim doświadczeniem w projektowaniu wnętrz i produkcji mebli, który przez lata dostarczał wyjątkowe rozwiązania w Polsce i Europie Zachodniej. Dzięki wieloletniemu doświadczeniu, możemy zapewnić klientom najwyższą jakość usług, spełniając ich marzenia o unikalnych, funkcjonalnych przestrzeniach.
-        </p>
+    <script>
+        const lang = {
+            pl: { 
+                welcome: "WITAMY", 
+                detecting: "Wykrywanie języka przeglądarki...", 
+                loading: "Ładowanie strony polskiej...", 
+                redirecting: "Przekierowanie...",
+                hint: "Naciśnij ESC lub kliknij logo aby pominąć" 
+            },
+            de: { 
+                welcome: "WILLKOMMEN", 
+                detecting: "Browsersprache wird erkannt...",
+                loading: "Deutsche Seite wird geladen...", 
+                redirecting: "Weiterleitung...",
+                hint: "Drücken Sie ESC oder klicken Sie auf das Logo zum Überspringen" 
+            },
+            en: { 
+                welcome: "WELCOME", 
+                detecting: "Detecting browser language...",
+                loading: "Loading English page...", 
+                redirecting: "Redirecting...",
+                hint: "Press ESC or click logo to skip" 
+            }
+        };
         
-        <p class="about-details">
-            Specjalizujemy się w meblach pod zabudowę do domów, restauracji oraz obiektów użyteczności publicznej, oferując <span class="highlight">kompleksową obsługę, od koncepcji po realizację</span>.
-        </p>
+        let detected = 'pl';
+        let timer;
         
-        <p class="about-philosophy">
-            "Furniture is not just an object, it's part of your life."
-        </p>
-        
-        <p class="about-details">
-            Nasza filozofia opiera się na przekonaniu, że meble to nie tylko przedmioty, ale istotna część Twojego życia. Dlatego nasze projekty są tworzone z myślą o Twoich potrzebach, komforcie i stylu. Łączymy nowoczesne technologie z elegancją i funkcjonalnością, aby dostarczać rozwiązania, które w pełni odpowiadają Twoim oczekiwaniom.
-        </p>
-        
-        <p class="about-details">
-            Każdy projekt traktujemy indywidualnie, z pełnym zaangażowaniem i pasją. Oferujemy <span class="highlight">bezpłatne spotkanie online</span>, podczas którego każdy klient może zobaczyć wizualizację swoich wymarzonych mebli oraz obejrzeć pomieszczenie w 3D.
-        </p>
-        
-        <p class="about-details">
-            Dzięki <span class="highlight">nowoczesnym technologiom meblarskim</span> oraz dbałości o każdy detal, dostarczamy produkty najwyższej jakości, które zaskakują naszych klientów innowacyjnymi rozwiązaniami.
-        </p>
-    </div>
-</section>
-  <section id="realizations">
-    <div class="realizations-header">
-        <h2>Nasze Realizacje</h2>
-        <p class="realizations-description">
-            Prezentujemy wybrane realizacje z naszego portfolio. To autentyczne zdjęcia wykonane bezpośrednio po zakończeniu prac u naszych klientów. Nie są to showroomy ani ekspozycje, lecz rzeczywiste wnętrza przestrzeni mieszkalnych i komercyjnych - bez retuszu czy aranżacji studyjnej.
-        </p>
-        <button id="showAllGalleryBtn" class="show-all-btn">
-            <span class="btn-arrow-left">↓</span>
-            <span class="btn-text">POKAŻ WSZYSTKIE</span>
-            <span class="btn-arrow">↓</span>
-        </button>
-    </div>
-    <div class="gallery">
-        <div class="gallery-item main-gallery-item" data-gallery="1">
-            <img src="" alt="Apartament w Monachium" />
-            <div class="gallery-item-info">
-                <h3>Apartament w Monachium</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item main-gallery-item" data-gallery="2">
-            <img src="" alt="Rezydencja w Warszawie" />
-            <div class="gallery-item-info">
-                <h3>Rezydencja w Warszawie</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item main-gallery-item" data-gallery="3">
-            <img src="" alt="Penthouse w Berlinie" />
-            <div class="gallery-item-info">
-                <h3>Penthouse w Berlinie</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item main-gallery-item" data-gallery="4">
-            <img src="" alt="Villa w Hamburgu" />
-            <div class="gallery-item-info">
-                <h3>Villa w Hamburgu</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dodatkowe realizacje - ukryte domyślnie -->
-        <div class="gallery-item extended-gallery-item" data-gallery="5" style="display: none;">
-            <img src="" alt="Loft w Krakowie" />
-            <div class="gallery-item-info">
-                <h3>Loft w Krakowie</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="6" style="display: none;">
-            <img src="" alt="Apartament w Gdańsku" />
-            <div class="gallery-item-info">
-                <h3>Apartament w Gdańsku</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="7" style="display: none;">
-            <img src="" alt="Dom w Zakopanem" />
-            <div class="gallery-item-info">
-                <h3>Dom w Zakopanem</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="8" style="display: none;">
-            <img src="" alt="Studio w Poznaniu" />
-            <div class="gallery-item-info">
-                <h3>Studio w Poznaniu</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="9" style="display: none;">
-            <img src="" alt="Apartament w Wrocławiu" />
-            <div class="gallery-item-info">
-                <h3>Apartament w Wrocławiu</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="10" style="display: none;">
-            <img src="" alt="Penthouse w Łodzi" />
-            <div class="gallery-item-info">
-                <h3>Penthouse w Łodzi</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="11" style="display: none;">
-            <img src="" alt="Loft w Katowicach" />
-            <div class="gallery-item-info">
-                <h3>Loft w Katowicach</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="12" style="display: none;">
-            <img src="" alt="Villa w Sopocie" />
-            <div class="gallery-item-info">
-                <h3>Villa w Sopocie</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="13" style="display: none;">
-            <img src="" alt="Mieszkanie w Gdyni" />
-            <div class="gallery-item-info">
-                <h3>Mieszkanie w Gdyni</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item extended-gallery-item" data-gallery="14" style="display: none;">
-            <img src="" alt="Loft w Szczecinie" />
-            <div class="gallery-item-info">
-                <h3>Loft w Szczecinie</h3>
-                <div class="gallery-cta">
-                    <span class="cta-text">SPRAWDŹ </span>
-                    <span class="cta-icon">→</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-  <section id="project">
-    <h2>Kategorie Materiałów</h2>
-    <div class="content">
-        <div class="materials-logos">
-            <div class="material-logo" data-material="plyty-meblowe">
-                <span class="material-title">Płyty Meblowe</span>
-                <div class="sub-banners">
-                    <div class="sub-banner" data-material="plyty-laminowane">
-                        <span class="sub-banner-title">Płyty Laminowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="plyty-hdf">
-                        <span class="sub-banner-title">Płyty HDF</span>
-                    </div>
-                    <div class="sub-banner" data-material="producenci-plyt">
-                        <span class="sub-banner-title">Producenci Płyt</span>
-                    </div>
-                </div>
-            </div>
-            <div class="material-logo" data-material="fronty-meblowe">
-                <span class="material-title">Fronty Meblowe</span>
-                <div class="sub-banners">
-                    <div class="sub-banner" data-material="wykonczenia-artystyczne">
-                        <span class="sub-banner-title">Wykończenia Artystyczne ⭐ Nowość</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-akrylowe">
-                        <span class="sub-banner-title">Fronty Akrylowe</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-lakierowane">
-                        <span class="sub-banner-title">Fronty Lakierowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-fornirowane">
-                        <span class="sub-banner-title">Fronty Fornirowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-drewniane">
-                        <span class="sub-banner-title">Fronty Drewniane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-szklane">
-                        <span class="sub-banner-title">Fronty Szklane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-giete">
-                        <span class="sub-banner-title">Fronty Gięte</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-frezowane">
-                        <span class="sub-banner-title">Fronty Frezowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-frezowane-laminowane">
-                        <span class="sub-banner-title">Fronty Frezowane Laminowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="fronty-frezowane-lakierowane">
-                        <span class="sub-banner-title">Fronty Frezowane Lakierowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="sztukateria">
-                        <span class="sub-banner-title">Sztukateria</span>
-                    </div>
-                </div>
-            </div>
-            <div class="material-logo" data-material="blaty">
-                <span class="material-title">Blaty</span>
-                <div class="sub-banners">
-                    <div class="sub-banner" data-material="blaty-laminowane">
-                        <span class="sub-banner-title">Blaty Laminowane</span>
-                    </div>
-                    <div class="sub-banner" data-material="blaty-spieki-kwarcowe">
-                        <span class="sub-banner-title">Blaty ze Spieków Kwarcowych</span>
-                    </div>
-                    <div class="sub-banner" data-material="blaty-zywica-epoksydowa">
-                        <span class="sub-banner-title">Blaty z Żywicy Epoksydowej - Artystyczne</span>
-                    </div>
-                    <div class="sub-banner" data-material="blaty-drewniane">
-                        <span class="sub-banner-title">Blaty Drewniane</span>
-                    </div>
-                    <div class="sub-banner" data-material="blaty-kamienne">
-                        <span class="sub-banner-title">Blaty Kamienne (Granit, Marmur)</span>
-                    </div>
-                    <div class="sub-banner" data-material="blaty-solid-surface">
-                        <span class="sub-banner-title">Blaty Solid Surface (np. Corian, Hi-Macs, Staron)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="materials-info">
-            <div class="material-info" id="plyty-meblowe-info">
-                <div class="material-image">
-                    <img src="materiały/fronty/płyty.png" alt="Płyty Meblowe" />
-                </div>
-                <div class="material-content">
-                    <h3>Płyty Meblowe</h3>
-                    <p>Wszechstronne materiały kompozytowe od czołowych europejskich producentów takich jak Pfleiderer, Swiss Krono, Kronospan i Egger. Oferujemy płyty laminowane z wysoką odpornością na zarysowania, wilgoć i wysoką temperaturę oraz płyty HDF o zwiększonej gęstości z gładką powierzchnią idealną do dalszej obróbki. Każda płyta gwarantuje stabilność wymiarową i długotrwałą funkcjonalność.</p>
-                </div>
-            </div>
-            <div class="material-info" id="plyty-laminowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Płyty Laminowane</h3>
-                        <p>Płyty laminowane to wszechstronne materiały kompozytywne składające się z płyty nośnej (wiórowej lub MDF) pokrytej z obu stron dekoracyjnym laminatem melaminowym. Charakteryzują się wysoką odpornością na zarysowania, wilgoć i działanie wysokich temperatur.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Bardziej wytrzymałe od płyt lakierowanych</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Właściwości techniczne -->
-                    <div class="material-module technical-specs">
-                        <h4>📐 Specyfikacja Techniczna</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Grubość standardowa:</strong>
-                                <span>18mm</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Inne grubości:</strong>
-                                <span>10, 12, 16, 22, 25, 28mm</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Format:</strong>
-                                <span>2800×2070mm / 2750×2100mm</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Cechy:</strong>
-                                <span>Odporność na zarysowania, wilgoć, wysoka temperatura</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Kuchnia & Łazienka</h5>
-                                <ul>
-                                    <li>✅ Korpusy mebli kuchennych</li>
-                                    <li>✅ Fronty kuchenne</li>
-                                    <li>✅ Meble łazienkowe</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Sypialnia & Biuro</h5>
-                                <ul>
-                                    <li>✅ Szafy i garderoby</li>
-                                    <li>✅ Meble biurowe</li>
-                                    <li>✅ Meble dziecięce</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Specjalne zastosowania:</span>
-                            <span>Zabudowy wnęk • Panele ścienne • Elementy dekoracyjne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="plyty-hdf-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Płyty HDF (High-Density Fibreboard)</h3>
-                        <p>Płyta pilśniowa o wysokiej gęstości, produkowana z włókien drzewnych sprasowanych pod bardzo wysokim ciśnieniem i w wysokiej temperaturze. Dzięki swojej zwartej strukturze jest znacznie twardsza i bardziej wytrzymała na zginanie niż standardowa płyta MDF.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Gładka powierzchnia idealna do lakierowania i okleinowania</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Właściwości techniczne -->
-                    <div class="material-module technical-specs">
-                        <h4>📐 Specyfikacja Techniczna</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Grubość standardowa:</strong>
-                                <span>3mm, 4mm, 5mm</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Gęstość:</strong>
-                                <span>Powyżej 800 kg/m³</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Powierzchnia:</strong>
-                                <span>Gładka i jednolita</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Cechy:</strong>
-                                <span>Wysoka twardość, stabilność wymiarowa, dobra izolacyjność akustyczna</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Elementy Konstrukcyjne</h5>
-                                <ul>
-                                    <li>✅ Tyły mebli ("plecy" szaf, regałów)</li>
-                                    <li>✅ Dna szuflad</li>
-                                    <li>✅ Elementy mebli tapicerowanych</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Wykończenie & Dekoracja</h5>
-                                <ul>
-                                    <li>✅ Wewnętrzne panele drzwiowe</li>
-                                    <li>✅ Podkład pod panele podłogowe</li>
-                                    <li>✅ Elementy dekoracyjne</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Specjalne zastosowania:</span>
-                            <span>Galanteria drzewna • Elementy precyzyjne • Podkłady konstrukcyjne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="producenci-plyt-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>👑 Producenci Płyt Meblowych</h3>
-                        <p>Korzystamy z materiałów od czołowych europejskich producentów, którzy gwarantują najwyższą jakość i innowacyjność. Każdy producent oferuje unikalne kolekcje dekorów oraz najnowsze technologie w branży materiałów drewnopochodnych.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Współpraca tylko z certyfikowanymi liderami branży</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Lista producentów z rozwijanymi szczegółami -->
-                    <div class="material-module producers-list">
-                        <!-- Pfleiderer -->
-                        <div class="producer-item">
-                            <div class="producer-header" onclick="toggleProducerDetails('pfleiderer')">
-                                <h5>Pfleiderer</h5>
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                            <div class="producer-details" id="pfleiderer-details" style="display: none;">
-                                <ul>
-                                    <li>✅ Ponad 270 dekorów w najnowszej kolekcji</li>
-                                    <li>✅ Zakłady produkcyjne w Niemczech i Polsce</li>
-                                    <li>✅ 79 nowości i 27 różnych struktur powierzchni</li>
-                                    <li>✅ Niemiecki lider w branży materiałów drewnopochodnych</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Swiss Krono -->
-                        <div class="producer-item">
-                            <div class="producer-header" onclick="toggleProducerDetails('swiss-krono')">
-                                <h5>Swiss Krono</h5>
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                            <div class="producer-details" id="swiss-krono-details" style="display: none;">
-                                <ul>
-                                    <li>✅ Ponad 259 dekorów w ofercie</li>
-                                    <li>✅ Zakład produkcyjny w Polsce (Żary, woj. lubuskie)</li>
-                                    <li>✅ Kolekcja "ONE World" o najwyższej jakości</li>
-                                    <li>✅ Szwajcarska firma z unikalną kolorystyką</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Kronospan -->
-                        <div class="producer-item">
-                            <div class="producer-header" onclick="toggleProducerDetails('kronospan')">
-                                <h5>Kronospan</h5>
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                            <div class="producer-details" id="kronospan-details" style="display: none;">
-                                <ul>
-                                    <li>✅ Kolekcja "Color" z 66 wzorami</li>
-                                    <li>✅ Zakłady produkcyjne na całym świecie</li>
-                                    <li>✅ Kolekcja "Origin Stories 2023-2027"</li>
-                                    <li>✅ Austriacki gigant przemysłu drzewnego</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Egger -->
-                        <div class="producer-item">
-                            <div class="producer-header" onclick="toggleProducerDetails('egger')">
-                                <h5>Egger</h5>
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                            <div class="producer-details" id="egger-details" style="display: none;">
-                                <ul>
-                                    <li>✅ Ponad 300 połączeń dekorów i struktur</li>
-                                    <li>✅ Zakład produkcyjny w Polsce (Biskupiec)</li>
-                                    <li>✅ 201 dopasowanych dekorów na różnych materiałach</li>
-                                    <li>✅ Aplikacja mobilna z katalogiem dekorów</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-meblowe-info">
-                <div class="material-image">
-                    <img src="materiały/fronty/fronty.png" alt="Fronty Meblowe" />
-                </div>
-                <div class="material-content">
-                    <h3>Fronty Meblowe</h3>
-                    <p>Elementy wykończeniowe szafek i mebli, które decydują o ich wyglądzie estetycznym i funkcjonalności. Oferujemy pełną gamę rozwiązań: fronty akrylowe z wyjątkową odpornością na uszkodzenia mechaniczne, lakierowane z możliwością pełnej personalizacji kolorów, fornirowane łączące piękno naturalnego drewna ze stabilnością, drewniane z litego drewna, szklane z ramkami aluminiowymi, gięte o zaokrąglonych krawędziach oraz frezowane z precyzyjnymi wzorami. Wszystkie fronty dostosowane do specyficznych wymagań każdego pomieszczenia.</p>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-info">
-                <div class="material-image">
-                    <img src="materiały/fronty/blaty.png" alt="Blaty" />
-                </div>
-                <div class="material-content">
-                    <h3>Blaty</h3>
-                    <p>Funkcjonalne powierzchnie robocze, które są również kluczowym elementem dekoracyjnym nadającym charakter całemu wnętrzu. Oferujemy blaty laminowane z wysokociśnieniowym laminatem HPL imitującym fakturę drewna, kamienia czy betonu, spieki kwarcowe o niezwykłej twardości składające się w 90-95% z naturalnych kwarcytów, artystyczne blaty z żywicy epoksydowej z nieograniczonymi możliwościami personalizacji, blaty drewniane z litego drewna tworzące ciepłą atmosferę, luksusowe blaty kamienne z granitu i marmuru oraz innowacyjne blaty Solid Surface umożliwiające bezspoinowe połączenia. Każdy materiał gwarantuje trwałość, łatwość utrzymania i wyjątkowy efekt wizualny.</p>
-                </div>
-            </div>
-            <!-- Nowe podbanery info -->
-            <div class="material-info" id="fronty-akrylowe-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Akrylowe</h3>
-                        <p>Płyta MDF pokryta wysokiej jakości matą akrylową (o grubości ok. 0,7-1mm) z jednej strony i matą przeciwprężną z drugiej. Powłoka akrylowa zapewnia wyjątkową odporność na uszkodzenia mechaniczne, zarysowania i promieniowanie UV.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Idealne do kuchni i łazienek o wysokiej wilgotności</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Właściwości techniczne -->
-                    <div class="material-module technical-specs">
-                        <h4>🔧 Rodzaje Obrzeży</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Laminowane poliuretanem:</strong>
-                                <span>Tradycyjne, ekonomiczne</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Oklejanie laserowe:</strong>
-                                <span>Bezspoinowe, estetyczne i całkowicie zabezpieczone przed wilgocią</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Odporność:</strong>
-                                <span>Zarysowania, promienie UV, wilgoć</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Grubość maty:</strong>
-                                <span>0,7-1mm akryl</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 4: Trendy i Innowacje -->
-                    <div class="material-module technical-specs">
-                        <h4>🚀 Trendy i Innowacje</h4>
-                        
-                        <h5>🔬 Nano-technologie:</h5>
-                        <ul>
-                            <li><strong>Powłoki samo-naprawcze</strong> - drobne zarysowania znikają pod wpływem ciepła</li>
-                            <li><strong>Efekt Anti-finger</strong> - powierzchnie pozostają czyste na dłużej, bez odcisków palców</li>
-                            <li><strong>Powłoki antybakteryjne</strong> - eliminują 99,9% bakterii, idealne do kuchni i łazienek</li>
-                        </ul>
-                        
-                        <h5>🎨 Trendy kolorystyczne:</h5>
-                        <ul>
-                            <li><strong>Kolory ziemi</strong> - odcienie terakoty, ochry, szałwii i beżu</li>
-                            <li><strong>Głębokie maty</strong> - aksamitne wykończenia w ciemnych barwach (granat, grafit)</li>
-                            <li><strong>Metaliczne akcenty</strong> - dekory imitujące mosiądz, miedź czy tytan</li>
-                        </ul>
-                        
-                        <h5>🏗️ Nowe struktury:</h5>
-                        <ul>
-                            <li><strong>Tekstury betonu</strong> - surowy, industrialny charakter mikrocementu</li>
-                            <li><strong>Wzory kamienia</strong> - realistyczne imitacje marmuru, granitu i trawertynu</li>
-                            <li><strong>Efekty tkanin</strong> - powierzchnie przypominające len, jutę czy aksamit</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Moduł 5: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Pomieszczenia Wilgotne</h5>
-                                <ul>
-                                    <li>✅ Kuchnie (szczególnie okolice zlewozmywaków)</li>
-                                    <li>✅ Łazienki</li>
-                                    <li>✅ Pomieszczenia o wysokiej wilgotności</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Zastosowania Specjalne</h5>
-                                <ul>
-                                    <li>✅ Miejsca narażone na intensywne użytkowanie</li>
-                                    <li>✅ Powierzchnie wymagające częstego mycia</li>
-                                    <li>✅ Fronty o wysokich wymaganiach estetycznych</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Nano-technologie:</span>
-                            <span><br>Powłoki samo-naprawcze<br>
-                                  Efekt Anti-finger<br>
-                                  Powłoki antybakteryjne<br>
-                                  Eliminacja 99,9% bakterii</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-lakierowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Lakierowane</h3>
-                        <p>Wykonywane z płyty MDF pokrytej kilkoma warstwami lakieru poliuretanowego. Płyta jest najpierw wyszlifowana, oczyszczona, pokryta lakierem podkładowym, a następnie lakierem nawierzchniowym.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Pełna personalizacja kolorów z palet RAL i NCS</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Rodzaje lakierów -->
-                    <div class="material-module technical-specs">
-                        <h4>🎨 Rodzaje Lakierów</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Mat:</strong>
-                                <span>Eleganckie, niepokrywające odcisków palców</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Półmat:</strong>
-                                <span>Uniwersalne, łatwe w czyszczeniu</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Połysk:</strong>
-                                <span>Efektowne, powiększające optycznie przestrzeń</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wysoki połysk:</strong>
-                                <span>Najtrwalsze, najbardziej efektowne</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Pomieszczenia Suche</h5>
-                                <ul>
-                                    <li>✅ Salony i sypialnie</li>
-                                    <li>✅ Pomieszczenia o niskiej wilgotności</li>
-                                    <li>✅ Kuchnie (przy odpowiednim zabezpieczeniu)</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Ograniczenia</h5>
-                                <ul>
-                                    <li>⚠️ Wymagają delikatnej pielęgnacji</li>
-                                    <li>⚠️ Podatne na zarysowania (w zależności od typu)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Personalizacja:</span>
-                            <span>Palety RAL • Palety NCS • Wzorniki producentów lakierów</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-fornirowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Fornirowane</h3>
-                        <p>Idealne połączenie autentycznego piękna naturalnego drewna z funkcjonalnością i stabilnością nowoczesnych płyt meblowych. Składają się z płyty nośnej oklejanej cienką warstwą prawdziwego drewna (fornir 0,6-3mm).</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Wygląd litego drewna w atrakcyjnej cenie</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Rodzaje fornirów -->
-                    <div class="material-module technical-specs">
-                        <h4>🌳 Rodzaje Fornirów</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Krajowe:</strong>
-                                <span>Dąb, Jesion, Orzech Europejski, Buk, Klon, Wiśnia, Olcha</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Egzotyczne:</strong>
-                                <span>Orzech Amerykański, Teak, Palisander, Wenge, Zebrano, Heban</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Grubość furnieru:</strong>
-                                <span>0,6-3mm</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Płyty nośne:</strong>
-                                <span>MDF, płyta wiórowa, sklejka</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Idealne Pomieszczenia</h5>
-                                <ul>
-                                    <li>✅ Salony, sypialnie (eleganckie wykończenie)</li>
-                                    <li>✅ Gabinety, biblioteki (prestiżowy wygląd)</li>
-                                    <li>✅ Kuchnie (z lakierniczym zabezpieczeniem)</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Zalety</h5>
-                                <ul>
-                                    <li>✅ Niepowtarzalny rysunek słojów</li>
-                                    <li>✅ Możliwość gięcia powierzchni</li>
-                                    <li>✅ Stabilność wymiarowa</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Wykończenie:</span>
-                            <span><br>Lakier (mat, półmat, połysk) • Olej • Wosk</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-drewniane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Drewniane</h3>
-                        <p>Masywne fronty z naturalnego drewna wykonywane według indywidualnych potrzeb klienta. Każdy gatunek drewna ma unikalne właściwości i charakterystyczny wygląd, tworząc niepowtarzalne meble o naturalnym charakterze.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Fronty drewniane lakierowane i fornirowane wykonujemy osobiście</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Rodzaje drewna -->
-                    <div class="material-module technical-specs">
-                        <h4>🌳 Gatunki Drewna</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Dąb:</strong>
-                                <span>Bardzo twarde, odporne na wilgoć, wyraźne słoje</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Jesion:</strong>
-                                <span>Twarde, elastyczne, kontrastowy rysunek słojów</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Orzech:</strong>
-                                <span>Szlachetne, ciemne słoje w odcieniach brązu</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Buk:</strong>
-                                <span>Twarde, wytrzymałe, jasne drobne słoje</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Według Gatunku</h5>
-                                <ul>
-                                    <li>✅ Dąb: Kuchnie, łazienki, meble reprezentacyjne</li>
-                                    <li>✅ Jesion: Meble nowoczesne, elementy gięte</li>
-                                    <li>✅ Orzech: Meble luksusowe, gabinety, biblioteki</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Wykończenia</h5>
-                                <ul>
-                                    <li>✅ Lakier (mat, połysk)</li>
-                                    <li>✅ Olej podkreślający naturalny kolor</li>
-                                    <li>✅ Wosk naturalny</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Proces:</span>
-                            <span><br>Suszenie → Impregnacja → Szlifowanie → Lakierowanie/Olejowanie</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-szklane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Szklane</h3>
-                        <p>Ramki aluminiowe z wstawkami ze szkła. Nowoczesne rozwiązanie umożliwiające personalizację poprzez różne rodzaje szkła i grafik. Idealne do tworzenia nowoczesnych, minimalistycznych wnętrz.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Możliwość personalizowanych wzorów i nadruków firmowych</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Rodzaje ramek i szkła -->
-                    <div class="material-module technical-specs">
-                        <h4>🔧 Ramki i Szkła</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Profil A11:</strong>
-                                <span>Klasyczny, matowy</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Profil A21:</strong>
-                                <span>Nowoczesny, szerszy</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wykończenia ramek:</strong>
-                                <span>Anoda naturalna, inox</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Rodzaje szkła:</strong>
-                                <span>Przezroczyste, przydymione, ornamentowe, lakierowane</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Rodzaje Szkła</h5>
-                                <ul>
-                                    <li>✅ Bezbarwne przezroczyste</li>
-                                    <li>✅ Przydymione/grafitowe</li>
-                                    <li>✅ Ornamentowe</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Personalizacja</h5>
-                                <ul>
-                                    <li>✅ Szkła lakierowane</li>
-                                    <li>✅ Nadruki firmowe</li>
-                                    <li>✅ Grafiki dekoracyjne</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Idealne do:</span>
-                            <span><br>Kuchnie nowoczesne <br>• Biura <br>• Showroomy <br>• Przestrzenie minimalistyczne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-giete-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Gięte</h3>
-                        <p>Fronty o zaokrąglonych krawędziach lub powierzchniach nadające meblom miękki, elegancki wygląd. Wykonywane metodą gięcia na gorąco z różnych materiałów w zależności od wymagań projektu.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Idealne do szafek narożnych i elementów łukowatych</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Materiały -->
-                    <div class="material-module technical-specs">
-                        <h4>🔧 Materiały i Wykończenia</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Płyta MDF:</strong>
-                                <span>Podstawowy materiał do gięcia</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Sklejka giętka:</strong>
-                                <span>Dla bardziej wymagających form</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Lite drewno:</strong>
-                                <span>Dla wymagających projektów premium</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wykończenia:</strong>
-                                <span>Lakier, fornir, folia, patyna</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Zastosowania</h5>
-                                <ul>
-                                    <li>✅ Szafki narożne</li>
-                                    <li>✅ Elementy łukowate</li>
-                                    <li>✅ Kuchnie nowoczesne</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Wykończenia</h5>
-                                <ul>
-                                    <li>✅ Lakier (mat, połysk)</li>
-                                    <li>✅ Fornir naturalny</li>
-                                    <li>✅ Patyna (efekty postarzania)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Specjalność:</span>
-                            <span><br>Nietypowe formy<br>
-                                  Zaokrąglenia<br>
-                                  Elementy artistyczne<br>
-                                  Projekty indywidualne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-frezowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Frezowane</h3>
-                        <p>Fronty z precyzyjnie wykonanymi frezami tworzącymi dekoracyjne wzory, rączki lub uchwyty zintegrowane z powierzchnią frontu. Dostępne w dwóch głównych wariantach: laminowane i lakierowane.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Współpraca z czołowymi polskimi producentami frontów</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Producenci -->
-                    <div class="material-module technical-specs">
-                        <h4>👑 Producenci</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Wiech:</strong>
-                                <span>Jeden z liderów na rynku, bogata kolekcja wzorów</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Frontpol:</strong>
-                                <span>Wieloletnie doświadczenie, precyzja wykonania</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wzory:</strong>
-                                <span>Od klasycznych po nowoczesne</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Dostępność:</strong>
-                                <span>Szeroka gama modeli i wzorników</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Typy Frontów Frezowanych</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Frezowane Laminowane</h5>
-                                <ul>
-                                    <li>✅ Odporność mechaniczna</li>
-                                    <li>✅ Łatwość czyszczenia</li>
-                                    <li>✅ Idealne do kuchni i łazienek</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Frezowane Lakierowane</h5>
-                                <ul>
-                                    <li>✅ Najwyższa jakość estetyczna</li>
-                                    <li>✅ Dowolne kolory RAL/NCS</li>
-                                    <li>✅ Idealne do salonów i sypialni</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Katalogi:</span>
-                            <span><br>Wzornik Frezowań Wiech<br>
-                                  Kolekcje Frontpol<br>
-                                  Bazy wzorów online</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-frezowane-laminowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Frezowane Laminowane</h3>
-                        <p>Płyta MDF z precyzyjnie wyfrezowanymi wzorami pokryta laminatem wysokociśnieniowym. Łączą estetykę wzorów klasycznych z praktyczną odpornością laminatu na intensywne użytkowanie.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Odporność na temperaturę do 180°C</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Właściwości -->
-                    <div class="material-module technical-specs">
-                        <h4>🛡️ Właściwości</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Odporność mechaniczna:</strong>
-                                <span>Bardzo wysoka - laminat zabezpiecza przed zarysowaniami</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Odporność na wilgoć:</strong>
-                                <span>Dobra - laminat nie przepuszcza wody</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Łatwość czyszczenia:</strong>
-                                <span>Wysoka - powierzchnia nieprzepuszczalna</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Trwałość kolorów:</strong>
-                                <span>Doskonała - laminat nie blaknie</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Idealne Zastosowania</h5>
-                                <ul>
-                                    <li>✅ Kuchnie intensywnie użytkowane</li>
-                                    <li>✅ Łazienki</li>
-                                    <li>✅ Pomieszczenia o wysokiej wilgotności</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Zalety Bezpieczeństwa</h5>
-                                <ul>
-                                    <li>✅ Meble dziecięce (bezpieczne krawędzie)</li>
-                                    <li>✅ Powierzchnie często myje</li>
-                                    <li>✅ Obszary o wysokim ruchu</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Producenci:</span>
-                            <span><br>Wiech (Lider Polski)<br>
-                                  Frontpol (Precyzja wykonania)<br>
-                                  Bogata kolekcja wzorów</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="fronty-frezowane-lakierowane-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Fronty Frezowane Lakierowane</h3>
-                        <p>Płyta MDF z wyfrezowanymi wzorami pokryta wielowarstwowym lakierem poliuretanowym. Oferują najwyższą jakość estetyczną i możliwość dowolnej kolorystyki z palet RAL i NCS.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Najwyższa jakość estetyczna - głęboki połysk lub aksamitny mat</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Właściwości -->
-                    <div class="material-module technical-specs">
-                        <h4>🎨 Właściwości i Wykończenia</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Personalizacja:</strong>
-                                <span>Pełna - dowolny kolor z palety RAL/NCS</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wykończenia:</strong>
-                                <span>Mat, półmat, połysk, wysoki połysk</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Naprawa:</strong>
-                                <span>Możliwa regeneracja powierzchni</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Estetyka:</strong>
-                                <span>Najwyższa - głęboki połysk lub aksamitny mat</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Idealne Pomieszczenia</h5>
-                                <ul>
-                                    <li>✅ Salony reprezentacyjne</li>
-                                    <li>✅ Sypialnie</li>
-                                    <li>✅ Gabinety, biblioteki</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Popularne Wzory</h5>
-                                <ul>
-                                    <li>✅ London - klasyczne kasety angielskie</li>
-                                    <li>✅ Bergen - minimalistyczne skandynawskie</li>
-                                    <li>✅ Vintage - stylizowane postarzenie</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Wzory:</span>
-                            <span><br>Kaseta tradycyjna <br>• Grand luksusowe <br>• Profile dekoracyjne <br>• Wzory indywidualne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="sztukateria-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>🎭 Sztukateria</h3>
-                        <p>Dekoracyjne elementy naklejane na płytę MDF tworzące efekty przestrzenne i klasyczne wzornictwo. Idealne do tworzenia stylowych mebli w stylu klasycznym, prowansalskim, angielskim i pałacowym.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Elementy naklejane na front + lakierowanie lub foliowanie</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Materiały -->
-                    <div class="material-module technical-specs">
-                        <h4>🔧 Materiały Sztukaterii</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>MDF frezowana:</strong>
-                                <span>Najtrwalsza, precyzyjna</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Poliuretan:</strong>
-                                <span>Lekka, odporna na wilgoć</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>PVC:</strong>
-                                <span>Ekonomiczna, różnorodna</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Wykończenie:</strong>
-                                <span>Lakierowanie lub foliowanie</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Wzory -->
-                    <div class="material-module applications">
-                        <h4>🎯 Popularne Wzory</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Elementy Klasyczne</h5>
-                                <ul>
-                                    <li>✅ Kasety klasyczne</li>
-                                    <li>✅ Pilastry i kapitele</li>
-                                    <li>✅ Rozety i ornamenty</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Style Zastosowań</h5>
-                                <ul>
-                                    <li>✅ Style klasyczne</li>
-                                    <li>✅ Prowansalskie</li>
-                                    <li>✅ Angielskie, pałacowe</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Specjalne elementy:</span>
-                            <span><br>Profile dekoracyjne<br>
-                                  Gzymsy<br>
-                                  Listwy ozdobne<br>
-                                  Ornamenty przestrzenne</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="wykonczenia-artystyczne-info" style="display: none;">
-                <div class="material-modules-container">
-                    <!-- Moduł 1: Główny opis -->
-                    <div class="material-module main-description">
-                        <h3>Wykończenia Artystyczne ⭐ Nowość</h3>
-                        <p>Ręczne obrazy na frontach - unikalna oferta manufaktury artystycznej na dużych powierzchniach. Połączenie tradycyjnych technik malarskich z nowoczesnymi metodami nadruku i precyzyjnym frezowaniem CNC, tworząc niepowtarzalne dzieła sztuki funkcjonalnej.</p>
-                        <div class="highlight-box">
-                            <span class="highlight-text">Optymalne dla powierzchni powyżej 2m² - idealne na wyspy kuchenne</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 2: Rękodzieło -->
-                    <div class="material-module technical-specs">
-                        <h4>🖌️ Rękodzieło</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Pouring Art:</strong>
-                                <span>Abstrakcyjne kompozycje żywicznych farb</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Malarstwo olejne:</strong>
-                                <span>Realistyczne przedstawienia</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Akryl artystyczny:</strong>
-                                <span>Nowoczesne wzory</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Technika mieszana:</strong>
-                                <span>Kombinacje różnych mediów</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 3: Nadruki Artystyczne -->
-                    <div class="material-module technical-specs">
-                        <h4>🖼️ Nadruki Artystyczne</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Obrazy wybrane przez klienta:</strong>
-                                <span>Dowolny motyw na każdej powierzchni</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Aplikacja na meblach:</strong>
-                                <span>Fronty, boki, elementy dekoracyjne</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Pokrycie szklane:</strong>
-                                <span>Zwiększona odporność i efekt krystaliczny</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Personalizacja:</strong>
-                                <span>Unikalne wzory według projektu klienta</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 4: Płaskorzeźby Artystyczne -->
-                    <div class="material-module technical-specs">
-                        <h4>⚒️ Płaskorzeźby Artystyczne</h4>
-                        <div class="specs-grid">
-                            <div class="spec-item">
-                                <strong>Projekt CAD:</strong>
-                                <span>Precyzyjne przygotowanie wzoru</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Frezowanie CNC:</strong>
-                                <span>Dokładne wytrawienie form</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Ręczne wykończenie:</strong>
-                                <span>Artystyczna obróbka detali</span>
-                            </div>
-                            <div class="spec-item">
-                                <strong>Patyna artystyczna:</strong>
-                                <span>Efekty starzenia i głębi</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Moduł 5: Zastosowania -->
-                    <div class="material-module applications">
-                        <h4>🎯 Zastosowanie w Praktyce</h4>
-                        <div class="applications-columns">
-                            <div class="application-column">
-                                <h5>Wielkość Realizacji</h5>
-                                <ul>
-                                    <li>✅ Powierzchnie powyżej 2m²</li>
-                                    <li>✅ Wyspy kuchenne</li>
-                                    <li>✅ Ściany ekspozycyjne</li>
-                                    <li>✅ Duże fronty szafek</li>
-                                </ul>
-                            </div>
-                            <div class="application-column">
-                                <h5>Idealne Zastosowania</h5>
-                                <ul>
-                                    <li>✅ Luksusowe rezydencje</li>
-                                    <li>✅ Hotele i restauracje</li>
-                                    <li>✅ Galerie i showroomy</li>
-                                    <li>✅ Projekty architektoniczne</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="special-applications">
-                            <span class="special-tag">Dowolne kształty i formy:</span>
-                            <span><br>Geometryczne wzory artystyczne<br>
-                                  Organiczne formy naturalne<br>
-                                  Motywy klasyczne i nowoczesne<br>
-                                  Indywidualne projekty klienta</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-info">
-                <h3>Blaty</h3>
-                <p>Funkcjonalne powierzchnie robocze, które są również kluczowym elementem dekoracyjnym nadającym charakter całemu wnętrzu. Oferujemy blaty laminowane z wysokociśnieniowym laminatem HPL imitującym fakturę drewna, kamienia czy betonu, spieki kwarcowe o niezwykłej twardości składające się w 90-95% z naturalnych kwarcytów, artystyczne blaty z żywicy epoksydowej z nieograniczonymi możliwościami personalizacji, blaty drewniane z litego drewna tworzące ciepłą atmosferę, luksusowe blaty kamienne z granitu i marmuru oraz innowacyjne blaty Solid Surface umożliwiające bezspoinowe połączenia. Każdy materiał gwarantuje trwałość, łatwość utrzymania i wyjątkowy efekt wizualny.</p>
-            </div>
-            <div class="material-info" id="blaty-laminowane-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty Laminowane</h3>
-                    <p>Wykonywane z płyty meblowej (np. MDF, płyta wiórowa) pokrytej laminatem wysokociśnieniowym (HPL). Nowoczesne laminaty imitują niemal perfekcyjnie fakturę i wzór drewna, kamienia czy betonu, oferując przy tym znakomitą odporność na ścieranie, plamy i wysoką temperaturę.</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Standardowe grubości:</strong> 28mm i 38mm (inne warianty na zamówienie)</li>
-                        <li><strong>Materiał bazowy:</strong> Płyta MDF lub płyta wiórowa</li>
-                        <li><strong>Pokrycie:</strong> Laminat wysokociśnieniowy (HPL)</li>
-                        <li><strong>Właściwości:</strong> Odporne na ścieranie, plamy i wysoką temperaturę</li>
-                    </ul>
-                    
-                    <h5>Rodzaje krawędzi:</h5>
-                    <ul>
-                        <li><strong>Proste:</strong> Standardowe, ekonomiczne rozwiązanie</li>
-                        <li><strong>Oprofile:</strong> Z ozdobnym, zaokrąglonym rantem (np. w kształcie litery „C" lub „S")</li>
-                        <li><strong>Na wymiar:</strong> Możliwość frezowania dowolnych kształtów, nawet zaokrągleń</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Kuchnie (doskonała odporność na zabrudzenia)</li>
-                        <li>✅ Biura i miejsca użyteczności publicznej</li>
-                        <li>✅ Łazienki (przy użyciu płyty wilgotoodpornej)</li>
-                        <li>✅ Ekonomiczne i szybkie realizacje</li>
-                        <li>⚠️ Unikać bezpośredniego cięcia na powierzchni oraz kontaktu z ogniem</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-spieki-kwarcowe-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty ze Spieków Kwarcowych</h3>
-                    <p>Nowoczesne spieki kwarcowe powstają w ok. 90-95% z naturalnych, zmielonych kwarcytów i kwarcu, połączonych żywicami. Są niezwykle twarde, odporne na zarysowania, plamy, kwasy i wysoką temperaturę. Nie wymagają konserwacji.</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Skład:</strong> 90-95% naturalnych kwarcytów i kwarcu + żywice</li>
-                        <li><strong>Standardowe grubości:</strong> 12mm i 20mm</li>
-                        <li><strong>Obróbka krawędzi:</strong> Możliwość pogrubiania podobnie jak w przypadku kamienia</li>
-                    </ul>
-                    
-                    <h5>Rodzaje powierzchni:</h5>
-                    <ul>
-                        <li><strong>Gładki połysk:</strong> Efektowna, łatwa w czyszczeniu, podkreśla głębię koloru</li>
-                        <li><strong>Mat (soft, satin, velvet):</strong> Aksamitna w dotyku, maskuje drobne rysy</li>
-                        <li><strong>Strukturalna/porowata ("Rock", "Terra"):</strong> Faktury naśladujące surowy kamień lub beton, zachowując wysoką odporność na zabrudzenia</li>
-                    </ul>
-                    
-                    <h5>Zalety spieków kwarcowych:</h5>
-                    <ul>
-                        <li>• Nieporowatość – wysoka higiena, odporność na plamy</li>
-                        <li>• Wyjątkowa trwałość i twardość – odporność na zarysowania i uderzenia</li>
-                        <li>• Bogactwo wzorów i kolorów – od jednolitych po imitację marmuru i betonu</li>
-                        <li>• Bezobsługowość – nie wymaga impregnacji</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Kuchnie (idealne przy zlewozmywaku i kuchence)</li>
-                        <li>✅ Łazienki (blaty, parapety, kabiny prysznicowe)</li>
-                        <li>✅ Miejsca wymagające najwyższej higieny</li>
-                        <li>✅ Wnętrza komercyjne (recepcje, bary, stoły)</li>
-                        <li>✅ Projekty wymagające wyjątkowego designu</li>
-                    </ul>
-                </div>
-                
-                <div class="producers-section">
-                    <h4>👑 PRODUCENCI I INNOWACJE</h4>
-                    <p>Korzystamy z materiałów od światowych liderów:</p>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('silestone')">
-                            <h5>Silestone by Cosentino</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="silestone-details">
-                            <p>Pionier i jeden z najpopularniejszych producentów spieków kwarcowych na świecie. Cosentino oferuje szeroką gamę kolorów i wzorów, od klasycznych po najbardziej awangardowe.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('caesarstone')">
-                            <h5>Caesarstone</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="caesarstone-details">
-                            <p>Znany z szerokiej gamy kolorów i wzorów. Caesarstone łączy najwyższą jakość z innowacyjnymi rozwiązaniami technologicznymi.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('compac')">
-                            <h5>Compac</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="compac-details">
-                            <p>Hiszpański producent oferujący innowacyjne rozwiązania w dziedzinie spieków kwarcowych, znany z nowoczesnych technologii produkcji.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('samsung-radianz')">
-                            <h5>Samsung Radianz</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="samsung-radianz-details">
-                            <p>Łączy technologie Samsunga z wytrzymałością spieków kwarcowych. Innowacyjne podejście do produkcji materiałów powierzchniowych.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-zywica-epoksydowa-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty z Żywicy Epoksydowej - Artystyczne</h3>
-                    <p>Powstają poprzez zalanie podkładu (np. z drewna, MDF) żywicą epoksydową. Dają nieograniczone możliwości personalizacji. Grubość jest w pełni personalizowana i zależy od projektu – od cienkiej powłoki po masywne blaty o grubości 50mm i więcej.</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Podkład:</strong> Drewno, MDF lub inne materiały bazowe</li>
-                        <li><strong>Pokrycie:</strong> Żywica epoksydowa</li>
-                        <li><strong>Grubość:</strong> Od cienkiej powłoki po masywne blaty 50mm i więcej</li>
-                        <li><strong>Personalizacja:</strong> Nieograniczone możliwości kolorystyczne i efektów</li>
-                    </ul>
-                    
-                    <h5>Efekty specjalne:</h5>
-                    <ul>
-                        <li><strong>Podświetlane (LED):</strong> Możliwość integracji podświetlenia</li>
-                        <li><strong>Efekt Głębi Oceanu:</strong> Niebieskie i zielone odcienie z efektem fal</li>
-                        <li><strong>Imitacja Kosmosu:</strong> Czarna żywica z drobinkami brokatu</li>
-                        <li><strong>Geode:</strong> Zatopione prawdziwe kryształy i minerały</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Wyspy kuchenne i blaty stanowiące centralny punkt wnętrza</li>
-                        <li>✅ Recepcje, bary, powierzchnie komercyjne</li>
-                        <li>✅ Meble autorskie i artystyczne projekty</li>
-                        <li>✅ Strefy relaksu i pokoje młodzieżowe</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-drewniane-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty Drewniane</h3>
-                    <p>Wykonane z litego drewna (dąb, jesion, orzech, buk) lub klejonych warstwowo desek. Tworzą niepowtarzalną, naturalną i ciepłą atmosferę. Z czasem mogą nabrać patyny, co dodaje im charakteru. Wymagają okresowej konserwacji (olejowania).</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Materiał:</strong> Lite drewno lub klejone warstwowo deski</li>
-                        <li><strong>Grubość:</strong> Od 27mm do 40mm (grubsze na indywidualne zamówienie)</li>
-                        <li><strong>Konserwacja:</strong> Okresowe olejowanie wymagane</li>
-                        <li><strong>Charakterystyka:</strong> Naturalna patyna rozwijająca się z czasem</li>
-                    </ul>
-                    
-                    <h5>Rodzaje drewna:</h5>
-                    <ul>
-                        <li><strong>Dąb:</strong> Bardzo twardy, wytrzymały, popularny i uniwersalny</li>
-                        <li><strong>Jesion:</strong> Twardy, o wyraźnym, dekoracyjnym usłojeniu</li>
-                        <li><strong>Orzech:</strong> Szlachetny, o głębokim, ciemnym odcieniu</li>
-                        <li><strong>Buk:</strong> Jasny, twardy, o równomiernym usłojeniu</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Kuchnie (tworzy wyjątkowy, rodzinny klimat)</li>
-                        <li>✅ Blaty stołów i wysp</li>
-                        <li>✅ Pomieszczenia w stylu skandynawskim, rustykalnym, vintage</li>
-                        <li>⚠️ Wymaga regularnej pielęgnacji; wrażliwy na wilgoć i wysoką temperaturę</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-kamienne-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty Kamienne (Granit, Marmur)</h3>
-                    <p>Luksusowy, naturalny i niepowtarzalny materiał. Każdy blat jest unikatem. Granit jest bardzo twardy i odporny, podczas gdy marmur jest bardziej miękki i podatny na zarysowania oraz działanie kwasów (np. soku z cytryny), wymaga impregnacji.</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Materiał:</strong> Naturalny granit lub marmur</li>
-                        <li><strong>Standardowe grubości:</strong> 20mm i 30mm</li>
-                        <li><strong>Obróbka krawędzi:</strong> Specjalna obróbka dla uzyskania grubszego wyglądu</li>
-                        <li><strong>Unikatowość:</strong> Każdy blat ma niepowtarzalny wzór naturalny</li>
-                    </ul>
-                    
-                    <h5>Rodzaje kamienia:</h5>
-                    <ul>
-                        <li><strong>Granit:</strong> Maksymalna trwałość, odporność na uszkodzenia, bardzo twardy</li>
-                        <li><strong>Marmur:</strong> Unikalne żyłkowanie, elegancki i szykowny wygląd, bardziej miękki</li>
-                    </ul>
-                    
-                    <h5>Właściwości:</h5>
-                    <ul>
-                        <li>• Granit: Bardzo odporny na zarysowania i kwasy</li>
-                        <li>• Marmur: Podatny na zarysowania i działanie kwasów, wymaga impregnacji</li>
-                        <li>• Naturalny, niepowtarzalny wzór każdej płyty</li>
-                        <li>• Długotrwała trwałość przy odpowiedniej pielęgnacji</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Reprezentacyjne kuchnie i łazienki</li>
-                        <li>✅ Blaty, parapety, okładziny ścienne</li>
-                        <li>✅ Wnętrza w stylu klasycznym i nowoczesnym</li>
-                        <li>⚠️ Marmur wymaga szczególnej opieki i impregnacji</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="material-info" id="blaty-solid-surface-info" style="display: none;">
-                <div class="main-description">
-                    <h3>Blaty Solid Surface (np. Corian, Hi-Macs, Staron)</h3>
-                    <p>Innowacyjny materiał kompozytowy składający się w około 2/3 z naturalnych minerałów i w 1/3 z żywicy akrylowej. Jego największą zaletą jest bezspoinowość – połączenia są niewidoczne, tworząc jednolitą, monolityczną powierzchnię.</p>
-                </div>
-                
-                <div class="technical-specs">
-                    <h4>Specyfikacje Techniczne</h4>
-                    <ul>
-                        <li><strong>Skład:</strong> 2/3 naturalnych minerałów + 1/3 żywicy akrylowej</li>
-                        <li><strong>Grubość płyt:</strong> 12mm (naklejane na podkład MDF)</li>
-                        <li><strong>Finalna grubość blatu:</strong> Od 30mm do 50mm lub więcej</li>
-                        <li><strong>Termoformowanie:</strong> Możliwość formowania w dowolne kształty</li>
-                    </ul>
-                    
-                    <h5>Główne cechy i zalety:</h5>
-                    <ul>
-                        <li><strong>Bezspoinowość i monolityczność:</strong> Możliwość stworzenia idealnie gładkiej powierzchni ze zintegrowanym zlewem</li>
-                        <li><strong>Możliwość formowania 3D:</strong> Tworzenie zaokrąglonych frontów, łagodnych spadków, niestandardowych kształtów</li>
-                        <li><strong>Nieporowatość:</strong> Powierzchnia jest higieniczna, odporna na plamy i rozwój bakterii</li>
-                        <li><strong>Odporność na uszkodzenia:</strong> Mniejsze zarysowania można usunąć poprzez szlifowanie</li>
-                        <li><strong>Certyfikaty:</strong> Często posiada certyfikaty dopuszczające kontakt z żywnością</li>
-                    </ul>
-                </div>
-                
-                <div class="applications">
-                    <h4>Zastosowanie</h4>
-                    <ul>
-                        <li>✅ Gastronomia (restauracje, bary, kuchnie hotelowe)</li>
-                        <li>✅ Szpitale i placówki medyczne (ze względu na higienę)</li>
-                        <li>✅ Luksusowe kuchnie i łazienki (z projektami wymagającymi integralnych zlewów)</li>
-                        <li>✅ Powierzchnie wymagające bezspoinowych rozwiązań</li>
-                    </ul>
-                </div>
-                
-                <div class="producers-section">
-                    <h4>👑 GŁÓWNI PRODUCENCI</h4>
-                    <p>Najważniejsi producenci materiałów solid surface:</p>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('corian')">
-                            <h5>Corian by DuPont</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="corian-details">
-                            <p>Pionier i lider w dziedzinie solid surface. Corian oferuje najszerszą gamę kolorów i wzorów, od jednolitych po imitujące naturalne materiały. Znany z najwyższej jakości i innowacyjności.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('himacs')">
-                            <h5>Hi-Macs by LG Hausys</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="himacs-details">
-                            <p>Nowoczesny producent oferujący materiały solid surface o wysokiej jakości. Hi-Macs charakteryzuje się doskonałymi właściwościami technicznymi i szeroką gamą wzorów.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="producer-item">
-                        <div class="producer-header" onclick="toggleProducerDetails('staron')">
-                            <h5>Staron by Samsung</h5>
-                            <span class="toggle-icon">+</span>
-                        </div>
-                        <div class="producer-details" id="staron-details">
-                            <p>Materiał solid surface od Samsunga, łączący technologię z estetyką. Staron oferuje materiały o wyjątkowych właściwościach estetycznych i funkcjonalnych.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-
-
-<section id="foundation-support">
-    <div class="foundation-header">
-      <h2>
-        Twój wybór ma znaczenie – wspieraj dzieci i młodzież razem z<br><br>
-        <span class="logos-container">
-          <div class="highlight-brand"><img src="logo/logo2.png" alt="MetaStudio Logo" class="brand-logo-inline">META STUDIO DESIGN</div>
-          <div class="separator-i">i</div>
-          <div><a href="https://worldfoundation.eu" target="_blank" rel="noopener"><img src="logo/fundacja/logo2.png" alt="W🌍rldFoundation Logo" class="foundation-logo-inline foundation-logo-pulse"></a></div>
-        </span>
-      </h2>
-      <p>
-        W MetaStudio wierzymy, że piękno wnętrza powinno iść w parze z pięknem serca.<br>
-        <span class="highlight-gold">Dlatego 7% wartości każdego zamówienia przekazujemy na rzecz W🌍rldFoundation.</span>
-      </p>
-      <hr class="foundation-separator">
-    </div>
-            <div class="foundation-bottom-banner">
-                <a href="https://worldfoundation.eu" target="_blank" rel="noopener" style="display:block; width:100%; height:100%; text-decoration:none; color:inherit;">
-                    <marquee behavior="scroll" direction="left" scrollamount="6" style="width:100%; height:100%; line-height:40px; background:transparent;">
-                          Poznaj działania fundacji W🌍rldFoundation – sprawdź jak pomagamy dzieciom i młodzieży, poznaj nasze projekty, inspiracje i historie wsparcia. Kliknij, aby dowiedzieć się więcej!&nbsp;&nbsp;&nbsp;
-                    </marquee>
-                </a>
-            </div>
-  </section>
-  
-
-  <section id="collections">
-    <h2>Nasze Kolekcje</h2>
-    <div class="content">
-        <div class="collections-grid">
-            <div class="collection-item">
-                <img src="kolekcje/modern.jpg" alt="Kolekcja Modern">
-                <h3>Modern</h3>
-                <p>Minimalistyczna elegancja dla nowoczesnych wnętrz.</p>
-            </div>
-            <div class="collection-item">
-                <img src="kolekcje/classic.jpg" alt="Kolekcja Classic">
-                <h3>Classic</h3>
-                <p>Ponadczasowe wzornictwo w luksusowym wydaniu.</p>
-            </div>
-            <div class="collection-item">
-                <img src="kolekcje/exclusive.jpg" alt="Kolekcja Exclusive">
-                <h3>Exclusive</h3>
-                <p>Wyjątkowe projekty tworzone na indywidualne zamówienie.</p>
-            </div>
-        </div>
-    </div>
-  </section>
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <div class="content">
-        <p>Skontaktuj się z nami, aby dowiedzieć się więcej o naszych usługach:</p>
-        <p>Email: <a href="mailto:kontakt@metastudio.pl">kontakt@metastudio.pl</a></p>
-        <p>Telefon: +48 123 456 789</p>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2025 MetaStudio. Wszelkie prawa zastrzeżone.</p>
-  </footer>
-  
-  <script>
-    // Funkcje dla modalu katalogu
-    function openCatalogModal() {
-        document.getElementById('catalogModal').style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Blokuj scroll na stronie
-    }
-
-    function closeCatalogModal() {
-        document.getElementById('catalogModal').style.display = 'none';
-        document.body.style.overflow = 'auto'; // Przywróć scroll
-    }
-
-    // Zamknij modal po kliknięciu poza nim
-    window.onclick = function(event) {
-        const modal = document.getElementById('catalogModal');
-        if (event.target == modal) {
-            closeCatalogModal();
+        function detect() {
+            const browser = navigator.language.toLowerCase();
+            
+            if (browser.startsWith('de')) {
+                detected = 'de';
+            } else if (browser.startsWith('en')) {
+                detected = 'en';
+            } else {
+                detected = 'pl';
+            }
+            
+            const t = lang[detected];
+            document.getElementById('welcome').textContent = t.welcome;
+            document.getElementById('info').textContent = t.detecting;
+            document.querySelector('.hint').textContent = t.hint;
+            document.documentElement.lang = detected;
+            
+            timer = setTimeout(() => {
+                document.getElementById('info').textContent = t.loading;
+                setTimeout(() => {
+                    document.getElementById('info').textContent = t.redirecting;
+                    setTimeout(redirect, 800);
+                }, 1500);
+            }, 2500);
         }
-    }
-
-    // Zamknij modal po naciśnięciu ESC
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeCatalogModal();
+        
+        function redirect() {
+            const url = detected === 'de' ? 'index-de.html' : 'index-pl.html';
+            window.location.href = url;
         }
-    });
-  </script>
-
-  <!-- Gallery Modal -->
-  <div id="gallery-modal" class="gallery-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">Tytuł projektu</h2>
-        <span class="close-btn">&times;</span>
-      </div>
-      <div class="modal-body">
-        <div class="gallery-container">
-          <img class="gallery-main-image" src="" alt="">
-          <button class="gallery-nav prev">‹</button>
-          <button class="gallery-nav next">›</button>
-          <div class="gallery-counter">1 / 5</div>
-          <button class="gallery-info-btn">Pokaż opis</button>
-          <div class="gallery-image-overlay">
-            <div class="gallery-image-info">
-              <h3 class="image-title">Nazwa projektu</h3>
-              <p class="image-description">Opis projektu</p>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-thumbnails"></div>
-        <div class="modal-description">
-          <p class="description-text">Opis projektu</p>
-        </div>
-        <div class="modal-footer">
-          <p class="modal-subtitle-mobile">Lokalizacja</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Projects Data -->
-  <script type="application/json" id="projects-data">
-  {
-    "1": {
-      "title": "Apartament w Monachium",
-      "description": "Ekskluzywny projekt wnętrza z wykorzystaniem naturalnych materiałów. Eleganckie połączenie nowoczesności z klasyką, gdzie każdy detal został przemyślany. Przestrzeń łączy funkcjonalność z estetyką, tworząc harmonijne miejsce do życia.",
-      "location": "Monachium, Niemcy"
-    },
-    "2": {
-      "title": "Rezydencja w Warszawie", 
-      "description": "Nowoczesny design połączony z klasyką w przestronnej rezydencji. Wykorzystanie wysokiej jakości materiałów i przemyślanego oświetlenia tworzy wyjątkową atmosferę luksusu i komfortu.",
-      "location": "Warszawa, Polska"
-    },
-    "3": {
-      "title": "Penthouse w Berlinie",
-      "description": "Minimalistyczne wnętrze z panoramicznym widokiem na miasto. Otwarta przestrzeń, czyste linie i starannie dobrane akcenty kolorystyczne podkreślają nowoczesny charakter wnętrza.",
-      "location": "Berlin, Niemcy"
-    },
-    "4": {
-      "title": "Villa w Hamburgu",
-      "description": "Luksusowa przestrzeń w stylu modern classic. Eleganckie meble na wymiar, szlachetne materiały i dbałość o każdy detal tworzą wyjątkowe wnętrze pełne charakteru.",
-      "location": "Hamburg, Niemcy"
-    },
-    "5": {
-      "title": "Loft w Krakowie",
-      "description": "Industrialny design z elementami vintage w historycznej kamienicy. Zachowane ceglane ściany i stalowe elementy komponują się z nowoczesnymi rozwiązaniami.",
-      "location": "Kraków, Polska"
-    },
-    "6": {
-      "title": "Apartament w Gdańsku",
-      "description": "Skandynawski minimalizm nad morzem. Jasne kolory, naturalne materiały i funkcjonalne rozwiązania tworzą przytulną przestrzeń do odpoczynku.",
-      "location": "Gdańsk, Polska"
-    },
-    "7": {
-      "title": "Dom w Zakopanem",
-      "description": "Góralski styl w nowoczesnym wydaniu. Tradycyjne elementy drewniane łączą się z współczesnym designem, tworząc wyjątkowy klimat górskiego schronienia.",
-      "location": "Zakopane, Polska"
-    },
-    "8": {
-      "title": "Studio w Poznaniu",
-      "description": "Funkcjonalne rozwiązania na małej przestrzeni. Inteligentne wykorzystanie każdego metra kwadratowego z zachowaniem estetyki i komfortu użytkowania.",
-      "location": "Poznań, Polska"
-    },
-    "10": {
-      "title": "Penthouse w Łodzi",
-      "description": "Luksusowe wnętrze z panoramicznym widokiem na miasto. Nowoczesne rozwiązania technologiczne połączone z eleganckim designem tworzą wyjątkową przestrzeń życiową.",
-      "location": "Łódź, Polska"
-    },
-    "11": {
-      "title": "Loft w Katowicach",
-      "description": "Przemysłowy charakter w eleganckim wydaniu. Surowe materiały jak stal i beton łączą się z wyrafinowanymi elementami wyposażenia.",
-      "location": "Katowice, Polska"
-    },
-    "12": {
-      "title": "Villa w Sopocie",
-      "description": "Nadmorska elegancja z nutą luksusu. Jasne wnętrza inspirowane bliskością morza, z wykorzystaniem naturalnych materiałów i kolorów nawiązujących do plażowego klimatu.",
-      "location": "Sopot, Polska"
-    },
-    "16": {
-      "title": "Apartament w Rzeszowie",
-      "description": "Nowoczesność w historycznym centrum miasta. Współczesny design harmonijnie wpisuje się w zabytkową architekturę, tworząc wyjątkową fuzję stylów.",
-      "location": "Rzeszów, Polska"
-    },
-    "17": {
-      "title": "Dom w Bydgoszczy",
-      "description": "Rodzinne wnętrze pełne ciepła i funkcjonalności. Przestronne pomieszczenia dostosowane do potrzeb całej rodziny, z dbałością o komfort i bezpieczeństwo.",
-      "location": "Bydgoszcz, Polska"
-    }
-  }
-  </script>
-
-  <!-- Fullscreen Gallery -->
-  <div id="gallery-fullscreen" class="gallery-fullscreen">
-    <img id="fullscreen-image" src="" alt="">
-    <video id="fullscreen-video" controls style="display: none;">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
-  </div>
-
-  <script src="script.js"></script>
-  <script src="modale/gallery-modal.js"></script>
+        
+        function skip() {
+            if (timer) {
+                clearTimeout(timer);
+            }
+            window.location.href = 'index-pl.html';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => setTimeout(detect, 1000));
+        document.addEventListener('keydown', e => e.key === 'Escape' && skip());
+        document.getElementById('logo').addEventListener('click', skip);
+        setTimeout(() => {
+            document.body.addEventListener('click', e => {
+                if (e.target.id !== 'logo') {
+                    skip();
+                }
+            });
+        }, 3000);
+    </script>
 </body>
 </html>
