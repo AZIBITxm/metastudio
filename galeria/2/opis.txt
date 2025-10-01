@@ -1,16 +1,88 @@
-pl
-TESTOWA REALIZACJA PL
+﻿pl
+MIESZKANIE W STYLU LOFTOWYM Z ZABUDOWĄ SCHODÓW
+Kompleksowa realizacja zabudowy meblowej w dwupoziomowym mieszkaniu, obejmująca kuchnię z półwyspem wkomponowaną w otwartą strefę dzienną oraz pojemną szafę pełniącą funkcję pralni i schowka. Projekt utrzymany jest w nowoczesnym, loftowym stylu, gdzie surowy grafit i beton strukturalny harmonijnie łączą się z ciepłem dębowego drewna. Charakteru dodają czarne, industrialne detale w postaci metalowej siatki, oświetlenia i ram szafy.
+MATERIAŁY:
+* Kuchnia:
+   * Fronty: Akryl super mat, kolor grafit.
+   * Blat: Płyta laminowana w dekorze dębu, gr. 38 mm.
+   * Korpusy szafek: Płyta laminowana w kolorze grafit, gr. 18mm.
+   * Panel ścienny: Tynk strukturalny imitujący beton.
+   * Dodatkowe elementy: Stelaż boczny półwyspu wykonany z czarnej, metalowej siatki cięto-ciągnionej.
+* Przedpokój / Pomieszczenie gospodarcze:
+   * Fronty: System drzwi przesuwnych w czarnych, aluminiowych ramach; wypełnienie z płyty grafitowej matowej oraz lustra.
+   * Korpusy szafek: Płyta meblowa 18mm w kolorze białym.
+SYSTEMY:
+* Kuchnia:
+   * Systemy otwierania: Szafki dolne otwierane za pomocą pochwytu we froncie (podniesiony blat) z cichym domykiem; szafki górne otwierane na dotyk w systemie Tip-On.
+   * Szuflady: Szuflady wewnętrzne w słupku cargo z cichym domykiem, pozostałe szuflady w systemie Blum Tip-On.
+   * Oświetlenie: Taśma LED o ciepłej barwie umieszczona pod szafkami wiszącymi.
+   * Inne systemy: Gniazdo nablatowe chowane w blacie.
+* Przedpokój / Pomieszczenie gospodarcze:
+   * Systemy otwierania: System drzwi przesuwnych.
+CHARAKTERYSTYCZNE ELEMENTY:
+* Zabudowa pod schodami: Pełne wykorzystanie przestrzeni pod biegiem schodów na wysoką zabudowę kuchenną, włączając lodówkę i słupek cargo.
+* Ukryta pralnia: Wewnątrz szafy wnękowej zaprojektowano przestrzeń na pralkę i suszarkę w słupku, co pozwala ukryć strefę gospodarczą.
+* Industrialny półwysep: Półwysep kuchenny wykończony metalową siatką stanowi ażurową przegrodę i element dekoracyjny nawiązujący do stylu loft.
+* Spójność materiałowa: Zastosowanie tego samego dekoru drewna na podłodze, schodach oraz blatach kuchennych tworzy jednolitą i harmonijną bazę dla całej aranżacji.
+* Dotykowy włącznik oświetlenia: Pojemnościowy włącznik światła zintegrowany z bokiem szafki, umożliwiający włączenie oświetlenia LED przez dotyk.
+________________
 
-To jest testowy opis projektu w języku polskim.
 
----
 en
-TEST PROJECT EN
+LOFT-STYLE APARTMENT WITH STAIRCASE CABINETRY
+A comprehensive implementation of custom furniture in a duplex apartment, including a kitchen with a peninsula integrated into the open living area and a spacious wardrobe serving as a laundry and storage space. The project is designed in a modern, loft style, where raw graphite and structural concrete harmoniously combine with the warmth of oak wood. Black, industrial details such as metal mesh, lighting, and wardrobe frames add character.
+MATERIALS:
+* Kitchen:
+   * Fronts: Super matte acrylic, graphite color.
+   * Countertop: Laminated board in oak decor, 38 mm thick.
+   * Cabinet carcasses: Laminated board in graphite color, 18mm thick.
+   * Wall panel: Structural plaster imitating concrete.
+   * Additional elements: Side frame of the peninsula made of black, expanded metal mesh.
+* Hallway / Utility space:
+   * Fronts: Sliding door system in black aluminum frames; filled with matte graphite board and a mirror.
+   * Cabinet carcasses: 18mm furniture board in white.
+SYSTEMS:
+* Kitchen:
+   * Opening systems: Lower cabinets opened via a recessed handle in the front (raised countertop) with a soft-close mechanism; upper cabinets are touch-to-open with the Tip-On system.
+   * Drawers: Internal drawers in the cargo pantry unit with soft-close, other drawers use the Blum Tip-On system.
+   * Lighting: Warm-colored LED strip placed under the wall cabinets.
+   * Other systems: Pop-up socket concealed in the countertop.
+* Hallway / Utility space:
+   * Opening systems: Sliding door system.
+DISTINCTIVE FEATURES:
+* Cabinetry under the stairs: Full utilization of the space under the staircase for tall kitchen cabinetry, including a refrigerator and a cargo pantry unit.
+* Hidden laundry: Inside the built-in wardrobe, a space has been designed for a stacked washer and dryer, allowing the utility area to be concealed.
+* Industrial peninsula: The kitchen peninsula, finished with metal mesh, acts as an openwork partition and a decorative element referencing the loft style.
+* Material consistency: The use of the same wood decor on the floor, stairs, and kitchen countertops creates a unified and harmonious base for the entire arrangement.
+* Touch light switch: A capacitive light switch integrated into the side of the cabinet, enabling the LED lighting to be turned on with a touch.
+________________
 
-This is a test project description in English.
 
----
 de
-TESTPROJEKT DE
-
-Das ist eine Test-Projektbeschreibung auf Deutsch.
+WOHNUNG IM LOFT-STIL MIT TREPPENVERBAU
+Eine umfassende Realisierung von Einbaumöbeln in einer Maisonette-Wohnung, die eine Küche mit Halbinsel, integriert in den offenen Wohnbereich, sowie einen geräumigen Schrank als Waschküche und Stauraum umfasst. Das Projekt ist in einem modernen Loft-Stil gehalten, bei dem rohes Graphit und Strukturbeton harmonisch mit der Wärme von Eichenholz verschmelzen. Schwarze, industrielle Details wie Metallgitter, Beleuchtung und Schrankrahmen verleihen zusätzlichen Charakter.
+MATERIALIEN:
+* Küche:
+   * Fronten: Acryl supermatt, Farbe Graphit.
+   * Arbeitsplatte: Laminatplatte in Eichendekor, 38 mm stark.
+   * Schrankkorpusse: Laminatplatte in Graphit, 18 mm stark.
+   * Wandpaneel: Strukturputz in Betonoptik.
+   * Zusätzliche Elemente: Seitenrahmen der Halbinsel aus schwarzem Streckmetallgitter.
+* Flur / Hauswirtschaftsraum:
+   * Fronten: Schiebetürsystem in schwarzen Aluminiumrahmen; Füllung aus matter Graphitplatte und Spiegel.
+   * Schrankkorpusse: 18mm Möbelplatte in Weiß.
+SYSTEME:
+* Küche:
+   * Öffnungssysteme: Unterschränke öffnen sich mittels einer Griffmulde in der Front (erhöhte Arbeitsplatte) mit Soft-Close-Mechanismus; Oberschränke sind per Tip-On-System durch Berührung zu öffnen.
+   * Schubladen: Innenschubladen im Cargo-Hochschrank mit Soft-Close, die übrigen Schubladen verwenden das Blum Tip-On-System.
+   * Beleuchtung: LED-Band mit warmer Lichtfarbe unter den Hängeschränken.
+   * Andere Systeme: In der Arbeitsplatte versenkbare Steckdose.
+* Flur / Hauswirtschaftsraum:
+   * Öffnungssysteme: Schiebetürsystem.
+CHARAKTERISTISCHE ELEMENTE:
+* Einbauten unter der Treppe: Vollständige Nutzung des Raums unter dem Treppenlauf für hohe Küchenschränke, einschließlich Kühlschrank und Cargo-Hochschrank.
+* Versteckte Waschküche: Im Inneren des Einbauschranks wurde ein Platz für eine Waschmaschine und einen Trockner als Säule konzipiert, wodurch der Hauswirtschaftsbereich verborgen werden kann.
+* Industrielle Halbinsel: Die mit Metallgitter veredelte Küchenhalbinsel dient als durchbrochene Trennwand und als dekoratives Element, das den Loft-Stil aufgreift.
+* Materielle Konsistenz: Die Verwendung des gleichen Holzdekors auf dem Boden, den Treppen und den Küchenarbeitsplatten schafft eine einheitliche und harmonische Basis für die gesamte Einrichtung.
+* Touch-Lichtschalter: Ein kapazitiver Lichtschalter, der in die Seite des Schranks integriert ist und das Einschalten der LED-Beleuchtung durch eine Berührung ermöglicht.
+*
