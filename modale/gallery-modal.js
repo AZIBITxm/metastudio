@@ -566,22 +566,8 @@ class GalleryModal {
             subtitleMobileEl.textContent = project.location || '';
         }
         
-        // Update description section
-        const descriptionTextEl = this.modal.querySelector('.description-text');
-        const descriptionEl = this.modal.querySelector('.modal-description');
-        
-        if (descriptionTextEl && project.description) {
-            descriptionTextEl.textContent = project.description;
-            
-            // Dynamically adjust padding based on description length
-            if (descriptionEl) {
-                if (project.description.length < 50) {
-                    descriptionEl.classList.add('short-text');
-                } else {
-                    descriptionEl.classList.remove('short-text');
-                }
-            }
-        }
+        // Update description section - ładuj z pliku opis.txt
+        this.loadAndUpdateDescription();
         
         // Generate thumbnails
         this.generateThumbnails();
@@ -1227,6 +1213,141 @@ class GalleryModal {
         // Fallback do starych danych JSON
         const project = this.projectsData[galleryId];
         return project ? project.title : 'Realizacja';
+    }
+
+    // ==========================================
+    // ŁADOWANIE OPISÓW Z PLIKÓW TEKSTOWYCH
+    // ==========================================
+
+    /**
+     * Pobiera język strony z atrybutu lang elementu html
+     */
+    getCurrentLanguage() {
+        return document.documentElement.lang || 'pl';
+    }
+
+    /**
+     * Parsuje plik opis.txt i wyodrębnia pełny opis dla określonego języka
+     */
+    parseFullDescriptionFile(content, language) {
+        let description = '';
+        
+        // Spróbuj najpierw format z separatorami ---
+        if (content.includes('---')) {
+            const sections = content.split(/^---$/m);
+            
+            for (const section of sections) {
+                const trimmedSection = section.trim();
+                if (trimmedSection.startsWith(language)) {
+                    // Usuń kod języka z początku
+                    description = trimmedSection.substring(language.length).trim();
+                    break;
+                }
+            }
+        } else {
+            // Format bez separatorów (jak w pliku 1) - szukaj kodu języka na początku linii
+            const lines = content.split('\n');
+            let foundLanguage = false;
+            let currentDescription = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                // Sprawdź, czy jest to linia z kodem języka
+                if (line === language) {
+                    foundLanguage = true;
+                    currentDescription = [];
+                    continue;
+                }
+                
+                // Jeśli znaleźliśmy język, zbieraj linie opisu
+                if (foundLanguage) {
+                    // Sprawdź, czy nie jest to inny język (koniec sekcji)
+                    if (line === 'pl' || line === 'en' || line === 'de') {
+                        break;
+                    }
+                    
+                    currentDescription.push(lines[i]);
+                }
+            }
+            
+            description = currentDescription.join('\n').trim();
+        }
+        
+        // Jeśli nie znaleziono opisu dla danego języka, spróbuj angielski
+        if (!description && language !== 'en') {
+            return this.parseFullDescriptionFile(content, 'en');
+        }
+        
+        return description || null; // Zwróć null jeśli brak opisu
+    }
+
+    /**
+     * Ładuje pełny opis projektu z pliku opis.txt dla danego katalogu galerii
+     */
+    async loadFullGalleryDescription(galleryNumber, language) {
+        try {
+            const response = await fetch(`galeria/${galleryNumber}/opis.txt`);
+            
+            if (response.ok) {
+                const content = await response.text();
+                return this.parseFullDescriptionFile(content, language);
+            } else {
+                console.log(`No description file found for gallery ${galleryNumber}`);
+                return null; // Brak pliku - zwróć null
+            }
+        } catch (error) {
+            console.log(`Error loading description for gallery ${galleryNumber}:`, error);
+            return null; // Błąd - zwróć null
+        }
+    }
+
+    /**
+     * Ładuje i aktualizuje opis w modalu
+     */
+    async loadAndUpdateDescription() {
+        const descriptionTextEl = this.modal.querySelector('.description-text');
+        const descriptionEl = this.modal.querySelector('.modal-description');
+        
+        if (!descriptionTextEl || !descriptionEl) return;
+        
+        // Wyczyść opis na początku
+        descriptionTextEl.innerHTML = '';
+        descriptionEl.style.display = 'none';
+        
+        try {
+            const currentLanguage = this.getCurrentLanguage();
+            const fullDescription = await this.loadFullGalleryDescription(this.currentGallery, currentLanguage);
+            
+            // Jeśli znaleziono opis, wyświetl go
+            if (fullDescription && fullDescription.trim()) {
+                descriptionTextEl.innerHTML = this.formatDescription(fullDescription);
+                descriptionEl.style.display = 'block';
+                descriptionEl.classList.remove('short-text');
+            } else {
+                // Jeśli nie ma opisu, ukryj całą sekcję
+                descriptionEl.style.display = 'none';
+            }
+            
+        } catch (error) {
+            console.error(`Error loading description for gallery ${this.currentGallery}:`, error);
+            // W przypadku błędu, po prostu ukryj sekcję
+            descriptionEl.style.display = 'none';
+        }
+    }
+
+    /**
+     * Formatuje opis do wyświetlenia w HTML (zachowuje strukturę tekstową)
+     */
+    formatDescription(description) {
+        if (!description) return '';
+        
+        // Zamień nowe linie na <br> i zachowaj strukturę
+        return description
+            .replace(/\n\n/g, '</p><p>')  // Podwójne nowe linie = nowe paragrafy
+            .replace(/\n/g, '<br>')       // Pojedyncze nowe linie = <br>
+            .replace(/^/, '<p>')          // Dodaj <p> na początku
+            .replace(/$/, '</p>');        // Dodaj </p> na końcu
     }
     
     // Usunięte metody overlay - nie używane już

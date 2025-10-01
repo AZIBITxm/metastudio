@@ -60,13 +60,18 @@ Projektbeschreibung auf Deutsch...
 
 ### Główne funkcje (script.js):
 - `getCurrentLanguage()` - pobiera aktualny język strony
-- `parseDescriptionFile(content, language)` - parsuje plik opis.txt
-- `loadGalleryDescription(galleryNumber, language)` - ładuje opis dla konkretnej galerii
-- `initializeGalleryDescriptions()` - inicjalizuje ładowanie wszystkich opisów
+- `parseDescriptionFile(content, language)` - parsuje plik opis.txt (tytuł)
+- `loadGalleryDescription(galleryNumber, language)` - ładuje tytuł dla konkretnej galerii
+- `initializeGalleryDescriptions()` - inicjalizuje ładowanie wszystkich tytułów
 - `changeLanguage(newLanguage)` - zmienia język i przeładowuje opisy
 
 ### Integracja z modal (gallery-modal.js):
 - `getProjectTitle(galleryId)` - pobiera tytuł z aktualnie załadowanego opisu w galerii
+- `getCurrentLanguage()` - pobiera aktualny język strony (duplikacja dla modala)
+- `parseFullDescriptionFile(content, language)` - parsuje plik opis.txt (pełny opis)
+- `loadFullGalleryDescription(galleryNumber, language)` - ładuje pełny opis dla modala
+- `loadAndUpdateDescription()` - ładuje i wyświetla opis w modalu (lub ukrywa sekcję)
+- `formatDescription(description)` - formatuje opis do HTML
 
 ## Zmiana języka
 
@@ -102,9 +107,29 @@ galeria/
 └── ...
 ```
 
+## Modale
+
+### Jak działa modal:
+1. **Otwieranie modala**: Przy otwieraniu modala system automatycznie ładuje pełny opis z `opis.txt`
+2. **Wykrywanie języka**: Modal używa tego samego języka co strona główna
+3. **Fallback językowy**: Jeśli nie ma opisu w aktualnym języku, próbuje załadować angielski
+4. **Brak pliku**: Jeśli nie ma pliku `opis.txt`, sekcja opisu jest całkowicie ukryta
+5. **Przewijanie**: Długie opisy mają pasek przewijania dostosowany do rozmiaru ekranu
+
+### CSS dla modalela:
+- Sekcja `.modal-description` ma `max-height` i `overflow-y: auto`
+- Stylowany pasek przewijania w kolorach motywu strony
+- Responsywne wysokości dla różnych rozmiarów ekranów:
+  - Desktop: 300px
+  - Mobile (768px): 200px  
+  - Small mobile (480px): 150px
+  - Extra small (320px): 120px
+
 ## Uwagi
 
 - Pliki `opis.txt` muszą być zakodowane w UTF-8
 - Kody języków muszą być dokładnie: `pl`, `en`, `de`
 - Tytuł projektu nie może zawierać dwukropka `:` (jest używany do rozpoznawania sekcji materiałów)
-- System jest odporny na brak plików - wyświetli "Realizacja" jako domyślny tytuł
+- System jest odporny na brak plików:
+  - **Galeria główna**: wyświetli "Realizacja" jako domyślny tytuł
+  - **Modal**: ukryje całą sekcję opisu jeśli brak pliku

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Modala z Opisami z Plików</title>
+    <link rel="stylesheet" href="modale/gallery-modal.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #222;
+            color: #fff;
+        }
+        .test-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .gallery-item {
+            border: 1px solid #555;
+            padding: 15px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 5px;
+        }
+        .gallery-item:hover {
+            background: #444;
+        }
+        .gallery-item h3 {
+            margin: 0 0 10px 0;
+            color: #edd2ad;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background: #edd2ad;
+            color: #333;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #d4b991;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Modala z Opisami z Plików opis.txt</h1>
+    
+    <div class="controls">
+        <p>Aktualny język: <span id="current-lang">pl</span></p>
+        <button onclick="changeLanguage('pl')">Polski</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('de')">Deutsch</button>
+    </div>
+    
+    <div class="test-gallery">
+        <div class="gallery-item" data-gallery="1" onclick="openModal(1)">
+            <h3>Projekt 1</h3>
+            <p>Kliknij, aby otworzyć modal<br>Ma plik opis.txt z pełnym opisem</p>
+        </div>
+        <div class="gallery-item" data-gallery="3" onclick="openModal(3)">
+            <h3>Projekt 3</h3>
+            <p>Kliknij, aby otworzyć modal<br>Ma plik opis.txt z opisem</p>
+        </div>
+        <div class="gallery-item" data-gallery="4" onclick="openModal(4)">
+            <h3>Projekt 4</h3>
+            <p>Kliknij, aby otworzyć modal<br>Ma plik opis.txt z opisem</p>
+        </div>
+        <div class="gallery-item" data-gallery="5" onclick="openModal(5)">
+            <h3>Projekt 5</h3>
+            <p>Kliknij, aby otworzyć modal<br>Ma plik opis.txt z opisem</p>
+        </div>
+        <div class="gallery-item" data-gallery="6" onclick="openModal(6)">
+            <h3>Projekt 6</h3>
+            <p>Kliknij, aby otworzyć modal<br>Brak pliku - sekcja opisu powinna być ukryta</p>
+        </div>
+        <div class="gallery-item" data-gallery="2" onclick="openModal(2)">
+            <h3>Projekt 2</h3>
+            <p>Kliknij, aby otworzyć modal<br>Brak pliku opis.txt - sekcja opisu ukryta</p>
+        </div>
+    </div>
+
+    <!-- Modal HTML z oryginalnej strony -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Nazwa projektu</h2>
+                <button class="close-btn">×</button>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-nav prev-btn">‹</div>
+                <div class="gallery-nav next-btn">›</div>
+                <div class="main-image-container">
+                    <img id="modal-main-image" src="" alt="">
+                    <video id="modal-main-video" controls style="display: none;">
+                        <source src="" type="video/mp4">
+                        Twoja przeglądarka nie obsługuje elementu video.
+                    </video>
+                </div>
+            </div>
+            <div class="gallery-thumbnails"></div>
+            <div class="modal-description">
+                <p class="description-text">Opis projektu</p>
+            </div>
+            <div class="modal-footer">
+                <p class="modal-subtitle-mobile">Lokalizacja</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dane projektów (uproszczone) -->
+    <script type="application/json" id="projects-data">
+    {
+        "1": {
+            "title": "Apartament w Monachium",
+            "description": "Stary statyczny opis (nie będzie używany)",
+            "location": "Monachium, Niemcy"
+        },
+        "3": {
+            "title": "Loft w Berlinie", 
+            "description": "Stary statyczny opis (nie będzie używany)",
+            "location": "Berlin, Niemcy"
+        },
+        "4": {
+            "title": "Villa w Hamburgu",
+            "description": "Stary statyczny opis (nie będzie używany)",
+            "location": "Hamburg, Niemcy"
+        },
+        "5": {
+            "title": "Apartament w Krakowie",
+            "description": "Stary statyczny opis (nie będzie używany)",
+            "location": "Kraków, Polska"
+        },
+        "6": {
+            "title": "Test bez pliku",
+            "description": "Ten projekt nie ma pliku opis.txt",
+            "location": "Test, Test"
+        },
+        "2": {
+            "title": "Projekt bez opisu",
+            "description": "Stary statyczny opis (nie będzie używany)",
+            "location": "Test, Polska"
+        }
+    }
+    </script>
+
+    <script src="modale/gallery-modal.js"></script>
+
+    <script>
+        let galleryModal;
+
+        function changeLanguage(newLanguage) {
+            document.documentElement.lang = newLanguage;
+            document.getElementById('current-lang').textContent = newLanguage;
+            console.log(`Language changed to: ${newLanguage}`);
+        }
+
+        function openModal(galleryId) {
+            if (galleryModal) {
+                galleryModal.openModal(galleryId);
+            }
+        }
+
+        // Inicjalizacja
+        document.addEventListener('DOMContentLoaded', function() {
+            galleryModal = new GalleryModal();
+            console.log('Modal test initialized');
+        });
+    </script>
+</body>
+</html>
