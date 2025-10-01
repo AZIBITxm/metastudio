@@ -352,6 +352,39 @@
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* Tablet Mode - full screen for tablets */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .gallery-modal {
+        padding: 0;
+    }
+    
+    .modal-content {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .modal-description {
+        padding: 25px 30px;
+        max-height: 350px; /* Powiększona sekcja opisu na tabletach */
+    }
+    
+    .modal-description p {
+        font-size: 1.1rem; /* Większa czcionka na tabletach */
+        line-height: 1.7;
+    }
+    
+    .gallery-container {
+        height: 40vh;
+        min-height: 320px;
+    }
+}
+
 /* Desktop optimization */
 @media (min-width: 1024px) {
     .modal-content {
@@ -398,17 +431,18 @@
 @media (max-width: 768px) {
     .gallery-modal {
         align-items: flex-start;
-        padding: 10px 0;
+        padding: 0;
     }
     
     .modal-content {
         width: 100%;
-        height: auto;
-        max-height: calc(100vh - 20px);
+        height: 100vh;
+        max-height: 100vh;
         margin: 0;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+        border-radius: 0;
     }
     
     .modal-header {
@@ -421,16 +455,18 @@
     }
     
     .modal-description {
-        padding: 15px 25px;
-        max-height: 200px; /* Mniejsza wysokość na mobile */
+        padding: 20px 25px;
+        max-height: 400px; /* Powiększona wysokość sekcji opisu na mobile */
+        font-size: 1.1rem; /* Większy rozmiar czcionki */
     }
     
     .modal-description.short-text {
-        padding: 12px 25px;
+        padding: 18px 25px;
     }
     
     .modal-description p {
-        font-size: 0.9rem;
+        font-size: 1.05rem; /* Powiększona czcionka w opisie */
+        line-height: 1.7; /* Większy odstęp między liniami */
     }
 
     /* Mniejszy pasek przewijania na mobile */
@@ -573,15 +609,16 @@
 @media (max-width: 480px) {
     .gallery-modal.show {
         padding: 0;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: stretch;
     }
     
     .modal-content {
         width: 100%;
-        max-height: calc(100vh - 10px);
+        height: 100vh;
+        max-height: 100vh;
         border-radius: 0;
-        margin: 0 auto;
+        margin: 0;
         box-sizing: border-box;
     }
     
@@ -594,17 +631,17 @@
     }
     
     .modal-description {
-        padding: 12px 20px;
-        max-height: 150px; /* Jeszcze mniejsza wysokość na bardzo małych ekranach */
+        padding: 18px 20px;
+        max-height: 350px; /* Powiększona wysokość sekcji opisu na małych ekranach */
     }
     
     .modal-description.short-text {
-        padding: 10px 20px;
+        padding: 15px 20px;
     }
     
     .modal-description p {
-        font-size: 0.85rem;
-        line-height: 1.5;
+        font-size: 1rem; /* Powiększona czcionka */
+        line-height: 1.6; /* Większy odstęp między liniami */
     }
 
     /* Jeszcze mniejszy pasek przewijania */
@@ -635,15 +672,16 @@
 @media (max-width: 360px) {
     .gallery-modal.show {
         padding: 0;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: stretch;
     }
     
     .modal-content {
         width: 100%;
-        max-height: calc(100vh - 5px);
+        height: 100vh;
+        max-height: 100vh;
         border-radius: 0;
-        margin: 0 auto;
+        margin: 0;
         box-sizing: border-box;
     }
     
@@ -656,16 +694,17 @@
     }
     
     .modal-description {
-        padding: 10px 15px;
+        padding: 15px 15px;
+        max-height: 300px; /* Powiększona wysokość sekcji opisu */
     }
     
     .modal-description.short-text {
-        padding: 8px 15px;
+        padding: 12px 15px;
     }
     
     .modal-description p {
-        font-size: 0.8rem;
-        line-height: 1.4;
+        font-size: 0.95rem; /* Powiększona czcionka */
+        line-height: 1.5; /* Lepszy odstęp między liniami */
     }
     
 
@@ -690,15 +729,16 @@
 @media (max-width: 320px) {
     .gallery-modal.show {
         padding: 0;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: stretch;
     }
     
     .modal-content {
         width: 100%;
-        max-height: calc(100vh - 5px);
+        height: 100vh;
+        max-height: 100vh;
         border-radius: 0;
-        margin: 0 auto;
+        margin: 0;
         box-sizing: border-box;
     }
     
@@ -716,13 +756,13 @@
     }
     
     .modal-description {
-        padding: 8px 12px;
-        max-height: 120px; /* Minimalna wysokość dla bardzo małych ekranów */
+        padding: 12px 12px;
+        max-height: 280px; /* Powiększona wysokość sekcji opisu dla bardzo małych ekranów */
     }
     
     .modal-description p {
-        font-size: 0.75rem;
-        line-height: 1.3;
+        font-size: 0.9rem; /* Powiększona czcionka */
+        line-height: 1.4; /* Lepszy odstęp między liniami */
     }
 
     /* Minimalny pasek przewijania */
