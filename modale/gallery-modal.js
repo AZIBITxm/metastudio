@@ -8,6 +8,10 @@ class GalleryModal {
         this.images = [];
         this.projectsData = {};
         
+        // CACHE dla miniaturek galerii
+        this.galleriesCache = new Map();
+        this.preloadedThumbnails = new Set();
+        
         // Drag & drop state
         this.isDragging = false;
         this.startX = 0;
@@ -250,6 +254,14 @@ class GalleryModal {
     
     async loadOnlyThumbnails(galleryId) {
         console.log('=== NOWY SYSTEM: Ładowanie TYLKO miniaturek ===');
+        
+        // SPRAWDŹ CACHE
+        if (this.galleriesCache.has(galleryId)) {
+            console.log(`✅ Galeria ${galleryId} załadowana z cache`);
+            this.images = [...this.galleriesCache.get(galleryId)]; // kopia z cache
+            return;
+        }
+        
         const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
         const mediaItems = [];
         
@@ -279,11 +291,40 @@ class GalleryModal {
         mediaItems.sort((a, b) => a.number - b.number);
         
         this.images = mediaItems;
+        
+        // ZAPISZ DO CACHE
+        this.galleriesCache.set(galleryId, [...mediaItems]);
+        
+        // PRELOAD miniaturek w tle (nie blokuj interfejsu)
+        this.preloadThumbnailsInBackground(mediaItems);
+        
         console.log('Przygotowano tablicę miniaturek:', this.images.length);
         
         if (this.images.length === 0) {
             throw new Error('Nie znaleziono żadnych mediów w galerii');
         }
+    }
+    
+    // PRELOADOWANIE miniaturek w tle dla błyskawicznego wyświetlania
+    preloadThumbnailsInBackground(mediaItems) {
+        console.log('🚀 Rozpoczynam preload miniaturek...');
+        
+        mediaItems.forEach((item, index) => {
+            if (!this.preloadedThumbnails.has(item.thumbnail)) {
+                // Opóźnij każdą miniaturkę o 50ms żeby nie zablokować UI
+                setTimeout(() => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.preloadedThumbnails.add(item.thumbnail);
+                        console.log(`✅ Preloaded thumbnail ${index + 1}/${mediaItems.length}`);
+                    };
+                    img.onerror = () => {
+                        console.warn(`❌ Failed to preload thumbnail: ${item.thumbnail}`);
+                    };
+                    img.src = item.thumbnail;
+                }, index * 50); // Rozłóż w czasie
+            }
+        });
     }
 
     async loadFallbackThumbnails(galleryId, extensions) {
@@ -323,49 +364,64 @@ class GalleryModal {
     async findAvailableThumbnails(galleryId, extensions) {
         const thumbnails = [];
         
-        // Sprawdź miniaturki od m1 do m20 (zdjęcia)
+        // OPTYMALIZACJA: Równoległe sprawdzanie wszystkich miniaturek
+        const checkPromises = [];
+        
+        // Sprawdź miniaturki od m1 do m20 (zdjęcia) - równolegle
         for (let i = 1; i <= 20; i++) {
             for (const ext of extensions) {
                 const thumbPath = `galeria/${galleryId}/m${i}.${ext}`;
-                
-                try {
-                    const exists = await this.checkImageExists(thumbPath);
-                    if (exists) {
-                        thumbnails.push({
-                            number: i,
-                            path: thumbPath,
-                            type: 'image'
-                        });
-                        break; // Found thumbnail, try next number
-                    }
-                } catch (e) {
-                    // Continue to next extension
-                }
+                checkPromises.push(
+                    this.checkImageExistsFast(thumbPath).then(exists => {
+                        if (exists) {
+                            return {
+                                number: i,
+                                path: thumbPath,
+                                type: 'image',
+                                priority: i // dla sortowania
+                            };
+                        }
+                        return null;
+                    })
+                );
             }
         }
         
-        // Sprawdź miniaturki wideo od v1 do v20 (filmy)
+        // Sprawdź miniaturki wideo od v1 do v20 (filmy) - równolegle
         for (let i = 1; i <= 20; i++) {
             for (const ext of extensions) {
                 const thumbPath = `galeria/${galleryId}/v${i}.${ext}`;
-                
-                try {
-                    const exists = await this.checkImageExists(thumbPath);
-                    if (exists) {
-                        thumbnails.push({
-                            number: i,
-                            path: thumbPath,
-                            type: 'video'
-                        });
-                        break; // Found thumbnail, try next number
-                    }
-                } catch (e) {
-                    // Continue to next extension
-                }
+                checkPromises.push(
+                    this.checkImageExistsFast(thumbPath).then(exists => {
+                        if (exists) {
+                            return {
+                                number: i,
+                                path: thumbPath,
+                                type: 'video',
+                                priority: i // dla sortowania
+                            };
+                        }
+                        return null;
+                    })
+                );
             }
         }
         
-        return thumbnails;
+        // Czekaj na wszystkie sprawdzenia równocześnie
+        const results = await Promise.all(checkPromises);
+        
+        // Filtruj wyniki i usuń duplikaty (ten sam numer może mieć kilka rozszerzeń)
+        const foundThumbnails = new Map();
+        results.forEach(result => {
+            if (result) {
+                const key = `${result.type}-${result.number}`;
+                if (!foundThumbnails.has(key)) {
+                    foundThumbnails.set(key, result);
+                }
+            }
+        });
+        
+        return Array.from(foundThumbnails.values()).sort((a, b) => a.priority - b.priority);
     }
     
 
@@ -504,6 +560,17 @@ class GalleryModal {
         });
     }
     
+    // OPTYMALIZOWANA wersja sprawdzania istnienia plików
+    checkImageExistsFast(src) {
+        // Używaj fetch HEAD request dla szybszego sprawdzania
+        return fetch(src, { 
+            method: 'HEAD',
+            cache: 'force-cache' // Wykorzystaj cache przeglądarki
+        })
+        .then(response => response.ok)
+        .catch(() => false);
+    }
+    
     updateModalContent() {
         const project = this.projectsData[this.currentGallery] || {};
         
@@ -557,6 +624,9 @@ class GalleryModal {
         
         thumbnailsContainer.innerHTML = '';
         
+        // OPTYMALIZACJA: Użyj DocumentFragment dla lepszej wydajności
+        const fragment = document.createDocumentFragment();
+        
         this.images.forEach((image, index) => {
             const thumbnailWrapper = document.createElement('div');
             thumbnailWrapper.className = 'thumbnail-wrapper';
@@ -568,6 +638,13 @@ class GalleryModal {
             thumbnail.alt = image.alt;
             thumbnail.className = 'thumbnail';
             thumbnail.style.cursor = 'pointer';
+            
+            // OPTYMALIZACJA: Lazy loading dla miniaturek (nawet jeśli są małe)
+            thumbnail.loading = 'lazy';
+            thumbnail.decoding = 'async';
+            
+            // OPTYMALIZACJA: Dodaj placeholder podczas ładowania
+            thumbnail.style.backgroundColor = '#f0f0f0';
             
             // Dodaj ikonę play dla wideo
             if (image.type === 'video') {
@@ -617,8 +694,11 @@ class GalleryModal {
             });
             
             thumbnailWrapper.appendChild(thumbnail);
-            thumbnailsContainer.appendChild(thumbnailWrapper);
+            fragment.appendChild(thumbnailWrapper); // Dodaj do fragmentu
         });
+        
+        // OPTYMALIZACJA: Dodaj wszystkie miniaturki jednocześnie
+        thumbnailsContainer.appendChild(fragment);
         
         // Add drag & drop functionality
         this.setupThumbnailsDrag(thumbnailsContainer);
