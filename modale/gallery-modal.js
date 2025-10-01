@@ -714,14 +714,19 @@ class GalleryModal {
         // Hide overlay when changing image
         this.hideOverlay();
         
+        // NATYCHMIAST ukryj aktualny obraz/wideo
+        this.hideCurrentMedia();
+        
         // Zatrzymaj poprzednie wideo jeśli było odtwarzane
         const currentVideo = this.modal.querySelector('.gallery-main-video');
         if (currentVideo) {
             currentVideo.pause();
         }
         
-        // POKAŻ LOADER podczas ładowania
-        this.showMediaLoader();
+        // OPÓŹNIONY LOADER - pokaż dopiero po 400ms jeśli się nie załadowało
+        const loaderTimeout = setTimeout(() => {
+            this.showMediaLoader();
+        }, 400);
         
         try {
             // ZAŁADUJ PEŁNE MEDIA DOPIERO TERAZ (na żądanie)
@@ -751,25 +756,28 @@ class GalleryModal {
             this.updateActiveThumbnail(index);
             
         } finally {
-            // UKRYJ LOADER po zakończeniu (nawet jeśli był błąd)
+            // ANULUJ timeout i ukryj loader
+            clearTimeout(loaderTimeout);
             this.hideMediaLoader();
         }
     }
 
     showVideo(mediaObj, container) {
-        // Usuń istniejący obraz i zastąp wideo
+        // Ukryj główny obraz
+        const mainImage = container.querySelector('.gallery-main-image');
+        if (mainImage) {
+            mainImage.style.display = 'none';
+        }
+        
         let mainVideo = container.querySelector('.gallery-main-video');
+        let videoWrapper = container.querySelector('.video-wrapper');
         let fullscreenBtn = container.querySelector('.video-fullscreen-btn');
         
-        if (!mainVideo) {
-            // Ukryj obraz i stwórz element wideo
-            const mainImage = container.querySelector('.gallery-main-image');
-            if (mainImage) {
-                mainImage.style.display = 'none';
-            }
+        if (!mainVideo || !videoWrapper) {
+            // Stwórz nowe elementy wideo
             
             // Stwórz wrapper dla wideo z przyciskiem fullscreen
-            const videoWrapper = document.createElement('div');
+            videoWrapper = document.createElement('div');
             videoWrapper.className = 'video-wrapper';
             videoWrapper.style.cssText = `
                 width: 100%;
@@ -777,6 +785,7 @@ class GalleryModal {
                 position: absolute;
                 top: 0;
                 left: 0;
+                display: block;
             `;
             
             mainVideo = document.createElement('video');
@@ -832,12 +841,9 @@ class GalleryModal {
             videoWrapper.appendChild(fullscreenBtn);
             container.appendChild(videoWrapper);
         } else {
+            // Pokaż istniejące elementy wideo
             mainVideo.style.display = 'block';
-            // Ukryj obraz
-            const mainImage = container.querySelector('.gallery-main-image');
-            if (mainImage) {
-                mainImage.style.display = 'none';
-            }
+            videoWrapper.style.display = 'block';
         }
         
         // Załaduj wideo
@@ -884,10 +890,14 @@ class GalleryModal {
     }
 
     showImageContent(mediaObj, container) {
-        // Pokaż obraz i ukryj wideo (jeśli istnieje)
+        // Upewnij się, że wideo jest ukryte
         const mainVideo = container.querySelector('.gallery-main-video');
+        const videoWrapper = container.querySelector('.video-wrapper');
         if (mainVideo) {
             mainVideo.style.display = 'none';
+        }
+        if (videoWrapper) {
+            videoWrapper.style.display = 'none';
         }
         
         const mainImage = container.querySelector('.gallery-main-image');
@@ -1034,7 +1044,7 @@ class GalleryModal {
     
     // NOWY LOADER dla pojedynczych mediów
     showMediaLoader() {
-        // Znajdź lub stwórz loader dla głównego obrazu
+        // Znajdź lub stwórz minimalistyczny loader
         const galleryContainer = this.modal.querySelector('.gallery-container');
         if (!galleryContainer) return;
         
@@ -1049,27 +1059,19 @@ class GalleryModal {
                     <div class="dot2"></div>
                     <div class="dot3"></div>
                 </div>
-                <div class="loading-text">Ładowanie...</div>
             `;
             
-            // Stylowanie loadera
+            // MINIMALISTYCZNY LOADER - tylko kropki, bez tła
             mediaLoader.style.cssText = `
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                z-index: 1000;
-                background: rgba(0, 0, 0, 0.8);
-                padding: 20px;
-                border-radius: 10px;
-                color: white;
-                text-align: center;
-                font-family: 'Poppins', sans-serif;
-                backdrop-filter: blur(5px);
+                z-index: 1500;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                justify-content: center;
+                pointer-events: none;
             `;
             
             galleryContainer.appendChild(mediaLoader);
@@ -1078,8 +1080,11 @@ class GalleryModal {
             this.addSpinnerStyles();
         }
         
+        // Pokaż loader z małą animacją wejścia
         mediaLoader.style.display = 'flex';
-        console.log('🔄 Pokazuję loader mediów');
+        mediaLoader.style.opacity = '1';
+        
+        console.log('🔄 Pokazuję minimalistyczny loader (tylko kropki)');
     }
     
     hideMediaLoader() {
@@ -1088,8 +1093,43 @@ class GalleryModal {
         
         const mediaLoader = galleryContainer.querySelector('.media-loader');
         if (mediaLoader) {
-            mediaLoader.style.display = 'none';
-            console.log('✅ Ukrywam loader mediów');
+            // Płynne ukrycie loadera
+            mediaLoader.style.transition = 'opacity 0.2s ease';
+            mediaLoader.style.opacity = '0';
+            
+            // Ukryj kompletnie po animacji
+            setTimeout(() => {
+                if (mediaLoader) {
+                    mediaLoader.style.display = 'none';
+                }
+            }, 200);
+        }
+    }
+    
+    // NATYCHMIAST ukryj aktualny obraz/wideo
+    hideCurrentMedia() {
+        const galleryContainer = this.modal.querySelector('.gallery-container');
+        if (!galleryContainer) return;
+        
+        // Ukryj główny obraz
+        const mainImage = galleryContainer.querySelector('.gallery-main-image');
+        if (mainImage) {
+            mainImage.style.display = 'none';
+            console.log('🚫 Ukryto główny obraz');
+        }
+        
+        // Ukryj wideo
+        const mainVideo = galleryContainer.querySelector('.gallery-main-video');
+        if (mainVideo) {
+            mainVideo.style.display = 'none';
+            console.log('🚫 Ukryto wideo');
+        }
+        
+        // Ukryj cały wrapper wideo jeśli istnieje
+        const videoWrapper = galleryContainer.querySelector('.video-wrapper');
+        if (videoWrapper) {
+            videoWrapper.style.display = 'none';
+            console.log('🚫 Ukryto wrapper wideo');
         }
     }
     
@@ -1103,34 +1143,35 @@ class GalleryModal {
         style.textContent = `
             .spinner-dots {
                 display: flex;
-                gap: 8px;
+                gap: 10px;
                 align-items: center;
+                justify-content: center;
             }
             
             .spinner-dots div {
-                width: 8px;
-                height: 8px;
+                width: 10px;
+                height: 10px;
                 border-radius: 50%;
-                background: #fff;
-                animation: spinner-bounce 1.4s ease-in-out infinite both;
+                background: rgba(255, 255, 255, 0.9);
+                animation: spinner-pulse 1.0s ease-in-out infinite both;
             }
             
             .spinner-dots .dot1 {
-                animation-delay: -0.32s;
+                animation-delay: -0.2s;
             }
             
             .spinner-dots .dot2 {
-                animation-delay: -0.16s;
+                animation-delay: -0.1s;
             }
             
             .spinner-dots .dot3 {
                 animation-delay: 0s;
             }
             
-            @keyframes spinner-bounce {
+            @keyframes spinner-pulse {
                 0%, 80%, 100% {
-                    transform: scale(0.8);
-                    opacity: 0.5;
+                    transform: scale(0.5);
+                    opacity: 0.3;
                 }
                 40% {
                     transform: scale(1.2);
@@ -1138,11 +1179,19 @@ class GalleryModal {
                 }
             }
             
-            .loading-text {
-                font-size: 12px;
-                font-weight: 300;
-                letter-spacing: 1px;
-                opacity: 0.9;
+            .media-loader {
+                animation: fadeInDots 0.3s ease-out;
+            }
+            
+            @keyframes fadeInDots {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
             }
         `;
         
