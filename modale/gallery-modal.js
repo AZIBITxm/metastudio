@@ -17,9 +17,8 @@ class GalleryModal {
         this.startX = 0;
         this.scrollLeft = 0;
         
-        // Touch/swipe state for fullscreen
-        // Touch variables removed
-        // Touch functionality removed
+        // Fullscreen close timeout for smart tap detection
+        this.closeTimeout = null;
         
         this.init();
     }
@@ -1307,27 +1306,79 @@ class GalleryModal {
             fullscreenVideo.removeEventListener('click', this.fullscreenVideoClickHandler);
         }
         
-        // Allow natural zoom behavior - no click handler on image
+        // Smart click handler - delays closing to allow zoom gestures
         if (fullscreenImage) {
-            // Remove any existing click handlers to allow natural zoom
-            this.fullscreenImageClickHandler = null;
+            this.fullscreenImageClickHandler = (e) => {
+                e.stopPropagation();
+                
+                // Delay closing to distinguish from zoom gestures
+                // Single tap closes, but pinch/double-tap can interrupt
+                this.closeTimeout = setTimeout(() => {
+                    console.log('🔥 Fullscreen image clicked - closing fullscreen');
+                    this.closeFullscreen();
+                }, 300); // 300ms delay allows for double-tap zoom
+            };
+            fullscreenImage.addEventListener('click', this.fullscreenImageClickHandler);
             
-            // Natural cursor to indicate zoom capability
+            // Add double-tap prevention
+            let lastTap = 0;
+            fullscreenImage.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                
+                // If double-tap detected, cancel the close timeout
+                if (tapLength < 500 && tapLength > 0) {
+                    if (this.closeTimeout) {
+                        clearTimeout(this.closeTimeout);
+                        console.log('Double-tap detected - keeping fullscreen open for zoom');
+                    }
+                }
+                lastTap = currentTime;
+            });
+            
             fullscreenImage.style.cursor = 'default';
-            fullscreenImage.title = 'Użyj gestów do powiększania lub kliknij tło aby zamknąć';
+            fullscreenImage.title = 'Kliknij aby zamknąć, użyj gestów do powiększania';
         }
         
         if (fullscreenVideo) {
-            // Allow natural zoom behavior - no click handler on video
-            this.fullscreenVideoClickHandler = null;
+            this.fullscreenVideoClickHandler = (e) => {
+                e.stopPropagation();
+                
+                // Delay closing to allow zoom gestures
+                this.closeTimeout = setTimeout(() => {
+                    console.log('🔥 Fullscreen video clicked - closing fullscreen');
+                    this.closeFullscreen();
+                }, 300);
+            };
+            fullscreenVideo.addEventListener('click', this.fullscreenVideoClickHandler);
             
-            // Natural cursor
+            // Add double-tap prevention for video too
+            let lastTapVideo = 0;
+            fullscreenVideo.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTapVideo;
+                
+                if (tapLength < 500 && tapLength > 0) {
+                    if (this.closeTimeout) {
+                        clearTimeout(this.closeTimeout);
+                        console.log('Double-tap on video detected - keeping fullscreen open');
+                    }
+                }
+                lastTapVideo = currentTime;
+            });
+            
             fullscreenVideo.style.cursor = 'default';
-            fullscreenVideo.title = 'Użyj gestów lub kliknij tło aby zamknąć';
+            fullscreenVideo.title = 'Kliknij aby zamknąć, użyj gestów do powiększania';
         }
     }
     
     closeFullscreen() {
+        // Clear any pending close timeout
+        if (this.closeTimeout) {
+            clearTimeout(this.closeTimeout);
+            this.closeTimeout = null;
+        }
+        
         if (this.fullscreen) {
             // Zatrzymaj wideo jeśli jest odtwarzane
             const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
