@@ -24,6 +24,22 @@ class GalleryModal {
         this.touchEndY = 0;
         this.minSwipeDistance = 50;
         
+        // Pinch-to-zoom state
+        this.isZooming = false;
+        this.initialDistance = 0;
+        this.currentScale = 1;
+        this.maxScale = 3;
+        this.minScale = 1;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.lastTouchX = 0;
+        this.lastTouchY = 0;
+        this.isPanning = false;
+        
+        // Double-tap to zoom
+        this.lastTapTime = 0;
+        this.tapTimeout = null;
+        
         this.init();
     }
     
@@ -114,12 +130,6 @@ class GalleryModal {
         
         // Fullscreen events
         if (this.fullscreen) {
-            // Close fullscreen
-            const fullscreenClose = this.fullscreen.querySelector('.fullscreen-close');
-            if (fullscreenClose) {
-                fullscreenClose.addEventListener('click', () => this.closeFullscreen());
-            }
-            
             // Close on background click
             this.fullscreen.addEventListener('click', (e) => {
                 if (e.target === this.fullscreen) {
@@ -802,8 +812,20 @@ class GalleryModal {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
-                cursor: pointer;
+                cursor: zoom-in;
+                transition: transform 0.2s ease, filter 0.2s ease;
             `;
+            
+            // Dodaj hover effects dla wideo
+            mainVideo.addEventListener('mouseenter', () => {
+                mainVideo.style.transform = 'scale(1.02)';
+                mainVideo.style.filter = 'brightness(1.05)';
+            });
+            
+            mainVideo.addEventListener('mouseleave', () => {
+                mainVideo.style.transform = 'scale(1)';
+                mainVideo.style.filter = 'brightness(1)';
+            });
             
             // Przycisk fullscreen
             fullscreenBtn = document.createElement('button');
@@ -1076,7 +1098,7 @@ class GalleryModal {
             
             galleryContainer.appendChild(mediaLoader);
             
-            // Dodaj style dla animacji kropek
+            // Dodaj style dla animacji kropek i cursora
             this.addSpinnerStyles();
         }
         
@@ -1193,6 +1215,73 @@ class GalleryModal {
                     transform: translate(-50%, -50%) scale(1);
                 }
             }
+            
+            /* Style dla głównego obrazu i wideo galerii */
+            .gallery-main-image, .gallery-main-video {
+                cursor: zoom-in !important;
+                transition: transform 0.2s ease, filter 0.2s ease !important;
+            }
+            
+            .gallery-main-image:hover, .gallery-main-video:hover {
+                transform: scale(1.02) !important;
+                filter: brightness(1.05) !important;
+            }
+            
+            /* Fallback dla przeglądarek które nie wspierają zoom-in */
+            .gallery-main-image:not([style*="zoom-in"]), 
+            .gallery-main-video:not([style*="zoom-in"]) {
+                cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="21 21l-4.35-4.35"/><text x="11" y="15" text-anchor="middle" fill="white" font-size="8">+</text></svg>') 12 12, pointer !important;
+            }
+            
+            /* Style dla fullscreen media */
+            #fullscreen-image, #fullscreen-video {
+                cursor: zoom-out !important;
+                transition: filter 0.2s ease, transform 0.3s ease !important;
+                touch-action: none !important;
+                user-select: none !important;
+                -webkit-user-select: none !important;
+                -webkit-touch-callout: none !important;
+            }
+            
+            #fullscreen-image:hover, #fullscreen-video:hover {
+                filter: brightness(1.1) !important;
+            }
+            
+            /* Wskazówka dla mobile pinch-to-zoom */
+            @media (max-width: 768px) {
+                .gallery-fullscreen::before {
+                    content: "Użyj dwóch palców aby powiększyć";
+                    position: absolute;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 12px;
+                    z-index: 10000;
+                    opacity: 0.7;
+                    pointer-events: none;
+                    animation: fadeInHint 0.5s ease-out;
+                }
+                
+                @keyframes fadeInHint {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-50%) translateY(-10px);
+                    }
+                    to {
+                        opacity: 0.7;
+                        transform: translateX(-50%) translateY(0);
+                    }
+                }
+                
+                .gallery-fullscreen.zoomed::before {
+                    content: "Stuknij aby zresetować lub użyj dwóch palców";
+                    opacity: 0.5;
+                }
+            }
         `;
         
         document.head.appendChild(style);
@@ -1264,11 +1353,79 @@ class GalleryModal {
             fullscreenImage.alt = currentMedia.alt;
         }
         
+        // Dodaj event listenery do kliknięcia w media (obraz/wideo) żeby zamknąć fullscreen
+        this.addFullscreenMediaClickListeners();
+        
+        // Dodaj obsługę pinch-to-zoom dla mobile
+        this.addPinchToZoomListeners();
+        
         console.log('Adding "show" class to fullscreen element');
         this.fullscreen.classList.add('show');
         document.body.style.overflow = 'hidden';
         
         console.log('Fullscreen should now be visible. Classes:', this.fullscreen.classList.toString());
+    }
+    
+    addFullscreenMediaClickListeners() {
+        if (!this.fullscreen) return;
+        
+        const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
+        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
+        
+        // Usuń poprzednie listenery jeśli istnieją
+        if (this.fullscreenImageClickHandler) {
+            fullscreenImage.removeEventListener('click', this.fullscreenImageClickHandler);
+        }
+        if (this.fullscreenVideoClickHandler) {
+            fullscreenVideo.removeEventListener('click', this.fullscreenVideoClickHandler);
+        }
+        
+        // Dodaj nowe listenery
+        if (fullscreenImage) {
+            this.fullscreenImageClickHandler = (e) => {
+                e.stopPropagation();
+                
+                // Na mobile sprawdź double-tap
+                if (this.isMobile() && this.handleDoubleTap(e, fullscreenImage)) {
+                    return; // Double-tap obsłużony
+                }
+                
+                // Jeśli obraz jest powiększony, zresetuj zoom zamiast zamykać
+                if (this.currentScale > 1.1) {
+                    console.log('🔄 Image is zoomed - resetting zoom');
+                    this.resetZoom(fullscreenImage);
+                } else {
+                    console.log('🔥 Fullscreen image clicked - closing fullscreen');
+                    this.closeFullscreen();
+                }
+            };
+            fullscreenImage.addEventListener('click', this.fullscreenImageClickHandler);
+            
+            this.updateFullscreenCursor(fullscreenImage);
+        }
+        
+        if (fullscreenVideo) {
+            this.fullscreenVideoClickHandler = (e) => {
+                e.stopPropagation();
+                
+                // Na mobile sprawdź double-tap
+                if (this.isMobile() && this.handleDoubleTap(e, fullscreenVideo)) {
+                    return; // Double-tap obsłużony
+                }
+                
+                // Jeśli wideo jest powiększone, zresetuj zoom zamiast zamykać
+                if (this.currentScale > 1.1) {
+                    console.log('🔄 Video is zoomed - resetting zoom');
+                    this.resetZoom(fullscreenVideo);
+                } else {
+                    console.log('🔥 Fullscreen video clicked - closing fullscreen');
+                    this.closeFullscreen();
+                }
+            };
+            fullscreenVideo.addEventListener('click', this.fullscreenVideoClickHandler);
+            
+            this.updateFullscreenCursor(fullscreenVideo);
+        }
     }
     
     closeFullscreen() {
@@ -1279,6 +1436,9 @@ class GalleryModal {
                 fullscreenVideo.pause();
             }
             
+            // Zresetuj zoom przy zamykaniu
+            this.resetZoom();
+            
             this.fullscreen.classList.remove('show');
             
             // Only restore overflow if modal is not active
@@ -1286,6 +1446,249 @@ class GalleryModal {
                 document.body.style.overflow = '';
             }
         }
+    }
+    
+    addPinchToZoomListeners() {
+        if (!this.fullscreen) return;
+        
+        const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
+        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
+        
+        // Usuń poprzednie listenery jeśli istnieją
+        this.removePinchListeners();
+        
+        [fullscreenImage, fullscreenVideo].forEach(element => {
+            if (!element) return;
+            
+            // Touch events dla pinch-to-zoom
+            element.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
+            element.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+            element.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
+            
+            // Zapobiegaj domyślnemu zachowaniu przeglądarki (scroll, zoom)
+            element.addEventListener('gesturestart', (e) => e.preventDefault());
+            element.addEventListener('gesturechange', (e) => e.preventDefault());
+            element.addEventListener('gestureend', (e) => e.preventDefault());
+        });
+        
+        console.log('🤏 Pinch-to-zoom listeners added');
+    }
+    
+    removePinchListeners() {
+        const fullscreenImage = this.fullscreen?.querySelector('#fullscreen-image');
+        const fullscreenVideo = this.fullscreen?.querySelector('#fullscreen-video');
+        
+        [fullscreenImage, fullscreenVideo].forEach(element => {
+            if (!element) return;
+            
+            element.removeEventListener('touchstart', this.handleTouchStart);
+            element.removeEventListener('touchmove', this.handleTouchMove);
+            element.removeEventListener('touchend', this.handleTouchEnd);
+        });
+    }
+    
+    handleTouchStart(e) {
+        if (e.touches.length === 1) {
+            // Single touch - możliwy początek panning
+            this.lastTouchX = e.touches[0].clientX;
+            this.lastTouchY = e.touches[0].clientY;
+            this.isPanning = false;
+        } else if (e.touches.length === 2) {
+            // Pinch start
+            e.preventDefault();
+            this.isZooming = true;
+            this.isPanning = false;
+            
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            this.initialDistance = this.getDistance(touch1, touch2);
+            
+            console.log('🤏 Pinch start, distance:', this.initialDistance);
+        }
+    }
+    
+    handleTouchMove(e) {
+        if (e.touches.length === 2 && this.isZooming) {
+            // Pinch zoom
+            e.preventDefault();
+            
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            const currentDistance = this.getDistance(touch1, touch2);
+            
+            const scale = (currentDistance / this.initialDistance) * this.currentScale;
+            const newScale = Math.min(Math.max(scale, this.minScale), this.maxScale);
+            
+            this.applyTransform(e.target, newScale, this.currentX, this.currentY);
+            
+        } else if (e.touches.length === 1 && this.currentScale > 1) {
+            // Panning when zoomed
+            e.preventDefault();
+            
+            const touch = e.touches[0];
+            const deltaX = touch.clientX - this.lastTouchX;
+            const deltaY = touch.clientY - this.lastTouchY;
+            
+            if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
+                this.isPanning = true;
+            }
+            
+            if (this.isPanning) {
+                this.currentX += deltaX;
+                this.currentY += deltaY;
+                
+                // Ogranicz panning do granic obrazu
+                this.currentX = this.limitPanning(this.currentX, 'x');
+                this.currentY = this.limitPanning(this.currentY, 'y');
+                
+                this.applyTransform(e.target, this.currentScale, this.currentX, this.currentY);
+            }
+            
+            this.lastTouchX = touch.clientX;
+            this.lastTouchY = touch.clientY;
+        }
+    }
+    
+    handleTouchEnd(e) {
+        if (this.isZooming && e.touches.length < 2) {
+            // Koniec pinch
+            this.isZooming = false;
+            this.currentScale = this.getCurrentScale(e.target);
+            
+            console.log('🤏 Pinch end, final scale:', this.currentScale);
+            
+            // Jeśli zoom jest bardzo mały, wróć do oryginalnego rozmiaru
+            if (this.currentScale < 1.1) {
+                this.resetZoom(e.target);
+            }
+        }
+        
+        // Jeśli nie było panningu, traktuj jako zwykłe kliknięcie
+        setTimeout(() => {
+            if (!this.isPanning && e.touches.length === 0 && this.currentScale <= 1.1) {
+                // Tylko jeśli nie ma zoom - zamknij fullscreen
+                this.closeFullscreen();
+            }
+            this.isPanning = false;
+        }, 100);
+    }
+    
+    getDistance(touch1, touch2) {
+        const dx = touch1.clientX - touch2.clientX;
+        const dy = touch1.clientY - touch2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+    
+    applyTransform(element, scale, x, y) {
+        if (!element) return;
+        
+        element.style.transform = `scale(${scale}) translate(${x / scale}px, ${y / scale}px)`;
+        element.style.transformOrigin = 'center center';
+        
+        // Dodaj/usuń klasę CSS dla wskazówek
+        if (scale > 1.1) {
+            this.fullscreen?.classList.add('zoomed');
+        } else {
+            this.fullscreen?.classList.remove('zoomed');
+        }
+        
+        // Zaktualizuj cursor
+        this.updateFullscreenCursor(element);
+    }
+    
+    getCurrentScale(element) {
+        if (!element || !element.style.transform) return 1;
+        
+        const match = element.style.transform.match(/scale\(([^)]+)\)/);
+        return match ? parseFloat(match[1]) : 1;
+    }
+    
+    limitPanning(value, direction) {
+        // Ogranicz panning żeby obraz nie "uciekał" za daleko
+        const maxPan = 100 * this.currentScale;
+        return Math.min(Math.max(value, -maxPan), maxPan);
+    }
+    
+    resetZoom(element = null) {
+        this.currentScale = 1;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.isZooming = false;
+        this.isPanning = false;
+        
+        if (element) {
+            this.applyTransform(element, 1, 0, 0);
+        } else {
+            // Zresetuj wszystkie elementy fullscreen
+            const fullscreenImage = this.fullscreen?.querySelector('#fullscreen-image');
+            const fullscreenVideo = this.fullscreen?.querySelector('#fullscreen-video');
+            
+            [fullscreenImage, fullscreenVideo].forEach(el => {
+                if (el) {
+                    el.style.transform = '';
+                    el.style.transformOrigin = '';
+                }
+            });
+        }
+        
+        console.log('🔄 Zoom reset');
+    }
+    
+    updateFullscreenCursor(element) {
+        if (!element) return;
+        
+        if (this.currentScale > 1.1) {
+            // Gdy powiększone - cursor reset zoom
+            element.style.cursor = 'zoom-out';
+            element.title = 'Kliknij aby zresetować powiększenie';
+        } else {
+            // Gdy normalne - cursor zamknij
+            element.style.cursor = 'zoom-out';
+            element.title = 'Kliknij aby zamknąć pełny ekran';
+        }
+    }
+    
+    isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               ('ontouchstart' in window) || 
+               window.innerWidth <= 768;
+    }
+    
+    handleDoubleTap(e, element) {
+        const now = Date.now();
+        const timeSinceLastTap = now - this.lastTapTime;
+        
+        if (timeSinceLastTap < 300 && timeSinceLastTap > 50) {
+            // Double tap detected
+            console.log('📱 Double tap detected');
+            
+            if (this.tapTimeout) {
+                clearTimeout(this.tapTimeout);
+                this.tapTimeout = null;
+            }
+            
+            if (this.currentScale > 1.1) {
+                // Jeśli powiększone - zresetuj
+                this.resetZoom(element);
+            } else {
+                // Jeśli normalne - powiększ 2x w miejscu dotkniecia
+                const rect = element.getBoundingClientRect();
+                const centerX = (e.clientX - rect.left - rect.width / 2);
+                const centerY = (e.clientY - rect.top - rect.height / 2);
+                
+                this.currentScale = 2;
+                this.currentX = -centerX;
+                this.currentY = -centerY;
+                
+                this.applyTransform(element, this.currentScale, this.currentX, this.currentY);
+            }
+            
+            this.lastTapTime = 0; // Reset
+            return true; // Oznacz że double-tap został obsłużony
+        }
+        
+        this.lastTapTime = now;
+        return false;
     }
     
     updateFullscreenImage() {
@@ -1522,10 +1925,22 @@ class GalleryModal {
                 e.stopPropagation();
             }, true);
             
-            // Style dla lepszej widoczności
-            mainImage.style.cursor = 'pointer';
+            // Style dla lupki powiększającej
+            mainImage.style.cursor = 'zoom-in';
             mainImage.style.zIndex = '1000';
             mainImage.title = 'Kliknij aby powiększyć';
+            mainImage.style.transition = 'transform 0.2s ease, filter 0.2s ease';
+            
+            // Dodaj hover effects
+            mainImage.addEventListener('mouseenter', () => {
+                mainImage.style.transform = 'scale(1.02)';
+                mainImage.style.filter = 'brightness(1.05)';
+            });
+            
+            mainImage.addEventListener('mouseleave', () => {
+                mainImage.style.transform = 'scale(1)';
+                mainImage.style.filter = 'brightness(1)';
+            });
             
             // BACKUP - dodaj onclick bezpośrednio do HTML (omija wszystkie inne event listenery)
             mainImage.onclick = (e) => {

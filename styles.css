@@ -843,13 +843,9 @@ nav {
 .about-details:first-of-type,
 .about-philosophy {
     opacity: 1;
-    transition: opacity 0.3s ease;
-}
+   }
 
-.about-details:not(:first-of-type) {
-    opacity: 0.3;
-    transition: opacity 0.5s ease;
-}
+
 
 .about-details.visible {
     opacity: 1;
