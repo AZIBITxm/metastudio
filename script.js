@@ -936,6 +936,10 @@ function initializeSubBanners() {
             // Usuń klasę expanded po ukryciu wszystkich pod-banerów
             setTimeout(() => {
                 materialLogo.classList.remove('expanded');
+                // Dostosuj wysokość sekcji po ukryciu sub-banerów
+                if (window.adjustProjectSectionHeight) {
+                    window.adjustProjectSectionHeight();
+                }
             }, 300); // Czas trwania animacji CSS
         }
     }
@@ -945,6 +949,12 @@ function initializeSubBanners() {
         const allSubBanners = document.querySelectorAll('.sub-banner');
         allSubBanners.forEach(subBanner => {
             subBanner.classList.remove('show');
+        });
+        
+        // Ukryj wszystkie opisy materiałów
+        materialsInfo.forEach(info => {
+            info.style.display = 'none';
+            info.classList.remove('active', 'fade-in');
         });
         
         // W wersji mobilnej ukryj też sekcję materials-info
@@ -959,6 +969,13 @@ function initializeSubBanners() {
                     }
                 }, 100);
             }
+        } else {
+            // Na desktopie również dostosuj wysokość po ukryciu
+            setTimeout(() => {
+                if (window.adjustProjectSectionHeight) {
+                    window.adjustProjectSectionHeight();
+                }
+            }, 100);
         }
     }
     
@@ -1028,10 +1045,11 @@ function initializeSubBanners() {
     
     // Obsługa kliknięć poza banerami - zamykanie wszystkich rozwinięych banerów (mobile i desktop)
     document.addEventListener('click', function(e) {
-        // Sprawdź czy kliknięty element nie jest częścią material-logo
+        // Sprawdź czy kliknięty element nie jest częścią material-logo ani materials-info
         const clickedInsideMaterialLogo = e.target.closest('.material-logo');
+        const clickedInsideMaterialsInfo = e.target.closest('.materials-info');
         
-        if (!clickedInsideMaterialLogo) {
+        if (!clickedInsideMaterialLogo && !clickedInsideMaterialsInfo) {
             // Kliknięto poza banerami - zamknij wszystkie
             const materialsLogosContainer = document.querySelector('.materials-logos');
             materialLogos.forEach(logo => {
@@ -1041,6 +1059,14 @@ function initializeSubBanners() {
                 }
             });
             materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
+            
+            // Ukryj wszystkie opisy materiałów i wróć do stanu początkowego
+            hideAllSubBanners();
+            
+            // Pokaż domyślny opis po krótkim czasie
+            setTimeout(() => {
+                showMaterialInfo('plyty-meblowe');
+            }, 200);
         }
     });
     
@@ -1287,22 +1313,31 @@ function adjustProjectSectionHeight() {
             const activeMaterialInfo = document.querySelector('.material-info.active');
             
             if (activeMaterialInfo) {
-                // Oblicz pozycję końca aktywnego banera względem sekcji project
-                const projectRect = projectSection.getBoundingClientRect();
-                const bannerRect = activeMaterialInfo.getBoundingClientRect();
+                // Resetuj wysokość do automatycznej przed obliczeniami
+                projectSection.style.minHeight = '';
                 
-                // Oblicz gdzie powinien kończyć się project (zaraz pod banerem)
-                const bannerBottom = bannerRect.bottom;
-                const projectTop = projectRect.top;
-                const bannerEndRelativeToProject = bannerBottom - projectTop;
-                
-                // Ustaw minimalną wysokość sekcji tak, aby kończyła się pod banerem
-                const currentProjectHeight = projectSection.offsetHeight;
-                const neededHeight = Math.max(bannerEndRelativeToProject + 20, currentProjectHeight);
-                
-                projectSection.style.minHeight = neededHeight + 'px';
-                
-                console.log(`Adjusted project section height to ${neededHeight}px to end just below banner`);
+                // Daj chwilę na przekalkulowanie layoutu
+                setTimeout(() => {
+                    // Oblicz pozycję końca aktywnego banera względem sekcji project
+                    const projectRect = projectSection.getBoundingClientRect();
+                    const bannerRect = activeMaterialInfo.getBoundingClientRect();
+                    
+                    // Oblicz gdzie powinien kończyć się project (zaraz pod banerem)
+                    const bannerBottom = bannerRect.bottom;
+                    const projectTop = projectRect.top;
+                    const bannerEndRelativeToProject = bannerBottom - projectTop;
+                    
+                    // Oblicz minimalną wysokość bazową (bez aktywnego bannera)
+                    const materialsLogos = document.querySelector('.materials-logos');
+                    const baseHeight = materialsLogos ? materialsLogos.offsetHeight + 100 : 400;
+                    
+                    // Ustaw wysokość jako większą z: wysokość bazowa lub wysokość potrzebna na baner
+                    const neededHeight = Math.max(bannerEndRelativeToProject + 20, baseHeight);
+                    
+                    projectSection.style.minHeight = neededHeight + 'px';
+                    
+                    console.log(`Adjusted project section height to ${neededHeight}px (base: ${baseHeight}px, banner needs: ${bannerEndRelativeToProject + 20}px)`);
+                }, 10);
             }
         } else {
             // Jeśli baner nie jest widoczny, usuń minimalną wysokość
