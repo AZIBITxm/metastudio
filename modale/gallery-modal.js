@@ -558,7 +558,8 @@ class GalleryModal {
         const subtitleMobileEl = this.modal.querySelector('.modal-subtitle-mobile');
         
         if (titleEl) {
-            titleEl.textContent = project.title || 'Realizacja';
+            // Użyj dynamicznie ładowanego tytułu z galerii
+            titleEl.textContent = this.getProjectTitle(this.currentGallery);
         }
         
         if (subtitleMobileEl) {
@@ -1217,6 +1218,13 @@ class GalleryModal {
     }
     
     getProjectTitle(galleryId) {
+        // Sprawdź, czy tytuł jest dostępny w elemencie galerii
+        const galleryItem = document.querySelector(`[data-gallery="${galleryId}"] h3`);
+        if (galleryItem && galleryItem.textContent !== 'Realizacja') {
+            return galleryItem.textContent;
+        }
+        
+        // Fallback do starych danych JSON
         const project = this.projectsData[galleryId];
         return project ? project.title : 'Realizacja';
     }

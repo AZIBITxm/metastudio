@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ładowania Opisów Galerii</title>
+    <style>
+        .gallery-item {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            width: 200px;
+        }
+        .gallery-item h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Ładowania Opisów Galerii MetaStudio</h1>
+    
+    <div class="controls">
+        <p>Aktualny język: <span id="current-lang">pl</span></p>
+        <button onclick="changeLanguage('pl')">Polski</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('de')">Deutsch</button>
+        <button onclick="initializeGalleryDescriptions()">Przeładuj opisy</button>
+    </div>
+    
+    <div class="gallery">
+        <div class="gallery-item" data-gallery="1">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 1 (ma plik opis.txt)</p>
+        </div>
+        <div class="gallery-item" data-gallery="2">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 2 (ma plik opis.txt)</p>
+        </div>
+        <div class="gallery-item" data-gallery="3">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 3 (ma plik opis.txt)</p>
+        </div>
+        <div class="gallery-item" data-gallery="4">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 4 (ma plik opis.txt)</p>
+        </div>
+        <div class="gallery-item" data-gallery="5">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 5 (ma plik opis.txt)</p>
+        </div>
+        <div class="gallery-item" data-gallery="6">
+            <h3>Ładowanie...</h3>
+            <p>Katalog 6 (brak pliku - powinno pokazać "Realizacja")</p>
+        </div>
+    </div>
+
+    <script>
+        // Kopiujemy funkcje z głównego pliku script.js
+        function getCurrentLanguage() {
+            return document.documentElement.lang || 'pl';
+        }
+
+        function parseDescriptionFile(content, language) {
+            // Spróbuj najpierw format z separatorami ---
+            if (content.includes('---')) {
+                const sections = content.split(/^---$/m);
+                
+                for (const section of sections) {
+                    const trimmedSection = section.trim();
+                    if (trimmedSection.startsWith(language)) {
+                        // Usuń kod języka z początku
+                        const description = trimmedSection.substring(language.length).trim();
+                        const lines = description.split('\n');
+                        
+                        // Znajdź pierwszy niepusty nagłówek (pierwszy wiersz po kodzie języka)
+                        for (const line of lines) {
+                            const trimmedLine = line.trim();
+                            if (trimmedLine && 
+                                !trimmedLine.startsWith('MATERIAŁY:') && 
+                                !trimmedLine.startsWith('MATERIALS:') &&
+                                !trimmedLine.startsWith('MATERIALIEN:') &&
+                                !trimmedLine.startsWith('SYSTEMY:') && 
+                                !trimmedLine.startsWith('SYSTEMS:') &&
+                                !trimmedLine.startsWith('CHARAKTERYSTYCZNE ELEMENTY:') &&
+                                !trimmedLine.startsWith('DISTINCTIVE FEATURES:') &&
+                                !trimmedLine.startsWith('CHARAKTERISTISCHE ELEMENTE:') &&
+                                !trimmedLine.includes(':')) {
+                                return trimmedLine;
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Format bez separatorów (jak w pliku 1) - szukaj kodu języka na początku linii
+                const lines = content.split('\n');
+                let foundLanguage = false;
+                
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    
+                    // Sprawdź, czy jest to linia z kodem języka
+                    if (line === language) {
+                        foundLanguage = true;
+                        continue;
+                    }
+                    
+                    // Jeśli znaleźliśmy język, szukaj pierwszego niepustego nagłówka
+                    if (foundLanguage && line) {
+                        // Sprawdź, czy nie jest to inny język
+                        if (line === 'pl' || line === 'en' || line === 'de') {
+                            break; // Koniec sekcji dla tego języka
+                        }
+                        
+                        // Sprawdź, czy nie jest to sekcja materiałów/systemów
+                        if (!line.startsWith('MATERIAŁY:') && 
+                            !line.startsWith('MATERIALS:') &&
+                            !line.startsWith('MATERIALIEN:') &&
+                            !line.startsWith('SYSTEMY:') && 
+                            !line.startsWith('SYSTEMS:') &&
+                            !line.startsWith('CHARAKTERYSTYCZNE ELEMENTY:') &&
+                            !line.startsWith('DISTINCTIVE FEATURES:') &&
+                            !line.startsWith('CHARAKTERISTISCHE ELEMENTE:') &&
+                            !line.includes(':')) {
+                            return line;
+                        }
+                    }
+                }
+            }
+            
+            return 'Realizacja'; // Domyślny tytuł jeśli nie znaleziono
+        }
+
+        async function loadGalleryDescription(galleryNumber, language) {
+            try {
+                const response = await fetch(`galeria/${galleryNumber}/opis.txt`);
+                
+                if (response.ok) {
+                    const content = await response.text();
+                    return parseDescriptionFile(content, language);
+                } else {
+                    console.log(`No description file found for gallery ${galleryNumber}`);
+                    return 'Realizacja';
+                }
+            } catch (error) {
+                console.log(`Error loading description for gallery ${galleryNumber}:`, error);
+                return 'Realizacja';
+            }
+        }
+
+        async function initializeGalleryDescriptions() {
+            const currentLanguage = getCurrentLanguage();
+            const galleryItems = document.querySelectorAll('.gallery-item[data-gallery]');
+            
+            console.log(`Loading gallery descriptions for language: ${currentLanguage}`);
+            document.getElementById('current-lang').textContent = currentLanguage;
+            
+            for (const item of galleryItems) {
+                const galleryNumber = item.getAttribute('data-gallery');
+                const titleElement = item.querySelector('h3');
+                
+                if (galleryNumber && titleElement) {
+                    titleElement.textContent = 'Ładowanie...';
+                    try {
+                        const title = await loadGalleryDescription(galleryNumber, currentLanguage);
+                        titleElement.textContent = title;
+                        console.log(`Updated gallery ${galleryNumber} title to: ${title}`);
+                    } catch (error) {
+                        console.error(`Error updating title for gallery ${galleryNumber}:`, error);
+                    }
+                }
+            }
+            
+            console.log('Gallery descriptions loading completed');
+        }
+
+        function changeLanguage(newLanguage) {
+            // Zmień atrybut lang w HTML
+            document.documentElement.lang = newLanguage;
+            
+            // Przeładuj opisy galerii dla nowego języka
+            initializeGalleryDescriptions();
+            
+            console.log(`Language changed to: ${newLanguage}`);
+        }
+
+        // Inicjalizuj po załadowaniu strony
+        document.addEventListener('DOMContentLoaded', initializeGalleryDescriptions);
+    </script>
+</body>
+</html>

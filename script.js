@@ -128,6 +128,150 @@ function initializeAutoImageLoading() {
 }
 
 // ==========================================
+// ŁADOWANIE OPISÓW GALERII
+// ==========================================
+
+/**
+ * Pobiera język strony z atrybutu lang elementu html
+ */
+function getCurrentLanguage() {
+    return document.documentElement.lang || 'pl';
+}
+
+/**
+ * Parsuje plik opis.txt i wyodrębnia opis dla określonego języka
+ */
+function parseDescriptionFile(content, language) {
+    // Spróbuj najpierw format z separatorami ---
+    if (content.includes('---')) {
+        const sections = content.split(/^---$/m);
+        
+        for (const section of sections) {
+            const trimmedSection = section.trim();
+            if (trimmedSection.startsWith(language)) {
+                // Usuń kod języka z początku
+                const description = trimmedSection.substring(language.length).trim();
+                const lines = description.split('\n');
+                
+                // Znajdź pierwszy niepusty nagłówek (pierwszy wiersz po kodzie języka)
+                for (const line of lines) {
+                    const trimmedLine = line.trim();
+                    if (trimmedLine && 
+                        !trimmedLine.startsWith('MATERIAŁY:') && 
+                        !trimmedLine.startsWith('MATERIALS:') &&
+                        !trimmedLine.startsWith('MATERIALIEN:') &&
+                        !trimmedLine.startsWith('SYSTEMY:') && 
+                        !trimmedLine.startsWith('SYSTEMS:') &&
+                        !trimmedLine.startsWith('CHARAKTERYSTYCZNE ELEMENTY:') &&
+                        !trimmedLine.startsWith('DISTINCTIVE FEATURES:') &&
+                        !trimmedLine.startsWith('CHARAKTERISTISCHE ELEMENTE:') &&
+                        !trimmedLine.includes(':')) {
+                        return trimmedLine;
+                    }
+                }
+            }
+        }
+    } else {
+        // Format bez separatorów (jak w pliku 1) - szukaj kodu języka na początku linii
+        const lines = content.split('\n');
+        let foundLanguage = false;
+        
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            
+            // Sprawdź, czy jest to linia z kodem języka
+            if (line === language) {
+                foundLanguage = true;
+                continue;
+            }
+            
+            // Jeśli znaleźliśmy język, szukaj pierwszego niepustego nagłówka
+            if (foundLanguage && line) {
+                // Sprawdź, czy nie jest to inny język
+                if (line === 'pl' || line === 'en' || line === 'de') {
+                    break; // Koniec sekcji dla tego języka
+                }
+                
+                // Sprawdź, czy nie jest to sekcja materiałów/systemów
+                if (!line.startsWith('MATERIAŁY:') && 
+                    !line.startsWith('MATERIALS:') &&
+                    !line.startsWith('MATERIALIEN:') &&
+                    !line.startsWith('SYSTEMY:') && 
+                    !line.startsWith('SYSTEMS:') &&
+                    !line.startsWith('CHARAKTERYSTYCZNE ELEMENTY:') &&
+                    !line.startsWith('DISTINCTIVE FEATURES:') &&
+                    !line.startsWith('CHARAKTERISTISCHE ELEMENTE:') &&
+                    !line.includes(':')) {
+                    return line;
+                }
+            }
+        }
+    }
+    
+    return 'Realizacja'; // Domyślny tytuł jeśli nie znaleziono
+}
+
+/**
+ * Ładuje opis projektu z pliku opis.txt dla danego katalogu galerii
+ */
+async function loadGalleryDescription(galleryNumber, language) {
+    try {
+        const response = await fetch(`galeria/${galleryNumber}/opis.txt`);
+        
+        if (response.ok) {
+            const content = await response.text();
+            return parseDescriptionFile(content, language);
+        } else {
+            console.log(`No description file found for gallery ${galleryNumber}`);
+            return 'Realizacja';
+        }
+    } catch (error) {
+        console.log(`Error loading description for gallery ${galleryNumber}:`, error);
+        return 'Realizacja';
+    }
+}
+
+/**
+ * Aktualizuje tytuły wszystkich projektów galerii na podstawie plików opis.txt
+ */
+async function initializeGalleryDescriptions() {
+    const currentLanguage = getCurrentLanguage();
+    const galleryItems = document.querySelectorAll('.gallery-item[data-gallery]');
+    
+    console.log(`Loading gallery descriptions for language: ${currentLanguage}`);
+    
+    for (const item of galleryItems) {
+        const galleryNumber = item.getAttribute('data-gallery');
+        const titleElement = item.querySelector('h3');
+        
+        if (galleryNumber && titleElement) {
+            try {
+                const title = await loadGalleryDescription(galleryNumber, currentLanguage);
+                titleElement.textContent = title;
+                console.log(`Updated gallery ${galleryNumber} title to: ${title}`);
+            } catch (error) {
+                console.error(`Error updating title for gallery ${galleryNumber}:`, error);
+            }
+        }
+    }
+    
+    console.log('Gallery descriptions loading completed');
+}
+
+/**
+ * Zmienia język strony i aktualizuje opisy galerii
+ */
+function changeLanguage(newLanguage) {
+    // Zmień atrybut lang w HTML
+    document.documentElement.lang = newLanguage;
+    
+    // Przeładuj opisy galerii dla nowego języka
+    initializeGalleryDescriptions();
+    
+    console.log(`Language changed to: ${newLanguage}`);
+}
+
+// ==========================================
 // GLOBALNE ZMIENNE DLA ANIMACJI CYKLICZNYCH
 // ==========================================
 
@@ -623,7 +767,12 @@ function initializeApp() {
         initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
         initializeGalleryToggle();
         initializeAutoImageLoading(); // Automatyczne ładowanie pierwszych zdjęć z katalogów - po toggle
+        initializeGalleryDescriptions(); // Ładowanie opisów z plików opis.txt
         initializeMobileGalleryScrollReveal();
+        
+        // Udostępnij funkcje globalnie dla celów testowych
+        window.changeLanguage = changeLanguage;
+        window.initializeGalleryDescriptions = initializeGalleryDescriptions;
         initializeMobileAboutAnimation();
         
         console.log('MetaStudio JavaScript initialized successfully');

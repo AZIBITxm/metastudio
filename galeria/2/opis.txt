@@ -1,0 +1,16 @@
+pl
+TESTOWA REALIZACJA PL
+
+To jest testowy opis projektu w języku polskim.
+
+---
+en
+TEST PROJECT EN
+
+This is a test project description in English.
+
+---
+de
+TESTPROJEKT DE
+
+Das ist eine Test-Projektbeschreibung auf Deutsch.
