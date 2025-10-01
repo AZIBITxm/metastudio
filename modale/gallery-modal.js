@@ -720,31 +720,40 @@ class GalleryModal {
             currentVideo.pause();
         }
         
-        // ZAŁADUJ PEŁNE MEDIA DOPIERO TERAZ (na żądanie)
-        await this.loadFullMediaOnDemand(index);
+        // POKAŻ LOADER podczas ładowania
+        this.showMediaLoader();
         
-        const mediaItem = this.images[index];
-        console.log(`Pokazuję element ${index}:`, {
-            thumbnail: mediaItem.thumbnail,
-            src: mediaItem.src,
-            loaded: mediaItem.loaded,
-            type: mediaItem.type
-        });
-        
-        // Get gallery container
-        const galleryContainer = this.modal.querySelector('.gallery-container');
-        if (!galleryContainer) return;
-        
-        if (mediaItem.type === 'video') {
-            // Obsługa wideo
-            this.showVideo(mediaItem, galleryContainer);
-        } else {
-            // Obsługa obrazu
-            this.showImageContent(mediaItem, galleryContainer);
+        try {
+            // ZAŁADUJ PEŁNE MEDIA DOPIERO TERAZ (na żądanie)
+            await this.loadFullMediaOnDemand(index);
+            
+            const mediaItem = this.images[index];
+            console.log(`Pokazuję element ${index}:`, {
+                thumbnail: mediaItem.thumbnail,
+                src: mediaItem.src,
+                loaded: mediaItem.loaded,
+                type: mediaItem.type
+            });
+            
+            // Get gallery container
+            const galleryContainer = this.modal.querySelector('.gallery-container');
+            if (!galleryContainer) return;
+            
+            if (mediaItem.type === 'video') {
+                // Obsługa wideo
+                this.showVideo(mediaItem, galleryContainer);
+            } else {
+                // Obsługa obrazu
+                this.showImageContent(mediaItem, galleryContainer);
+            }
+            
+            // Update thumbnail states and counter
+            this.updateActiveThumbnail(index);
+            
+        } finally {
+            // UKRYJ LOADER po zakończeniu (nawet jeśli był błąd)
+            this.hideMediaLoader();
         }
-        
-        // Update thumbnail states and counter
-        this.updateActiveThumbnail(index);
     }
 
     showVideo(mediaObj, container) {
@@ -884,25 +893,45 @@ class GalleryModal {
         const mainImage = container.querySelector('.gallery-main-image');
         if (mainImage) {
             mainImage.style.display = 'block';
-            mainImage.style.opacity = '0.5';
             
             // ZAWSZE używaj pełnego obrazu na głównym bannerze (nie miniaturki)
             let imageToShow = mediaObj.src;
             console.log(`ShowImageContent - showing image: ${imageToShow}, thumbnail: ${mediaObj.thumbnail}`);
             
-            // Create new image to preload
+            // Jeśli obraz już jest załadowany, pokaż go od razu
+            if (mediaObj.loaded && mediaObj.src) {
+                mainImage.src = imageToShow;
+                mainImage.alt = mediaObj.alt;
+                mainImage.style.opacity = '1';
+                this.addMainImageClickListener();
+                return;
+            }
+            
+            // Pokaż miniaturkę jako placeholder podczas ładowania pełnego obrazu
+            mainImage.src = mediaObj.thumbnail;
+            mainImage.style.opacity = '0.6';
+            mainImage.style.filter = 'blur(2px)';
+            
+            // Create new image to preload pełny obraz
             const newImg = new Image();
             newImg.onload = () => {
+                // Płynne przejście do pełnego obrazu
+                mainImage.style.transition = 'all 0.3s ease';
                 mainImage.src = newImg.src;
                 mainImage.alt = mediaObj.alt;
                 mainImage.style.opacity = '1';
+                mainImage.style.filter = 'none';
                 
                 // Dodaj event listener do głównego obrazu po załadowaniu
                 this.addMainImageClickListener();
+                
+                console.log('✅ Obraz pełny załadowany:', imageToShow);
             };
             newImg.onerror = () => {
-                console.error('Error loading image:', imageToShow);
+                console.error('❌ Błąd ładowania obrazu:', imageToShow);
+                // Zostaw miniaturkę jako fallback
                 mainImage.style.opacity = '1';
+                mainImage.style.filter = 'none';
             };
             newImg.src = imageToShow;
         }
@@ -1001,6 +1030,123 @@ class GalleryModal {
             // Dodaj event listener do głównego obrazu
             this.addMainImageClickListener();
         }
+    }
+    
+    // NOWY LOADER dla pojedynczych mediów
+    showMediaLoader() {
+        // Znajdź lub stwórz loader dla głównego obrazu
+        const galleryContainer = this.modal.querySelector('.gallery-container');
+        if (!galleryContainer) return;
+        
+        let mediaLoader = galleryContainer.querySelector('.media-loader');
+        
+        if (!mediaLoader) {
+            mediaLoader = document.createElement('div');
+            mediaLoader.className = 'media-loader';
+            mediaLoader.innerHTML = `
+                <div class="spinner-dots">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                    <div class="dot3"></div>
+                </div>
+                <div class="loading-text">Ładowanie...</div>
+            `;
+            
+            // Stylowanie loadera
+            mediaLoader.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                color: white;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+                backdrop-filter: blur(5px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            `;
+            
+            galleryContainer.appendChild(mediaLoader);
+            
+            // Dodaj style dla animacji kropek
+            this.addSpinnerStyles();
+        }
+        
+        mediaLoader.style.display = 'flex';
+        console.log('🔄 Pokazuję loader mediów');
+    }
+    
+    hideMediaLoader() {
+        const galleryContainer = this.modal.querySelector('.gallery-container');
+        if (!galleryContainer) return;
+        
+        const mediaLoader = galleryContainer.querySelector('.media-loader');
+        if (mediaLoader) {
+            mediaLoader.style.display = 'none';
+            console.log('✅ Ukrywam loader mediów');
+        }
+    }
+    
+    // Dodaj style dla animacji spinner
+    addSpinnerStyles() {
+        // Sprawdź czy style już istnieją
+        if (document.getElementById('media-loader-styles')) return;
+        
+        const style = document.createElement('style');
+        style.id = 'media-loader-styles';
+        style.textContent = `
+            .spinner-dots {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+            
+            .spinner-dots div {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #fff;
+                animation: spinner-bounce 1.4s ease-in-out infinite both;
+            }
+            
+            .spinner-dots .dot1 {
+                animation-delay: -0.32s;
+            }
+            
+            .spinner-dots .dot2 {
+                animation-delay: -0.16s;
+            }
+            
+            .spinner-dots .dot3 {
+                animation-delay: 0s;
+            }
+            
+            @keyframes spinner-bounce {
+                0%, 80%, 100% {
+                    transform: scale(0.8);
+                    opacity: 0.5;
+                }
+                40% {
+                    transform: scale(1.2);
+                    opacity: 1;
+                }
+            }
+            
+            .loading-text {
+                font-size: 12px;
+                font-weight: 300;
+                letter-spacing: 1px;
+                opacity: 0.9;
+            }
+        `;
+        
+        document.head.appendChild(style);
     }
     
     getProjectTitle(galleryId) {
