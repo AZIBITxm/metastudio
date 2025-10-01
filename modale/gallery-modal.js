@@ -18,23 +18,8 @@ class GalleryModal {
         this.scrollLeft = 0;
         
         // Touch/swipe state for fullscreen
-        this.touchStartX = 0;
-        this.touchStartY = 0;
-        this.touchEndX = 0;
-        this.touchEndY = 0;
-        this.minSwipeDistance = 50;
-        
-        // Pinch-to-zoom state
-        this.isZooming = false;
-        this.initialDistance = 0;
-        this.currentScale = 1;
-        this.maxScale = 3;
-        this.minScale = 1;
-        this.currentX = 0;
-        this.currentY = 0;
-        this.lastTouchX = 0;
-        this.lastTouchY = 0;
-        this.isPanning = false;
+        // Touch variables removed
+        // Touch functionality removed
         
         this.init();
     }
@@ -148,18 +133,7 @@ class GalleryModal {
                 }
             });
             
-            // Touch events for fullscreen swipe navigation
-            this.fullscreen.addEventListener('touchstart', (e) => {
-                if (this.fullscreen.classList.contains('show')) {
-                    this.handleTouchStart(e);
-                }
-            }, { passive: true });
-            
-            this.fullscreen.addEventListener('touchend', (e) => {
-                if (this.fullscreen.classList.contains('show')) {
-                    this.handleTouchEnd(e);
-                }
-            }, { passive: true });
+
         }
     }
     
@@ -1233,52 +1207,10 @@ class GalleryModal {
             #fullscreen-image, #fullscreen-video {
                 cursor: zoom-out !important;
                 transition: filter 0.2s ease !important;
-                touch-action: none !important;
-                user-select: none !important;
-                -webkit-user-select: none !important;
-                -webkit-touch-callout: none !important;
-                -webkit-user-drag: none !important;
-                -webkit-tap-highlight-color: transparent !important;
             }
             
             #fullscreen-image:hover, #fullscreen-video:hover {
                 filter: brightness(1.1) !important;
-            }
-            
-            /* Wskazówka dla mobile pinch-to-zoom */
-            @media (max-width: 768px) {
-                .gallery-fullscreen::before {
-                    content: "Użyj dwóch palców aby powiększyć";
-                    position: absolute;
-                    top: 20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: rgba(0, 0, 0, 0.8);
-                    color: white;
-                    padding: 8px 16px;
-                    border-radius: 20px;
-                    font-size: 12px;
-                    z-index: 10000;
-                    opacity: 0.7;
-                    pointer-events: none;
-                    animation: fadeInHint 0.5s ease-out;
-                }
-                
-                @keyframes fadeInHint {
-                    from {
-                        opacity: 0;
-                        transform: translateX(-50%) translateY(-10px);
-                    }
-                    to {
-                        opacity: 0.7;
-                        transform: translateX(-50%) translateY(0);
-                    }
-                }
-                
-                .gallery-fullscreen.zoomed::before {
-                    content: "Stuknij aby zresetować lub użyj dwóch palców";
-                    opacity: 0.5;
-                }
             }
         `;
         
@@ -1354,9 +1286,6 @@ class GalleryModal {
         // Dodaj event listenery do kliknięcia w media (obraz/wideo) żeby zamknąć fullscreen
         this.addFullscreenMediaClickListeners();
         
-        // Dodaj obsługę pinch-to-zoom dla mobile
-        this.addPinchToZoomListeners();
-        
         console.log('Adding "show" class to fullscreen element');
         this.fullscreen.classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -1382,37 +1311,27 @@ class GalleryModal {
         if (fullscreenImage) {
             this.fullscreenImageClickHandler = (e) => {
                 e.stopPropagation();
-                
-                // Jeśli obraz jest powiększony, zresetuj zoom zamiast zamykać
-                if (this.currentScale > 1.1) {
-                    console.log('🔄 Image is zoomed - resetting zoom');
-                    this.resetZoom(fullscreenImage);
-                } else {
-                    console.log('🔥 Fullscreen image clicked - closing fullscreen');
-                    this.closeFullscreen();
-                }
+                console.log('🔥 Fullscreen image clicked - closing fullscreen');
+                this.closeFullscreen();
             };
             fullscreenImage.addEventListener('click', this.fullscreenImageClickHandler);
             
-            this.updateFullscreenCursor(fullscreenImage);
+            // Zwykły cursor zoom-out
+            fullscreenImage.style.cursor = 'zoom-out';
+            fullscreenImage.title = 'Kliknij aby zamknąć pełny ekran';
         }
         
         if (fullscreenVideo) {
             this.fullscreenVideoClickHandler = (e) => {
                 e.stopPropagation();
-                
-                // Jeśli wideo jest powiększone, zresetuj zoom zamiast zamykać
-                if (this.currentScale > 1.1) {
-                    console.log('🔄 Video is zoomed - resetting zoom');
-                    this.resetZoom(fullscreenVideo);
-                } else {
-                    console.log('🔥 Fullscreen video clicked - closing fullscreen');
-                    this.closeFullscreen();
-                }
+                console.log('🔥 Fullscreen video clicked - closing fullscreen');
+                this.closeFullscreen();
             };
             fullscreenVideo.addEventListener('click', this.fullscreenVideoClickHandler);
             
-            this.updateFullscreenCursor(fullscreenVideo);
+            // Zwykły cursor zoom-out
+            fullscreenVideo.style.cursor = 'zoom-out';
+            fullscreenVideo.title = 'Kliknij aby zamknąć pełny ekran';
         }
     }
     
@@ -1424,9 +1343,6 @@ class GalleryModal {
                 fullscreenVideo.pause();
             }
             
-            // Zresetuj zoom przy zamykaniu
-            this.resetZoom();
-            
             this.fullscreen.classList.remove('show');
             
             // Only restore overflow if modal is not active
@@ -1436,221 +1352,7 @@ class GalleryModal {
         }
     }
     
-    addPinchToZoomListeners() {
-        if (!this.fullscreen) return;
-        
-        const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
-        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
-        
-        // Usuń poprzednie listenery jeśli istnieją
-        this.removePinchListeners();
-        
-        // Stwórz bound functions żeby można je było później usunąć
-        this.boundTouchStart = this.handleTouchStart.bind(this);
-        this.boundTouchMove = this.handleTouchMove.bind(this);
-        this.boundTouchEnd = this.handleTouchEnd.bind(this);
-        
-        [fullscreenImage, fullscreenVideo].forEach(element => {
-            if (!element) return;
-            
-            console.log('🤏 Adding touch listeners to:', element.id);
-            
-            // Touch events dla pinch-to-zoom
-            element.addEventListener('touchstart', this.boundTouchStart, { passive: false });
-            element.addEventListener('touchmove', this.boundTouchMove, { passive: false });
-            element.addEventListener('touchend', this.boundTouchEnd, { passive: false });
-            
-            // Zapobiegaj domyślnemu zachowaniu przeglądarki (scroll, zoom)
-            element.addEventListener('gesturestart', (e) => e.preventDefault());
-            element.addEventListener('gesturechange', (e) => e.preventDefault());
-            element.addEventListener('gestureend', (e) => e.preventDefault());
-        });
-        
-        console.log('🤏 Pinch-to-zoom listeners added successfully');
-    }
-    
-    removePinchListeners() {
-        const fullscreenImage = this.fullscreen?.querySelector('#fullscreen-image');
-        const fullscreenVideo = this.fullscreen?.querySelector('#fullscreen-video');
-        
-        if (this.boundTouchStart && this.boundTouchMove && this.boundTouchEnd) {
-            [fullscreenImage, fullscreenVideo].forEach(element => {
-                if (!element) return;
-                
-                console.log('🤏 Removing touch listeners from:', element.id);
-                
-                element.removeEventListener('touchstart', this.boundTouchStart);
-                element.removeEventListener('touchmove', this.boundTouchMove);
-                element.removeEventListener('touchend', this.boundTouchEnd);
-            });
-        }
-    }
-    
-    handleTouchStart(e) {
-        console.log('👆 Touch start, touches:', e.touches.length);
-        
-        if (e.touches.length === 1) {
-            // Single touch - możliwy początek panning
-            this.lastTouchX = e.touches[0].clientX;
-            this.lastTouchY = e.touches[0].clientY;
-            this.isPanning = false;
-            console.log('👆 Single touch at:', this.lastTouchX, this.lastTouchY);
-        } else if (e.touches.length === 2) {
-            // Pinch start
-            e.preventDefault();
-            this.isZooming = true;
-            this.isPanning = false;
-            
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            this.initialDistance = this.getDistance(touch1, touch2);
-            
-            console.log('🤏 Pinch start, distance:', this.initialDistance, 'current scale:', this.currentScale);
-        }
-    }
-    
-    handleTouchMove(e) {
-        if (e.touches.length === 2 && this.isZooming) {
-            // Pinch zoom
-            e.preventDefault();
-            
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            const currentDistance = this.getDistance(touch1, touch2);
-            
-            const scale = (currentDistance / this.initialDistance) * this.currentScale;
-            const newScale = Math.min(Math.max(scale, this.minScale), this.maxScale);
-            
-            console.log('🤏 Pinching - distance:', currentDistance, 'scale:', newScale.toFixed(2));
-            
-            this.applyTransform(e.target, newScale, this.currentX, this.currentY);
-            
-        } else if (e.touches.length === 1 && this.currentScale > 1) {
-            // Panning when zoomed
-            e.preventDefault();
-            
-            const touch = e.touches[0];
-            const deltaX = touch.clientX - this.lastTouchX;
-            const deltaY = touch.clientY - this.lastTouchY;
-            
-            if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
-                this.isPanning = true;
-                console.log('👋 Panning started');
-            }
-            
-            if (this.isPanning) {
-                this.currentX += deltaX;
-                this.currentY += deltaY;
-                
-                // Ogranicz panning do granic obrazu
-                this.currentX = this.limitPanning(this.currentX, 'x');
-                this.currentY = this.limitPanning(this.currentY, 'y');
-                
-                this.applyTransform(e.target, this.currentScale, this.currentX, this.currentY);
-            }
-            
-            this.lastTouchX = touch.clientX;
-            this.lastTouchY = touch.clientY;
-        }
-    }
-    
-    handleTouchEnd(e) {
-        if (this.isZooming && e.touches.length < 2) {
-            // Koniec pinch
-            this.isZooming = false;
-            this.currentScale = this.getCurrentScale(e.target);
-            
-            console.log('🤏 Pinch end, final scale:', this.currentScale);
-            
-            // Jeśli zoom jest bardzo mały, wróć do oryginalnego rozmiaru
-            if (this.currentScale < 1.1) {
-                this.resetZoom(e.target);
-            }
-        }
-        
-        // Reset panning state
-        setTimeout(() => {
-            this.isPanning = false;
-        }, 50);
-    }
-    
-    getDistance(touch1, touch2) {
-        const dx = touch1.clientX - touch2.clientX;
-        const dy = touch1.clientY - touch2.clientY;
-        return Math.sqrt(dx * dx + dy * dy);
-    }
-    
-    applyTransform(element, scale, x, y) {
-        if (!element) return;
-        
-        const transformValue = `scale(${scale}) translate(${x / scale}px, ${y / scale}px)`;
-        element.style.transform = transformValue;
-        element.style.transformOrigin = 'center center';
-        
-        console.log('🔄 Applying transform:', transformValue, 'to', element.id);
-        
-        // Dodaj/usuń klasę CSS dla wskazówek
-        if (scale > 1.1) {
-            this.fullscreen?.classList.add('zoomed');
-        } else {
-            this.fullscreen?.classList.remove('zoomed');
-        }
-        
-        // Zaktualizuj cursor
-        this.updateFullscreenCursor(element);
-    }
-    
-    getCurrentScale(element) {
-        if (!element || !element.style.transform) return 1;
-        
-        const match = element.style.transform.match(/scale\(([^)]+)\)/);
-        return match ? parseFloat(match[1]) : 1;
-    }
-    
-    limitPanning(value, direction) {
-        // Ogranicz panning żeby obraz nie "uciekał" za daleko
-        const maxPan = 100 * this.currentScale;
-        return Math.min(Math.max(value, -maxPan), maxPan);
-    }
-    
-    resetZoom(element = null) {
-        this.currentScale = 1;
-        this.currentX = 0;
-        this.currentY = 0;
-        this.isZooming = false;
-        this.isPanning = false;
-        
-        if (element) {
-            this.applyTransform(element, 1, 0, 0);
-        } else {
-            // Zresetuj wszystkie elementy fullscreen
-            const fullscreenImage = this.fullscreen?.querySelector('#fullscreen-image');
-            const fullscreenVideo = this.fullscreen?.querySelector('#fullscreen-video');
-            
-            [fullscreenImage, fullscreenVideo].forEach(el => {
-                if (el) {
-                    el.style.transform = '';
-                    el.style.transformOrigin = '';
-                }
-            });
-        }
-        
-        console.log('🔄 Zoom reset');
-    }
-    
-    updateFullscreenCursor(element) {
-        if (!element) return;
-        
-        if (this.currentScale > 1.1) {
-            // Gdy powiększone - cursor reset zoom
-            element.style.cursor = 'zoom-out';
-            element.title = 'Kliknij aby zresetować powiększenie';
-        } else {
-            // Gdy normalne - cursor zamknij
-            element.style.cursor = 'zoom-out';
-            element.title = 'Kliknij aby zamknąć pełny ekran';
-        }
-    }
+
     
 
     
@@ -1743,83 +1445,10 @@ class GalleryModal {
             }
         });
         
-        // Touch events for mobile
-        let isTouchDown = false;
-        let touchStartX = 0;
-        let touchScrollLeft = 0;
-        
-        container.addEventListener('touchstart', (e) => {
-            isTouchDown = true;
-            touchStartX = e.touches[0].pageX - container.offsetLeft;
-            touchScrollLeft = container.scrollLeft;
-        });
-        
-        container.addEventListener('touchend', () => {
-            isTouchDown = false;
-            isDragging = false;
-            this.isDragging = false;
-            container.classList.remove('dragging');
-        });
-        
-        container.addEventListener('touchmove', (e) => {
-            if (!isTouchDown) return;
-            
-            const x = e.touches[0].pageX - container.offsetLeft;
-            const distance = Math.abs(x - touchStartX);
-            
-            // Start dragging only if moved beyond threshold
-            if (distance > dragThreshold && !isDragging) {
-                isDragging = true;
-                this.isDragging = true;
-                container.classList.add('dragging');
-                e.preventDefault();
-            }
-            
-            if (isDragging) {
-                e.preventDefault();
-                const walk = (x - touchStartX) * 2;
-                container.scrollLeft = touchScrollLeft - walk;
-            }
-        });
+        // Touch scrolling for mobile uses natural browser behavior
     }
     
-    // Touch event handlers for fullscreen swipe navigation
-    handleTouchStart(e) {
-        const touch = e.touches[0];
-        this.touchStartX = touch.clientX;
-        this.touchStartY = touch.clientY;
-    }
-    
-    handleTouchEnd(e) {
-        const touch = e.changedTouches[0];
-        this.touchEndX = touch.clientX;
-        this.touchEndY = touch.clientY;
-        
-        this.handleSwipe();
-    }
-    
-    handleSwipe() {
-        const deltaX = this.touchEndX - this.touchStartX;
-        const deltaY = this.touchEndY - this.touchStartY;
-        
-        // Sprawdź czy to poziomy swipe (nie pionowy)
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            // Sprawdź czy przesunięcie jest wystarczająco duże
-            if (Math.abs(deltaX) > this.minSwipeDistance) {
-                if (deltaX > 0) {
-                    // Swipe w prawo - poprzedni obraz
-                    console.log('Swipe right - previous image');
-                    this.prevImage();
-                    this.updateFullscreenImage();
-                } else {
-                    // Swipe w lewo - następny obraz
-                    console.log('Swipe left - next image');
-                    this.nextImage();
-                    this.updateFullscreenImage();
-                }
-            }
-        }
-    }
+    // Touch navigation removed - using natural browser behavior
     
     updateFullscreenImage() {
         // Aktualizuj zawartość fullscreen po zmianie obrazu
