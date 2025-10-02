@@ -29,6 +29,14 @@ class GalleryModal {
         // Fullscreen close timeout for smart tap detection
         this.closeTimeout = null;
         
+        // Touch/swipe properties for mobile
+        this.touchStartX = 0;
+        this.touchStartY = 0;
+        this.touchEndX = 0;
+        this.touchEndY = 0;
+        this.minSwipeDistance = 50; // Minimalna odległość dla swipe
+        this.maxVerticalSwipe = 100; // Maksymalna odległość pionowa dla poziomego swipe
+        
         this.init();
     }
     
@@ -208,6 +216,18 @@ class GalleryModal {
             
 
         }
+        
+        // Setup touch events for mobile swipe
+        this.setupTouchEvents();
+        
+        // Debug info
+        console.log('🔧 Device info:', {
+            userAgent: navigator.userAgent,
+            windowWidth: window.innerWidth,
+            windowHeight: window.innerHeight,
+            touchSupport: 'ontouchstart' in window,
+            isMobile: /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        });
     }
     
     async openModal(galleryId) {
@@ -2050,6 +2070,146 @@ class GalleryModal {
             // Spróbuj ponownie za chwilę
             setTimeout(() => this.addMainImageClickListener(), 200);
         }
+    }
+    
+    setupTouchEvents() {
+        if (!this.fullscreen) return;
+        
+        // Sprawdź czy to urządzenie mobilne
+        const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                         || window.innerWidth <= 768;
+        
+        if (!isMobile) {
+            console.log('📱 Desktop detected - touch events not needed');
+            return;
+        }
+        
+        // Touch events dla fullscreen z passive: false dla touchmove żeby móc zablokować scroll
+        this.fullscreen.addEventListener('touchstart', (e) => {
+            this.handleTouchStart(e);
+        }, { passive: true });
+        
+        this.fullscreen.addEventListener('touchmove', (e) => {
+            this.handleTouchMove(e);
+        }, { passive: false }); // Nie passive żeby móc preventDefault
+        
+        this.fullscreen.addEventListener('touchend', (e) => {
+            this.handleTouchEnd(e);
+        }, { passive: true });
+        
+        console.log('✅ Mobile touch events setup completed');
+    }
+    
+    handleTouchStart(e) {
+        if (!this.fullscreen.classList.contains('show')) return;
+        
+        const touch = e.touches[0];
+        this.touchStartX = touch.clientX;
+        this.touchStartY = touch.clientY;
+        
+        console.log(`👆 Touch start: X=${this.touchStartX}, Y=${this.touchStartY}`);
+    }
+    
+    handleTouchMove(e) {
+        if (!this.fullscreen.classList.contains('show')) return;
+        
+        const touch = e.touches[0];
+        this.touchEndX = touch.clientX;
+        this.touchEndY = touch.clientY;
+        
+        // Oblicz deltaX i deltaY w czasie rzeczywistym
+        const deltaX = this.touchEndX - this.touchStartX;
+        const deltaY = Math.abs(this.touchEndY - this.touchStartY);
+        
+        // Jeśli to głównie poziomy ruch, zablokuj domyślne zachowanie (scroll)
+        if (Math.abs(deltaX) > deltaY && Math.abs(deltaX) > 20) {
+            e.preventDefault();
+        }
+    }
+    
+    async handleTouchEnd(e) {
+        if (!this.fullscreen.classList.contains('show')) return;
+        
+        const deltaX = this.touchEndX - this.touchStartX;
+        const deltaY = Math.abs(this.touchEndY - this.touchStartY);
+        
+        console.log(`👆 Touch end: deltaX=${deltaX}, deltaY=${deltaY}`);
+        
+        // Reset touch coordinates
+        this.touchStartX = 0;
+        this.touchStartY = 0;
+        this.touchEndX = 0;
+        this.touchEndY = 0;
+        
+        // Sprawdź czy to poziomy swipe (a nie pionowy scroll)
+        if (deltaY > this.maxVerticalSwipe) {
+            console.log('❌ Zbyt duży ruch pionowy, ignoruję swipe');
+            return;
+        }
+        
+        // Sprawdź czy ruch jest wystarczająco duży
+        if (Math.abs(deltaX) < this.minSwipeDistance) {
+            console.log('❌ Ruch za mały, ignoruję swipe');
+            return;
+        }
+        
+        // Dodaj wizualny feedback
+        this.showSwipeAnimation(deltaX > 0 ? 'right' : 'left');
+        
+        // Swipe w prawo = poprzedni obraz
+        if (deltaX > 0) {
+            console.log('👈 Swipe right - poprzedni obraz');
+            this.prevImage();
+            await this.updateFullscreenImage();
+        }
+        // Swipe w lewo = następny obraz
+        else {
+            console.log('👉 Swipe left - następny obraz');
+            this.nextImage();
+            await this.updateFullscreenImage();
+        }
+    }
+    
+    showSwipeAnimation(direction) {
+        // Dodaj wizualny feedback dla swipe
+        const indicator = document.createElement('div');
+        indicator.className = 'swipe-indicator';
+        indicator.textContent = direction === 'right' ? '←' : '→';
+        indicator.style.cssText = `
+            position: absolute;
+            top: 50%;
+            ${direction === 'right' ? 'left: 20px' : 'right: 20px'};
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            opacity: 0;
+            z-index: 10001;
+            pointer-events: none;
+            animation: swipeFeedback 0.5s ease-out forwards;
+        `;
+        
+        // Dodaj keyframes jeśli nie istnieją
+        if (!document.querySelector('#swipe-animation-styles')) {
+            const style = document.createElement('style');
+            style.id = 'swipe-animation-styles';
+            style.textContent = `
+                @keyframes swipeFeedback {
+                    0% { opacity: 0; transform: translateY(-50%) scale(0.5); }
+                    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+                    100% { opacity: 0; transform: translateY(-50%) scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        this.fullscreen.appendChild(indicator);
+        
+        // Usuń po animacji
+        setTimeout(() => {
+            if (indicator.parentNode) {
+                indicator.parentNode.removeChild(indicator);
+            }
+        }, 500);
     }
 }
 

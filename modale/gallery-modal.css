@@ -871,3 +871,83 @@
         height: 30px;
     }
 }
+
+/* Touch/Swipe Styles for Mobile */
+@media (max-width: 768px) {
+    .fullscreen-modal {
+        /* Zapewnia że touch events będą działać na całej powierzchni */
+        touch-action: pan-y; /* Zezwala na scroll pionowy, ale blokuje poziomy */
+        -webkit-touch-callout: none; /* Wyłącza menu kontekstowe na iOS */
+        -webkit-user-select: none; /* Zapobiega selekcji tekstu */
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    .fullscreen-modal #fullscreen-image,
+    .fullscreen-modal #fullscreen-video {
+        /* Zapobiega przeciąganiu obrazu */
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none; /* Wyłącza inne interakcje z obrazem */
+    }
+    
+    /* Ukryj przyciski nawigacji na małych ekranach - używamy swipe */
+    .fullscreen-nav-prev,
+    .fullscreen-nav-next {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    
+    /* Pokaż wskazówkę swipe na początku */
+    .fullscreen-modal::after {
+        content: "← Swipe →";
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        animation: swipeHint 3s ease-out;
+        pointer-events: none;
+    }
+}
+
+@keyframes swipeHint {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .fullscreen-modal {
+        touch-action: pan-y;
+    }
+    
+    .fullscreen-modal #fullscreen-image,
+    .fullscreen-modal #fullscreen-video {
+        -webkit-user-drag: none;
+        user-drag: none;
+    }
+    
+    /* Na tabletach pokazuj przyciski, ale z mniejszą opacity */
+    .fullscreen-nav-prev,
+    .fullscreen-nav-next {
+        opacity: 0.6;
+    }
+    
+    .fullscreen-nav-prev:hover,
+    .fullscreen-nav-next:hover {
+        opacity: 1;
+    }
+}

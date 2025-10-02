@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Fullscreen Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Test Fullscreen Navigation + Swipe</title>
     <style>
         body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
         .test-gallery { cursor: pointer; margin: 10px; display: inline-block; }
@@ -21,16 +21,25 @@
     </style>
 </head>
 <body>
-    <h1>Test Fullscreen Navigation Debug</h1>
+    <h1>Test Fullscreen Navigation + Swipe Debug</h1>
+    
+    <div style="background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px;">
+        <strong>Instrukcje testowania:</strong>
+        <ul>
+            <li>📱 <strong>Mobile/Tablet:</strong> Użyj swipe (przeciągnij) lewo/prawo w trybie pełnoekranowym</li>
+            <li>🖥️ <strong>Desktop:</strong> Użyj przycisków ← → lub klawiszy strzałek</li>
+            <li>🔍 Sprawdź logi poniżej żeby zobaczyć co się dzieje</li>
+        </ul>
+    </div>
     
     <div class="test-gallery" data-gallery-id="1">
         <img src="galeria/1/m1.png" alt="Gallery 1" class="test-image">
-        <p>Gallery 1 (Kliknij żeby otworzyć)</p>
+        <p>Gallery 1 (Kliknij żeby otworzyć) - PNG miniaturki</p>
     </div>
     
     <div class="test-gallery" data-gallery-id="10">
         <img src="galeria/10/m1.jpg" alt="Gallery 10" class="test-image">
-        <p>Gallery 10 (Kliknij żeby otworzyć)</p>
+        <p>Gallery 10 (Kliknij żeby otworzyć) - JPG miniaturki</p>
     </div>
     
     <h2>Console Output:</h2>
