@@ -48,13 +48,16 @@ class GalleryModal {
     }
     
     init() {
+        console.log('🚀 Inicjalizacja Gallery Modal...');
+        
         // Load projects data from JSON script tag
         const dataScript = document.getElementById('projects-data');
         if (dataScript) {
             try {
                 this.projectsData = JSON.parse(dataScript.textContent);
+                console.log('✅ Projects data załadowane');
             } catch (e) {
-                console.error('Error parsing projects data:', e);
+                console.error('❌ Error parsing projects data:', e);
             }
         }
         
@@ -62,15 +65,38 @@ class GalleryModal {
         this.modal = document.getElementById('gallery-modal');
         this.fullscreen = document.getElementById('gallery-fullscreen');
         
+        if (!this.modal) {
+            console.error('❌ Nie znaleziono elementu gallery-modal!');
+            return;
+        }
+        
+        if (!this.fullscreen) {
+            console.error('❌ Nie znaleziono elementu gallery-fullscreen!');
+        }
+        
+        console.log('✅ Elementy DOM znalezione');
+        
         // Bind events
         this.bindEvents();
+        
+        console.log('✅ Gallery Modal inicjalizacja zakończona');
     }
     
     bindEvents() {
+        console.log('🔗 Bindowanie eventów...');
+        
+        if (!this.modal) {
+            console.error('❌ Nie można bindować eventów - brak elementu modal');
+            return;
+        }
+        
         // Close modal events
         const closeBtn = this.modal.querySelector('.close-btn');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => this.closeModal());
+            console.log('✅ Close button event dodany');
+        } else {
+            console.warn('⚠️ Nie znaleziono close button');
         }
         
         // Close on background click
@@ -268,6 +294,8 @@ class GalleryModal {
         if (this.galleriesCache.has(galleryId)) {
             console.log(`✅ Galeria ${galleryId} załadowana z cache`);
             this.images = [...this.galleriesCache.get(galleryId)]; // kopia z cache
+            const endTime = performance.now();
+            console.log(`✅ Cache hit: ${this.images.length} miniaturek w ${(endTime - startTime).toFixed(2)}ms`);
             return;
         }
         
@@ -393,6 +421,7 @@ class GalleryModal {
     
     async findAvailableThumbnails(galleryId, extensions) {
         console.log(`🔍 Szukam miniaturek dla galerii ${galleryId}...`);
+        const startTime = performance.now();
         
         // Zarządzaj rozmiarem cache
         this.manageCacheSize();
@@ -1855,7 +1884,12 @@ class GalleryModal {
 
 // Initialize modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new GalleryModal();
+    try {
+        window.galleryModal = new GalleryModal();
+        console.log('✅ Gallery Modal inicjalizowany pomyślnie');
+    } catch (error) {
+        console.error('❌ Błąd inicjalizacji Gallery Modal:', error);
+    }
 });
 
 // Export for potential external use
