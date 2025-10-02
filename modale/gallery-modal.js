@@ -12,6 +12,15 @@ class GalleryModal {
         this.galleriesCache = new Map();
         this.preloadedThumbnails = new Set();
         
+        // CACHE dla sprawdzania istnienia plików - zmniejsza liczbę żądań HTTP
+        this.fileExistsCache = new Map();
+        
+        // CACHE dla opisów galerii
+        this.descriptionsCache = new Map();
+        
+        // Debouncing dla operacji sprawdzania plików
+        this.pendingChecks = new Map();
+        
         // Drag & drop state
         this.isDragging = false;
         this.startX = 0;
@@ -21,6 +30,21 @@ class GalleryModal {
         this.closeTimeout = null;
         
         this.init();
+    }
+    
+    // Zarządzanie cache - czyść gdy stanie się za duży
+    manageCacheSize() {
+        const MAX_CACHE_SIZE = 1000; // maksymalnie 1000 wpisów w cache
+        
+        if (this.fileExistsCache.size > MAX_CACHE_SIZE) {
+            console.log('🧹 Czyszczenie cache plików - za dużo wpisów');
+            this.fileExistsCache.clear();
+        }
+        
+        if (this.descriptionsCache.size > 100) {
+            console.log('🧹 Czyszczenie cache opisów - za dużo wpisów');
+            this.descriptionsCache.clear();
+        }
     }
     
     init() {
@@ -160,8 +184,13 @@ class GalleryModal {
             // Wygeneruj interfejs z miniaturkami (automatycznie wybierze pierwszą)
             this.updateModalContent();
             
-            // Hide loading
+            // Hide loading - modal jest gotowy!
             this.hideLoading();
+            
+            // Ładuj opis w tle, żeby nie opóźniać otwarcia modala
+            setTimeout(() => {
+                this.loadAndUpdateDescription();
+            }, 100);
             
         } catch (error) {
             console.error('Error loading gallery:', error);
@@ -233,6 +262,7 @@ class GalleryModal {
     
     async loadOnlyThumbnails(galleryId) {
         console.log('=== NOWY SYSTEM: Ładowanie TYLKO miniaturek ===');
+        const startTime = performance.now();
         
         // SPRAWDŹ CACHE
         if (this.galleriesCache.has(galleryId)) {
@@ -277,7 +307,8 @@ class GalleryModal {
         // PRELOAD miniaturek w tle (nie blokuj interfejsu)
         this.preloadThumbnailsInBackground(mediaItems);
         
-        console.log('Przygotowano tablicę miniaturek:', this.images.length);
+        const endTime = performance.now();
+        console.log(`✅ Przygotowano tablicę miniaturek: ${this.images.length} w ${(endTime - startTime).toFixed(2)}ms`);
         
         if (this.images.length === 0) {
             throw new Error('Nie znaleziono żadnych mediów w galerii');
@@ -286,22 +317,42 @@ class GalleryModal {
     
     // PRELOADOWANIE miniaturek w tle dla błyskawicznego wyświetlania
     preloadThumbnailsInBackground(mediaItems) {
-        console.log('🚀 Rozpoczynam preload miniaturek...');
+        console.log('🚀 Rozpoczynam inteligentny preload miniaturek...');
         
-        mediaItems.forEach((item, index) => {
+        // Najpierw załaduj pierwsze 5 miniaturek natychmiastowo (najbardziej prawdopodobne do wyświetlenia)
+        const priorityCount = Math.min(5, mediaItems.length);
+        const priorityItems = mediaItems.slice(0, priorityCount);
+        const remainingItems = mediaItems.slice(priorityCount);
+        
+        // Załaduj priorytetowe miniaturki natychmiastowo
+        priorityItems.forEach((item, index) => {
             if (!this.preloadedThumbnails.has(item.thumbnail)) {
-                // Opóźnij każdą miniaturkę o 50ms żeby nie zablokować UI
+                const img = new Image();
+                img.onload = () => {
+                    this.preloadedThumbnails.add(item.thumbnail);
+                    console.log(`✅ Priority preload ${index + 1}/${priorityCount}: ${item.thumbnail}`);
+                };
+                img.onerror = () => {
+                    console.warn(`❌ Failed priority preload: ${item.thumbnail}`);
+                };
+                img.src = item.thumbnail;
+            }
+        });
+        
+        // Pozostałe miniaturki ładuj z opóźnieniem, żeby nie blokować UI
+        remainingItems.forEach((item, index) => {
+            if (!this.preloadedThumbnails.has(item.thumbnail)) {
                 setTimeout(() => {
                     const img = new Image();
                     img.onload = () => {
                         this.preloadedThumbnails.add(item.thumbnail);
-                        console.log(`✅ Preloaded thumbnail ${index + 1}/${mediaItems.length}`);
+                        console.log(`✅ Background preload ${priorityCount + index + 1}/${mediaItems.length}: ${item.thumbnail}`);
                     };
                     img.onerror = () => {
-                        console.warn(`❌ Failed to preload thumbnail: ${item.thumbnail}`);
+                        console.warn(`❌ Failed background preload: ${item.thumbnail}`);
                     };
                     img.src = item.thumbnail;
-                }, index * 50); // Rozłóż w czasie
+                }, (index + 1) * 100); // 100ms między każdą miniaturką
             }
         });
     }
@@ -341,66 +392,99 @@ class GalleryModal {
 
     
     async findAvailableThumbnails(galleryId, extensions) {
+        console.log(`🔍 Szukam miniaturek dla galerii ${galleryId}...`);
+        
+        // Zarządzaj rozmiarem cache
+        this.manageCacheSize();
+        
+        // Szybkie sprawdzenie czy galeria w ogóle istnieje (sprawdź m1.jpg)
+        const quickCheck = await this.checkImageExistsFast(`galeria/${galleryId}/m1.jpg`);
+        if (!quickCheck) {
+            console.log(`⚠️ Galeria ${galleryId} prawdopodobnie nie istnieje (brak m1.jpg)`);
+            // Nadal spróbuj, ale z ograniczonym zakresem
+        }
+        
         const thumbnails = [];
         
-        // OPTYMALIZACJA: Równoległe sprawdzanie wszystkich miniaturek
-        const checkPromises = [];
-        
-        // Sprawdź miniaturki od m1 do m20 (zdjęcia) - równolegle
-        for (let i = 1; i <= 20; i++) {
+        // Funkcja do sprawdzania pojedynczego numeru z wszystkimi rozszerzeniami
+        const checkThumbnailNumber = async (number, type) => {
+            const prefix = type === 'image' ? 'm' : 'v';
+            
             for (const ext of extensions) {
-                const thumbPath = `galeria/${galleryId}/m${i}.${ext}`;
-                checkPromises.push(
-                    this.checkImageExistsFast(thumbPath).then(exists => {
-                        if (exists) {
-                            return {
-                                number: i,
-                                path: thumbPath,
-                                type: 'image',
-                                priority: i // dla sortowania
-                            };
-                        }
-                        return null;
-                    })
-                );
-            }
-        }
-        
-        // Sprawdź miniaturki wideo od v1 do v20 (filmy) - równolegle
-        for (let i = 1; i <= 20; i++) {
-            for (const ext of extensions) {
-                const thumbPath = `galeria/${galleryId}/v${i}.${ext}`;
-                checkPromises.push(
-                    this.checkImageExistsFast(thumbPath).then(exists => {
-                        if (exists) {
-                            return {
-                                number: i,
-                                path: thumbPath,
-                                type: 'video',
-                                priority: i // dla sortowania
-                            };
-                        }
-                        return null;
-                    })
-                );
-            }
-        }
-        
-        // Czekaj na wszystkie sprawdzenia równocześnie
-        const results = await Promise.all(checkPromises);
-        
-        // Filtruj wyniki i usuń duplikaty (ten sam numer może mieć kilka rozszerzeń)
-        const foundThumbnails = new Map();
-        results.forEach(result => {
-            if (result) {
-                const key = `${result.type}-${result.number}`;
-                if (!foundThumbnails.has(key)) {
-                    foundThumbnails.set(key, result);
+                const thumbPath = `galeria/${galleryId}/${prefix}${number}.${ext}`;
+                const exists = await this.checkImageExistsFast(thumbPath);
+                
+                if (exists) {
+                    return {
+                        number: number,
+                        path: thumbPath,
+                        type: type,
+                        priority: number
+                    };
                 }
             }
-        });
+            return null;
+        };
         
-        return Array.from(foundThumbnails.values()).sort((a, b) => a.priority - b.priority);
+        // OPTYMALIZACJA: Sprawdzaj po kolei z ograniczoną równoległością (max 3 jednocześnie)
+        const concurrentLimit = 3;
+        const results = [];
+        
+        // Sprawdź miniaturki zdjęć (m1, m2, m3...)
+        for (let i = 1; i <= 20; i += concurrentLimit) {
+            const batch = [];
+            for (let j = i; j < i + concurrentLimit && j <= 20; j++) {
+                batch.push(checkThumbnailNumber(j, 'image'));
+            }
+            
+            const batchResults = await Promise.all(batch);
+            results.push(...batchResults.filter(result => result !== null));
+            
+            // Jeśli w tej partii nic nie znaleziono I już mamy jakieś wyniki, prawdopodobnie nie ma więcej plików
+            if (batchResults.every(result => result === null)) {
+                // Jeśli to była pierwsza partia i nic nie znaleziono, sprawdź jeszcze jedną
+                if (i === 1) {
+                    console.log(`🔍 Pierwsza partia pusta, sprawdzam jeszcze jedną partię zdjęć...`);
+                    continue;
+                }
+                // Jeśli mamy już jakieś wyniki, przerwij
+                if (results.length > 0) {
+                    console.log(`🔍 Przerwano szukanie zdjęć na numerze ${i} - brak kolejnych plików`);
+                    break;
+                }
+            }
+        }
+        
+        // Sprawdź miniaturki wideo (v1, v2, v3...)
+        for (let i = 1; i <= 20; i += concurrentLimit) {
+            const batch = [];
+            for (let j = i; j < i + concurrentLimit && j <= 20; j++) {
+                batch.push(checkThumbnailNumber(j, 'video'));
+            }
+            
+            const batchResults = await Promise.all(batch);
+            const videoResults = batchResults.filter(result => result !== null);
+            results.push(...videoResults);
+            
+            // Jeśli w tej partii nic nie znaleziono, sprawdź czy przerwać
+            if (batchResults.every(result => result === null)) {
+                // Jeśli to była pierwsza partia i nic nie znaleziono, sprawdź jeszcze jedną
+                if (i === 1) {
+                    console.log(`🔍 Pierwsza partia wideo pusta, sprawdzam jeszcze jedną partię...`);
+                    continue;
+                }
+                // Jeśli nie ma wcześniejszych wyników wideo, przerwij
+                const hasVideoResults = results.some(r => r.type === 'video');
+                if (!hasVideoResults) {
+                    console.log(`🔍 Przerwano szukanie wideo na numerze ${i} - brak plików wideo`);
+                    break;
+                }
+            }
+        }
+        
+        const endTime = performance.now();
+        console.log(`✅ Znaleziono ${results.length} miniaturek dla galerii ${galleryId} w ${(endTime - startTime).toFixed(2)}ms`);
+        return results.sort((a, b) => a.priority - b.priority);
     }
     
 
@@ -541,13 +625,46 @@ class GalleryModal {
     
     // OPTYMALIZOWANA wersja sprawdzania istnienia plików
     checkImageExistsFast(src) {
-        // Używaj fetch HEAD request dla szybszego sprawdzania
-        return fetch(src, { 
+        // Sprawdź cache najpierw
+        if (this.fileExistsCache.has(src)) {
+            return Promise.resolve(this.fileExistsCache.get(src));
+        }
+        
+        // Sprawdź czy już sprawdzamy ten plik (zapobiega duplikatom)
+        if (this.pendingChecks.has(src)) {
+            return this.pendingChecks.get(src);
+        }
+        
+        // Utwórz promise dla sprawdzenia z timeoutem
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 sekund timeout
+        
+        const checkPromise = fetch(src, { 
             method: 'HEAD',
-            cache: 'force-cache' // Wykorzystaj cache przeglądarki
+            cache: 'force-cache', // Wykorzystaj cache przeglądarki
+            signal: controller.signal
         })
-        .then(response => response.ok)
-        .catch(() => false);
+        .then(response => {
+            clearTimeout(timeoutId);
+            const exists = response.ok;
+            this.fileExistsCache.set(src, exists);
+            this.pendingChecks.delete(src); // Usuń z pending
+            return exists;
+        })
+        .catch(error => {
+            clearTimeout(timeoutId);
+            // Jeśli to timeout lub błąd sieci, uznaj że plik nie istnieje
+            this.fileExistsCache.set(src, false);
+            this.pendingChecks.delete(src); // Usuń z pending
+            if (error.name === 'AbortError') {
+                console.warn(`⏰ Timeout checking file: ${src}`);
+            }
+            return false;
+        });
+        
+        // Zapisz promise w pending
+        this.pendingChecks.set(src, checkPromise);
+        return checkPromise;
     }
     
     updateModalContent() {
@@ -565,9 +682,6 @@ class GalleryModal {
         if (subtitleMobileEl) {
             subtitleMobileEl.textContent = project.location || '';
         }
-        
-        // Update description section - ładuj z pliku opis.txt
-        this.loadAndUpdateDescription();
         
         // Generate thumbnails
         this.generateThumbnails();
@@ -1286,18 +1400,33 @@ class GalleryModal {
      * Ładuje pełny opis projektu z pliku opis.txt dla danego katalogu galerii
      */
     async loadFullGalleryDescription(galleryNumber, language) {
+        const cacheKey = `${galleryNumber}-${language}`;
+        
+        // Sprawdź cache opisów
+        if (this.descriptionsCache.has(cacheKey)) {
+            return this.descriptionsCache.get(cacheKey);
+        }
+        
         try {
             const response = await fetch(`galeria/${galleryNumber}/opis.txt`);
             
             if (response.ok) {
                 const content = await response.text();
-                return this.parseFullDescriptionFile(content, language);
+                const description = this.parseFullDescriptionFile(content, language);
+                
+                // Zapisz w cache
+                this.descriptionsCache.set(cacheKey, description);
+                return description;
             } else {
                 console.log(`No description file found for gallery ${galleryNumber}`);
+                // Zapisz w cache, że nie ma opisu
+                this.descriptionsCache.set(cacheKey, null);
                 return null; // Brak pliku - zwróć null
             }
         } catch (error) {
             console.log(`Error loading description for gallery ${galleryNumber}:`, error);
+            // Zapisz w cache, że był błąd
+            this.descriptionsCache.set(cacheKey, null);
             return null; // Błąd - zwróć null
         }
     }
