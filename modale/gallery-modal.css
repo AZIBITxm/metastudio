@@ -547,6 +547,97 @@
     transition: opacity 0.3s ease;
 }
 
+/* Przyciski nawigacyjne w fullscreen */
+.fullscreen-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(237, 210, 173, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 20001;
+    user-select: none;
+}
+
+.fullscreen-nav span {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.fullscreen-nav.prev {
+    left: 30px;
+}
+
+.fullscreen-nav.next {
+    right: 30px;
+}
+
+.fullscreen-nav:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: var(--color-primary, #edd2ad);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Pokaż przyciski po najechaniu na fullscreen lub na desktop zawsze */
+@media (min-width: 769px) {
+    .gallery-fullscreen:hover .fullscreen-nav,
+    .gallery-fullscreen .fullscreen-nav.always-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Na desktop animacja fade-in z opóźnieniem */
+    .gallery-fullscreen.show .fullscreen-nav {
+        animation: fadeInNav 0.5s ease-in-out 0.5s forwards;
+    }
+}
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-50%) scale(0.8);
+    }
+    to {
+        opacity: 0.7;
+        visibility: visible;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Na mobile/tablet pokaż przyciski zawsze */
+@media (max-width: 768px) {
+    .fullscreen-nav {
+        opacity: 0.8;
+        visibility: visible;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .fullscreen-nav span {
+        font-size: 20px;
+    }
+    
+    .fullscreen-nav.prev {
+        left: 15px;
+    }
+    
+    .fullscreen-nav.next {
+        right: 15px;
+    }
+}
+
 /* Draggable thumbnails */
 .gallery-thumbnails {
     padding: 20px;

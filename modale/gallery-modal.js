@@ -167,17 +167,41 @@ class GalleryModal {
                 }
             });
             
+            // Fullscreen navigation buttons
+            const fullscreenPrevBtn = this.fullscreen.querySelector('#fullscreen-nav-prev');
+            const fullscreenNextBtn = this.fullscreen.querySelector('#fullscreen-nav-next');
+            
+            if (fullscreenPrevBtn) {
+                fullscreenPrevBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    this.prevImage();
+                    await this.updateFullscreenImage();
+                    console.log('Fullscreen: Previous image');
+                });
+                console.log('✅ Fullscreen prev button event dodany');
+            }
+            
+            if (fullscreenNextBtn) {
+                fullscreenNextBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    this.nextImage();
+                    await this.updateFullscreenImage();
+                    console.log('Fullscreen: Next image');
+                });
+                console.log('✅ Fullscreen next button event dodany');
+            }
+            
             // Keyboard navigation in fullscreen
-            document.addEventListener('keydown', (e) => {
+            document.addEventListener('keydown', async (e) => {
                 if (this.fullscreen.classList.contains('show')) {
                     if (e.key === 'Escape') {
                         this.closeFullscreen();
                     } else if (e.key === 'ArrowLeft') {
                         this.prevImage();
-                        this.updateFullscreenImage();
+                        await this.updateFullscreenImage();
                     } else if (e.key === 'ArrowRight') {
                         this.nextImage();
-                        this.updateFullscreenImage();
+                        await this.updateFullscreenImage();
                     }
                 }
             });
@@ -552,6 +576,7 @@ class GalleryModal {
             // Znajdź pełny obraz
             const imagePath = await this.findFullImageFile(mediaItem.galleryId, mediaItem.number);
             if (imagePath) {
+                console.log(`🔄 Próba preloadowania obrazu: ${imagePath}`);
                 // Sprawdź czy obraz się faktycznie ładuje
                 const loaded = await this.preloadImage(imagePath);
                 if (loaded) {
@@ -559,9 +584,25 @@ class GalleryModal {
                     mediaItem.loaded = true;
                     console.log(`✅ Załadowano obraz: ${imagePath}`);
                 } else {
-                    console.warn(`❌ Nie udało się załadować obrazu: ${imagePath}`);
-                    mediaItem.src = mediaItem.thumbnail; // fallback
-                    mediaItem.loaded = false;
+                    console.warn(`❌ Nie udało się preloadować obrazu: ${imagePath}, sprawdzam czy plik fizycznie istnieje`);
+                    
+                    // Test HTTP dostępności
+                    try {
+                        const response = await fetch(imagePath, { method: 'HEAD' });
+                        if (response.ok) {
+                            console.log(`✅ Plik ${imagePath} jest dostępny przez HTTP (${response.status})`);
+                            mediaItem.src = imagePath;
+                            mediaItem.loaded = true;
+                        } else {
+                            console.warn(`❌ HTTP ${response.status} dla ${imagePath}, używam thumbnail`);
+                            mediaItem.src = mediaItem.thumbnail;
+                            mediaItem.loaded = false;
+                        }
+                    } catch (httpError) {
+                        console.error(`❌ Błąd HTTP dla ${imagePath}:`, httpError);
+                        mediaItem.src = mediaItem.thumbnail;
+                        mediaItem.loaded = false;
+                    }
                 }
             } else {
                 console.warn(`❌ Nie znaleziono pełnego obrazu dla ${mediaItem.number}`);
@@ -574,31 +615,65 @@ class GalleryModal {
     }
     
     async findFullImageFile(galleryId, imageNumber) {
+        console.log(`🔍 Szukam pełnego obrazu dla galerii ${galleryId}, numer ${imageNumber}`);
+        
         // Znajdź pełny obraz (bez 'm' w nazwie)
         const extensions = ['jpg', 'jpeg', 'png', 'webp'];
         
         for (const ext of extensions) {
             const imagePath = `galeria/${galleryId}/${imageNumber}.${ext}`;
+            console.log(`🔍 Sprawdzam: ${imagePath}`);
             
             try {
-                const exists = await this.checkImageExists(imagePath);
+                const exists = await this.checkImageExistsFast(imagePath);
                 if (exists) {
+                    console.log(`✅ Znaleziono pełny obraz: ${imagePath}`);
                     return imagePath;
                 }
             } catch (e) {
-                // Continue to next extension
+                console.warn(`❌ Błąd sprawdzania ${imagePath}:`, e);
             }
         }
         
+        console.warn(`❌ Nie znaleziono pełnego obrazu dla ${galleryId}/${imageNumber}`);
         return null;
     }
     
     async preloadImage(imagePath) {
-        // Preładuj obraz do pamięci
+        // Preładuj obraz do pamięci z timeoutem
         return new Promise((resolve) => {
             const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false);
+            let resolved = false;
+            
+            const timeout = setTimeout(() => {
+                if (!resolved) {
+                    resolved = true;
+                    console.warn(`⏰ Timeout preloadowania obrazu: ${imagePath}`);
+                    resolve(false);
+                }
+            }, 10000); // 10 sekund timeout
+            
+            img.onload = () => {
+                if (!resolved) {
+                    resolved = true;
+                    clearTimeout(timeout);
+                    console.log(`✅ Preload successful: ${imagePath}`);
+                    console.log(`📏 Wymiary załadowanego obrazu: ${img.naturalWidth}x${img.naturalHeight}`);
+                    resolve(true);
+                }
+            };
+            
+            img.onerror = (e) => {
+                if (!resolved) {
+                    resolved = true;
+                    clearTimeout(timeout);
+                    console.warn(`❌ Preload error dla ${imagePath}:`, e);
+                    resolve(false);
+                }
+            };
+            
+            console.log(`🔄 Rozpoczynam preload: ${imagePath}`);
+            console.log(`📊 Pełna URL do preload: ${window.location.origin}/${imagePath}`);
             img.src = imagePath;
         });
     }
@@ -993,9 +1068,9 @@ class GalleryModal {
         
         // Przycisk fullscreen
         if (fullscreenBtn) {
-            fullscreenBtn.addEventListener('click', (e) => {
+            fullscreenBtn.addEventListener('click', async (e) => {
                 e.stopPropagation();
-                this.openFullscreen();
+                await this.openFullscreen();
             });
         }
         
@@ -1521,22 +1596,29 @@ class GalleryModal {
         // Pusta funkcja - overlay został usunięty
     }
     
-    openFullscreen() {
+    async openFullscreen() {
         console.log('🔥 openFullscreen() called');
         console.log('🔥 this.fullscreen:', this.fullscreen);
         console.log('🔥 this.images.length:', this.images.length);
         console.log('🔥 this.currentImageIndex:', this.currentImageIndex);
-        // alert('openFullscreen() wywołane!'); // Usunięty alert - może blokować
         
         if (!this.fullscreen || this.images.length === 0) {
             console.warn('Cannot open fullscreen - missing fullscreen element or no images');
             return;
         }
         
+        // NAJPIERW załaduj pełne media
+        console.log('🔄 Ładowanie pełnego media przed otwarciem fullscreen...');
+        const currentMedia = await this.loadFullMediaOnDemand(this.currentImageIndex);
+        
+        if (!currentMedia) {
+            console.error('❌ Nie udało się załadować media dla fullscreen');
+            return;
+        }
+        
         // Użyj ID selektorów które pasują do głównego index.html
         const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
         const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
-        const currentMedia = this.images[this.currentImageIndex];
         
         console.log('🔥 fullscreenImage:', fullscreenImage);
         console.log('🔥 fullscreenVideo:', fullscreenVideo);
@@ -1575,6 +1657,9 @@ class GalleryModal {
         console.log('Adding "show" class to fullscreen element');
         this.fullscreen.classList.add('show');
         document.body.style.overflow = 'hidden';
+        
+        // Aktualizuj przyciski nawigacyjne
+        this.updateFullscreenNavigation();
         
         console.log('Fullscreen should now be visible. Classes:', this.fullscreen.classList.toString());
     }
@@ -1673,6 +1758,12 @@ class GalleryModal {
                 fullscreenVideo.pause();
             }
             
+            // Ukryj przyciski nawigacyjne
+            const prevBtn = this.fullscreen.querySelector('#fullscreen-nav-prev');
+            const nextBtn = this.fullscreen.querySelector('#fullscreen-nav-next');
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+            
             this.fullscreen.classList.remove('show');
             
             // Only restore overflow if modal is not active
@@ -1686,12 +1777,41 @@ class GalleryModal {
     
 
     
-    updateFullscreenImage() {
+    async updateFullscreenImage() {
         if (!this.fullscreen || !this.fullscreen.classList.contains('show')) return;
         
         const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
         const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
-        const currentMedia = this.images[this.currentImageIndex];
+        
+        // Pokaż loading spinner podczas ładowania
+        const currentThumbnail = this.images[this.currentImageIndex]?.thumbnail;
+        console.log(`🔍 updateFullscreenImage START:`);
+        console.log(`📊 currentImageIndex: ${this.currentImageIndex}`);
+        console.log(`📊 images.length: ${this.images.length}`);
+        console.log(`📊 currentThumbnail: ${currentThumbnail}`);
+        console.log(`📊 this.images[${this.currentImageIndex}]:`, this.images[this.currentImageIndex]);
+        
+        if (currentThumbnail && fullscreenImage) {
+            fullscreenImage.src = currentThumbnail; // Pokaż miniaturkę jako placeholder
+            fullscreenImage.style.opacity = '0.7'; // Przyciemnij żeby pokazać że się ładuje
+        }
+        
+        // NAJPIERW załaduj pełne media przed wyświetleniem
+        console.log(`🔄 Ładowanie pełnego media dla fullscreen, indeks: ${this.currentImageIndex}`);
+        console.log(`🔄 Aktualne media przed ładowaniem:`, this.images[this.currentImageIndex]);
+        
+        const currentMedia = await this.loadFullMediaOnDemand(this.currentImageIndex);
+        
+        console.log(`🔄 Media po załadowaniu:`, currentMedia);
+        console.log(`🎯 currentMedia.src: "${currentMedia?.src}"`);
+        console.log(`🖼️ currentMedia.thumbnail: "${currentMedia?.thumbnail}"`);
+        console.log(`📝 currentMedia.type: "${currentMedia?.type}"`);
+        console.log(`✅ currentMedia.loaded: ${currentMedia?.loaded}`);
+        
+        if (!currentMedia) {
+            console.error('❌ Nie udało się załadować media dla fullscreen');
+            return;
+        }
         
         if (currentMedia.type === 'video' && fullscreenVideo) {
             // Aktualizuj wideo w fullscreen
@@ -1699,13 +1819,89 @@ class GalleryModal {
             fullscreenVideo.style.display = 'block';
             fullscreenVideo.src = currentMedia.src;
             fullscreenVideo.poster = currentMedia.thumbnail;
+            console.log(`✅ Fullscreen video updated: ${currentMedia.src}`);
         } else if (fullscreenImage) {
             // Aktualizuj obraz w fullscreen
             fullscreenVideo.style.display = 'none';
             fullscreenImage.style.display = 'block';
-            fullscreenImage.src = currentMedia.src;
+            
+            console.log(`🔄 Ustawianie src na: ${currentMedia.src}`);
+            console.log(`🔄 Czy media załadowane: ${currentMedia.loaded}`);
+            console.log(`🔄 Thumbnail: ${currentMedia.thumbnail}`);
+            
+            // SPRAWDZENIE: Czy src to rzeczywiście pełny obraz czy miniaturka?
+            const isFullImage = currentMedia.src && !currentMedia.src.includes('/m') && !currentMedia.src.includes('/v');
+            console.log(`🔍 Czy src to pełny obraz (nie miniaturka): ${isFullImage}`);
+            if (!isFullImage) {
+                console.warn(`⚠️ UWAGA: src wygląda jak miniaturka: ${currentMedia.src}`);
+            }
+            
+            // Dodaj obsługę błędów ładowania obrazu
+            fullscreenImage.onerror = () => {
+                console.error(`❌ Błąd ładowania fullscreen image: ${currentMedia.src}`);
+                console.log(`🔄 Próba fallback na thumbnail: ${currentMedia.thumbnail}`);
+                fullscreenImage.src = currentMedia.thumbnail; // Fallback na miniaturkę
+            };
+            
+            fullscreenImage.onload = () => {
+                console.log(`✅ Fullscreen image załadowany pomyślnie: ${currentMedia.src}`);
+                fullscreenImage.style.opacity = '1'; // Przywróć pełną przezroczystość
+            };
+            
+            // Wymuś przeładowanie dodając timestamp do URL
+            const srcWithCache = currentMedia.src + '?t=' + Date.now();
+            fullscreenImage.src = srcWithCache;
             fullscreenImage.alt = currentMedia.alt;
+            console.log(`🔄 Ustawianie fullscreen image src na: ${currentMedia.src}`);
+            console.log(`🔄 Z cache-busting: ${srcWithCache}`);
         }
+        
+        // Aktualizuj widoczność przycisków nawigacyjnych
+        this.updateFullscreenNavigation();
+        
+        // Preloaduj sąsiednie zdjęcia w tle dla szybszej nawigacji
+        this.preloadAdjacentImages();
+    }
+    
+    updateFullscreenNavigation() {
+        if (!this.fullscreen) return;
+        
+        const prevBtn = this.fullscreen.querySelector('#fullscreen-nav-prev');
+        const nextBtn = this.fullscreen.querySelector('#fullscreen-nav-next');
+        
+        // Pokaż przyciski tylko jeśli jest więcej niż jeden obraz
+        if (this.images.length > 1) {
+            if (prevBtn) prevBtn.style.display = 'flex';
+            if (nextBtn) nextBtn.style.display = 'flex';
+        } else {
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+        }
+    }
+    
+    // Preloaduj sąsiednie zdjęcia dla szybszej nawigacji w fullscreen
+    preloadAdjacentImages() {
+        if (this.images.length <= 1) return;
+        
+        // Indeksy sąsiednich zdjęć
+        const prevIndex = this.currentImageIndex > 0 ? 
+            this.currentImageIndex - 1 : 
+            this.images.length - 1;
+            
+        const nextIndex = this.currentImageIndex < this.images.length - 1 ? 
+            this.currentImageIndex + 1 : 
+            0;
+        
+        // Preloaduj w tle (nie blokuj UI)
+        setTimeout(() => {
+            this.loadFullMediaOnDemand(prevIndex).catch(e => 
+                console.warn('Preload poprzedniego zdjęcia nieudany:', e));
+        }, 100);
+        
+        setTimeout(() => {
+            this.loadFullMediaOnDemand(nextIndex).catch(e => 
+                console.warn('Preload następnego zdjęcia nieudany:', e));
+        }, 200);
     }
     
     setupThumbnailsDrag(container) {
@@ -1780,32 +1976,7 @@ class GalleryModal {
     
     // Touch navigation removed - using natural browser behavior
     
-    updateFullscreenImage() {
-        // Aktualizuj zawartość fullscreen po zmianie obrazu
-        if (!this.fullscreen || !this.fullscreen.classList.contains('show')) return;
-        
-        const fullscreenImage = this.fullscreen.querySelector('#fullscreen-image');
-        const fullscreenVideo = this.fullscreen.querySelector('#fullscreen-video');
-        const currentMedia = this.images[this.currentImageIndex];
-        
-        if (!currentMedia) return;
-        
-        console.log(`Updating fullscreen to show: ${currentMedia.src} (type: ${currentMedia.type})`);
-        
-        if (currentMedia.type === 'video' && fullscreenVideo) {
-            // Pokaż wideo w fullscreen
-            if (fullscreenImage) fullscreenImage.style.display = 'none';
-            fullscreenVideo.style.display = 'block';
-            fullscreenVideo.src = currentMedia.src;
-            fullscreenVideo.poster = currentMedia.thumbnail;
-        } else if (fullscreenImage) {
-            // Pokaż obraz w fullscreen
-            if (fullscreenVideo) fullscreenVideo.style.display = 'none';
-            fullscreenImage.style.display = 'block';
-            fullscreenImage.src = currentMedia.src;
-            fullscreenImage.alt = currentMedia.alt;
-        }
-    }
+
     
     addMainImageClickListener() {
         // Dodaj event listener do głównego obrazu gdy istnieje
@@ -1824,7 +1995,7 @@ class GalleryModal {
             }
             
             // Stwórz bound handler z wysokim priorytetem
-            this.mainImageClickHandler = (e) => {
+            this.mainImageClickHandler = async (e) => {
                 console.log('🔥🔥🔥 MAIN IMAGE CLICKED WITH HIGH PRIORITY!');
                 
                 // Zatrzymaj propagację NATYCHMIAST
@@ -1832,7 +2003,7 @@ class GalleryModal {
                 e.preventDefault();
                 
                 // Wywołaj fullscreen
-                this.openFullscreen();
+                await this.openFullscreen();
             };
             
             // Dodaj listener w capture phase (wyższy priorytet niż bubble phase)
@@ -1865,11 +2036,11 @@ class GalleryModal {
             });
             
             // BACKUP - dodaj onclick bezpośrednio do HTML (omija wszystkie inne event listenery)
-            mainImage.onclick = (e) => {
+            mainImage.onclick = async (e) => {
                 console.log('Main image clicked - opening fullscreen');
                 e.stopPropagation();
                 e.preventDefault();
-                this.openFullscreen();
+                await this.openFullscreen();
                 return false;
             };
             

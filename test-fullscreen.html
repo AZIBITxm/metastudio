@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Fullscreen Navigation</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        .test-gallery { cursor: pointer; margin: 10px; display: inline-block; }
+        .test-image { width: 150px; height: 150px; object-fit: cover; border: 2px solid #ccc; }
+        .console-output { 
+            background: black; 
+            color: lime; 
+            padding: 10px; 
+            height: 300px; 
+            overflow-y: scroll; 
+            font-family: monospace; 
+            font-size: 12px; 
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Fullscreen Navigation Debug</h1>
+    
+    <div class="test-gallery" data-gallery-id="1">
+        <img src="galeria/1/m1.png" alt="Gallery 1" class="test-image">
+        <p>Gallery 1 (Kliknij żeby otworzyć)</p>
+    </div>
+    
+    <div class="test-gallery" data-gallery-id="10">
+        <img src="galeria/10/m1.jpg" alt="Gallery 10" class="test-image">
+        <p>Gallery 10 (Kliknij żeby otworzyć)</p>
+    </div>
+    
+    <h2>Console Output:</h2>
+    <div id="console-output" class="console-output"></div>
+    
+    <!-- Modal Structure -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="gallery-content">
+                <div class="gallery-thumbnails"></div>
+                <div class="gallery-main">
+                    <img src="" alt="" class="gallery-main-image" style="display: none;">
+                    <video controls class="gallery-main-video" style="display: none;"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div id="fullscreenModal" class="fullscreen-modal">
+        <span class="fullscreen-close">&times;</span>
+        <img id="fullscreen-image" src="" alt="">
+        <video id="fullscreen-video" controls style="display: none;"></video>
+        
+        <!-- Navigation buttons -->
+        <button id="fullscreen-nav-prev" class="fullscreen-nav-prev">❮</button>
+        <button id="fullscreen-nav-next" class="fullscreen-nav-next">❯</button>
+    </div>
+
+    <!-- Include modal styles and scripts -->
+    <link rel="stylesheet" href="modale/gallery-modal.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="modale/gallery-modal.js"></script>
+    
+    <script>
+        // Redirect console.log to our div
+        const consoleOutput = document.getElementById('console-output');
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        
+        function addToOutput(type, ...args) {
+            const timestamp = new Date().toLocaleTimeString();
+            const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg).join(' ');
+            consoleOutput.textContent += `[${timestamp}] ${type}: ${message}\n`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        console.log = (...args) => {
+            originalLog.apply(console, args);
+            addToOutput('LOG', ...args);
+        };
+        
+        console.warn = (...args) => {
+            originalWarn.apply(console, args);
+            addToOutput('WARN', ...args);
+        };
+        
+        console.error = (...args) => {
+            originalError.apply(console, args);
+            addToOutput('ERROR', ...args);
+        };
+        
+        // Initialize gallery modal
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Test page loaded, initializing gallery...');
+            const galleryModal = new GalleryModal();
+            
+            // Add click handlers to test galleries
+            document.querySelectorAll('.test-gallery').forEach(gallery => {
+                gallery.addEventListener('click', function() {
+                    const galleryId = this.dataset.galleryId;
+                    console.log(`🎯 Opening gallery ${galleryId}`);
+                    galleryModal.openGallery(galleryId);
+                });
+            });
+            
+            console.log('✅ Gallery modal initialized');
+        });
+    </script>
+</body>
+</html>
