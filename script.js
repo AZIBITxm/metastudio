@@ -216,13 +216,20 @@ function parseDescriptionFile(content, language) {
  */
 async function loadGalleryDescription(galleryNumber, language) {
     try {
-        const response = await fetch(`galeria/${galleryNumber}/opis.txt`);
+        const url = `galeria/${galleryNumber}/opis.txt`;
+        console.log(`Fetching description from: ${url}`);
+        const response = await fetch(url);
+        
+        console.log(`Response status for gallery ${galleryNumber}:`, response.status, response.statusText);
         
         if (response.ok) {
             const content = await response.text();
-            return parseDescriptionFile(content, language);
+            console.log(`Content length for gallery ${galleryNumber}:`, content.length);
+            const parsed = parseDescriptionFile(content, language);
+            console.log(`Parsed title for gallery ${galleryNumber}:`, parsed);
+            return parsed;
         } else {
-            console.log(`No description file found for gallery ${galleryNumber}`);
+            console.log(`No description file found for gallery ${galleryNumber} (${response.status})`);
             return 'Realizacja';
         }
     } catch (error) {
@@ -239,16 +246,20 @@ async function initializeGalleryDescriptions() {
     const galleryItems = document.querySelectorAll('.gallery-item[data-gallery]');
     
     console.log(`Loading gallery descriptions for language: ${currentLanguage}`);
+    console.log(`Found ${galleryItems.length} gallery items with data-gallery attributes`);
     
     for (const item of galleryItems) {
         const galleryNumber = item.getAttribute('data-gallery');
         const titleElement = item.querySelector('h3');
         
+        console.log(`Processing gallery ${galleryNumber}, title element found:`, !!titleElement);
+        
         if (galleryNumber && titleElement) {
             try {
                 const title = await loadGalleryDescription(galleryNumber, currentLanguage);
+                const oldTitle = titleElement.textContent;
                 titleElement.textContent = title;
-                console.log(`Updated gallery ${galleryNumber} title to: ${title}`);
+                console.log(`Updated gallery ${galleryNumber} title from "${oldTitle}" to: "${title}"`);
             } catch (error) {
                 console.error(`Error updating title for gallery ${galleryNumber}:`, error);
             }
@@ -587,13 +598,12 @@ function initializeGalleryToggle() {
 // ==========================================
 
 /**
- * Funkcja inicjalizująca scroll-reveal dla elementów galerii w wersji mobilnej
+ * Funkcja inicjalizująca scroll-reveal dla elementów galerii we wszystkich wersjach
  * Płynnie kontroluje widoczność opisów na podstawie pozycji elementu względem centrum ekranu
  */
-function initializeMobileGalleryScrollReveal() {
-    // Sprawdź czy to urządzenie mobilne
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) return;
+function initializeGalleryScrollReveal() {
+    // Funkcja działa dla wszystkich rozmiarów ekranu - mobile, tablet i desktop
+    // Efekty CSS są odpowiednio dostosowane w media queries
     
     const galleryItems = document.querySelectorAll('.gallery-item');
     
@@ -680,25 +690,13 @@ function initializeMobileGalleryScrollReveal() {
     // Inicjalne wywołanie
     handleScroll();
     
-    // Obsługa zmiany orientacji/rozmiaru ekranu
+    // Obsługa zmiany orientacji/rozmiaru ekranu - działamy na wszystkich rozdzielczościach
     window.addEventListener('resize', () => {
-        const isMobileNow = window.innerWidth <= 768;
-        
-        if (!isMobileNow) {
-            // Jeśli nie mobile, wyczyść wszystko
-            galleryItems.forEach(item => {
-                item.classList.remove('mobile-active');
-                item.style.removeProperty('--visibility-level');
-            });
-            // Usuń event listener
-            window.removeEventListener('scroll', smoothScrollHandler);
-        } else {
-            // Jeśli mobile, ponownie oceń elementy
-            handleScroll();
-        }
+        // Po zmianie rozmiaru okna, ponownie oceń elementy
+        handleScroll();
     });
     
-    console.log('Mobile gallery scroll reveal initialized with smooth interpolation');
+    console.log('Gallery scroll reveal initialized with smooth interpolation for all devices');
 }
 
 // ==========================================
@@ -768,7 +766,7 @@ function initializeApp() {
         initializeGalleryToggle();
         initializeAutoImageLoading(); // Automatyczne ładowanie pierwszych zdjęć z katalogów - po toggle
         initializeGalleryDescriptions(); // Ładowanie opisów z plików opis.txt
-        initializeMobileGalleryScrollReveal();
+        initializeGalleryScrollReveal();
         
         // Udostępnij funkcje globalnie dla celów testowych
         window.changeLanguage = changeLanguage;
@@ -994,12 +992,12 @@ function initializeSubBanners() {
             // Dodaj active do klikniętego
             this.classList.add('active');
             
-            // W wersji mobilnej zwiń wszystkie główne banery po wyborze podbaneru
-            if (window.innerWidth <= 768) {
-                const materialsLogosContainer = document.querySelector('.materials-logos');
-                materialLogos.forEach(logo => {
-                    logo.classList.remove('expanded');
-                });
+            // Zwiń wszystkie główne banery po wyborze podbaneru (na mobile i desktop)
+            const materialsLogosContainer = document.querySelector('.materials-logos');
+            materialLogos.forEach(logo => {
+                logo.classList.remove('expanded');
+            });
+            if (materialsLogosContainer) {
                 materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
             }
             

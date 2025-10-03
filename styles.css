@@ -901,6 +901,62 @@ nav {
     .gallery:not(.expanded) .gallery-item {
         width: 100%;
     }
+    
+    /* DESKTOP SCROLL-REVEAL FUNCTIONALITY - taki sam jak na mobile */
+    /* Wyłączenie standardowych efektów hover gdy element jest w scroll-reveal */
+    .gallery-item.mobile-active:hover {
+        transform: none;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item.mobile-active:hover::before {
+        transform: none;
+    }
+    
+    .gallery-item.mobile-active:hover img {
+        transform: none;
+        filter: brightness(0.9);
+    }
+    
+    .gallery-item.mobile-active:hover .gallery-item-info {
+        transform: translateY(calc(100% * (1 - var(--visibility-level, 0))));
+    }
+    
+    .gallery-item.mobile-active:hover .gallery-cta {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+    }
+    
+    /* Style dla scroll-reveal - PŁYNNA INTERPOLACJA */
+    .gallery-item.mobile-active .gallery-item-info {
+        /* Używamy CSS custom properties do płynnej kontroli */
+        transform: translateY(calc(100% * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .gallery-item.mobile-active .gallery-item-info h3,
+    .gallery-item.mobile-active .gallery-item-info p {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .gallery-item.mobile-active .gallery-cta {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: rgba(237, 210, 173, calc(0.15 * var(--visibility-level, 0)));
+        border-color: rgba(237, 210, 173, var(--visibility-level, 0));
+    }
+    
+    /* Delikatne wyróżnienie elementu - również oparte na poziomie widoczności */
+    .gallery-item.mobile-active {
+        box-shadow: 0 calc(20px * var(--visibility-level, 0)) calc(40px * var(--visibility-level, 0)) 
+                    rgba(237, 210, 173, calc(0.3 * var(--visibility-level, 0)));
+        border: 1px solid rgba(237, 210, 173, var(--visibility-level, 0));
+        transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
 }
 
 /* Style dla głównych banerów na tablet - 2-3 w rzędzie */
@@ -913,6 +969,62 @@ nav {
     .gallery:not(.expanded) .gallery-item {
         width: 100%;
         max-width: none;
+    }
+    
+    /* TABLET SCROLL-REVEAL FUNCTIONALITY - taki sam jak na mobile */
+    /* Wyłączenie standardowych efektów hover gdy element jest w scroll-reveal */
+    .gallery-item.mobile-active:hover {
+        transform: none;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item.mobile-active:hover::before {
+        transform: none;
+    }
+    
+    .gallery-item.mobile-active:hover img {
+        transform: none;
+        filter: brightness(0.9);
+    }
+    
+    .gallery-item.mobile-active:hover .gallery-item-info {
+        transform: translateY(calc(100% * (1 - var(--visibility-level, 0))));
+    }
+    
+    .gallery-item.mobile-active:hover .gallery-cta {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+    }
+    
+    /* Style dla scroll-reveal - PŁYNNA INTERPOLACJA */
+    .gallery-item.mobile-active .gallery-item-info {
+        /* Używamy CSS custom properties do płynnej kontroli */
+        transform: translateY(calc(100% * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .gallery-item.mobile-active .gallery-item-info h3,
+    .gallery-item.mobile-active .gallery-item-info p {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .gallery-item.mobile-active .gallery-cta {
+        transform: translateY(calc(20px * (1 - var(--visibility-level, 0))));
+        opacity: var(--visibility-level, 0);
+        transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: rgba(237, 210, 173, calc(0.15 * var(--visibility-level, 0)));
+        border-color: rgba(237, 210, 173, var(--visibility-level, 0));
+    }
+    
+    /* Delikatne wyróżnienie elementu - również oparte na poziomie widoczności */
+    .gallery-item.mobile-active {
+        box-shadow: 0 calc(20px * var(--visibility-level, 0)) calc(40px * var(--visibility-level, 0)) 
+                    rgba(237, 210, 173, calc(0.3 * var(--visibility-level, 0)));
+        border: 1px solid rgba(237, 210, 173, var(--visibility-level, 0));
+        transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 }
 
@@ -1496,7 +1608,7 @@ nav {
    ========================================== */
 #project {
     position: relative;
-    padding: 40px 0 200px 0; /* Zwiększony padding-bottom dla większych sekcji */
+    padding: 40px 0 1rem 0; /* Bardzo mały padding-bottom - sekcja kończy się dynamicznie */
     overflow: visible; /* Zmieniono z hidden na visible dla pełnej widoczności */
     transition: min-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Płynne przejście wysokości */
 }
@@ -1505,35 +1617,11 @@ nav {
     position: relative;
     z-index: 10;
     color: var(--color-text-dark);
-    margin-left: 2rem;
+    text-align: right; /* Dodano text-align jak na mobile */
+    margin-right: 2rem; /* Zmieniono z margin-left na margin-right jak na mobile */
+    margin-left: 0; /* Usunięto margin-left */
     margin-bottom: 3rem;
-}
-
-/* Desktop: nagłówek nad prawą kolumną (baner ze zdjęciem) */
-@media (min-width: 769px) {
-    #project h2 {
-        position: absolute;
-        top: -80px;
-        right: 2rem;
-        left: auto;
-        margin-left: 0;
-        margin-right: 0;
-        text-align: right;
-        width: calc(50% - 4rem);
-        z-index: 15;
-    }
-    
-    /* Separator pod nagłówkiem wyrównany do prawej */
-    #project h2::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        left: auto;
-        bottom: -10px;
-        width: 200px;
-        height: 2px;
-        background-color: var(--color-primary);
-    }
+    line-height: 1.1; /* Dodano line-height jak na mobile */
 }
 
 #project::before {
@@ -1548,10 +1636,12 @@ nav {
     z-index: 1;
 }
 
-/* Desktop: zmniejsz szerokość szarego gradientu o połowę */
+/* Desktop: rozszerz gradient do końca przycisku "Płyty Meblowe" */
 @media (min-width: 769px) {
     #project::before {
-        width: 22%;
+        width: 35%; /* Rozszerzono z 22% do 35% - sięga do końca pierwszego przycisku */
+        height: 100% !important; /* Usuń dodatkowe +100px wysokości - dopasuj do sekcji */
+        bottom: 0 !important; /* Ustaw na dole sekcji, bez wystania poza sekcję */
     }
 }
 
@@ -1567,29 +1657,24 @@ nav {
     z-index: 2;
     color: var(--color-text-light);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr; /* Zmieniono z 1fr 1fr na 1fr - jednokolumnowy jak na mobile */
+    gap: 2rem; /* Zmniejszono gap z 4rem do 2rem jak na mobile */
     align-items: start;
     padding: 0 2rem;
 }
 
-/* Desktop: dodaj przestrzeń na nagłówek nad prawą kolumną */
-@media (min-width: 769px) {
-    #project .content {
-        padding-top: 100px;
-        overflow: visible; /* Pozwól na wystające elementy */
-    }
-}
+
 
 /* Loga materiałów w lewym prostokącie */
 #project .materials-logos {
     position: relative;
     z-index: 3;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
+    flex-direction: row; /* Zmieniono z column na row jak na mobile */
+    align-items: center; /* Zmieniono z flex-start na center jak na mobile */
+    justify-content: space-between; /* Dodano jak na mobile */
+    gap: 0.5rem; /* Zmieniono z 1.5rem na 0.5rem jak na mobile */
+    padding: 1rem 0; /* Zmieniono z 2rem 1rem na 1rem 0 jak na mobile */
     margin-left: 0;
     width: 100%;
 }
@@ -1603,15 +1688,20 @@ nav {
     border: 2px solid transparent;
     box-shadow: 0 6px 32px 0 rgba(0,0,0,0.25);
     color: black;
-    width: 60%;
-    max-width: 60%;
+    width: 31%; /* Zmieniono z 60% na 31% jak na mobile dla 3 elementów w rzędzie */
+    max-width: 31%; /* Zmieniono z 60% na 31% jak na mobile */
+    min-width: 100px; /* Dodano minimalna szerokość jak na mobile */
     min-height: 45px;
+    max-height: 80px; /* Dodano maksymalną wysokość jak na mobile */
+    overflow: hidden; /* Dodano jak na mobile */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center; /* Zmieniono z flex-start na center jak na mobile */
+    text-align: center; /* Zmieniono z left na center jak na mobile */
 }
+
+
 
 /* Hover efekty tylko dla urządzeń z obsługą hover (desktop) */
 @media (hover: hover) {
@@ -1652,6 +1742,245 @@ nav {
     object-fit: contain;
     filter: grayscale(0.3);
     transition: filter 0.3s ease;
+}
+
+/* === DESKTOP = DOKŁADNA KOPIA MOBILE === */
+@media (min-width: 769px) {
+    /* Główny kontener - pozwól na rozszerzenie */
+    #project {
+        overflow: visible !important; /* Pozwól sub-banerom wystać poza sekcję */
+    }
+
+    #project .content {
+        overflow: visible !important; /* Pozwól na rozszerzenie kontentu */
+        padding: 0 2rem 0 0 !important; /* Usuń lewy padding - wyrównaj do lewej jak gradient */
+    }
+
+    #project .materials-logos {
+        overflow: visible !important; /* Pozwól na rozszerzenie przycisków */
+        position: relative;
+        z-index: 10; /* Wysoki z-index dla przycisków */
+        padding: 1rem 0 1rem 0 !important; /* Usuń lewy padding z przycisków */
+        margin-left: 0 !important; /* Wyrównaj do lewej */
+    }
+
+    /* Przyciski - dokładna kopia z mobile + pozycjonowanie */
+    #project .material-logo {
+        position: relative;
+        height: auto;
+        max-height: none !important; /* Usuń ograniczenie wysokości */
+        overflow: visible !important; /* Pozwól na rozszerzenie */
+        z-index: 11; /* Jeszcze wyższy z-index */
+    }
+
+    /* Rozwijane przyciski */
+    #project .material-logo.expanded {
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        z-index: 12; /* Najwyższy z-index dla rozwiniętych */
+    }
+
+    #project .material-logo::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('tlo/baner24.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(3px);
+        opacity: 0.8;
+        z-index: 1;
+    }
+
+    #project .material-logo .material-title {
+        color: white !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7) !important;
+        font-weight: bold !important;
+        position: relative !important;
+        z-index: 2 !important;
+        font-size: 1rem;
+        line-height: 1.1;
+        letter-spacing: 0.3px;
+        padding: 0.3rem;
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Sekcja materiałów - wyrównana do lewej jak przyciski */
+    #project .materials-info {
+        background: transparent;
+        border-radius: 0;
+        padding: 2rem 2rem 2rem 0; /* Usuń lewy padding żeby wyrównać z przyciskami */
+        box-shadow: none;
+        min-height: 650px;
+        position: relative;
+        z-index: 5; /* Niższy z-index niż przyciski, żeby sub-banery były nad nim */
+    }
+
+    /* Obrazy materiałów - usuniete stare definicje, nowe będą na końcu media query */
+
+    #project .material-info .material-image img {
+        width: 100% !important;
+        height: 100% !important; /* Dopasuj do wysokości kontenera */
+        max-height: none !important; /* Usuń ograniczenie z mobile */
+        object-fit: cover !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .material-image img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .material-image img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Materiały - dokładna kopia z mobile */
+    #project .material-info.active {
+        display: block;
+    }
+
+    /* Teksty - dokładna kopia z mobile */
+    #project .material-info h3 {
+        color: black;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--color-primary);
+        padding-bottom: 0.5rem;
+        text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    #project .material-info p {
+        color: black;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .material-info strong {
+        color: black !important;
+        text-shadow: 3px 3px 8px rgba(255, 255, 255, 1), 1px 1px 6px rgba(255, 255, 255, 0.9), -1px -1px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Sub-banery - dokładna kopia z mobile */
+    .sub-banners {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        width: 85%;
+        max-width: 85%;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 9998 !important;
+    }
+
+    .sub-banner {
+        background: transparent;
+        padding: 8px 2px;
+        border-radius: 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 9998 !important;
+        transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-top: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+        border-left: none;
+        border-right: none;
+        margin: 0;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        color: var(--color-text-dark);
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .sub-banner.show {
+        height: auto;
+        min-height: 50px;
+        max-height: 100px;
+        opacity: 1;
+        padding: 15px 2px;
+    }
+
+    .sub-banner:first-child {
+        margin-top: 1.5rem;
+    }
+
+    .material-logo.expanded .sub-banners {
+        max-height: 650px; /* Wysokość dla maksymalnie 11 pod-banerów */
+    }
+
+    .sub-banner:hover {
+        background: rgba(255, 255, 255, 1);
+        border-color: var(--color-primary-dark);
+        transform: translateX(3px);
+        box-shadow: 0 3px 12px rgba(237, 210, 173, 0.3);
+    }
+
+    .sub-banner.active {
+        background: var(--color-primary-light);
+        border-color: var(--color-primary-dark);
+        box-shadow: 0 3px 12px rgba(237, 210, 173, 0.4);
+    }
+
+    .sub-banner-title {
+        font-size: 0.675rem;
+        font-weight: 600;
+        color: white;
+        display: block;
+        text-align: left;
+        line-height: 1.4;
+        white-space: normal;
+        overflow: visible;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        word-wrap: break-word;
+        max-width: 100%;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .sub-banner:hover .sub-banner-title,
+    .sub-banner.active .sub-banner-title {
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+
+    /* Automatyczne zwijanie po wyborze sub-baneru - jak na mobile */
+    #project .material-logo:not(.expanded) .sub-banners {
+        max-height: 0 !important;
+        overflow: hidden;
+        transition: max-height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #project .material-logo:not(.expanded) .sub-banner {
+        height: 0;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
 }
 
 /* Hover efekty tylko dla urządzeń z obsługą hover (desktop) */
@@ -1881,115 +2210,46 @@ nav {
     padding: 2rem;
     box-shadow: none;
     min-height: 650px; /* Zwiększona wysokość dla obrazów materiałów */
+    
+    /* Obrazy materiałów - wyrównane do lewej krawędzi strony z tekstem obok */
+    #project .material-info {
+        display: flex !important;
+        flex-direction: row !important; /* Obraz i tekst obok siebie */
+        align-items: flex-start !important;
+        gap: 2rem !important; /* Odstęp między obrazem a tekstem */
+        padding: 2rem 0 !important;
+        margin-bottom: 50px !important; /* Przerwa co najmniej 50px od przycisków */
+    }
+
+    #project .material-info .material-image {
+        flex: 0 0 auto !important; /* Nie rozciągaj obrazu */
+        width: 300px !important; /* Stała szerokość obrazu */
+        height: 200px !important; /* Stała wysokość obrazu */
+        margin: 0 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    #project .material-info .material-content {
+        flex: 1 !important; /* Tekst zajmuje pozostałą przestrzeń */
+        margin: 0 !important;
+    }
+
+    #project .material-info .material-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    #project .material-info .material-image img:hover {
+        transform: scale(1.05) !important;
+    }
+
 }
 
-/* Desktop: podnieś prawą kolumnę do góry */
-@media (min-width: 769px) {
-    #project .materials-info {
-        margin-top: -60px;
-        padding-top: 3rem;
-        overflow: visible; /* Pozwól na wystające elementy */
-    }
-    
-    /* BANER W STYLU GALLERY-ITEM Z SEKCJI NASZE REALIZACJE */
-    #project .material-info {
-        display: none;
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 400px; /* Zmniejszona wysokość jak w gallery-item */
-        margin: 2rem auto;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 0;
-        border: none;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        transform: perspective(1000px) rotateY(0deg);
-        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow: hidden;
-    }
-    
-    #project .material-info::before {
-        content: '';
-        position: absolute;
-        top: -15px;
-        left: -15px;
-        right: 15px;
-        bottom: 15px;
-        border: 2px solid var(--color-primary);
-        z-index: -1;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    #project .material-info.active {
-        display: block !important;
-    }
-    
-    /* Ustaw obrazy jako tło dla każdego bannera */
-    #project .material-info#plyty-meblowe-info {
-        background-image: url('materiały/fronty/płyty.png');
-    }
-    
-    #project .material-info#fronty-meblowe-info {
-        background-image: url('materiały/fronty/fronty.png');
-    }
-    
-    #project .material-info#blaty-info {
-        background-image: url('materiały/fronty/blaty.png');
-    }
-    
-    /* POLE TEKSTOWE DOKŁADNIE JAK W GALLERY-ITEM-INFO */
-    #project .material-info .material-content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 33.33%; /* Dokładnie 1/3 wysokości bannera */
-        background: rgba(0,0,0,0.6);
-        padding: 2rem;
-        transform: translateY(0); /* Zawsze widoczne */
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border-top: 2px solid var(--color-primary);
-        overflow-y: auto;
-        
-        /* Ukryj scrollbar */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-    }
-    
-    /* Ukryj scrollbar dla WebKit (Chrome, Safari, Edge) */
-    #project .material-info .material-content::-webkit-scrollbar {
-        display: none;
-    }
-    
-    #project .material-info .material-content h3 {
-        color: var(--color-primary) !important;
-        font-size: 1.5rem !important;
-        margin: 0 0 0.5rem 0 !important;
-        transform: translateY(0); /* Zawsze widoczne */
-        opacity: 1; /* Zawsze widoczne */
-        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-        text-shadow: none !important;
-        border-bottom: none !important;
-    }
-    
-    #project .material-info .material-content p {
-        color: var(--color-text-light) !important;
-        font-size: 1rem;
-        line-height: 1.6;
-        margin: 0 0 1rem 0 !important;
-        transform: translateY(0); /* Zawsze widoczne */
-        opacity: 1; /* Zawsze widoczne */
-        transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
-        text-shadow: none !important;
-    }
-    
-    /* UKRYJ NIEPOTRZEBNE ELEMENTY */
-    #project .material-info .material-image {
-        display: none !important;
-    }
-}
+
 
 /* Mobile: display block dla active */
 @media (max-width: 768px) {
