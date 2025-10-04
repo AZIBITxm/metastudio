@@ -1891,7 +1891,7 @@ nav {
         max-height: 0;
         transition: max-height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
-        z-index: 9998 !important;
+        z-index: 10002 !important;
     }
 
     .sub-banner {
@@ -1900,7 +1900,7 @@ nav {
         border-radius: 0;
         cursor: pointer;
         position: relative;
-        z-index: 9998 !important;
+        z-index: 10002 !important;
         transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         border-top: 1px solid var(--color-primary);
         border-bottom: 1px solid var(--color-primary);
@@ -2130,7 +2130,7 @@ nav {
     max-height: 0;
     transition: max-height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    z-index: 9998 !important; /* Maksymalny z-index dla sub-banerów */
+    z-index: 10002 !important; /* Maksymalny z-index dla sub-banerów */
 }
 
 .sub-banner {
@@ -2139,7 +2139,7 @@ nav {
     border-radius: 0;
     cursor: pointer;
     position: relative;
-    z-index: 9998 !important; /* Maksymalny z-index dla pojedynczych sub-banerów */
+    z-index: 10002 !important; /* Maksymalny z-index dla pojedynczych sub-banerów */
     transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid var(--color-primary);
     border-bottom: 1px solid var(--color-primary);
@@ -2370,7 +2370,7 @@ nav {
         top: 150px !important; /* Pozycjonuj zaraz pod banerami (nagłówek + banery ~150px) */
         left: 2rem !important;
         right: 2rem !important;
-        z-index: 15 !important; /* Wyższy z-index niż banery */
+        z-index: 5 !important; /* Niższy z-index niż banery rozwijane */
         background: transparent !important;
         padding: 0 !important;
         margin: 0 !important;
@@ -2390,13 +2390,13 @@ nav {
         opacity: 0 !important; /* Domyślnie niewidoczne */
         visibility: hidden !important;
         transition: opacity 0.3s ease, visibility 0.3s ease !important;
-        z-index: 10 !important;
+        z-index: 4 !important;
     }
     
     #project .material-info.active {
         opacity: 1 !important; /* Widoczne tylko aktywne */
         visibility: visible !important;
-        z-index: 11 !important; /* Aktywny na wierzchu */
+        z-index: 6 !important; /* Aktywny pod sub-banerami */
     }
 
     #project .material-info .material-image {

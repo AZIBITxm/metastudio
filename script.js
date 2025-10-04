@@ -289,11 +289,14 @@ function changeLanguage(newLanguage) {
 let globalAnimationInterval = null;
 let globalUserInteracting = false;
 let globalUserInteractionTimeout = null;
+let globalCyclicAnimationActive = false; // Flaga dla cyklicznej animacji
+let heightAdjustmentPaused = false; // Flaga do pauzowania zmiany wysokości sekcji
 
 // Funkcja do zatrzymywania animacji cyklicznych (dostępna globalnie)
 function stopCyclicAnimation() {
     console.log('Stopping cyclic animation globally');
     globalUserInteracting = true;
+    globalCyclicAnimationActive = false; // Wyłącz flagę animacji
     clearTimeout(globalUserInteractionTimeout);
     
     // Zatrzymaj interval jeśli istnieje
@@ -1001,9 +1004,23 @@ function initializeSubBanners() {
                 materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
             }
             
-            // Pokaż odpowiedni opis
+            // Pauzuj zmianę wysokości sekcji podczas animacji
+            heightAdjustmentPaused = true;
+            console.log('Height adjustment paused for sub-banner animation');
+            
             const materialId = this.getAttribute('data-material');
             showMaterialInfo(materialId);
+            
+            // Odpauzuj zmianę wysokości po zakończeniu animacji
+            setTimeout(() => {
+                heightAdjustmentPaused = false;
+                console.log('Height adjustment resumed after sub-banner animation');
+                
+                // Po odpauzowaniu, dostosuj wysokość sekcji
+                if (window.adjustProjectSectionHeight) {
+                    window.adjustProjectSectionHeight();
+                }
+            }, 800); // Krótszy timeout dla zmiany opisu
         });
     });
     
@@ -1029,14 +1046,44 @@ function initializeSubBanners() {
             
             // Toggle obecnego banera
             if (!isExpanded) {
+                // Pauzuj zmianę wysokości sekcji podczas animacji rozwijania
+                heightAdjustmentPaused = true;
+                console.log('Height adjustment paused for banner expansion');
+                
                 this.classList.add('expanded');
                 materialsLogosContainer.classList.add('banner-expanded'); // Ukryj pozostałe banery
                 showSubBanners(this);
                 showMaterialInfo(materialId);
+                
+                // Odpauzuj zmianę wysokości po zakończeniu animacji
+                setTimeout(() => {
+                    heightAdjustmentPaused = false;
+                    console.log('Height adjustment resumed after banner expansion');
+                    
+                    // Po odpauzowaniu, dostosuj wysokość sekcji
+                    if (window.adjustProjectSectionHeight) {
+                        window.adjustProjectSectionHeight();
+                    }
+                }, 1800); // 1.5s animacja CSS + 300ms bufora
             } else {
+                // Pauzuj zmianę wysokości sekcji podczas animacji zwijania
+                heightAdjustmentPaused = true;
+                console.log('Height adjustment paused for banner collapse');
+                
                 this.classList.remove('expanded');
                 materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
                 hideSubBanners(this);
+                
+                // Odpauzuj zmianę wysokości po zakończeniu animacji zwijania
+                setTimeout(() => {
+                    heightAdjustmentPaused = false;
+                    console.log('Height adjustment resumed after banner collapse');
+                    
+                    // Po odpauzowaniu, dostosuj wysokość sekcji
+                    if (window.adjustProjectSectionHeight) {
+                        window.adjustProjectSectionHeight();
+                    }
+                }, 1800); // 1.5s animacja CSS + 300ms bufora
             }
         });
     });
@@ -1048,6 +1095,10 @@ function initializeSubBanners() {
         const clickedInsideMaterialsInfo = e.target.closest('.materials-info');
         
         if (!clickedInsideMaterialLogo && !clickedInsideMaterialsInfo) {
+            // Pauzuj zmianę wysokości sekcji podczas zamykania banerów
+            heightAdjustmentPaused = true;
+            console.log('Height adjustment paused for closing all banners');
+            
             // Kliknięto poza banerami - zamknij wszystkie
             const materialsLogosContainer = document.querySelector('.materials-logos');
             materialLogos.forEach(logo => {
@@ -1065,6 +1116,17 @@ function initializeSubBanners() {
             setTimeout(() => {
                 showMaterialInfo('plyty-meblowe');
             }, 200);
+            
+            // Odpauzuj zmianę wysokości po zakończeniu wszystkich animacji
+            setTimeout(() => {
+                heightAdjustmentPaused = false;
+                console.log('Height adjustment resumed after closing all banners');
+                
+                // Po odpauzowaniu, dostosuj wysokość sekcji
+                if (window.adjustProjectSectionHeight) {
+                    window.adjustProjectSectionHeight();
+                }
+            }, 1800); // 1.5s animacja CSS + 300ms bufora
         }
     });
     
@@ -1127,7 +1189,10 @@ function initializeCyclicBannerAnimation() {
 
     // Funkcja do zmiany aktywnego bannera
     function switchToMaterial(index) {
-        // Usuń wszystkie aktywne klasy i animacje
+        // Ustaw flagę animacji żeby MutationObserver nie reagował
+        globalCyclicAnimationActive = true;
+        
+        // Usuń klasy pulsowania z logo
         materialLogos.forEach((logo, i) => {
             logo.classList.remove('active', 'pulse');
             if (i !== index) {
@@ -1137,13 +1202,11 @@ function initializeCyclicBannerAnimation() {
                 logo.style.borderColor = '';
             }
         });
-        
-        materialInfos.forEach(info => {
-            info.classList.remove('active', 'fade-in');
-            info.style.display = 'none';
-        });
 
-        // Aktywuj nowy baner z animacją
+        // Znajdź aktualnie aktywny baner (stary)
+        const currentActiveInfo = document.querySelector('.material-info.active');
+        
+        // Znajdź nowy baner do pokazania
         const activeLogo = materialLogos[index];
         const activeInfo = document.getElementById(`${activeLogo.dataset.material}-info`);
         
@@ -1151,16 +1214,36 @@ function initializeCyclicBannerAnimation() {
             // Dodaj animację pulsowania do bannera
             activeLogo.classList.add('pulse', 'active');
             
-            // Pokaż odpowiedni opis z animacją
+            // KLUCZOWE: Najpierw pokaż nowy baner, potem ukryj stary
+            // Pokaż nowy baner natychmiast
+            activeInfo.style.display = 'block';
             setTimeout(() => {
-                activeInfo.style.display = 'block';
-                setTimeout(() => {
-                    activeInfo.classList.add('active', 'fade-in');
-                    // Dostosuj wysokość sekcji po zmianie bannera
-                    if (window.adjustProjectSectionHeight) {
-                        setTimeout(() => window.adjustProjectSectionHeight(), 100);
+                activeInfo.classList.add('active', 'fade-in');
+                
+                // Ukryj stary baner DOPIERO PO pokazaniu nowego
+                if (currentActiveInfo && currentActiveInfo !== activeInfo) {
+                    setTimeout(() => {
+                        currentActiveInfo.classList.remove('active', 'fade-in');
+                        currentActiveInfo.style.display = 'none';
+                    }, 100); // Krótkie opóźnienie, aby nowy baner był już widoczny
+                }
+                
+                // Ukryj wszystkie inne banery (oprócz starego i nowego)
+                materialInfos.forEach(info => {
+                    if (info !== activeInfo && info !== currentActiveInfo) {
+                        info.classList.remove('active', 'fade-in');
+                        info.style.display = 'none';
                     }
-                }, 50);
+                });
+                
+                // NIE dostosowuj wysokości podczas cyklicznej zmiany banerów
+                // To powoduje skakanie sekcji Fundacja
+                // Wysokość zostanie dostosowana tylko przy manualnej interakcji użytkownika
+            }, 50);
+            
+            // Wyłącz flagę po zakończeniu animacji
+            setTimeout(() => {
+                globalCyclicAnimationActive = false;
             }, 200);
         }
 
@@ -1170,8 +1253,16 @@ function initializeCyclicBannerAnimation() {
     // Funkcja do automatycznego przełączania
     function autoSwitchMaterial() {
         if (!globalUserInteracting && !isUserInteracting) {
+            // Ustaw flagę cyklicznej animacji
+            globalCyclicAnimationActive = true;
+            
             const nextIndex = (currentIndex + 1) % materialLogos.length;
             switchToMaterial(nextIndex);
+            
+            // Wyłącz flagę po zakończeniu animacji (850ms)
+            setTimeout(() => {
+                globalCyclicAnimationActive = false;
+            }, 850);
         }
     }
 
@@ -1179,6 +1270,9 @@ function initializeCyclicBannerAnimation() {
     function handleUserInteraction() {
         // Wywołaj globalną funkcję
         stopCyclicAnimation();
+        
+        // Wyłącz flagę cyklicznej animacji przy manualnej interakcji
+        globalCyclicAnimationActive = false;
         
         // Lokalne zatrzymanie
         isUserInteracting = true;
@@ -1294,6 +1388,12 @@ function initializeCyclicBannerAnimation() {
  * tak aby kończyła się zaraz pod aktualnie widocznym banerem
  */
 function adjustProjectSectionHeight() {
+    // Jeśli zmiana wysokości jest spauzowana, nie wykonuj funkcji
+    if (heightAdjustmentPaused) {
+        console.log('Height adjustment paused - skipping');
+        return;
+    }
+    
     const projectSection = document.getElementById('project');
     const materialsInfoSection = document.querySelector('#project .materials-info');
     
@@ -1311,10 +1411,7 @@ function adjustProjectSectionHeight() {
             const activeMaterialInfo = document.querySelector('.material-info.active');
             
             if (activeMaterialInfo) {
-                // Resetuj wysokość do automatycznej przed obliczeniami
-                projectSection.style.minHeight = '';
-                
-                // Daj chwilę na przekalkulowanie layoutu
+                // NIE resetuj wysokości - oblicz od razu finalną wartość
                 setTimeout(() => {
                     // Oblicz pozycję końca aktywnego banera względem sekcji project
                     const projectRect = projectSection.getBoundingClientRect();
@@ -1359,15 +1456,19 @@ function adjustProjectSectionHeight() {
  * potem ustawia koniec sekcji zaraz pod kontenerem
  */
 function adjustProjectSectionHeightForPC() {
+    // Jeśli zmiana wysokości jest spauzowana, nie wykonuj funkcji
+    if (heightAdjustmentPaused) {
+        console.log('Height adjustment paused for PC - skipping');
+        return;
+    }
+    
     const projectSection = document.getElementById('project');
     const materialsInfoSection = document.querySelector('#project .materials-info');
     const materialsLogos = document.querySelector('#project .materials-logos');
     
     if (!projectSection || !materialsInfoSection) return;
     
-    // Resetuj wysokość sekcji
-    projectSection.style.minHeight = '';
-    
+    // NIE resetuj wysokości - oblicz od razu finalną wartość
     setTimeout(() => {
         // 1. Oblicz rzeczywistą wysokość całego kontenera z banerami (włącznie z rozwiniętymi sub-banerami)
         const materialsLogosRect = materialsLogos.getBoundingClientRect();
@@ -1437,7 +1538,11 @@ function initializeProjectHeightObserver() {
     const classObserver = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                setTimeout(adjustProjectSectionHeight, 100); // Małe opóźnienie na renderowanie
+                // NIE dostosowuj wysokości podczas cyklicznej animacji na desktop
+                // Ale na mobile (<=768px) i tak dopasowujemy, żeby UI było responsywne
+                if (!globalCyclicAnimationActive || window.innerWidth <= 768) {
+                    setTimeout(adjustProjectSectionHeight, 100); // Małe opóźnienie na renderowanie
+                }
             }
         });
     });
@@ -1450,7 +1555,11 @@ function initializeProjectHeightObserver() {
     // Observer do obserwowania zmian w material-info elementach
     materialInfos.forEach((info) => {
         const infoObserver = new MutationObserver(() => {
-            setTimeout(adjustProjectSectionHeight, 100);
+            // NIE dostosowuj wysokości podczas cyklicznej animacji na desktop
+            // Ale na mobile (<=768px) i tak dopasowujemy
+            if (!globalCyclicAnimationActive || window.innerWidth <= 768) {
+                setTimeout(adjustProjectSectionHeight, 100);
+            }
         });
         
         infoObserver.observe(info, {
@@ -1465,7 +1574,11 @@ function initializeProjectHeightObserver() {
     const materialLogos = document.querySelectorAll('#project .material-logo');
     materialLogos.forEach((logo) => {
         const logoObserver = new MutationObserver(() => {
-            setTimeout(adjustProjectSectionHeight, 100);
+            // NIE dostosowuj wysokości podczas cyklicznej animacji na desktop
+            // Ale na mobile (<=768px) i tak dopasowujemy
+            if (!globalCyclicAnimationActive || window.innerWidth <= 768) {
+                setTimeout(adjustProjectSectionHeight, 100);
+            }
         });
         
         logoObserver.observe(logo, {
