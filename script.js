@@ -1369,8 +1369,9 @@ function adjustProjectSectionHeightForPC() {
     projectSection.style.minHeight = '';
     
     setTimeout(() => {
-        // 1. Oblicz wysokość głównych banerów (Płyty Meblowe, Fronty Meblowe, Blaty)
-        const materialsLogosHeight = materialsLogos ? materialsLogos.getBoundingClientRect().height : 100;
+        // 1. Oblicz rzeczywistą wysokość całego kontenera z banerami (włącznie z rozwiniętymi sub-banerami)
+        const materialsLogosRect = materialsLogos.getBoundingClientRect();
+        const materialsLogosHeight = materialsLogosRect.height;
         
         // 2. Znajdź aktywny material-info aby określić jego wysokość
         const activeMaterialInfo = document.querySelector('.material-info.active');
@@ -1388,14 +1389,14 @@ function adjustProjectSectionHeightForPC() {
         const minGapBetweenBannersAndInfo = 20; // Minimalna przerwa 20px
         
         // 4. Oblicz całkowitą potrzebną wysokość sekcji:
-        // - Nagłówek h2 (~50px z marginesami)
-        // - Banery główne (materialsLogosHeight)
+        // - Nagłówek h2 (~70px z marginesami)
+        // - Banery główne + rozwiniete sub-banery (materialsLogosHeight)
         // - Minimalna przerwa (20px)
         // - Kontener ze zdjęciem i opisami (materialsInfoHeight)
-        // - Margines dolny (30px)
+        // - Margines dolny (50px - zwiększony dla pełnej widoczności)
         
         const headerHeight = 70; // Nagłówek + marginesy
-        const bottomMargin = 30;
+        const bottomMargin = 50; // Zwiększony dolny margines
         
         const totalNeededHeight = headerHeight + 
                                 materialsLogosHeight + 
@@ -1403,8 +1404,9 @@ function adjustProjectSectionHeightForPC() {
                                 materialsInfoHeight + 
                                 bottomMargin;
         
-        // 5. Ustaw wysokość sekcji
-        projectSection.style.minHeight = totalNeededHeight + 'px';
+        // 5. Ustaw wysokość sekcji - dodaj dodatkowy bufor dla bezpieczeństwa
+        const finalHeight = Math.max(totalNeededHeight, 800); // Minimum 800px
+        projectSection.style.minHeight = finalHeight + 'px';
         
         // 6. Dostosuj pozycję materials-info aby była tuż pod banerami
         const newTopPosition = headerHeight + materialsLogosHeight + minGapBetweenBannersAndInfo;
@@ -1412,13 +1414,14 @@ function adjustProjectSectionHeightForPC() {
         
         console.log(`PC Layout adjusted:
             - Header height: ${headerHeight}px
-            - Banners height: ${materialsLogosHeight}px
+            - Total banners height (with expanded): ${materialsLogosHeight}px
             - Gap: ${minGapBetweenBannersAndInfo}px
             - Info height: ${materialsInfoHeight}px
-            - Total section height: ${totalNeededHeight}px
+            - Calculated height: ${totalNeededHeight}px
+            - Final section height: ${finalHeight}px
             - Info positioned at: ${newTopPosition}px`);
             
-    }, 20); // Małe opóźnienie na renderowanie
+    }, 50); // Zwiększone opóźnienie na pełne renderowanie
 }
 
 /**
@@ -1455,6 +1458,19 @@ function initializeProjectHeightObserver() {
             attributeFilter: ['class'],
             childList: true,
             subtree: true
+        });
+    });
+    
+    // Observer do obserwowania zmian klas w material-logo (dla expanded)
+    const materialLogos = document.querySelectorAll('#project .material-logo');
+    materialLogos.forEach((logo) => {
+        const logoObserver = new MutationObserver(() => {
+            setTimeout(adjustProjectSectionHeight, 100);
+        });
+        
+        logoObserver.observe(logo, {
+            attributes: true,
+            attributeFilter: ['class']
         });
     });
     
