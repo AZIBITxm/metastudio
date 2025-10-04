@@ -2334,9 +2334,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .material-image img {
@@ -2344,11 +2342,6 @@ nav {
     height: auto;
     max-height: 250px; /* Zwiększona wysokość obrazu */
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.material-image img:hover {
-    transform: scale(1.05);
 }
 
 /* PC: nowy układ material-info - obraz po lewej (1/3), tekst po prawej (2/3) */
@@ -2397,10 +2390,9 @@ nav {
     }
 
     #project .material-info .material-content {
-        flex: 0 0 66.666% !important; /* Tekst zajmuje 2/3 szerokości */
-        width: 66.666% !important;
+        flex: 1 !important; /* Zajmuje pozostałą dostępną przestrzeń */
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 0 2rem 0 0 !important;
     }
 
     #project .material-info .material-image img {
