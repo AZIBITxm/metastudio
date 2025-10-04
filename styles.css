@@ -1645,6 +1645,13 @@ nav {
     }
 }
 
+/* Desktop: zmniejsz odstęp między nagłówkiem a banerami */
+@media (min-width: 769px) {
+    #project h2 {
+        margin-bottom: 1.5rem; /* Zmniejszono z 3rem do 1.5rem dla PC */
+    }
+}
+
 /* Animacja unoszenia */
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -2001,6 +2008,24 @@ nav {
     filter: grayscale(0);
 }
 
+/* PC: Wyłącz efekty hover - banery działają tylko po kliknięciu */
+@media (min-width: 1025px) {
+    #project .material-logo:hover {
+        transform: none !important;
+        border-color: transparent !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        box-shadow: 0 6px 32px 0 rgba(0,0,0,0.25) !important; /* Przywróć domyślny cień */
+    }
+    
+    #project .material-logo:hover img {
+        filter: grayscale(0.3) !important; /* Przywróć domyślny filtr */
+    }
+    
+    #project .material-logo:hover .material-title {
+        color: black !important; /* Przywróć domyślny kolor */
+    }
+}
+
 #project .material-logo.active .material-title {
     color: var(--color-primary-dark);
 }
@@ -2336,6 +2361,72 @@ nav {
 
 .material-image img:hover {
     transform: scale(1.05);
+}
+
+/* PC: nowy układ material-info - obraz po lewej (1/3), tekst po prawej (2/3) */
+@media (min-width: 1025px) {
+    #project .materials-info {
+        position: absolute !important;
+        top: 150px !important; /* Pozycjonuj zaraz pod banerami (nagłówek + banery ~150px) */
+        left: 2rem !important;
+        right: 2rem !important;
+        z-index: 15 !important; /* Wyższy z-index niż banery */
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #project .material-info {
+        position: absolute !important; /* Pozycjonuj absolutnie, żeby nakładały się */
+        top: 0 !important; /* Wszystkie w tym samym miejscu */
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 2rem !important;
+        padding: 2rem 0 !important;
+        margin: 0 !important;
+        opacity: 0 !important; /* Domyślnie niewidoczne */
+        visibility: hidden !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important;
+        z-index: 10 !important;
+    }
+    
+    #project .material-info.active {
+        opacity: 1 !important; /* Widoczne tylko aktywne */
+        visibility: visible !important;
+        z-index: 11 !important; /* Aktywny na wierzchu */
+    }
+
+    #project .material-info .material-image {
+        flex: 0 0 33.333% !important; /* Obraz zajmuje 1/3 szerokości */
+        width: 33.333% !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    #project .material-info .material-content {
+        flex: 0 0 66.666% !important; /* Tekst zajmuje 2/3 szerokości */
+        width: 66.666% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #project .material-info .material-image img {
+        width: 100% !important;
+        height: 250px !important;
+        object-fit: cover !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    #project .material-info .material-image img:hover {
+        transform: scale(1.05) !important;
+    }
 }
 
 /* Responsive obrazy materiałów */

@@ -483,8 +483,8 @@ function initializeMaterialsSection() {
     }
 
     materialLogos.forEach(logo => {
-        // Tylko w wersji desktop dodaj obsługę hover
-        if (window.innerWidth > 768) {
+        // Tylko w wersji desktop dodaj obsługę hover (wyłączona dla PC 1025px+)
+        if (window.innerWidth > 768 && window.innerWidth < 1025) {
             logo.addEventListener('mouseenter', function() {
                 const materialType = this.dataset.material;
                 
@@ -1192,8 +1192,8 @@ function initializeCyclicBannerAnimation() {
 
     // Dodaj obsługę zdarzeń dla każdego bannera
     materialLogos.forEach((logo, index) => {
-        // Tylko w wersji desktop dodaj obsługę hover
-        if (window.innerWidth > 768) {
+        // Tylko w wersji desktop dodaj obsługę hover (wyłączona dla PC 1025px+)
+        if (window.innerWidth > 768 && window.innerWidth < 1025) {
             logo.addEventListener('mouseenter', function() {
                 handleUserInteraction();
                 
@@ -1211,8 +1211,8 @@ function initializeCyclicBannerAnimation() {
         });
     });
 
-    // Dodaj obsługę hover również dla banerów material-info (tylko desktop)
-    if (window.innerWidth > 768) {
+    // Dodaj obsługę hover również dla banerów material-info (wyłączona dla PC 1025px+)
+    if (window.innerWidth > 768 && window.innerWidth < 1025) {
         materialInfos.forEach((info, index) => {
             info.addEventListener('mouseenter', function() {
                 handleUserInteraction();
@@ -1342,9 +1342,83 @@ function adjustProjectSectionHeight() {
             projectSection.style.minHeight = '';
         }
     } else {
-        // Na desktop usuń minimalną wysokość
-        projectSection.style.minHeight = '';
+        // Na desktop wywołaj specjalną funkcję dla PC
+        const isPC = window.innerWidth >= 1025;
+        if (isPC) {
+            adjustProjectSectionHeightForPC();
+        } else {
+            // Na tablet usuń minimalną wysokość
+            projectSection.style.minHeight = '';
+        }
     }
+}
+
+/**
+ * Funkcja specjalnie dla PC - dostosowuje wysokość sekcji project
+ * Najpierw minimalizuje przerwę między banerami a kontenerem ze zdjęciem,
+ * potem ustawia koniec sekcji zaraz pod kontenerem
+ */
+function adjustProjectSectionHeightForPC() {
+    const projectSection = document.getElementById('project');
+    const materialsInfoSection = document.querySelector('#project .materials-info');
+    const materialsLogos = document.querySelector('#project .materials-logos');
+    
+    if (!projectSection || !materialsInfoSection) return;
+    
+    // Resetuj wysokość sekcji
+    projectSection.style.minHeight = '';
+    
+    setTimeout(() => {
+        // 1. Oblicz wysokość głównych banerów (Płyty Meblowe, Fronty Meblowe, Blaty)
+        const materialsLogosHeight = materialsLogos ? materialsLogos.getBoundingClientRect().height : 100;
+        
+        // 2. Znajdź aktywny material-info aby określić jego wysokość
+        const activeMaterialInfo = document.querySelector('.material-info.active');
+        let materialsInfoHeight = 0;
+        
+        if (activeMaterialInfo) {
+            // Oblicz rzeczywistą wysokość aktywnego kontenera ze zdjęciem i opisami
+            materialsInfoHeight = activeMaterialInfo.getBoundingClientRect().height;
+        } else {
+            // Jeśli nie ma aktywnego, oszacuj bazową wysokość
+            materialsInfoHeight = 300;
+        }
+        
+        // 3. Oblicz minimalną przerwę między banerami a kontenerem (zmniejszoną)
+        const minGapBetweenBannersAndInfo = 20; // Minimalna przerwa 20px
+        
+        // 4. Oblicz całkowitą potrzebną wysokość sekcji:
+        // - Nagłówek h2 (~50px z marginesami)
+        // - Banery główne (materialsLogosHeight)
+        // - Minimalna przerwa (20px)
+        // - Kontener ze zdjęciem i opisami (materialsInfoHeight)
+        // - Margines dolny (30px)
+        
+        const headerHeight = 70; // Nagłówek + marginesy
+        const bottomMargin = 30;
+        
+        const totalNeededHeight = headerHeight + 
+                                materialsLogosHeight + 
+                                minGapBetweenBannersAndInfo + 
+                                materialsInfoHeight + 
+                                bottomMargin;
+        
+        // 5. Ustaw wysokość sekcji
+        projectSection.style.minHeight = totalNeededHeight + 'px';
+        
+        // 6. Dostosuj pozycję materials-info aby była tuż pod banerami
+        const newTopPosition = headerHeight + materialsLogosHeight + minGapBetweenBannersAndInfo;
+        materialsInfoSection.style.top = newTopPosition + 'px';
+        
+        console.log(`PC Layout adjusted:
+            - Header height: ${headerHeight}px
+            - Banners height: ${materialsLogosHeight}px
+            - Gap: ${minGapBetweenBannersAndInfo}px
+            - Info height: ${materialsInfoHeight}px
+            - Total section height: ${totalNeededHeight}px
+            - Info positioned at: ${newTopPosition}px`);
+            
+    }, 20); // Małe opóźnienie na renderowanie
 }
 
 /**
@@ -1507,6 +1581,7 @@ function setupDynamicScrollBannerForMobile() {
 // Udostępnij funkcje globalnie
 window.toggleProducerDetails = toggleProducerDetails;
 window.adjustProjectSectionHeight = adjustProjectSectionHeight;
+window.adjustProjectSectionHeightForPC = adjustProjectSectionHeightForPC;
 window.setupDynamicScrollBannerForMobile = setupDynamicScrollBannerForMobile;
 
 // ==========================================

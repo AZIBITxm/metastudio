@@ -1133,15 +1133,15 @@ class GalleryModal {
                 return;
             }
             
-            // Pokaż miniaturkę jako placeholder podczas ładowania pełnego obrazu
-            mainImage.src = mediaObj.thumbnail;
-            mainImage.style.opacity = '0.6';
-            mainImage.style.filter = 'blur(2px)';
+            // Ukryj główny obraz i pokaż animację ładowania podczas ładowania pełnego obrazu
+            mainImage.style.opacity = '0';
+            this.showMediaLoader();
             
             // Create new image to preload pełny obraz
             const newImg = new Image();
             newImg.onload = () => {
-                // Płynne przejście do pełnego obrazu
+                // Ukryj loader i pokaż pełny obraz
+                this.hideMediaLoader();
                 mainImage.style.transition = 'all 0.3s ease';
                 mainImage.src = newImg.src;
                 mainImage.alt = mediaObj.alt;
@@ -1155,7 +1155,9 @@ class GalleryModal {
             };
             newImg.onerror = () => {
                 console.error('❌ Błąd ładowania obrazu:', imageToShow);
-                // Zostaw miniaturkę jako fallback
+                // Ukryj loader i pokaż miniaturkę jako fallback
+                this.hideMediaLoader();
+                mainImage.src = mediaObj.thumbnail;
                 mainImage.style.opacity = '1';
                 mainImage.style.filter = 'none';
             };
@@ -1206,14 +1208,43 @@ class GalleryModal {
     showLoading() {
         const container = this.modal.querySelector('.gallery-container');
         if (container) {
-            container.innerHTML = '<div class="gallery-loading"></div>';
+            // Użyj tej samej animacji co showMediaLoader() - z kropkami
+            container.innerHTML = `
+                <div class="media-loader" style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1500;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    pointer-events: none;
+                ">
+                    <div class="spinner-dots">
+                        <div class="dot1"></div>
+                        <div class="dot2"></div>
+                        <div class="dot3"></div>
+                    </div>
+                </div>
+            `;
+            
+            // Dodaj style dla animacji kropek
+            this.addSpinnerStyles();
         }
     }
     
     hideLoading() {
+        // Usuń stary kwadracik
         const loading = this.modal.querySelector('.gallery-loading');
         if (loading) {
             loading.remove();
+        }
+        
+        // Usuń nowy loader z kropkami
+        const mediaLoader = this.modal.querySelector('.media-loader');
+        if (mediaLoader) {
+            mediaLoader.remove();
         }
         
         // Restore gallery container structure
@@ -1260,11 +1291,15 @@ class GalleryModal {
     
     // NOWY LOADER dla pojedynczych mediów
     showMediaLoader() {
-        // Znajdź lub stwórz minimalistyczny loader
-        const galleryContainer = this.modal.querySelector('.gallery-container');
-        if (!galleryContainer) return;
+        // Sprawdź czy jesteśmy w trybie fullscreen
+        const fullscreenModal = document.getElementById('gallery-fullscreen');
+        const isFullscreen = fullscreenModal && fullscreenModal.style.display !== 'none';
         
-        let mediaLoader = galleryContainer.querySelector('.media-loader');
+        // Wybierz odpowiedni kontener
+        const container = isFullscreen ? fullscreenModal : this.modal.querySelector('.gallery-container');
+        if (!container) return;
+        
+        let mediaLoader = container.querySelector('.media-loader');
         
         if (!mediaLoader) {
             mediaLoader = document.createElement('div');
@@ -1290,7 +1325,7 @@ class GalleryModal {
                 pointer-events: none;
             `;
             
-            galleryContainer.appendChild(mediaLoader);
+            container.appendChild(mediaLoader);
             
             // Dodaj style dla animacji kropek i cursora
             this.addSpinnerStyles();
@@ -1304,10 +1339,15 @@ class GalleryModal {
     }
     
     hideMediaLoader() {
-        const galleryContainer = this.modal.querySelector('.gallery-container');
-        if (!galleryContainer) return;
+        // Sprawdź czy jesteśmy w trybie fullscreen
+        const fullscreenModal = document.getElementById('gallery-fullscreen');
+        const isFullscreen = fullscreenModal && fullscreenModal.style.display !== 'none';
         
-        const mediaLoader = galleryContainer.querySelector('.media-loader');
+        // Wybierz odpowiedni kontener
+        const container = isFullscreen ? fullscreenModal : this.modal.querySelector('.gallery-container');
+        if (!container) return;
+        
+        const mediaLoader = container.querySelector('.media-loader');
         if (mediaLoader) {
             // Płynne ukrycie loadera
             mediaLoader.style.transition = 'opacity 0.2s ease';
@@ -1811,10 +1851,8 @@ class GalleryModal {
         console.log(`📊 currentThumbnail: ${currentThumbnail}`);
         console.log(`📊 this.images[${this.currentImageIndex}]:`, this.images[this.currentImageIndex]);
         
-        if (currentThumbnail && fullscreenImage) {
-            fullscreenImage.src = currentThumbnail; // Pokaż miniaturkę jako placeholder
-            fullscreenImage.style.opacity = '0.7'; // Przyciemnij żeby pokazać że się ładuje
-        }
+        // Pokaż animację ładowania zamiast miniaturki
+        this.showMediaLoader();
         
         // NAJPIERW załaduj pełne media przed wyświetleniem
         console.log(`🔄 Ładowanie pełnego media dla fullscreen, indeks: ${this.currentImageIndex}`);
@@ -1839,6 +1877,16 @@ class GalleryModal {
             fullscreenVideo.style.display = 'block';
             fullscreenVideo.src = currentMedia.src;
             fullscreenVideo.poster = currentMedia.thumbnail;
+            
+            // Ukryj loader gdy wideo się załaduje
+            fullscreenVideo.addEventListener('loadeddata', () => {
+                this.hideMediaLoader();
+            }, { once: true });
+            
+            fullscreenVideo.addEventListener('error', () => {
+                this.hideMediaLoader();
+            }, { once: true });
+            
             console.log(`✅ Fullscreen video updated: ${currentMedia.src}`);
         } else if (fullscreenImage) {
             // Aktualizuj obraz w fullscreen
@@ -1863,14 +1911,23 @@ class GalleryModal {
                 fullscreenImage.src = currentMedia.thumbnail; // Fallback na miniaturkę
             };
             
-            fullscreenImage.onload = () => {
+            // Użyj preloadingu żeby ukryć loader gdy obraz się załaduje
+            const preloader = new Image();
+            preloader.onload = () => {
+                fullscreenImage.src = currentMedia.src;
+                this.hideMediaLoader();
                 console.log(`✅ Fullscreen image załadowany pomyślnie: ${currentMedia.src}`);
-                fullscreenImage.style.opacity = '1'; // Przywróć pełną przezroczystość
             };
             
-            // Wymuś przeładowanie dodając timestamp do URL
-            const srcWithCache = currentMedia.src + '?t=' + Date.now();
-            fullscreenImage.src = srcWithCache;
+            preloader.onerror = () => {
+                console.error(`❌ Błąd ładowania fullscreen image: ${currentMedia.src}`);
+                console.log(`🔄 Próba fallback na thumbnail: ${currentMedia.thumbnail}`);
+                fullscreenImage.src = currentMedia.thumbnail;
+                this.hideMediaLoader();
+            };
+            
+            // Rozpocznij ładowanie
+            preloader.src = currentMedia.src;
             fullscreenImage.alt = currentMedia.alt;
             console.log(`🔄 Ustawianie fullscreen image src na: ${currentMedia.src}`);
             console.log(`🔄 Z cache-busting: ${srcWithCache}`);
