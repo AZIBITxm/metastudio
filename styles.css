@@ -739,10 +739,55 @@ nav {
     padding: 2rem;
     border: 2px solid var(--color-primary);
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .promo-item:hover {
     transform: translateY(-5px);
+}
+
+.promo-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    color: #1A1A1A;
+}
+
+.promo-collection {
+    overflow: hidden;
+    background-color: transparent !important;
+    background-image: url('tlo/baner22.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.promo-collection::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('tlo/baner22.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    z-index: 0 !important;
+}
+
+.promo-collection h3,
+.promo-collection p,
+.promo-collection .btn-gold {
+    position: relative;
+    z-index: 2;
+}
+
+.promo-collection h3,
+.promo-collection p {
+    color: var(--color-text-light) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 /* ==========================================
@@ -3349,6 +3394,28 @@ footer {
         padding: 30px 1rem 60px 1rem;
     }
 
+    .promo-collection {
+        background-color: transparent !important;
+    }
+
+    .promo-collection::before {
+        background-image: url('tlo/baner22.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        display: block !important;
+    }
+
+    .promo-collection h3,
+    .promo-collection p {
+        color: var(--color-text-light) !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+    }
+
+    .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     #about {
         margin-top: 150px;
         padding: 30px 2rem 60px 2rem;
@@ -3603,6 +3670,28 @@ footer {
     /* Dodatkowe dostosowanie dla bardzo małych ekranów */
     #promotions {
         padding: 20px 1rem 40px 1rem;
+    }
+
+    .promo-collection {
+        background-color: transparent !important;
+    }
+
+    .promo-collection::before {
+        background-image: url('tlo/baner22.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        display: block !important;
+    }
+
+    .promo-collection h3,
+    .promo-collection p {
+        color: var(--color-text-light) !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+    }
+
+    .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     #about {
