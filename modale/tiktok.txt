@@ -1,0 +1,11 @@
+# MetaStudio TikTok Videos
+# Format: URL | Opis | Thumbnail URL (opcjonalnie)
+
+https://vm.tiktok.com/ZNdtHbTTg/
+Luksusowe wnętrza MetaStudio 
+
+https://vm.tiktok.com/ZNdtHckPn/
+Kuchnia marzeń 
+
+# https://vm.tiktok.com/example3/
+# Sypialnia w stylu loft 

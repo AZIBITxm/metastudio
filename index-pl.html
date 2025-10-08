@@ -6,6 +6,7 @@
   <title>MetaStudio - Luksusowe Wnętrza i Meble</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="modale/gallery-modal.css">
+  <link rel="stylesheet" href="modale/tiktok-modal.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -27,6 +28,7 @@
             <a href="#about">O Nas</a>
             <a href="#realizations">Nasze Realizacje</a>
             <a href="#project">Kategorie Materiałów</a>
+            <a href="#" onclick="openTikTokModal(); return false;">📱 TikTok</a>
             <a href="#contact">Kontakt</a>
         </div>
     </div>
@@ -46,13 +48,14 @@
         <div class="promo-grid">
             <div class="promo-item promo-collection">
                 <h3>META STUDIO DESIGN COLLECTION 2025 - 2026</h3>
-                <p>Zamów meble z naszej najnowszej kolekcji i skorzystaj z wyjątkowego rabatu.</p>
+                <p>Sprawdź nasze propozycje na nadchodzący rok.<br>
+                <span style="color: var(--color-primary);">Nowy Katalog dostępny od 01.11.2025</span></p>
                 <a href="#" class="btn-gold">Szczegóły oferty</a>
             </div>
             <div class="promo-item">
-                <h3>Darmowa Wizualizacja</h3>
-                <p>Przy zamówieniu kompleksowego projektu wnętrza, wizualizacja 3D w prezencie!</p>
-                <a href="#" class="btn-gold">Dowiedz się więcej</a>
+                <h3>Rozwiązania dla Twojej wygody</h3>
+                <p>Poznaj nowe rozwiązania technologiczne, które mogą znaleźć się dzięki Nam w Twoim domu.</p>
+                <a href="#tiktok" class="btn-gold" id="tiktok-banner-btn">Dowiedz się więcej</a>
             </div>
         </div>
     </div>
@@ -1836,5 +1839,6 @@
 
   <script src="script.js"></script>
   <script src="modale/gallery-modal.js"></script>
+  <script src="modale/tiktok-modal.js"></script>
 </body>
 </html>
