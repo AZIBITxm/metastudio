@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test - Floating Button Fix</title>
+</head>
+<body>
+    <h1>Test przycisku pływającego</h1>
+
+    <!-- Widget Biel AI -->
+    <biel-button
+        id="biel-ai-widget"
+        project="fcsmgx0n74"
+        header-title="Asystent AI">
+    </biel-button>
+
+    <!-- Przycisk pływający -->
+    <div id="custom-ai-button" style="position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; background: gold; border-radius: 50%; cursor: pointer; z-index: 99998;">
+        CHAT
+    </div>
+
+    <script src="https://cdn.biel.ai/biel-button.js"></script>
+    <script>
+        function openBielChat() {
+            console.log('Opening chat...');
+            var bielWidget = document.getElementById('biel-ai-widget');
+            if (bielWidget && bielWidget.shadowRoot) {
+                const button = bielWidget.shadowRoot.querySelector('a.biel-button-content');
+                if (button) {
+                    button.click();
+                    console.log('Chat opened!');
+                }
+            }
+        }
+
+        document.getElementById('custom-ai-button').addEventListener('click', openBielChat);
+    </script>
+</body>
+</html>
