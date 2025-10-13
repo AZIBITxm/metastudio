@@ -16,24 +16,31 @@
 
   <!-- Custom styles for Biel AI widget -->
   <style>
-    /* Hide the Biel button completely off-screen */
+    /* Hide original Biel button - move off screen instead of display:none */
     biel-button {
       position: fixed !important;
-      bottom: -200px !important;
-      right: -200px !important;
+      left: -9999px !important;
+      top: -9999px !important;
       opacity: 0 !important;
       pointer-events: none !important;
-      z-index: 1 !important;
+      z-index: -1 !important;
     }
 
-    /* When opened, keep it hidden but functional */
-    biel-button[opened] {
-      pointer-events: auto !important;
+    /* Keep button part visible for modal to work */
+    biel-button::part(button) {
+      visibility: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+    }
+
+    /* Ensure the entire biel-button widget is above the floating button */
+    biel-button {
+      z-index: 999999 !important;
     }
 
     /* Keep modal styling */
     biel-button::part(modal) {
-      z-index: 99999 !important;
+      z-index: 999999 !important;
       font-family: 'Cormorant Garamond', serif !important;
     }
 
@@ -57,7 +64,7 @@
       border: 3px solid #B4943C;
       box-shadow: 0 4px 15px rgba(212, 181, 140, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      z-index: 99999;
+      z-index: 99998;
       transition: all 0.3s ease;
       overflow: hidden;
       animation: float-pulse 3s ease-in-out infinite;
@@ -91,19 +98,6 @@
       animation: none;
     }
 
-    #custom-ai-button::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      right: -3px;
-      width: 24px;
-      height: 24px;
-      background: #28a745;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
 
     @keyframes float-pulse {
       0%, 100% {
@@ -1596,6 +1590,150 @@
                     </ul>
                 </div>
             </div>
+            <div class="material-info" id="blaty-drewniane-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Blaty Drewniane</h3>
+                    <p>Wykonane z litego drewna (dąb, jesion, orzech, buk) lub klejonych warstwowo desek. Tworzą niepowtarzalną, naturalną i ciepłą atmosferę. Z czasem mogą nabrać patyny, co dodaje im charakteru. Wymagają okresowej konserwacji (olejowania).</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Specyfikacje Techniczne</h4>
+                    <ul>
+                        <li><strong>Materiał:</strong> Lite drewno lub klejone warstwowo deski</li>
+                        <li><strong>Grubość:</strong> Od 27mm do 40mm (grubsze na indywidualne zamówienie)</li>
+                        <li><strong>Konserwacja:</strong> Okresowe olejowanie wymagane</li>
+                        <li><strong>Charakterystyka:</strong> Naturalna patyna rozwijająca się z czasem</li>
+                    </ul>
+                    
+                    <h5>Rodzaje drewna:</h5>
+                    <ul>
+                        <li><strong>Dąb:</strong> Bardzo twardy, wytrzymały, popularny i uniwersalny</li>
+                        <li><strong>Jesion:</strong> Twardy, o wyraźnym, dekoracyjnym usłojeniu</li>
+                        <li><strong>Orzech:</strong> Szlachetny, o głębokim, ciemnym odcieniu</li>
+                        <li><strong>Buk:</strong> Jasny, twardy, o równomiernym usłojeniu</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Zastosowanie</h4>
+                    <ul>
+                        <li>✅ Kuchnie (tworzy wyjątkowy, rodzinny klimat)</li>
+                        <li>✅ Blaty stołów i wysp</li>
+                        <li>✅ Pomieszczenia w stylu skandynawskim, rustykalnym, vintage</li>
+                        <li>⚠️ Wymaga regularnej pielęgnacji; wrażliwy na wilgoć i wysoką temperaturę</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-kamienne-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Blaty Kamienne (Granit, Marmur)</h3>
+                    <p>Luksusowy, naturalny i niepowtarzalny materiał. Każdy blat jest unikatem. Granit jest bardzo twardy i odporny, podczas gdy marmur jest bardziej miękki i podatny na zarysowania oraz działanie kwasów (np. soku z cytryny), wymaga impregnacji.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Specyfikacje Techniczne</h4>
+                    <ul>
+                        <li><strong>Materiał:</strong> Naturalny granit lub marmur</li>
+                        <li><strong>Standardowe grubości:</strong> 20mm i 30mm</li>
+                        <li><strong>Obróbka krawędzi:</strong> Specjalna obróbka dla uzyskania grubszego wyglądu</li>
+                        <li><strong>Unikatowość:</strong> Każdy blat ma niepowtarzalny wzór naturalny</li>
+                    </ul>
+                    
+                    <h5>Rodzaje kamienia:</h5>
+                    <ul>
+                        <li><strong>Granit:</strong> Maksymalna trwałość, odporność na uszkodzenia, bardzo twardy</li>
+                        <li><strong>Marmur:</strong> Unikalne żyłkowanie, elegancki i szykowny wygląd, bardziej miękki</li>
+                    </ul>
+                    
+                    <h5>Właściwości:</h5>
+                    <ul>
+                        <li>• Granit: Bardzo odporny na zarysowania i kwasy</li>
+                        <li>• Marmur: Podatny na zarysowania i działanie kwasów, wymaga impregnacji</li>
+                        <li>• Naturalny, niepowtarzalny wzór każdej płyty</li>
+                        <li>• Długotrwała trwałość przy odpowiedniej pielęgnacji</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Zastosowanie</h4>
+                    <ul>
+                        <li>✅ Reprezentacyjne kuchnie i łazienki</li>
+                        <li>✅ Blaty, parapety, okładziny ścienne</li>
+                        <li>✅ Wnętrza w stylu klasycznym i nowoczesnym</li>
+                        <li>⚠️ Marmur wymaga szczególnej opieki i impregnacji</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-solid-surface-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Blaty Solid Surface (np. Corian, Hi-Macs, Staron)</h3>
+                    <p>Innowacyjny materiał kompozytowy składający się w około 2/3 z naturalnych minerałów i w 1/3 z żywicy akrylowej. Jego największą zaletą jest bezspoinowość – połączenia są niewidoczne, tworząc jednolitą, monolityczną powierzchnię.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Specyfikacje Techniczne</h4>
+                    <ul>
+                        <li><strong>Skład:</strong> 2/3 naturalnych minerałów + 1/3 żywicy akrylowej</li>
+                        <li><strong>Grubość płyt:</strong> 12mm (naklejane na podkład MDF)</li>
+                        <li><strong>Finalna grubość blatu:</strong> Od 30mm do 50mm lub więcej</li>
+                        <li><strong>Termoformowanie:</strong> Możliwość formowania w dowolne kształty</li>
+                    </ul>
+                    
+                    <h5>Główne cechy i zalety:</h5>
+                    <ul>
+                        <li><strong>Bezspoinowość i monolityczność:</strong> Możliwość stworzenia idealnie gładkiej powierzchni ze zintegrowanym zlewem</li>
+                        <li><strong>Możliwość formowania 3D:</strong> Tworzenie zaokrąglonych frontów, łagodnych spadków, niestandardowych kształtów</li>
+                        <li><strong>Nieporowatość:</strong> Powierzchnia jest higieniczna, odporna na plamy i rozwój bakterii</li>
+                        <li><strong>Odporność na uszkodzenia:</strong> Mniejsze zarysowania można usunąć poprzez szlifowanie</li>
+                        <li><strong>Certyfikaty:</strong> Często posiada certyfikaty dopuszczające kontakt z żywnością</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Zastosowanie</h4>
+                    <ul>
+                        <li>✅ Gastronomia (restauracje, bary, kuchnie hotelowe)</li>
+                        <li>✅ Szpitale i placówki medyczne (ze względu na higienę)</li>
+                        <li>✅ Luksusowe kuchnie i łazienki (z projektami wymagającymi integralnych zlewów)</li>
+                        <li>✅ Powierzchnie wymagające bezspoinowych rozwiązań</li>
+                    </ul>
+                </div>
+                
+                <div class="producers-section">
+                    <h4>👑 GŁÓWNI PRODUCENCI</h4>
+                    <p>Najważniejsi producenci materiałów solid surface:</p>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('corian')">
+                            <h5>Corian by DuPont</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="corian-details">
+                            <p>Pionier i lider w dziedzinie solid surface. Corian oferuje najszerszą gamę kolorów i wzorów, od jednolitych po imitujące naturalne materiały. Znany z najwyższej jakości i innowacyjności.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('himacs')">
+                            <h5>Hi-Macs by LG Hausys</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="himacs-details">
+                            <p>Nowoczesny producent oferujący materiały solid surface o wysokiej jakości. Hi-Macs charakteryzuje się doskonałymi właściwościami technicznymi i szeroką gamą wzorów.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('staron')">
+                            <h5>Staron by Samsung</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="staron-details">
+                            <p>Materiał solid surface od Samsunga, łączący technologię z estetyką. Staron oferuje materiały o wyjątkowych właściwościach estetycznych i funkcjonalnych.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   </section>
@@ -1840,55 +1978,15 @@
   </div>
 
   <script>
-        // Funkcja do otwarcia czatu AI
+        // Prosta funkcja do kliknięcia ukrytego przycisku biel-button
         function openBielChat() {
-    console.log('🚀 Attempting to open Biel chat...');
-    var bielWidget = document.getElementById('biel-ai-widget');
-
-    if (!bielWidget) {
-        console.error('❌ Biel widget not found');
-        alert('Nie znaleziono asystenta AI. Proszę odświeżyć stronę.');
-        return;
-    }
-
-    console.log('✅ Biel widget found');
-
-    // Znajdź przycisk <a> w shadow DOM
-    if (bielWidget.shadowRoot) {
-        const button = bielWidget.shadowRoot.querySelector('a.biel-button-content');
-
-        if (button) {
-            console.log('✅ Found button in shadow DOM, clicking...');
-
-            // Tymczasowo pokaż widget, aby kliknięcie zadziałało
-            bielWidget.style.opacity = '1';
-            bielWidget.style.pointerEvents = 'auto';
-            bielWidget.style.bottom = '30px';
-            bielWidget.style.right = '30px';
-
-            // Kliknij przycisk po krótkiej chwili
-            setTimeout(() => {
-                button.click();
-                console.log('🎯 Button clicked!');
-
-                // Ukryj widget z powrotem po kliknięciu
-                setTimeout(() => {
-                    bielWidget.style.opacity = '0';
-                    bielWidget.style.pointerEvents = 'none';
-                    bielWidget.style.bottom = '-200px';
-                    bielWidget.style.right = '-200px';
-                    console.log('🙈 Button hidden again');
-                }, 100);
-            }, 50);
-        } else {
-            console.error('❌ No button found in shadow DOM');
-            alert('Nie można otworzyć czatu. Spróbuj odświeżyć stronę.');
+            var bielWidget = document.getElementById('biel-ai-widget');
+            if (bielWidget) {
+                bielWidget.click();
+            } else {
+                alert('Nie znaleziono asystenta AI.');
+            }
         }
-    } else {
-        console.error('❌ No shadow root');
-        alert('Widget AI nie załadował się poprawnie. Proszę odświeżyć stronę.');
-    }
-}
 
     // Wait for web component to be fully loaded
     function initCustomButton() {

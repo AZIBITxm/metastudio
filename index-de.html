@@ -30,9 +30,14 @@
       pointer-events: auto !important;
     }
 
+    /* Ensure the entire biel-button widget is above the floating button */
+    biel-button {
+      z-index: 999999 !important;
+    }
+
     /* Keep modal styling */
     biel-button::part(modal) {
-      z-index: 99999 !important;
+      z-index: 999999 !important;
       font-family: 'Cormorant Garamond', serif !important;
     }
 
@@ -56,7 +61,7 @@
       border: 3px solid #B4943C;
       box-shadow: 0 4px 15px rgba(212, 181, 140, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      z-index: 99999;
+      z-index: 99998;
       transition: all 0.3s ease;
       overflow: hidden;
       animation: float-pulse 3s ease-in-out infinite;
@@ -90,19 +95,6 @@
       animation: none;
     }
 
-    #custom-ai-button::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      right: -3px;
-      width: 24px;
-      height: 24px;
-      background: #28a745;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
 
     @keyframes float-pulse {
       0%, 100% {
@@ -1863,6 +1855,27 @@
   </div>
 
   <script>
+    // Funkcja do ukrywania/pokazywania ikony pływającej
+    function hideFloatingButton() {
+        const customButton = document.getElementById('custom-ai-button');
+        if (customButton) {
+            customButton.style.opacity = '0';
+            customButton.style.pointerEvents = 'none';
+            customButton.style.transform = 'scale(0)';
+            console.log('🙈 Floating button hidden');
+        }
+    }
+
+    function showFloatingButton() {
+        const customButton = document.getElementById('custom-ai-button');
+        if (customButton) {
+            customButton.style.opacity = '1';
+            customButton.style.pointerEvents = 'auto';
+            customButton.style.transform = 'scale(1)';
+            console.log('👁️ Floating button shown');
+        }
+    }
+
     // Funkcja do otwarcia czatu AI
     function openBielChat() {
     console.log('🚀 Attempting to open Biel chat...');
@@ -1882,6 +1895,9 @@
 
         if (button) {
             console.log('✅ Found button in shadow DOM, clicking...');
+
+            // Ukryj ikonę pływającą przed otwarciem czatu
+            hideFloatingButton();
 
             // Tymczasowo pokaż widget, aby kliknięcie zadziałało
             bielWidget.style.opacity = '1';
@@ -1913,6 +1929,85 @@
     }
 }
 
+    // Funkcja monitorująca stan czatu
+    function monitorChatState() {
+        const bielWidget = document.getElementById('biel-ai-widget');
+
+        if (!bielWidget || !bielWidget.shadowRoot) {
+            console.log('❌ Widget or shadowRoot not found, retrying...');
+            setTimeout(monitorChatState, 1000);
+            return;
+        }
+
+        console.log('✅ ShadowRoot found, setting up observer');
+
+        // Obserwuj zmiany w shadow DOM widgetu
+        const observer = new MutationObserver(() => {
+            // Sprawdź czy modal czatu jest otwarty - różne możliwe selektory
+            const possibleSelectors = [
+                '.biel-modal',
+                '.modal',
+                '[role="dialog"]',
+                '.chat-modal',
+                '.sidebar',
+                'aside',
+                'div[class*="modal"]',
+                'div[class*="chat"]'
+            ];
+
+            let isOpen = false;
+
+            for (const selector of possibleSelectors) {
+                const modal = bielWidget.shadowRoot.querySelector(selector);
+                if (modal) {
+                    const styles = window.getComputedStyle(modal);
+                    const hasOpenClass = modal.classList.contains('open') ||
+                                        modal.classList.contains('active') ||
+                                        modal.classList.contains('visible') ||
+                                        modal.classList.contains('show');
+                    const isDisplayed = styles.display !== 'none' &&
+                                      styles.visibility !== 'hidden' &&
+                                      styles.opacity !== '0';
+
+                    if (hasOpenClass || isDisplayed) {
+                        isOpen = true;
+                        console.log(`✅ Modal found with selector: ${selector}, isOpen: ${isOpen}`);
+                        break;
+                    }
+                }
+            }
+
+            if (isOpen) {
+                hideFloatingButton();
+            } else {
+                showFloatingButton();
+            }
+        });
+
+        // Obserwuj zmiany w shadowRoot
+        observer.observe(bielWidget.shadowRoot, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class', 'style', 'aria-hidden']
+        });
+
+        // Natychmiastowe sprawdzenie stanu
+        setTimeout(() => {
+            const checkAllElements = bielWidget.shadowRoot.querySelectorAll('*');
+            console.log(`📊 Total elements in shadowRoot: ${checkAllElements.length}`);
+
+            // Wypisz wszystkie elementy dla debugowania
+            checkAllElements.forEach((el, index) => {
+                if (index < 10) { // Tylko pierwsze 10
+                    console.log(`Element ${index}: ${el.tagName}.${el.className}`);
+                }
+            });
+        }, 100);
+
+        console.log('👀 Chat state monitor initialized');
+    }
+
     // Wait for web component to be fully loaded
     function initCustomButton() {
       const customButton = document.getElementById('custom-ai-button');
@@ -1938,6 +2033,13 @@
       });
 
       console.log('Custom AI button initialized');
+
+      // Inicjalizuj monitor stanu czatu - poczekaj dłużej na załadowanie shadow DOM
+      console.log('⏳ Waiting for shadow DOM to load...');
+      setTimeout(() => {
+        console.log('🔄 Starting monitorChatState...');
+        monitorChatState();
+      }, 3000);
     }
 
     // Wait for DOM and web components
