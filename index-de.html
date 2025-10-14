@@ -52,7 +52,7 @@
     /* Custom consultant button */
     #custom-ai-button {
       position: fixed;
-      bottom: 100px;
+      bottom: 30px;
       right: 30px;
       width: 70px;
       height: 70px;
@@ -62,9 +62,8 @@
       box-shadow: 0 4px 15px rgba(212, 181, 140, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       z-index: 99998;
-      transition: all 0.3s ease;
+      transition: bottom 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       overflow: hidden;
-      animation: float-pulse 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -129,7 +128,7 @@
       #custom-ai-button {
         width: 60px;
         height: 60px;
-        bottom: 90px;
+    bottom: 20px;
         right: 20px;
       }
     }
