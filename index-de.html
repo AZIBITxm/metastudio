@@ -1863,24 +1863,32 @@
   </div>
 
   <script>
-    // Funkcja do ukrywania/pokazywania ikony pływającej
-    function hideFloatingButton() {
+    // Funkcja do podnoszenia ikony pływającej
+    function liftFloatingButton() {
         const customButton = document.getElementById('custom-ai-button');
         if (customButton) {
-            customButton.style.opacity = '0';
-            customButton.style.pointerEvents = 'none';
-            customButton.style.transform = 'scale(0)';
-            console.log('🙈 Floating button hidden');
+            customButton.style.transition = 'bottom 0.3s';
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (isMobile) {
+                customButton.style.bottom = '90px'; // mobile: z 20px na 90px
+            } else {
+                customButton.style.bottom = '100px'; // desktop: z 30px na 100px
+            }
+            console.log('⬆️ Floating button lifted');
         }
     }
 
-    function showFloatingButton() {
+    function resetFloatingButton() {
         const customButton = document.getElementById('custom-ai-button');
         if (customButton) {
-            customButton.style.opacity = '1';
-            customButton.style.pointerEvents = 'auto';
-            customButton.style.transform = 'scale(1)';
-            console.log('👁️ Floating button shown');
+            customButton.style.transition = 'bottom 0.3s';
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            if (isMobile) {
+                customButton.style.bottom = '20px'; // Powrót do oryginalnej pozycji mobile
+            } else {
+                customButton.style.bottom = '30px'; // Powrót do oryginalnej pozycji desktop
+            }
+            console.log('⬇️ Floating button reset');
         }
     }
 
@@ -1986,9 +1994,9 @@
             }
 
             if (isOpen) {
-                hideFloatingButton();
+                liftFloatingButton();
             } else {
-                showFloatingButton();
+                resetFloatingButton();
             }
         });
 
@@ -2029,6 +2037,7 @@
       customButton.addEventListener('click', function(e) {
         console.log('Custom button clicked');
         e.preventDefault();
+        liftFloatingButton();
         openBielChat();
       });
 
@@ -2036,6 +2045,7 @@
       customButton.addEventListener('keypress', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          liftFloatingButton();
           openBielChat();
         }
       });

@@ -2045,6 +2045,49 @@
         return;
       }
 
+      // Funkcja resetująca pozycję ikony
+      function resetButtonPosition() {
+        customButton.style.transition = 'bottom 0.3s';
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+          customButton.style.bottom = '20px'; // Powrót do oryginalnej pozycji mobile
+        } else {
+          customButton.style.bottom = '30px'; // Powrót do oryginalnej pozycji desktop
+        }
+        console.log('✅ Button position reset');
+      }
+
+      // Obserwuj zamknięcie modala
+      function observeModalClose() {
+        const bielWidget = document.getElementById('biel-ai-widget');
+        if (!bielWidget || !bielWidget.shadowRoot) {
+          console.warn('Cannot observe modal - widget or shadow root not found');
+          return;
+        }
+
+        // Obserwuj zmiany w shadow DOM
+        const observer = new MutationObserver(function(mutations) {
+          const modal = bielWidget.shadowRoot.querySelector('[part="modal"]');
+          if (modal) {
+            const isOpen = modal.hasAttribute('open') || modal.style.display !== 'none';
+            if (!isOpen) {
+              console.log('🔻 Modal closed, resetting button position');
+              resetButtonPosition();
+            }
+          }
+        });
+
+        // Konfiguracja obserwatora
+        observer.observe(bielWidget.shadowRoot, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+          attributeFilter: ['open', 'style']
+        });
+
+        console.log('👀 Modal observer initialized');
+      }
+
       // Click event
       customButton.addEventListener('click', function(e) {
                 console.log('Custom button clicked');
@@ -2058,13 +2101,23 @@
                     customButton.style.bottom = '100px'; // desktop: z 30px na 100px
                 }
                 openBielChat();
+                // Uruchom obserwator po otwarciu modala
+                setTimeout(observeModalClose, 500);
       });
 
       // Keyboard accessibility
       customButton.addEventListener('keypress', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          customButton.style.transition = 'bottom 0.3s';
+          const isMobile = window.matchMedia('(max-width: 768px)').matches;
+          if (isMobile) {
+              customButton.style.bottom = '90px';
+          } else {
+              customButton.style.bottom = '100px';
+          }
           openBielChat();
+          setTimeout(observeModalClose, 500);
         }
       });
 

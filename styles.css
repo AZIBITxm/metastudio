@@ -3287,7 +3287,7 @@ footer {
 
 /* Rozdzielczość HD */
 @media (max-width: 1366px) {
-    header {
+    header:not([style]) {
         padding-top: 80px;
         height: 100vh;
         background-size: cover;
@@ -3316,7 +3316,7 @@ footer {
 }
 
 @media (max-height: 768px) {
-    header {
+    header:not([style]) {
         min-height: calc(100vh + 80px);
     }
     
@@ -3327,7 +3327,7 @@ footer {
 }
 
 @media (min-width: 1920px) {
-    header {
+    header:not([style]) {
         background-size: contain;
         background-position: left top;
         height: 100vh;
@@ -3339,7 +3339,7 @@ footer {
 }
 
 @media (max-width: 1919px) {
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.5625);
         min-height: 600px;
         max-height: 100vh;
@@ -3353,7 +3353,7 @@ footer {
 }
 
 @media (max-width: 1440px) {
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.5625);
         min-height: 580px;
         background-size: cover;
@@ -3367,13 +3367,13 @@ footer {
 }
 
 @media (max-width: 1200px) {
-    header {
+    header:not([style]) {
         background-size: cover;
     }
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.6);
         min-height: 560px;
         background-size: cover;
@@ -3387,7 +3387,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.6);
         min-height: 560px;
         background-size: cover;
@@ -3419,7 +3419,7 @@ footer {
         font-size: clamp(28px, 3vw, 38px);
     }
 
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.75);
         min-height: 540px;
     }
@@ -3699,12 +3699,12 @@ footer {
     .header-title {
         margin-top: -40px;
     }
-    
+
     .header-buttons {
         margin-top: 30px;
     }
 
-    header {
+    header:not([style]) {
         height: calc(100vw * 0.9);
         background-position: center;
     }
@@ -4082,7 +4082,7 @@ section:first-of-type {
   header[style] {
     position: relative;
   }
-  
+
   header[style] img[src="tlo/baner1.png"] {
     content: url('tlo/banerm.png');
     width: 100% !important;
