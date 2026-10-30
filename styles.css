@@ -54,7 +54,7 @@ html, body {
     max-width: 100%;
     height: 30px;
     overflow: hidden;
-    background: url('tlo/pasek.png') center center;
+    background: url('tlo/web/pasek.webp') center center;
     background-size: cover;
     position: relative;
     z-index: 9;
@@ -487,7 +487,7 @@ nav {
     margin-bottom: 0;
     padding: 40px 2rem 0px 2rem;
     z-index: 2;
-    background-image: url('tlo/baner22.jpg');
+    background-image: url('tlo/web/baner22.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -543,7 +543,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('tlo/baner22.jpg');
+    background-image: url('tlo/web/baner22.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -758,7 +758,7 @@ nav {
     position: relative;
     overflow: hidden;
     background-color: transparent !important;
-    background-image: url('tlo/baner22.jpg') !important;
+    background-image: url('tlo/web/baner22.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -772,7 +772,7 @@ nav {
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background-image: url('tlo/baner22.jpg') !important;
+    background-image: url('tlo/web/baner22.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -846,7 +846,7 @@ nav {
   width: 45%;
   height: calc(100% + 200px);
   border: 3px solid var(--color-primary);
-  background-image: url('galeria/1/1.jpg');
+  background-image: url('galeria/1/web/1-1280.webp');
   background-size: cover;
   background-position: center;
   z-index: 3;
@@ -863,7 +863,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('tlo/baner22.jpg');
+    background-image: url('tlo/web/baner22.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1552,7 +1552,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('tlo/baner22.jpg');
+    background-image: url('tlo/web/baner22.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1863,7 +1863,7 @@ nav {
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('tlo/baner24.jpg');
+        background-image: url('tlo/web/baner24.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -2839,7 +2839,7 @@ nav {
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('tlo/baner24.jpg');
+        background-image: url('tlo/web/baner24.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -3719,7 +3719,7 @@ footer {
     }
 
     .promo-collection::before {
-        background-image: url('tlo/baner22.jpg') !important;
+        background-image: url('tlo/web/baner22.webp') !important;
         background-size: cover !important;
         background-position: center !important;
         display: block !important;
@@ -4083,8 +4083,7 @@ section:first-of-type {
     position: relative;
   }
 
-  header[style] img[src="tlo/baner1.png"] {
-    content: url('tlo/banerm.png');
+  header[style] picture img {
     width: 100% !important;
     height: auto !important;
     display: block !important;

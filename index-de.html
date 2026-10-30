@@ -137,7 +137,7 @@
 <body>
   <nav>
     <div class="brand">
-        <img src="logo/logo2.png" alt="Zanders Atelier Logo" class="brand-logo">
+        <img src="logo/web/logo2-300.webp" width="227" height="300" alt="Zanders Atelier Logo" class="brand-logo">
         <span class="brand-suffix">ZANDERS ATELIER</span>
     </div>
     <div class="menu-container">
@@ -157,7 +157,10 @@
     </div>
   </nav>
   <header style="padding-top:80px; margin:0; background:none; min-height:0; height:auto;">
-    <img src="tlo/baner1.png" alt="Banner" style="width:100%; display:block; height:auto; margin:0; padding:0;"/>
+    <picture>
+      <source media="(max-width: 480px)" srcset="tlo/web/banerm.webp" width="628" height="1178">
+      <img src="tlo/web/baner1-1920.webp" srcset="tlo/web/baner1-1280.webp 1280w, tlo/web/baner1-1920.webp 1920w, tlo/web/baner1-2880.webp 2880w" sizes="100vw" width="1920" height="893" fetchpriority="high" alt="Zanders Atelier — Möbel nach Maß" style="width:100%; display:block; height:auto; margin:0; padding:0;"/>
+    </picture>
 </header>
 
     <!-- Scrollendes Banner -->
@@ -246,10 +249,11 @@
         </button>
     </div>
     <div class="gallery">
+        <!-- REALIZACJE:START -->
         <div class="gallery-item main-gallery-item" data-gallery="1">
-            <img src="" alt="Apartment in München" />
+            <img src="galeria/1/web/1-1280.webp" srcset="galeria/1/web/1-640.webp 640w, galeria/1/web/1-1280.webp 1024w" sizes="(max-width: 768px) 100vw, 33vw" width="1024" height="682" loading="lazy" decoding="async" alt="APARTMENT AM MEER" />
             <div class="gallery-item-info">
-                <h3>Apartment in München</h3>
+                <h3>APARTMENT AM MEER</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -257,9 +261,9 @@
             </div>
         </div>
         <div class="gallery-item main-gallery-item" data-gallery="2">
-            <img src="" alt="Residenz in Warschau" />
+            <img src="galeria/2/web/1-1280.webp" srcset="galeria/2/web/1-640.webp 467w, galeria/2/web/1-1280.webp 933w, galeria/2/web/1-2048.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" width="933" height="1280" loading="lazy" decoding="async" alt="WOHNUNG IM LOFT-STIL MIT TREPPENVERBAU" />
             <div class="gallery-item-info">
-                <h3>Residenz in Warschau</h3>
+                <h3>WOHNUNG IM LOFT-STIL MIT TREPPENVERBAU</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -267,9 +271,9 @@
             </div>
         </div>
         <div class="gallery-item main-gallery-item" data-gallery="3">
-            <img src="" alt="Penthouse in Berlin" />
+            <img src="galeria/3/web/1-1280.webp" srcset="galeria/3/web/1-640.webp 360w, galeria/3/web/1-1280.webp 720w, galeria/3/web/1-2048.webp 1152w" sizes="(max-width: 768px) 100vw, 33vw" width="720" height="1280" loading="lazy" decoding="async" alt="EINBAUSCHRANK MIT STADTPANORAMA IM DACHGESCHOSS" />
             <div class="gallery-item-info">
-                <h3>Penthouse in Berlin</h3>
+                <h3>EINBAUSCHRANK MIT STADTPANORAMA IM DACHGESCHOSS</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -277,21 +281,19 @@
             </div>
         </div>
         <div class="gallery-item main-gallery-item" data-gallery="4">
-            <img src="" alt="Villa in Hamburg" />
+            <img src="galeria/4/web/1-1280.webp" srcset="galeria/4/web/1-640.webp 360w, galeria/4/web/1-1280.webp 721w, galeria/4/web/1-2048.webp 1153w" sizes="(max-width: 768px) 100vw, 33vw" width="721" height="1280" loading="lazy" decoding="async" alt="INNENAUSSTATTUNG EINER PIZZERIA IM INDUSTRIELLEN STIL" />
             <div class="gallery-item-info">
-                <h3>Villa in Hamburg</h3>
+                <h3>INNENAUSSTATTUNG EINER PIZZERIA IM INDUSTRIELLEN STIL</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Zusätzliche Projekte - standardmäßig versteckt -->
         <div class="gallery-item extended-gallery-item" data-gallery="5" style="display: none;">
-            <img src="" alt="Loft in Krakau" />
+            <img src="galeria/5/web/1-1280.webp" srcset="galeria/5/web/1-640.webp 640w, galeria/5/web/1-1280.webp 1280w, galeria/5/web/1-2048.webp 1500w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="922" loading="lazy" decoding="async" alt="ELEGANZ IM MODERN-KLASSISCHEN STIL" />
             <div class="gallery-item-info">
-                <h3>Loft in Krakau</h3>
+                <h3>ELEGANZ IM MODERN-KLASSISCHEN STIL</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -299,9 +301,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="6" style="display: none;">
-            <img src="" alt="Apartment in Danzig" />
+            <img src="galeria/6/web/1-1280.webp" srcset="galeria/6/web/1-640.webp 640w, galeria/6/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="932" loading="lazy" decoding="async" alt="ZWEISTÖCKIGES APARTMENT MIT DEM SPIEL DER TEXTUREN" />
             <div class="gallery-item-info">
-                <h3>Apartment in Danzig</h3>
+                <h3>ZWEISTÖCKIGES APARTMENT MIT DEM SPIEL DER TEXTUREN</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -309,9 +311,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="7" style="display: none;">
-            <img src="" alt="Haus in Zakopane" />
+            <img src="galeria/7/web/1-1280.webp" srcset="galeria/7/web/1-640.webp 640w, galeria/7/web/1-1280.webp 1280w, galeria/7/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="598" loading="lazy" decoding="async" alt="RAUM IN WEISS UND GRAPHIT" />
             <div class="gallery-item-info">
-                <h3>Haus in Zakopane</h3>
+                <h3>RAUM IN WEISS UND GRAPHIT</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -319,9 +321,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="8" style="display: none;">
-            <img src="" alt="Studio in Posen" />
+            <img src="galeria/8/web/1-1280.webp" srcset="galeria/8/web/1-640.webp 640w, galeria/8/web/1-1280.webp 1280w, galeria/8/web/1-2048.webp 1920w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="720" loading="lazy" decoding="async" alt="LUXURIÖSES APARTMENT AM MEER" />
             <div class="gallery-item-info">
-                <h3>Studio in Posen</h3>
+                <h3>LUXURIÖSES APARTMENT AM MEER</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -329,9 +331,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="9" style="display: none;">
-            <img src="" alt="Apartment in Breslau" />
+            <img src="galeria/9/web/1-1280.webp" srcset="galeria/9/web/1-640.webp 640w, galeria/9/web/1-1280.webp 1280w, galeria/9/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="720" loading="lazy" decoding="async" alt="WEISS IN EINER WARMEN AUSFÜHRUNG" />
             <div class="gallery-item-info">
-                <h3>Apartment in Breslau</h3>
+                <h3>WEISS IN EINER WARMEN AUSFÜHRUNG</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -339,9 +341,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="10" style="display: none;">
-            <img src="" alt="Penthouse in Łódź" />
+            <img src="galeria/10/web/1-1280.webp" srcset="galeria/10/web/1-640.webp 640w, galeria/10/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="721" loading="lazy" decoding="async" alt="FUNKTIONALES STUDIO-APARTMENT ZUR VERMIETUNG" />
             <div class="gallery-item-info">
-                <h3>Penthouse in Łódź</h3>
+                <h3>FUNKTIONALES STUDIO-APARTMENT ZUR VERMIETUNG</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -349,9 +351,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="11" style="display: none;">
-            <img src="" alt="Loft in Katowice" />
+            <img src="galeria/11/web/1-1280.webp" srcset="galeria/11/web/1-640.webp 640w, galeria/11/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="721" loading="lazy" decoding="async" alt="MODERNES APARTMENT MIT VERSTECKTEM ANKLEIDEZIMMER" />
             <div class="gallery-item-info">
-                <h3>Loft in Katowice</h3>
+                <h3>MODERNES APARTMENT MIT VERSTECKTEM ANKLEIDEZIMMER</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -359,9 +361,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="12" style="display: none;">
-            <img src="" alt="Villa in Sopot" />
+            <img src="galeria/12/web/1-1280.webp" srcset="galeria/12/web/1-640.webp 360w, galeria/12/web/1-1280.webp 720w, galeria/12/web/1-2048.webp 747w" sizes="(max-width: 768px) 100vw, 33vw" width="720" height="1280" loading="lazy" decoding="async" alt="MINIMALISTISCHE KÜCHE MIT EINER LICHTLINIE" />
             <div class="gallery-item-info">
-                <h3>Villa in Sopot</h3>
+                <h3>MINIMALISTISCHE KÜCHE MIT EINER LICHTLINIE</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -369,9 +371,9 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="13" style="display: none;">
-            <img src="" alt="Wohnung in Gdynia" />
+            <img src="galeria/13/web/1-1280.webp" srcset="galeria/13/web/1-640.webp 640w, galeria/13/web/1-1280.webp 1280w, galeria/13/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="849" loading="lazy" decoding="async" alt="RESTAURANT CITY BOX" />
             <div class="gallery-item-info">
-                <h3>Wohnung in Gdynia</h3>
+                <h3>RESTAURANT CITY BOX</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
@@ -379,15 +381,16 @@
             </div>
         </div>
         <div class="gallery-item extended-gallery-item" data-gallery="14" style="display: none;">
-            <img src="" alt="Loft in Stettin" />
+            <img src="galeria/14/web/1-1280.webp" srcset="galeria/14/web/1-640.webp 640w, galeria/14/web/1-1280.webp 1280w, galeria/14/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="622" loading="lazy" decoding="async" alt="MODERNE KÜCHE MIT GRAFISCHEM KONTRAST" />
             <div class="gallery-item-info">
-                <h3>Loft in Stettin</h3>
+                <h3>MODERNE KÜCHE MIT GRAFISCHEM KONTRAST</h3>
                 <div class="gallery-cta">
                     <span class="cta-text">ANSEHEN </span>
                     <span class="cta-icon">→</span>
                 </div>
             </div>
         </div>
+        <!-- REALIZACJE:END -->
     </div>
 </section>
 
@@ -474,7 +477,7 @@
         <div class="materials-info">
             <div class="material-info" id="plyty-meblowe-info">
                 <div class="material-image">
-                    <img src="materiały/fronty/płyty.png" alt="Möbelplatten" />
+                    <img src="materiały/fronty/web/płyty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Möbelplatten" />
                 </div>
                 <div class="material-content">
                     <h3>Möbelplatten</h3>
@@ -674,7 +677,7 @@
             
             <div class="material-info" id="fronty-meblowe-info">
                 <div class="material-image">
-                    <img src="materiały/fronty/fronty.png" alt="Möbelfronten" />
+                    <img src="materiały/fronty/web/fronty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Möbelfronten" />
                 </div>
                 <div class="material-content">
                     <h3>Möbelfronten</h3>
@@ -684,7 +687,7 @@
             
             <div class="material-info" id="blaty-info">
                 <div class="material-image">
-                    <img src="materiały/fronty/blaty.png" alt="Arbeitsplatten" />
+                    <img src="materiały/fronty/web/blaty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Arbeitsplatten" />
                 </div>
                 <div class="material-content">
                     <h3>Arbeitsplatten</h3>
@@ -1630,9 +1633,9 @@
       <h2>
         Ihre Wahl macht einen Unterschied – unterstützen Sie Kinder und Jugendliche zusammen mit<br><br>
         <span class="logos-container">
-          <div class="highlight-brand"><img src="logo/logo2.png" alt="Zanders Atelier Logo" class="brand-logo-inline">ZANDERS ATELIER</div>
+          <div class="highlight-brand"><img src="logo/web/logo2-300.webp" width="227" height="300" loading="lazy" alt="Zanders Atelier Logo" class="brand-logo-inline">ZANDERS ATELIER</div>
           <div class="separator-i">und</div>
-          <div><a href="https://worldfoundation.eu" target="_blank" rel="noopener"><img src="logo/fundacja/logo2.png" alt="W🌍rldFoundation Logo" class="foundation-logo-inline foundation-logo-pulse"></a></div>
+          <div><a href="https://worldfoundation.eu" target="_blank" rel="noopener"><img src="logo/fundacja/web/logo2.webp" width="498" height="120" loading="lazy" alt="W🌍rldFoundation Logo" class="foundation-logo-inline foundation-logo-pulse"></a></div>
         </span>
       </h2>
       <p>
@@ -1755,92 +1758,7 @@
     </div>
   </div>
 
-  <!-- Projektdaten -->
-  <script type="application/json" id="projects-data">
-  {
-    "1": {
-      "title": "Apartment in München",
-      "description": "Exklusives Innenarchitekturprojekt mit Verwendung natürlicher Materialien. Elegante Verbindung von Moderne und Klassik, bei der jedes Detail durchdacht wurde. Der Raum verbindet Funktionalität mit Ästhetik und schafft einen harmonischen Lebensraum.",
-      "location": "München, Deutschland"
-    },
-    "2": {
-      "title": "Residenz in Warschau", 
-      "description": "Modernes Design kombiniert mit Klassik in einer geräumigen Residenz. Die Verwendung hochwertiger Materialien und durchdachter Beleuchtung schafft eine einzigartige Atmosphäre von Luxus und Komfort.",
-      "location": "Warschau, Polen"
-    },
-    "3": {
-      "title": "Penthouse in Berlin",
-      "description": "Minimalistisches Interieur mit Panoramablick auf die Stadt. Offener Raum, klare Linien und sorgfältig ausgewählte Farbakzente unterstreichen den modernen Charakter des Interieurs.",
-      "location": "Berlin, Deutschland"
-    },
-    "4": {
-      "title": "Villa in Hamburg",
-      "description": "Luxuriöser Raum im Modern Classic Stil. Elegante Maßmöbel, edle Materialien und Aufmerksamkeit für jedes Detail schaffen ein außergewöhnliches Interieur voller Charakter.",
-      "location": "Hamburg, Deutschland"
-    },
-    "5": {
-      "title": "Loft in Krakau",
-      "description": "Industrielles Design mit Vintage-Elementen in einem historischen Mietshaus. Erhaltene Ziegelwände und Stahlelemente harmonieren mit modernen Lösungen.",
-      "location": "Krakau, Polen"
-    },
-    "6": {
-      "title": "Apartment in Danzig",
-      "description": "Skandinavischer Minimalismus am Meer. Helle Farben, natürliche Materialien und funktionale Lösungen schaffen einen gemütlichen Erholungsraum.",
-      "location": "Danzig, Polen"
-    },
-    "7": {
-      "title": "Haus in Zakopane",
-      "description": "Bergstil in moderner Ausführung. Traditionelle Holzelemente verbinden sich mit zeitgenössischem Design und schaffen ein einzigartiges Ambiente eines Bergrefugiums.",
-      "location": "Zakopane, Polen"
-    },
-    "8": {
-      "title": "Studio in Posen",
-      "description": "Funktionale Lösungen auf kleinem Raum. Intelligente Nutzung jedes Quadratmeters unter Beibehaltung von Ästhetik und Nutzungskomfort.",
-      "location": "Posen, Polen"
-    },
-    "10": {
-      "title": "Penthouse in Łódź",
-      "description": "Luxuriöses Interieur mit Panoramablick auf die Stadt. Moderne technologische Lösungen kombiniert mit elegantem Design schaffen einen außergewöhnlichen Lebensraum.",
-      "location": "Łódź, Polen"
-    },
-    "11": {
-      "title": "Loft in Katowice",
-      "description": "Industrieller Charakter in eleganter Ausführung. Rohe Materialien wie Stahl und Beton verbinden sich mit raffinierten Ausstattungselementen.",
-      "location": "Katowice, Polen"
-    },
-    "12": {
-      "title": "Villa in Sopot",
-      "description": "Meeresnähe-Eleganz mit einem Hauch von Luxus. Helle Innenräume inspiriert von der Nähe zum Meer, mit Verwendung natürlicher Materialien und Farben, die an das Strandklima erinnern.",
-      "location": "Sopot, Polen"
-    },
-    "16": {
-      "title": "Apartment in Rzeszów",
-      "description": "Modernität im historischen Stadtzentrum. Zeitgenössisches Design fügt sich harmonisch in die denkmalgeschützte Architektur ein und schafft eine außergewöhnliche Stilfusion.",
-      "location": "Rzeszów, Polen"
-    },
-    "17": {
-      "title": "Haus in Bydgoszcz",
-      "description": "Familieninterieur voller Wärme und Funktionalität. Geräumige Räume angepasst an die Bedürfnisse der ganzen Familie, mit Fokus auf Komfort und Sicherheit.",
-      "location": "Bydgoszcz, Polen"
-    }
-  }
-  </script>
 
-  <!-- Vollbild-Galerie -->
-  <div id="gallery-fullscreen" class="gallery-fullscreen">
-    <img id="fullscreen-image" src="" alt="">
-    <video id="fullscreen-video" controls style="display: none;">
-      Ihr Browser unterstützt keine Videos.
-    </video>
-    
-    <!-- Navigationsschaltflächen für Vollbild -->
-    <div class="fullscreen-nav prev" id="fullscreen-nav-prev">
-      <span>‹</span>
-    </div>
-    <div class="fullscreen-nav next" id="fullscreen-nav-next">
-      <span>›</span>
-    </div>
-  </div>
 
   <script src="script.js"></script>
   <script src="modale/gallery-modal.js"></script>
