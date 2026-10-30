@@ -944,3 +944,96 @@
         opacity: 1;
     }
 }
+/* ===== Elementy tworzone przez gallery-modal.js (wcześniej style wstrzykiwane w kodzie) ===== */
+.gallery-container .media-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    animation: fadeInDots 0.3s ease-out;
+}
+.spinner-dots { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.spinner-dots div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    animation: spinner-pulse 1.0s ease-in-out infinite both;
+}
+.spinner-dots .dot1 { animation-delay: -0.2s; }
+.spinner-dots .dot2 { animation-delay: -0.1s; }
+@keyframes spinner-pulse {
+    0%, 80%, 100% { transform: scale(0.5); opacity: 0.3; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes fadeInDots {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.gallery-main-image, .gallery-main-video {
+    cursor: zoom-in !important;
+    transition: opacity 0.3s ease, transform 0.2s ease, filter 0.2s ease !important;
+}
+@media (hover: hover) {
+    .gallery-main-image:hover, .gallery-main-video:hover {
+        transform: scale(1.02);
+        filter: brightness(1.05);
+    }
+}
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    pointer-events: none;
+}
+.video-fullscreen-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.video-fullscreen-btn:hover { background: rgba(0, 0, 0, 0.9); }
+
+/* ===== Pełny ekran — PhotoSwipe 5 w kolorach strony ===== */
+.pswp--zanders { --pswp-bg: #050505; --pswp-icon-color: #edd2ad; --pswp-icon-color-secondary: #1a1a1a; }
+.pswp--zanders .pswp__counter {
+    font-family: 'Cormorant Garamond', serif;
+    color: #edd2ad;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.pswp-video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pswp-video video { max-width: 100%; max-height: 100%; background: #000; }

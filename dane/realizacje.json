@@ -1,0 +1,2316 @@
+{
+ "realizacje": [
+  {
+   "id": "1",
+   "cover": [
+    {
+     "w": 640,
+     "h": 426,
+     "src": "galeria/1/web/1-640.webp"
+    },
+    {
+     "w": 1024,
+     "h": 682,
+     "src": "galeria/1/web/1-1280.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "NADMORSKI APARTAMENT",
+     "text": "NADMORSKI APARTAMENT\n\nKompleksowa zabudowa apartamentu obejmująca kuchnię przechodzącą w przedpokój z garderobą oraz łazienkę. Nowoczesny minimalistyczny styl z elementami luksusowymi, zdominowany bielą frontów i ciepłymi akcentami drewna, tworzący elegancką przestrzeń z widokiem na morze i panoramę miasta. Projekt wyróżnia się harmonią materiałów - białych lakierowanych powierzchni z ciemnym betonem spiekowym oraz subtelnymi akcentami miedzi.\n\nMATERIAŁY:\nKuchnia: Fronty lakierowane biały połysk z frezowanym pochwytem (dolne szafki), fronty lakierowane biały połysk bezuchwytowe (górne szafki), blat spiek kwarcowy ciemny beton 12mm, panel ścienny spiek kwarcowy 6mm, korpusy szafek płyta meblowa 18mm\nPrzedpokój: Fronty lakierowane biały połysk bezuchwytowe, tapicerka welur, korpusy szafek płyta meblowa 18mm\nŁazienka: Fronty lakierowane mat ciepły biały, korpusy szafek płyta meblowa 18mm\n\nSYSTEMY:\nKuchnia: Blum Tip-On (szafki górne), Blum HKS (uchylne szafki górne), prowadnice ciche domyki Blum, oświetlenie LED pod szafkami\nPrzedpokój: Blum Tip-On, prowadnice ciche domyki Blum\nŁazienka: Prowadnice ciche domyki Blum\n\nCHARAKTERYSTYCZNE ELEMENTY:\nUkryte przejście do garderoby w zabudowie kuchennej (drzwi z klamką stylizowane na front szafy), tapicerowane siedzisko z oparciem w przedpokoju, oświetlenie LED wewnątrz szaf z automatycznym zapalaniem po otwarciu drzwi"
+    },
+    "en": {
+     "title": "SEASIDE APARTMENT",
+     "text": "SEASIDE APARTMENT\n\nComprehensive apartment furnishing including kitchen flowing into the hallway with wardrobe and bathroom. Modern minimalist style with luxury elements, dominated by white fronts and warm wood accents, creating an elegant space with sea and city panorama views. The project stands out with harmony of materials - white lacquered surfaces with dark concrete quartz sintered stone and subtle copper accents.\n\nMATERIALS:\nKitchen: Lacquered fronts white gloss with milled handle recess (lower cabinets), lacquered fronts white gloss handleless (upper cabinets), quartz sintered stone worktop dark concrete 12mm, quartz sintered stone wall panel 6mm, cabinet carcasses chipboard 18mm\nHallway: Lacquered fronts white gloss handleless, velour upholstery, cabinet carcasses chipboard 18mm\nBathroom: Lacquered fronts matte warm white, cabinet carcasses chipboard 18mm\n\nSYSTEMS:\nKitchen: Blum Tip-On (upper cabinets), Blum HKS (lift-up upper cabinets), Blum soft-close runners, LED lighting under cabinets\nHallway: Blum Tip-On, Blum soft-close runners\nBathroom: Blum soft-close runners\n\nDISTINCTIVE FEATURES:\nHidden passage to wardrobe in kitchen cabinetry (door with handle styled as cabinet front), upholstered bench with backrest in hallway, LED lighting inside cabinets with automatic activation upon door opening"
+    },
+    "de": {
+     "title": "APARTMENT AM MEER",
+     "text": "APARTMENT AM MEER\n\nUmfassende Apartmentausstattung mit Küche, die in den Flur mit Garderobe und Bad übergeht. Moderner minimalistischer Stil mit luxuriösen Elementen, dominiert von weißen Fronten und warmen Holzakzenten, schafft einen eleganten Raum mit Blick auf das Meer und das Stadtpanorama. Das Projekt zeichnet sich durch Harmonie der Materialien aus - weiße lackierte Oberflächen mit dunklem Beton-Quarz-Sintermaterial und subtilen Kupferakzenten.\n\nMATERIALIEN:\nKüche: Lackierte Fronten weiß Hochglanz mit gefrästem Griffmulde (Unterschränke), lackierte Fronten weiß Hochglanz grifflos (Oberschränke), Quarz-Sintermaterial Arbeitsplatte dunkler Beton 12mm, Quarz-Sintermaterial Wandpaneel 6mm, Schrankkorpusse Spanplatte 18mm\nFlur: Lackierte Fronten weiß Hochglanz grifflos, Velours-Polsterung, Schrankkorpusse Spanplatte 18mm\nBad: Lackierte Fronten matt warmes Weiß, Schrankkorpusse Spanplatte 18mm\n\nSYSTEME:\nKüche: Blum Tip-On (Oberschränke), Blum HKS (Hochklappschränke oben), Blum Soft-Close-Schienen, LED-Beleuchtung unter Schränken\nFlur: Blum Tip-On, Blum Soft-Close-Schienen\nBad: Blum Soft-Close-Schienen\n\nCHARAKTERISTISCHE ELEMENTE:\nVersteckter Durchgang zur Garderobe in Kücheneinbau (Tür mit Griff als Schrankfront gestaltet), gepolsterte Sitzbank mit Rückenlehne im Flur, LED-Beleuchtung in Schränken mit automatischer Aktivierung beim Türöffnen"
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/1/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/1-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/1-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/1/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/2-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/2-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/1/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/3-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/3-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/1/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/4-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/4-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/1/web/m5.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/5-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/5-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/1/web/m6.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/6-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/6-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/1/web/m7.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 426,
+       "src": "galeria/1/web/7-640.webp"
+      },
+      {
+       "w": 1024,
+       "h": 682,
+       "src": "galeria/1/web/7-1280.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2",
+   "cover": [
+    {
+     "w": 467,
+     "h": 640,
+     "src": "galeria/2/web/1-640.webp"
+    },
+    {
+     "w": 933,
+     "h": 1280,
+     "src": "galeria/2/web/1-1280.webp"
+    },
+    {
+     "w": 1400,
+     "h": 1920,
+     "src": "galeria/2/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "MIESZKANIE W STYLU LOFTOWYM Z ZABUDOWĄ SCHODÓW",
+     "text": "MIESZKANIE W STYLU LOFTOWYM Z ZABUDOWĄ SCHODÓW\nKompleksowa realizacja zabudowy meblowej w dwupoziomowym mieszkaniu, obejmująca kuchnię z półwyspem wkomponowaną w otwartą strefę dzienną oraz pojemną szafę pełniącą funkcję pralni i schowka. Projekt utrzymany jest w nowoczesnym, loftowym stylu, gdzie surowy grafit i beton strukturalny harmonijnie łączą się z ciepłem dębowego drewna. Charakteru dodają czarne, industrialne detale w postaci metalowej siatki, oświetlenia i ram szafy.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Akryl super mat, kolor grafit.\n   * Blat: Płyta laminowana w dekorze dębu, gr. 38 mm.\n   * Korpusy szafek: Płyta laminowana w kolorze grafit, gr. 18mm.\n   * Panel ścienny: Tynk strukturalny imitujący beton.\n   * Dodatkowe elementy: Stelaż boczny półwyspu wykonany z czarnej, metalowej siatki cięto-ciągnionej.\n* Przedpokój / Pomieszczenie gospodarcze:\n   * Fronty: System drzwi przesuwnych w czarnych, aluminiowych ramach; wypełnienie z płyty grafitowej matowej oraz lustra.\n   * Korpusy szafek: Płyta meblowa 18mm w kolorze białym.\nSYSTEMY:\n* Kuchnia:\n   * Systemy otwierania: Szafki dolne otwierane za pomocą pochwytu we froncie (podniesiony blat) z cichym domykiem; szafki górne otwierane na dotyk w systemie Tip-On.\n   * Szuflady: Szuflady wewnętrzne w słupku cargo z cichym domykiem, pozostałe szuflady w systemie Blum Tip-On.\n   * Oświetlenie: Taśma LED o ciepłej barwie umieszczona pod szafkami wiszącymi.\n   * Inne systemy: Gniazdo nablatowe chowane w blacie.\n* Przedpokój / Pomieszczenie gospodarcze:\n   * Systemy otwierania: System drzwi przesuwnych.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Zabudowa pod schodami: Pełne wykorzystanie przestrzeni pod biegiem schodów na wysoką zabudowę kuchenną, włączając lodówkę i słupek cargo.\n* Ukryta pralnia: Wewnątrz szafy wnękowej zaprojektowano przestrzeń na pralkę i suszarkę w słupku, co pozwala ukryć strefę gospodarczą.\n* Industrialny półwysep: Półwysep kuchenny wykończony metalową siatką stanowi ażurową przegrodę i element dekoracyjny nawiązujący do stylu loft.\n* Spójność materiałowa: Zastosowanie tego samego dekoru drewna na podłodze, schodach oraz blatach kuchennych tworzy jednolitą i harmonijną bazę dla całej aranżacji.\n* Dotykowy włącznik oświetlenia: Pojemnościowy włącznik światła zintegrowany z bokiem szafki, umożliwiający włączenie oświetlenia LED przez dotyk."
+    },
+    "en": {
+     "title": "LOFT-STYLE APARTMENT WITH STAIRCASE CABINETRY",
+     "text": "LOFT-STYLE APARTMENT WITH STAIRCASE CABINETRY\nA comprehensive implementation of custom furniture in a duplex apartment, including a kitchen with a peninsula integrated into the open living area and a spacious wardrobe serving as a laundry and storage space. The project is designed in a modern, loft style, where raw graphite and structural concrete harmoniously combine with the warmth of oak wood. Black, industrial details such as metal mesh, lighting, and wardrobe frames add character.\nMATERIALS:\n* Kitchen:\n   * Fronts: Super matte acrylic, graphite color.\n   * Countertop: Laminated board in oak decor, 38 mm thick.\n   * Cabinet carcasses: Laminated board in graphite color, 18mm thick.\n   * Wall panel: Structural plaster imitating concrete.\n   * Additional elements: Side frame of the peninsula made of black, expanded metal mesh.\n* Hallway / Utility space:\n   * Fronts: Sliding door system in black aluminum frames; filled with matte graphite board and a mirror.\n   * Cabinet carcasses: 18mm furniture board in white.\nSYSTEMS:\n* Kitchen:\n   * Opening systems: Lower cabinets opened via a recessed handle in the front (raised countertop) with a soft-close mechanism; upper cabinets are touch-to-open with the Tip-On system.\n   * Drawers: Internal drawers in the cargo pantry unit with soft-close, other drawers use the Blum Tip-On system.\n   * Lighting: Warm-colored LED strip placed under the wall cabinets.\n   * Other systems: Pop-up socket concealed in the countertop.\n* Hallway / Utility space:\n   * Opening systems: Sliding door system.\nDISTINCTIVE FEATURES:\n* Cabinetry under the stairs: Full utilization of the space under the staircase for tall kitchen cabinetry, including a refrigerator and a cargo pantry unit.\n* Hidden laundry: Inside the built-in wardrobe, a space has been designed for a stacked washer and dryer, allowing the utility area to be concealed.\n* Industrial peninsula: The kitchen peninsula, finished with metal mesh, acts as an openwork partition and a decorative element referencing the loft style.\n* Material consistency: The use of the same wood decor on the floor, stairs, and kitchen countertops creates a unified and harmonious base for the entire arrangement.\n* Touch light switch: A capacitive light switch integrated into the side of the cabinet, enabling the LED lighting to be turned on with a touch."
+    },
+    "de": {
+     "title": "WOHNUNG IM LOFT-STIL MIT TREPPENVERBAU",
+     "text": "WOHNUNG IM LOFT-STIL MIT TREPPENVERBAU\nEine umfassende Realisierung von Einbaumöbeln in einer Maisonette-Wohnung, die eine Küche mit Halbinsel, integriert in den offenen Wohnbereich, sowie einen geräumigen Schrank als Waschküche und Stauraum umfasst. Das Projekt ist in einem modernen Loft-Stil gehalten, bei dem rohes Graphit und Strukturbeton harmonisch mit der Wärme von Eichenholz verschmelzen. Schwarze, industrielle Details wie Metallgitter, Beleuchtung und Schrankrahmen verleihen zusätzlichen Charakter.\nMATERIALIEN:\n* Küche:\n   * Fronten: Acryl supermatt, Farbe Graphit.\n   * Arbeitsplatte: Laminatplatte in Eichendekor, 38 mm stark.\n   * Schrankkorpusse: Laminatplatte in Graphit, 18 mm stark.\n   * Wandpaneel: Strukturputz in Betonoptik.\n   * Zusätzliche Elemente: Seitenrahmen der Halbinsel aus schwarzem Streckmetallgitter.\n* Flur / Hauswirtschaftsraum:\n   * Fronten: Schiebetürsystem in schwarzen Aluminiumrahmen; Füllung aus matter Graphitplatte und Spiegel.\n   * Schrankkorpusse: 18mm Möbelplatte in Weiß.\nSYSTEME:\n* Küche:\n   * Öffnungssysteme: Unterschränke öffnen sich mittels einer Griffmulde in der Front (erhöhte Arbeitsplatte) mit Soft-Close-Mechanismus; Oberschränke sind per Tip-On-System durch Berührung zu öffnen.\n   * Schubladen: Innenschubladen im Cargo-Hochschrank mit Soft-Close, die übrigen Schubladen verwenden das Blum Tip-On-System.\n   * Beleuchtung: LED-Band mit warmer Lichtfarbe unter den Hängeschränken.\n   * Andere Systeme: In der Arbeitsplatte versenkbare Steckdose.\n* Flur / Hauswirtschaftsraum:\n   * Öffnungssysteme: Schiebetürsystem.\nCHARAKTERISTISCHE ELEMENTE:\n* Einbauten unter der Treppe: Vollständige Nutzung des Raums unter dem Treppenlauf für hohe Küchenschränke, einschließlich Kühlschrank und Cargo-Hochschrank.\n* Versteckte Waschküche: Im Inneren des Einbauschranks wurde ein Platz für eine Waschmaschine und einen Trockner als Säule konzipiert, wodurch der Hauswirtschaftsbereich verborgen werden kann.\n* Industrielle Halbinsel: Die mit Metallgitter veredelte Küchenhalbinsel dient als durchbrochene Trennwand und als dekoratives Element, das den Loft-Stil aufgreift.\n* Materielle Konsistenz: Die Verwendung des gleichen Holzdekors auf dem Boden, den Treppen und den Küchenarbeitsplatten schafft eine einheitliche und harmonische Basis für die gesamte Einrichtung.\n* Touch-Lichtschalter: Ein kapazitiver Lichtschalter, der in die Seite des Schranks integriert ist und das Einschalten der LED-Beleuchtung durch eine Berührung ermöglicht.\n*"
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/2/web/m1.webp",
+     "sizes": [
+      {
+       "w": 467,
+       "h": 640,
+       "src": "galeria/2/web/1-640.webp"
+      },
+      {
+       "w": 933,
+       "h": 1280,
+       "src": "galeria/2/web/1-1280.webp"
+      },
+      {
+       "w": 1400,
+       "h": 1920,
+       "src": "galeria/2/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/2/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/2/web/2-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/2/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/2/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/3-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/2/web/3-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/2/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/2/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/2/web/4-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/2/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/2/web/m5.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/5-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/2/web/5-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/2/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/2/web/m6.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/6-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/2/web/6-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/2/web/6-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/2/web/m7.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/7-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/2/web/7-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/2/web/7-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 8,
+     "thumb": "galeria/2/web/m8.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/8-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/2/web/8-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/2/web/8-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 8,
+     "thumb": "galeria/2/web/v8.webp",
+     "src": "galeria/2/web/8.mp4",
+     "poster": "galeria/2/web/8-poster.webp",
+     "w": 1280,
+     "h": 720
+    },
+    {
+     "type": "image",
+     "n": 9,
+     "thumb": "galeria/2/web/m9.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/9-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/2/web/9-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/2/web/9-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 10,
+     "thumb": "galeria/2/web/m10.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/10-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/2/web/10-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/2/web/10-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 11,
+     "thumb": "galeria/2/web/m11.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/2/web/11-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/2/web/11-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/2/web/11-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 12,
+     "thumb": "galeria/2/web/m12.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/12-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/2/web/12-1280.webp"
+      },
+      {
+       "w": 1080,
+       "h": 1920,
+       "src": "galeria/2/web/12-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 14,
+     "thumb": "galeria/2/web/m14.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/2/web/14-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/2/web/14-1280.webp"
+      },
+      {
+       "w": 1080,
+       "h": 1920,
+       "src": "galeria/2/web/14-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 15,
+     "thumb": "galeria/2/web/m15.webp",
+     "sizes": [
+      {
+       "w": 467,
+       "h": 640,
+       "src": "galeria/2/web/15-640.webp"
+      },
+      {
+       "w": 933,
+       "h": 1280,
+       "src": "galeria/2/web/15-1280.webp"
+      },
+      {
+       "w": 1400,
+       "h": 1920,
+       "src": "galeria/2/web/15-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3",
+   "cover": [
+    {
+     "w": 360,
+     "h": 640,
+     "src": "galeria/3/web/1-640.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "src": "galeria/3/web/1-1280.webp"
+    },
+    {
+     "w": 1152,
+     "h": 2048,
+     "src": "galeria/3/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "SZAFA W ZABUDOWIE Z PANORAMĄ MIASTA NA PODDASZU",
+     "text": "SZAFA W ZABUDOWIE Z PANORAMĄ MIASTA NA PODDASZU\nZabudowa meblowa szafy na poddaszu, zaprojektowana na wymiar w celu maksymalnego wykorzystania przestrzeni pod skosem. Projekt utrzymany jest w nowoczesnym, minimalistycznym stylu, którego głównym elementem dekoracyjnym jest wielkoformatowa grafika z panoramą Nowego Jorku umieszczona na centralnej części frontów. Biała kolorystyka mebla w połączeniu z dynamicznym, czarno-białym obrazem tworzy wyrazisty i spersonalizowany charakter wnętrza.\nMATERIAŁY:\n* Sypialnia na poddaszu:\n   * Fronty: Płyta meblowa w kolorze białym, wykończenie matowe (części skrajne i szuflady); szkło z nadrukowaną grafiką w wysokim połysku (część centralna). Fronty szafek i szuflad otwierane za pomocą podłużnych uchwytów w kolorze satynowym/stalowym, fronty z grafiką otwierane bezuchwytowo w systemie Tip-On.\n   * Korpusy szafek: Płyta meblowa laminowana, biała, grubość 18mm.\nSYSTEMY:\n   * Sypialnia na poddaszu:\n   * Systemy otwierania: Fronty z grafiką otwierane na dotyk w systemie Tip-On; w pozostałych szafkach zastosowano zawiasy z cichym domykiem.\n   * Prowadnice: Prowadnice szuflad z pełnym wysuwem i cichym domykiem.\nCHARAKTERYSTYCZNE ELEMENTY:\n      * Personalizowana grafika: Centralny punkt mebla stanowią fronty z czarno-białą grafiką przedstawiającą nocną panoramę miasta, co nadaje zabudowie unikalnego charakteru i głębi.\n      * Zabudowa pod skosem: Konstrukcja szafy została precyzyjnie dopasowana do geometrii skośnego sufitu, co pozwoliło na efektywne zagospodarowanie trudnej przestrzeni i stworzenie pojemnego miejsca do przechowywania.\n      * Funkcjonalny układ: Mebel łączy w sobie różne formy przechowywania – od klasycznych szafek z półkami, po osiem pojemnych szuflad w dolnej części, co zapewnia wysoką ergonomię i łatwość organizacji."
+    },
+    "en": {
+     "title": "BUILT-IN WARDROBE WITH CITYSCAPE IN THE ATTIC",
+     "text": "BUILT-IN WARDROBE WITH CITYSCAPE IN THE ATTIC\nCustom-built wardrobe furniture in an attic, designed to maximize the use of space under a sloped ceiling. The project is maintained in a modern, minimalist style, with its main decorative feature being a large-format graphic of the New York City skyline on the central part of the fronts. The white color of the furniture, combined with the dynamic, black-and-white image, creates a distinctive and personalized character for the interior.\nMATERIALS:\n      * Attic bedroom:\n      * Fronts: Furniture board in white, matte finish (side sections and drawers); high-gloss glass with a printed graphic (central section). Cabinet and drawer fronts are opened with long handles in a satin/steel color; fronts with graphics are handleless, using the Tip-On system.\n      * Cabinet carcasses: Laminated furniture board, white, 18mm thickness.\nSYSTEMS:\n         * Attic bedroom:\n         * Opening systems: Fronts with graphics are touch-to-open with the Tip-On system; other cabinets use soft-close hinges.\n         * Drawer slides: Full-extension drawer slides with a soft-close mechanism.\nDISTINCTIVE FEATURES:\n            * Personalized graphic: The focal point of the furniture is the fronts with a black-and-white graphic depicting a night cityscape, which gives the unit a unique character and depth.\n            * Built-in under a slope: The wardrobe's structure has been precisely tailored to the geometry of the sloped ceiling, allowing for the effective use of a challenging space and creating ample storage.\n            * Functional layout: The furniture combines various forms of storage – from classic cabinets with shelves to eight spacious drawers at the bottom, ensuring high ergonomics and ease of organization."
+    },
+    "de": {
+     "title": "EINBAUSCHRANK MIT STADTPANORAMA IM DACHGESCHOSS",
+     "text": "EINBAUSCHRANK MIT STADTPANORAMA IM DACHGESCHOSS\nEinbauschrank im Dachgeschoss, maßgefertigt zur maximalen Nutzung des Raums unter der Dachschräge. Das Projekt ist in einem modernen, minimalistischen Stil gehalten, dessen zentrales dekoratives Element eine großformatige Grafik mit dem Panorama von New York auf dem mittleren Teil der Fronten ist. Die weiße Farbe des Möbels in Kombination mit dem dynamischen, schwarz-weißen Bild schafft einen ausdrucksstarken und persönlichen Charakter des Innenraums.\nMATERIALIEN:\n            * Schlafzimmer im Dachgeschoss:\n            * Fronten: Möbelplatte in Weiß, matte Oberfläche (Seitenteile und Schubladen); Glas mit aufgedruckter Grafik in Hochglanz (Mittelteil). Schrank- und Schubladenfronten werden mit länglichen Griffen in Satin-/Stahlfarbe geöffnet, die Fronten mit Grafik sind grifflos mit dem Tip-On-System zu öffnen.\n            * Schrankkorpusse: Laminierte Möbelplatte, weiß, 18 mm stark.\nSYSTEME:\n               * Schlafzimmer im Dachgeschoss:\n               * Öffnungssysteme: Fronten mit Grafik öffnen sich durch Berührung mit dem Tip-On-System; in den übrigen Schränken werden Scharniere mit Softeinzug verwendet.\n               * Führungsschienen: Schubladenführungen mit Vollauszug und Softeinzug.\nCHARAKTERISTISCHE ELEMENTE:\n                  * Personalisierte Grafik: Den Mittelpunkt des Möbels bilden die Fronten mit einer schwarz-weißen Grafik, die ein nächtliches Stadtpanorama darstellt, was dem Einbau einen einzigartigen Charakter und Tiefe verleiht.\n                  * Einbau unter der Schräge: Die Konstruktion des Schranks wurde präzise an die Geometrie der Dachschräge angepasst, was eine effektive Nutzung des schwierigen Raums und die Schaffung von geräumigem Stauraum ermöglichte.\n                  * Funktionale Aufteilung: Das Möbelstück kombiniert verschiedene Aufbewahrungsformen – von klassischen Schränken mit Einlegeböden bis hin zu acht geräumigen Schubladen im unteren Bereich, was eine hohe Ergonomie und eine einfache Organisation gewährleistet."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/3/web/m1.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/3/web/1-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/3/web/1-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/3/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/3/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/3/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/3/web/2-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/3/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/3/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/3/web/3-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/3/web/3-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/3/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/3/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/3/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/3/web/4-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1152,
+       "src": "galeria/3/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/3/web/m5.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/3/web/5-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/3/web/5-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/3/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/3/web/m7.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/3/web/7-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/3/web/7-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/3/web/7-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4",
+   "cover": [
+    {
+     "w": 360,
+     "h": 640,
+     "src": "galeria/4/web/1-640.webp"
+    },
+    {
+     "w": 721,
+     "h": 1280,
+     "src": "galeria/4/web/1-1280.webp"
+    },
+    {
+     "w": 1153,
+     "h": 2048,
+     "src": "galeria/4/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "WNĘTRZE PIZZERII W STYLU INDUSTRIALNYM",
+     "text": "WNĘTRZE PIZZERII W STYLU INDUSTRIALNYM\nKompleksowa realizacja umeblowania i elementów wykończenia wnętrza pizzerii zlokalizowanej w galerii handlowej. Projekt łączy w sobie styl industrialny z nowoczesnymi elementami, tworząc przytulną, ale dynamiczną przestrzeń. Centralnym punktem lokalu jest wyrazista lada barowa, w której, podobnie jak w całym wnętrzu, zastosowano surowe materiały (cegła, metal) ocieplone drewnem i komfortowymi siedziskami.\nMATERIAŁY:\n* Sala konsumpcyjna:\n   * Stoły: Blaty z płyty laminowanej w dekorze dębu, podstawy stołów metalowe, malowane na czarno.\n   * Siedziska: Loże tapicerowane beżową ekoskórą na czarnych stelażach, nowoczesne krzesła z tworzywa w kolorach białym i czarnym.\n   * Wykończenie ścian: Płytki z cegły, tynk strukturalny w kolorze szarym.\n* Lada barowa:\n   * Front lady: Płytki ceramiczne w kolorze białym z połyskiem, ułożone z przesunięciem (typu \"subway\").\n   * Blat dla klienta: Płyta laminowana o dekorze dębu, o widocznej grubości.\n   * Ściana tylna (za barem): Płytki z cegły rozbiórkowej.\n   * Elementy dodatkowe: Szklana osłona higieniczna (witrynka) na ladzie.\nSYSTEMY:\n* Oświetlenie: Dedykowane instalacje oświetleniowe nad stołami w formie białych, przestrzennych stelaży z dekoracyjnymi żarówkami typu Edison. Funkcjonalne oświetlenie strefy roboczej za barem za pomocą czarnych reflektorów sufitowych.\n* Integracja wyposażenia: Konstrukcja lady zaprojektowana pod integrację sprzętu gastronomicznego, w tym pieca do pizzy i okapu ze stali nierdzewnej.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Autorskie lampy sufitowe: Dwa duże, podwieszane stelaże z chaotycznie rozmieszczonymi przewodami i żarówkami, stanowiące główny element dekoracyjny wnętrza.\n* Kontrast faktur i materiałów: Zestawienie gładkich powierzchni (tapicerka, krzesła) z porowatą strukturą cegły, lśniącą bielą płytek na ladzie i ciepłym rysunkiem drewna.\n* Otwarta strefa pracy: Projekt lady pozwala na wgląd w proces przygotowywania pizzy, co buduje relację z klientem i stanowi dodatkową atrakcję.\n* Spójność z identyfikacją wizualną: Czarne i białe elementy wystroju oraz logotyp pizzerii umieszczony na froncie lady nawiązują do kolorystyki i znaku marki."
+    },
+    "en": {
+     "title": "INTERIOR OF AN INDUSTRIAL-STYLE PIZZERIA",
+     "text": "INTERIOR OF AN INDUSTRIAL-STYLE PIZZERIA\nA comprehensive implementation of furniture and interior finishing elements for a pizzeria located in a shopping mall. The project combines an industrial style with modern elements, creating a cozy yet dynamic space. The focal point of the establishment is a distinctive bar counter, where, like in the rest of the interior, raw materials (brick, metal) are warmed by wood and comfortable seating.\nMATERIALS:\n* Dining Area:\n   * Tables: Tabletops made of laminated board in oak decor, table bases made of black-painted metal.\n   * Seating: Booths upholstered in beige eco-leather on black frames, modern plastic chairs in white and black.\n   * Wall finishes: Brick tiles, structural plaster in a gray color.\n* Bar Counter:\n   * Counter Front: Glossy white ceramic tiles, laid in an offset pattern (\"subway\" style).\n   * Customer Countertop: Laminated board in oak decor, with a visible thickness.\n   * Back Wall (behind the bar): Reclaimed brick tiles.\n   * Additional Elements: Glass hygiene guard (sneeze guard) on the counter.\nSYSTEMS:\n* Lighting: Custom lighting installations over the tables in the form of white, spatial frames with decorative Edison-type bulbs. Functional lighting for the work area behind the bar is provided by black ceiling spotlights.\n* Equipment Integration: The counter's structure is designed to integrate gastronomic equipment, including a pizza oven and a stainless steel hood.\nDISTINCTIVE FEATURES:\n* Custom Ceiling Lamps: Two large, suspended frames with chaotically arranged cables and bulbs, serving as the main decorative element of the interior.\n* Contrast of Textures and Materials: A juxtaposition of smooth surfaces (upholstery, chairs) with the porous structure of brick, the glossy white of the counter tiles, and the warm grain of wood.\n* Open Work Area: The counter's design allows customers to see the pizza-making process, which builds a connection and serves as an additional attraction.\n* Cohesion with Visual Identity: The black and white elements of the decor and the pizzeria's logotype on the counter front correspond to the brand's color scheme and trademark."
+    },
+    "de": {
+     "title": "INNENAUSSTATTUNG EINER PIZZERIA IM INDUSTRIELLEN STIL",
+     "text": "INNENAUSSTATTUNG EINER PIZZERIA IM INDUSTRIELLEN STIL\nUmfassende Realisierung von Möbeln und Innenausstattungselementen für eine Pizzeria in einem Einkaufszentrum. Das Projekt verbindet industriellen Stil mit modernen Elementen und schafft so einen gemütlichen, aber dennoch dynamischen Raum. Der Mittelpunkt des Lokals ist eine markante Bartheke, bei der, wie im gesamten Interieur, rohe Materialien (Ziegel, Metall) durch Holz und bequeme Sitzgelegenheiten aufgewärmt werden.\nMATERIALIEN:\n* Essbereich:\n   * Tische: Tischplatten aus Laminat in Eichendekor, Tischgestelle aus schwarz lackiertem Metall.\n   * Sitzgelegenheiten: Sitzbänke mit beigem Kunstleder auf schwarzen Gestellen gepolstert, moderne Kunststoffstühle in Weiß und Schwarz.\n   * Wandverkleidung: Ziegelriemchen, Strukturputz in Grau.\n* Bartheke:\n   * Thekenfront: Glänzend weiße Keramikfliesen, im Versatz verlegt (\"Subway\"-Stil).\n   * Kunden-Arbeitsplatte: Laminatplatte in Eichendekor, mit sichtbarer Stärke.\n   * Rückwand (hinter der Bar): Ziegelriemchen aus Abbruchziegeln.\n   * Zusätzliche Elemente: Hygieneschutz aus Glas (Spuckschutz) auf der Theke.\nSYSTEME:\n* Beleuchtung: Maßgefertigte Beleuchtungsinstallationen über den Tischen in Form von weißen, räumlichen Rahmen mit dekorativen Edison-Glühbirnen. Die funktionale Beleuchtung des Arbeitsbereichs hinter der Theke erfolgt durch schwarze Deckenstrahler.\n* Geräteintegration: Die Konstruktion der Theke ist für die Integration von Gastronomiegeräten ausgelegt, einschließlich eines Pizzaofens und einer Edelstahl-Dunstabzugshaube.\nCHARAKTERISTISCHE ELEMENTE:\n* Individuelle Deckenleuchten: Zwei große, abgehängte Rahmen mit chaotisch angeordneten Kabeln und Glühbirnen, die das Hauptdekorationselement des Innenraums bilden.\n* Kontrast von Texturen und Materialien: Das Nebeneinander von glatten Oberflächen (Polster, Stühle) mit der porösen Struktur von Ziegeln, dem glänzenden Weiß der Thekenfliesen und der warmen Holzmaserung.\n* Offener Arbeitsbereich: Das Design der Theke ermöglicht den Kunden einen Einblick in den Prozess der Pizzazubereitung, was eine Beziehung aufbaut und eine zusätzliche Attraktion darstellt.\n* Kohärenz mit der visuellen Identität: Die schwarzen und weißen Elemente der Einrichtung sowie das Logo der Pizzeria auf der Thekenfront entsprechen dem Farbschema und dem Markenzeichen der Marke."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/4/web/m1.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/4/web/1-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/4/web/1-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/4/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/4/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/4/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/4/web/2-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/4/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/4/web/m3.webp",
+     "sizes": [
+      {
+       "w": 301,
+       "h": 640,
+       "src": "galeria/4/web/3-640.webp"
+      },
+      {
+       "w": 602,
+       "h": 1280,
+       "src": "galeria/4/web/3-1280.webp"
+      },
+      {
+       "w": 963,
+       "h": 2048,
+       "src": "galeria/4/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/4/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 557,
+       "src": "galeria/4/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 1114,
+       "src": "galeria/4/web/4-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1782,
+       "src": "galeria/4/web/4-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5",
+   "cover": [
+    {
+     "w": 640,
+     "h": 461,
+     "src": "galeria/5/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 922,
+     "src": "galeria/5/web/1-1280.webp"
+    },
+    {
+     "w": 1500,
+     "h": 1080,
+     "src": "galeria/5/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "ELEGANCJA W STYLU MODERN CLASSIC",
+     "text": "ELEGANCJA W STYLU MODERN CLASSIC\nKompleksowa realizacja zabudowy meblowej w otwartej strefie dziennej, obejmująca kuchnię oraz szafkę RTV. Projekt utrzymany jest w stylu pełnym subtelnej elegancji, gdzie minimalizm form łączy się z luksusowymi materiałami – efektem marmuru, frezowanymi frontami i złotymi detalami. Jasna, spójna kolorystyka i zintegrowane oświetlenie tworzą harmonijną i przestronną aranżację.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty dolne i wysokie: Frezowane, lakierowane w wykończeniu matowym/satynowym, kolor jasnobeżowy.\n   * Fronty górne: Frezowane, lakierowane w wykończeniu na wysoki połysk, kolor biały.\n   * Blat i panel ścienny: Spiek kwarcowy o wzorze białego marmuru.\n   * Uchwyty: Listwowe, w kolorze złotym.\n   * Witryny: Przeszklone fronty w cienkiej ramce, z wewnętrznym oświetleniem LED.\n* Salon:\n   * Szafka RTV: Fronty lakierowane na wysoki połysk w kolorze białym, system bezuchwytowy.\nSYSTEMY:\n* Kuchnia:\n   * Systemy otwierania: Fronty górne na dotyk (Tip-On), szafki i szuflady dolne z cichym domykiem.\n   * Oświetlenie: Taśma LED pod szafkami wiszącymi, oświetlenie wewnętrzne w witrynach.\n* Salon:\n   * Oświetlenie: Podświetlenie LED podwieszanej szafki RTV.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Monolityczna ściana z efektem marmuru: Zastosowanie tego samego spieku kwarcowego na blacie i całej powierzchni ściany tworzy jednolitą, luksusową płaszczyznę.\n* Dwukolorowa zabudowa: Subtelne połączenie matowych, beżowych frontów z białymi frontami w wysokim połysku dodaje głębi aranżacji.\n* Złote akcenty: Złote uchwyty i bateria kuchenna stanowią biżuteryjny detal, który ociepla wnętrze i podkreśla jego elegancki charakter.\n* Bezprzewodowe oświetlenie witryn: Oświetlenie LED w witrynach aktywowane jest bezprzewodowo, co zwiększa komfort użytkowania i zachowuje czystość formy mebla.\n* Spójność z częścią dzienną: Szafka RTV stylistycznie i materiałowo nawiązuje do zabudowy kuchennej, tworząc harmonijną całość w otwartej przestrzeni."
+    },
+    "en": {
+     "title": "ELEGANCE IN MODERN CLASSIC STYLE",
+     "text": "ELEGANCE IN MODERN CLASSIC STYLE\nA comprehensive implementation of custom furniture in an open-plan living area, including a kitchen and a TV stand. The project is designed in a style full of subtle elegance, where minimalist forms are combined with luxurious materials – a marble effect, milled fronts, and gold details. The bright, coherent color scheme and integrated lighting create a harmonious and spacious arrangement.\nMATERIALS:\n* Kitchen:\n   * Lower and tall fronts: Milled and lacquered in a matte/satin finish, light beige color.\n   * Upper fronts: Milled and lacquered in a high-gloss finish, white color.\n   * Countertop and wall panel: Sintered quartz with a white marble pattern.\n   * Handles: Bar handles in a gold color.\n   * Display cabinets: Glazed fronts in a thin frame, with internal LED lighting.\n* Living Room:\n   * TV stand: High-gloss white lacquered fronts, handle-less system.\nSYSTEMS:\n* Kitchen:\n   * Opening systems: Upper fronts are push-to-open (Tip-On), lower cabinets and drawers have a soft-close mechanism.\n   * Lighting: LED strip under the wall cabinets, internal lighting in the display cabinets.\n* Living Room:\n   * Lighting: LED backlighting for the floating TV stand.\nDISTINCTIVE FEATURES:\n* Monolithic Marble-Effect Wall: Using the same sintered quartz for both the countertop and the entire wall surface creates a uniform, luxurious plane.\n* Two-Tone Cabinetry: The subtle combination of matte beige fronts with high-gloss white fronts adds depth to the arrangement.\n* Gold Accents: The gold handles and kitchen faucet act as a jewelry-like detail that warms the interior and emphasizes its elegant character.\n* Wireless Display Cabinet Lighting: The LED lighting in the display cabinets is activated wirelessly, enhancing user comfort and preserving the furniture's clean design.\n* Cohesion with the Living Area: The TV stand stylistically and materially corresponds to the kitchen cabinetry, creating a harmonious whole in the open space."
+    },
+    "de": {
+     "title": "ELEGANZ IM MODERN-KLASSISCHEN STIL",
+     "text": "ELEGANZ IM MODERN-KLASSISCHEN STIL\nEine umfassende Realisierung von Einbaumöbeln in einem offenen Wohnbereich, einschließlich einer Küche und eines TV-Schranks. Das Projekt ist in einem Stil voller subtiler Eleganz gehalten, bei dem minimalistische Formen mit luxuriösen Materialien kombiniert werden – Marmor-Optik, gefräste Fronten und goldene Details. Das helle, stimmige Farbkonzept und die integrierte Beleuchtung schaffen ein harmonisches und großzügiges Ambiente.\nMATERIALIEN:\n* Küche:\n   * Untere und hohe Fronten: Gefräst und lackiert in matter/seidenmatter Ausführung, Farbe Hellbeige.\n   * Obere Fronten: Gefräst und hochglanzlackiert, Farbe Weiß.\n   * Arbeitsplatte und Wandpaneel: Quarz-Sinterstein mit weißem Marmormuster.\n   * Griffe: Griffleisten in Goldfarbe.\n   * Vitrinen: Glasfronten in einem dünnen Rahmen, mit interner LED-Beleuchtung.\n* Wohnzimmer:\n   * TV-Schrank: Hochglanzlackierte weiße Fronten, griffloses System.\nSYSTEME:\n* Küche:\n   * Öffnungssysteme: Obere Fronten per Tip-On zu öffnen, untere Schränke und Schubladen mit Soft-Close-Mechanismus.\n   * Beleuchtung: LED-Band unter den Hängeschränken, Innenbeleuchtung in den Vitrinen.\n* Wohnzimmer:\n   * Beleuchtung: LED-Hintergrundbeleuchtung für den schwebenden TV-Schrank.\nCHARAKTERISTISCHE ELEMENTE:\n* Monolithische Wand in Marmoroptik: Die Verwendung desselben Quarz-Sintersteins für die Arbeitsplatte und die gesamte Wandfläche schafft eine einheitliche, luxuriöse Ebene.\n* Zweifarbige Einbauten: Die subtile Kombination von matten, beigen Fronten mit hochglänzenden weißen Fronten verleiht der Einrichtung Tiefe.\n* Goldene Akzente: Die goldenen Griffe und die Küchenarmatur wirken wie ein schmückendes Detail, das dem Interieur Wärme verleiht und seinen eleganten Charakter unterstreicht.\n* Kabellose Vitrinenbeleuchtung: Die LED-Beleuchtung in den Vitrinen wird kabellos aktiviert, was den Bedienkomfort erhöht und die klare Form der Möbel bewahrt.\n* Stimmigkeit mit dem Wohnbereich: Der TV-Schrank knüpft stilistisch und materiell an die Kücheneinbauten an und schafft ein harmonisches Ganzes im offenen Raum."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/5/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 461,
+       "src": "galeria/5/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 922,
+       "src": "galeria/5/web/1-1280.webp"
+      },
+      {
+       "w": 1500,
+       "h": 1080,
+       "src": "galeria/5/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/5/web/m2.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/5/web/2-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/5/web/2-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/5/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/5/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 461,
+       "src": "galeria/5/web/3-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 922,
+       "src": "galeria/5/web/3-1280.webp"
+      },
+      {
+       "w": 1500,
+       "h": 1080,
+       "src": "galeria/5/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/5/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/5/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/5/web/4-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/5/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/5/web/m5.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/5/web/5-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/5/web/5-1280.webp"
+      },
+      {
+       "w": 1080,
+       "h": 1920,
+       "src": "galeria/5/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/5/web/m6.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 294,
+       "src": "galeria/5/web/6-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 588,
+       "src": "galeria/5/web/6-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 941,
+       "src": "galeria/5/web/6-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6",
+   "cover": [
+    {
+     "w": 640,
+     "h": 466,
+     "src": "galeria/6/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 932,
+     "src": "galeria/6/web/1-1280.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "DWUPOZIOMOWY APARTAMENT Z GRĄ FAKTUR",
+     "text": "DWUPOZIOMOWY APARTAMENT Z GRĄ FAKTUR\nKompleksowa realizacja zabudowy w nowoczesnym apartamencie w stylu loftowym, obejmująca minimalistyczną kuchnię, panele ścienne z szafką RTV oraz wielkoformatową szafę w salonie. Projekt charakteryzuje się surową estetyką, w której dominują odcienie grafitu i czerni. Kluczową rolę odgrywa gra kontrastujących faktur – matowych frontów, betonu architektonicznego, tkaniny na ścianie, błyszczącej szafy i wyrazistego wzoru kamienia.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Wykończenie super mat, kolor grafitowy.\n   * Blat i panel ścienny: Płyta laminowana o wzorze czarnego marmuru z białym użyleniem.\n   * Sufit: Tynk strukturalny / mikrocement w kolorze szarym.\n* Salon:\n   * Fronty szafy: Akryl w wysokim połysku, kolor jasnoszary.\n   * Ściana RTV: Panele tapicerowane ciemną tkaniną o wyczuwalnej fakturze.\n   * Szafka RTV: Wykończenie w czarnym macie.\nSYSTEMY:\n* Systemy otwierania: Fronty bezuchwytowe w systemie na dotyk (Tip-On) w kuchni i szafie.\n* Oświetlenie: Liniowe lampy sufitowe LED, oświetlenie podszafkowe LED w kuchni, dekoracyjne oświetlenie LED wnęk sufitowych i ściennych w salonie.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Gra kontrastujących faktur: Zestawienie gładkich, matowych powierzchni mebli z chropowatym mikrocementem na suficie, miękkością tapicerowanych paneli, połyskiem szafy i kamiennym wzorem w kuchni.\n* Monolityczna zabudowa kuchenna: Użycie tego samego, wyrazistego laminatu na blacie i panelu ściennym tworzy spójny i efektowny monolit.\n* Dramaturgia światła: Oświetlenie LED pełni kluczową rolę w budowaniu nastroju, rzeźbieniu przestrzeni i podkreślaniu różnorodnych faktur materiałów.\n* Ukryta funkcja: Wielkoformatowa, błyszcząca szafa wtopiona w ścianę salonu, która dzięki odbiciom światła nie przytłacza przestrzeni, a jednocześnie oferuje ogromną ilość miejsca do przechowywania."
+    },
+    "en": {
+     "title": "TWO-LEVEL APARTMENT WITH A PLAY OF TEXTURES",
+     "text": "TWO-LEVEL APARTMENT WITH A PLAY OF TEXTURES\nA comprehensive implementation of custom furniture in a modern, loft-style apartment, including a minimalist kitchen, upholstered wall panels with a TV stand, and a large-format wardrobe in the living room. The project is characterized by a raw aesthetic dominated by shades of graphite and black. A key role is played by the interplay of contrasting textures – matte fronts, architectural concrete, fabric on the wall, a glossy wardrobe, and a distinct stone pattern.\nMATERIALS:\n* Kitchen:\n   * Fronts: Super matte finish, graphite color.\n   * Countertop and wall panel: Laminated board with a black marble pattern and white veining.\n   * Ceiling: Structural plaster / microcement in a gray color.\n* Living Room:\n   * Wardrobe fronts: High-gloss acrylic, light gray color.\n   * TV Wall: Panels upholstered in a dark fabric with a palpable texture.\n   * TV Stand: Black matte finish.\nSYSTEMS:\n* Opening systems: Handle-less fronts with a push-to-open (Tip-On) system in the kitchen and wardrobe.\n* Lighting: Linear LED ceiling lamps, under-cabinet LED lighting in the kitchen, decorative LED lighting in ceiling and wall recesses in the living room.\nDISTINCTIVE FEATURES:\n* Play of contrasting textures: A combination of smooth, matte furniture surfaces with the rough microcement on the ceiling, the softness of the upholstered panels, the gloss of the wardrobe, and the stone pattern in the kitchen.\n* Monolithic kitchen unit: The use of the same expressive laminate for the countertop and wall panel creates a cohesive and striking monolith.\n* The drama of light: LED lighting plays a key role in building atmosphere, sculpting the space, and emphasizing the diverse textures of the materials.\n* Hidden function: A large-format, glossy wardrobe integrated into the living room wall, which, thanks to light reflections, does not overwhelm the space while offering a vast amount of storage."
+    },
+    "de": {
+     "title": "ZWEISTÖCKIGES APARTMENT MIT DEM SPIEL DER TEXTUREN",
+     "text": "ZWEISTÖCKIGES APARTMENT MIT DEM SPIEL DER TEXTUREN\nUmfassende Realisierung von Einbauten in einem modernen Loft-Apartment, einschließlich einer minimalistischen Küche, mit Stoff gepolsterten Wandpaneelen mit TV-Lowboard und einem großformatigen Kleiderschrank im Wohnzimmer. Das Projekt zeichnet sich durch eine rohe Ästhetik aus, die von Graphit- und Schwarztönen dominiert wird. Eine Schlüsselrolle spielt das Zusammenspiel kontrastierender Texturen – matte Fronten, Architekturbeton, Stoff an der Wand, ein glänzender Kleiderschrank und ein ausdrucksstarkes Steinmuster.\nMATERIALIEN:\n* Küche:\n   * Fronten: Supermatte Oberfläche, Farbe Graphit.\n   * Arbeitsplatte und Wandpaneel: Laminatplatte in schwarzer Marmoroptik mit weißer Äderung.\n   * Decke: Strukturputz / Mikrozement in Grau.\n* Wohnzimmer:\n   * Schrankfronten: Hochglanz-Acryl, Farbe Hellgrau.\n   * TV-Wand: Mit dunklem Stoff gepolsterte Paneele mit fühlbarer Textur.\n   * TV-Lowboard: Schwarzmatte Oberfläche.\nSYSTEME:\n* Öffnungssysteme: Grifflose Fronten mit Tip-On-System (Push-to-Open) in Küche und Kleiderschrank.\n* Beleuchtung: Lineare LED-Deckenleuchten, LED-Unterbauleuchten in der Küche, dekorative LED-Beleuchtung in Decken- und Wandnischen im Wohnzimmer.\nCHARAKTERISTISCHE ELEMENTE:\n* Spiel der kontrastierenden Texturen: Die Kombination von glatten, matten Möbeloberflächen mit dem rauen Mikrozement an der Decke, der Weichheit der gepolsterten Paneele, dem Glanz des Schranks und dem Steinmuster in der Küche.\n* Monolithischer Küchenblock: Die Verwendung desselben ausdrucksstarken Laminats für Arbeitsplatte und Wandpaneel schafft einen stimmigen und eindrucksvollen Monolithen.\n* Die Dramaturgie des Lichts: LED-Beleuchtung spielt eine entscheidende Rolle bei der Schaffung von Atmosphäre, der Formung des Raumes und der Betonung der vielfältigen Materialtexturen.\n* Versteckte Funktion: Ein großformatiger, glänzender Kleiderschrank, der in die Wohnzimmerwand integriert ist und dank Lichtreflexionen den Raum nicht erdrückt, während er gleichzeitig enormen Staurum bietet."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/6/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 466,
+       "src": "galeria/6/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 932,
+       "src": "galeria/6/web/1-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/6/web/m2.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/6/web/2-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/6/web/2-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/6/web/m3.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/6/web/3-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/6/web/3-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 4,
+     "thumb": "galeria/6/web/v4.webp",
+     "src": "galeria/6/web/4.mp4",
+     "poster": "galeria/6/web/4-poster.webp",
+     "w": 720,
+     "h": 1280
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/6/web/m5.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/6/web/5-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/6/web/5-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/6/web/m6.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/6/web/6-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/6/web/6-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/6/web/m7.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/6/web/7-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/6/web/7-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 8,
+     "thumb": "galeria/6/web/m8.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/6/web/8-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/6/web/8-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 9,
+     "thumb": "galeria/6/web/m9.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/6/web/9-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/6/web/9-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 11,
+     "thumb": "galeria/6/web/v11.webp",
+     "src": "galeria/6/web/11.mp4",
+     "poster": "galeria/6/web/11-poster.webp",
+     "w": 720,
+     "h": 1280
+    }
+   ]
+  },
+  {
+   "id": "7",
+   "cover": [
+    {
+     "w": 640,
+     "h": 299,
+     "src": "galeria/7/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 598,
+     "src": "galeria/7/web/1-1280.webp"
+    },
+    {
+     "w": 2048,
+     "h": 956,
+     "src": "galeria/7/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "PRZESTRZEŃ W BIELI I GRAFICIE",
+     "text": "PRZESTRZEŃ W BIELI I GRAFICIE\nKompleksowa realizacja zabudowy meblowej w całym domu, obejmująca kuchnię, przedpokój oraz łazienkę. Projekt cechuje minimalistyczna elegancja, a jego bazę kolorystyczną stanowi kontrast lśniącej bieli i matowego grafitu. Spójność materiałowa i funkcjonalne rozwiązania tworzą jasną i harmonijną przestrzeń.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Akrylowe z frezowanym pochwytem, biały wysoki połysk (szafki dolne); fronty górne gładkie.\n   * Wnęka robocza: Fronty i panel ścienny w kolorze grafitowym matowym.\n   * Blat: Laminowany w kolorze grafitowym, grubość 38 mm.\n   * Szafka wnękowa: Roleta meblowa w kolorze stalowym.\n* Przedpokój / Salon:\n   * Fronty szafy: Akryl, biały wysoki połysk, z frezowanym pochwytem.\n   * Fronty drugiej szafy: Lustrzane na całej wysokości.\n* Łazienka:\n   * Fronty i blat szafki umywalkowej: Fornir naturalny dębowy lub laminat o dekorze dębu.\n   * Zabudowa wnęki: Półki w dekorze dębu.\nSYSTEMY:\n* Systemy otwierania:\n   * Kuchnia: Szafki górne otwierane na dotyk (Tip-On), szafki dolne z frezowanym pochwytem i zawiasami Blum z cichym domykiem.\n   * Przedpokój: Fronty lustrzane z uchwytem krawędziowym.\n* Oświetlenie: Oświetlenie cokołowe LED w kuchni i przedpokoju, oświetlenie podszafkowe LED w kuchni.\n* Systemy przechowywania: Wysuwane, dedykowane półki na buty w szafie.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Funkcjonalna szafka śniadaniowa: Zabudowa kuchenna została przedłużona o szafkę z roletą, która pozwala na błyskawiczne ukrycie drobnego AGD stojącego na blacie, utrzymując porządek i czystość formy.\n* Inteligentne wykorzystanie przestrzeni: Głębokie szafy wyposażono w systemy wysuwanych półek, co gwarantuje bezproblemowy dostęp do całej zawartości i maksymalizuje funkcjonalność przechowywania.\n* Podświetlana \"lewitująca\" zabudowa: Zastosowanie oświetlenia LED w cokołach szaf nadaje bryłom lekkości i nowoczesnego charakteru.\n* Ciepłe drewno w łazience: Zabudowa meblowa w dekorze dębu ociepla surowe wnętrze wykończone szarymi płytkami, tworząc atmosferę domowego SPA."
+    },
+    "en": {
+     "title": "A SPACE IN WHITE AND GRAPHITE",
+     "text": "A SPACE IN WHITE AND GRAPHITE\nA comprehensive custom furniture project throughout the house, including the kitchen, hallway, and bathroom. The design is characterized by minimalist elegance, and its core color scheme is the contrast between glossy white and matte graphite. Material cohesion and functional solutions create a bright and harmonious space.\nMATERIALS:\n* Kitchen:\n   * Fronts: High-gloss white acrylic with a milled recessed handle (lower cabinets); smooth upper fronts.\n   * Work Niche: Fronts and wall panel in a matte graphite color.\n   * Countertop: 38 mm thick laminate in a graphite color.\n   * Appliance garage: Furniture tambour door in a steel color.\n* Hallway / Living Room:\n   * Wardrobe fronts: High-gloss white acrylic with a milled recessed handle.\n   * Second wardrobe fronts: Full-height mirrored doors.\n* Bathroom:\n   * Vanity fronts and countertop: Natural oak veneer or laminate with an oak decor.\n   * Niche unit: Shelves with an oak decor.\nSYSTEMS:\n* Opening systems:\n   * Kitchen: Upper cabinets are push-to-open (Tip-On), lower cabinets feature a milled handle and Blum soft-close hinges.\n   * Hallway: Mirrored fronts with an edge pull handle.\n* Lighting: LED plinth lighting in the kitchen and hallway, under-cabinet LED lighting in the kitchen.\n* Storage systems: Pull-out, dedicated shoe shelves in the wardrobe.\nDISTINCTIVE FEATURES:\n* Functional appliance garage: The kitchen cabinetry is extended with a tambour door cabinet, allowing for instant concealment of small appliances on the countertop, maintaining a clean and orderly look.\n* Intelligent use of space: Deep wardrobes are equipped with pull-out shelf systems, guaranteeing effortless access to all contents and maximizing storage functionality.\n* Illuminated \"floating\" cabinetry: The use of LED lighting in the cabinet plinths gives the units a sense of lightness and a modern character.\n* Warm wood in the bathroom: The furniture in oak decor warms the stark interior finished with gray tiles, creating a home spa atmosphere."
+    },
+    "de": {
+     "title": "RAUM IN WEISS UND GRAPHIT",
+     "text": "RAUM IN WEISS UND GRAPHIT\nEine umfassende Realisierung von Einbaumöbeln im gesamten Haus, einschließlich Küche, Flur und Badezimmer. Das Projekt zeichnet sich durch minimalistische Eleganz aus, und sein Farbkonzept basiert auf dem Kontrast von glänzendem Weiß und mattem Graphit. Materielle Stimmigkeit und funktionale Lösungen schaffen einen hellen und harmonischen Raum.\nMATERIALIEN:\n* Küche:\n   * Fronten: Hochglanz-Weiß-Acryl mit gefräster Griffmulde (Unterschränke); glatte Oberschrankfronten.\n   * Arbeitsnische: Fronten und Wandpaneel in mattem Graphit.\n   * Arbeitsplatte: 38 mm starke Laminat-Arbeitsplatte in Graphit.\n   * Aufsatzschrank: Möbelrollladen in Stahlfarbe.\n* Flur / Wohnzimmer:\n   * Schrankfronten: Hochglanz-Weiß-Acryl mit gefräster Griffmulde.\n   * Zweite Schrankfronten: Raumhohe Spiegeltüren.\n* Badezimmer:\n   * Fronten und Waschtischplatte: Eichen-Echtholzfurnier oder Laminat in Eichendekor.\n   * Nischeneinbau: Regale in Eichendekor.\nSYSTEME:\n* Öffnungssysteme:\n   * Küche: Oberschränke mit Tip-On (Push-to-Open), Unterschränke mit gefräster Griffmulde und Blum-Scharnieren mit Softeinzug.\n   * Flur: Spiegelfronten mit einer Griffleiste.\n* Beleuchtung: LED-Sockelbeleuchtung in Küche und Flur, LED-Unterbauleuchten in der Küche.\n* Aufbewahrungssysteme: Ausziehbare, spezielle Schuhregale im Kleiderschrank.\nCHARAKTERYSTISCHE ELEMENTE:\n* Funktionaler Aufsatzschrank: Die Küchenzeile wird durch einen Rollladenschrank erweitert, der das sofortige Verbergen von Kleingeräten auf der Arbeitsplatte ermöglicht und so für Ordnung und eine klare Linienführung sorgt.\n* Intelligente Raumnutzung: Tiefe Einbauschränke sind mit ausziehbaren Regalsystemen ausgestattet, was einen mühelosen Zugriff auf den gesamten Inhalt garantiert und die Funktionalität der Aufbewahrung maximiert.\n* Beleuchtete \"schwebende\" Einbauten: Die Verwendung von LED-Beleuchtung in den Sockeln der Schränke verleiht den Korpussen Leichtigkeit und einen modernen Charakter.\n* Warmes Holz im Badezimmer: Die Möbel in Eichendekor wärmen das mit grauen Fliesen gestaltete, schlichte Interieur auf und schaffen eine heimische Spa-Atmosphäre."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/7/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 299,
+       "src": "galeria/7/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 598,
+       "src": "galeria/7/web/1-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 956,
+       "src": "galeria/7/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/7/web/m2.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/2-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/2-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/7/web/m3.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/3-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/3-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/7/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 299,
+       "src": "galeria/7/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 598,
+       "src": "galeria/7/web/4-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 956,
+       "src": "galeria/7/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/7/web/m5.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 299,
+       "src": "galeria/7/web/5-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 598,
+       "src": "galeria/7/web/5-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 956,
+       "src": "galeria/7/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/7/web/m6.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/6-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/6-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/6-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/7/web/m7.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/7-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/7-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/7-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 8,
+     "thumb": "galeria/7/web/m8.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/8-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/8-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/8-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 9,
+     "thumb": "galeria/7/web/m9.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 299,
+       "src": "galeria/7/web/9-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 598,
+       "src": "galeria/7/web/9-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 956,
+       "src": "galeria/7/web/9-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 10,
+     "thumb": "galeria/7/web/m10.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 299,
+       "src": "galeria/7/web/10-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 598,
+       "src": "galeria/7/web/10-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 956,
+       "src": "galeria/7/web/10-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 11,
+     "thumb": "galeria/7/web/m11.webp",
+     "sizes": [
+      {
+       "w": 299,
+       "h": 640,
+       "src": "galeria/7/web/11-640.webp"
+      },
+      {
+       "w": 598,
+       "h": 1280,
+       "src": "galeria/7/web/11-1280.webp"
+      },
+      {
+       "w": 956,
+       "h": 2048,
+       "src": "galeria/7/web/11-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8",
+   "cover": [
+    {
+     "w": 640,
+     "h": 360,
+     "src": "galeria/8/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "src": "galeria/8/web/1-1280.webp"
+    },
+    {
+     "w": 1920,
+     "h": 1080,
+     "src": "galeria/8/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "LUKSUSOWY APARTAMENT NAD MORZEM",
+     "text": "LUKSUSOWY APARTAMENT NAD MORZEM\nKompleksowa realizacja zabudowy meblowej w luksusowym apartamencie nad morzem, obejmująca kuchnię otwartą na salon, przedpokój oraz sypialnię. Wnętrze utrzymane jest w eleganckim stylu glamour, gdzie nowoczesny minimalizm łączy się z klasycznymi formami i bogatymi fakturami. Ciemna, stonowana kolorystyka zabudowy stanowi wyrafinowane tło dla kryształowego oświetlenia i pluszowych tkanin, tworząc atmosferę komfortu i prestiżu.\nMATERIAŁY:\n* Kuchnia / Salon:\n   * Fronty kuchenne: Akrylowe, super mat, kolor grafitowy; wnęka w kolorze jasnoszarym.\n   * Blat kuchenny: Spiek kwarcowy 12mm, grafitowy marmur matowy.\n   * Stół jadalniany: Wykonany ze spieku kwarcowego 12mm, grafitowy marmur matowy.\n   * Panel ścienny w kuchni: Płytki ceramiczne o nieregularnej, połyskującej powierzchni w kolorze czarnym.\n   * Ściana RTV: Płyty wielkoformatowe o wyglądzie betonu architektonicznego.\n* Przedpokój:\n   * Fronty szafy: Akrylowe, super mat, w kolorze jasnoszarym.\n   * Uchwyty: Duże, ozdobne uchwyty kryształowe.\n   * Siedzisko i oparcie we wnęce: Tapicerowane ciemną tkaniną z pikowaniem.\n* Sypialnia:\n   * Fronty szafy: Akrylowe, biały mat.\n   * Uchwyty: Długie, pionowe uchwyty w kolorze czarnym.\n   * Dekoracja ściany: Panele lamelowe – białe lamele na czarnym filcu.\nSYSTEMY:\n* Systemy otwierania: Fronty kuchenne bezuchwytowe (Tip-On), szafy w przedpokoju i sypialni otwierane za pomocą uchwytów.\n* Oświetlenie: Ozdobne żyrandole kryształowe, oświetlenie podszafkowe LED w kuchni.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Akcenty w stylu glamour: Kryształowe żyrandole oraz duże, biżuteryjne uchwyty przy szafach w przedpokoju nadają wnętrzu luksusowego charakteru.\n* Tapicerowana wnęka w przedpokoju: Eleganckie i funkcjonalne połączenie szafy z komfortowym, pikowanym siedziskiem, które zaprasza do wnętrza.\n* Kontrast faktur: Zestawienie gładkich, matowych frontów z połyskującymi płytkami w kuchni, miękkim welurem sof, surowością betonu na ścianie RTV oraz rytmicznym wzorem białych lameli w sypialni.\n* Zabudowa kuchenna jako rama: Ciemna zabudowa tworzy wyrazistą ramę dla jaśniejszej wnęki roboczej, co nadaje kuchni głębi i oryginalnego wyglądu."
+    },
+    "en": {
+     "title": "LUXURIOUS SEASIDE APARTMENT",
+     "text": "LUXURIOUS SEASIDE APARTMENT\nA comprehensive implementation of custom furniture in a luxurious seaside apartment, including a kitchen open to the living room, a hallway, and a bedroom. The interior is designed in an elegant glamour style, where modern minimalism meets classic forms and rich textures. The dark, subdued color scheme of the furniture provides a sophisticated backdrop for crystal lighting and plush fabrics, creating an atmosphere of comfort and prestige.\nMATERIALS:\n* Kitchen / Living Room:\n   * Kitchen fronts: Super matte acrylic, graphite color; niche in a light gray color.\n   * Kitchen countertop: 12mm sintered quartz, matte graphite marble.\n   * Dining table: Made from 12mm sintered quartz, matte graphite marble.\n   * Kitchen backsplash: Ceramic tiles with an irregular, glossy surface in black.\n   * TV Wall: Large-format panels with an architectural concrete look.\n* Hallway:\n   * Wardrobe fronts: Super matte acrylic in a light gray color.\n   * Handles: Large, decorative crystal handles.\n   * Seat and backrest in the niche: Upholstered in a dark, quilted fabric.\n* Bedroom:\n   * Wardrobe fronts: Matte white acrylic.\n   * Handles: Long, vertical handles in black.\n   * Wall decoration: Slat panels – white slats on black felt.\nSYSTEMS:\n* Opening systems: Handle-less kitchen fronts (Tip-On), wardrobes in the hallway and bedroom opened with handles.\n* Lighting: Decorative crystal chandeliers, under-cabinet LED lighting in the kitchen.\nDISTINCTIVE FEATURES:\n* Glamour style accents: Crystal chandeliers and large, jewelry-like handles on the hallway wardrobes give the interior a luxurious character.\n* Upholstered niche in the hallway: An elegant and functional combination of a wardrobe with a comfortable, quilted seat that serves as a welcoming feature.\n* Contrast of textures: A combination of smooth, matte fronts with glossy tiles in the kitchen, soft velvet sofas, the raw texture of concrete on the TV wall, and the rhythmic pattern of white slats in the bedroom.\n* Kitchen cabinetry as a frame: The dark cabinetry creates a distinctive frame for the lighter work niche, giving the kitchen depth and an original look."
+    },
+    "de": {
+     "title": "LUXURIÖSES APARTMENT AM MEER",
+     "text": "LUXURIÖSES APARTMENT AM MEER\nUmfassende Realisierung von Einbaumöbeln in einem luxuriösen Apartment am Meer, einschließlich einer zum Wohnzimmer offenen Küche, eines Flurs und eines Schlafzimmers. Das Interieur ist im eleganten Glamour-Stil gehalten, bei dem moderner Minimalismus auf klassische Formen und reiche Texturen trifft. Die dunkle, gedeckte Farbgebung der Möbel bildet einen raffinierten Hintergrund für Kristallleuchter und Plüschstoffe und schafft eine Atmosphäre von Komfort und Prestige.\nMATERIALIEN:\n* Küche / Wohnzimmer:\n   * Küchenfronten: Supermattes Acryl, Farbe Graphit; Nische in Hellgrau.\n   * Küchenarbeitsplatte: 12mm Quarz-Sinterstein, graphitfarbener Marmor in matt.\n   * Esstisch: Gefertigt aus 12mm Quarz-Sinterstein, graphitfarbener Marmor in matt.\n   * Küchenrückwand: Keramikfliesen mit unregelmäßiger, glänzender Oberfläche in Schwarz.\n   * TV-Wand: Großformatige Platten in Architekturbeton-Optik.\n* Flur:\n   * Schrankfronten: Supermattes Acryl in Hellgrau.\n   * Griffe: Große, dekorative Kristallgriffe.\n   * Sitz und Rückenlehne in der Nische: Mit dunklem, gestepptem Stoff gepolstert.\n* Schlafzimmer:\n   * Schrankfronten: Mattes weißes Acryl.\n   * Griffe: Lange, vertikale Griffe in Schwarz.\n   * Wanddekoration: Lamellenpaneele – weiße Lamellen auf schwarzem Filz.\nSYSTEME:\n* Öffnungssysteme: Grifflose Küchenfronten (Tip-On), Schränke im Flur und Schlafzimmer werden mit Griffen geöffnet.\n* Beleuchtung: Dekorative Kristalllüster, LED-Unterbauleuchten in der Küche.\nCHARAKTERYSTISCHE ELEMENTE:\n* Akzente im Glamour-Stil: Kristalllüster und große, schmuckähnliche Griffe an den Flurschränken verleihen dem Interieur einen luxuriösen Charakter.\n* Gepolsterte Nische im Flur: Eine elegante und funktionale Kombination aus einem Kleiderschrank und einer bequemen, gesteppten Sitzgelegenheit, die einladend wirkt.\n* Kontrast der Texturen: Die Zusammenstellung von glatten, matten Fronten mit glänzenden Fliesen in der Küche, weichem Samt der Sofas, der Rohheit des Betons an der TV-Wand und dem rhythmischen Muster der weißen Lamellen im Schlafzimmer.\n* Kücheneinbau als Rahmen: Die dunklen Einbauten bilden einen markanten Rahmen für die hellere Arbeitsnische, was der Küche Tiefe und ein originelles Aussehen verleiht."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/8/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/8/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/8/web/1-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/8/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/8/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/8/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/8/web/2-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/8/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/8/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/8/web/3-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/8/web/3-1280.webp"
+      },
+      {
+       "w": 1920,
+       "h": 1080,
+       "src": "galeria/8/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/8/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/8/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/8/web/4-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/8/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/8/web/m5.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/8/web/5-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/8/web/5-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1153,
+       "src": "galeria/8/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/8/web/m6.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/8/web/6-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/8/web/6-1280.webp"
+      },
+      {
+       "w": 1153,
+       "h": 2048,
+       "src": "galeria/8/web/6-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 7,
+     "thumb": "galeria/8/web/v7.webp",
+     "src": "galeria/8/web/7.mp4",
+     "poster": "galeria/8/web/7-poster.webp",
+     "w": 720,
+     "h": 1280
+    }
+   ]
+  },
+  {
+   "id": "9",
+   "cover": [
+    {
+     "w": 640,
+     "h": 360,
+     "src": "galeria/9/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "src": "galeria/9/web/1-1280.webp"
+    },
+    {
+     "w": 2048,
+     "h": 1152,
+     "src": "galeria/9/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "BIEL W CIEPŁEJ ODSŁONIE",
+     "text": "BIEL W CIEPŁEJ ODSŁONIE\nRealizacja nowoczesnej zabudowy kuchennej, w której minimalistyczna biel została ocieplona naturalnym dekorem drewna. Wyrazisty, kolorowy panel szklany nad blatem stanowi odważny akcent dekoracyjny, który ożywia spokojną aranżację i nadaje jej indywidualnego charakteru.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Lakierowane z frezowanym pochwytem, biały wysoki połysk.\n   * Blat: Laminowany o dekorze naturalnego dębu, grubość 38 mm.\n   * Panel ścienny: Szkło hartowane z indywidualnym nadrukiem graficznym.\n   * Korpusy szafek: Płyta meblowa 18mm.\nSYSTEMY:\n* Systemy otwierania: Zróżnicowany system otwierania dla maksymalnej ergonomii:\n   * Fronty dolne: Otwierane za pomocą frezowanego pochwytu, wyposażone w system cichego domyku.\n   * Fronty górne (środkowy rząd): System bezuchwytowy na dotyk (Tip-On).\n   * Fronty górne (pod sufitem): System uchylny Blum Aventos HKS z funkcją Tip-On.\n* Oświetlenie: Oświetlenie podszafkowe LED.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Zintegrowane pochwyty i system bezuchwytowy: Połączenie dyskretnych, frezowanych pochwytów w dolnej zabudowie z systemem Tip-On w szafkach górnych tworzy spójną, minimalistyczną linię bez tradycyjnych uchwytów.\n* Szklany panel jako serce kuchni: Kolorowa grafika pod szkłem stanowi centralny punkt aranżacji, przełamując monochromatyczną biel i dodając wnętrzu energii.\n* Trzypoziomowa zabudowa górna: Zastosowanie trzech rzędów szafek, w tym uchylnych pod samym sufitem, pozwala na maksymalne wykorzystanie przestrzeni i ergonomiczne przechowywanie.\n* Spójność drewna: Zastosowanie tego samego dekoru drewna na blacie i podłodze tworzy harmonijną i ciepłą bazę dla całej kompozycji."
+    },
+    "en": {
+     "title": "WHITE IN A WARM EDITION",
+     "text": "WHITE IN A WARM EDITION\nA project featuring modern kitchen cabinetry where minimalist white is warmed by a natural wood decor. A distinctive, colorful glass panel above the countertop serves as a bold decorative accent that enlivens the calm arrangement and gives it an individual character.\nMATERIALS:\n* Kitchen:\n   * Fronts: Lacquered with a milled recessed handle, high-gloss white.\n   * Countertop: 38 mm thick laminate with a natural oak decor.\n   * Wall panel: Tempered glass with a custom graphic print.\n   * Cabinet carcasses: 18mm furniture board.\nSYSTEMS:\n* Opening systems: A varied opening system for maximum ergonomics:\n   * Lower fronts: Opened via a milled recessed handle, equipped with a soft-close system.\n   * Upper fronts (middle row): Handle-less push-to-open system (Tip-On).\n   * Upper fronts (top row): Blum Aventos HKS lift-up system with Tip-On function.\n* Lighting: Under-cabinet LED lighting.\nDISTINCTIVE FEATURES:\n* Integrated and handle-less systems: The combination of discreet, milled handles on the lower cabinets with the Tip-On system on the upper cabinets creates a cohesive, minimalist line without traditional handles.\n* Glass panel as the heart of the kitchen: The colorful graphic under the glass acts as the arrangement's focal point, breaking up the monochromatic white and adding energy to the interior.\n* Three-tiered upper cabinetry: The use of three rows of cabinets, including lift-up ones right under the ceiling, allows for maximum space utilization and ergonomic storage.\n* Wood cohesion: Using the same wood decor for the countertop and the floor creates a harmonious and warm base for the entire composition."
+    },
+    "de": {
+     "title": "WEISS IN EINER WARMEN AUSFÜHRUNG",
+     "text": "WEISS IN EINER WARMEN AUSFÜHRUNG\nEine Realisierung moderner Küchenmöbel, bei der minimalistisches Weiß durch ein natürliches Holzdekor erwärmt wird. Ein ausdrucksstarkes, farbenfrohes Glaspaneel über der Arbeitsplatte dient als kühner dekorativer Akzent, der die ruhige Einrichtung belebt und ihr einen individuellen Charakter verleiht.\nMATERIALIEN:\n* Küche:\n   * Fronten: Lackiert mit gefräster Griffmulde, Hochglanz-Weiß.\n   * Arbeitsplatte: 38 mm starke Laminatplatte in Natureiche-Dekor.\n   * Wandpaneel: Gehärtetes Glas mit individuellem Grafikdruck.\n   * Schrankkorpusse: 18mm Möbelplatte.\nSYSTEME:\n* Öffnungssysteme: Ein differenziertes Öffnungssystem für maximale Ergonomie:\n   * Untere Fronten: Öffnen sich über eine gefräste Griffmulde, ausgestattet mit einem Soft-Close-System.\n   * Obere Fronten (mittlere Reihe): Griffloses Push-to-Open-System (Tip-On).\n   * Obere Fronten (oberste Reihe): Blum Aventos HKS Hochklappsystem mit Tip-On-Funktion.\n* Beleuchtung: LED-Unterbauleuchten.\nCHARAKTERYSTISCHE ELEMENTE:\n* Integrierte Griffmulden und griffloses System: Die Kombination aus dezenten, gefrästen Griffmulden an den Unterschränken und dem Tip-On-System an den Oberschränken schafft eine stimmige, minimalistische Linie ohne traditionelle Griffe.\n* Glaspaneel als Herzstück der Küche: Die farbenfrohe Grafik unter dem Glas bildet den Mittelpunkt der Einrichtung, durchbricht das monochrome Weiß und verleiht dem Interieur Energie.\n* Dreistufige Oberschrankzeile: Die Verwendung von drei Schrankreihen, einschließlich Hochklappen direkt unter der Decke, ermöglicht eine maximale Raumnutzung und ergonomische Aufbewahrung.\n* Stimmigkeit des Holzes: Die Verwendung desselben Holzdekors für Arbeitsplatte und Boden schafft eine harmonische und warme Basis für die gesamte Komposition."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/9/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/9/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/9/web/1-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1152,
+       "src": "galeria/9/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/9/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/9/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 720,
+       "src": "galeria/9/web/2-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1152,
+       "src": "galeria/9/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/9/web/m3.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/9/web/3-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/9/web/3-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/9/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/9/web/m4.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/9/web/4-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/9/web/4-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/9/web/4-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "10",
+   "cover": [
+    {
+     "w": 640,
+     "h": 360,
+     "src": "galeria/10/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 721,
+     "src": "galeria/10/web/1-1280.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "FUNKCJONALNA KAWALERKA POD WYNAJEM",
+     "text": "FUNKCJONALNA KAWALERKA POD WYNAJEM\nRealizacja kompleksowej zabudowy meblowej w kawalerce przeznaczonej pod wynajem. Projekt maksymalizuje funkcjonalność małej przestrzeni, łącząc strefę wejściową, kuchenną i dzienną w jedną spójną całość. Ciepły dekor drewna, połączony z czystą bielą i eleganckim akcentem granatu, tworzy nowoczesne, przytulne i uniwersalne wnętrze.\nMATERIAŁY:\n* Zabudowa główna (kuchnia, ściany, regał): Płyta laminowana o wyrazistym dekorze dębu.\n* Fronty szafek (kuchenne, RTV, szafa): Płyta meblowa w kolorze białym matowym.\n* Blat kuchenny: Blat laminowany o dekorze dębu, grubość 38mm.\nSYSTEMY:\n* Systemy otwierania: Szafki dolne otwierane za pomocą pochwytu (przestrzeń pod podwyższonym blatem), szafki górne w systemie na dotyk (Tip-On).\n* Oświetlenie: Oświetlenie szynowe nad kuchnią, nowoczesne lampy wiszące w strefie jadalnianej i dziennej.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Regał jako wykończenie szafy: Boczną ścianę szafy w przedpokoju wykorzystano do stworzenia otwartego regału, co dodaje lekkości bryle mebla i zapewnia dodatkowe miejsce na książki lub dekoracje.\n* Spójna zabudowa na całej ścianie: Jednolita linia mebli od wejścia, przez kuchnię, aż po strefę RTV, co optycznie porządkuje i powiększa przestrzeń.\n* Otulające drewno: Wykorzystanie tego samego dekoru drewna na ścianach i korpusach mebli tworzy efekt ciepłej, spójnej \"skrzynki\", która jest bazą dla całej aranżacji.\n* Wyrazisty akcent kolorystyczny: Granatowe meble tapicerowane i dodatki stanowią elegancki kontrast dla neutralnej bazy, nadając wnętrzu charakteru."
+    },
+    "en": {
+     "title": "FUNCTIONAL STUDIO APARTMENT FOR RENT",
+     "text": "FUNCTIONAL STUDIO APARTMENT FOR RENT\nA comprehensive implementation of custom furniture in a studio apartment designed for the rental market. The project maximizes the functionality of a small space by seamlessly integrating the entrance, kitchen, and living areas into a cohesive whole. The warm wood decor, combined with clean white and an elegant navy blue accent, creates a modern, cozy, and universally appealing interior.\nMATERIALS:\n* Main cabinetry (kitchen, walls, bookshelf): Laminated board with a distinctive oak decor.\n* Cabinet fronts (kitchen, TV stand, wardrobe): Furniture board in a matte white color.\n* Kitchen countertop: 38mm thick laminate countertop with an oak decor.\nSYSTEMS:\n* Opening systems: Lower cabinets are opened via a recessed handle (space under the raised countertop), while upper cabinets use a push-to-open (Tip-On) system.\n* Lighting: Track lighting above the kitchen, modern pendant lamps in the dining and living areas.\nDISTINCTIVE FEATURES:\n* Bookshelf as a wardrobe finish: The side panel of the hallway wardrobe has been utilized to create an open bookshelf, which adds lightness to the furniture's form and provides extra space for books or decorations.\n* Cohesive full-wall cabinetry: A uniform line of furniture from the entrance, through the kitchen, to the TV area, which visually organizes and enlarges the space.\n* Enveloping wood decor: The use of the same wood decor on the walls and cabinet bodies creates the effect of a warm, cohesive \"box\" that serves as the base for the entire arrangement.\n* Strong color accent: The navy blue upholstered furniture and accessories provide an elegant contrast to the neutral base, giving the interior character."
+    },
+    "de": {
+     "title": "FUNKTIONALES STUDIO-APARTMENT ZUR VERMIETUNG",
+     "text": "FUNKTIONALES STUDIO-APARTMENT ZUR VERMIETUNG\nRealisierung eines umfassenden Möbeleinbaus in einem Studio-Apartment, das für die Vermietung bestimmt ist. Das Projekt maximiert die Funktionalität eines kleinen Raumes, indem es den Eingangs-, Küchen- und Wohnbereich zu einem stimmigen Ganzen verbindet. Das warme Holzdekor, kombiniert mit reinem Weiß und einem eleganten marineblauen Akzent, schafft ein modernes, gemütliches und universelles Interieur.\nMATERIALIEN:\n* Haupteinbauten (Küche, Wände, Regal): Laminatplatte mit einem ausdrucksstarken Eichendekor.\n* Schrankfronten (Küche, TV-Lowboard, Kleiderschrank): Möbelplatte in mattem Weiß.\n* Küchenarbeitsplatte: 38 mm starke Laminat-Arbeitsplatte in Eichendekor.\nSYSTEME:\n* Öffnungssysteme: Die Unterschränke werden über eine Griffleiste (Raum unter der erhöhten Arbeitsplatte) geöffnet, die Oberschränke verwenden ein Push-to-Open-System (Tip-On).\n* Beleuchtung: Schienenbeleuchtung über der Küche, moderne Hängelampen im Ess- und Wohnbereich.\nCHARAKTERYSTISCHE ELEMENTE:\n* Regal als Abschluss des Kleiderschranks: Die Seitenwand des Flurschranks wurde genutzt, um ein offenes Bücherregal zu schaffen, was dem Möbelstück Leichtigkeit verleiht und zusätzlichen Platz für Bücher oder Dekorationen bietet.\n* Einheitliche Einbauten über die gesamte Wand: Eine durchgehende Möbellinie vom Eingang über die Küche bis zum TV-Bereich, die den Raum optisch ordnet und vergrößert.\n* Umhüllendes Holzdekor: Die Verwendung desselben Holzdekors an den Wänden und den Möbelkorpussen erzeugt den Effekt einer warmen, stimmigen \"Box\", die die Basis für die gesamte Einrichtung bildet.\n* Kräftiger Farbakzent: Die marineblauen Polstermöbel und Accessoires bilden einen eleganten Kontrast zur neutralen Basis und verleihen dem Interieur Charakter."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/10/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/10/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/10/web/1-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/10/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/10/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/10/web/2-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/10/web/m3.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/10/web/3-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/10/web/3-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 4,
+     "thumb": "galeria/10/web/v4.webp",
+     "src": "galeria/10/web/4.mp4",
+     "poster": "galeria/10/web/4-poster.webp",
+     "w": 1280,
+     "h": 720
+    }
+   ]
+  },
+  {
+   "id": "11",
+   "cover": [
+    {
+     "w": 640,
+     "h": 360,
+     "src": "galeria/11/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 721,
+     "src": "galeria/11/web/1-1280.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "NOWOCZESNY APARTAMENT Z UKRYTĄ GARDEROBĄ",
+     "text": "NOWOCZESNY APARTAMENT Z UKRYTĄ GARDEROBĄ\nKompleksowa realizacja zabudowy meblowej w nowoczesnym apartamencie, obejmująca kuchnię z wyspą, zabudowę przedpokoju oraz garderobę z zamaskowanym wejściem. Projekt cechuje minimalistyczna estetyka oparta na spójnej palecie materiałów – matowego grafitu i ciepłego dębu. Kluczową rolę odgrywają innowacyjne rozwiązania, takie jak ukryte drzwi i architektoniczne oświetlenie LED wtopione w ściany.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Płyta akrylowa \"anti-fingerprint\" super mat, kolor grafit.\n   * Elementy drewniane: Płyta laminowana 18mm, dekor dąb.\n   * Blat i panel ścienny: Blat kompaktowy HPL z czarnym rdzeniem, wykończony laminatem HPL w dekorze dębu.\n* Przedpokój:\n   * Fronty szaf: Płyta akrylowa \"anti-fingerprint\" super mat, kolor grafit.\n   * Front garderoby: Płyta laminowana z lustrem.\n* Garderoba:\n   * Korpusy szaf z białej płyty meblowej, szuflady z cichym domykiem.\nSYSTEMY:\n* Systemy otwierania: Szafki dolne w kuchni otwierane za pomocą pochwytu (przestrzeń pod podwyższonym blatem) z cichym domykiem. Szafki górne oraz szafy w przedpokoju w systemie na dotyk (Tip-On).\n* Oświetlenie: Oświetlenie podszafkowe LED w kuchni, oświetlenie wnękowe nad zabudową w przedpokoju, podświetlana wnęka, architektoniczne oświetlenie ścienne LED.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Jednolita płaszczyzna blatu i ściany: Ściany w strefie roboczej kuchni wykończono tym samym laminatem HPL co blat, tworząc spójną i niezwykle odporną na zniszczenia powierzchnię.\n* Ukryte przejście do garderoby: Wejście do pomieszczenia zostało zamaskowane za pomocą drzwi na całą wysokość ściany, wykończonych lustrem i zlicowanych z zabudową.\n* Graficzne oświetlenie LED: Linie świetlne wpuszczone w płaszczyznę ściany, tworzące unikalny, architektoniczny detal dekoracyjny.\n* Spójność materiałowa: Konsekwentne użycie tych samych materiałów (grafitowy akryl super mat, dekor dębu) w strefie kuchni i przedpokoju tworzy harmonijną i jednolitą całość."
+    },
+    "en": {
+     "title": "MODERN APARTMENT WITH A HIDDEN CLOSET",
+     "text": "MODERN APARTMENT WITH A HIDDEN CLOSET\nA comprehensive implementation of custom furniture in a modern apartment, including a kitchen with an island, hallway cabinetry, and a walk-in closet with a concealed entrance. The project features a minimalist aesthetic based on a cohesive palette of materials – matte graphite and warm oak. Innovative solutions play a key role, such as a hidden door and architectural LED lighting integrated into the walls.\nMATERIALS:\n* Kitchen:\n   * Fronts: \"Anti-fingerprint\" super matte acrylic board, graphite color.\n   * Wooden elements: 18mm laminated board, oak decor.\n   * Countertop and wall panel: HPL compact worktop with a black core, finished with an oak decor HPL.\n* Hallway:\n   * Wardrobe fronts: \"Anti-fingerprint\" super matte acrylic board, graphite color.\n   * Closet front: Laminated board with a mirror.\n* Walk-in Closet:\n   * Cabinet carcasses made of white furniture board, drawers with a soft-close system.\nSYSTEMS:\n* Opening systems: Lower kitchen cabinets are opened via a recessed handle (space under the raised countertop) with a soft-close mechanism. Upper cabinets and hallway wardrobes use a push-to-open (Tip-On) system.\n* Lighting: Under-cabinet LED lighting in the kitchen, cove lighting above the hallway cabinetry, an illuminated niche, and architectural LED wall lighting.\nDISTINCTIVE FEATURES:\n* Uniform countertop and wall surface: The walls in the kitchen's work area are finished with the same HPL as the countertop, creating a cohesive and highly durable surface.\n* Hidden passage to the walk-in closet: The entrance to the room is concealed by a full-height door finished with a mirror and flush with the cabinetry.\n* Graphic LED lighting: Light strips recessed into the wall plane, creating a unique, architectural decorative detail.\n* Material cohesion: The consistent use of the same materials (super matte graphite acrylic, oak decor) in the kitchen and hallway areas creates a harmonious and unified whole."
+    },
+    "de": {
+     "title": "MODERNES APARTMENT MIT VERSTECKTEM ANKLEIDEZIMMER",
+     "text": "MODERNES APARTMENT MIT VERSTECKTEM ANKLEIDEZIMMER\nUmfassende Realisierung von Einbaumöbeln in einem modernen Apartment, einschließlich einer Küche mit Insel, Flurmöbeln und einem Ankleidezimmer mit getarntem Eingang. Das Projekt zeichnet sich durch eine minimalistische Ästhetik aus, die auf einer stimmigen Materialpalette basiert – mattes Graphit und warmes Eichenholz. Eine Schlüsselrolle spielen innovative Lösungen wie eine versteckte Tür und eine in die Wände integrierte architektonische LED-Beleuchtung.\nMATERIALIEN:\n* Küche:\n   * Fronten: Supermatte \"Anti-Fingerprint\" Acrylplatte, Farbe Graphit.\n   * Holzelemente: 18mm Laminatplatte in Eichendekor.\n   * Arbeitsplatte und Wandpaneel: HPL-Kompaktarbeitsplatte mit schwarzem Kern, beschichtet mit HPL in Eichendekor.\n* Flur:\n   * Schrankfronten: Supermatte \"Anti-Fingerprint\" Acrylplatte, Farbe Graphit.\n   * Ankleidezimmerfront: Laminatplatte mit Spiegel.\n* Ankleidezimmer:\n   * Schrankkorpusse aus weißer Möbelplatte, Schubladen mit Softeinzug.\nSYSTEME:\n* Öffnungssysteme: Die unteren Küchenschränke werden über eine Griffleiste (Raum unter der erhöhten Arbeitsplatte) mit Softeinzug geöffnet. Die Oberschränke und Flurschränke verwenden ein Push-to-Open-System (Tip-On).\n* Beleuchtung: LED-Unterbauleuchten in der Küche, Voutenbeleuchtung über den Flurmöbeln, eine beleuchtete Nische und architektonische LED-Wandbeleuchtung.\nCHARAKTERYSTISCHE ELEMENTE:\n* Einheitliche Oberfläche von Arbeitsplatte und Wand: Die Wände im Arbeitsbereich der Küche sind mit demselben HPL wie die Arbeitsplatte verkleidet, was eine stimmige und extrem widerstandsfähige Oberfläche schafft.\n* Versteckter Durchgang zum Ankleidezimmer: Der Eingang zum Raum wurde durch eine raumhohe, verspiegelte und mit den Möbeln bündige Tür kaschiert.\n* Grafische LED-Beleuchtung: In die Wandoberfläche eingelassene Lichtlinien, die ein einzigartiges, architektonisches Dekorationsdetail bilden.\n* Materielle Stimmigkeit: Die konsequente Verwendung derselben Materialien (supermattes Graphit-Acryl, Eichendekor) im Küchen- und Flurbereich schafft ein harmonisches und einheitliches Ganzes."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/11/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 360,
+       "src": "galeria/11/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 721,
+       "src": "galeria/11/web/1-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/11/web/m2.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/11/web/2-640.webp"
+      },
+      {
+       "w": 721,
+       "h": 1280,
+       "src": "galeria/11/web/2-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "n": 3,
+     "thumb": "galeria/11/web/v3.webp",
+     "src": "galeria/11/web/3.mp4",
+     "poster": "galeria/11/web/3-poster.webp",
+     "w": 720,
+     "h": 1280
+    },
+    {
+     "type": "video",
+     "n": 4,
+     "thumb": "galeria/11/web/v4.webp",
+     "src": "galeria/11/web/4.mp4",
+     "poster": "galeria/11/web/4-poster.webp",
+     "w": 720,
+     "h": 1280
+    }
+   ]
+  },
+  {
+   "id": "12",
+   "cover": [
+    {
+     "w": 360,
+     "h": 640,
+     "src": "galeria/12/web/1-640.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "src": "galeria/12/web/1-1280.webp"
+    },
+    {
+     "w": 747,
+     "h": 1328,
+     "src": "galeria/12/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "MINIMALISTYCZNA KUCHNIA Z LINIĄ ŚWIATŁA",
+     "text": "MINIMALISTYCZNA KUCHNIA Z LINIĄ ŚWIATŁA\nNowoczesna zabudowa kuchenna w kształcie litery \"U\", oparta na zasadzie silnego kontrastu. Projekt łączy lśniącą biel frontów z głęboką czernią blatów i grafitową ścianą, tworząc dynamiczną i elegancką kompozycję. Charakterystycznym elementem jest linia światła LED w cokole, która podkreśla nowoczesny charakter mebli i dodaje wnętrzu głębi.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Lakierowane z frezowanym pochwytem (szafki dolne) oraz gładkie (szafki górne), biały wysoki połysk.\n   * Blat: Blat laminowany czarny, grubość 38mm.\n   * Panel ścienny: Szkło lacobel w kolorze białym; ściana nad panelem malowana na kolor grafitowy.\nSYSTEMY:\n* Systemy otwierania: Szafki dolne otwierane za pomocą frezowanego pochwytu, wyposażone w system cichego domyku. Szafki górne oraz fronty wysokiej zabudowy w systemie na dotyk (Tip-On).\n* Oświetlenie: Dekoracyjne oświetlenie LED w cokole mebli, oświetlenie punktowe w suficie podwieszanym.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Dekoracyjna linia światła: Oświetlenie LED biegnące wzdłuż podstawy mebli podkreśla nowoczesną linię zabudowy i stanowi wyrazisty element dekoracyjny.\n* Wyrazisty kontrast Black & White: Klasyczne i odważne połączenie białych, lśniących frontów z czarnymi blatami i ciemnoszarą ścianą.\n* Zintegrowane i bezuchwytowe otwieranie: Połączenie frezowanych pochwytów w dolnej zabudowie z systemem Tip-On w szafkach górnych tworzy spójną, minimalistyczną płaszczyznę.\n* Otwarty regał na zakończeniu zabudowy: Regał w formie białej ramy z czarnymi półkami stanowi estetyczne i praktyczne wykończenie ciągu szafek."
+    },
+    "en": {
+     "title": "MINIMALIST KITCHEN WITH A LINE OF LIGHT",
+     "text": "MINIMALIST KITCHEN WITH A LINE OF LIGHT\nA modern, U-shaped kitchen project based on the principle of strong contrast. The design combines glossy white fronts with deep black countertops and a graphite wall, creating a dynamic and elegant composition. A characteristic feature is the line of LED light in the plinth, which emphasizes the modern character of the furniture and adds depth to the interior.\nMATERIALS:\n* Kitchen:\n   * Fronts: Lacquered with a milled recessed handle (lower cabinets) and smooth (upper cabinets), high-gloss white.\n   * Countertop: 38mm thick black laminate countertop.\n   * Wall panel: White lacobel glass; the wall above the panel is painted graphite gray.\nSYSTEMS:\n* Opening systems: Lower cabinets are opened via a milled recessed handle and are equipped with a soft-close system. Upper cabinets and tall unit fronts use a push-to-open (Tip-On) system.\n* Lighting: Decorative LED lighting in the furniture plinth, spotlights in the suspended ceiling.\nDISTINCTIVE FEATURES:\n* Decorative line of light: LED lighting running along the base of the furniture emphasizes the modern line of the cabinetry and serves as a strong decorative element.\n* Striking Black & White contrast: A classic and bold combination of white, glossy fronts with black countertops and a dark gray wall.\n* Integrated and handle-less opening: The combination of milled recessed handles on the lower cabinets with the Tip-On system on the uppers creates a cohesive, minimalist surface.\n* Open shelving unit at the end of the cabinetry: A shelving unit in a white frame with black shelves provides an aesthetic and practical finish to the cabinet run."
+    },
+    "de": {
+     "title": "MINIMALISTISCHE KÜCHE MIT EINER LICHTLINIE",
+     "text": "MINIMALISTISCHE KÜCHE MIT EINER LICHTLINIE\nEin moderner, U-förmiger Kücheneinbau, der auf dem Prinzip des starken Kontrasts basiert. Das Design kombiniert glänzend weiße Fronten mit tiefschwarzen Arbeitsplatten und einer graphitfarbenen Wand, was eine dynamische und elegante Komposition schafft. Ein charakteristisches Merkmal ist die LED-Lichtlinie im Sockel, die den modernen Charakter der Möbel unterstreicht und dem Interieur Tiefe verleiht.\nMATERIALIEN:\n* Küche:\n   * Fronten: Lackiert mit gefräster Griffmulde (Unterschränke) und glatt (Oberschränke), Hochglanz-Weiß.\n   * Arbeitsplatte: 38 mm starke schwarze Laminat-Arbeitsplatte.\n   * Rückwand: Weißes Lacobel-Glas; die Wand über dem Paneel ist graphitgrau gestrichen.\nSYSTEME:\n* Öffnungssysteme: Die Unterschränke werden über eine gefräste Griffmulde geöffnet und sind mit einem Soft-Close-System ausgestattet. Die Oberschränke und Hochschrankfronten verwenden ein Push-to-Open-System (Tip-On).\n* Beleuchtung: Dekorative LED-Beleuchtung im Möbelsockel, Spotbeleuchtung in der abgehängten Decke.\nCHARAKTERYSTISCHE ELEMENTE:\n* Dekorative Lichtlinie: Die entlang des Möbelbodens verlaufende LED-Beleuchtung betont die moderne Linienführung der Einbauten und dient als ausdrucksstarkes dekoratives Element.\n* Ausdrucksstarker Schwarz-Weiß-Kontrast: Eine klassische und mutige Kombination aus weißen, glänzenden Fronten mit schwarzen Arbeitsplatten und einer dunkelgrauen Wand.\n* Integriertes und griffloses Öffnen: Die Kombination aus gefrästen Griffmulden an den Unterschränken und dem Tip-On-System an den Oberschränken schafft eine einheitliche, minimalistische Oberfläche.\n* Offenes Regal am Abschluss der Einbauten: Ein Regal in einem weißen Rahmen mit schwarzen Böden bildet einen ästhetischen und praktischen Abschluss der Schrankzeile."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/12/web/m1.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/12/web/1-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/12/web/1-1280.webp"
+      },
+      {
+       "w": 747,
+       "h": 1328,
+       "src": "galeria/12/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/12/web/m2.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/12/web/2-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/12/web/2-1280.webp"
+      },
+      {
+       "w": 747,
+       "h": 1328,
+       "src": "galeria/12/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/12/web/m3.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/12/web/3-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/12/web/3-1280.webp"
+      },
+      {
+       "w": 747,
+       "h": 1328,
+       "src": "galeria/12/web/3-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "13",
+   "cover": [
+    {
+     "w": 640,
+     "h": 425,
+     "src": "galeria/13/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 849,
+     "src": "galeria/13/web/1-1280.webp"
+    },
+    {
+     "w": 2048,
+     "h": 1359,
+     "src": "galeria/13/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "RESTAURACJA CITY BOX",
+     "text": "RESTAURACJA CITY BOX\nKompleksowa realizacja i umeblowanie lokalu gastronomicznego, obejmująca strefę bufetową, salę konsumpcyjną oraz zabudowę zewnętrzną. Projekt utrzymany jest w nowoczesnym, miejskim stylu, a jego motywem przewodnim jest branding \"City Box\". Czysta biel stanowi tło dla dynamicznych grafik i wzorów, tworząc energiczną i przyjazną przestrzeń.\nMATERIAŁY:\n* Zabudowa wewnętrzna (lady, donice, ścianki): Płyta MDF lakierowana i utwardzana na kolor biały.\n* Panele dekoracyjne i ściana na wino: Podświetlana ściana na wino wykonana z płyty kompaktowej (sprasowany MDF z białym laminatem) – materiału wodoodpornego i o wysokiej wytrzymałości.\n* Bufet szwedzki: Blat typu Corian, tworzący wielkoformatową, bezspoinową powierzchnię.\n* Zabudowa zewnętrzna: Płyta wodoodporna połączona z panelami szklanymi oraz blatem laminowanym 38mm w dekorze betonu.\nSYSTEMY:\n* System ekspozycji: Otwarty bufet samoobsługowy z ladami chłodniczymi i bemarami.\n* Oświetlenie: Nowoczesne oświetlenie wiszące oraz punktowe.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Podświetlana ściana na wino: Ażurowy panel z otworami na butelki, wykonany z wytrzymałej płyty kompaktowej, stanowi podświetlony i przyciągający wzrok element dekoracyjny.\n* Wielkoformatowe grafiki miejskie: Fotografie miasta umieszczone na panelach i ścianach, które podkreślają miejski i dynamiczny charakter restauracji.\n* Bezspoinowy blat bufetowy: Blat typu Corian na stołach bufetowych pozwala na utrzymanie najwyższych standardów higieny i tworzy gładką, jednolitą powierzchnię.\n* Spójność brandingu: Konsekwentne umieszczanie logotypu i hasła \"CITY PLACE TO BE\" na różnych elementach wyposażenia."
+    },
+    "en": {
+     "title": "CITY BOX RESTAURANT",
+     "text": "CITY BOX RESTAURANT\nA comprehensive implementation and furnishing of a restaurant, including a buffet area, a dining hall, and outdoor cabinetry. The project is designed in a modern, urban style, with the \"City Box\" branding as its central theme. Clean white provides a backdrop for dynamic graphics and patterns, creating an energetic and friendly space.\nMATERIALS:\n* Indoor cabinetry (counters, planters, partitions): Hardened, lacquered MDF board in white.\n* Decorative panels and wine wall: An illuminated wine wall made of compact board (pressed MDF with white laminate) – a waterproof and highly durable material.\n* Swedish buffet: A Corian-type countertop, creating a large-format, seamless surface.\n* Outdoor cabinetry: Waterproof board combined with glass panels and a 38mm laminate countertop in a concrete decor.\nSYSTEMS:\n* Display system: Open self-service buffet with refrigerated counters and food warmers (bain-maries).\n* Lighting: Modern pendant and spot lighting.\nDISTINCTIVE FEATURES:\n* Illuminated wine wall: An openwork panel with holes for bottles, made of durable compact board, serves as an illuminated and eye-catching decorative element.\n* Large-format city graphics: Photographs of the city placed on panels and walls, which emphasize the urban and dynamic character of the restaurant.\n* Seamless buffet countertop: The Corian-type top on the buffet tables allows for maintaining the highest hygiene standards and creates a smooth, uniform surface.\n* Branding consistency: Consistent placement of the logo and the slogan \"CITY PLACE TO BE\" on various furnishing elements."
+    },
+    "de": {
+     "title": "RESTAURANT CITY BOX",
+     "text": "RESTAURANT CITY BOX\nUmfassende Realisierung und Einrichtung eines Gastronomiebetriebs, einschließlich eines Buffetbereichs, eines Speisesaals und Außenmöbeln. Das Projekt ist in einem modernen, urbanen Stil gehalten, dessen Leitmotiv das Branding \"City Box\" ist. Reines Weiß bildet den Hintergrund für dynamische Grafiken und Muster und schafft einen energiegeladenen und freundlichen Raum.\nMATERIALIEN:\n* Inneneinbauten (Theken, Pflanzgefäße, Trennwände): Gehärtete und weiß lackierte MDF-Platte.\n* Dekorative Paneele und Weinwand: Eine beleuchtete Weinwand aus Kompaktplatte (gepresste MDF mit weißem Laminat) – ein wasserfestes und sehr widerstandsfähiges Material.\n* Schwedisches Buffet: Eine Arbeitsplatte vom Typ Corian, die eine großformatige, fugenlose Oberfläche bildet.\n* Außeneinbauten: Wasserfeste Platte kombiniert mit Glaspaneelen und einer 38 mm starken Laminat-Arbeitsplatte in Beton-Dekor.\nSYSTEME:\n* Präsentationssystem: Offenes Selbstbedienungsbuffet mit Kühltheken und Speisenwärmern (Bain-Maries).\n* Beleuchtung: Moderne Hänge- und Spotbeleuchtung.\nCHARAKTERYSTISCHE ELEMENTE:\n* Beleuchtete Weinwand: Ein durchbrochenes Paneel mit Löchern für Flaschen aus widerstandsfähiger Kompaktplatte dient als beleuchtetes und auffälliges Dekorationselement.\n* Großformatige Stadtgrafiken: Auf Paneelen und Wänden platzierte Stadtfotografien, die den urbanen und dynamischen Charakter des Restaurants unterstreichen.\n* Fugenlose Buffet-Arbeitsplatte: Die Corian-artige Platte auf den Buffettischen ermöglicht die Einhaltung höchster Hygienestandards und schafft eine glatte, einheitliche Oberfläche.\n* Einheitliches Branding: Konsequente Platzierung des Logos und des Slogans \"CITY PLACE TO BE\" auf verschiedenen Ausstattungselementen."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/13/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 425,
+       "src": "galeria/13/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 849,
+       "src": "galeria/13/web/1-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 1359,
+       "src": "galeria/13/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/13/web/m2.webp",
+     "sizes": [
+      {
+       "w": 352,
+       "h": 640,
+       "src": "galeria/13/web/2-640.webp"
+      },
+      {
+       "w": 528,
+       "h": 960,
+       "src": "galeria/13/web/2-1280.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/13/web/m3.webp",
+     "sizes": [
+      {
+       "w": 360,
+       "h": 640,
+       "src": "galeria/13/web/3-640.webp"
+      },
+      {
+       "w": 720,
+       "h": 1280,
+       "src": "galeria/13/web/3-1280.webp"
+      },
+      {
+       "w": 1152,
+       "h": 2048,
+       "src": "galeria/13/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/13/web/m4.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 366,
+       "src": "galeria/13/web/4-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 731,
+       "src": "galeria/13/web/4-1280.webp"
+      },
+      {
+       "w": 1344,
+       "h": 768,
+       "src": "galeria/13/web/4-2048.webp"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "14",
+   "cover": [
+    {
+     "w": 640,
+     "h": 311,
+     "src": "galeria/14/web/1-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 622,
+     "src": "galeria/14/web/1-1280.webp"
+    },
+    {
+     "w": 2048,
+     "h": 996,
+     "src": "galeria/14/web/1-2048.webp"
+    }
+   ],
+   "opis": {
+    "pl": {
+     "title": "NOWOCZESNA KUCHNIA Z GRAFICZNYM KONTRASTEM",
+     "text": "NOWOCZESNA KUCHNIA Z GRAFICZNYM KONTRASTEM\nProjekt nowoczesnej, minimalistycznej kuchni, w której czysta biel frontów została skontrastowana z ciemną płaszczyzną blatu i paneli ściennych. Charakterystycznym elementem projektu jest zastosowanie grafitowych ram wokół wysokiej zabudowy, co nadaje meblom wyrazisty, graficzny charakter. Funkcjonalny półwysep z barem śniadaniowym oraz zróżnicowane formy przechowywania tworzą ergonomiczną i stylową przestrzeń.\nMATERIAŁY:\n* Kuchnia:\n   * Fronty: Lakierowane w wykończeniu białym matowym.\n   * Blat i panel ścienny: Spiek kwarcowy 12mm, dekor beton ze strukturą.\n   * Ramy i uchwyty wpuszczane: Aluminium w kolorze grafitowym.\n   * Fronty szafek wiszących: Szkło satynowe w ramce aluminiowej.\nSYSTEMY:\n* Systemy otwierania: Szafki dolne otwierane za pomocą listwowego uchwytu wpuszczanego (system Gola), szafki górne otwierane na dotyk (Tip-On).\n* Szuflady: Systemy z cichym domykiem.\nCHARAKTERYSTYCZNE ELEMENTY:\n* Graficzne ramy wokół zabudowy: Ciemne, grafitowe obramowania wokół wysokich szaf i pod szafkami wiszącymi, które podkreślają geometrię mebli i tworzą unikalny design.\n* Wielofunkcyjny półwysep: Półwysep, który łączy w sobie strefę gotowania (płyta grzewcza) oraz strefę jadalnianą (bar śniadaniowy).\n* Poziome linie: Horyzontalny układ uchwytów wpuszczanych w szafkach dolnych nadaje zabudowie dynamiczny i nowoczesny wygląd.\n* Zróżnicowane przechowywanie: Połączenie zamkniętych szafek, przeszklonych witryn oraz otwartych półek na książki i dekoracje."
+    },
+    "en": {
+     "title": "MODERN KITCHEN WITH A GRAPHIC CONTRAST",
+     "text": "MODERN KITCHEN WITH A GRAPHIC CONTRAST\nA project for a modern, minimalist kitchen where the clean white of the fronts is contrasted with the dark surface of the countertop and wall panels. A characteristic feature of the project is the use of graphite frames around the tall cabinetry, which gives the furniture a distinct, graphic character. A functional peninsula with a breakfast bar and varied forms of storage create an ergonomic and stylish space.\nMATERIALS:\n* Kitchen:\n   * Fronts: Lacquered in a matte white finish.\n   * Countertop and wall panel: 12mm sintered quartz, textured concrete decor.\n   * Frames and recessed handles: Aluminum in a graphite color.\n   * Upper cabinet fronts: Satin glass in an aluminum frame.\nSYSTEMS:\n* Opening systems: Lower cabinets opened with a recessed channel handle (Gola system), upper cabinets are push-to-open (Tip-On).\n* Drawers: Soft-close systems.\nDISTINCTIVE FEATURES:\n* Graphic frames around the cabinetry: Dark, graphite borders around the tall cabinets and under the upper cabinets that emphasize the geometry of the furniture and create a unique design.\n* Multifunctional peninsula: A peninsula that combines a cooking zone (cooktop) with a dining area (breakfast bar).\n* Horizontal lines: The horizontal layout of the recessed handles on the lower cabinets gives the unit a dynamic and modern look.\n* Varied storage: A combination of closed cabinets, glazed display cases, and open shelves for books and decorations."
+    },
+    "de": {
+     "title": "MODERNE KÜCHE MIT GRAFISCHEM KONTRAST",
+     "text": "MODERNE KÜCHE MIT GRAFISCHEM KONTRAST\nEin Projekt für eine moderne, minimalistische Küche, bei der das reine Weiß der Fronten mit der dunklen Fläche der Arbeitsplatte und der Wandpaneele kontrastiert wird. Ein charakteristisches Merkmal des Projekts ist die Verwendung von graphitfarbenen Rahmen um die Hochschränke, was den Möbeln einen ausdrucksstarken, grafischen Charakter verleiht. Eine funktionale Halbinsel mit Frühstücksbar und vielfältige Aufbewahrungsmöglichkeiten schaffen einen ergonomischen und stilvollen Raum.\nMATERIALIEN:\n* Küche:\n   * Fronten: Lackiert in mattem Weiß.\n   * Arbeitsplatte und Wandpaneel: 12 mm Quarz-Sinterstein, Beton-Dekor mit Struktur.\n   * Rahmen und Griffleisten: Aluminium in Graphitfarbe.\n   * Oberschrankfronten: Satinglas in einem Aluminiumrahmen.\nSYSTEME:\n* Öffnungssysteme: Unterschränke werden mit einer eingelassenen Griffleiste (Gola-System) geöffnet, Oberschränke sind Push-to-Open (Tip-On).\n* Schubladen: Soft-Close-Systeme.\nCHARAKTERYSTISCHE ELEMENTE:\n* Grafische Rahmen um die Einbauten: Dunkle, graphitfarbene Umrandungen um die Hochschränke und unter den Oberschränken, die die Geometrie der Möbel betonen und ein einzigartiges Design schaffen.\n* Multifunktionale Halbinsel: Eine Halbinsel, die eine Kochzone (Kochfeld) mit einem Essbereich (Frühstücksbar) verbindet.\n* Horizontale Linien: Die horizontale Anordnung der eingelassenen Griffe an den Unterschränken verleiht dem Einbau ein dynamisches und modernes Aussehen.\n* Vielfältige Aufbewahrung: Eine Kombination aus geschlossenen Schränken, verglasten Vitrinen und offenen Regalen für Bücher und Dekorationen."
+    }
+   },
+   "media": [
+    {
+     "type": "image",
+     "n": 1,
+     "thumb": "galeria/14/web/m1.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 311,
+       "src": "galeria/14/web/1-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 622,
+       "src": "galeria/14/web/1-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 996,
+       "src": "galeria/14/web/1-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 2,
+     "thumb": "galeria/14/web/m2.webp",
+     "sizes": [
+      {
+       "w": 640,
+       "h": 311,
+       "src": "galeria/14/web/2-640.webp"
+      },
+      {
+       "w": 1280,
+       "h": 622,
+       "src": "galeria/14/web/2-1280.webp"
+      },
+      {
+       "w": 2048,
+       "h": 996,
+       "src": "galeria/14/web/2-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 3,
+     "thumb": "galeria/14/web/m3.webp",
+     "sizes": [
+      {
+       "w": 311,
+       "h": 640,
+       "src": "galeria/14/web/3-640.webp"
+      },
+      {
+       "w": 622,
+       "h": 1280,
+       "src": "galeria/14/web/3-1280.webp"
+      },
+      {
+       "w": 996,
+       "h": 2048,
+       "src": "galeria/14/web/3-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 4,
+     "thumb": "galeria/14/web/m4.webp",
+     "sizes": [
+      {
+       "w": 311,
+       "h": 640,
+       "src": "galeria/14/web/4-640.webp"
+      },
+      {
+       "w": 622,
+       "h": 1280,
+       "src": "galeria/14/web/4-1280.webp"
+      },
+      {
+       "w": 996,
+       "h": 2048,
+       "src": "galeria/14/web/4-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 5,
+     "thumb": "galeria/14/web/m5.webp",
+     "sizes": [
+      {
+       "w": 311,
+       "h": 640,
+       "src": "galeria/14/web/5-640.webp"
+      },
+      {
+       "w": 622,
+       "h": 1280,
+       "src": "galeria/14/web/5-1280.webp"
+      },
+      {
+       "w": 996,
+       "h": 2048,
+       "src": "galeria/14/web/5-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 6,
+     "thumb": "galeria/14/web/m6.webp",
+     "sizes": [
+      {
+       "w": 311,
+       "h": 640,
+       "src": "galeria/14/web/6-640.webp"
+      },
+      {
+       "w": 622,
+       "h": 1280,
+       "src": "galeria/14/web/6-1280.webp"
+      },
+      {
+       "w": 996,
+       "h": 2048,
+       "src": "galeria/14/web/6-2048.webp"
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "n": 7,
+     "thumb": "galeria/14/web/m7.webp",
+     "sizes": [
+      {
+       "w": 311,
+       "h": 640,
+       "src": "galeria/14/web/7-640.webp"
+      },
+      {
+       "w": 622,
+       "h": 1280,
+       "src": "galeria/14/web/7-1280.webp"
+      },
+      {
+       "w": 996,
+       "h": 2048,
+       "src": "galeria/14/web/7-2048.webp"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
