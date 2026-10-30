@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zanders Atelier</title>
+    <meta name="description" content="Zanders Atelier — projektowanie wnętrz i meble na wymiar. Wybierz język: polski / Deutsch.">
+    <link rel="canonical" href="https://zandersatelier.com/">
+    <link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html">
+    <link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html">
+    <link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" href="logo/web/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#1A1A1A">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zanders Atelier">
+    <meta property="og:title" content="Zanders Atelier">
+    <meta property="og:description" content="Projektowanie wnętrz i meble na wymiar · Innenarchitektur und Möbel nach Maß">
+    <meta property="og:url" content="https://zandersatelier.com/">
+    <meta property="og:image" content="https://zandersatelier.com/tlo/web/og-1200x630.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -35,7 +51,7 @@
             width: 150px; 
             margin-bottom: 30px; 
             opacity: 0;
-            animation: fadeIn 1s ease-out 0.2s forwards; 
+            animation: fadeIn 0.5s ease-out 0.09s forwards; 
             cursor: pointer; 
         }
         
@@ -49,7 +65,7 @@
             color: #d4af37;
             margin-bottom: 10px; 
             opacity: 0; 
-            animation: fadeIn 1s ease-out 0.4s forwards; 
+            animation: fadeIn 0.5s ease-out 0.18s forwards; 
         }
         
         .subtitle { 
@@ -57,7 +73,7 @@
             color: #ccc; 
             margin-bottom: 40px;
             opacity: 0; 
-            animation: fadeIn 1s ease-out 0.6s forwards; 
+            animation: fadeIn 0.5s ease-out 0.27s forwards; 
         }
         
         .welcome { 
@@ -65,7 +81,7 @@
             font-weight: 700; 
             margin-bottom: 30px;
             opacity: 0; 
-            animation: fadeIn 1s ease-out 0.8s forwards;
+            animation: fadeIn 0.5s ease-out 0.36s forwards;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
         }
         
@@ -75,7 +91,7 @@
             height: 80px; 
             margin: 40px auto;
             opacity: 0; 
-            animation: fadeIn 1s ease-out 1s forwards; 
+            animation: fadeIn 0.5s ease-out 0.45s forwards; 
         }
         
         .ring { 
@@ -105,7 +121,7 @@
             color: #999; 
             margin-top: 30px;
             opacity: 0; 
-            animation: fadeIn 1s ease-out 1.2s forwards; 
+            animation: fadeIn 0.5s ease-out 0.54s forwards; 
         }
         
         .progress { 
@@ -116,7 +132,7 @@
             margin: 30px auto; 
             overflow: hidden;
             opacity: 0; 
-            animation: fadeIn 1s ease-out 1.4s forwards; 
+            animation: fadeIn 0.5s ease-out 0.63s forwards; 
         }
         
         .fill { 
@@ -124,7 +140,7 @@
             background: linear-gradient(90deg, #d4af37, #f4e28c, #d4af37);
             border-radius: 2px; 
             width: 0%; 
-            animation: progress 3s ease-in-out 1.5s forwards; 
+            animation: progress 1.6s ease-in-out 0.6s forwards; 
         }
         
         .hint { 
@@ -135,7 +151,7 @@
             font-size: 0.9rem; 
             color: #666; 
             opacity: 0; 
-            animation: fadeIn 1s ease-out 2s forwards; 
+            animation: fadeIn 0.5s ease-out 0.9s forwards; 
         }
         
         .flags {
@@ -145,7 +161,7 @@
             display: flex;
             gap: 15px;
             opacity: 0;
-            animation: fadeIn 1s ease-out 1.8s forwards;
+            animation: fadeIn 0.5s ease-out 0.81s forwards;
         }
         
         .flag {
@@ -267,7 +283,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="logo/logo2.png" alt="Zanders Atelier" class="logo" id="logo">
+        <img src="logo/web/logo2-600.webp" alt="Zanders Atelier" class="logo" id="logo">
         <div class="brand">ZANDERS ATELIER</div>
         <div class="welcome" id="welcome">WITAMY</div>
         <div class="loader">
@@ -337,9 +353,9 @@
                 document.getElementById('info').textContent = t.loading;
                 setTimeout(() => {
                     document.getElementById('info').textContent = t.redirecting;
-                    setTimeout(redirect, 800);
-                }, 1500);
-            }, 2500);
+                    setTimeout(redirect, 400);
+                }, 600);
+            }, 900);
         }
         
         function updateInterface(langCode) {
@@ -377,8 +393,8 @@
             
             setTimeout(() => {
                 document.getElementById('info').textContent = t.redirecting;
-                setTimeout(() => redirect(langCode), 500);
-            }, 800);
+                setTimeout(() => redirect(langCode), 300);
+            }, 400);
         }
         
         function redirect(langCode = detected) {
@@ -394,7 +410,7 @@
         }
         
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(detect, 1000);
+            setTimeout(detect, 300);
             
             // Event listenery dla flag
             document.querySelectorAll('.flag').forEach(flag => {
@@ -415,7 +431,7 @@
                     skip();
                 }
             });
-        }, 3000);
+        }, 1000);
     </script>
 </body>
 </html>
