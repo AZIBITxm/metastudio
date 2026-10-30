@@ -1,3 +1,6 @@
+// Lista filmów: aplikacja „Zanders Inspiracje” (osobny projekt na Vercelu, dodawanie przez menu Udostępnij w telefonie)
+const INSPIRACJE_API = 'https://zanders-inspiracje.vercel.app/api/inspiracje';
+
 class TikTokModal {
     constructor() {
         this.modal = null;
@@ -8,6 +11,21 @@ class TikTokModal {
     }
 
     async loadTikTokData() {
+        // Lista z aplikacji „Zanders Inspiracje” (dodawanie z telefonu przez Udostępnij); tiktok.txt tylko jako zapas
+        try {
+            const ac = new AbortController();
+            const t = setTimeout(() => ac.abort(), 6000);
+            const r = await fetch(INSPIRACJE_API, { signal: ac.signal });
+            clearTimeout(t);
+            const { wpisy } = await r.json();
+            if (Array.isArray(wpisy) && wpisy.length) {
+                this.videos = wpisy.map(w => this.wpisNaFilm(w));
+                this.init();
+                return;
+            }
+        } catch (error) {
+            // brak połączenia z aplikacją — poniżej zapasowa lista
+        }
         try {
             const response = await fetch('./modale/tiktok.txt');
             const text = await response.text();
@@ -66,6 +84,54 @@ class TikTokModal {
             }
         }
 
+    }
+
+
+    esc(s) {
+        return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    // Wpis z aplikacji -> film w oknie: oficjalny odtwarzacz platformy + podpis twórcy z odnośnikiem
+    wpisNaFilm(w) {
+        const url = this.esc(w.url);
+        const id = this.esc(w.idFilmu);
+        let embedCode = '';
+        if (w.platforma === 'tiktok' && w.idFilmu) {
+            // oficjalny odtwarzacz TikToka w ramce (ten sam, który TikTok podaje w swoich danych oEmbed)
+            embedCode = `<iframe src="https://www.tiktok.com/player/v1/${id}?music_info=1&description=1&rel=0" title="${this.esc(w.autor)} · TikTok" style="width:min(100%,325px);aspect-ratio:325/578;border:0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+        } else if (w.platforma === 'youtube' && w.idFilmu) {
+            embedCode = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${this.esc(w.tytul)}" style="width:min(100%,340px);aspect-ratio:9/16;border:0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+        } else if (w.platforma === 'instagram') {
+            embedCode = `<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14" style="max-width:400px;min-width:300px;width:100%;margin:0 auto"><a href="${url}" target="_blank" rel="noopener">${this.esc(w.autor || 'Instagram')}</a></blockquote>`;
+        } else if (w.platforma === 'facebook') {
+            embedCode = `<iframe src="https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(w.url)}&show_text=false" style="width:min(100%,340px);aspect-ratio:9/16;border:0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+        } else if (w.platforma === 'pinterest' && w.idFilmu) {
+            embedCode = `<iframe src="https://assets.pinterest.com/ext/embed.html?id=${id}" style="width:min(100%,345px);height:min(70vh,620px);border:0" scrolling="no" loading="lazy"></iframe>`;
+        }
+        const nazwa = w.platformaNazwa || w.platforma;
+        const opis = w.opis || (w.tytul ? (w.tytul.length > 90 ? w.tytul.slice(0, 90) + '…' : w.tytul) : '');
+        return {
+            embedCode,
+            platforma: w.platforma,
+            platformaNazwa: nazwa,
+            url: w.url,
+            autor: w.autor,
+            autorUrl: w.autorUrl,
+            thumbnail: w.miniatura || null,
+            description: `${this.esc(opis)}${opis ? '<br>' : ''}<small style="opacity:.75">${this.esc(w.autor || 'autor')} · ${this.esc(nazwa)}</small>`,
+        };
+    }
+
+    loadEmbedScripts(video) {
+        if (video.platforma === 'instagram') {
+            if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+            const sc = document.createElement('script');
+            sc.async = true;
+            sc.src = 'https://www.instagram.com/embed.js';
+            document.head.appendChild(sc);
+        } else if (!video.platforma) {
+            this.loadTikTokScript(); // zapasowa lista z tiktok.txt (kody blockquote)
+        }
     }
 
     extractUrlFromEmbed(embedCode) {
@@ -251,7 +317,8 @@ class TikTokModal {
         try {
             if (!video.url) return;
 
-            const oembed = await this.getTikTokOEmbed(video.url);
+            const oembed = video.thumbnail ? { thumbnail_url: video.thumbnail }
+                : (!video.platforma || video.platforma === 'tiktok') ? await this.getTikTokOEmbed(video.url) : null;
             if (oembed && oembed.thumbnail_url) {
                 const imgDiv = thumbnailElement.querySelector('.tiktok-thumbnail-image');
 
@@ -344,8 +411,8 @@ class TikTokModal {
                     </div>
                 `;
 
-                // Załaduj skrypt TikTok embed
-                this.loadTikTokScript();
+                // Skrypt odtwarzacza platformy (TikTok / Instagram); YouTube, Facebook, Pinterest to zwykłe ramki
+                this.loadEmbedScripts(video);
             } else {
                 // Fallback - stary sposób dla linków bez embed kodu
                 const videoId = this.extractVideoId(video.url);
@@ -398,7 +465,7 @@ class TikTokModal {
             }
 
             // Dodaj przycisk pod miniaturkami
-            this.updateWatchButton(video.url);
+            this.updateWatchButton(video);
 
         } catch (error) {
             console.error('Błąd ładowania filmu:', error);
@@ -410,7 +477,12 @@ class TikTokModal {
         }
     }
 
-    updateWatchButton(videoUrl) {
+    updateWatchButton(video) {
+        const videoUrl = this.esc(video.url);
+        const nazwa = this.esc(video.platformaNazwa || 'TikTok');
+        const autor = video.autor
+            ? `<div style="margin-top:10px;font-size:13px;color:var(--color-primary);">Autor: <a href="${this.esc(video.autorUrl || video.url)}" target="_blank" rel="noopener" style="color:inherit;">${this.esc(video.autor)}</a></div>`
+            : '';
         const sidebar = document.querySelector('.tiktok-thumbnails-sidebar');
         if (!sidebar) return;
         
@@ -443,8 +515,8 @@ class TikTokModal {
                 width: 100%;
                 box-sizing: border-box;
             ">
-                🎬 Obejrzyj na TikTok
-            </a>
+                🎬 Obejrzyj na ${nazwa}
+            </a>${autor}
         `;
         
         sidebar.appendChild(buttonContainer);
