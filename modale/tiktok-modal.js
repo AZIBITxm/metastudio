@@ -66,8 +66,6 @@ class TikTokModal {
             }
         }
 
-        console.log('Załadowano filmów TikTok:', this.videos.length);
-        console.log('Dane filmów:', this.videos);
     }
 
     extractUrlFromEmbed(embedCode) {
@@ -95,7 +93,6 @@ class TikTokModal {
         // Usuń stary modal jeśli istnieje
         const oldModal = document.getElementById('tiktok-modal');
         if (oldModal) {
-            console.log('Usuwanie starego modalu...');
             oldModal.remove();
         }
 
@@ -105,7 +102,7 @@ class TikTokModal {
                     <div class="tiktok-close">×</div>
                     <div class="tiktok-modal-header">
                         <div class="tiktok-modal-brand">
-                            <img src="logo/logo2.png" alt="Zanders Atelier Logo" class="tiktok-modal-logo">
+                            <img src="logo/web/logo2-300.webp" alt="Zanders Atelier Logo" class="tiktok-modal-logo">
                             <h2 class="tiktok-modal-title">INSPIRACJE</h2>
                         </div>
                     </div>
@@ -130,10 +127,8 @@ class TikTokModal {
             </div>
         `;
 
-        console.log('Tworzenie nowego modalu z 3 kolumnami...');
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         this.modal = document.getElementById('tiktok-modal');
-        console.log('Modal utworzony:', this.modal);
     }
 
     bindEvents() {
@@ -197,14 +192,11 @@ class TikTokModal {
 
     generateDescriptions() {
         const container = document.getElementById('tiktok-descriptions');
-        console.log('generateDescriptions - container:', container);
         if (!container) {
-            console.log('BRAK KONTENERA OPISÓW!');
             return;
         }
 
         container.innerHTML = '';
-        console.log('Generowanie', this.videos.length, 'opisów...');
 
         // Jasne kolory dla opisów (bardzo jasne odcienie)
         const lightGradients = [
@@ -261,7 +253,6 @@ class TikTokModal {
 
             const oembed = await this.getTikTokOEmbed(video.url);
             if (oembed && oembed.thumbnail_url) {
-                console.log('Miniaturka z oEmbed załadowana dla filmu', index);
                 const imgDiv = thumbnailElement.querySelector('.tiktok-thumbnail-image');
 
                 if (imgDiv) {
@@ -276,12 +267,10 @@ class TikTokModal {
                     };
 
                     img.onerror = () => {
-                        console.log('Nie udało się załadować obrazka dla filmu', index);
                     };
                 }
             }
         } catch (error) {
-            console.log('Błąd ładowania miniaturki dla filmu', index);
         }
     }
 
@@ -300,16 +289,12 @@ class TikTokModal {
     }
 
     showVideo(index) {
-        console.log('showVideo wywołane dla index:', index);
-        console.log('Dostępne filmy:', this.videos.length);
         
         if (index < 0 || index >= this.videos.length) {
-            console.log('Nieprawidłowy index filmu');
             return;
         }
         
         if (!this.modal) {
-            console.log('Modal nie istnieje');
             return;
         }
         
@@ -317,7 +302,6 @@ class TikTokModal {
 
         // Update active thumbnail
         const thumbnails = this.modal.querySelectorAll('.tiktok-thumbnail');
-        console.log('Znalezionych miniaturek:', thumbnails.length);
 
         thumbnails.forEach((thumb, i) => {
             thumb.classList.toggle('active', i === index);
@@ -330,26 +314,21 @@ class TikTokModal {
         });
 
         // Load video
-        console.log('Ładowanie filmu:', this.videos[index]);
         this.loadVideo(this.videos[index]);
     }
 
     async loadVideo(video) {
-        console.log('loadVideo wywołane dla:', video);
 
         const display = document.getElementById('tiktok-video-display');
         if (!display) {
-            console.log('Brak elementu tiktok-video-display');
             return;
         }
 
-        console.log('Element display znaleziony, ładowanie...');
         display.innerHTML = '<div class="tiktok-loading">Ładowanie filmu...</div>';
 
         try {
             // Jeśli mamy kod embed, użyj go bezpośrednio
             if (video.embedCode) {
-                console.log('Używam kodu embed z pliku');
 
                 display.innerHTML = `
                     <div class="tiktok-embed-container" style="
@@ -370,7 +349,6 @@ class TikTokModal {
             } else {
                 // Fallback - stary sposób dla linków bez embed kodu
                 const videoId = this.extractVideoId(video.url);
-                console.log('Brak embed kodu, używam fallback dla video ID:', videoId);
 
                 display.innerHTML = `
                     <div class="tiktok-placeholder" style="
@@ -473,7 +451,6 @@ class TikTokModal {
     }
 
     extractVideoId(url) {
-        console.log('Extracting ID from URL:', url);
         
         // Extract video ID from various TikTok URL formats
         const patterns = [
@@ -488,12 +465,10 @@ class TikTokModal {
         for (const pattern of patterns) {
             const match = url.match(pattern);
             if (match) {
-                console.log('Found match:', match[1]);
                 return match[1];
             }
         }
         
-        console.log('No ID found for URL:', url);
         return null;
     }
 
@@ -521,12 +496,10 @@ class TikTokModal {
         script.async = true;
         script.src = 'https://www.tiktok.com/embed.js';
         script.onload = () => {
-            console.log('TikTok embed script załadowany');
             // Poczekaj trochę i odśwież embedy
             setTimeout(() => {
                 if (window.tiktokEmbed) {
                     try {
-                        console.log('Odświeżanie TikTok embedów...');
                         window.tiktokEmbed.load();
                     } catch (error) {
                         console.error('Błąd odświeżania embedów:', error);
@@ -545,12 +518,10 @@ class TikTokModal {
         
         // Sprawdź czy modal został już utworzony
         if (!this.modal) {
-            console.log('Modal nie został jeszcze utworzony, czekam...');
             setTimeout(() => this.open(), 100);
             return;
         }
         
-        console.log('Otwieranie modalu z', this.videos.length, 'filmami');
         
         this.isOpen = true;
         this.modal.style.display = 'flex';
@@ -565,10 +536,8 @@ class TikTokModal {
         
         // Load first video
         if (this.videos.length > 0) {
-            console.log('Ładowanie pierwszego filmu...');
             setTimeout(() => this.showVideo(0), 500);
         } else {
-            console.log('Brak filmów do załadowania');
         }
     }
 
@@ -590,8 +559,9 @@ class TikTokModal {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('=== TikTok Modal v3.0 - Three Column Layout ===');
     const tiktokModal = new TikTokModal();
+    // Pozycja „TikTok” w menu woła openTikTokModal()
+    window.openTikTokModal = () => tiktokModal.open();
     
     // Menu button handler
     const tiktokBtn = document.querySelector('a[href="#tiktok"]');

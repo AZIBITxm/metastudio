@@ -21,21 +21,18 @@ let heightAdjustmentPaused = false; // Flaga do pauzowania zmiany wysokości sek
 
 // Funkcja do zatrzymywania animacji cyklicznych (dostępna globalnie)
 function stopCyclicAnimation() {
-    console.log('Stopping cyclic animation globally');
     globalUserInteracting = true;
     globalCyclicAnimationActive = false; // Wyłącz flagę animacji
     clearTimeout(globalUserInteractionTimeout);
     
     // Zatrzymaj interval jeśli istnieje
     if (globalAnimationInterval) {
-        console.log('Clearing global animation interval');
         clearInterval(globalAnimationInterval);
         globalAnimationInterval = null;
     }
     
     // Wznów automatyczną animację po 8 sekundach od ostatniej interakcji
     globalUserInteractionTimeout = setTimeout(() => {
-        console.log('Resuming cyclic animation after timeout');
         globalUserInteracting = false;
         // Nie uruchamiamy ponownie interwału automatycznie - to będzie obsłużone przez IntersectionObserver
     }, 8000);
@@ -125,44 +122,24 @@ function initializeMenuHandlers() {
  * Umożliwia przewijanie wewnątrz sekcji gdy użytkownik jest w jej obrębie
  */
 function initializeAboutSectionScroll() {
+    // Na komputerze tekst „O nas” ma własne przewijanie. Gdy sekcja wypełnia ekran, kółko myszy najpierw
+    // przewija ten tekst, potem stronę — bez cofania strony przez window.scrollTo (dawne „szarpanie”).
     const aboutSection = document.getElementById('about');
     const aboutContent = aboutSection?.querySelector('.about-content');
-    
-    if (!aboutSection || !aboutContent) {
-        console.warn('About section elements not found');
-        return;
-    }
+    if (!aboutSection || !aboutContent) return;
 
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function() {
-        const aboutRect = aboutSection.getBoundingClientRect();
-        const currentScrollTop = window.pageYOffset;
-
-        // Sprawdzanie czy użytkownik jest w obrębie sekcji "O Nas"
-        if (aboutRect.top <= 0 && aboutRect.bottom >= window.innerHeight) {
-            const contentScrollTop = aboutContent.scrollTop;
-            const contentScrollHeight = aboutContent.scrollHeight;
-            const contentHeight = aboutContent.clientHeight;
-
-            // Scroll w dół
-            if (currentScrollTop > lastScrollTop) {
-                if (contentScrollTop < contentScrollHeight - contentHeight) {
-                    window.scrollTo(0, lastScrollTop);
-                    aboutContent.scrollTop += 10;
-                }
-            } 
-            // Scroll w górę
-            else if (currentScrollTop < lastScrollTop) {
-                if (contentScrollTop > 0) {
-                    window.scrollTo(0, lastScrollTop);
-                    aboutContent.scrollTop -= 10;
-                }
-            }
+    window.addEventListener('wheel', function(e) {
+        if (e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+        const rect = aboutSection.getBoundingClientRect();
+        if (rect.top > 0 || rect.bottom < window.innerHeight) return;
+        const max = aboutContent.scrollHeight - aboutContent.clientHeight;
+        if (max <= 0) return;
+        const down = e.deltaY > 0;
+        if ((down && aboutContent.scrollTop < max - 1) || (!down && aboutContent.scrollTop > 0)) {
+            e.preventDefault();
+            aboutContent.scrollTop += e.deltaY;
         }
-
-        lastScrollTop = currentScrollTop;
-    });
+    }, { passive: false });
 }
 
 // ==========================================
@@ -250,15 +227,9 @@ function initializeGalleryToggle() {
     const btnArrowRight = showAllBtn.querySelector('.btn-arrow');
     
     if (!showAllBtn || !gallery || extendedItems.length === 0) {
-        console.log('Gallery toggle elements not found:', {
-            showAllBtn: !!showAllBtn,
-            gallery: !!gallery,
-            extendedItemsCount: extendedItems.length
-        });
         return;
     }
     
-    console.log(`Gallery toggle found ${extendedItems.length} extended items`);
     
     let isExpanded = false;
     
@@ -274,10 +245,8 @@ function initializeGalleryToggle() {
             if (btnArrowRight) btnArrowRight.textContent = '↑';
             
             // Pokazujemy dodatkowe elementy z animacją
-            console.log(`Showing ${extendedItems.length} extended items`);
             extendedItems.forEach((item, index) => {
                 const galleryNum = item.getAttribute('data-gallery');
-                console.log(`Showing extended item ${index + 1}: gallery-${galleryNum}`);
                 setTimeout(() => {
                     item.style.display = 'block';
                     // Małe opóźnienie dla efektu fade-in
@@ -297,10 +266,8 @@ function initializeGalleryToggle() {
             if (btnArrowRight) btnArrowRight.textContent = '↓';
             
             // Ukrywamy dodatkowe elementy z animacją
-            console.log(`Hiding ${extendedItems.length} extended items`);
             extendedItems.forEach((item, index) => {
                 const galleryNum = item.getAttribute('data-gallery');
-                console.log(`Hiding extended item ${index + 1}: gallery-${galleryNum}`);
                 setTimeout(() => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(20px)';
@@ -320,7 +287,6 @@ function initializeGalleryToggle() {
         item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
     
-    console.log('Gallery toggle initialized');
 }
 
 // ==========================================
@@ -338,7 +304,6 @@ function initializeGalleryScrollReveal() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     if (galleryItems.length === 0) {
-        console.log('Gallery items not found');
         return;
     }
     
@@ -426,7 +391,6 @@ function initializeGalleryScrollReveal() {
         handleScroll();
     });
     
-    console.log('Gallery scroll reveal initialized with smooth interpolation for all devices');
 }
 
 // ==========================================
@@ -498,7 +462,6 @@ function initializeApp() {
         
         initializeMobileAboutAnimation();
         
-        console.log('Zanders Atelier JavaScript initialized successfully');
     } catch (error) {
         console.error('Error initializing Zanders Atelier app:', error);
     }
@@ -514,7 +477,6 @@ document.addEventListener('DOMContentLoaded', initializeApp);
 // Obsługa zmiany rozmiaru okna
 window.addEventListener('resize', function() {
     // Tutaj można dodać funkcje reagujące na zmianę rozmiaru okna
-    console.log('Window resized');
     
     // Event listenery są już prawidłowo skonfigurowane z warunkami window.innerWidth
     // Nie ma potrzeby ponownej inicjalizacji
@@ -595,7 +557,6 @@ function initializeSubBanners() {
     
     // Funkcja pokazująca odpowiedni opis materiału
     function showMaterialInfo(materialId) {
-        console.log('showMaterialInfo called with:', materialId);
         
         // Ukryj wszystkie opisy i usuń klasy active
         materialsInfo.forEach(info => {
@@ -605,12 +566,10 @@ function initializeSubBanners() {
         
         // Pokaż wybrany opis z odpowiednimi klasami
         const targetInfo = document.getElementById(materialId + '-info');
-        console.log('Target element found:', targetInfo);
         
         if (targetInfo) {
             targetInfo.style.display = 'block';
             targetInfo.classList.add('active');
-            console.log('Element shown and active class added:', materialId + '-info');
         } else {
             console.error('Element not found:', materialId + '-info');
         }
@@ -708,7 +667,6 @@ function initializeSubBanners() {
             e.stopPropagation();
             
             // ZATRZYMAJ ANIMACJE CYKLICZNE po wyborze sub-bannera
-            console.log('Sub-banner clicked, stopping cyclic animation');
             stopCyclicAnimation();
             
             // Usuń active ze wszystkich pod-banerów
@@ -728,7 +686,6 @@ function initializeSubBanners() {
             
             // Pauzuj zmianę wysokości sekcji podczas animacji
             heightAdjustmentPaused = true;
-            console.log('Height adjustment paused for sub-banner animation');
             
             const materialId = this.getAttribute('data-material');
             showMaterialInfo(materialId);
@@ -736,7 +693,6 @@ function initializeSubBanners() {
             // Odpauzuj zmianę wysokości po zakończeniu animacji
             setTimeout(() => {
                 heightAdjustmentPaused = false;
-                console.log('Height adjustment resumed after sub-banner animation');
                 
                 // Po odpauzowaniu, dostosuj wysokość sekcji
                 if (window.adjustProjectSectionHeight) {
@@ -770,7 +726,6 @@ function initializeSubBanners() {
             if (!isExpanded) {
                 // Pauzuj zmianę wysokości sekcji podczas animacji rozwijania
                 heightAdjustmentPaused = true;
-                console.log('Height adjustment paused for banner expansion');
                 
                 this.classList.add('expanded');
                 materialsLogosContainer.classList.add('banner-expanded'); // Ukryj pozostałe banery
@@ -780,7 +735,6 @@ function initializeSubBanners() {
                 // Odpauzuj zmianę wysokości po zakończeniu animacji
                 setTimeout(() => {
                     heightAdjustmentPaused = false;
-                    console.log('Height adjustment resumed after banner expansion');
                     
                     // Po odpauzowaniu, dostosuj wysokość sekcji
                     if (window.adjustProjectSectionHeight) {
@@ -790,7 +744,6 @@ function initializeSubBanners() {
             } else {
                 // Pauzuj zmianę wysokości sekcji podczas animacji zwijania
                 heightAdjustmentPaused = true;
-                console.log('Height adjustment paused for banner collapse');
                 
                 this.classList.remove('expanded');
                 materialsLogosContainer.classList.remove('banner-expanded'); // Pokaż wszystkie banery
@@ -799,7 +752,6 @@ function initializeSubBanners() {
                 // Odpauzuj zmianę wysokości po zakończeniu animacji zwijania
                 setTimeout(() => {
                     heightAdjustmentPaused = false;
-                    console.log('Height adjustment resumed after banner collapse');
                     
                     // Po odpauzowaniu, dostosuj wysokość sekcji
                     if (window.adjustProjectSectionHeight) {
@@ -819,7 +771,6 @@ function initializeSubBanners() {
         if (!clickedInsideMaterialLogo && !clickedInsideMaterialsInfo) {
             // Pauzuj zmianę wysokości sekcji podczas zamykania banerów
             heightAdjustmentPaused = true;
-            console.log('Height adjustment paused for closing all banners');
             
             // Kliknięto poza banerami - zamknij wszystkie
             const materialsLogosContainer = document.querySelector('.materials-logos');
@@ -842,7 +793,6 @@ function initializeSubBanners() {
             // Odpauzuj zmianę wysokości po zakończeniu wszystkich animacji
             setTimeout(() => {
                 heightAdjustmentPaused = false;
-                console.log('Height adjustment resumed after closing all banners');
                 
                 // Po odpauzowaniu, dostosuj wysokość sekcji
                 if (window.adjustProjectSectionHeight) {
@@ -1112,7 +1062,6 @@ function initializeCyclicBannerAnimation() {
 function adjustProjectSectionHeight() {
     // Jeśli zmiana wysokości jest spauzowana, nie wykonuj funkcji
     if (heightAdjustmentPaused) {
-        console.log('Height adjustment paused - skipping');
         return;
     }
     
@@ -1153,7 +1102,6 @@ function adjustProjectSectionHeight() {
                     
                     projectSection.style.minHeight = neededHeight + 'px';
                     
-                    console.log(`Adjusted project section height to ${neededHeight}px (base: ${baseHeight}px, banner needs: ${bannerEndRelativeToProject + 20}px)`);
                 }, 10);
             }
         } else {
@@ -1180,7 +1128,6 @@ function adjustProjectSectionHeight() {
 function adjustProjectSectionHeightForPC() {
     // Jeśli zmiana wysokości jest spauzowana, nie wykonuj funkcji
     if (heightAdjustmentPaused) {
-        console.log('Height adjustment paused for PC - skipping');
         return;
     }
     
@@ -1235,14 +1182,6 @@ function adjustProjectSectionHeightForPC() {
         const newTopPosition = headerHeight + materialsLogosHeight + minGapBetweenBannersAndInfo;
         materialsInfoSection.style.top = newTopPosition + 'px';
         
-        console.log(`PC Layout adjusted:
-            - Header height: ${headerHeight}px
-            - Total banners height (with expanded): ${materialsLogosHeight}px
-            - Gap: ${minGapBetweenBannersAndInfo}px
-            - Info height: ${materialsInfoHeight}px
-            - Calculated height: ${totalNeededHeight}px
-            - Final section height: ${finalHeight}px
-            - Info positioned at: ${newTopPosition}px`);
             
     }, 50); // Zwiększone opóźnienie na pełne renderowanie
 }
@@ -1317,7 +1256,6 @@ function initializeProjectHeightObserver() {
     // Inicjalne ustawienie
     setTimeout(adjustProjectSectionHeight, 200);
     
-    console.log('Project height observer initialized');
 }
 
 // ==========================================
@@ -1336,7 +1274,6 @@ function setupDynamicScrollBannerForMobile() {
         return;
     }
     
-    console.log('Setting up dynamic scroll banner positioning...');
 
     function updateScrollBannerPosition() {
         // Sprawdź czy to urządzenie mobilne z banerm.png (≤480px)
@@ -1362,12 +1299,8 @@ function setupDynamicScrollBannerForMobile() {
                     scrollBanner.style.zIndex = '10';
                     scrollBanner.style.margin = '0';
                     
-                    console.log(`Mobile banner positioned at: ${targetPosition.toFixed(1)}px`);
-                    console.log(`Image starts at: ${imageTopInDocument.toFixed(1)}px, height: ${imageHeight.toFixed(1)}px`);
-                    console.log(`33% of image height = ${(imageHeight * 0.33).toFixed(1)}px, minus 15px banner offset`);
                 } else {
                     // Jeśli obraz się jeszcze nie załadował, spróbuj ponownie po krótkim opóźnieniu
-                    console.log('Banner image not loaded yet, retrying in 100ms...');
                     setTimeout(updateScrollBannerPosition, 100);
                 }
             }
@@ -1379,7 +1312,6 @@ function setupDynamicScrollBannerForMobile() {
             scrollBanner.style.width = '';
             scrollBanner.style.zIndex = '';
             scrollBanner.style.margin = '';
-            console.log('Desktop mode - scroll banner reset to CSS positioning');
         }
     }
 
@@ -1426,7 +1358,6 @@ function setupDynamicScrollBannerForMobile() {
         });
     }
     
-    console.log('Dynamic scroll banner positioning for banerm.png initialized (33% minus banner height)');
 }
 
 // Udostępnij funkcje globalnie
@@ -1441,3 +1372,14 @@ window.setupDynamicScrollBannerForMobile = setupDynamicScrollBannerForMobile;
 
 // Jeśli używasz modułów ES6, możesz eksportować funkcje:
 // export { initializeApp, scrollToElement, isElementVisible, toggleProducerDetails };
+// Przesuwane napisy (.mq): stała prędkość w px/s jak dawny <marquee scrollamount>
+function initializeMarquees() {
+    document.querySelectorAll('.mq').forEach(mq => {
+        const track = mq.querySelector('.mq-track');
+        const speed = parseFloat(mq.dataset.speed) || 80;
+        const set = () => { track.style.animationDuration = (track.scrollWidth / speed) + 's'; };
+        set();
+        window.addEventListener('resize', set);
+    });
+}
+document.addEventListener('DOMContentLoaded', initializeMarquees);

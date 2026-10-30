@@ -2,16 +2,17 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zanders Atelier - Luksusowe Wnętrza i Meble</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="modale/gallery-modal.css">
   <link rel="stylesheet" href="modale/tiktok-modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Load the Biel AI widget -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.css" media="print" onload="this.media='all'">
   <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.esm.js"></script>
 
   <!-- Custom styles for Biel AI widget -->
@@ -169,7 +170,7 @@
 
     <!-- Baner przewijany -->
     <div class="scroll-banner">
-        <marquee behavior="scroll" direction="left" scrollamount="7">SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG</marquee>
+        <div class="mq" data-speed="82"><span class="mq-track">SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG</span></div>
     </div>
 
   <section id="promotions">
@@ -1769,9 +1770,9 @@
             <div class="foundation-section-separator"></div>
             <div class="foundation-bottom-banner">
                 <a href="https://worldfoundation.eu" target="_blank" rel="noopener" style="display:block; width:100%; height:100%; text-decoration:none; color:inherit;">
-                    <marquee behavior="scroll" direction="left" scrollamount="6" style="width:100%; height:100%; line-height:40px; background:transparent;">
+                    <div class="mq" data-speed="71" style="width:100%; height:100%; line-height:40px; background:transparent;"><span class="mq-track">
                           Poznaj działania fundacji W🌍rldFoundation – sprawdź jak pomagamy dzieciom i młodzieży, poznaj nasze projekty, inspiracje i historie wsparcia. Kliknij, aby dowiedzieć się więcej!&nbsp;&nbsp;&nbsp;
-                    </marquee>
+                    </span></div>
                 </a>
             </div>
   </section>
@@ -1782,7 +1783,7 @@
         
         <div class="contact-info">
             <div class="contact-item">
-                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <svg class="contact-icon fa-ico" viewBox="0 0 384 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
                 <div class="contact-details">
                     <strong>Adres:</strong><br>
                     Staromiejska 17e<br>
@@ -1791,7 +1792,7 @@
             </div>
             
             <div class="contact-item">
-                <i class="fas fa-envelope contact-icon"></i>
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                 <div class="contact-details">
                     <strong>Email:</strong><br>
                     <a href="mailto:zandersatelier@gmail.com">zandersatelier@gmail.com</a>
@@ -1799,7 +1800,7 @@
             </div>
             
             <div class="contact-item">
-                <i class="fas fa-phone contact-icon"></i>
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                 <div class="contact-details">
                     <strong>Telefon PL:</strong><br>
                     <a href="tel:+48605126918">+48 605 126 918</a>
@@ -1807,7 +1808,7 @@
             </div>
             
             <div class="contact-item">
-                <i class="fas fa-phone contact-icon"></i>
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                 <div class="contact-details">
                     <strong>Telefon DE:</strong><br>
                     <a href="tel:+4915212403091">+49 15212403091</a>
@@ -1835,14 +1836,14 @@
     // Zamknij modal po kliknięciu poza nim
     window.onclick = function(event) {
         const modal = document.getElementById('catalogModal');
-        if (event.target == modal) {
+        if (modal && event.target == modal) {
             closeCatalogModal();
         }
     }
 
     // Zamknij modal po naciśnięciu ESC
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && document.getElementById('catalogModal')) {
             closeCatalogModal();
         }
     });
@@ -1906,7 +1907,6 @@
   <script>
         // Funkcja do otwarcia czatu AI
         function openBielChat() {
-    console.log('🚀 Attempting to open Biel chat...');
     var bielWidget = document.getElementById('biel-ai-widget');
 
     if (!bielWidget) {
@@ -1915,14 +1915,12 @@
         return;
     }
 
-    console.log('✅ Biel widget found');
 
     // Znajdź przycisk <a> w shadow DOM
     if (bielWidget.shadowRoot) {
         const button = bielWidget.shadowRoot.querySelector('a.biel-button-content');
 
         if (button) {
-            console.log('✅ Found button in shadow DOM, clicking...');
 
             // Tymczasowo pokaż widget, aby kliknięcie zadziałało
             bielWidget.style.opacity = '1';
@@ -1933,7 +1931,6 @@
             // Kliknij przycisk po krótkiej chwili
             setTimeout(() => {
                 button.click();
-                console.log('🎯 Button clicked!');
 
                 // Ukryj widget z powrotem po kliknięciu
                 setTimeout(() => {
@@ -1941,7 +1938,6 @@
                     bielWidget.style.pointerEvents = 'none';
                     bielWidget.style.bottom = '-200px';
                     bielWidget.style.right = '-200px';
-                    console.log('🙈 Button hidden again');
                 }, 100);
             }, 50);
         } else {
@@ -1972,7 +1968,6 @@
         } else {
           customButton.style.bottom = '30px'; // Powrót do oryginalnej pozycji desktop
         }
-        console.log('✅ Button position reset');
       }
 
       // Obserwuj zamknięcie modala
@@ -1989,7 +1984,6 @@
           if (modal) {
             const isOpen = modal.hasAttribute('open') || modal.style.display !== 'none';
             if (!isOpen) {
-              console.log('🔻 Modal closed, resetting button position');
               resetButtonPosition();
             }
           }
@@ -2003,12 +1997,10 @@
           attributeFilter: ['open', 'style']
         });
 
-        console.log('👀 Modal observer initialized');
       }
 
       // Click event
       customButton.addEventListener('click', function(e) {
-                console.log('Custom button clicked');
                 e.preventDefault();
                 // Przesuń ikonę o 70px w górę
                 customButton.style.transition = 'bottom 0.3s';
@@ -2039,7 +2031,6 @@
         }
       });
 
-      console.log('Custom AI button initialized');
     }
 
     // Wait for DOM and web components
