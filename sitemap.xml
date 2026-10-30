@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://zandersatelier.com/index-pl.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/index-de.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html"/>
+  </url>
+</urlset>
