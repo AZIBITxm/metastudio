@@ -21,7 +21,7 @@ class TikTokModal {
                 {
                     embedCode: null,
                     url: 'https://vm.tiktok.com/ZNdtHbTTg/',
-                    description: 'Luksusowe wnętrza MetaStudio - nowoczesny design 🏠✨',
+                    description: 'Luksusowe wnętrza Zanders Atelier - nowoczesny design 🏠✨',
                     thumbnail: null
                 },
                 {
@@ -105,7 +105,7 @@ class TikTokModal {
                     <div class="tiktok-close">×</div>
                     <div class="tiktok-modal-header">
                         <div class="tiktok-modal-brand">
-                            <img src="logo/logo2.png" alt="MetaStudio Logo" class="tiktok-modal-logo">
+                            <img src="logo/logo2.png" alt="Zanders Atelier Logo" class="tiktok-modal-logo">
                             <h2 class="tiktok-modal-title">INSPIRACJE</h2>
                         </div>
                     </div>
@@ -411,7 +411,7 @@ class TikTokModal {
                                 font-size: 14px;
                                 line-height: 1.4;
                             ">
-                                ${video.description || 'MetaStudio Design'}
+                                ${video.description || 'Zanders Atelier'}
                                 <br><small style="opacity: 0.8;">Kliknij aby otworzyć</small>
                             </div>
                         </div>

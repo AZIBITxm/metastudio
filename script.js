@@ -1,5 +1,5 @@
 /**
- * MetaStudio - JavaScript
+ * Zanders Atelier - JavaScript
  * Obsługa interakcji strony internetowej
  */
 
@@ -776,9 +776,9 @@ function initializeApp() {
         window.initializeGalleryDescriptions = initializeGalleryDescriptions;
         initializeMobileAboutAnimation();
         
-        console.log('MetaStudio JavaScript initialized successfully');
+        console.log('Zanders Atelier JavaScript initialized successfully');
     } catch (error) {
-        console.error('Error initializing MetaStudio app:', error);
+        console.error('Error initializing Zanders Atelier app:', error);
     }
 }
 
