@@ -4159,3 +4159,33 @@ section:first-of-type {
 @media (max-width: 320px) {
     .brand-logo { height: 34px; margin-right: 0.25rem; }
 }
+
+/* Napis „Zanders Atelier — pracownia meblarska” (grafika) na środku nagłówka */
+.brand-napis {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: calc(100% - 220px);
+    height: auto;
+    pointer-events: none;
+}
+@media (max-width: 768px) {
+    .brand-napis { max-width: calc(100% - 170px); }
+}
+@media (max-width: 480px) {
+    .brand-napis { max-width: calc(100% - 160px); }
+}
+
+/* Sekcja fundacji: logo, pod nim napis */
+.foundation-header .highlight-brand {
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.foundation-header .highlight-brand .brand-logo-inline { height: 110px; }
+.brand-napis-inline { width: 320px; max-width: 80vw; height: auto; display: block; }
+@media (max-width: 768px) {
+    .foundation-header .highlight-brand .brand-logo-inline { height: 90px; }
+    .brand-napis-inline { width: 260px; }
+}
