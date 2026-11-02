@@ -221,14 +221,15 @@ function initializeMaterialsSection() {
 function fitGalleryTitles() {
     document.querySelectorAll('.gallery-item-info h3').forEach(h3 => {
         const info = h3.closest('.gallery-item-info');
-        const cta = info.querySelector('.gallery-cta');
         h3.style.fontSize = '';
-        if (!h3.offsetParent || info.clientHeight === 0) return;
-        // miejsce na tytuł = okienko − przycisk − 3 odstępy (kreska/tytuł/przycisk/dół)
+        if (!h3.offsetParent || h3.clientHeight === 0) return;
+        // tytuł + najmniejszy odstęp od kreski i od przycisku musi zmieścić się w polu nad przyciskiem
         const gap = parseFloat(getComputedStyle(info).getPropertyValue('--info-gap')) * parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-        const room = info.clientHeight - (cta ? cta.offsetHeight : 0) - 3 * gap;
+        const room = h3.clientHeight - 2 * gap;
+        const range = document.createRange();
+        range.selectNodeContents(h3);
         let size = parseFloat(getComputedStyle(h3).fontSize);
-        while (h3.scrollHeight > room && size > 10) {
+        while (range.getBoundingClientRect().height > room && size > 10) {
             size -= 0.5;
             h3.style.fontSize = size + 'px';
         }
