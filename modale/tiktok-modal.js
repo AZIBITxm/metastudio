@@ -168,6 +168,7 @@ class TikTokModal {
                     <div class="tiktok-close">×</div>
                     <div class="tiktok-modal-header">
                         <div class="tiktok-modal-brand">
+                            <img src="logo/web/zanders-logo-300.webp" alt="Zanders Atelier Logo" class="tiktok-modal-logo">
                             <h2 class="tiktok-modal-title">INSPIRACJE</h2>
                         </div>
                     </div>

@@ -466,6 +466,13 @@ nav {
 }
 
 
+.brand-logo {
+    height: 64px;
+    width: auto;
+    margin-right: 0.7rem;
+    flex-shrink: 0;
+}
+
 .brand-suffix {
   margin-left: 0;
   padding-bottom: 0px;
@@ -589,6 +596,12 @@ nav {
     gap: 0.6rem;
 }
 
+
+.brand-logo-inline {
+    height: 1.8em;
+    width: auto;
+    vertical-align: middle;
+}
 
 .foundation-logo-inline {
     height: 2.4em;
@@ -4132,4 +4145,17 @@ section:first-of-type {
     .gallery.expanded .gallery-item .gallery-item-info {
         --info-gap: 0.4rem;
     }
+}
+
+/* Logo ZA (okrągłe) obok napisu w nagłówku */
+.brand-logo { align-self: center; }
+@media (max-width: 768px) {
+    .brand-logo { height: 48px; margin-right: 0.45rem; transform: translateY(-3px); }
+    .brand-logo-inline { height: 2em; }
+}
+@media (max-width: 480px) {
+    .brand-logo { height: 40px; margin-right: 0.35rem; }
+}
+@media (max-width: 320px) {
+    .brand-logo { height: 34px; margin-right: 0.25rem; }
 }
