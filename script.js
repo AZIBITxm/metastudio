@@ -215,6 +215,41 @@ function initializeMaterialsSection() {
 // ==========================================
 
 /**
+ * Dopasowanie wielkości tytułów w okienkach realizacji — gdy tytuł nie mieści się
+ * między górną kreską a przyciskiem, czcionka jest zmniejszana.
+ */
+function fitGalleryTitles() {
+    document.querySelectorAll('.gallery-item-info h3').forEach(h3 => {
+        const info = h3.closest('.gallery-item-info');
+        const cta = info.querySelector('.gallery-cta');
+        h3.style.fontSize = '';
+        if (!h3.offsetParent || info.clientHeight === 0) return;
+        // miejsce na tytuł = okienko − przycisk − 3 odstępy (kreska/tytuł/przycisk/dół)
+        const gap = parseFloat(getComputedStyle(info).getPropertyValue('--info-gap')) * parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        const room = info.clientHeight - (cta ? cta.offsetHeight : 0) - 3 * gap;
+        let size = parseFloat(getComputedStyle(h3).fontSize);
+        while (h3.scrollHeight > room && size > 10) {
+            size -= 0.5;
+            h3.style.fontSize = size + 'px';
+        }
+    });
+}
+
+function initializeGalleryTitleFit() {
+    fitGalleryTitles();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitGalleryTitles);
+    window.addEventListener('load', fitGalleryTitles);
+    let t;
+    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(fitGalleryTitles, 150); });
+    const btn = document.getElementById('showAllGalleryBtn');
+    if (btn) btn.addEventListener('click', () => {
+        const n = document.querySelectorAll('.extended-gallery-item').length;
+        setTimeout(fitGalleryTitles, 60);
+        setTimeout(fitGalleryTitles, n * 100 + 200);
+    });
+}
+
+/**
  * Funkcja inicjalizująca obsługę przełączania galerii
  * Obsługuje pokazywanie/ukrywanie dodatkowych elementów galerii
  */
@@ -232,6 +267,9 @@ function initializeGalleryToggle() {
     
     
     let isExpanded = false;
+    const isDe = document.documentElement.lang === 'de';
+    const labelMore = isDe ? 'MEHR ANZEIGEN' : 'POKAŻ WIĘCEJ';
+    const labelLess = isDe ? 'WENIGER ANZEIGEN' : 'POKAŻ MNIEJ';
     
     showAllBtn.addEventListener('click', function() {
         isExpanded = !isExpanded;
@@ -240,7 +278,7 @@ function initializeGalleryToggle() {
             // Rozszerzamy galerię
             gallery.classList.add('expanded');
             showAllBtn.classList.add('expanded');
-            btnText.textContent = 'POKAŻ MNIEJ';
+            btnText.textContent = labelLess;
             if (btnArrowLeft) btnArrowLeft.textContent = '↑';
             if (btnArrowRight) btnArrowRight.textContent = '↑';
             
@@ -261,7 +299,7 @@ function initializeGalleryToggle() {
             // Zwijamy galerię
             gallery.classList.remove('expanded');
             showAllBtn.classList.remove('expanded');
-            btnText.textContent = 'POKAŻ WSZYSTKIE';
+            btnText.textContent = labelMore;
             if (btnArrowLeft) btnArrowLeft.textContent = '↓';
             if (btnArrowRight) btnArrowRight.textContent = '↓';
             
@@ -458,6 +496,7 @@ function initializeApp() {
         initializeSubBanners();
         initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
         initializeGalleryToggle();
+        initializeGalleryTitleFit();
         initializeGalleryScrollReveal();
         
         initializeMobileAboutAnimation();
