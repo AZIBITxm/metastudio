@@ -465,19 +465,16 @@ nav {
     flex-shrink: 0;
 }
 
-.brand-logo {
-    height: 70px;
-    width: auto;
-    margin: 0 0.2rem;
-    transform: translateY(0px);
-}
 
 .brand-suffix {
-  margin-left: 0.6rem;
+  margin-left: 0;
   padding-bottom: 0px;
-  text-transform: capitalize;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* ==========================================
@@ -585,19 +582,13 @@ nav {
 .foundation-header .highlight-brand {
     color: var(--color-primary);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    font-weight: normal;
+    font-size: 2.4rem;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
 }
 
-.brand-logo-inline {
-    height: 2.4em;
-    width: auto;
-    vertical-align: middle;
-}
 
 .foundation-logo-inline {
     height: 2.4em;
@@ -629,9 +620,6 @@ nav {
         gap: 0.3rem;
     }
     
-    .brand-logo-inline {
-        height: 1.2em;
-    }
     
     .foundation-logo-inline {
         height: 2.4em;
@@ -3666,14 +3654,10 @@ footer {
         transform: translateY(-3px);
     }
 
-    .brand-logo {
-        height: 55px;
-        transform: translateY(-3px);
-    }
 
     .brand-suffix {
-        margin-left: 0.35rem;
-        font-size: 1.5rem;
+        margin-left: 0;
+        font-size: 1.7rem;
         transform: translateY(-3px);
     }
 
@@ -3823,14 +3807,10 @@ footer {
         transform: translateY(-3px);
     }
 
-    .brand-logo {
-        height: 45px;
-        transform: translateY(-3px);
-    }
 
     .brand-suffix {
-        margin-left: 0.25rem;
-        font-size: 1.2rem;
+        margin-left: 0;
+        font-size: 1.45rem;
         transform: translateY(-3px);
     }
 
@@ -3877,14 +3857,10 @@ section:first-of-type {
         transform: translateY(-3px);
     }
 
-    .brand-logo {
-        height: 38px;
-        transform: translateY(-3px);
-    }
 
     .brand-suffix {
-        margin-left: 0.15rem;
-        font-size: 1.05rem;
+        margin-left: 0;
+        font-size: 1.25rem;
         letter-spacing: -0.3px;
         transform: translateY(-3px);
     }

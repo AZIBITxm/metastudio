@@ -259,7 +259,6 @@ STATIC = [
     ('tlo/baner22.jpg', [None]),
     ('tlo/baner24.jpg', [None]),
     ('tlo/pasek.png', [None]),
-    ('logo/logo2.png', [300]),
     ('logo/fundacja/logo2.png', [None]),
     ('multimedia/konsultant.png', [240]),
     ('materiały/fronty/płyty.png', [800]),
