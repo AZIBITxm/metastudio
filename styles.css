@@ -4189,3 +4189,23 @@ section:first-of-type {
     .foundation-header .highlight-brand .brand-logo-inline { height: 45px; }
     .brand-napis-inline { width: 260px; }
 }
+
+/* Fundacja: równe odstępy „z” → napis → „i” → logo fundacji (liczone od widocznych krawędzi liter i grafik) */
+.foundation-header { --fund-gap: 16px; }
+.foundation-header .logos-container {
+    margin-top: calc(var(--fund-gap) - 0.34em);
+    gap: 0;
+}
+.foundation-header .logos-container > * { margin: 0; }
+.foundation-header .logos-container .separator-i {
+    line-height: 1;
+    padding: 0;
+    margin: calc(var(--fund-gap) - 0.41em) 0 calc(var(--fund-gap) - 0.69em);
+}
+.foundation-header .logos-container > div:last-child { line-height: 0; }
+.foundation-header .logos-container .foundation-logo-inline { display: block; }
+@media (max-width: 768px) {
+    .foundation-header .logos-container .separator-i {
+        margin: calc(var(--fund-gap) - 0.41em - 3.7px) 0 calc(var(--fund-gap) - 0.69em - 3.8px);
+    }
+}
