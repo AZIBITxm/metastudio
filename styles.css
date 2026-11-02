@@ -4166,16 +4166,16 @@ section:first-of-type {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 160px;
+    width: 240px;
     max-width: calc(100% - 220px);
     height: auto;
     pointer-events: none;
 }
 @media (max-width: 768px) {
-    .brand-napis { width: 120px; max-width: calc(100% - 170px); }
+    .brand-napis { width: 180px; max-width: calc(100% - 170px); }
 }
 @media (max-width: 480px) {
-    .brand-napis { width: 110px; max-width: calc(100% - 160px); }
+    .brand-napis { width: 165px; max-width: calc(100% - 160px); }
 }
 
 /* Sekcja fundacji: logo, pod nim napis */
