@@ -467,7 +467,7 @@ nav {
 
 
 .brand-logo {
-    height: 64px;
+    height: 43px;
     width: auto;
     margin-right: 0.7rem;
     flex-shrink: 0;
@@ -4150,14 +4150,14 @@ section:first-of-type {
 /* Logo ZA (okrągłe) obok napisu w nagłówku */
 .brand-logo { align-self: center; }
 @media (max-width: 768px) {
-    .brand-logo { height: 48px; margin-right: 0.45rem; transform: translateY(-3px); }
+    .brand-logo { height: 32px; margin-right: 0.45rem; transform: translateY(-3px); }
     .brand-logo-inline { height: 2em; }
 }
 @media (max-width: 480px) {
-    .brand-logo { height: 40px; margin-right: 0.35rem; }
+    .brand-logo { height: 27px; margin-right: 0.35rem; }
 }
 @media (max-width: 320px) {
-    .brand-logo { height: 34px; margin-right: 0.25rem; }
+    .brand-logo { height: 23px; margin-right: 0.25rem; }
 }
 
 /* Napis „Zanders Atelier — pracownia meblarska” (grafika) na środku nagłówka */
@@ -4166,16 +4166,16 @@ section:first-of-type {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 320px;
+    width: 160px;
     max-width: calc(100% - 220px);
     height: auto;
     pointer-events: none;
 }
 @media (max-width: 768px) {
-    .brand-napis { max-width: calc(100% - 170px); }
+    .brand-napis { width: 120px; max-width: calc(100% - 170px); }
 }
 @media (max-width: 480px) {
-    .brand-napis { max-width: calc(100% - 160px); }
+    .brand-napis { width: 110px; max-width: calc(100% - 160px); }
 }
 
 /* Sekcja fundacji: logo, pod nim napis */
@@ -4183,9 +4183,9 @@ section:first-of-type {
     flex-direction: column;
     gap: 0.8rem;
 }
-.foundation-header .highlight-brand .brand-logo-inline { height: 110px; }
+.foundation-header .highlight-brand .brand-logo-inline { height: 55px; }
 .brand-napis-inline { width: 320px; max-width: 80vw; height: auto; display: block; }
 @media (max-width: 768px) {
-    .foundation-header .highlight-brand .brand-logo-inline { height: 90px; }
+    .foundation-header .highlight-brand .brand-logo-inline { height: 45px; }
     .brand-napis-inline { width: 260px; }
 }
