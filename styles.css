@@ -4209,3 +4209,9 @@ section:first-of-type {
         margin: calc(var(--fund-gap) - 0.41em - 3.7px) 0 calc(var(--fund-gap) - 0.69em - 3.8px);
     }
 }
+
+/* Nazwa fundacji nigdy nie rozdziela się na dwie linie; na telefonie zawsze w nowej linii */
+.wf-name { white-space: nowrap; }
+@media (max-width: 768px) {
+    .wf-name { display: block; }
+}
