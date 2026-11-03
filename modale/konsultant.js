@@ -1,6 +1,7 @@
 // Konsultant AI Zanders Atelier — okno czatu (zastępuje Biel).
 // Rozmowa → aplikacja Zanders (meble-crm, Vercel): /api/public/consultant (Gemini),
 // zgłoszenie → /api/public/lead (zadanie w Agendzie + push na telefon Adama).
+// Kontakt zbierany ROZMOWĄ (bez formularza): telefon → imię → e-mail (można pominąć) → zgoda.
 // Język wg <html lang> (pl / de / en). Przycisk wywołujący: #custom-ai-button (ikona konsultanta).
 (function () {
     const API = 'https://meble-crm.vercel.app/api/public';
@@ -11,35 +12,53 @@
         pl: {
             title: 'Konsultant Zanders Atelier', sub: 'Odpowiadamy od razu',
             hello: 'Dzień dobry! Jestem konsultantem Zanders Atelier. Chętnie opowiem o meblach na wymiar, materiałach i bezpłatnym spotkaniu online z wizualizacją 3D. W czym mogę pomóc?',
-            placeholder: 'Napisz wiadomość…', send: 'Wyślij', close: 'Zamknij', contact: 'Zostaw kontakt',
-            typing: 'Konsultant pisze…', formTitle: 'Adam oddzwoni do Pana/Pani',
-            name: 'Imię', phone: 'Telefon', email: 'E-mail (opcjonalnie)', need: 'Czego Pan/Pani szuka? (opcjonalnie)',
-            consent: 'Wyrażam zgodę na kontakt w sprawie mojego zapytania i przetwarzanie podanych danych.',
-            privacy: 'Polityka prywatności', submit: 'Wyślij zgłoszenie', cancel: 'Wróć do rozmowy',
-            sending: 'Wysyłanie…', missing: 'Proszę podać imię, numer telefonu i zaznaczyć zgodę.',
-            error: 'Nie udało się połączyć. Proszę zadzwonić: +48 605 126 918.', reset: 'Nowa rozmowa',
+            placeholder: 'Napisz wiadomość…', send: 'Wyślij', close: 'Zamknij', contact: 'Poproś o telefon od Adama',
+            typing: 'Konsultant pisze…', reset: 'Nowa rozmowa',
+            askPhone: 'Chętnie przekażę sprawę Adamowi. Pod jaki numer telefonu może oddzwonić?',
+            badPhone: 'Ten numer wygląda na niepełny. Proszę wpisać numer telefonu, np. 605 126 918.',
+            askName: 'Dziękuję. Jak mogę się do Pana/Pani zwracać?',
+            askEmail: 'Czy chce Pan/Pani podać też adres e-mail? Jeśli nie, wystarczy kliknąć „Pomiń”.',
+            badEmail: 'Ten adres e-mail wygląda na niepoprawny. Proszę wpisać go ponownie albo kliknąć „Pomiń”.',
+            askConsent: 'Ostatnia rzecz: proszę jeszcze o zgodę na kontakt w sprawie zapytania i przetwarzanie podanych danych.',
+            privacy: 'Polityka prywatności', agree: 'Wyrażam zgodę', skip: 'Pomiń', cancel: 'Wróć do rozmowy',
+            noConsent: 'Rozumiem. Bez zgody nie mogę przekazać numeru, ale chętnie odpowiem na dalsze pytania.',
+            phPhone: 'Numer telefonu…', phName: 'Imię…', phEmail: 'Adres e-mail…',
+            sending: 'Przekazuję zgłoszenie…', retry: 'Spróbuj ponownie',
+            error: 'Nie udało się połączyć. Proszę zadzwonić: +48 605 126 918.',
         },
         de: {
             title: 'Zanders Atelier Berater', sub: 'Wir antworten sofort',
             hello: 'Guten Tag! Ich bin der Berater von Zanders Atelier. Gerne erzähle ich Ihnen von Möbeln nach Maß, Materialien und unserem kostenlosen Online-Termin mit 3D-Visualisierung. Wie kann ich helfen?',
-            placeholder: 'Nachricht schreiben…', send: 'Senden', close: 'Schließen', contact: 'Kontakt hinterlassen',
-            typing: 'Der Berater schreibt…', formTitle: 'Adam ruft Sie zurück',
-            name: 'Name', phone: 'Telefon', email: 'E-Mail (optional)', need: 'Wonach suchen Sie? (optional)',
-            consent: 'Ich willige ein, wegen meiner Anfrage kontaktiert zu werden, und in die Verarbeitung meiner Angaben.',
-            privacy: 'Datenschutzerklärung', submit: 'Anfrage senden', cancel: 'Zurück zum Chat',
-            sending: 'Wird gesendet…', missing: 'Bitte Name und Telefonnummer angeben und die Einwilligung bestätigen.',
-            error: 'Verbindung fehlgeschlagen. Bitte rufen Sie an: +49 15212403091.', reset: 'Neues Gespräch',
+            placeholder: 'Nachricht schreiben…', send: 'Senden', close: 'Schließen', contact: 'Rückruf von Adam anfordern',
+            typing: 'Der Berater schreibt…', reset: 'Neues Gespräch',
+            askPhone: 'Gerne gebe ich Ihr Anliegen an Adam weiter. Unter welcher Telefonnummer kann er Sie zurückrufen?',
+            badPhone: 'Diese Nummer scheint unvollständig zu sein. Bitte geben Sie Ihre Telefonnummer ein.',
+            askName: 'Vielen Dank. Wie darf ich Sie ansprechen?',
+            askEmail: 'Möchten Sie auch Ihre E-Mail-Adresse angeben? Wenn nicht, klicken Sie einfach auf „Überspringen“.',
+            badEmail: 'Diese E-Mail-Adresse scheint ungültig zu sein. Bitte erneut eingeben oder „Überspringen“ klicken.',
+            askConsent: 'Zum Schluss bitte ich noch um Ihre Einwilligung, wegen Ihrer Anfrage kontaktiert zu werden, und in die Verarbeitung Ihrer Angaben.',
+            privacy: 'Datenschutzerklärung', agree: 'Ich willige ein', skip: 'Überspringen', cancel: 'Zurück zum Gespräch',
+            noConsent: 'Verstanden. Ohne Einwilligung kann ich die Nummer nicht weitergeben, beantworte aber gerne weitere Fragen.',
+            phPhone: 'Telefonnummer…', phName: 'Name…', phEmail: 'E-Mail-Adresse…',
+            sending: 'Anfrage wird weitergeleitet…', retry: 'Erneut versuchen',
+            error: 'Verbindung fehlgeschlagen. Bitte rufen Sie an: +49 15212403091.',
         },
         en: {
             title: 'Zanders Atelier Consultant', sub: 'We reply instantly',
             hello: 'Hello! I am the Zanders Atelier consultant. I am happy to tell you about bespoke furniture, materials and our free online consultation with 3D visualisation. How can I help?',
-            placeholder: 'Type a message…', send: 'Send', close: 'Close', contact: 'Leave your contact',
-            typing: 'The consultant is typing…', formTitle: 'Adam will call you back',
-            name: 'Name', phone: 'Phone', email: 'Email (optional)', need: 'What are you looking for? (optional)',
-            consent: 'I agree to be contacted about my enquiry and to the processing of the data I provide.',
-            privacy: 'Privacy policy', submit: 'Send enquiry', cancel: 'Back to chat',
-            sending: 'Sending…', missing: 'Please enter your name and phone number and tick the consent box.',
-            error: 'Connection failed. Please call +48 605 126 918.', reset: 'New conversation',
+            placeholder: 'Type a message…', send: 'Send', close: 'Close', contact: 'Ask Adam to call me',
+            typing: 'The consultant is typing…', reset: 'New conversation',
+            askPhone: 'I will gladly pass this on to Adam. What phone number can he call you back on?',
+            badPhone: 'That number looks incomplete. Please enter your phone number.',
+            askName: 'Thank you. How may I address you?',
+            askEmail: 'Would you also like to leave your email address? If not, just click “Skip”.',
+            badEmail: 'That email address does not look right. Please type it again or click “Skip”.',
+            askConsent: 'One last thing: please confirm your consent to be contacted about your enquiry and to the processing of the data you provided.',
+            privacy: 'Privacy policy', agree: 'I agree', skip: 'Skip', cancel: 'Back to the conversation',
+            noConsent: 'Understood. Without your consent I cannot pass on your number, but I am happy to answer further questions.',
+            phPhone: 'Phone number…', phName: 'Your name…', phEmail: 'Email address…',
+            sending: 'Passing on your enquiry…', retry: 'Try again',
+            error: 'Connection failed. Please call +48 605 126 918.',
         },
     }[LANG];
 
@@ -69,38 +88,28 @@
             <button type="button" class="za-icon za-close" title="${esc(T.close)}" aria-label="${esc(T.close)}">✕</button>
         </div>
         <div class="za-log" aria-live="polite"></div>
-        <form class="za-form" hidden novalidate>
-            <div class="za-form-t">${esc(T.formTitle)}</div>
-            <input name="name" autocomplete="name" maxlength="80" placeholder="${esc(T.name)} *" required>
-            <input name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="${esc(T.phone)} *" required>
-            <input name="email" type="email" autocomplete="email" maxlength="120" placeholder="${esc(T.email)}">
-            <textarea name="need" rows="2" maxlength="1500" placeholder="${esc(T.need)}"></textarea>
-            <input name="website" class="za-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <label class="za-consent"><input type="checkbox" name="consent"> <span>${esc(T.consent)} <a href="polityka-prywatnosci.html#${LANG}" target="_blank" rel="noopener">${esc(T.privacy)}</a></span></label>
-            <div class="za-form-msg" role="alert"></div>
-            <div class="za-form-btns">
-                <button type="button" class="za-btn-ghost za-cancel">${esc(T.cancel)}</button>
-                <button type="submit" class="za-btn">${esc(T.submit)}</button>
-            </div>
-        </form>
         <div class="za-bottom">
             <button type="button" class="za-contact">📞 ${esc(T.contact)}</button>
             <div class="za-input">
                 <textarea rows="1" maxlength="1000" placeholder="${esc(T.placeholder)}" aria-label="${esc(T.placeholder)}"></textarea>
                 <button type="button" class="za-send" aria-label="${esc(T.send)}">➤</button>
             </div>
+            <input class="za-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         </div>`;
     document.body.appendChild(root);
 
     const log = root.querySelector('.za-log');
-    const form = root.querySelector('.za-form');
-    const bottom = root.querySelector('.za-bottom');
+    const inputRow = root.querySelector('.za-input');
+    const contactBtn = root.querySelector('.za-contact');
     const ta = root.querySelector('.za-input textarea');
     const sendBtn = root.querySelector('.za-send');
-    const formMsg = root.querySelector('.za-form-msg');
+    const hp = root.querySelector('.za-hp'); // pułapka na boty — człowiek jej nie widzi
     let busy = false;
-    let autoShown = false; // formularz sam wyskakuje najwyżej raz na rozmowę
-    const F = (n) => form.elements.namedItem(n);
+    let autoShown = false; // zbieranie kontaktu startuje samo najwyżej raz na rozmowę
+
+    // Zbieranie kontaktu: null = zwykła rozmowa z konsultantem.
+    let collect = null; // { step: 'phone'|'name'|'email'|'consent', phone, name, email }
+    let chipsEl = null;
 
     function bubble(role, text, extraClass) {
         const d = document.createElement('div');
@@ -110,8 +119,26 @@
         log.scrollTop = log.scrollHeight;
         return d;
     }
+    // Przyciski-odpowiedzi pod ostatnią wiadomością konsultanta.
+    function chips(list) {
+        if (chipsEl) chipsEl.remove();
+        chipsEl = null;
+        if (!list || !list.length) return;
+        chipsEl = document.createElement('div');
+        chipsEl.className = 'za-chips';
+        list.forEach(([label, fn, primary]) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = primary ? 'za-chip za-chip-main' : 'za-chip';
+            b.textContent = label;
+            b.addEventListener('click', fn);
+            chipsEl.appendChild(b);
+        });
+        log.appendChild(chipsEl);
+        log.scrollTop = log.scrollHeight;
+    }
     function render() {
-        root.appendChild(form); // formularz chwilowo poza rozmową — innerHTML go nie skasuje
+        chips(null);
         log.innerHTML = '';
         bubble('model', T.hello);
         msgs.forEach((m) => bubble(m.role, m.text));
@@ -120,28 +147,120 @@
         ta.style.height = 'auto';
         ta.style.height = Math.min(ta.scrollHeight, 120) + 'px';
     }
-
-    function showForm(on) {
-        form.hidden = !on;
-        bottom.hidden = on;
-        formMsg.textContent = '';
-        if (on) {
-            // formularz jako ostatni element rozmowy: odpowiedź konsultanta zostaje widoczna nad nim
-            log.appendChild(form);
-            log.scrollTop = Math.max(0, form.offsetTop - log.offsetTop - 140);
-            const need = msgs.filter((m) => m.role === 'user').map((m) => m.text).join('\n').slice(0, 1500);
-            if (!F('need').value) F('need').value = need;
-            setTimeout(() => F('name').focus(), 50);
-        } else setTimeout(() => ta.focus(), 50);
+    // Pole wpisywania dopasowane do kroku (telefon → klawiatura numeryczna itd.).
+    function setInput(kind) {
+        inputRow.hidden = kind === 'none';
+        contactBtn.hidden = kind !== 'chat' || sent;
+        if (kind === 'none') return; // krok zgody: tylko przyciski
+        const cfg = {
+            chat: [T.placeholder, 'text', 'off'],
+            phone: [T.phPhone, 'tel', 'tel'],
+            name: [T.phName, 'text', 'given-name'],
+            email: [T.phEmail, 'email', 'email'],
+        }[kind];
+        ta.placeholder = cfg[0];
+        ta.setAttribute('aria-label', cfg[0]);
+        ta.setAttribute('inputmode', cfg[1]);
+        ta.setAttribute('autocomplete', cfg[2]);
+        setTimeout(() => ta.focus(), 50);
     }
 
+    // --- zbieranie kontaktu rozmową ---
+    const cancelChip = () => [T.cancel, stopCollect];
+    function startCollect() {
+        if (collect || sent) return;
+        collect = { step: 'phone' };
+        bubble('model', T.askPhone);
+        chips([cancelChip()]);
+        setInput('phone');
+    }
+    function stopCollect() {
+        collect = null;
+        chips(null);
+        setInput('chat');
+    }
+    function askEmail() {
+        collect.step = 'email';
+        bubble('model', T.askEmail);
+        chips([[T.skip, () => { bubble('user', T.skip); askConsent(); }], cancelChip()]);
+        setInput('email');
+    }
+    function askConsent() {
+        collect.step = 'consent';
+        const d = bubble('model', T.askConsent);
+        d.insertAdjacentHTML('beforeend', ` <a href="polityka-prywatnosci.html#${LANG}" target="_blank" rel="noopener">${esc(T.privacy)}</a>`);
+        chips([
+            [T.agree, () => { bubble('user', T.agree); submitLead(); }, true],
+            [T.cancel, () => { bubble('model', T.noConsent); stopCollect(); }],
+        ]);
+        setInput('none');
+    }
+    function collectAnswer(text) {
+        chips(null);
+        bubble('user', text);
+        if (collect.step === 'phone') {
+            if (text.replace(/\D/g, '').length < 7) { bubble('model', T.badPhone); chips([cancelChip()]); return; }
+            collect.phone = text;
+            collect.step = 'name';
+            bubble('model', T.askName);
+            chips([cancelChip()]);
+            setInput('name');
+        } else if (collect.step === 'name') {
+            collect.name = text.slice(0, 80);
+            askEmail();
+        } else if (collect.step === 'email') {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)) {
+                bubble('model', T.badEmail);
+                chips([[T.skip, () => { bubble('user', T.skip); askConsent(); }], cancelChip()]);
+                return;
+            }
+            collect.email = text;
+            askConsent();
+        }
+    }
+    async function submitLead() {
+        chips(null);
+        const wait = bubble('model', T.sending, 'za-typing');
+        const need = msgs.filter((m) => m.role === 'user').map((m) => m.text).join('\n').slice(0, 1500);
+        try {
+            const r = await fetch(`${API}/lead`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    lang: LANG, name: collect.name, phone: collect.phone, email: collect.email || '',
+                    need, consent: true, website: hp.value, messages: msgs,
+                }),
+            });
+            const j = await r.json().catch(() => ({}));
+            wait.remove();
+            if (r.ok && j.ok) {
+                sent = true;
+                msgs.push({ role: 'model', text: j.message });
+                save();
+                bubble('model', j.message, 'za-ok');
+                collect = null;
+                setInput('chat');
+            } else {
+                bubble('model', (j && j.message) || T.error);
+                chips([[T.retry, submitLead, true], [T.cancel, stopCollect]]);
+            }
+        } catch (err) {
+            wait.remove();
+            bubble('model', T.error);
+            chips([[T.retry, submitLead, true], [T.cancel, stopCollect]]);
+        }
+    }
+
+    // --- zwykła rozmowa ---
     async function send() {
         const text = ta.value.trim();
         if (!text || busy) return;
-        busy = true;
-        sendBtn.disabled = true;
         ta.value = '';
         autoGrow();
+        if (collect) { collectAnswer(text.slice(0, 200)); return; }
+        busy = true;
+        sendBtn.disabled = true;
+        chips(null);
         msgs.push({ role: 'user', text: text.slice(0, 1000) });
         bubble('user', text);
         save();
@@ -158,7 +277,7 @@
             msgs.push({ role: 'model', text: reply });
             bubble('model', reply);
             save();
-            if (j && j.show_form && !sent && !autoShown) { autoShown = true; showForm(true); }
+            if (j && j.show_form && !sent && !autoShown) { autoShown = true; startCollect(); }
         } catch (e) {
             typing.remove();
             bubble('model', T.error);
@@ -168,48 +287,10 @@
         }
     }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = F('name').value.trim();
-        const phone = F('phone').value.trim();
-        if (!name || phone.replace(/\D/g, '').length < 7 || !F('consent').checked) {
-            formMsg.textContent = T.missing;
-            return;
-        }
-        const btn = form.querySelector('button[type=submit]');
-        btn.disabled = true;
-        btn.textContent = T.sending;
-        try {
-            const r = await fetch(`${API}/lead`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    lang: LANG, name, phone,
-                    email: F('email').value.trim(), need: F('need').value.trim(),
-                    consent: true, website: F('website').value, messages: msgs,
-                }),
-            });
-            const j = await r.json().catch(() => ({}));
-            if (r.ok && j.ok) {
-                sent = true;
-                msgs.push({ role: 'model', text: j.message });
-                save();
-                showForm(false);
-                bubble('model', j.message, 'za-ok');
-                form.reset();
-            } else formMsg.textContent = (j && j.message) || T.error;
-        } catch (err) {
-            formMsg.textContent = T.error;
-        } finally {
-            btn.disabled = false;
-            btn.textContent = T.submit;
-        }
-    });
-
     function open() {
         root.classList.add('za-open');
         document.documentElement.classList.add('za-chat-on');
-        if (!log.children.length) render();
+        if (!log.children.length) { render(); setInput('chat'); }
         setTimeout(() => ta.focus(), 150);
     }
     function close() {
@@ -219,10 +300,9 @@
 
     root.querySelector('.za-close').addEventListener('click', close);
     root.querySelector('.za-reset').addEventListener('click', () => {
-        msgs = []; sent = false; autoShown = false; save(); showForm(false); render();
+        msgs = []; sent = false; autoShown = false; collect = null; save(); render(); setInput('chat');
     });
-    root.querySelector('.za-contact').addEventListener('click', () => showForm(true));
-    root.querySelector('.za-cancel').addEventListener('click', () => showForm(false));
+    contactBtn.addEventListener('click', startCollect);
     sendBtn.addEventListener('click', send);
     ta.addEventListener('input', autoGrow);
     ta.addEventListener('keydown', (e) => {
