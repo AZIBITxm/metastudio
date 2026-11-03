@@ -34,48 +34,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Load the Biel AI widget -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.css" media="print" onload="this.media='all'">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.esm.js"></script>
+  <link rel="stylesheet" href="modale/konsultant.css?v=1">
 
-  <!-- Custom styles for Biel AI widget -->
+  <!-- Pływający przycisk konsultanta AI (okno: modale/konsultant.js) -->
   <style>
-    /* Hide original Biel button - move off screen instead of display:none */
-    biel-button {
-      position: fixed !important;
-      left: -9999px !important;
-      top: -9999px !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      z-index: -1 !important;
-    }
-
-    /* Keep button part visible for modal to work */
-    biel-button::part(button) {
-      visibility: hidden !important;
-      width: 1px !important;
-      height: 1px !important;
-    }
-
-    /* Ensure the entire biel-button widget is above the floating button */
-    biel-button {
-      z-index: 999999 !important;
-    }
-
-    /* Keep modal styling */
-    biel-button::part(modal) {
-      z-index: 999999 !important;
-      font-family: 'Cormorant Garamond', serif !important;
-    }
-
-    biel-button::part(header) {
-      background: linear-gradient(135deg, #edd2ad, #d4b58c) !important;
-      color: #1A1A1A !important;
-      border-bottom: 2px solid #B4943C !important;
-      font-family: 'Cormorant Garamond', serif !important;
-      font-weight: 700 !important;
-    }
-
     /* Custom consultant button */
     #custom-ai-button {
       position: fixed;
@@ -1910,16 +1872,6 @@
   <script src="modale/gallery-modal.js?v=20261103f"></script>
   <script src="modale/tiktok-modal.js?v=3.1"></script>
 
-  <!-- Add the Biel AI widget (hidden) -->
-  <biel-button
-      id="biel-ai-widget"
-      project="fcsmgx0n74"
-      header-title="Asystent AI"
-      button-position="bottom-right"
-      modal-position="sidebar-right"
-      button-style="dark">
-  </biel-button>
-
   <!-- Custom AI Consultant Button -->
   <div id="custom-ai-button" role="button" aria-label="Porozmawiaj z konsultantem AI" tabindex="0">
     <img src="multimedia/web/konsultant-240.webp" width="240" height="210"
@@ -1927,148 +1879,6 @@
         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 200%27%3E%3Ccircle cx=%27100%27 cy=%27100%27 r=%27100%27 fill=%27%23edd2ad%27/%3E%3Cpath d=%27M100 50c-16.5 0-30 13.5-30 30 0 16.5 13.5 30 30 30s30-13.5 30-30c0-16.5-13.5-30-30-30zm0 80c-27.6 0-50 11.2-50 25v15h100v-15c0-13.8-22.4-25-50-25z%27 fill=%27%231A1A1A%27/%3E%3C/svg%3E'">
   </div>
 
-  <script>
-        // Funkcja do otwarcia czatu AI
-        function openBielChat() {
-    var bielWidget = document.getElementById('biel-ai-widget');
-
-    if (!bielWidget) {
-        console.error('❌ Biel widget not found');
-        alert('Nie znaleziono asystenta AI. Proszę odświeżyć stronę.');
-        return;
-    }
-
-
-    // Znajdź przycisk <a> w shadow DOM
-    if (bielWidget.shadowRoot) {
-        const button = bielWidget.shadowRoot.querySelector('a.biel-button-content');
-
-        if (button) {
-
-            // Tymczasowo pokaż widget, aby kliknięcie zadziałało
-            bielWidget.style.opacity = '1';
-            bielWidget.style.pointerEvents = 'auto';
-            bielWidget.style.bottom = '30px';
-            bielWidget.style.right = '30px';
-
-            // Kliknij przycisk po krótkiej chwili
-            setTimeout(() => {
-                button.click();
-
-                // Ukryj widget z powrotem po kliknięciu
-                setTimeout(() => {
-                    bielWidget.style.opacity = '0';
-                    bielWidget.style.pointerEvents = 'none';
-                    bielWidget.style.bottom = '-200px';
-                    bielWidget.style.right = '-200px';
-                }, 100);
-            }, 50);
-        } else {
-            console.error('❌ No button found in shadow DOM');
-            alert('Nie można otworzyć czatu. Spróbuj odświeżyć stronę.');
-        }
-    } else {
-        console.error('❌ No shadow root');
-        alert('Widget AI nie załadował się poprawnie. Proszę odświeżyć stronę.');
-    }
-}
-
-    // Wait for web component to be fully loaded
-    function initCustomButton() {
-      const customButton = document.getElementById('custom-ai-button');
-
-      if (!customButton) {
-        console.error('Custom button not found');
-        return;
-      }
-
-      // Funkcja resetująca pozycję ikony
-      function resetButtonPosition() {
-        customButton.style.transition = 'bottom 0.3s';
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        if (isMobile) {
-          customButton.style.bottom = '20px'; // Powrót do oryginalnej pozycji mobile
-        } else {
-          customButton.style.bottom = '30px'; // Powrót do oryginalnej pozycji desktop
-        }
-      }
-
-      // Obserwuj zamknięcie modala
-      function observeModalClose() {
-        const bielWidget = document.getElementById('biel-ai-widget');
-        if (!bielWidget || !bielWidget.shadowRoot) {
-          console.warn('Cannot observe modal - widget or shadow root not found');
-          return;
-        }
-
-        // Obserwuj zmiany w shadow DOM
-        const observer = new MutationObserver(function(mutations) {
-          const modal = bielWidget.shadowRoot.querySelector('[part="modal"]');
-          if (modal) {
-            const isOpen = modal.hasAttribute('open') || modal.style.display !== 'none';
-            if (!isOpen) {
-              resetButtonPosition();
-            }
-          }
-        });
-
-        // Konfiguracja obserwatora
-        observer.observe(bielWidget.shadowRoot, {
-          attributes: true,
-          childList: true,
-          subtree: true,
-          attributeFilter: ['open', 'style']
-        });
-
-      }
-
-      // Click event
-      customButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Przesuń ikonę o 70px w górę
-                customButton.style.transition = 'bottom 0.3s';
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-                if (isMobile) {
-                    customButton.style.bottom = '90px'; // mobile: z 20px na 90px
-                } else {
-                    customButton.style.bottom = '100px'; // desktop: z 30px na 100px
-                }
-                openBielChat();
-                // Uruchom obserwator po otwarciu modala
-                setTimeout(observeModalClose, 500);
-      });
-
-      // Keyboard accessibility
-      customButton.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          customButton.style.transition = 'bottom 0.3s';
-          const isMobile = window.matchMedia('(max-width: 768px)').matches;
-          if (isMobile) {
-              customButton.style.bottom = '90px';
-          } else {
-              customButton.style.bottom = '100px';
-          }
-          openBielChat();
-          setTimeout(observeModalClose, 500);
-        }
-      });
-
-    }
-
-    // Wait for DOM and web components
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(initCustomButton, 1000); // Give web component time to load
-      });
-    } else {
-      setTimeout(initCustomButton, 1000);
-    }
-
-    // Also try on window load as backup
-    window.addEventListener('load', function() {
-      setTimeout(initCustomButton, 1500);
-    });
-  </script>
+  <script src="modale/konsultant.js?v=1"></script>
 </body>
 </html>
