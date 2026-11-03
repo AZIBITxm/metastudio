@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zanders Atelier - Luxury Interiors and Bespoke Furniture</title>
+  <meta name="description" content="Zanders Atelier — interior design and bespoke furniture for homes, restaurants and public spaces. A complete service from concept to completion, with a free online consultation and 3D visualisation.">
+  <link rel="canonical" href="https://zandersatelier.com/index-en.html">
+  <link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html">
+  <link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html">
+  <link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="logo/web/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1A1A1A">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zanders Atelier">
+  <meta property="og:title" content="Zanders Atelier - Luxury Interiors and Bespoke Furniture">
+  <meta property="og:description" content="Zanders Atelier — interior design and bespoke furniture for homes, restaurants and public spaces. A complete service from concept to completion, with a free online consultation and 3D visualisation.">
+  <meta property="og:url" content="https://zandersatelier.com/index-en.html">
+  <meta property="og:image" content="https://zandersatelier.com/tlo/web/og-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Zanders Atelier", "url": "https://zandersatelier.com/", "logo": "https://zandersatelier.com/logo/web/icon-512.png", "image": "https://zandersatelier.com/tlo/web/og-1200x630.jpg", "email": "zandersatelier@gmail.com", "telephone": ["+48605126918", "+4915212403091"], "address": {"@type": "PostalAddress", "streetAddress": "Staromiejska 17e", "postalCode": "84-300", "addressLocality": "Lębork", "addressCountry": "PL"}, "areaServed": ["PL", "DE"], "description": "Zanders Atelier — interior design and bespoke furniture for homes, restaurants and public spaces. A complete service from concept to completion, with a free online consultation and 3D visualisation."}</script>
+  <link rel="stylesheet" href="styles.css?v=20261103e">
+  <link rel="stylesheet" href="modale/gallery-modal.css">
+  <link rel="stylesheet" href="modale/tiktok-modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Load the Biel AI widget -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.css" media="print" onload="this.media='all'">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search/dist/biel-search/biel-search.esm.js"></script>
+
+  <!-- Custom styles for Biel AI widget -->
+  <style>
+    /* Hide original Biel button - move off screen instead of display:none */
+    biel-button {
+      position: fixed !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      z-index: -1 !important;
+    }
+
+    /* Keep button part visible for modal to work */
+    biel-button::part(button) {
+      visibility: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+    }
+
+    /* Ensure the entire biel-button widget is above the floating button */
+    biel-button {
+      z-index: 999999 !important;
+    }
+
+    /* Keep modal styling */
+    biel-button::part(modal) {
+      z-index: 999999 !important;
+      font-family: 'Cormorant Garamond', serif !important;
+    }
+
+    biel-button::part(header) {
+      background: linear-gradient(135deg, #edd2ad, #d4b58c) !important;
+      color: #1A1A1A !important;
+      border-bottom: 2px solid #B4943C !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* Custom consultant button */
+    #custom-ai-button {
+      position: fixed;
+    bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #edd2ad, #d4b58c);
+      border: 3px solid #B4943C;
+      box-shadow: 0 4px 15px rgba(212, 181, 140, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 99998;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #custom-ai-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent);
+      pointer-events: none;
+    }
+
+    #custom-ai-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    #custom-ai-button:hover {
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 8px 30px rgba(212, 181, 140, 0.7), 0 6px 15px rgba(0, 0, 0, 0.4);
+      border-color: #edd2ad;
+      animation: none;
+    }
+
+
+    @keyframes float-pulse {
+      0%, 90% {
+        transform: translateY(0px);
+      }
+      92% {
+        transform: translateY(-10px);
+      }
+      94% {
+        transform: translateY(0px);
+      }
+      96% {
+        transform: translateY(-8px);
+      }
+      98%, 100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #custom-ai-button {
+        width: 60px;
+        height: 60px;
+    bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">
+        <img src="logo/web/zanders-logo-300.webp" width="300" height="300" alt="Zanders Atelier Logo" class="brand-logo">
+    </div>
+    <img src="logo/web/zanders-napis-800.webp" srcset="logo/web/zanders-napis-400.webp 400w, logo/web/zanders-napis-800.webp 800w" sizes="240px" width="800" height="126" alt="Zanders Atelier — furniture workshop" class="brand-napis">
+    <div class="menu-container">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-dropdown">
+            <a href="#foundation-support">Support</a>
+            <a href="#promotions">Promotions</a>
+            <a href="#about">About Us</a>
+            <a href="#realizations">Our Projects</a>
+            <a href="#project">Material Categories</a>
+            <a href="#" onclick="openTikTokModal(); return false;">📱 TikTok</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+  </nav>
+  <header style="padding-top:80px; margin:0; background:none; min-height:0; height:auto;">
+    <picture>
+      <source media="(max-width: 480px)" srcset="tlo/web/banerm.webp" width="628" height="1178">
+      <img src="tlo/web/baner1-1920.webp" srcset="tlo/web/baner1-1280.webp 1280w, tlo/web/baner1-1920.webp 1920w, tlo/web/baner1-2880.webp 2880w" sizes="100vw" width="1920" height="893" fetchpriority="high" alt="Zanders Atelier — bespoke furniture" style="width:100%; display:block; height:auto; margin:0; padding:0;"/>
+    </picture>
+</header>
+
+    <!-- Baner przewijany -->
+    <div class="scroll-banner">
+        <div class="mq" data-speed="82"><span class="mq-track">DISCOVER OUR LATEST CATALOGUE &nbsp; • &nbsp; DISCOVER OUR LATEST CATALOGUE &nbsp; • &nbsp; DISCOVER OUR LATEST CATALOGUE</span></div>
+    </div>
+
+  <section id="promotions">
+    <h2>Current Promotions</h2>
+    <div class="content">
+        <div class="promo-grid">
+            <div class="promo-item promo-collection">
+                <h3>Zanders Atelier Collection 2025 - 2026</h3>
+                <p>Discover our collection for the coming year.<br>
+                <span style="color: var(--color-primary);">New catalogue available from 01.11.2025</span></p>
+                <a href="#" class="btn-gold">Offer details</a>
+            </div>
+            <div class="promo-item">
+                <h3>Solutions for Your Comfort</h3>
+                <p>Explore the latest technological solutions we can bring into your home.</p>
+                <a href="#tiktok" class="btn-gold" id="tiktok-banner-btn">Learn more</a>
+            </div>
+        </div>
+    </div>
+  </section>
+  <section id="about">
+    <div class="mobile-about-labels">
+            <div class="mobile-about-group">
+                <div class="mobile-title">About Us</div>
+                <div class="mobile-separator">→</div>
+                <div class="mobile-expand">
+                    <span>E</span>
+                    <span>X</span>
+                    <span>P</span>
+                    <span>A</span>
+                    <span>N</span>
+                    <span>D</span>
+                </div>
+            </div>
+    </div>
+    
+    <!-- Strzałka w banerze obrazu - widoczna po rozwinięciu -->
+    <div class="banner-collapse-arrow">
+        <span>←</span>
+    </div>
+    
+    <h2>About Us</h2>
+    <div class="about-content">
+        <p class="about-intro">
+            <span class="highlight">Zanders Atelier</span> is a team of professionals with more than ten years of experience in interior design and furniture making, delivering exceptional solutions across Poland and Western Europe. Our long-standing expertise allows us to offer the highest quality of service and turn our clients’ dreams of unique, functional spaces into reality.
+        </p>
+        
+        <p class="about-details">
+            We specialise in built-in furniture for homes, restaurants and public buildings, offering <span class="highlight">a complete service, from concept to completion</span>.
+        </p>
+        
+        <p class="about-philosophy">
+            "Furniture is not just an object, it's part of your life."
+        </p>
+        
+        <p class="about-details">
+            Our philosophy is rooted in the belief that furniture is not merely an object but an essential part of your life. That is why every design is created around your needs, comfort and style. We combine modern technology with elegance and functionality to deliver solutions that fully meet your expectations.
+        </p>
+        
+        <p class="about-details">
+            We approach every project individually, with full commitment and passion. We offer a <span class="highlight">free online consultation</span>, during which you can see a visualisation of your dream furniture and explore your room in 3D.
+        </p>
+        
+        <p class="about-details">
+            Thanks to <span class="highlight">modern furniture-making technology</span> and attention to every detail, we deliver products of the highest quality that delight our clients with innovative solutions.
+        </p>
+    </div>
+</section>
+  <section id="realizations">
+    <div class="realizations-header">
+        <h2>Our Projects</h2>
+        <p class="realizations-description">
+            We present a selection of projects from our portfolio. These are authentic photographs taken immediately after completion at our clients’ premises. They are not showrooms or exhibitions, but real residential and commercial interiors — with no retouching or studio styling.
+        </p>
+        <button id="showAllGalleryBtn" class="show-all-btn">
+            <span class="btn-arrow-left">↓</span>
+            <span class="btn-text">SHOW MORE</span>
+            <span class="btn-arrow">↓</span>
+        </button>
+    </div>
+    <div class="gallery">
+        <!-- REALIZACJE:START -->
+        <div class="gallery-item main-gallery-item" data-gallery="1">
+            <img src="galeria/1/web/1-1280.webp" srcset="galeria/1/web/1-640.webp 640w, galeria/1/web/1-1280.webp 1024w" sizes="(max-width: 768px) 100vw, 33vw" width="1024" height="682" loading="lazy" decoding="async" alt="SEASIDE APARTMENT" />
+            <div class="gallery-item-info">
+                <h3>SEASIDE APARTMENT</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item main-gallery-item" data-gallery="2">
+            <img src="galeria/2/web/1-1280.webp" srcset="galeria/2/web/1-640.webp 467w, galeria/2/web/1-1280.webp 933w, galeria/2/web/1-2048.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" width="933" height="1280" loading="lazy" decoding="async" alt="LOFT-STYLE APARTMENT WITH STAIRCASE CABINETRY" />
+            <div class="gallery-item-info">
+                <h3>LOFT-STYLE APARTMENT WITH STAIRCASE CABINETRY</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item main-gallery-item" data-gallery="3">
+            <img src="galeria/3/web/1-1280.webp" srcset="galeria/3/web/1-640.webp 360w, galeria/3/web/1-1280.webp 720w, galeria/3/web/1-2048.webp 1152w" sizes="(max-width: 768px) 100vw, 33vw" width="720" height="1280" loading="lazy" decoding="async" alt="BUILT-IN WARDROBE WITH CITYSCAPE IN THE ATTIC" />
+            <div class="gallery-item-info">
+                <h3>BUILT-IN WARDROBE WITH CITYSCAPE IN THE ATTIC</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item main-gallery-item" data-gallery="4">
+            <img src="galeria/4/web/1-1280.webp" srcset="galeria/4/web/1-640.webp 360w, galeria/4/web/1-1280.webp 721w, galeria/4/web/1-2048.webp 1153w" sizes="(max-width: 768px) 100vw, 33vw" width="721" height="1280" loading="lazy" decoding="async" alt="INTERIOR OF AN INDUSTRIAL-STYLE PIZZERIA" />
+            <div class="gallery-item-info">
+                <h3>INTERIOR OF AN INDUSTRIAL-STYLE PIZZERIA</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="5" style="display: none;">
+            <img src="galeria/5/web/1-1280.webp" srcset="galeria/5/web/1-640.webp 640w, galeria/5/web/1-1280.webp 1280w, galeria/5/web/1-2048.webp 1500w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="922" loading="lazy" decoding="async" alt="ELEGANCE IN MODERN CLASSIC STYLE" />
+            <div class="gallery-item-info">
+                <h3>ELEGANCE IN MODERN CLASSIC STYLE</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="6" style="display: none;">
+            <img src="galeria/6/web/1-1280.webp" srcset="galeria/6/web/1-640.webp 640w, galeria/6/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="932" loading="lazy" decoding="async" alt="TWO-LEVEL APARTMENT WITH A PLAY OF TEXTURES" />
+            <div class="gallery-item-info">
+                <h3>TWO-LEVEL APARTMENT WITH A PLAY OF TEXTURES</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="7" style="display: none;">
+            <img src="galeria/7/web/1-1280.webp" srcset="galeria/7/web/1-640.webp 640w, galeria/7/web/1-1280.webp 1280w, galeria/7/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="598" loading="lazy" decoding="async" alt="A SPACE IN WHITE AND GRAPHITE" />
+            <div class="gallery-item-info">
+                <h3>A SPACE IN WHITE AND GRAPHITE</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="8" style="display: none;">
+            <img src="galeria/8/web/1-1280.webp" srcset="galeria/8/web/1-640.webp 640w, galeria/8/web/1-1280.webp 1280w, galeria/8/web/1-2048.webp 1920w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="720" loading="lazy" decoding="async" alt="LUXURIOUS SEASIDE APARTMENT" />
+            <div class="gallery-item-info">
+                <h3>LUXURIOUS SEASIDE APARTMENT</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="9" style="display: none;">
+            <img src="galeria/9/web/1-1280.webp" srcset="galeria/9/web/1-640.webp 640w, galeria/9/web/1-1280.webp 1280w, galeria/9/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="720" loading="lazy" decoding="async" alt="WHITE IN A WARM EDITION" />
+            <div class="gallery-item-info">
+                <h3>WHITE IN A WARM EDITION</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="10" style="display: none;">
+            <img src="galeria/10/web/1-1280.webp" srcset="galeria/10/web/1-640.webp 640w, galeria/10/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="721" loading="lazy" decoding="async" alt="FUNCTIONAL STUDIO APARTMENT FOR RENT" />
+            <div class="gallery-item-info">
+                <h3>FUNCTIONAL STUDIO APARTMENT FOR RENT</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="11" style="display: none;">
+            <img src="galeria/11/web/1-1280.webp" srcset="galeria/11/web/1-640.webp 640w, galeria/11/web/1-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="721" loading="lazy" decoding="async" alt="MODERN APARTMENT WITH A HIDDEN CLOSET" />
+            <div class="gallery-item-info">
+                <h3>MODERN APARTMENT WITH A HIDDEN CLOSET</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="12" style="display: none;">
+            <img src="galeria/12/web/1-1280.webp" srcset="galeria/12/web/1-640.webp 360w, galeria/12/web/1-1280.webp 720w, galeria/12/web/1-2048.webp 747w" sizes="(max-width: 768px) 100vw, 33vw" width="720" height="1280" loading="lazy" decoding="async" alt="MINIMALIST KITCHEN WITH A LINE OF LIGHT" />
+            <div class="gallery-item-info">
+                <h3>MINIMALIST KITCHEN WITH A LINE OF LIGHT</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="13" style="display: none;">
+            <img src="galeria/13/web/1-1280.webp" srcset="galeria/13/web/1-640.webp 640w, galeria/13/web/1-1280.webp 1280w, galeria/13/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="849" loading="lazy" decoding="async" alt="CITY BOX RESTAURANT" />
+            <div class="gallery-item-info">
+                <h3>CITY BOX RESTAURANT</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item extended-gallery-item" data-gallery="14" style="display: none;">
+            <img src="galeria/14/web/1-1280.webp" srcset="galeria/14/web/1-640.webp 640w, galeria/14/web/1-1280.webp 1280w, galeria/14/web/1-2048.webp 2048w" sizes="(max-width: 768px) 100vw, 33vw" width="1280" height="622" loading="lazy" decoding="async" alt="MODERN KITCHEN WITH A GRAPHIC CONTRAST" />
+            <div class="gallery-item-info">
+                <h3>MODERN KITCHEN WITH A GRAPHIC CONTRAST</h3>
+                <div class="gallery-cta">
+                    <span class="cta-text">VIEW </span>
+                    <span class="cta-icon">→</span>
+                </div>
+            </div>
+        </div>
+        <!-- REALIZACJE:END -->
+    </div>
+</section>
+
+  <section id="project">
+    <h2>Material Categories</h2>
+    <div class="content">
+        <div class="materials-logos">
+            <div class="material-logo" data-material="plyty-meblowe">
+                <span class="material-title">Furniture Boards</span>
+                <div class="sub-banners">
+                    <div class="sub-banner" data-material="plyty-laminowane">
+                        <span class="sub-banner-title">Laminated Boards</span>
+                    </div>
+                    <div class="sub-banner" data-material="plyty-hdf">
+                        <span class="sub-banner-title">HDF Boards</span>
+                    </div>
+                    <div class="sub-banner" data-material="producenci-plyt">
+                        <span class="sub-banner-title">Board Manufacturers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="material-logo" data-material="fronty-meblowe">
+                <span class="material-title">Furniture Fronts</span>
+                <div class="sub-banners">
+                    <div class="sub-banner" data-material="wykonczenia-artystyczne">
+                        <span class="sub-banner-title">Artistic Finishes ⭐ New</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-akrylowe">
+                        <span class="sub-banner-title">Acrylic Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-lakierowane">
+                        <span class="sub-banner-title">Lacquered Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-fornirowane">
+                        <span class="sub-banner-title">Veneered Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-drewniane">
+                        <span class="sub-banner-title">Solid Wood Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-szklane">
+                        <span class="sub-banner-title">Glass Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-giete">
+                        <span class="sub-banner-title">Curved Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-frezowane">
+                        <span class="sub-banner-title">Milled Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-frezowane-laminowane">
+                        <span class="sub-banner-title">Milled Laminated Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="fronty-frezowane-lakierowane">
+                        <span class="sub-banner-title">Milled Lacquered Fronts</span>
+                    </div>
+                    <div class="sub-banner" data-material="sztukateria">
+                        <span class="sub-banner-title">Mouldings</span>
+                    </div>
+                </div>
+            </div>
+            <div class="material-logo" data-material="blaty">
+                <span class="material-title">Worktops</span>
+                <div class="sub-banners">
+                    <div class="sub-banner" data-material="blaty-laminowane">
+                        <span class="sub-banner-title">Laminate Worktops</span>
+                    </div>
+                    <div class="sub-banner" data-material="blaty-spieki-kwarcowe">
+                        <span class="sub-banner-title">Sintered Quartz Worktops</span>
+                    </div>
+                    <div class="sub-banner" data-material="blaty-zywica-epoksydowa">
+                        <span class="sub-banner-title">Epoxy Resin Worktops - Artistic</span>
+                    </div>
+                    <div class="sub-banner" data-material="blaty-drewniane">
+                        <span class="sub-banner-title">Wooden Worktops</span>
+                    </div>
+                    <div class="sub-banner" data-material="blaty-kamienne">
+                        <span class="sub-banner-title">Stone Worktops (Granite, Marble)</span>
+                    </div>
+                    <div class="sub-banner" data-material="blaty-solid-surface">
+                        <span class="sub-banner-title">Solid Surface Worktops (e.g. Corian, Hi-Macs, Staron)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="materials-info">
+            <div class="material-info" id="plyty-meblowe-info">
+                <div class="material-image">
+                    <img src="materiały/fronty/web/płyty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Furniture Boards" />
+                </div>
+                <div class="material-content">
+                    <h3>Furniture Boards</h3>
+                    <p>Versatile composite materials from leading European manufacturers such as Pfleiderer, Swiss Krono, Kronospan and Egger. We offer laminated boards with high resistance to scratches, moisture and heat, as well as high-density HDF boards with a smooth surface ideal for further finishing. Every board guarantees dimensional stability and long-lasting functionality.</p>
+                </div>
+            </div>
+            <div class="material-info" id="plyty-laminowane-info" style="display: none;">
+                <div class="material-image">
+                    <img src="materiały/fronty/web/płyty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Laminated Boards" />
+                </div>
+                <div class="material-content">
+                    <h3>Laminated Boards</h3>
+                    <p>Laminated boards are versatile composite materials consisting of a core board (chipboard or MDF) covered on both sides with a decorative melamine laminate. They are highly resistant to scratches, moisture and high temperatures. Thanks to the latest production technology they are more durable than lacquered boards and are ideal for kitchen and bathroom furniture.</p>
+                    <p><strong>Properties:</strong></p>
+                    <ul>
+                        <li>Standard thickness: 18mm (also available: 10mm, 12mm, 16mm, 22mm, 25mm, 28mm)</li>
+                        <li>Standard format: 2800 x 2070mm or 2750 x 2100mm</li>
+                        <li>Resistant to scratches and chipping</li>
+                        <li>Easy to keep clean</li>
+                        <li>Wide range of decors and textures</li>
+                    </ul>
+                    <p><strong>Applications:</strong></p>
+                    <ul>
+                        <li>✅ Kitchen furniture carcasses and fronts</li>
+                        <li>✅ Bathroom furniture (using boards with increased moisture resistance)</li>
+                        <li>✅ Wardrobes, walk-in closets and bedroom furniture</li>
+                        <li>✅ Office furniture (desks, pedestals, shelving)</li>
+                        <li>✅ Children's and youth furniture</li>
+                        <li>✅ Built-in alcoves and wall panels</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="plyty-hdf-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>HDF Boards (High-Density Fibreboard)</h3>
+                        <p>A high-density fibreboard made from wood fibres pressed under very high pressure and temperature. Thanks to its compact structure it is considerably harder and more resistant to bending than standard MDF.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Smooth surface ideal for lacquering and veneering</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Właściwości techniczne -->
+                    <div class="material-module technical-specs">
+                        <h4>📐 Technical Specification</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Standard thickness:</strong>
+                                <span>3mm, 4mm, 5mm</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Density:</strong>
+                                <span>Over 800 kg/m³</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Surface:</strong>
+                                <span>Smooth and uniform</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Features:</strong>
+                                <span>High hardness, dimensional stability, good acoustic insulation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Structural Elements</h5>
+                                <ul>
+                                    <li>✅ Furniture backs (wardrobe and shelving back panels)</li>
+                                    <li>✅ Drawer bottoms</li>
+                                    <li>✅ Upholstered furniture components</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Finishing & Decoration</h5>
+                                <ul>
+                                    <li>✅ Interior door panels</li>
+                                    <li>✅ Underlay for floor panels</li>
+                                    <li>✅ Decorative elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Special applications:</span>
+                            <span>Small wooden goods • Precision components • Structural underlays</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="producenci-plyt-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>👑 Furniture Board Manufacturers</h3>
+                        <p>We use materials from leading European manufacturers who guarantee the highest quality and innovation. Each manufacturer offers unique decor collections and the latest technologies in the wood-based materials industry.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">We work only with certified industry leaders</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Lista producentów z rozwijanymi szczegółami -->
+                    <div class="material-module producers-list">
+                        <!-- Pfleiderer -->
+                        <div class="producer-item">
+                            <div class="producer-header" onclick="toggleProducerDetails('pfleiderer')">
+                                <h5>Pfleiderer</h5>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="producer-details" id="pfleiderer-details" style="display: none;">
+                                <ul>
+                                    <li>✅ Over 270 decors in the latest collection</li>
+                                    <li>✅ Production plants in Germany and Poland</li>
+                                    <li>✅ 79 new products and 27 different surface textures</li>
+                                    <li>✅ German leader in wood-based materials</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Swiss Krono -->
+                        <div class="producer-item">
+                            <div class="producer-header" onclick="toggleProducerDetails('swiss-krono')">
+                                <h5>Swiss Krono</h5>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="producer-details" id="swiss-krono-details" style="display: none;">
+                                <ul>
+                                    <li>✅ Over 259 decors on offer</li>
+                                    <li>✅ Production plant in Poland (Żary, Lubusz Voivodeship)</li>
+                                    <li>✅ Premium "ONE World" collection</li>
+                                    <li>✅ Swiss company with a unique colour palette</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Kronospan -->
+                        <div class="producer-item">
+                            <div class="producer-header" onclick="toggleProducerDetails('kronospan')">
+                                <h5>Kronospan</h5>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="producer-details" id="kronospan-details" style="display: none;">
+                                <ul>
+                                    <li>✅ "Color" collection with 66 designs</li>
+                                    <li>✅ Production plants worldwide</li>
+                                    <li>✅ "Origin Stories 2023-2027" collection</li>
+                                    <li>✅ Austrian giant of the wood industry</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Egger -->
+                        <div class="producer-item">
+                            <div class="producer-header" onclick="toggleProducerDetails('egger')">
+                                <h5>Egger</h5>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="producer-details" id="egger-details" style="display: none;">
+                                <ul>
+                                    <li>✅ Over 300 decor and texture combinations</li>
+                                    <li>✅ Production plant in Poland (Biskupiec)</li>
+                                    <li>✅ 201 matching decors across different materials</li>
+                                    <li>✅ Mobile app with a decor catalogue</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-meblowe-info">
+                <div class="material-image">
+                    <img src="materiały/fronty/web/fronty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Furniture Fronts" />
+                </div>
+                <div class="material-content">
+                    <h3>Furniture Fronts</h3>
+                    <p>The finishing elements of cabinets and furniture that define their appearance and functionality. We offer a full range of solutions: acrylic fronts with exceptional resistance to mechanical damage, lacquered fronts with fully customisable colours, veneered fronts combining the beauty of natural wood with stability, solid wood fronts, glass fronts with aluminium frames, curved fronts with rounded edges and milled fronts with precise patterns. Every front is tailored to the specific requirements of each room.</p>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-info">
+                <div class="material-image">
+                    <img src="materiały/fronty/web/blaty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Worktops" />
+                </div>
+                <div class="material-content">
+                    <h3>Worktops</h3>
+                    <p>Functional work surfaces that are also a key decorative element giving character to the entire interior. We offer laminate worktops with high-pressure HPL laminate imitating the texture of wood, stone or concrete, exceptionally hard sintered quartz made of 90-95% natural quartzite, artistic epoxy resin worktops with unlimited customisation options, solid wood worktops creating a warm atmosphere, luxurious granite and marble worktops and innovative Solid Surface worktops allowing seamless joints. Every material guarantees durability, easy maintenance and an outstanding visual effect.</p>
+                </div>
+            </div>
+            <!-- Nowe podbanery info -->
+            <div class="material-info" id="fronty-akrylowe-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Acrylic Fronts</h3>
+                        <p>MDF board covered with a high-quality acrylic sheet (approx. 0.7-1mm thick) on one side and a balancing sheet on the other. The acrylic coating provides exceptional resistance to mechanical damage, scratches and UV radiation.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Ideal for kitchens and bathrooms with high humidity</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Właściwości techniczne -->
+                    <div class="material-module technical-specs">
+                        <h4>🔧 Edge Types</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Polyurethane-laminated:</strong>
+                                <span>Traditional, economical</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Laser edging:</strong>
+                                <span>Seamless, aesthetic and fully protected against moisture</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Resistance:</strong>
+                                <span>Scratches, UV rays, moisture</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Sheet thickness:</strong>
+                                <span>0.7-1mm acrylic</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 4: Trendy i Innowacje -->
+                    <div class="material-module technical-specs">
+                        <h4>🚀 Trends and Innovations</h4>
+                        
+                        <h5>🔬 Nanotechnology:</h5>
+                        <ul>
+                            <li><strong>Self-healing coatings</strong> - minor scratches disappear under heat</li>
+                            <li><strong>Anti-fingerprint effect</strong> - surfaces stay clean for longer, free of fingerprints</li>
+                            <li><strong>Antibacterial coatings</strong> - eliminate 99.9% of bacteria, ideal for kitchens and bathrooms</li>
+                        </ul>
+                        
+                        <h5>🎨 Colour trends:</h5>
+                        <ul>
+                            <li><strong>Earth tones</strong> - shades of terracotta, ochre, sage and beige</li>
+                            <li><strong>Deep mattes</strong> - velvety finishes in dark colours (navy, graphite)</li>
+                            <li><strong>Metallic accents</strong> - decors imitating brass, copper or titanium</li>
+                        </ul>
+                        
+                        <h5>🏗️ New textures:</h5>
+                        <ul>
+                            <li><strong>Concrete textures</strong> - the raw, industrial character of microcement</li>
+                            <li><strong>Stone patterns</strong> - realistic imitations of marble, granite and travertine</li>
+                            <li><strong>Fabric effects</strong> - surfaces resembling linen, jute or velvet</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Moduł 5: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Humid Rooms</h5>
+                                <ul>
+                                    <li>✅ Kitchens (especially around sinks)</li>
+                                    <li>✅ Bathrooms</li>
+                                    <li>✅ Rooms with high humidity</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Special Applications</h5>
+                                <ul>
+                                    <li>✅ Areas exposed to heavy use</li>
+                                    <li>✅ Surfaces requiring frequent cleaning</li>
+                                    <li>✅ Fronts with high aesthetic requirements</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Nanotechnology:</span>
+                            <span><br>Self-healing coatings<br>
+                                  Anti-fingerprint effect<br>
+                                  Antibacterial coatings<br>
+                                  Eliminates 99.9% of bacteria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-lakierowane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Lacquered Fronts</h3>
+                        <p>Made of MDF board coated with several layers of polyurethane lacquer. The board is first sanded, cleaned, coated with a primer and then with a top coat.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Fully customisable colours from the RAL and NCS palettes</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Rodzaje lakierów -->
+                    <div class="material-module technical-specs">
+                        <h4>🎨 Types of Lacquer</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Matt:</strong>
+                                <span>Elegant, does not show fingerprints</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Semi-matt:</strong>
+                                <span>Versatile, easy to clean</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Gloss:</strong>
+                                <span>Striking, makes the space look larger</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>High gloss:</strong>
+                                <span>The most durable and most striking</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Dry Rooms</h5>
+                                <ul>
+                                    <li>✅ Living rooms and bedrooms</li>
+                                    <li>✅ Rooms with low humidity</li>
+                                    <li>✅ Kitchens (with appropriate protection)</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Limitations</h5>
+                                <ul>
+                                    <li>⚠️ Require gentle care</li>
+                                    <li>⚠️ Prone to scratches (depending on type)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Customisation:</span>
+                            <span>RAL palettes • NCS palettes • Lacquer manufacturers' colour charts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-fornirowane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Veneered Fronts</h3>
+                        <p>The perfect combination of the authentic beauty of natural wood with the functionality and stability of modern furniture boards. They consist of a core board covered with a thin layer of real wood (0.6-3mm veneer).</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">The look of solid wood at an attractive price</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Rodzaje fornirów -->
+                    <div class="material-module technical-specs">
+                        <h4>🌳 Types of Veneer</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>European:</strong>
+                                <span>Oak, Ash, European Walnut, Beech, Maple, Cherry, Alder</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Exotic:</strong>
+                                <span>American Walnut, Teak, Rosewood, Wenge, Zebrano, Ebony</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Veneer thickness:</strong>
+                                <span>0.6-3mm</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Core boards:</strong>
+                                <span>MDF, chipboard, plywood</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Ideal Rooms</h5>
+                                <ul>
+                                    <li>✅ Living rooms, bedrooms (elegant finish)</li>
+                                    <li>✅ Studies, libraries (prestigious look)</li>
+                                    <li>✅ Kitchens (with a protective lacquer)</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Advantages</h5>
+                                <ul>
+                                    <li>✅ Unique grain pattern</li>
+                                    <li>✅ Surfaces can be curved</li>
+                                    <li>✅ Dimensional stability</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Finish:</span>
+                            <span><br>Lacquer (matt, semi-matt, gloss) • Oil • Wax</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-drewniane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Solid Wood Fronts</h3>
+                        <p>Solid natural wood fronts made to the client's individual needs. Each wood species has unique properties and a distinctive look, creating one-of-a-kind furniture with a natural character.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">We make lacquered and veneered wooden fronts ourselves</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Rodzaje drewna -->
+                    <div class="material-module technical-specs">
+                        <h4>🌳 Wood Species</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Oak:</strong>
+                                <span>Very hard, moisture-resistant, pronounced grain</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Ash:</strong>
+                                <span>Hard, flexible, contrasting grain pattern</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Walnut:</strong>
+                                <span>Noble, dark grain in shades of brown</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Beech:</strong>
+                                <span>Hard, durable, light fine grain</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>By Species</h5>
+                                <ul>
+                                    <li>✅ Oak: Kitchens, bathrooms, prestigious furniture</li>
+                                    <li>✅ Ash: Modern furniture, curved elements</li>
+                                    <li>✅ Walnut: Luxury furniture, studies, libraries</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Finishes</h5>
+                                <ul>
+                                    <li>✅ Lacquer (matt, gloss)</li>
+                                    <li>✅ Oil enhancing the natural colour</li>
+                                    <li>✅ Natural wax</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Process:</span>
+                            <span><br>Drying → Impregnation → Sanding → Lacquering/Oiling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-szklane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Glass Fronts</h3>
+                        <p>Aluminium frames with glass inserts. A modern solution allowing customisation with different types of glass and graphics. Ideal for creating modern, minimalist interiors.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Custom patterns and company prints available</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Rodzaje ramek i szkła -->
+                    <div class="material-module technical-specs">
+                        <h4>🔧 Frames and Glass</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>A11 profile:</strong>
+                                <span>Classic, matt</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>A21 profile:</strong>
+                                <span>Modern, wider</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Frame finishes:</strong>
+                                <span>Natural anodised, stainless steel</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Glass types:</strong>
+                                <span>Clear, smoked, patterned, lacquered</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Glass Types</h5>
+                                <ul>
+                                    <li>✅ Clear transparent</li>
+                                    <li>✅ Smoked/graphite</li>
+                                    <li>✅ Patterned</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Customisation</h5>
+                                <ul>
+                                    <li>✅ Lacquered glass</li>
+                                    <li>✅ Company prints</li>
+                                    <li>✅ Decorative graphics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Ideal for:</span>
+                            <span><br>Modern kitchens <br>• Offices <br>• Showrooms <br>• Minimalist spaces</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-giete-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Curved Fronts</h3>
+                        <p>Fronts with rounded edges or surfaces giving furniture a soft, elegant look. Produced by hot bending from various materials, depending on the requirements of the project.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Ideal for corner cabinets and arched elements</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Materiały -->
+                    <div class="material-module technical-specs">
+                        <h4>🔧 Materials and Finishes</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>MDF board:</strong>
+                                <span>The basic material for bending</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Flexible plywood:</strong>
+                                <span>For more demanding shapes</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Solid wood:</strong>
+                                <span>For demanding premium projects</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Finishes:</strong>
+                                <span>Lacquer, veneer, foil, patina</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Applications</h5>
+                                <ul>
+                                    <li>✅ Corner cabinets</li>
+                                    <li>✅ Arched elements</li>
+                                    <li>✅ Modern kitchens</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Finishes</h5>
+                                <ul>
+                                    <li>✅ Lacquer (matt, gloss)</li>
+                                    <li>✅ Natural veneer</li>
+                                    <li>✅ Patina (ageing effects)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Speciality:</span>
+                            <span><br>Unusual shapes<br>
+                                  Rounded forms<br>
+                                  Artistic elements<br>
+                                  Bespoke projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-frezowane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Milled Fronts</h3>
+                        <p>Fronts with precisely milled grooves forming decorative patterns, handles or grips integrated into the front surface. Available in two main variants: laminated and lacquered.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">We work with leading Polish front manufacturers</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Producenci -->
+                    <div class="material-module technical-specs">
+                        <h4>👑 Manufacturers</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Wiech:</strong>
+                                <span>One of the market leaders, with a rich collection of designs</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Frontpol:</strong>
+                                <span>Many years of experience, precise workmanship</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Designs:</strong>
+                                <span>From classic to modern</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Availability:</strong>
+                                <span>A wide range of models and pattern samples</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Types of Milled Fronts</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Milled Laminated</h5>
+                                <ul>
+                                    <li>✅ Mechanical resistance</li>
+                                    <li>✅ Easy to clean</li>
+                                    <li>✅ Ideal for kitchens and bathrooms</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Milled Lacquered</h5>
+                                <ul>
+                                    <li>✅ The highest aesthetic quality</li>
+                                    <li>✅ Any RAL/NCS colour</li>
+                                    <li>✅ Ideal for living rooms and bedrooms</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Catalogues:</span>
+                            <span><br>Wiech milling pattern book<br>
+                                  Frontpol collections<br>
+                                  Online pattern databases</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-frezowane-laminowane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Milled Laminated Fronts</h3>
+                        <p>MDF board with precisely milled patterns covered with high-pressure laminate. They combine the aesthetics of classic designs with the practical resistance of laminate to heavy use.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Heat resistant up to 180°C</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Właściwości -->
+                    <div class="material-module technical-specs">
+                        <h4>🛡️ Properties</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Mechanical resistance:</strong>
+                                <span>Very high - the laminate protects against scratches</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Moisture resistance:</strong>
+                                <span>Good - the laminate is water-tight</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Ease of cleaning:</strong>
+                                <span>High - non-absorbent surface</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Colour fastness:</strong>
+                                <span>Excellent - the laminate does not fade</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Ideal Applications</h5>
+                                <ul>
+                                    <li>✅ Heavily used kitchens</li>
+                                    <li>✅ Bathrooms</li>
+                                    <li>✅ Rooms with high humidity</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Safety Advantages</h5>
+                                <ul>
+                                    <li>✅ Children's furniture (safe edges)</li>
+                                    <li>✅ Frequently cleaned surfaces</li>
+                                    <li>✅ High-traffic areas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Manufacturers:</span>
+                            <span><br>Wiech (Polish leader)<br>
+                                  Frontpol (precise workmanship)<br>
+                                  Rich collection of designs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="fronty-frezowane-lakierowane-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Milled Lacquered Fronts</h3>
+                        <p>MDF board with milled patterns covered with multi-layer polyurethane lacquer. They offer the highest aesthetic quality and any colour from the RAL and NCS palettes.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">The highest aesthetic quality - deep gloss or velvety matt</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Właściwości -->
+                    <div class="material-module technical-specs">
+                        <h4>🎨 Properties and Finishes</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Customisation:</strong>
+                                <span>Complete - any colour from the RAL/NCS palette</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Finishes:</strong>
+                                <span>Matt, semi-matt, gloss, high gloss</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Repair:</strong>
+                                <span>Surface can be refinished</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Aesthetics:</strong>
+                                <span>The highest - deep gloss or velvety matt</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Ideal Rooms</h5>
+                                <ul>
+                                    <li>✅ Prestigious living rooms</li>
+                                    <li>✅ Bedrooms</li>
+                                    <li>✅ Studies, libraries</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Popular Designs</h5>
+                                <ul>
+                                    <li>✅ London - classic English panels</li>
+                                    <li>✅ Bergen - minimalist Scandinavian</li>
+                                    <li>✅ Vintage - stylised ageing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Designs:</span>
+                            <span><br>Traditional panel <br>• Grand luxury <br>• Decorative profiles <br>• Bespoke designs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="sztukateria-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>🎭 Mouldings</h3>
+                        <p>Decorative elements applied to MDF board, creating three-dimensional effects and classic designs. Ideal for stylish furniture in classic, Provençal, English and palatial styles.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Elements applied to the front + lacquering or foiling</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Materiały -->
+                    <div class="material-module technical-specs">
+                        <h4>🔧 Moulding Materials</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Milled MDF:</strong>
+                                <span>The most durable, precise</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Polyurethane:</strong>
+                                <span>Lightweight, moisture-resistant</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>PVC:</strong>
+                                <span>Economical, versatile</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Finish:</strong>
+                                <span>Lacquering or foiling</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Wzory -->
+                    <div class="material-module applications">
+                        <h4>🎯 Popular Designs</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Classic Elements</h5>
+                                <ul>
+                                    <li>✅ Classic panels</li>
+                                    <li>✅ Pilasters and capitals</li>
+                                    <li>✅ Rosettes and ornaments</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Styles</h5>
+                                <ul>
+                                    <li>✅ Classic styles</li>
+                                    <li>✅ Provençal</li>
+                                    <li>✅ English, palatial</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Special elements:</span>
+                            <span><br>Decorative profiles<br>
+                                  Cornices<br>
+                                  Decorative strips<br>
+                                  Three-dimensional ornaments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="wykonczenia-artystyczne-info" style="display: none;">
+                <div class="material-modules-container">
+                    <!-- Moduł 1: Główny opis -->
+                    <div class="material-module main-description">
+                        <h3>Artistic Finishes ⭐ New</h3>
+                        <p>Hand-painted pictures on fronts - a unique offer from an artistic workshop for large surfaces. Traditional painting techniques combined with modern printing methods and precise CNC milling create one-of-a-kind works of functional art.</p>
+                        <div class="highlight-box">
+                            <span class="highlight-text">Best for surfaces over 2m² - ideal for kitchen islands</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 2: Rękodzieło -->
+                    <div class="material-module technical-specs">
+                        <h4>🖌️ Handcraft</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Pouring Art:</strong>
+                                <span>Abstract compositions of resin paints</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Oil painting:</strong>
+                                <span>Realistic depictions</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Artistic acrylic:</strong>
+                                <span>Modern designs</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Mixed media:</strong>
+                                <span>Combinations of different media</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 3: Nadruki Artystyczne -->
+                    <div class="material-module technical-specs">
+                        <h4>🖼️ Art Prints</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>Images chosen by the client:</strong>
+                                <span>Any motif on any surface</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Application on furniture:</strong>
+                                <span>Fronts, sides, decorative elements</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Glass coating:</strong>
+                                <span>Increased durability and a crystalline effect</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Customisation:</strong>
+                                <span>Unique designs to the client's brief</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 4: Płaskorzeźby Artystyczne -->
+                    <div class="material-module technical-specs">
+                        <h4>⚒️ Artistic Bas-Reliefs</h4>
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <strong>CAD design:</strong>
+                                <span>Precise preparation of the pattern</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>CNC milling:</strong>
+                                <span>Accurate carving of the forms</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Hand finishing:</strong>
+                                <span>Artistic detailing</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Artistic patina:</strong>
+                                <span>Ageing and depth effects</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Moduł 5: Zastosowania -->
+                    <div class="material-module applications">
+                        <h4>🎯 Practical Applications</h4>
+                        <div class="applications-columns">
+                            <div class="application-column">
+                                <h5>Project Scale</h5>
+                                <ul>
+                                    <li>✅ Surfaces over 2m²</li>
+                                    <li>✅ Kitchen islands</li>
+                                    <li>✅ Feature walls</li>
+                                    <li>✅ Large cabinet fronts</li>
+                                </ul>
+                            </div>
+                            <div class="application-column">
+                                <h5>Ideal Applications</h5>
+                                <ul>
+                                    <li>✅ Luxury residences</li>
+                                    <li>✅ Hotels and restaurants</li>
+                                    <li>✅ Galleries and showrooms</li>
+                                    <li>✅ Architectural projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="special-applications">
+                            <span class="special-tag">Any shape and form:</span>
+                            <span><br>Geometric artistic patterns<br>
+                                  Organic natural forms<br>
+                                  Classic and modern motifs<br>
+                                  Clients' own designs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-info">
+                <h3>Worktops</h3>
+                <p>Functional work surfaces that are also a key decorative element giving character to the entire interior. We offer laminate worktops with high-pressure HPL laminate imitating the texture of wood, stone or concrete, exceptionally hard sintered quartz made of 90-95% natural quartzite, artistic epoxy resin worktops with unlimited customisation options, solid wood worktops creating a warm atmosphere, luxurious granite and marble worktops and innovative Solid Surface worktops allowing seamless joints. Every material guarantees durability, easy maintenance and an outstanding visual effect.</p>
+            </div>
+            <div class="material-info" id="blaty-laminowane-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Laminate Worktops</h3>
+                    <p>Made of furniture board (e.g. MDF, chipboard) covered with high-pressure laminate (HPL). Modern laminates imitate the texture and pattern of wood, stone or concrete almost perfectly, while offering excellent resistance to abrasion, stains and high temperatures.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Standard thicknesses:</strong> 28mm and 38mm (other variants to order)</li>
+                        <li><strong>Base material:</strong> MDF board or chipboard</li>
+                        <li><strong>Coating:</strong> High-pressure laminate (HPL)</li>
+                        <li><strong>Properties:</strong> Resistant to abrasion, stains and high temperatures</li>
+                    </ul>
+                    
+                    <h5>Edge types:</h5>
+                    <ul>
+                        <li><strong>Straight:</strong> Standard, economical solution</li>
+                        <li><strong>Profiled:</strong> With a decorative rounded edge (e.g. "C" or "S" shaped)</li>
+                        <li><strong>Made to measure:</strong> Any shape can be milled, including curves</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Kitchens (excellent stain resistance)</li>
+                        <li>✅ Offices and public buildings</li>
+                        <li>✅ Bathrooms (using moisture-resistant board)</li>
+                        <li>✅ Economical and fast projects</li>
+                        <li>⚠️ Avoid cutting directly on the surface and contact with fire</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-spieki-kwarcowe-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Sintered Quartz Worktops</h3>
+                    <p>Modern sintered quartz is made of approx. 90-95% natural ground quartzite and quartz bound with resins. It is extremely hard and resistant to scratches, stains, acids and high temperatures. It requires no maintenance.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Composition:</strong> 90-95% natural quartzite and quartz + resins</li>
+                        <li><strong>Standard thicknesses:</strong> 12mm and 20mm</li>
+                        <li><strong>Edge finishing:</strong> Can be thickened, as with stone</li>
+                    </ul>
+                    
+                    <h5>Surface types:</h5>
+                    <ul>
+                        <li><strong>Smooth gloss:</strong> Striking, easy to clean, enhances the depth of colour</li>
+                        <li><strong>Matt (soft, satin, velvet):</strong> Velvety to the touch, hides minor scratches</li>
+                        <li><strong>Textured/porous ("Rock", "Terra"):</strong> Textures imitating raw stone or concrete while remaining highly stain-resistant</li>
+                    </ul>
+                    
+                    <h5>Advantages of sintered quartz:</h5>
+                    <ul>
+                        <li>• Non-porous – excellent hygiene, stain resistance</li>
+                        <li>• Exceptional durability and hardness – resistant to scratches and impacts</li>
+                        <li>• A wealth of patterns and colours – from plain to marble and concrete effects</li>
+                        <li>• Maintenance-free – no sealing required</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Kitchens (ideal around the sink and hob)</li>
+                        <li>✅ Bathrooms (vanity tops, window sills, shower enclosures)</li>
+                        <li>✅ Areas requiring the highest hygiene</li>
+                        <li>✅ Commercial interiors (reception desks, bars, tables)</li>
+                        <li>✅ Projects demanding exceptional design</li>
+                    </ul>
+                </div>
+                
+                <div class="producers-section">
+                    <h4>👑 MANUFACTURERS AND INNOVATIONS</h4>
+                    <p>We use materials from world leaders:</p>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('silestone')">
+                            <h5>Silestone by Cosentino</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="silestone-details">
+                            <p>A pioneer and one of the most popular manufacturers of quartz surfaces in the world. Cosentino offers a wide range of colours and patterns, from classic to the most avant-garde.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('caesarstone')">
+                            <h5>Caesarstone</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="caesarstone-details">
+                            <p>Known for its wide range of colours and patterns. Caesarstone combines the highest quality with innovative technological solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('compac')">
+                            <h5>Compac</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="compac-details">
+                            <p>A Spanish manufacturer offering innovative quartz surface solutions, known for its modern production technologies.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('samsung-radianz')">
+                            <h5>Samsung Radianz</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="samsung-radianz-details">
+                            <p>Combines Samsung technology with the durability of quartz surfaces. An innovative approach to the production of surface materials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-zywica-epoksydowa-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Epoxy Resin Worktops - Artistic</h3>
+                    <p>Made by pouring epoxy resin over a base (e.g. wood, MDF). They offer unlimited customisation options. The thickness is fully customisable and depends on the project – from a thin coating to massive worktops 50mm thick and more.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Base:</strong> Wood, MDF or other base materials</li>
+                        <li><strong>Coating:</strong> Epoxy resin</li>
+                        <li><strong>Thickness:</strong> From a thin coating to massive worktops of 50mm and more</li>
+                        <li><strong>Customisation:</strong> Unlimited colour and effect options</li>
+                    </ul>
+                    
+                    <h5>Special effects:</h5>
+                    <ul>
+                        <li><strong>Backlit (LED):</strong> Integrated lighting possible</li>
+                        <li><strong>Ocean Depth effect:</strong> Blue and green shades with a wave effect</li>
+                        <li><strong>Cosmos imitation:</strong> Black resin with glitter particles</li>
+                        <li><strong>Geode:</strong> Embedded real crystals and minerals</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Kitchen islands and worktops as the centrepiece of the interior</li>
+                        <li>✅ Reception desks, bars, commercial surfaces</li>
+                        <li>✅ Signature furniture and artistic projects</li>
+                        <li>✅ Relaxation areas and teenagers' rooms</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-drewniane-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Wooden Worktops</h3>
+                    <p>Made of solid wood (oak, ash, walnut, beech) or laminated glued boards. They create a unique, natural and warm atmosphere. Over time they may develop a patina, which adds to their character. They require periodic maintenance (oiling).</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Material:</strong> Solid wood or laminated glued boards</li>
+                        <li><strong>Thickness:</strong> From 27mm to 40mm (thicker to individual order)</li>
+                        <li><strong>Maintenance:</strong> Periodic oiling required</li>
+                        <li><strong>Character:</strong> Natural patina that develops over time</li>
+                    </ul>
+                    
+                    <h5>Wood types:</h5>
+                    <ul>
+                        <li><strong>Oak:</strong> Very hard, durable, popular and versatile</li>
+                        <li><strong>Ash:</strong> Hard, with a distinct, decorative grain</li>
+                        <li><strong>Walnut:</strong> Noble, with a deep, dark tone</li>
+                        <li><strong>Beech:</strong> Light, hard, with an even grain</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Kitchens (creates a unique, homely atmosphere)</li>
+                        <li>✅ Table and island tops</li>
+                        <li>✅ Scandinavian, rustic and vintage interiors</li>
+                        <li>⚠️ Requires regular care; sensitive to moisture and high temperatures</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-kamienne-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Stone Worktops (Granite, Marble)</h3>
+                    <p>A luxurious, natural and unique material. Every worktop is one of a kind. Granite is very hard and resistant, while marble is softer and prone to scratches and acids (e.g. lemon juice), and requires sealing.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Material:</strong> Natural granite or marble</li>
+                        <li><strong>Standard thicknesses:</strong> 20mm and 30mm</li>
+                        <li><strong>Edge finishing:</strong> Special finishing for a thicker appearance</li>
+                        <li><strong>Uniqueness:</strong> Every worktop has a unique natural pattern</li>
+                    </ul>
+                    
+                    <h5>Stone types:</h5>
+                    <ul>
+                        <li><strong>Granite:</strong> Maximum durability, damage-resistant, very hard</li>
+                        <li><strong>Marble:</strong> Unique veining, elegant and sophisticated look, softer</li>
+                    </ul>
+                    
+                    <h5>Properties:</h5>
+                    <ul>
+                        <li>• Granite: Highly resistant to scratches and acids</li>
+                        <li>• Marble: Prone to scratches and acids, requires sealing</li>
+                        <li>• Natural, unique pattern on every slab</li>
+                        <li>• Long-lasting durability with proper care</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Prestigious kitchens and bathrooms</li>
+                        <li>✅ Worktops, window sills, wall cladding</li>
+                        <li>✅ Classic and modern interiors</li>
+                        <li>⚠️ Marble requires special care and sealing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="material-info" id="blaty-solid-surface-info" style="display: none;">
+                <div class="main-description">
+                    <h3>Solid Surface Worktops (e.g. Corian, Hi-Macs, Staron)</h3>
+                    <p>An innovative composite material made of approx. 2/3 natural minerals and 1/3 acrylic resin. Its greatest advantage is that it is seamless – joints are invisible, creating a uniform, monolithic surface.</p>
+                </div>
+                
+                <div class="technical-specs">
+                    <h4>Technical Specifications</h4>
+                    <ul>
+                        <li><strong>Composition:</strong> 2/3 natural minerals + 1/3 acrylic resin</li>
+                        <li><strong>Sheet thickness:</strong> 12mm (bonded to an MDF base)</li>
+                        <li><strong>Final worktop thickness:</strong> From 30mm to 50mm or more</li>
+                        <li><strong>Thermoforming:</strong> Can be formed into any shape</li>
+                    </ul>
+                    
+                    <h5>Key features and advantages:</h5>
+                    <ul>
+                        <li><strong>Seamless and monolithic:</strong> A perfectly smooth surface with an integrated sink is possible</li>
+                        <li><strong>3D forming:</strong> Rounded fronts, gentle slopes, non-standard shapes</li>
+                        <li><strong>Non-porous:</strong> The surface is hygienic and resistant to stains and bacterial growth</li>
+                        <li><strong>Damage resistance:</strong> Minor scratches can be removed by sanding</li>
+                        <li><strong>Certificates:</strong> Often certified for food contact</li>
+                    </ul>
+                </div>
+                
+                <div class="applications">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>✅ Hospitality (restaurants, bars, hotel kitchens)</li>
+                        <li>✅ Hospitals and medical facilities (for hygiene reasons)</li>
+                        <li>✅ Luxury kitchens and bathrooms (projects requiring integrated sinks)</li>
+                        <li>✅ Surfaces requiring seamless solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="producers-section">
+                    <h4>👑 MAIN MANUFACTURERS</h4>
+                    <p>The most important manufacturers of solid surface materials:</p>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('corian')">
+                            <h5>Corian by DuPont</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="corian-details">
+                            <p>The pioneer and leader in solid surface. Corian offers the widest range of colours and patterns, from plain to natural-material effects. Known for the highest quality and innovation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('himacs')">
+                            <h5>Hi-Macs by LG Hausys</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="himacs-details">
+                            <p>A modern manufacturer offering high-quality solid surface materials. Hi-Macs is distinguished by excellent technical properties and a wide range of patterns.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="producer-item">
+                        <div class="producer-header" onclick="toggleProducerDetails('staron')">
+                            <h5>Staron by Samsung</h5>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="producer-details" id="staron-details">
+                            <p>A solid surface material from Samsung, combining technology with aesthetics. Staron offers materials with exceptional aesthetic and functional properties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+<section id="foundation-support">
+    <div class="foundation-header">
+      <h2>
+        Your choice matters – support children and young people together with
+        <span class="logos-container">
+          <div class="highlight-brand"><img src="logo/web/zanders-napis-800.webp" srcset="logo/web/zanders-napis-400.webp 400w, logo/web/zanders-napis-800.webp 800w" sizes="320px" width="800" height="126" loading="lazy" alt="Zanders Atelier — furniture workshop" class="brand-napis-inline"></div>
+          <div class="separator-i">and</div>
+          <div><a href="https://worldfoundation.eu" target="_blank" rel="noopener"><img src="logo/fundacja/web/logo2.webp" width="498" height="120" loading="lazy" alt="W🌍rldFoundation Logo" class="foundation-logo-inline foundation-logo-pulse"></a></div>
+        </span>
+      </h2>
+      <p>
+        At Zanders Atelier we believe that the beauty of an interior should go hand in hand with the beauty of the heart.<br>
+        <span class="highlight-gold">That is why 5% of the value of every order goes to <span class="wf-name">W🌍rldFoundation.</span></span>
+      </p>
+      <hr class="foundation-separator">
+    </div>
+            <div class="foundation-section-separator"></div>
+            <div class="foundation-bottom-banner">
+                <a href="https://worldfoundation.eu" target="_blank" rel="noopener" style="display:block; width:100%; height:100%; text-decoration:none; color:inherit;">
+                    <div class="mq" data-speed="71" style="width:100%; height:100%; line-height:40px; background:transparent;"><span class="mq-track">
+                          Discover the work of W🌍rldFoundation – see how we help children and young people, explore our projects, inspirations and stories of support. Click to learn more!&nbsp;&nbsp;&nbsp;
+                    </span></div>
+                </a>
+            </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="content">
+        <p class="contact-intro">Get in touch with us to learn more about our services:</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <svg class="contact-icon fa-ico" viewBox="0 0 384 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                <div class="contact-details">
+                    <strong>Address:</strong><br>
+                    Staromiejska 17e<br>
+                    84-300 Lębork
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                <div class="contact-details">
+                    <strong>Email:</strong><br>
+                    <a href="mailto:zandersatelier@gmail.com">zandersatelier@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <div class="contact-details">
+                    <strong>Phone PL:</strong><br>
+                    <a href="tel:+48605126918">+48 605 126 918</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <svg class="contact-icon fa-ico" viewBox="0 0 512 512" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <div class="contact-details">
+                    <strong>Phone DE:</strong><br>
+                    <a href="tel:+4915212403091">+49 15212403091</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Zanders Atelier. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Funkcje dla modalu katalogu
+    function openCatalogModal() {
+        document.getElementById('catalogModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Blokuj scroll na stronie
+    }
+
+    function closeCatalogModal() {
+        document.getElementById('catalogModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Przywróć scroll
+    }
+
+    // Zamknij modal po kliknięciu poza nim
+    window.onclick = function(event) {
+        const modal = document.getElementById('catalogModal');
+        if (modal && event.target == modal) {
+            closeCatalogModal();
+        }
+    }
+
+    // Zamknij modal po naciśnięciu ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && document.getElementById('catalogModal')) {
+            closeCatalogModal();
+        }
+    });
+  </script>
+
+  <!-- Gallery Modal -->
+  <div id="gallery-modal" class="gallery-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Project title</h2>
+        <span class="close-btn">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="gallery-container">
+          <img class="gallery-main-image" src="" alt="">
+          <button class="gallery-nav prev">‹</button>
+          <button class="gallery-nav next">›</button>
+          <div class="gallery-counter">1 / 5</div>
+          <button class="gallery-info-btn">Show description</button>
+          <div class="gallery-image-overlay">
+            <div class="gallery-image-info">
+              <h3 class="image-title">Project name</h3>
+              <p class="image-description">Project description</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-thumbnails"></div>
+        <div class="modal-description">
+          <p class="description-text">Project description</p>
+        </div>
+        <div class="modal-footer">
+          <p class="modal-subtitle-mobile">Location</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="script.js?v=20261103f"></script>
+  <script src="modale/gallery-modal.js?v=20261103f"></script>
+  <script src="modale/tiktok-modal.js?v=3.1"></script>
+
+  <!-- Add the Biel AI widget (hidden) -->
+  <biel-button
+      id="biel-ai-widget"
+      project="fcsmgx0n74"
+      header-title="AI Assistant"
+      button-position="bottom-right"
+      modal-position="sidebar-right"
+      button-style="dark">
+  </biel-button>
+
+  <!-- Custom AI Consultant Button -->
+  <div id="custom-ai-button" role="button" aria-label="Chat with our AI consultant" tabindex="0">
+    <img src="multimedia/web/konsultant-240.webp" width="240" height="210"
+        alt="AI consultant"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 200%27%3E%3Ccircle cx=%27100%27 cy=%27100%27 r=%27100%27 fill=%27%23edd2ad%27/%3E%3Cpath d=%27M100 50c-16.5 0-30 13.5-30 30 0 16.5 13.5 30 30 30s30-13.5 30-30c0-16.5-13.5-30-30-30zm0 80c-27.6 0-50 11.2-50 25v15h100v-15c0-13.8-22.4-25-50-25z%27 fill=%27%231A1A1A%27/%3E%3C/svg%3E'">
+  </div>
+
+  <script>
+        // Funkcja do otwarcia czatu AI
+        function openBielChat() {
+    var bielWidget = document.getElementById('biel-ai-widget');
+
+    if (!bielWidget) {
+        console.error('❌ Biel widget not found');
+        alert('AI assistant not found. Please refresh the page.');
+        return;
+    }
+
+
+    // Znajdź przycisk <a> w shadow DOM
+    if (bielWidget.shadowRoot) {
+        const button = bielWidget.shadowRoot.querySelector('a.biel-button-content');
+
+        if (button) {
+
+            // Tymczasowo pokaż widget, aby kliknięcie zadziałało
+            bielWidget.style.opacity = '1';
+            bielWidget.style.pointerEvents = 'auto';
+            bielWidget.style.bottom = '30px';
+            bielWidget.style.right = '30px';
+
+            // Kliknij przycisk po krótkiej chwili
+            setTimeout(() => {
+                button.click();
+
+                // Ukryj widget z powrotem po kliknięciu
+                setTimeout(() => {
+                    bielWidget.style.opacity = '0';
+                    bielWidget.style.pointerEvents = 'none';
+                    bielWidget.style.bottom = '-200px';
+                    bielWidget.style.right = '-200px';
+                }, 100);
+            }, 50);
+        } else {
+            console.error('❌ No button found in shadow DOM');
+            alert('Unable to open the chat. Please try refreshing the page.');
+        }
+    } else {
+        console.error('❌ No shadow root');
+        alert('The AI widget did not load correctly. Please refresh the page.');
+    }
+}
+
+    // Wait for web component to be fully loaded
+    function initCustomButton() {
+      const customButton = document.getElementById('custom-ai-button');
+
+      if (!customButton) {
+        console.error('Custom button not found');
+        return;
+      }
+
+      // Funkcja resetująca pozycję ikony
+      function resetButtonPosition() {
+        customButton.style.transition = 'bottom 0.3s';
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+          customButton.style.bottom = '20px'; // Powrót do oryginalnej pozycji mobile
+        } else {
+          customButton.style.bottom = '30px'; // Powrót do oryginalnej pozycji desktop
+        }
+      }
+
+      // Obserwuj zamknięcie modala
+      function observeModalClose() {
+        const bielWidget = document.getElementById('biel-ai-widget');
+        if (!bielWidget || !bielWidget.shadowRoot) {
+          console.warn('Cannot observe modal - widget or shadow root not found');
+          return;
+        }
+
+        // Obserwuj zmiany w shadow DOM
+        const observer = new MutationObserver(function(mutations) {
+          const modal = bielWidget.shadowRoot.querySelector('[part="modal"]');
+          if (modal) {
+            const isOpen = modal.hasAttribute('open') || modal.style.display !== 'none';
+            if (!isOpen) {
+              resetButtonPosition();
+            }
+          }
+        });
+
+        // Konfiguracja obserwatora
+        observer.observe(bielWidget.shadowRoot, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+          attributeFilter: ['open', 'style']
+        });
+
+      }
+
+      // Click event
+      customButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Przesuń ikonę o 70px w górę
+                customButton.style.transition = 'bottom 0.3s';
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                if (isMobile) {
+                    customButton.style.bottom = '90px'; // mobile: z 20px na 90px
+                } else {
+                    customButton.style.bottom = '100px'; // desktop: z 30px na 100px
+                }
+                openBielChat();
+                // Uruchom obserwator po otwarciu modala
+                setTimeout(observeModalClose, 500);
+      });
+
+      // Keyboard accessibility
+      customButton.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          customButton.style.transition = 'bottom 0.3s';
+          const isMobile = window.matchMedia('(max-width: 768px)').matches;
+          if (isMobile) {
+              customButton.style.bottom = '90px';
+          } else {
+              customButton.style.bottom = '100px';
+          }
+          openBielChat();
+          setTimeout(observeModalClose, 500);
+        }
+      });
+
+    }
+
+    // Wait for DOM and web components
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initCustomButton, 1000); // Give web component time to load
+      });
+    } else {
+      setTimeout(initCustomButton, 1000);
+    }
+
+    // Also try on window load as backup
+    window.addEventListener('load', function() {
+      setTimeout(initCustomButton, 1500);
+    });
+  </script>
+</body>
+</html>

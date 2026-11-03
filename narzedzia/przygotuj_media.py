@@ -8,7 +8,7 @@ Co robi (uruchamiać z katalogu głównego repo:  python narzedzia/przygotuj_med
      Wynik trafia do galeria/<nr>/web/ — oryginały zostają nietknięte jako źródło.
   2. Z plików opis.txt (pl / en / de) buduje dane/realizacje.json: tytuły, opisy i listę
      mediów w kolejności (zdjęcie N, film N, …) — strona nie musi już zgadywać nazw plików.
-  3. Odtwarza kafelki realizacji w index-pl.html i index-de.html (między znacznikami
+  3. Odtwarza kafelki realizacji w index-pl.html, index-de.html i index-en.html (między znacznikami
      <!-- REALIZACJE:START --> i <!-- REALIZACJE:END -->): prawdziwe tytuły, alt-y,
      srcset, width/height, loading="lazy".
   4. Grafiki stałe (baner, tła, logo, materiały, konsultant) -> WebP w podkatalogach web/.
@@ -208,7 +208,7 @@ def build_gallery(nr):
 
 
 def tiles_html(items, lang):
-    cta = {'pl': 'SPRAWDŹ ', 'de': 'ANSEHEN '}[lang]
+    cta = {'pl': 'SPRAWDŹ ', 'de': 'ANSEHEN ', 'en': 'VIEW '}[lang]
     out = []
     for i, it in enumerate(items):
         o = it['opis'].get(lang) or it['opis'].get('en') or it['opis'].get('pl') or {}
@@ -235,7 +235,7 @@ def tiles_html(items, lang):
 
 
 def inject_tiles(items):
-    for page, lang in (('index-pl.html', 'pl'), ('index-de.html', 'de')):
+    for page, lang in (('index-pl.html', 'pl'), ('index-de.html', 'de'), ('index-en.html', 'en')):
         with open(page, encoding='utf-8') as f:
             s = f.read()
         start, end = '<!-- REALIZACJE:START -->', '<!-- REALIZACJE:END -->'

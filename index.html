@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://zandersatelier.com/">
     <link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html">
     <link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html">
+    <link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html">
     <link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/">
     <link rel="icon" href="favicon.ico" sizes="48x48">
     <link rel="icon" href="logo/web/favicon-32.png" type="image/png" sizes="32x32">
@@ -207,6 +208,10 @@
             background: linear-gradient(to bottom, #000 33.33%, #dd0000 33.33%, #dd0000 66.66%, #ffce00 66.66%);
         }
         
+        .flag-en {
+            background: #012169 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='t'%3E%3Cpath d='M30,15h30v15zv15h-30zh-30v-15zv-15h30z'/%3E%3C/clipPath%3E%3Cpath d='M0,0v30h60v-30z' fill='%23012169'/%3E%3Cpath d='M0,0 60,30M60,0 0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0 60,30M60,0 0,30' clip-path='url(%23t)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E") center / cover no-repeat;
+        }
+        
         .flag-text {
             position: absolute;
             bottom: -25px;
@@ -314,6 +319,9 @@
         <div class="flag flag-de" data-lang="de" title="Deutsch">
             <div class="flag-text">DE</div>
         </div>
+        <div class="flag flag-en" data-lang="en" title="English">
+            <div class="flag-text">EN</div>
+        </div>
     </div>
 
     <script>
@@ -345,14 +353,15 @@
         let timer;
         
         function detect() {
-            const browser = navigator.language.toLowerCase();
+            // Język przeglądarki (nie kraj): de* → DE, pl* → PL, każdy inny → EN
+            const browser = (navigator.language || 'pl').toLowerCase();
             
             if (browser.startsWith('de')) {
                 detected = 'de';
-            } else if (browser.startsWith('en')) {
-                detected = 'en';
-            } else {
+            } else if (browser.startsWith('pl')) {
                 detected = 'pl';
+            } else {
+                detected = 'en';
             }
             
             updateInterface(detected);
@@ -408,7 +417,7 @@
         }
         
         function redirect(langCode = detected) {
-            const url = langCode === 'de' ? 'index-de.html' : 'index-pl.html';
+            const url = { de: 'index-de.html', en: 'index-en.html' }[langCode] || 'index-pl.html';
             window.location.href = url;
         }
         
@@ -416,7 +425,7 @@
             if (timer) {
                 clearTimeout(timer);
             }
-            window.location.href = 'index-pl.html';
+            redirect(detected);
         }
         
         document.addEventListener('DOMContentLoaded', () => {

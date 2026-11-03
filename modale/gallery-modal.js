@@ -10,6 +10,8 @@ class GalleryModal {
         this.data = null;
         this.dataPromise = null;
         this.lang = (document.documentElement.lang || 'pl').slice(0, 2);
+        // Napisy okna: pl / de / en (brak klucza = pl)
+        this.t = (pl, de, en) => ({ de, en }[this.lang] || pl);
         this.isDragging = false;
         this.pswpModulePromise = null;
         this.showToken = 0;
@@ -70,7 +72,7 @@ class GalleryModal {
         container.querySelector('.gallery-nav.next').addEventListener('click', (e) => { e.stopPropagation(); this.nextImage(); });
 
         const mainImage = container.querySelector('.gallery-main-image');
-        mainImage.title = this.lang === 'de' ? 'Zum Vergrößern klicken' : 'Kliknij, aby powiększyć';
+        mainImage.title = this.t('Kliknij, aby powiększyć', 'Zum Vergrößern klicken', 'Click to enlarge');
         mainImage.addEventListener('click', (e) => {
             e.stopPropagation();
             if (this.swiped) return;
@@ -138,7 +140,7 @@ class GalleryModal {
             this.images = r.media.map((m) => ({ ...m, alt: '' }));
             const title = this.getProjectTitle(galleryId);
             this.images.forEach((m, i) => {
-                m.alt = `${title} — ${m.type === 'video' ? (this.lang === 'de' ? 'Video' : 'Film') : (this.lang === 'de' ? 'Foto' : 'Zdjęcie')} ${i + 1}`;
+                m.alt = `${title} — ${m.type === 'video' ? this.t('Film', 'Video', 'Video') : this.t('Zdjęcie', 'Foto', 'Photo')} ${i + 1}`;
             });
             this.modal.querySelector('.modal-title').textContent = title;
             const sub = this.modal.querySelector('.modal-subtitle-mobile');
@@ -325,7 +327,7 @@ class GalleryModal {
             btn = document.createElement('button');
             btn.className = 'video-fullscreen-btn';
             btn.textContent = '⛶';
-            btn.title = this.lang === 'de' ? 'Vollbild' : 'Pełny ekran';
+            btn.title = this.t('Pełny ekran', 'Vollbild', 'Full screen');
             btn.addEventListener('click', (e) => { e.stopPropagation(); this.openFullscreen(); });
             wrapper.appendChild(video);
             wrapper.appendChild(btn);
@@ -502,11 +504,11 @@ class GalleryModal {
             initialZoomLevel: 'fit',
             secondaryZoomLevel: 2,
             maxZoomLevel: 4,
-            closeTitle: this.lang === 'de' ? 'Schließen' : 'Zamknij',
-            zoomTitle: this.lang === 'de' ? 'Zoom' : 'Powiększ',
-            arrowPrevTitle: this.lang === 'de' ? 'Zurück' : 'Poprzednie',
-            arrowNextTitle: this.lang === 'de' ? 'Weiter' : 'Następne',
-            errorMsg: this.lang === 'de' ? 'Das Bild konnte nicht geladen werden.' : 'Nie udało się wczytać zdjęcia.',
+            closeTitle: this.t('Zamknij', 'Schließen', 'Close'),
+            zoomTitle: this.t('Powiększ', 'Zoom', 'Zoom'),
+            arrowPrevTitle: this.t('Poprzednie', 'Zurück', 'Previous'),
+            arrowNextTitle: this.t('Następne', 'Weiter', 'Next'),
+            errorMsg: this.t('Nie udało się wczytać zdjęcia.', 'Das Bild konnte nicht geladen werden.', 'The image could not be loaded.'),
             mainClass: 'pswp--zanders',
         });
         // Filmy: odtwarzaj aktywny slajd, zatrzymuj pozostałe

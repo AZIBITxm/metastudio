@@ -1,6 +1,18 @@
 // Lista filmów: aplikacja „Zanders Inspiracje” (osobny projekt na Vercelu, dodawanie przez menu Udostępnij w telefonie)
 const INSPIRACJE_API = 'https://zanders-inspiracje.vercel.app/api/inspiracje';
 
+// Napisy okna wg języka strony (<html lang>): pl / de / en
+const TT_LANG = (document.documentElement.lang || 'pl').slice(0, 2);
+const TT_ALL = ({
+    pl: { title: 'INSPIRACJE', loading: 'Ładowanie filmu...', error: 'Błąd ładowania filmu', clickOpen: 'Kliknij aby otworzyć', author: 'Autor', watch: 'Obejrzyj na', film: 'Film',
+          fb1: 'Luksusowe wnętrza Zanders Atelier - nowoczesny design 🏠✨', fb2: 'Kuchnia marzeń - funkcjonalność i piękno 🍽️' },
+    de: { title: 'INSPIRATIONEN', loading: 'Video wird geladen...', error: 'Fehler beim Laden des Videos', clickOpen: 'Zum Öffnen klicken', author: 'Autor', watch: 'Ansehen auf', film: 'Video',
+          fb1: 'Luxuriöse Interieurs von Zanders Atelier - modernes Design 🏠✨', fb2: 'Traumküche - Funktionalität und Schönheit 🍽️' },
+    en: { title: 'INSPIRATIONS', loading: 'Loading video...', error: 'Error loading video', clickOpen: 'Click to open', author: 'Author', watch: 'Watch on', film: 'Video',
+          fb1: 'Zanders Atelier luxury interiors - modern design 🏠✨', fb2: 'Dream kitchen - functionality and beauty 🍽️' }
+});
+const TTX = TT_ALL[TT_LANG] || TT_ALL.pl;
+
 class TikTokModal {
     constructor() {
         this.modal = null;
@@ -39,13 +51,13 @@ class TikTokModal {
                 {
                     embedCode: null,
                     url: 'https://vm.tiktok.com/ZNdtHbTTg/',
-                    description: 'Luksusowe wnętrza Zanders Atelier - nowoczesny design 🏠✨',
+                    description: TTX.fb1,
                     thumbnail: null
                 },
                 {
                     embedCode: null,
                     url: 'https://vm.tiktok.com/ZNdtHckPn/',
-                    description: 'Kuchnia marzeń - funkcjonalność i piękno 🍽️',
+                    description: TTX.fb2,
                     thumbnail: null
                 }
             ];
@@ -169,7 +181,7 @@ class TikTokModal {
                     <div class="tiktok-modal-header">
                         <div class="tiktok-modal-brand">
                             <img src="logo/web/zanders-logo-300.webp" alt="Zanders Atelier Logo" class="tiktok-modal-logo">
-                            <h2 class="tiktok-modal-title">INSPIRACJE</h2>
+                            <h2 class="tiktok-modal-title">${TTX.title}</h2>
                         </div>
                     </div>
                     <div class="tiktok-modal-body">
@@ -180,7 +192,7 @@ class TikTokModal {
                         </div>
                         <div class="tiktok-video-container">
                             <div class="tiktok-video-display" id="tiktok-video-display">
-                                <div class="tiktok-loading">Ładowanie filmu...</div>
+                                <div class="tiktok-loading">${TTX.loading}</div>
                             </div>
                         </div>
                         <div class="tiktok-thumbnails-sidebar">
@@ -303,7 +315,7 @@ class TikTokModal {
                         line-height: 1.5;
                         font-weight: 500;
                     ">
-                        ${video.description || `Film ${index + 1}`}
+                        ${video.description || `${TTX.film} ${index + 1}`}
                     </p>
                 </div>
             `;
@@ -391,7 +403,7 @@ class TikTokModal {
             return;
         }
 
-        display.innerHTML = '<div class="tiktok-loading">Ładowanie filmu...</div>';
+        display.innerHTML = `<div class="tiktok-loading">${TTX.loading}</div>`;
 
         try {
             // Jeśli mamy kod embed, użyj go bezpośrednio
@@ -457,7 +469,7 @@ class TikTokModal {
                                 line-height: 1.4;
                             ">
                                 ${video.description || 'Zanders Atelier'}
-                                <br><small style="opacity: 0.8;">Kliknij aby otworzyć</small>
+                                <br><small style="opacity: 0.8;">${TTX.clickOpen}</small>
                             </div>
                         </div>
                     </div>
@@ -471,7 +483,7 @@ class TikTokModal {
             console.error('Błąd ładowania filmu:', error);
             display.innerHTML = `
                 <div style="text-align: center; padding: 40px; color: #ff6b6b;">
-                    Błąd ładowania filmu
+                    ${TTX.error}
                 </div>
             `;
         }
@@ -481,7 +493,7 @@ class TikTokModal {
         const videoUrl = this.esc(video.url);
         const nazwa = this.esc(video.platformaNazwa || 'TikTok');
         const autor = video.autor
-            ? `<div style="margin-top:10px;font-size:13px;color:var(--color-primary);">Autor: <a href="${this.esc(video.autorUrl || video.url)}" target="_blank" rel="noopener" style="color:inherit;">${this.esc(video.autor)}</a></div>`
+            ? `<div style="margin-top:10px;font-size:13px;color:var(--color-primary);">${TTX.author}: <a href="${this.esc(video.autorUrl || video.url)}" target="_blank" rel="noopener" style="color:inherit;">${this.esc(video.autor)}</a></div>`
             : '';
         const sidebar = document.querySelector('.tiktok-thumbnails-sidebar');
         if (!sidebar) return;
@@ -515,7 +527,7 @@ class TikTokModal {
                 width: 100%;
                 box-sizing: border-box;
             ">
-                🎬 Obejrzyj na ${nazwa}
+                🎬 ${TTX.watch} ${nazwa}
             </a>${autor}
         `;
         

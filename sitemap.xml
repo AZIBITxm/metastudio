@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zandersatelier.com/index-pl.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/"/>
   </url>
   <url>
     <loc>https://zandersatelier.com/index-de.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/index-en.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/index-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/index-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/"/>
   </url>
 </urlset>

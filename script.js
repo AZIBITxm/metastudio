@@ -268,9 +268,9 @@ function initializeGalleryToggle() {
     
     
     let isExpanded = false;
-    const isDe = document.documentElement.lang === 'de';
-    const labelMore = isDe ? 'MEHR ANZEIGEN' : 'POKAŻ WIĘCEJ';
-    const labelLess = isDe ? 'WENIGER ANZEIGEN' : 'POKAŻ MNIEJ';
+    const lang = (document.documentElement.lang || 'pl').slice(0, 2);
+    const labelMore = { de: 'MEHR ANZEIGEN', en: 'SHOW MORE' }[lang] || 'POKAŻ WIĘCEJ';
+    const labelLess = { de: 'WENIGER ANZEIGEN', en: 'SHOW LESS' }[lang] || 'POKAŻ MNIEJ';
     
     showAllBtn.addEventListener('click', function() {
         isExpanded = !isExpanded;
