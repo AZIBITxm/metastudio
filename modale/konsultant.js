@@ -313,6 +313,10 @@
         vv.addEventListener('resize', fitViewport);
         vv.addEventListener('scroll', fitViewport);
     }
+    // Przy fokusie pola telefon potrafi „przewinąć” samo okno (mimo overflow:hidden) — wtedy nagłówek
+    // ucieka w górę i palcem nie da się go wrócić. Okno nigdy nie jest przewijane, przewija się tylko rozmowa.
+    root.addEventListener('scroll', () => { if (root.scrollTop) root.scrollTop = 0; });
+    root.addEventListener('focusin', () => { setTimeout(fitViewport, 50); setTimeout(fitViewport, 350); });
 
     function open() {
         root.classList.add('za-open');
