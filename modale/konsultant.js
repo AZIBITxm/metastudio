@@ -295,15 +295,36 @@
         }
     }
 
+    // Telefon: okno = widoczna część ekranu (visualViewport). Bez tego klawiatura przesuwa stronę
+    // i nagłówek z początkiem rozmowy uciekają w górę, poza zasięg przewijania.
+    const vv = window.visualViewport;
+    const mobile = window.matchMedia('(max-width: 768px)');
+    function fitViewport() {
+        if (!vv || !mobile.matches || !root.classList.contains('za-open')) {
+            root.style.top = root.style.height = root.style.bottom = '';
+            return;
+        }
+        root.style.top = vv.offsetTop + 'px';
+        root.style.height = vv.height + 'px';
+        root.style.bottom = 'auto';
+        log.scrollTop = log.scrollHeight;
+    }
+    if (vv) {
+        vv.addEventListener('resize', fitViewport);
+        vv.addEventListener('scroll', fitViewport);
+    }
+
     function open() {
         root.classList.add('za-open');
         document.documentElement.classList.add('za-chat-on');
         if (!log.children.length) { render(); setInput('chat'); }
+        fitViewport();
         setTimeout(() => ta.focus(), 150);
     }
     function close() {
         root.classList.remove('za-open');
         document.documentElement.classList.remove('za-chat-on');
+        fitViewport();
     }
 
     root.querySelector('.za-close').addEventListener('click', close);
