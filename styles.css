@@ -4215,3 +4215,88 @@ section:first-of-type {
 @media (max-width: 768px) {
     .wf-name { display: block; }
 }
+
+/* ===== Katalog odmian materiałów (galerie pod opisami; narzedzia/przygotuj_katalog.py) ===== */
+.material-gallery {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+.material-gallery-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+}
+.material-gallery-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(140px, 160px);
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+.material-swatch {
+    display: block;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: black;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.material-swatch:hover,
+.material-swatch:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+.material-swatch img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.material-swatch-name {
+    display: block;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.25;
+    text-align: center;
+}
+.material-gallery-note {
+    margin: 0.4rem 0 0 !important;
+    font-size: 0.75rem !important;
+    opacity: 0.7;
+}
+/* Komputer: opis materiału to wiersz flex — galeria łamie się do nowej linii na całą szerokość */
+@media (min-width: 1025px) {
+    #project .material-info { flex-wrap: wrap !important; }
+    .material-gallery { padding: 0 2rem 0 1rem; }
+    .material-gallery-track {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        overflow: visible;
+    }
+}
+/* Podpis w powiększeniu: nazwa odmiany + autor i licencja */
+.pswp__material-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    max-width: calc(100% - 2rem);
+    padding: 0.5rem 0.9rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    pointer-events: auto;
+}
+.pswp__material-caption strong { display: block; font-size: 1rem; }
+.pswp__material-caption span,
+.pswp__material-caption a { color: rgba(255, 255, 255, 0.8); font-size: 0.75rem; }
