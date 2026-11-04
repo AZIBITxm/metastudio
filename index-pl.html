@@ -27,9 +27,8 @@
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Zanders Atelier", "url": "https://zandersatelier.com/", "logo": "https://zandersatelier.com/logo/web/icon-512.png", "image": "https://zandersatelier.com/tlo/web/og-1200x630.jpg", "email": "zandersatelier@gmail.com", "telephone": ["+48605126918", "+4915212403091"], "address": {"@type": "PostalAddress", "streetAddress": "Staromiejska 17e", "postalCode": "84-300", "addressLocality": "Lębork", "addressCountry": "PL"}, "areaServed": ["PL", "DE"], "description": "Zanders Atelier — projektowanie wnętrz i meble na wymiar do domów, restauracji i obiektów publicznych. Kompleksowo od koncepcji po realizację, bezpłatne spotkanie online z wizualizacją 3D."}</script>
-  <link rel="stylesheet" href="styles.css?v=20261104u">
+  <link rel="stylesheet" href="styles.css?v=20261104v">
   <link rel="stylesheet" href="modale/gallery-modal.css">
-  <link rel="stylesheet" href="modale/tiktok-modal.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
@@ -137,12 +136,11 @@
         </div>
         <div class="menu-dropdown">
             <a href="#foundation-support">Wsparcie</a>
-            <a href="#promotions">Promocje</a>
-            <a href="#about">O Nas</a>
+            <a href="#inspiracje">Inspiracje</a>
             <a href="#realizations">Nasze Realizacje</a>
+            <a href="#about">O Nas</a>
             <a href="#project">Kategorie Materiałów</a>
             <a href="katalog-materialow.html">Katalog materiałów</a>
-            <a href="#" onclick="openTikTokModal(); return false;">📱 TikTok</a>
             <a href="#contact">Kontakt</a>
         </div>
     </div>
@@ -159,72 +157,25 @@
         <div class="mq" data-speed="82"><span class="mq-track">SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG &nbsp; • &nbsp; SPRAWDŹ NASZ NAJNOWSZY KATALOG</span></div>
     </div>
 
-  <section id="promotions">
-    <h2>Aktualne Promocje</h2>
-    <div class="content">
-        <div class="promo-grid">
-            <div class="promo-item promo-collection">
-                <h3>Zanders Atelier Collection 2025 - 2026</h3>
-                <p>Sprawdź nasze propozycje na nadchodzący rok.<br>
-                <span style="color: var(--color-primary);">Nowy Katalog dostępny od 01.11.2025</span></p>
-                <a href="#" class="btn-gold">Szczegóły oferty</a>
-            </div>
-            <div class="promo-item">
-                <h3>Rozwiązania dla Twojej wygody</h3>
-                <p>Poznaj nowe rozwiązania technologiczne, które mogą znaleźć się dzięki Nam w Twoim domu.</p>
-                <a href="#tiktok" class="btn-gold" id="tiktok-banner-btn">Dowiedz się więcej</a>
+  <section id="inspiracje" aria-label="Inspiracje">
+    <div class="insp-head">
+        <h2>Inspiracje</h2>
+        <p class="insp-intro">Pomysły na meble i wnętrza, które nas inspirują. Wybierz film z listy, aby go obejrzeć.</p>
+    </div>
+    <div class="insp-stage">
+        <div class="insp-info">
+            <span class="insp-count"></span>
+            <h3 class="insp-title"></h3>
+            <a class="insp-author" href="#" target="_blank" rel="noopener"></a>
+            <div class="insp-nav">
+                <button type="button" class="insp-prev" aria-label="Poprzedni film">←</button>
+                <button type="button" class="insp-next" aria-label="Następny film">→</button>
             </div>
         </div>
+        <div class="insp-screen-wrap"><div class="insp-screen"></div></div>
+        <div class="insp-rail" aria-label="Lista filmów"></div>
     </div>
   </section>
-  <section id="about">
-    <div class="mobile-about-labels">
-            <div class="mobile-about-group">
-                <div class="mobile-title">O Nas</div>
-                <div class="mobile-separator">→</div>
-                <div class="mobile-expand">
-                    <span>R</span>
-                    <span>O</span>
-                    <span>Z</span>
-                    <span>W</span>
-                    <span>I</span>
-                    <span>Ń</span>
-                </div>
-            </div>
-    </div>
-    
-    <!-- Strzałka w banerze obrazu - widoczna po rozwinięciu -->
-    <div class="banner-collapse-arrow">
-        <span>←</span>
-    </div>
-    
-    <h2>O Nas</h2>
-    <div class="about-content">
-        <p class="about-intro">
-            <span class="highlight">Zanders Atelier</span> to zespół profesjonalistów z ponad dziesięcioletnim doświadczeniem w projektowaniu wnętrz i produkcji mebli, który przez lata dostarczał wyjątkowe rozwiązania w Polsce i Europie Zachodniej. Dzięki wieloletniemu doświadczeniu, możemy zapewnić klientom najwyższą jakość usług, spełniając ich marzenia o unikalnych, funkcjonalnych przestrzeniach.
-        </p>
-        
-        <p class="about-details">
-            Specjalizujemy się w meblach pod zabudowę do domów, restauracji oraz obiektów użyteczności publicznej, oferując <span class="highlight">kompleksową obsługę, od koncepcji po realizację</span>.
-        </p>
-        
-        <p class="about-philosophy">
-            "Furniture is not just an object, it's part of your life."
-        </p>
-        
-        <p class="about-details">
-            Nasza filozofia opiera się na przekonaniu, że meble to nie tylko przedmioty, ale istotna część Twojego życia. Dlatego nasze projekty są tworzone z myślą o Twoich potrzebach, komforcie i stylu. Łączymy nowoczesne technologie z elegancją i funkcjonalnością, aby dostarczać rozwiązania, które w pełni odpowiadają Twoim oczekiwaniom.
-        </p>
-        
-        <p class="about-details">
-            Każdy projekt traktujemy indywidualnie, z pełnym zaangażowaniem i pasją. Oferujemy <span class="highlight">bezpłatne spotkanie online</span>, podczas którego każdy klient może zobaczyć wizualizację swoich wymarzonych mebli oraz obejrzeć pomieszczenie w 3D.
-        </p>
-        
-        <p class="about-details">
-            Dzięki <span class="highlight">nowoczesnym technologiom meblarskim</span> oraz dbałości o każdy detal, dostarczamy produkty najwyższej jakości, które zaskakują naszych klientów innowacyjnymi rozwiązaniami.
-        </p>
-    </div>
-</section>
   <section id="realizations">
     <div class="realizations-header">
         <h2>Nasze Realizacje</h2>
@@ -382,7 +333,54 @@
         <!-- REALIZACJE:END -->
     </div>
 </section>
-
+  <section id="about">
+    <div class="mobile-about-labels">
+            <div class="mobile-about-group">
+                <div class="mobile-title">O Nas</div>
+                <div class="mobile-separator">→</div>
+                <div class="mobile-expand">
+                    <span>R</span>
+                    <span>O</span>
+                    <span>Z</span>
+                    <span>W</span>
+                    <span>I</span>
+                    <span>Ń</span>
+                </div>
+            </div>
+    </div>
+    
+    <!-- Strzałka w banerze obrazu - widoczna po rozwinięciu -->
+    <div class="banner-collapse-arrow">
+        <span>←</span>
+    </div>
+    
+    <h2>O Nas</h2>
+    <div class="about-content">
+        <p class="about-intro">
+            <span class="highlight">Zanders Atelier</span> to zespół profesjonalistów z ponad dziesięcioletnim doświadczeniem w projektowaniu wnętrz i produkcji mebli, który przez lata dostarczał wyjątkowe rozwiązania w Polsce i Europie Zachodniej. Dzięki wieloletniemu doświadczeniu, możemy zapewnić klientom najwyższą jakość usług, spełniając ich marzenia o unikalnych, funkcjonalnych przestrzeniach.
+        </p>
+        
+        <p class="about-details">
+            Specjalizujemy się w meblach pod zabudowę do domów, restauracji oraz obiektów użyteczności publicznej, oferując <span class="highlight">kompleksową obsługę, od koncepcji po realizację</span>.
+        </p>
+        
+        <p class="about-philosophy">
+            "Furniture is not just an object, it's part of your life."
+        </p>
+        
+        <p class="about-details">
+            Nasza filozofia opiera się na przekonaniu, że meble to nie tylko przedmioty, ale istotna część Twojego życia. Dlatego nasze projekty są tworzone z myślą o Twoich potrzebach, komforcie i stylu. Łączymy nowoczesne technologie z elegancją i funkcjonalnością, aby dostarczać rozwiązania, które w pełni odpowiadają Twoim oczekiwaniom.
+        </p>
+        
+        <p class="about-details">
+            Każdy projekt traktujemy indywidualnie, z pełnym zaangażowaniem i pasją. Oferujemy <span class="highlight">bezpłatne spotkanie online</span>, podczas którego każdy klient może zobaczyć wizualizację swoich wymarzonych mebli oraz obejrzeć pomieszczenie w 3D.
+        </p>
+        
+        <p class="about-details">
+            Dzięki <span class="highlight">nowoczesnym technologiom meblarskim</span> oraz dbałości o każdy detal, dostarczamy produkty najwyższej jakości, które zaskakują naszych klientów innowacyjnymi rozwiązaniami.
+        </p>
+    </div>
+</section>
   <section id="project">
     <h2>Kategorie Materiałów</h2>
     <div class="mat-flow-wrap">
@@ -558,9 +556,9 @@
 
 
   <script src="script.js?v=20261104c"></script>
+  <script src="inspiracje.js?v=1" defer></script>
   <script src="modale/gallery-modal.js?v=20261103f"></script>
   <script src="modale/katalog-materialow.js?v=1"></script>
-  <script src="modale/tiktok-modal.js?v=3.1"></script>
 
   <!-- Custom AI Consultant Button -->
   <div id="custom-ai-button" role="button" aria-label="Porozmawiaj z konsultantem AI" tabindex="0">
