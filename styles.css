@@ -4736,3 +4736,5 @@ section:first-of-type {
     .contact-addr { white-space: nowrap; font-size: min(0.9rem, 3.3vw); }
     .contact-item { gap: 0.6rem; }
 }
+/* pasek z hasłami pod głównym zdjęciem: kliknięcie otwiera konsultanta */
+.scroll-banner[role="button"] { cursor: pointer; }

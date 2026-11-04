@@ -22,6 +22,11 @@
             askName: 'Proszę podać imię.', fName: 'Imię', badName: 'Proszę wpisać imię.',
             askEmail: 'Można też podać adres e-mail — nie jest to obowiązkowe.', fEmail: 'E-mail',
             badEmail: 'Ten adres e-mail wygląda na niepoprawny.',
+            askWhen: 'Kiedy najlepiej do Pana/Pani zadzwonić lub umówić spotkanie? Proszę wybrać albo wpisać dogodny termin.',
+            fWhen: 'Dogodny termin (np. czwartek po 17)',
+            whenQuick: ['Dziś', 'Jutro', 'W tym tygodniu', 'Rano', 'Po południu', 'Wieczorem (po 17)'],
+            teaser: 'Umów się z nami na spotkanie w dogodnym terminie — porozmawiaj z naszym konsultantem.',
+            teaserClose: 'Zamknij podpowiedź',
             ok: 'Dalej', skip: 'Pomiń', cancel: 'Wróć do rozmowy',
             sending: 'Przekazuję zgłoszenie…', retry: 'Spróbuj ponownie',
             error: 'Nie udało się połączyć. Proszę zadzwonić: +48 605 126 918.',
@@ -39,6 +44,11 @@
             askName: 'Bitte geben Sie Ihren Vornamen an.', fName: 'Vorname', badName: 'Bitte geben Sie Ihren Vornamen ein.',
             askEmail: 'Sie können auch Ihre E-Mail-Adresse angeben — das ist freiwillig.', fEmail: 'E-Mail',
             badEmail: 'Diese E-Mail-Adresse scheint ungültig zu sein.',
+            askWhen: 'Wann passt Ihnen ein Anruf oder Termin am besten? Bitte wählen oder geben Sie Ihren Wunschtermin ein.',
+            fWhen: 'Wunschtermin (z. B. Donnerstag ab 17 Uhr)',
+            whenQuick: ['Heute', 'Morgen', 'Diese Woche', 'Vormittags', 'Nachmittags', 'Abends (ab 17 Uhr)'],
+            teaser: 'Vereinbaren Sie einen Termin, wann es Ihnen passt — sprechen Sie mit unserem Berater.',
+            teaserClose: 'Hinweis schließen',
             ok: 'Weiter', skip: 'Überspringen', cancel: 'Zurück zum Gespräch',
             sending: 'Anfrage wird weitergeleitet…', retry: 'Erneut versuchen',
             error: 'Verbindung fehlgeschlagen. Bitte rufen Sie an: +49 15212403091.',
@@ -56,6 +66,11 @@
             askName: 'Please enter your first name.', fName: 'First name', badName: 'Please enter your first name.',
             askEmail: 'You may also leave your email address — this is optional.', fEmail: 'Email',
             badEmail: 'That email address does not look right.',
+            askWhen: 'When is the best time to call you or arrange a meeting? Please choose or type a time that suits you.',
+            fWhen: 'Preferred time (e.g. Thursday after 5 pm)',
+            whenQuick: ['Today', 'Tomorrow', 'This week', 'Morning', 'Afternoon', 'Evening (after 5 pm)'],
+            teaser: 'Book a meeting at a time that suits you — talk to our consultant.',
+            teaserClose: 'Close tip',
             ok: 'Next', skip: 'Skip', cancel: 'Back to the conversation',
             sending: 'Passing on your enquiry…', retry: 'Try again',
             error: 'Connection failed. Please call +48 605 126 918.',
@@ -184,13 +199,13 @@
         setInput('chat');
     }
     // Pytanie konsultanta + pole tekstowe pod nim (dolny pasek jest wtedy schowany).
-    function askField(question, label, type, check, onDone, canSkip) {
+    function askField(question, label, type, check, onDone, canSkip, quick) {
         bubble('model', question);
         const f = document.createElement('form');
         f.className = 'za-field';
         f.noValidate = true;
-        const ac = { tel: 'tel', text: 'given-name', email: 'email' }[type];
-        f.innerHTML = `<label><span>${esc(label)}</span><input type="${type}" autocomplete="${ac}" maxlength="${type === 'email' ? 120 : 80}"></label>
+        const ac = quick ? 'off' : { tel: 'tel', text: 'given-name', email: 'email' }[type];
+        f.innerHTML = `${quick ? `<div class="za-quick">${quick.map((q) => `<button type="button" class="za-chip">${esc(q)}</button>`).join('')}</div>` : ''}<label><span>${esc(label)}</span><input type="${type}" autocomplete="${ac}" maxlength="${type === 'email' ? 120 : 80}"></label>
             <div class="za-field-err" role="alert"></div>
             <div class="za-field-btns">
                 <button type="submit" class="za-chip za-chip-main">${esc(T.ok)}</button>
@@ -209,6 +224,7 @@
             finish(v, v);
         });
         if (canSkip) f.querySelector('.za-skip').addEventListener('click', () => finish('', T.skip));
+        f.querySelectorAll('.za-quick .za-chip').forEach((b) => b.addEventListener('click', () => finish(b.textContent, b.textContent)));
         f.querySelector('.za-back').addEventListener('click', stopCollect);
         log.appendChild(f);
         log.scrollTop = log.scrollHeight;
@@ -221,7 +237,10 @@
                 collect.name = n.slice(0, 80);
                 askField(T.askEmail, T.fEmail, 'email', (m) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m) ? '' : T.badEmail), (m) => {
                     collect.email = m;
-                    submitLead();
+                    askField(T.askWhen, T.fWhen, 'text', () => '', (w) => {
+                        collect.when = w.slice(0, 120);
+                        submitLead();
+                    }, true, T.whenQuick);
                 }, true);
             });
         });
@@ -235,7 +254,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    lang: LANG, name: collect.name, phone: collect.phone, email: collect.email || '',
+                    lang: LANG, name: collect.name, phone: collect.phone, email: collect.email || '', termin: collect.when || '',
                     need, consent: true, website: hp.value, messages: msgs,
                 }),
             });
@@ -353,4 +372,30 @@
         });
     }
     window.openConsultant = open;
+
+    // Chmurka przy ikonie: po kilku sekundach zachęca do umówienia spotkania; krzyżyk ją zamyka
+    // (do końca wizyty — sessionStorage), kliknięcie otwiera rozmowę. Nie pokazuje się, gdy okno jest otwarte.
+    const TEASE = 'za-teaser-zamknieta';
+    let teaseOff = false;
+    try { teaseOff = sessionStorage.getItem(TEASE) === '1'; } catch (e) { /* bez pamięci — pokażemy */ }
+    if (btn && !teaseOff) {
+        const tip = document.createElement('div');
+        tip.className = 'za-teaser';
+        tip.setAttribute('role', 'status');
+        tip.innerHTML = `<button type="button" class="za-teaser-text">${esc(T.teaser)}</button>` +
+            `<button type="button" class="za-teaser-x" aria-label="${esc(T.teaserClose)}" title="${esc(T.teaserClose)}">✕</button>`;
+        const hideTip = (forever) => {
+            tip.classList.remove('za-teaser-on');
+            setTimeout(() => tip.remove(), 400);
+            if (forever) { try { sessionStorage.setItem(TEASE, '1'); } catch (e) { /* jw. */ } }
+        };
+        tip.querySelector('.za-teaser-x').addEventListener('click', (e) => { e.stopPropagation(); hideTip(true); });
+        tip.querySelector('.za-teaser-text').addEventListener('click', () => { hideTip(true); open(); });
+        btn.addEventListener('click', () => hideTip(true));
+        setTimeout(() => {
+            if (root.classList.contains('za-open') || !document.body.contains(btn)) return;
+            document.body.appendChild(tip);
+            requestAnimationFrame(() => requestAnimationFrame(() => tip.classList.add('za-teaser-on')));
+        }, 6000);
+    }
 })();
