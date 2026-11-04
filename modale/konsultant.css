@@ -206,33 +206,36 @@
 /* gotowe odpowiedzi nad polem (pytanie o dogodny termin) */
 .za-quick { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
 
-/* chmurka przy ikonie konsultanta */
+/* chmurka przy ikonie konsultanta — dymek nad ikoną, zaokrąglony, dzióbek w dół na kółko */
 .za-teaser {
-  position: fixed; right: 112px; bottom: 38px; z-index: 9998; max-width: 270px;
+  position: fixed; right: 34px; bottom: 116px; z-index: 9998; max-width: 270px;
   display: flex; align-items: flex-start; gap: 4px;
-  background: #fff; border: 1px solid #B4943C; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-  opacity: 0; transform: translateX(14px) scale(0.96); transform-origin: right center;
+  background: #fff; border: 1px solid #B4943C; border-radius: 16px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0; transform: translateY(10px) scale(0.94); transform-origin: calc(100% - 30px) 100%;
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
   pointer-events: none;
 }
 .za-teaser::after {
-  content: ''; position: absolute; right: -7px; top: 50%; width: 12px; height: 12px; margin-top: -6px;
-  background: #fff; border-top: 1px solid #B4943C; border-right: 1px solid #B4943C; transform: rotate(45deg);
+  content: ''; position: absolute; right: 24px; bottom: -8px; width: 14px; height: 14px;
+  background: #fff; border-right: 1px solid #B4943C; border-bottom: 1px solid #B4943C;
+  border-bottom-right-radius: 3px; transform: rotate(45deg);
 }
 .za-teaser.za-teaser-on { opacity: 1; transform: none; pointer-events: auto; }
 .za-teaser-text {
-  flex: 1; padding: 12px 4px 12px 14px; border: 0; background: none; cursor: pointer; text-align: left;
-  font: inherit; font-size: 15px; line-height: 1.35; color: #1A1A1A;
+  flex: 1; padding: 12px 4px 12px 16px; border: 0; background: none; cursor: pointer; text-align: left;
+  font: inherit; font-size: 15px; line-height: 1.35; color: #1A1A1A; border-radius: 16px;
 }
 .za-teaser-text:hover { color: #8a6d2c; }
 .za-teaser-x {
-  flex: 0 0 auto; width: 30px; height: 30px; margin: 4px 4px 0 0; border: 0; background: none; cursor: pointer;
+  flex: 0 0 auto; width: 30px; height: 30px; margin: 5px 5px 0 0; border: 0; border-radius: 50%; background: none; cursor: pointer;
   font-size: 15px; line-height: 1; color: #dc2626;
 }
+.za-teaser-x:hover { background: #fdecec; }
 html.za-chat-on .za-teaser { display: none; }
 @media (max-width: 768px) {
-  .za-teaser { right: 92px; bottom: 26px; max-width: min(240px, calc(100vw - 110px)); }
-  .za-teaser-text { font-size: 14px; padding: 10px 2px 10px 12px; }
+  .za-teaser { right: 22px; bottom: 94px; max-width: min(250px, calc(100vw - 44px)); }
+  .za-teaser::after { right: 22px; }
+  .za-teaser-text { font-size: 14px; padding: 10px 2px 10px 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .za-teaser { transition: none; }
