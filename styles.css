@@ -1115,7 +1115,7 @@ nav {
     position: relative;
     overflow: hidden;
     border-radius: 0;
-    border: none;
+    border: 1px solid rgba(237, 210, 173, 0); /* niewidoczna ramka w złotym kolorze — przy przejściu do .mobile-active kolor nie startuje z czerni (dawny czarny błysk) */
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     transform: perspective(1000px) rotateY(0deg);
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
