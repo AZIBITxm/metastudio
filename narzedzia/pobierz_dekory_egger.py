@@ -11,6 +11,7 @@ Pobieramy: kod dekoru, kod struktury, nazwę PL, link do strony dekoru u produce
 Wynik:
   dane/dekory/egger.json            — lista dekorów (do strony katalogu i bazy wiedzy konsultanta)
   materiały/dekory/egger/<KOD>.webp — próbka dekoru 600 px (kwadrat)
+Uzupełnienie samego pola products:  python narzedzia/pobierz_dekory_egger.py --products
 Pobieranie jest grzeczne (przerwa między zapytaniami); już pobrane grafiki są pomijane.
 """
 import html
@@ -34,6 +35,27 @@ PAUSE = 1.0
 
 # Grupa wg litery kodu EGGER
 GROUPS = {'H': 'drewno', 'Q': 'drewno', 'F': 'kamien-materialy', 'U': 'kolory', 'W': 'kolory'}
+
+# W czym dekor jest dostępny (linki producttype=PG_… na stronie dekoru) → nasze klucze
+PRODUCTS = {
+    'PG_MELAMINFACEDBOARDS': 'plyty', 'PG_WORKTOPS': 'blaty', 'PG_EDGING': 'obrzeza',
+    'PG_LAMINATES': 'laminaty', 'PG_COMPACTLAMINATE': 'kompakt', 'PG_SPLASHBACK': 'panele-wnekowe',
+    'PG_WORKTOPACESSORIES': 'akcesoria-blatow',
+}
+
+
+def products_of(page_html):
+    """Lista form, w jakich EGGER oferuje dekor. Nieznane kody PG_ zapisujemy małymi literami,
+    żeby nic nie zginęło (np. przyszłe nowe produkty)."""
+    found = []
+    for pg, title in re.findall(r'producttype=(PG_[A-Z_]+)"[^>]*title="([^"]+)"', page_html):
+        key = PRODUCTS.get(pg)
+        if not key:
+            t = html.unescape(title).lower()
+            key = 'blaty' if t.startswith('blaty') else 'akcesoria-blatow' if 'blat' in t else 'panele-wnekowe' if 'wnęk' in t else pg[3:].lower()
+        if key not in found:
+            found.append(key)
+    return found
 
 
 def get(url, binary=False):
@@ -73,6 +95,7 @@ def parse(page_html, url):
     return {
         'producer': 'EGGER', 'code': code, 'structure': structure, 'name': name,
         'group': GROUPS.get(code[0], 'inne'),
+        'products': products_of(page_html),
         'url': url.split('?')[0],
         'image_src': thumb + '/AR_4_3.webp?width=%d&srcext=png' % (SIZE * 2),
     }
@@ -158,5 +181,19 @@ def main():
     print('GOTOWE — dekorów:', len(out))
 
 
+def backfill_products():
+    """Uzupełnia pole products w istniejącym egger.json (bez ponownego pobierania grafik)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for n, d in enumerate(data, 1):
+        try:
+            d['products'] = products_of(get(d['url']))
+        except Exception as e:
+            print('  błąd', d['code'], e)
+        if n % 50 == 0:
+            print(f'  {n}/{len(data)}')
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print('GOTOWE — uzupełniono', len(data))
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_products() if '--products' in sys.argv else main())

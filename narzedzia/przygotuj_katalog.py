@@ -147,7 +147,7 @@ PROD_TXT = {
 
 # Przycisk do pełnego katalogu dekorów (katalog-materialow.html) — na razie tylko wersja PL
 CATALOG_LINK = {
-    'plyty-laminowane': {'pl': ('katalog-materialow.html', 'Przeglądaj wszystkie dekory w naszym katalogu →')},
+    'plyty-laminowane': {'pl': ('katalog-materialow.html', 'Przeglądaj dekory płyt i blatów w naszym katalogu →')},
 }
 
 

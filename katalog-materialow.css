@@ -22,6 +22,8 @@ h1 { font-size: 34px; margin: 18px 0 4px; }
 .km-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 16px; }
 .km-card { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ecdcc3; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .km-card:hover, .km-card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
+.km-card { position: relative; }
+.km-card-badge { position: absolute; top: 6px; left: 6px; background: #1A1A1A; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 8px; border-radius: 999px; }
 .km-card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: #eee; }
 .km-card-name { display: block; padding: 6px 8px 0; font-weight: 700; font-size: 15px; line-height: 1.25; }
 .km-card-code { display: block; padding: 0 8px 8px; font-size: 13px; opacity: 0.7; }
@@ -36,7 +38,8 @@ h1 { font-size: 34px; margin: 18px 0 4px; }
 .km-modal-info { flex: 1; }
 .km-modal-info h2 { margin: 0 0 4px; font-size: 26px; }
 .km-modal-producer { margin: 0; font-weight: 700; letter-spacing: 0.08em; color: #8a6d2c; }
-.km-modal-code { margin: 0 0 16px; }
+.km-modal-code { margin: 0 0 4px; }
+.km-modal-forms { margin: 0 0 16px; font-size: 16px; opacity: 0.8; }
 .km-modal-close { position: absolute; top: 6px; right: 10px; border: 0; background: none; font-size: 32px; line-height: 1; cursor: pointer; color: #1A1A1A; }
 @media (max-width: 640px) {
   .km-modal-box { flex-direction: column; }

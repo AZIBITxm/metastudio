@@ -1,5 +1,7 @@
-// Katalog materiałów: wyszukiwarka dekorów producentów (dane/dekory/<producent>.json).
+// Katalog płyt laminowanych i blatów: wyszukiwarka dekorów producentów (dane/dekory/<producent>.json).
 // Nowy producent = nowy plik JSON (generuje narzędzie w narzedzia/) + wpis w PRODUCERS.
+// Pole products (w czym dekor jest dostępny): pokazujemy tylko dekory dostępne jako płyta lub blat —
+// dekory wyłącznie na obrzeża / laminaty HPL / kompakt są pomijane (decyzja Adama 2026-11-04). Brak pola = pokazujemy.
 (function () {
     'use strict';
 
@@ -12,10 +14,19 @@
         { id: 'kamien-materialy', name: 'Kamień i materiały' },
         { id: 'kolory', name: 'Kolory jednolite' },
     ];
+    const FORMS = [
+        { id: '', name: 'Płyty i blaty' },
+        { id: 'plyty', name: 'Płyty' },
+        { id: 'blaty', name: 'Blaty robocze' },
+    ];
+    const FORM_LABEL = { plyty: 'płyta laminowana', perfectsense: 'płyta lakierowana PerfectSense', blaty: 'blat roboczy', kompakt: 'laminat kompaktowy', 'panele-wnekowe': 'panel wnękowy' };
+    const BOARD = ['plyty', 'perfectsense'];   // płyty = laminowane + lakierowane PerfectSense
+    const shown = (d) => !Array.isArray(d.products) || d.products.some((p) => BOARD.includes(p) || p === 'blaty');
+    const hasForm = (d, f) => !f || !Array.isArray(d.products) || (f === 'plyty' ? d.products.some((p) => BOARD.includes(p)) : d.products.includes(f));
 
     const $ = (id) => document.getElementById(id);
     const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
-    const state = { q: '', producer: '', group: '' };
+    const state = { q: '', producer: '', group: '', form: '' };
     let decors = [];
 
     function chips(container, items, key) {
@@ -42,6 +53,7 @@
         const list = decors.filter((d) =>
             (!state.producer || d._p === state.producer) &&
             (!state.group || d.group === state.group) &&
+            hasForm(d, state.form) &&
             words.every((w) => d._s.includes(w)));
         const grid = $('km-grid');
         grid.innerHTML = '';
@@ -51,6 +63,7 @@
             b.type = 'button';
             b.className = 'km-card';
             b.innerHTML = `<img src="${d.image}" width="600" height="600" loading="lazy" decoding="async" alt="">` +
+                (Array.isArray(d.products) && d.products.includes('blaty') ? '<span class="km-card-badge">Blat</span>' : '') +
                 `<span class="km-card-name"></span><span class="km-card-code"></span>`;
             b.querySelector('img').alt = `${d.producer} ${d.code} ${d.name}`;
             b.querySelector('.km-card-name').textContent = d.name;
@@ -69,6 +82,8 @@
         $('km-modal-producer').textContent = d.producer;
         $('km-modal-name').textContent = d.name;
         $('km-modal-code').textContent = `Kod: ${d.code} ${d.structure || ''}`;
+        const forms = (d.products || []).map((f) => FORM_LABEL[f]).filter(Boolean);
+        $('km-modal-forms').textContent = forms.length ? `Dostępny jako: ${forms.join(', ')}` : '';
         $('km-modal-link').href = d.url;
         $('km-modal').hidden = false;
         $('km-modal-close').focus();
@@ -83,8 +98,9 @@
     Promise.all(PRODUCERS.map((p) => fetch(p.file).then((r) => r.json()).then((list) =>
         list.map((d) => Object.assign(d, { _p: p.id, _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer}`) })))))
         .then((lists) => {
-            decors = lists.flat();
+            decors = lists.flat().filter(shown);
             chips($('km-producers'), [{ id: '', name: 'Wszyscy producenci' }].concat(PRODUCERS), 'producer');
+            chips($('km-forms'), FORMS, 'form');
             chips($('km-groups'), GROUPS, 'group');
             const q = new URLSearchParams(location.search).get('q');
             if (q) { state.q = q; $('km-search').value = q; }
