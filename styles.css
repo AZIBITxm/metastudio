@@ -4699,6 +4699,10 @@ section:first-of-type {
     translate: calc((1 - var(--sfx-b, 1)) * 110% + var(--sfx-x, 0) * 110%) 0;
     will-change: translate;
 }
+/* telefon: stare `transition: all 0.8s` (rozwijanie „O nas”) opóźniało też przesunięcie przy przewijaniu — animujemy tylko rozwijanie */
+@media (max-width: 768px) {
+    #about::after { transition: left 0.8s ease-in-out, width 0.8s ease-in-out; }
+}
 #project .mat-flow {
     translate: calc((1 - var(--sfx-b, 1)) * 260px + var(--sfx-x, 0) * 140px) 0;
     opacity: calc(var(--sfx-b, 1) * (1 - var(--sfx-x, 0)));
