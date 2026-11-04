@@ -240,3 +240,13 @@ html.za-chat-on .za-teaser { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .za-teaser { transition: none; }
 }
+
+/* pole „dogodny termin”: podpis nad polem, obok ikonka kalendarza */
+.za-field label.za-when { flex-direction: column; align-items: stretch; gap: 4px; }
+.za-when-row { position: relative; display: flex; gap: 6px; }
+.za-cal {
+  flex: 0 0 auto; width: 44px; border: 1px solid #ccc; border-radius: 12px; background: #fff; color: #8a6d2c;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.za-cal:hover, .za-cal:focus-visible { border-color: #B4943C; background: #fbf5ea; outline: none; }
+.za-field input.za-date { position: absolute; flex: none; min-width: 0; right: 0; bottom: 0; width: 44px; height: 1px; opacity: 0; border: 0; padding: 0; pointer-events: none; }

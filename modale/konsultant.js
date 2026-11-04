@@ -26,7 +26,7 @@
             fWhen: 'Dogodny termin (np. czwartek po 17)',
             whenQuick: ['Dziś', 'Jutro', 'W tym tygodniu', 'Rano', 'Po południu', 'Wieczorem (po 17)'],
             teaser: 'Umów się z nami na spotkanie w dogodnym terminie — porozmawiaj z naszym konsultantem.',
-            teaserClose: 'Zamknij podpowiedź',
+            teaserClose: 'Zamknij podpowiedź', pickDay: 'Wybierz dzień z kalendarza', dateLocale: 'pl-PL',
             ok: 'Dalej', skip: 'Pomiń', cancel: 'Wróć do rozmowy',
             sending: 'Przekazuję zgłoszenie…', retry: 'Spróbuj ponownie',
             error: 'Nie udało się połączyć. Proszę zadzwonić: +48 605 126 918.',
@@ -48,7 +48,7 @@
             fWhen: 'Wunschtermin (z. B. Donnerstag ab 17 Uhr)',
             whenQuick: ['Heute', 'Morgen', 'Diese Woche', 'Vormittags', 'Nachmittags', 'Abends (ab 17 Uhr)'],
             teaser: 'Vereinbaren Sie einen Termin, wann es Ihnen passt — sprechen Sie mit unserem Berater.',
-            teaserClose: 'Hinweis schließen',
+            teaserClose: 'Hinweis schließen', pickDay: 'Tag im Kalender wählen', dateLocale: 'de-DE',
             ok: 'Weiter', skip: 'Überspringen', cancel: 'Zurück zum Gespräch',
             sending: 'Anfrage wird weitergeleitet…', retry: 'Erneut versuchen',
             error: 'Verbindung fehlgeschlagen. Bitte rufen Sie an: +49 15212403091.',
@@ -70,7 +70,7 @@
             fWhen: 'Preferred time (e.g. Thursday after 5 pm)',
             whenQuick: ['Today', 'Tomorrow', 'This week', 'Morning', 'Afternoon', 'Evening (after 5 pm)'],
             teaser: 'Book a meeting at a time that suits you — talk to our consultant.',
-            teaserClose: 'Close tip',
+            teaserClose: 'Close tip', pickDay: 'Pick a day from the calendar', dateLocale: 'en-GB',
             ok: 'Next', skip: 'Skip', cancel: 'Back to the conversation',
             sending: 'Passing on your enquiry…', retry: 'Try again',
             error: 'Connection failed. Please call +48 605 126 918.',
@@ -205,7 +205,7 @@
         f.className = 'za-field';
         f.noValidate = true;
         const ac = quick ? 'off' : { tel: 'tel', text: 'given-name', email: 'email' }[type];
-        f.innerHTML = `${quick ? `<div class="za-quick">${quick.map((q) => `<button type="button" class="za-chip">${esc(q)}</button>`).join('')}</div>` : ''}<label><span>${esc(label)}</span><input type="${type}" autocomplete="${ac}" maxlength="${type === 'email' ? 120 : 80}"></label>
+        f.innerHTML = `${quick ? `<div class="za-quick">${quick.map((q) => `<button type="button" class="za-chip">${esc(q)}</button>`).join('')}</div>` : ''}<label${quick ? ' class="za-when"' : ''}><span>${esc(label)}</span>${quick ? '<span class="za-when-row">' : ''}<input type="${type}" autocomplete="${ac}" maxlength="${type === 'email' ? 120 : 80}">${quick ? `<button type="button" class="za-cal" aria-label="${esc(T.pickDay)}" title="${esc(T.pickDay)}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><rect x="7" y="12.5" width="3" height="3" rx="0.6" fill="currentColor" stroke="none"/></svg></button><input type="date" class="za-date" tabindex="-1" aria-hidden="true" min="${new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10)}"></span>` : ''}</label>
             <div class="za-field-err" role="alert"></div>
             <div class="za-field-btns">
                 <button type="submit" class="za-chip za-chip-main">${esc(T.ok)}</button>
@@ -217,7 +217,7 @@
         const finish = (val, shown) => { f.remove(); bubble('user', shown); onDone(val); };
         f.addEventListener('submit', (e) => {
             e.preventDefault();
-            const v = inp.value.trim();
+            const v = inp.value.trim().replace(/,$/, '');
             if (!v && canSkip) return finish('', T.skip);
             const msg = check(v);
             if (msg) { err.textContent = msg; inp.focus(); return; }
@@ -225,6 +225,23 @@
         });
         if (canSkip) f.querySelector('.za-skip').addEventListener('click', () => finish('', T.skip));
         f.querySelectorAll('.za-quick .za-chip').forEach((b) => b.addEventListener('click', () => finish(b.textContent, b.textContent)));
+        // ikonka kalendarza: wybór dnia z kalendarza wpisuje datę do pola (można dopisać godzinę)
+        const cal = f.querySelector('.za-cal');
+        const dateInp = f.querySelector('.za-date');
+        if (cal && dateInp) {
+            cal.addEventListener('click', (e) => {
+                e.preventDefault();
+                try { dateInp.showPicker(); } catch (er) { dateInp.focus(); dateInp.click(); }
+            });
+            dateInp.addEventListener('change', () => {
+                if (!dateInp.value) return;
+                const d = new Date(dateInp.value + 'T12:00:00');
+                inp.value = d.toLocaleDateString(T.dateLocale, { weekday: 'long', day: 'numeric', month: 'long' }) + ', ';
+                err.textContent = '';
+                inp.focus();
+                inp.setSelectionRange(inp.value.length, inp.value.length);
+            });
+        }
         f.querySelector('.za-back').addEventListener('click', stopCollect);
         log.appendChild(f);
         log.scrollTop = log.scrollHeight;
