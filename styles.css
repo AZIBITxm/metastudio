@@ -4633,6 +4633,37 @@ section:first-of-type {
     #inspiracje .insp-screen-wrap::before, #inspiracje .insp-info.insp-swap .insp-title, #inspiracje .insp-info.insp-swap .insp-author { animation: none; }
 }
 
+/* Inspiracje — przesuwanie filmów palcem (telefon) + kierunkowe przejście ekranu */
+#inspiracje .insp-screen.is-changing.go-left { transform: translateX(-70px) rotateY(14deg) scale(0.95); }
+#inspiracje .insp-screen.is-changing.go-right { transform: translateX(70px) rotateY(-14deg) scale(0.95); }
+#inspiracje .insp-screen.is-changing.come-left { transform: translateX(70px) rotateY(-14deg) scale(0.95); }
+#inspiracje .insp-screen.is-changing.come-right { transform: translateX(-70px) rotateY(14deg) scale(0.95); }
+#inspiracje .insp-touch { display: none; }
+@media (max-width: 899px) {
+    /* warstwa dotyku: górne ~70% ekranu (dół zostaje dla przycisków odtwarzacza i okna zgody TikToka) */
+    #inspiracje .insp-touch {
+        display: flex; align-items: center; justify-content: center;
+        position: absolute; z-index: 2; left: 0; right: 0; top: 0; height: 70%;
+        touch-action: pan-y; -webkit-tap-highlight-color: transparent;
+    }
+    #inspiracje .insp-touch-icon {
+        min-width: 64px; height: 64px; padding: 0 12px; display: flex; align-items: center; justify-content: center;
+        background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 1.6rem; letter-spacing: -0.1em; opacity: 0; pointer-events: none;
+    }
+    #inspiracje .insp-touch-icon.is-on { animation: inspFlash 0.9s ease; }
+    @keyframes inspFlash { 0% { opacity: 0; transform: scale(0.7); } 25% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.15); } }
+    /* strzałki niepotrzebne — film zmienia się przesunięciem */
+    #inspiracje .insp-nav { display: none; }
+    /* mniejsze miniatury: 3 na szerokość ekranu */
+    #inspiracje .insp-rail { gap: 8px; }
+    #inspiracje .insp-thumb { width: calc((100% - 16px) / 3); aspect-ratio: 4 / 5; }
+    #inspiracje .insp-thumb-card { padding: 7px; gap: 2px; }
+    #inspiracje .insp-thumb-platform { font-size: 0.58rem; letter-spacing: 0.14em; }
+    #inspiracje .insp-thumb-text { font-size: 0.8rem; line-height: 1.2; -webkit-line-clamp: 3; }
+    #inspiracje .insp-thumb-play { top: 7px; right: 7px; width: 22px; height: 22px; }
+    #inspiracje .insp-thumb-play::after { left: 8px; top: 5px; border-width: 5px 0 5px 8px; }
+}
+
 /* nowa kolejność (2026-11-04): po „O nas” od razu Kategorie — zdjęcie z „O nas” wystaje na telefonie, więc odsuwamy nagłówek */
 @media (max-width: 768px) {
     #about + #project { padding-top: 150px; }

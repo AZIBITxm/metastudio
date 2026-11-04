@@ -84,7 +84,7 @@
         document.head.appendChild(sc);
     }
 
-    function show(i, focusRail) {
+    function show(i, focusRail, dir) {
         if (!films.length) return;
         i = (i + films.length) % films.length;
         const f = films[i];
@@ -109,13 +109,71 @@
         void root.offsetWidth;
         root.querySelector('.insp-info').classList.add('insp-swap');
         if (!visible) return;   // odtwarzacz dopiero, gdy sekcja jest na ekranie
+        muted = true;
+        paused = false;
         screen.classList.add('is-changing');
+        if (dir) screen.classList.add('go-' + dir);
         setTimeout(() => {
             screen.innerHTML = playerHtml(f);
             if (f.platforma === 'instagram') loadInstagram();
-            screen.classList.remove('is-changing');
+            // nowy film wjeżdża z przeciwnej strony niż odjechał stary
+            screen.style.transition = 'none';
+            screen.classList.remove('go-left', 'go-right');
+            if (dir) screen.classList.add('come-' + dir);
+            void screen.offsetWidth;
+            screen.style.transition = '';
+            screen.classList.remove('is-changing', 'come-left', 'come-right');
         }, 260);
     }
+
+    // ===== telefon: przesunięcie palcem po ekranie = następny / poprzedni film =====
+    // Odtwarzacz jest w ramce (iframe), która przejmuje dotyk — dlatego nad nim leży przezroczysta warstwa:
+    // przesunięcie w bok zmienia film, stuknięcie steruje odtwarzaczem TikToka (dźwięk → pauza/odtwarzanie).
+    let muted = true, paused = false;
+    const wrapEl = root.querySelector('.insp-screen-wrap');
+    const touchLayer = document.createElement('div');
+    touchLayer.className = 'insp-touch';
+    const touchIcon = document.createElement('span');
+    touchIcon.className = 'insp-touch-icon';
+    touchLayer.appendChild(touchIcon);
+    wrapEl.appendChild(touchLayer);
+
+    function flash(symbol) {
+        touchIcon.textContent = symbol;
+        touchIcon.classList.remove('is-on');
+        void touchIcon.offsetWidth;
+        touchIcon.classList.add('is-on');
+    }
+    function tiktok(type) {
+        const fr = screen.querySelector('iframe');
+        if (fr && fr.contentWindow) fr.contentWindow.postMessage({ type, value: null, 'x-tiktok-player': true }, '*');
+    }
+    function tap() {
+        const f = films[current];
+        if (!f) return;
+        if (f.platforma === 'tiktok') {
+            if (muted) { tiktok('unMute'); tiktok('play'); muted = false; paused = false; flash('🔊'); }
+            else if (paused) { tiktok('play'); paused = false; flash('▶'); }
+            else { tiktok('pause'); paused = true; flash('❚❚'); }
+        } else {
+            // inne serwisy nie mają sterowania z zewnątrz — na chwilę oddajemy dotyk odtwarzaczowi
+            touchLayer.style.pointerEvents = 'none';
+            setTimeout(() => { touchLayer.style.pointerEvents = ''; }, 8000);
+        }
+    }
+    let sx = 0, sy = 0, st = 0;
+    touchLayer.addEventListener('touchstart', (e) => {
+        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; st = Date.now();
+    }, { passive: true });
+    touchLayer.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - sx, dy = t.clientY - sy;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+            if (films.length > 1) { stopDrift(); show(current + (dx < 0 ? 1 : -1), true, dx < 0 ? 'left' : 'right'); }
+        } else if (Math.abs(dx) < 12 && Math.abs(dy) < 12 && Date.now() - st < 450) {
+            tap();
+        }
+    }, { passive: true });
 
     function thumb(f, i) {
         const b = document.createElement('button');
