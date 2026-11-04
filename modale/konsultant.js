@@ -373,25 +373,21 @@
     }
     window.openConsultant = open;
 
-    // Chmurka przy ikonie: po kilku sekundach zachęca do umówienia spotkania; krzyżyk ją zamyka
-    // (do końca wizyty — sessionStorage), kliknięcie otwiera rozmowę. Nie pokazuje się, gdy okno jest otwarte.
-    const TEASE = 'za-teaser-zamknieta';
-    let teaseOff = false;
-    try { teaseOff = sessionStorage.getItem(TEASE) === '1'; } catch (e) { /* bez pamięci — pokażemy */ }
-    if (btn && !teaseOff) {
+    // Chmurka przy ikonie: po kilku sekundach zachęca do umówienia spotkania — przy KAŻDYM wejściu i odświeżeniu strony
+    // (wymóg Adama); krzyżyk zamyka ją na czas tego wyświetlenia, kliknięcie otwiera rozmowę. Nie pokazuje się przy otwartym oknie.
+    if (btn) {
         const tip = document.createElement('div');
         tip.className = 'za-teaser';
         tip.setAttribute('role', 'status');
         tip.innerHTML = `<button type="button" class="za-teaser-text">${esc(T.teaser)}</button>` +
             `<button type="button" class="za-teaser-x" aria-label="${esc(T.teaserClose)}" title="${esc(T.teaserClose)}">✕</button>`;
-        const hideTip = (forever) => {
+        const hideTip = () => {
             tip.classList.remove('za-teaser-on');
             setTimeout(() => tip.remove(), 400);
-            if (forever) { try { sessionStorage.setItem(TEASE, '1'); } catch (e) { /* jw. */ } }
         };
-        tip.querySelector('.za-teaser-x').addEventListener('click', (e) => { e.stopPropagation(); hideTip(true); });
-        tip.querySelector('.za-teaser-text').addEventListener('click', () => { hideTip(true); open(); });
-        btn.addEventListener('click', () => hideTip(true));
+        tip.querySelector('.za-teaser-x').addEventListener('click', (e) => { e.stopPropagation(); hideTip(); });
+        tip.querySelector('.za-teaser-text').addEventListener('click', () => { hideTip(); open(); });
+        btn.addEventListener('click', () => hideTip());
         setTimeout(() => {
             if (root.classList.contains('za-open') || !document.body.contains(btn)) return;
             document.body.appendChild(tip);
