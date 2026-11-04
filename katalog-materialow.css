@@ -17,6 +17,20 @@ h1 { font-size: 34px; margin: 18px 0 4px; }
 .km-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .km-chip { font: inherit; font-weight: 700; font-size: 16px; color: #8a6d2c; border: 1px solid #d4b58c; border-radius: 999px; padding: 3px 14px; background: #fff; cursor: pointer; }
 .km-chip[aria-pressed="true"] { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
+.km-chips[hidden] { display: none; }
+
+/* Krok 1: rodzaj materiału — trzy duże kafelki ze zdjęciem */
+.km-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 6px 0 4px; }
+.km-type { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 128px; padding: 12px 14px; border: 2px solid #ecdcc3; background: #1A1A1A; color: #fff; font: inherit; text-align: left; cursor: pointer; overflow: hidden; transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+.km-type-img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.55; transition: opacity 0.3s ease, transform 0.6s ease; }
+.km-type-name, .km-type-hint { position: relative; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
+.km-type-name { font-size: 22px; font-weight: 700; line-height: 1.15; }
+.km-type-hint { font-size: 14px; opacity: 0.9; }
+.km-type:hover .km-type-img, .km-type:focus-visible .km-type-img { opacity: 0.7; transform: scale(1.04); }
+.km-type:hover, .km-type:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); }
+.km-type[aria-pressed="true"] { border-color: #B4943C; box-shadow: 0 0 0 2px #B4943C inset; }
+.km-type[aria-pressed="true"] .km-type-img { opacity: 0.8; }
+.km-type:disabled { cursor: default; opacity: 0.45; }
 .km-count { margin: 8px 0 0; font-size: 15px; opacity: 0.75; }
 
 .km-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 16px; }
@@ -45,5 +59,9 @@ h1 { font-size: 34px; margin: 18px 0 4px; }
   .km-modal-box { flex-direction: column; }
   .km-modal-box img { width: 100%; }
   .km-controls { position: static; }
+  .km-types { gap: 8px; }
+  .km-type { min-height: 96px; padding: 8px 9px; }
+  .km-type-name { font-size: 16px; }
+  .km-type-hint { font-size: 12px; }
   .km-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
 }

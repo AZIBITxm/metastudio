@@ -9,7 +9,7 @@ co na stronie: products, material_reproduction…). Pytamy go kilka razy z róż
   - wszystkie dekory (kod, nazwa, struktura, miniatura, link do strony dekoru),
   - filtr „Produkt” → w czym dekor jest dostępny (płyty laminowane, blaty, obrzeża…),
   - filtr „Odwzorowanie materiału” → grupa (drewno / kamień i materiały / kolory).
-Zapisujemy tylko dekory dostępne jako płyta laminowana albo blat (jak przy EGGER).
+Zapisujemy dekory dostępne jako płyta laminowana, blat albo front (akrylowy, lakierowany, PET).
 
 Wynik:
   dane/dekory/kronospan.json            — lista dekorów (strona katalogu + konsultant)
@@ -44,7 +44,12 @@ PRODUCTS = {
     'laminaty': [8],
     'kompakt': [12],
     'panele-wnekowe': [692],
+    # fronty (Katalog → Fronty): płyty akrylowe, lakierowane MDF, MDF z folią PET / Mirror Gloss
+    'front-akryl': [682, 5],
+    'front-lakier': [773, 774],
+    'front-pet': [727, 732, 605],
 }
+FRONTS = ('front-akryl', 'front-lakier', 'front-pet')
 # Filtr „Odwzorowanie materiału” (grupa → nasza grupa). Serwer przyjmuje id OPCJI („213-3” = Dąb),
 # nie id grupy — pytamy o każdą opcję i zapisujemy jej polską nazwę w tags (Kronospan nazywa dekory
 # po angielsku, a klient szuka „dąb”, „szary”). Kolejność = pierwszeństwo grupy.
@@ -133,7 +138,7 @@ def main():
     out = []
     for c, d in by_code.items():
         d['products'] = [k for k in PRODUCTS if c in prod[k]]
-        if 'plyty' not in d['products'] and 'blaty' not in d['products']:
+        if not any(p in d['products'] for p in ('plyty', 'blaty') + FRONTS):
             continue
         d['group'] = next((g for g in GROUPS if c in grp[g]), 'kolory')
         d['tags'] = tags.get(c, [])
