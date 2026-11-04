@@ -1429,7 +1429,7 @@ function initializeSectionScrollFx() {
             const s = document.getElementById(id);
             if (!s) return null;
             const el = (sel && s.querySelector(sel)) || s;
-            return { el, p: null, x: null };
+            return { el, about: id === 'about', p: null, x: null };
         })
         .filter(Boolean);
     if (!list.length) return;
@@ -1438,26 +1438,34 @@ function initializeSectionScrollFx() {
     const SMOOTH = 0.16;   // ile drogi do celu pokonujemy w jednej klatce
     let running = false;
 
-    function targets(el) {
+    function targets(it) {
         const vh = window.innerHeight || 800;
-        const r = el.getBoundingClientRect();
+        const r = it.el.getBoundingClientRect();
+        const far = r.bottom < -vh || r.top > vh * 2;
+        if (it.about) {
+            // „O nas” (wymóg Adama): pełna forma, gdy widać połowę sekcji; rozjazd dopiero, gdy prawie znika u góry
+            const visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / Math.max(1, Math.min(r.height, vh));
+            const p = r.top < 0 ? 1 : clamp(visible / 0.5);
+            const x = clamp((vh * 0.22 - r.bottom) / (vh * 0.22));
+            return { p, x, far };
+        }
         // sekcja przy końcu strony może nie dojechać wysoko — wtedy wejście kończy się na samym dole strony
         const topAtEnd = r.top - (document.documentElement.scrollHeight - vh - window.scrollY);
-        const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.4, vh - topAtEnd)));
-        const x = clamp((vh * 0.22 - r.bottom) / (vh * 0.22));   // rozjeżdża się dopiero, gdy dół sekcji prawie znika u góry
-        return { p, x, far: r.bottom < -vh || r.top > vh * 2 };
+        const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.8, vh - topAtEnd)));
+        const x = clamp((vh * 0.45 - r.bottom) / (vh * 0.4));
+        return { p, x, far };
     }
     function apply(it) {
         const part = (d) => ease(clamp((it.p - d) / (1 - d))).toFixed(4);
         const st = it.el.style;
         st.setProperty('--sfx-a', part(0));
-        st.setProperty('--sfx-b', part(0.1));
+        st.setProperty('--sfx-b', part(it.about ? 0.1 : 0.15));
         st.setProperty('--sfx-x', ease(it.x).toFixed(4));
     }
     function frame() {
         let moving = false;
         list.forEach((it) => {
-            const t = targets(it.el);
+            const t = targets(it);
             if (it.p === null || t.far) { it.p = t.p; it.x = t.x; apply(it); return; }
             const dp = t.p - it.p, dx = t.x - it.x;
             if (Math.abs(dp) < 0.0005 && Math.abs(dx) < 0.0005) return;
