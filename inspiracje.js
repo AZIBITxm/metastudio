@@ -210,6 +210,48 @@
         render();
     }
 
-    load();
+    // ruch razem z przewijaniem: przy zjeżdżaniu do sekcji elementy wjeżdżają (tytuł i opis z lewej, ekran
+    // od dołu z obrotem, miniatury z prawej / z dołu po kolei), a przy przewijaniu dalej — rozjeżdżają się i znikają
+    function scrollFx() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const head = root.querySelector('.insp-head');
+        const info = root.querySelector('.insp-info');
+        const wrap = root.querySelector('.insp-screen-wrap');
+        const clamp = (t) => Math.max(0, Math.min(1, t));
+        const ease = (t) => t * t * (3 - 2 * t);
+        const part = (t, from) => ease(clamp((t - from) / (1 - from)));
+        let ticking = false;
+
+        function frame() {
+            ticking = false;
+            const r = root.getBoundingClientRect();
+            const vh = window.innerHeight || 800;
+            if (r.bottom < -100 || r.top > vh + 100) return;
+            const mobile = !window.matchMedia('(min-width: 900px)').matches;
+            const e = clamp((vh - r.top) / (vh * 0.8));                  // wejście: 0 → 1
+            const x = ease(clamp((vh * 0.45 - r.bottom) / (vh * 0.4)));  // wyjście: 0 → 1
+            const set = (el, tf, v) => { el.style.transform = tf; el.style.opacity = v.toFixed(3); };
+
+            const eh = part(e, 0);
+            set(head, `translate3d(${-90 * (1 - eh)}px, ${-40 * x}px, 0)`, eh * (1 - x));
+            const ei = part(e, 0.15);
+            set(info, mobile ? `translate3d(0, ${50 * (1 - ei) - 40 * x}px, 0)` : `translate3d(${-160 * (1 - ei) - 80 * x}px, 0, 0)`, ei * (1 - x));
+            const es = part(e, 0.2);
+            const sv = es * (1 - x);
+            set(wrap, `perspective(1000px) translate3d(0, ${140 * (1 - es) - 90 * x}px, 0) rotateX(${20 * (1 - es)}deg) rotateY(${-10 * x}deg) scale(${0.8 + 0.2 * sv})`, sv);
+            rail.querySelectorAll('.insp-thumb').forEach((t, i) => {
+                const et = part(e, Math.min(0.3 + i * 0.08, 0.7));
+                set(t, mobile ? `translate3d(${120 * (1 - et)}px, ${-30 * x}px, 0)` : `translate3d(${180 * (1 - et) + 100 * x}px, 0, 0) rotate(${4 * (1 - et)}deg)`, et * (1 - x));
+            });
+        }
+        const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+        window.addEventListener('scroll', req, { passive: true });
+        window.addEventListener('resize', req);
+        rail.addEventListener('inspiracje:render', req);
+        frame();
+    }
+
+    load().then(() => rail.dispatchEvent(new Event('inspiracje:render')));
     start();
+    scrollFx();
 })();
