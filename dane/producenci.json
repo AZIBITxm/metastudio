@@ -1,5 +1,5 @@
 {
- "_info": "Producenci z katalogami pod opisami materiałów. Generuje narzedzia/przygotuj_katalog.py. Linki WYŁĄCZNIE do stron/PDF producentów (nie dystrybutorów). Typy linków: page = kolekcja na stronie producenta, pdf = katalog PDF, sampler = wzornik kolorów. url_en = wersja dla stron DE/EN (gdy brak — url). Sprawdzone 2026-11-04.",
+ "_info": "Producenci z katalogami pod opisami materiałów. Generuje narzedzia/przygotuj_katalog.py. Linki WYŁĄCZNIE do stron/PDF producentów (nie dystrybutorów). Typy linków: page = kolekcja na stronie producenta, pdf = katalog PDF, sampler = wzornik kolorów. url_en = wersja dla stron DE/EN (gdy brak — url). Sprawdzone 2026-11-04. logo = plik w logo/producenci/ (pobrany ze strony producenta; REHAU z Wikimedia Commons).",
  "plyty-laminowane": [
   {
    "name": "EGGER",
@@ -9,8 +9,12 @@
     "en": "Decorative Collection 26+ — around 150 board decors: wood, stone and solid colours."
    },
    "links": [
-    {"type": "page", "url": "https://www.egger.com/pl/meble-i-aranzacja-wnetrz/kolekcja-materialow-dekoracyjnych/"}
-   ]
+    {
+     "type": "page",
+     "url": "https://www.egger.com/pl/meble-i-aranzacja-wnetrz/kolekcja-materialow-dekoracyjnych/"
+    }
+   ],
+   "logo": "logo/producenci/egger.svg"
   },
   {
    "name": "Kronospan",
@@ -20,9 +24,16 @@
     "en": "Kronodesign collection — over 320 furniture board decors, with a decor finder."
    },
    "links": [
-    {"type": "page", "url": "https://kronospan.com/pl_PL/decors/"},
-    {"type": "downloads", "url": "https://kronospan.com/pl_PL/express-services/downloads/"}
-   ]
+    {
+     "type": "page",
+     "url": "https://kronospan.com/pl_PL/decors/"
+    },
+    {
+     "type": "downloads",
+     "url": "https://kronospan.com/pl_PL/express-services/downloads/"
+    }
+   ],
+   "logo": "logo/producenci/kronospan.svg"
   },
   {
    "name": "Pfleiderer",
@@ -32,9 +43,16 @@
     "en": "Design Collection 2025–2028 — over 300 decors; collection card as a PDF."
    },
    "links": [
-    {"type": "pdf", "url": "https://www.pfleiderer.com/file_pim/Werbemittel/karte-kolekcja-design-materialow-drewnopochodnych-2025-2028-im0038447.pdf"},
-    {"type": "page", "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory"}
-   ]
+    {
+     "type": "pdf",
+     "url": "https://www.pfleiderer.com/file_pim/Werbemittel/karte-kolekcja-design-materialow-drewnopochodnych-2025-2028-im0038447.pdf"
+    },
+    {
+     "type": "page",
+     "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory"
+    }
+   ],
+   "logo": "logo/producenci/pfleiderer.svg"
   },
   {
    "name": "SWISS KRONO",
@@ -44,8 +62,12 @@
     "en": "Melamine-faced boards and worktops — 2025 catalogue available on the manufacturer's site."
    },
    "links": [
-    {"type": "page", "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/"}
-   ]
+    {
+     "type": "page",
+     "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/"
+    }
+   ],
+   "logo": "logo/producenci/swisskrono.svg"
   }
  ],
  "fronty-akrylowe": [
@@ -57,9 +79,16 @@
     "en": "RAUVISIO crystal (glass look) and brilliant (high gloss) — brochure as a PDF."
    },
    "links": [
-    {"type": "pdf", "url": "https://interior.rehau.com/downloads/1748646/powierzchnie-rauvisio.pdf"},
-    {"type": "page", "url": "https://interior.rehau.com/pl-pl/produkty/rauvisio/plyty-meblowe"}
-   ]
+    {
+     "type": "pdf",
+     "url": "https://interior.rehau.com/downloads/1748646/powierzchnie-rauvisio.pdf"
+    },
+    {
+     "type": "page",
+     "url": "https://interior.rehau.com/pl-pl/produkty/rauvisio/plyty-meblowe"
+    }
+   ],
+   "logo": "logo/producenci/rehau.svg"
   },
   {
    "name": "Niemann Polska — Acrylux",
@@ -69,9 +98,17 @@
     "en": "Acrylux — acrylic boards on MDF in gloss and matt; product sheet with colours as a PDF."
    },
    "links": [
-    {"type": "pdf", "url": "https://www.niemannpolska.pl/files/download/377/2-Acrylux-Polysk.pdf"},
-    {"type": "page", "url": "https://www.niemannpolska.pl/oferta/plyty-meblowe/acrylux-2/", "url_en": "https://www.niemannpolska.com/offer/furniture-panels-2/acrylux/"}
-   ]
+    {
+     "type": "pdf",
+     "url": "https://www.niemannpolska.pl/files/download/377/2-Acrylux-Polysk.pdf"
+    },
+    {
+     "type": "page",
+     "url": "https://www.niemannpolska.pl/oferta/plyty-meblowe/acrylux-2/",
+     "url_en": "https://www.niemannpolska.com/offer/furniture-panels-2/acrylux/"
+    }
+   ],
+   "logo": "logo/producenci/niemann.svg"
   },
   {
    "name": "Aquafront — AQUAAKRYL",
@@ -81,9 +118,17 @@
     "en": "AQUAAKRYL — over 120 acrylic colours and decors: gloss, matt, metallic; colour chart online."
    },
    "links": [
-    {"type": "sampler", "url": "https://aquafront.eu/wzornik/"},
-    {"type": "page", "url": "https://aquafront.eu/oferta/aquaakryl-pl/", "url_en": "https://aquafront.eu/en/home/"}
-   ]
+    {
+     "type": "sampler",
+     "url": "https://aquafront.eu/wzornik/"
+    },
+    {
+     "type": "page",
+     "url": "https://aquafront.eu/oferta/aquaakryl-pl/",
+     "url_en": "https://aquafront.eu/en/home/"
+    }
+   ],
+   "logo": "logo/producenci/aquafront.svg"
   }
  ]
 }

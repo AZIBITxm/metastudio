@@ -145,6 +145,12 @@ PROD_TXT = {
 }
 
 
+# Przycisk do pełnego katalogu dekorów (katalog-materialow.html) — na razie tylko wersja PL
+CATALOG_LINK = {
+    'plyty-laminowane': {'pl': ('katalog-materialow.html', 'Przeglądaj wszystkie dekory w naszym katalogu →')},
+}
+
+
 def producers_html(mat, producers, lang):
     t = PROD_TXT[lang]
     out = [f'<!-- PRODUCENCI:{mat}:START -->',
@@ -153,6 +159,8 @@ def producers_html(mat, producers, lang):
            '    <div class="material-producers-grid">']
     for pr in producers:
         out.append('        <div class="producer-card">')
+        if pr.get('logo'):
+            out.append(f'            <img class="producer-logo" src="{pr["logo"]}" alt="{html.escape(pr["name"])} logo" loading="lazy">')
         out.append(f'            <h5 class="producer-name">{html.escape(pr["name"])}</h5>')
         out.append(f'            <p class="producer-desc">{html.escape(pr["desc"][lang])}</p>')
         out.append('            <div class="producer-links">')
@@ -163,7 +171,11 @@ def producers_html(mat, producers, lang):
                        f'{LINK_TXT[ln["type"]][lang]}</a>')
         out.append('            </div>')
         out.append('        </div>')
-    out += ['    </div>', f'    <p class="material-gallery-note">{t["note"]}</p>', '</div>',
+    out.append('    </div>')
+    link = CATALOG_LINK.get(mat, {}).get(lang)
+    if link:
+        out.append(f'    <a class="material-catalog-link" href="{link[0]}">{link[1]}</a>')
+    out += [f'    <p class="material-gallery-note">{t["note"]}</p>', '</div>',
             f'<!-- PRODUCENCI:{mat}:END -->']
     return '\n'.join(out)
 

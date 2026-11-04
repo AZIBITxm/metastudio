@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog materiałów — Zanders Atelier</title>
+  <meta name="description" content="Katalog dekorów płyt meblowych, z których wykonujemy meble: drewno, kamień, kolory jednolite. Wyszukiwarka po nazwie i kodzie dekoru.">
+  <link rel="canonical" href="https://zandersatelier.com/katalog-materialow.html">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1A1A1A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog-materialow.css?v=2">
+</head>
+<body>
+  <header class="km-header">
+    <a href="index-pl.html" class="km-back" aria-label="Strona główna">←</a>
+    <a href="index-pl.html"><img src="logo/web/zanders-napis-400.webp" width="400" height="63" alt="Zanders Atelier — pracownia meblarska"></a>
+  </header>
+
+  <main class="km-main">
+    <h1>Katalog materiałów</h1>
+    <p class="km-intro">Dekory płyt meblowych od producentów, z których wykonujemy meble. Wyszukaj po nazwie lub kodzie dekoru,
+      kliknij próbkę, aby ją powiększyć. Wybrany dekor wystarczy podać nam z nazwy i kodu — dobierzemy go do projektu.</p>
+
+    <div class="km-controls">
+      <input type="search" id="km-search" placeholder="Szukaj: np. dąb, beton, U646…" autocomplete="off" aria-label="Szukaj dekoru">
+      <div class="km-chips" id="km-producers" aria-label="Producent"></div>
+      <div class="km-chips" id="km-groups" aria-label="Rodzaj dekoru"></div>
+      <p class="km-count" id="km-count" aria-live="polite"></p>
+    </div>
+
+    <div class="km-grid" id="km-grid"></div>
+    <p class="km-empty" id="km-empty" hidden>Brak dekorów dla tych kryteriów.</p>
+
+    <p class="km-note">Zdjęcia dekorów pochodzą z materiałów producentów (© EGGER i odpowiednio inni producenci). Kolory na ekranie
+      mogą różnić się od rzeczywistych — przed zamówieniem pokażemy próbkę na żywo.</p>
+  </main>
+
+  <div class="km-modal" id="km-modal" hidden>
+    <div class="km-modal-box" role="dialog" aria-modal="true" aria-labelledby="km-modal-name">
+      <button class="km-modal-close" id="km-modal-close" aria-label="Zamknij">×</button>
+      <img id="km-modal-img" alt="">
+      <div class="km-modal-info">
+        <p class="km-modal-producer" id="km-modal-producer"></p>
+        <h2 id="km-modal-name"></h2>
+        <p class="km-modal-code" id="km-modal-code"></p>
+        <a id="km-modal-link" target="_blank" rel="noopener">Zobacz dekor u producenta ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="km-footer">&copy; Zanders Atelier · <a href="index-pl.html">Strona główna</a></footer>
+
+  <script src="katalog-materialow.js?v=1"></script>
+</body>
+</html>

@@ -4338,6 +4338,15 @@ section:first-of-type {
     line-height: 1.45;
     flex: 1;
 }
+.producer-logo {
+    display: block;
+    height: 42px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+    margin-bottom: 0.2rem;
+}
 .producer-links {
     display: flex;
     flex-wrap: wrap;
@@ -4369,3 +4378,17 @@ section:first-of-type {
 @media (min-width: 1025px) {
     .material-producers { padding: 0 2rem 0 1rem; }
 }
+
+.material-catalog-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.1rem;
+    background: #1a1a1a;
+    color: #fff !important;
+    border: 1px solid #b8975a;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+}
+.material-catalog-link:hover,
+.material-catalog-link:focus-visible { background: #b8975a; }
