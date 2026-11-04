@@ -4548,8 +4548,8 @@ section:first-of-type {
 #inspiracje .insp-info { display: flex; flex-direction: column; gap: 1rem; }
 #inspiracje .insp-count { font-size: 0.95rem; letter-spacing: 0.25em; color: #B4943C; font-weight: 700; }
 #inspiracje .insp-title { margin: 0; font-size: 2rem; line-height: 1.2; color: #1A1A1A; min-height: 2.4em; }
-#inspiracje .insp-author { color: #8a6d2c; text-decoration: none; font-size: 1.05rem; align-self: flex-start; }
-#inspiracje .insp-author:hover { color: #1A1A1A; }
+#inspiracje .insp-author { color: #8a6d2c; text-decoration: none; font-size: 1.05rem; align-self: flex-start; border-bottom: 1px solid rgba(180, 148, 60, 0.45); }
+#inspiracje .insp-author:hover { color: #1A1A1A; border-bottom-color: #1A1A1A; }
 #inspiracje .insp-nav { display: flex; gap: 10px; margin-top: 0.5rem; }
 #inspiracje .insp-nav button {
     width: 48px; height: 48px; border: 1px solid #B4943C; background: #fff; color: #8a6d2c;
@@ -4619,7 +4619,7 @@ section:first-of-type {
     #inspiracje .insp-screen-wrap { order: 1; }
     #inspiracje .insp-rail { order: 2; }
     #inspiracje .insp-info { order: 3; width: 100%; align-items: center; text-align: center; gap: 0.6rem; }
-    #inspiracje .insp-author { align-self: center; }
+    #inspiracje .insp-author { align-self: center; border-bottom: 0; }
     #inspiracje .insp-title { font-size: 1.5rem; min-height: 0; }
     #inspiracje .insp-screen { width: min(70vw, 320px); }
     #inspiracje .insp-rail {
@@ -4667,4 +4667,57 @@ section:first-of-type {
 /* nowa kolejność (2026-11-04): po „O nas” od razu Kategorie — zdjęcie z „O nas” wystaje na telefonie, więc odsuwamy nagłówek */
 @media (max-width: 768px) {
     #about + #project { padding-top: 150px; }
+}
+
+/* ==========================================
+   SEKCJE — wjazd i wyjazd razem z przewijaniem (2026-11-05, jak „Inspiracje”)
+   Postęp liczy initializeSectionScrollFx() w script.js i wpisuje do zmiennych sekcji:
+   --sfx-a / --sfx-b / --sfx-c = wejście (0→1, kolejne z opóźnieniem), --sfx-p = wejście liniowe, --sfx-x = wyjście (0→1).
+   Używamy osobnych własności `translate` / `scale` (nie `transform`), żeby nie psuć istniejących transformów elementów.
+   Bez JS (albo przy ograniczonym ruchu) zmienne mają wartości domyślne = wszystko na miejscu.
+   ========================================== */
+/* z lewej — napisy */
+#realizations .realizations-header h2,
+#about > h2,
+#about .mobile-about-labels,
+#project > h2,
+#foundation-support .foundation-header h2,
+#contact > h2 {
+    translate: calc((1 - var(--sfx-a, 1)) * -160px - var(--sfx-x, 0) * 100px) 0;
+    opacity: calc(var(--sfx-a, 1) * (1 - var(--sfx-x, 0)));
+}
+#realizations .realizations-description,
+#about .about-content,
+#project .mat-dots,
+#project .mat-descs,
+#contact .contact-intro {
+    translate: calc((1 - var(--sfx-b, 1)) * -200px - var(--sfx-x, 0) * 120px) 0;
+    opacity: calc(var(--sfx-b, 1) * (1 - var(--sfx-x, 0)));
+}
+#realizations .show-all-btn {
+    translate: calc((1 - var(--sfx-c, 1)) * -200px - var(--sfx-x, 0) * 120px) 0;
+    opacity: calc(var(--sfx-c, 1) * (1 - var(--sfx-x, 0)));
+}
+/* z prawej — obrazy i kafelki */
+#about::after,
+#project .mat-flow,
+#foundation-support .foundation-header p {
+    translate: calc((1 - var(--sfx-b, 1)) * 260px + var(--sfx-x, 0) * 140px) 0;
+    opacity: calc(var(--sfx-b, 1) * (1 - var(--sfx-x, 0)));
+}
+#foundation-support .foundation-separator {
+    scale: var(--sfx-c, 1) 1;
+    opacity: calc(var(--sfx-c, 1) * (1 - var(--sfx-x, 0)));
+}
+/* kontakt — kafelki po kolei z prawej */
+#contact .contact-item { --k: 0; }
+#contact .contact-item:nth-child(2) { --k: 1; }
+#contact .contact-item:nth-child(3) { --k: 2; }
+#contact .contact-item:nth-child(4) { --k: 3; }
+#contact .contact-item:nth-child(5) { --k: 4; }
+#contact .contact-item:nth-child(6) { --k: 5; }
+#contact .contact-item {
+    --sfx-k: clamp(0, (var(--sfx-p, 1) - 0.25 - var(--k) * 0.1) / 0.45, 1);
+    translate: calc((1 - var(--sfx-k)) * 220px + var(--sfx-x, 0) * 140px) 0;
+    opacity: calc(var(--sfx-k) * (1 - var(--sfx-x, 0)));
 }

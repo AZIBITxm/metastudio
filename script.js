@@ -493,6 +493,7 @@ function initializeApp() {
         initializeGalleryToggle();
         initializeGalleryTitleFit();
         initializeGalleryScrollReveal();
+        initializeSectionScrollFx();   // wjazd/wyjazd sekcji przy przewijaniu
         
         initializeMobileAboutAnimation();
         
@@ -1408,4 +1409,48 @@ function initializeMaterialFlow() {
         io.observe(flow);
     }
     return true;
+}
+
+// ==========================================
+// SEKCJE — wjazd i wyjazd razem z przewijaniem (2026-11-05, jak sekcja „Inspiracje”).
+// Dla każdej sekcji liczy postęp wejścia (od chwili, gdy góra sekcji pojawia się u dołu ekranu) i wyjścia
+// (gdy dół sekcji mija środek ekranu) i wpisuje go do zmiennych CSS; ruch i przezroczystość definiuje styles.css.
+// Realizacje: liczone od nagłówka (kafelki galerii zostają na miejscu).
+// ==========================================
+function initializeSectionScrollFx() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const list = [['realizations', '.realizations-header'], ['about', null], ['project', null], ['foundation-support', null], ['contact', null]]
+        .map(([id, sel]) => {
+            const s = document.getElementById(id);
+            if (!s) return null;
+            return { s, anchor: (sel && s.querySelector(sel)) || s };
+        })
+        .filter(Boolean);
+    if (!list.length) return;
+    const clamp = (t) => Math.max(0, Math.min(1, t));
+    const ease = (t) => t * t * (3 - 2 * t);
+    let ticking = false;
+
+    function frame() {
+        ticking = false;
+        const vh = window.innerHeight || 800;
+        list.forEach(({ s, anchor }) => {
+            const r = anchor.getBoundingClientRect();
+            if (r.bottom < -vh || r.top > vh * 2) return;
+            // sekcja przy końcu strony może nie dojechać wysoko — wtedy wejście kończy się na samym dole strony
+            const topAtEnd = r.top - (document.documentElement.scrollHeight - vh - window.scrollY);
+            const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.8, vh - topAtEnd)));
+            const x = ease(clamp((vh * 0.45 - r.bottom) / (vh * 0.4)));
+            const part = (d) => ease(clamp((p - d) / (1 - d))).toFixed(3);
+            s.style.setProperty('--sfx-p', p.toFixed(3));
+            s.style.setProperty('--sfx-a', part(0));
+            s.style.setProperty('--sfx-b', part(0.15));
+            s.style.setProperty('--sfx-c', part(0.3));
+            s.style.setProperty('--sfx-x', x.toFixed(3));
+        });
+    }
+    const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    frame();
 }
