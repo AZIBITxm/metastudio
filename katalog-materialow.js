@@ -154,7 +154,7 @@
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'km-browse-btn';
-            btn.textContent = `Sprawdź dekory (${count}) ↓`;
+            btn.innerHTML = `Sprawdź dekory (${count}) <span aria-hidden="true">↓</span>`;
             btn.addEventListener('click', () => {
                 state.browse = true;
                 render();

@@ -29,7 +29,7 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 .km-field { display: flex; flex-direction: column; gap: 2px; min-width: 210px; flex: 1 1 210px; max-width: 340px; }
 .km-field[hidden] { display: none; }
 .km-field > span { font-size: 14px; font-weight: 700; color: #8a6d2c; letter-spacing: 0.03em; }
-.km-field select, .km-field input { font: inherit; font-size: 17px; padding: 8px 12px; border: 1px solid #d4b58c; border-radius: 6px; background: #fff; color: #1A1A1A; }
+.km-field select, .km-field input { font: inherit; font-size: 17px; padding: 8px 12px; border: 1px solid #d4b58c; border-radius: 0; background: #fff; color: #1A1A1A; }
 .km-field select { padding-right: 36px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a6d2c' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; cursor: pointer; }
 .km-field select:focus, .km-field input:focus { outline: 2px solid #B4943C; outline-offset: 1px; }
 .km-field-kind { max-width: 420px; }
@@ -59,8 +59,10 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 .km-desc-track span { display: block; padding: 5px 7px 7px; }
 .km-desc-actions { margin-top: 18px; }
 .km-desc-hint { margin: 0; font-style: italic; color: #6b5a3a; }
-.km-browse-btn { flex: 0 0 auto; font: inherit; font-size: 18px; font-weight: 700; padding: 8px 22px; border: 0; border-radius: 999px; background: #1A1A1A; color: #fff; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transition: background 0.2s ease, transform 0.2s ease; }
-.km-browse-btn:hover, .km-browse-btn:focus-visible { background: #B4943C; transform: translateY(-1px); }
+.km-browse-btn { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; font: inherit; font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 9px 18px; border: 1px solid #B4943C; border-radius: 0; background: #fff; color: #1A1A1A; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.km-browse-btn span { color: #8a6d2c; transition: color 0.2s ease, transform 0.2s ease; }
+.km-browse-btn:hover, .km-browse-btn:focus-visible { background: #B4943C; color: #fff; }
+.km-browse-btn:hover span, .km-browse-btn:focus-visible span { color: #fff; transform: translateY(2px); }
 
 /* Krok 3: dekory */
 .km-browse { margin-top: 26px; scroll-margin-top: 70px; }
@@ -70,7 +72,7 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 .km-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 16px; }
 .km-card { position: relative; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ecdcc3; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .km-card:hover, .km-card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
-.km-card-badge { position: absolute; top: 6px; left: 6px; background: #1A1A1A; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 8px; border-radius: 999px; }
+.km-card-badge { position: absolute; top: 6px; left: 6px; background: #1A1A1A; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 8px; border-radius: 0; }
 .km-card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: #eee; }
 .km-card-name { display: block; padding: 6px 8px 0; font-weight: 700; font-size: 15px; line-height: 1.25; }
 .km-card-code { display: block; padding: 0 8px 8px; font-size: 13px; opacity: 0.7; }
