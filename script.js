@@ -1437,13 +1437,15 @@ function initializeSectionScrollFx() {
     const ease = (t) => t * t * (3 - 2 * t);
     const SMOOTH = 0.16;   // ile drogi do celu pokonujemy w jednej klatce
     let running = false;
+    const phone = window.matchMedia('(max-width: 768px)');   // ustawienie „O nas” tylko na telefonie
 
     function targets(it) {
         const vh = window.innerHeight || 800;
         const r = it.el.getBoundingClientRect();
         const far = r.bottom < -vh || r.top > vh * 2;
-        if (it.about) {
-            // „O nas” (wymóg Adama): pełna forma, gdy widać połowę sekcji; rozjazd dopiero, gdy prawie znika u góry
+        if (it.about && phone.matches) {
+            // „O nas” na TELEFONIE (wymóg Adama): pełna forma, gdy widać połowę sekcji; rozjazd dopiero, gdy prawie znika u góry
+            // (na komputerze „O nas” działa jak pozostałe sekcje — ta wersja Adamowi pasowała)
             const visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / Math.max(1, Math.min(r.height, vh));
             const p = r.top < 0 ? 1 : clamp(visible / 0.5);
             const x = clamp((vh * 0.22 - r.bottom) / (vh * 0.22));
@@ -1459,7 +1461,7 @@ function initializeSectionScrollFx() {
         const part = (d) => ease(clamp((it.p - d) / (1 - d))).toFixed(4);
         const st = it.el.style;
         st.setProperty('--sfx-a', part(0));
-        st.setProperty('--sfx-b', part(it.about ? 0.1 : 0.15));
+        st.setProperty('--sfx-b', part(it.about && phone.matches ? 0.1 : 0.15));
         st.setProperty('--sfx-x', ease(it.x).toFixed(4));
     }
     function frame() {
