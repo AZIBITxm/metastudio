@@ -18,6 +18,10 @@ Co robi:
      <div class="material-info" id="<materiał>-info"> (między znacznikami
      <!-- KATALOG:<materiał>:START --> i <!-- KATALOG:<materiał>:END -->).
      Ponowne uruchomienie podmienia galerie — można dowolnie zmieniać JSON i odpalać znowu.
+  3. Z dane/producenci.json wstawia blok „Producenci i katalogi” (karty producentów z linkami do
+     katalogów PDF / kolekcji na stronach producentów) na końcu bloku danego materiału
+     (znaczniki <!-- PRODUCENCI:<materiał>:START/END -->). Decyzja Adama 2026-11-04: przy płytach
+     laminowanych i frontach akrylowych producenci ZASTĘPUJĄ galerię zdjęć poglądowych.
 """
 import html
 import io
@@ -35,6 +39,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 SRC = os.path.join('dane', 'katalog-zrodla.json')
+PROD = os.path.join('dane', 'producenci.json')
 OUT = os.path.join('materiały', 'katalog')
 OWN = os.path.join(OUT, 'zrodla')
 UA = {'User-Agent': 'ZandersAtelierMaterialCatalog/1.0 (zandersatelier.com)'}
@@ -127,6 +132,42 @@ def gallery_html(mat, items, lang):
     return '\n'.join(out)
 
 
+LINK_TXT = {
+    'page': {'pl': 'Kolekcja na stronie producenta', 'de': 'Kollektion beim Hersteller', 'en': "Collection on manufacturer's site"},
+    'pdf': {'pl': 'Katalog PDF', 'de': 'Katalog (PDF)', 'en': 'Catalogue (PDF)'},
+    'sampler': {'pl': 'Wzornik kolorów', 'de': 'Farbmuster', 'en': 'Colour chart'},
+    'downloads': {'pl': 'Katalogi do pobrania', 'de': 'Downloads', 'en': 'Downloads'},
+}
+PROD_TXT = {
+    'pl': {'title': 'Producenci i katalogi', 'note': 'Linki prowadzą do oficjalnych stron producentów (otwierają się w nowej karcie).'},
+    'de': {'title': 'Hersteller und Kataloge', 'note': 'Die Links führen zu den offiziellen Herstellerseiten (öffnen in neuem Tab).'},
+    'en': {'title': 'Manufacturers and catalogues', 'note': "Links lead to the manufacturers' official websites (open in a new tab)."},
+}
+
+
+def producers_html(mat, producers, lang):
+    t = PROD_TXT[lang]
+    out = [f'<!-- PRODUCENCI:{mat}:START -->',
+           '<div class="material-producers">',
+           f'    <h4 class="material-producers-title">{t["title"]}</h4>',
+           '    <div class="material-producers-grid">']
+    for pr in producers:
+        out.append('        <div class="producer-card">')
+        out.append(f'            <h5 class="producer-name">{html.escape(pr["name"])}</h5>')
+        out.append(f'            <p class="producer-desc">{html.escape(pr["desc"][lang])}</p>')
+        out.append('            <div class="producer-links">')
+        for ln in pr['links']:
+            url = ln.get('url_en', ln['url']) if lang != 'pl' else ln['url']
+            cls = 'producer-link producer-link--pdf' if ln['type'] == 'pdf' else 'producer-link'
+            out.append(f'                <a class="{cls}" href="{html.escape(url)}" target="_blank" rel="noopener">'
+                       f'{LINK_TXT[ln["type"]][lang]}</a>')
+        out.append('            </div>')
+        out.append('        </div>')
+    out += ['    </div>', f'    <p class="material-gallery-note">{t["note"]}</p>', '</div>',
+            f'<!-- PRODUCENCI:{mat}:END -->']
+    return '\n'.join(out)
+
+
 def find_block_end(doc, start):
     """Indeks zamykającego </div> dla <div ...> zaczynającego się w `start`."""
     depth = 0
@@ -137,9 +178,12 @@ def find_block_end(doc, start):
     raise ValueError('niezamknięty div')
 
 
+def strip_generated(doc):
+    """Usuwa wszystkie wcześniej wygenerowane bloki (galerie i producentów) — potem wstawiamy od nowa."""
+    return re.sub(r'\n?[ \t]*<!-- (KATALOG|PRODUCENCI):([\w-]+):START -->.*?<!-- \1:\2:END -->', '', doc, flags=re.S)
+
+
 def inject(doc, mat, block):
-    doc = re.sub(rf'\n?[ \t]*<!-- KATALOG:{re.escape(mat)}:START -->.*?<!-- KATALOG:{re.escape(mat)}:END -->',
-                 '', doc, flags=re.S)
     m = re.search(rf'<div class="material-info" id="{re.escape(mat)}-info"', doc)
     if not m:
         print('  BRAK bloku', mat)
@@ -159,6 +203,7 @@ def main():
             it['_w'], it['_h'] = make_images(it)
         except Exception as e:
             sys.exit(f"Błąd przy {it['slug']}: {e}")
+    producers = {k: v for k, v in json.load(open(PROD, encoding='utf-8')).items() if not k.startswith('_')}
     groups = {}
     for it in items:
         groups.setdefault(it['material'], []).append(it)
@@ -166,10 +211,13 @@ def main():
         raw = open(page, 'rb').read()
         nl = chr(13) + chr(10) if bytes([13, 10]) in raw else chr(10)
         doc = raw.decode('utf-8').replace(chr(13) + chr(10), chr(10))
+        doc = strip_generated(doc)
         for mat, its in groups.items():
             doc = inject(doc, mat, gallery_html(mat, its, lang))
+        for mat, prods in producers.items():
+            doc = inject(doc, mat, producers_html(mat, prods, lang))
         open(page, 'w', encoding='utf-8', newline=nl).write(doc)   # zachowaj końce linii pliku (CRLF)
-        print(page, '— galerie:', len(groups))
+        print(page, 'galerie:', len(groups), 'producenci:', len(producers))
 
 
 if __name__ == '__main__':

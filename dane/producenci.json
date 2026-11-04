@@ -1,0 +1,89 @@
+{
+ "_info": "Producenci z katalogami pod opisami materiałów. Generuje narzedzia/przygotuj_katalog.py. Linki WYŁĄCZNIE do stron/PDF producentów (nie dystrybutorów). Typy linków: page = kolekcja na stronie producenta, pdf = katalog PDF, sampler = wzornik kolorów. url_en = wersja dla stron DE/EN (gdy brak — url). Sprawdzone 2026-11-04.",
+ "plyty-laminowane": [
+  {
+   "name": "EGGER",
+   "desc": {
+    "pl": "Kolekcja Materiałów Dekoracyjnych 26+ — około 150 dekorów płyt: drewno, kamień, kolory jednolite.",
+    "de": "Dekorativ Kollektion 26+ — rund 150 Dekore für Dekorplatten: Holz, Stein, Unifarben.",
+    "en": "Decorative Collection 26+ — around 150 board decors: wood, stone and solid colours."
+   },
+   "links": [
+    {"type": "page", "url": "https://www.egger.com/pl/meble-i-aranzacja-wnetrz/kolekcja-materialow-dekoracyjnych/"}
+   ]
+  },
+  {
+   "name": "Kronospan",
+   "desc": {
+    "pl": "Kolekcja Kronodesign — ponad 320 wzorów płyt meblowych, z wyszukiwarką dekorów.",
+    "de": "Kollektion Kronodesign — über 320 Dekore für Möbelplatten, mit Dekorsuche.",
+    "en": "Kronodesign collection — over 320 furniture board decors, with a decor finder."
+   },
+   "links": [
+    {"type": "page", "url": "https://kronospan.com/pl_PL/decors/"},
+    {"type": "downloads", "url": "https://kronospan.com/pl_PL/express-services/downloads/"}
+   ]
+  },
+  {
+   "name": "Pfleiderer",
+   "desc": {
+    "pl": "Kolekcja Design 2025–2028 — ponad 300 dekorów; karta kolekcji do pobrania w PDF.",
+    "de": "Design-Kollektion 2025–2028 — über 300 Dekore; Kollektionskarte als PDF.",
+    "en": "Design Collection 2025–2028 — over 300 decors; collection card as a PDF."
+   },
+   "links": [
+    {"type": "pdf", "url": "https://www.pfleiderer.com/file_pim/Werbemittel/karte-kolekcja-design-materialow-drewnopochodnych-2025-2028-im0038447.pdf"},
+    {"type": "page", "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory"}
+   ]
+  },
+  {
+   "name": "SWISS KRONO",
+   "desc": {
+    "pl": "Płyty laminowane i blaty kuchenne — katalog 2025 do pobrania na stronie producenta.",
+    "de": "Melaminbeschichtete Platten und Arbeitsplatten — Katalog 2025 zum Download beim Hersteller.",
+    "en": "Melamine-faced boards and worktops — 2025 catalogue available on the manufacturer's site."
+   },
+   "links": [
+    {"type": "page", "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/"}
+   ]
+  }
+ ],
+ "fronty-akrylowe": [
+  {
+   "name": "REHAU — RAUVISIO",
+   "desc": {
+    "pl": "RAUVISIO crystal (wygląd szkła) i brilliant (wysoki połysk) — broszura „Powierzchnie RAUVISIO” w PDF.",
+    "de": "RAUVISIO crystal (Glasoptik) und brilliant (Hochglanz) — Broschüre als PDF.",
+    "en": "RAUVISIO crystal (glass look) and brilliant (high gloss) — brochure as a PDF."
+   },
+   "links": [
+    {"type": "pdf", "url": "https://interior.rehau.com/downloads/1748646/powierzchnie-rauvisio.pdf"},
+    {"type": "page", "url": "https://interior.rehau.com/pl-pl/produkty/rauvisio/plyty-meblowe"}
+   ]
+  },
+  {
+   "name": "Niemann Polska — Acrylux",
+   "desc": {
+    "pl": "Acrylux — płyty akrylowe na MDF w połysku i macie; karta produktu z kolorami w PDF.",
+    "de": "Acrylux — Acrylplatten auf MDF in Hochglanz und Matt; Produktblatt mit Farben als PDF.",
+    "en": "Acrylux — acrylic boards on MDF in gloss and matt; product sheet with colours as a PDF."
+   },
+   "links": [
+    {"type": "pdf", "url": "https://www.niemannpolska.pl/files/download/377/2-Acrylux-Polysk.pdf"},
+    {"type": "page", "url": "https://www.niemannpolska.pl/oferta/plyty-meblowe/acrylux-2/", "url_en": "https://www.niemannpolska.com/offer/furniture-panels-2/acrylux/"}
+   ]
+  },
+  {
+   "name": "Aquafront — AQUAAKRYL",
+   "desc": {
+    "pl": "AQUAAKRYL — ponad 120 kolorów i dekorów akrylu: połysk, mat, metalik; wzornik kolorów online.",
+    "de": "AQUAAKRYL — über 120 Acrylfarben und -dekore: Hochglanz, Matt, Metallic; Farbmuster online.",
+    "en": "AQUAAKRYL — over 120 acrylic colours and decors: gloss, matt, metallic; colour chart online."
+   },
+   "links": [
+    {"type": "sampler", "url": "https://aquafront.eu/wzornik/"},
+    {"type": "page", "url": "https://aquafront.eu/oferta/aquaakryl-pl/", "url_en": "https://aquafront.eu/en/home/"}
+   ]
+  }
+ ]
+}

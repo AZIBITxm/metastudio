@@ -1,31 +1,5 @@
 [
  {
-  "material": "plyty-laminowane",
-  "slug": "dekor-drewna",
-  "pl": "Dekor drewna",
-  "de": "Holzdekor",
-  "en": "Wood decor",
-  "source": "Unsplash",
-  "author": "Penny Lim",
-  "license": "Unsplash License",
-  "license_url": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/7m3ReTvWFKk",
-  "download": "https://images.unsplash.com/photo-1655457397686-4dd23e78a918?w=1600&q=82&fm=jpg"
- },
- {
-  "material": "plyty-laminowane",
-  "slug": "dekor-jednobarwny",
-  "pl": "Dekor jednobarwny",
-  "de": "Unidekor",
-  "en": "Solid colour decor",
-  "source": "Unsplash",
-  "author": "Hanindito Prabandaru",
-  "license": "Unsplash License",
-  "license_url": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/3Os1Z_tGzuo",
-  "download": "https://images.unsplash.com/photo-1639593051524-3dc5dcfd7a27?w=1600&q=82&fm=jpg"
- },
- {
   "material": "plyty-hdf",
   "slug": "hdf",
   "pl": "Płyta HDF",
@@ -37,32 +11,6 @@
   "license_url": "",
   "page": "https://commons.wikimedia.org/wiki/File:Hardboard.jpg",
   "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Hardboard.jpg/500px-Hardboard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
- },
- {
-  "material": "fronty-akrylowe",
-  "slug": "akryl-polysk",
-  "pl": "Akryl – wysoki połysk",
-  "de": "Acryl – Hochglanz",
-  "en": "Acrylic – high gloss",
-  "source": "Unsplash",
-  "author": "The Prototype",
-  "license": "Unsplash License",
-  "license_url": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/L0k2btJEgvE",
-  "download": "https://images.unsplash.com/photo-1748680223727-bdaf1e7f5465?w=1600&q=82&fm=jpg"
- },
- {
-  "material": "fronty-akrylowe",
-  "slug": "akryl-mat",
-  "pl": "Akryl – mat",
-  "de": "Acryl – matt",
-  "en": "Acrylic – matt",
-  "source": "Unsplash",
-  "author": "Sven Brandsma",
-  "license": "Unsplash License",
-  "license_url": "https://unsplash.com/license",
-  "page": "https://unsplash.com/photos/3hEGHI4b4gg",
-  "download": "https://images.unsplash.com/photo-1600684388091-627109f3cd60?w=1600&q=82&fm=jpg"
  },
  {
   "material": "fronty-lakierowane",

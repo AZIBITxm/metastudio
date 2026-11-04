@@ -4300,3 +4300,72 @@ section:first-of-type {
 .pswp__material-caption strong { display: block; font-size: 1rem; }
 .pswp__material-caption span,
 .pswp__material-caption a { color: rgba(255, 255, 255, 0.8); font-size: 0.75rem; }
+
+/* ===== Producenci i katalogi (pod opisami materiałów; dane/producenci.json) ===== */
+.material-producers {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+.material-producers-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+}
+.material-producers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0.9rem;
+}
+.producer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 3px solid #b8975a;
+}
+.material-info .producer-name {
+    margin: 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+}
+.material-info .producer-desc {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    flex: 1;
+}
+.producer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.producer-link {
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.producer-link:hover,
+.producer-link:focus-visible {
+    background: #1a1a1a;
+    color: #fff;
+}
+.producer-link--pdf {
+    background: #1a1a1a;
+    color: #fff;
+}
+.producer-link--pdf:hover,
+.producer-link--pdf:focus-visible {
+    background: #b8975a;
+    border-color: #b8975a;
+}
+@media (min-width: 1025px) {
+    .material-producers { padding: 0 2rem 0 1rem; }
+}
