@@ -7,6 +7,7 @@
 
     const PRODUCERS = [
         { id: 'egger', name: 'EGGER', file: 'dane/dekory/egger.json' },
+        { id: 'kronospan', name: 'Kronospan', file: 'dane/dekory/kronospan.json' },
     ];
     const GROUPS = [
         { id: '', name: 'Wszystkie' },
@@ -95,8 +96,9 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     $('km-search').addEventListener('input', (e) => { state.q = e.target.value; render(); });
 
-    Promise.all(PRODUCERS.map((p) => fetch(p.file).then((r) => r.json()).then((list) =>
-        list.map((d) => Object.assign(d, { _p: p.id, _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer}`) })))))
+    // brak/uszkodzony plik jednego producenta nie blokuje pozostałych
+    Promise.all(PRODUCERS.map((p) => fetch(p.file).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) =>
+        list.map((d) => Object.assign(d, { _p: p.id, _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer} ${(d.tags || []).join(' ')}`) })))))
         .then((lists) => {
             decors = lists.flat().filter(shown);
             chips($('km-producers'), [{ id: '', name: 'Wszyscy producenci' }].concat(PRODUCERS), 'producer');
