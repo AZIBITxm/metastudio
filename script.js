@@ -1327,7 +1327,7 @@ function initializeMarquees() {
 document.addEventListener('DOMContentLoaded', initializeMarquees);
 
 // ==========================================
-// KATEGORIE MATERIAŁÓW — 3 kafelki 3D (wjazd z lewej, najechanie / przesunięcie palcem = wybór,
+// KATEGORIE MATERIAŁÓW — 3 kafelki 3D (wjazd z lewej; 1. klik w boczny / przesunięcie palcem = na środek,
 // klik w środkowy = Katalog materiałów; pod spodem opis środkowego). Zwraca false, gdy sekcji nie ma (DE/EN).
 // ==========================================
 function initializeMaterialFlow() {
@@ -1336,9 +1336,7 @@ function initializeMaterialFlow() {
     const cards = Array.from(flow.querySelectorAll('.mat-card'));
     const descs = Array.from(document.querySelectorAll('#project .mat-desc'));
     const dots = Array.from(document.querySelectorAll('#project .mat-dot'));
-    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     let active = Math.floor(cards.length / 2);
-    let lockUntil = 0;
     let swiped = false;
 
     function layout(animateDesc) {
@@ -1363,7 +1361,6 @@ function initializeMaterialFlow() {
         i = Math.max(0, Math.min(cards.length - 1, i));
         if (i === active) return;
         active = i;
-        lockUntil = Date.now() + 550;   // kafelek w ruchu nie przejmuje kursora
         layout(true);
     }
 
@@ -1371,8 +1368,6 @@ function initializeMaterialFlow() {
         c.addEventListener('click', (e) => {
             if (swiped || i !== active) { e.preventDefault(); if (!swiped) go(i); }
         });
-        if (canHover) c.addEventListener('mousemove', () => { if (i !== active && Date.now() > lockUntil) go(i); });
-        c.addEventListener('focus', () => go(i));
     });
     flow.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') { go(active - 1); e.preventDefault(); }
