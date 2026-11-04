@@ -1,0 +1,2568 @@
+[
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1861",
+  "name": "Akacja Ksężycowa",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1861.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D381",
+  "name": "Buk",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D381.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3806",
+  "name": "Buk Bordeaux",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3806.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3807",
+  "name": "Buk Zurych",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3807.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4412",
+  "name": "Drewno Lipowe Kremowe",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4412.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4040",
+  "name": "Drewno Retro",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4040.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3276",
+  "name": "Dąb Ancona",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3276.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2419",
+  "name": "Dąb Antyczny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2419.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4225",
+  "name": "Dąb Artisan",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4225.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4430",
+  "name": "Dąb Beżowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4430.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4032",
+  "name": "Dąb Biszkoptowy",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4032.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3273",
+  "name": "Dąb Canyon",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3273.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3275",
+  "name": "Dąb Cortona",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3275.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D70050",
+  "name": "Dąb Delikatny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D70050.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3822",
+  "name": "Dąb Dublin",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3822.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60654",
+  "name": "Dąb Fornir",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60654.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1096",
+  "name": "Dąb Frappe",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1096.webp",
+  "structure": "NA / OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3314",
+  "name": "Dąb Giovanni",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3314.webp",
+  "structure": "PR / SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4031",
+  "name": "Dąb Hawana",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4031.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3316",
+  "name": "Dąb Helsinki (carmen)",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3316.webp",
+  "structure": "SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9103",
+  "name": "Dąb Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9103.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60664",
+  "name": "Dąb Jesienny",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60664.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2840",
+  "name": "Dąb Królewski",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2840.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1094",
+  "name": "Dąb Latte",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1094.webp",
+  "structure": "NA / OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20230",
+  "name": "Dąb Letni",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20230.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20140",
+  "name": "Dąb Liryczny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20140.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3798",
+  "name": "Dąb Londyn",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3798.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1089",
+  "name": "Dąb Lungo",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1089.webp",
+  "structure": "NA / OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3801",
+  "name": "Dąb Madryt",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3801.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3901",
+  "name": "Dąb Madryt",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3901.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1092",
+  "name": "Dąb Mocha",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1092.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1036",
+  "name": "Dąb Na Zawsze",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1036.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4428",
+  "name": "Dąb Naturalny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4428.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4428",
+  "name": "Dąb Naturalny",
+  "products": [
+   "plyty",
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4428.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20110",
+  "name": "Dąb Nostalgiczny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20110.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3823",
+  "name": "Dąb Nowy Jork",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3823.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1041",
+  "name": "Dąb Odwieczny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1041.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3190",
+  "name": "Dąb Odwieczny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3190.webp",
+  "structure": "SW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3315",
+  "name": "Dąb Oslo (figaro)",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3315.webp",
+  "structure": "SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2610",
+  "name": "Dąb Palermo Ciemny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2610.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2609",
+  "name": "Dąb Palermo Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2609.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3799",
+  "name": "Dąb Paryż",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3799.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3313",
+  "name": "Dąb Petersburg (nabucco)",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3313.webp",
+  "structure": "SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1035",
+  "name": "Dąb Pradawny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1035.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3166",
+  "name": "Dąb Rijeka Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3166.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3055",
+  "name": "Dąb Rustykalny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3055.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3800",
+  "name": "Dąb Rzym",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3800.webp",
+  "structure": "CL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3349",
+  "name": "Dąb San Marino",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3349.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3025",
+  "name": "Dąb Sonoma",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3025.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D5194",
+  "name": "Dąb Sonoma Tabac",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D5194.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3821",
+  "name": "Dąb Sztokholm",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3821.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4033",
+  "name": "Dąb Słoneczny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4033.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3311",
+  "name": "Dąb Traviata",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3311.webp",
+  "structure": "SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3312",
+  "name": "Dąb Warszawa (tosca)",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3312.webp",
+  "structure": "SD",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4865",
+  "name": "Dąb Wersal",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4865.webp",
+  "structure": "VL / OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9118",
+  "name": "Dąb Windsor",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9118.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1045",
+  "name": "Dąb Współczesny - Klepka",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1045.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9300",
+  "name": "Grusza Polna",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9300.webp",
+  "structure": "PE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D19",
+  "name": "Jabłoń Locarno",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D19.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1972",
+  "name": "Jabłoń Locarno",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1972.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4424",
+  "name": "Jesion Antracyt",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4424.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4426",
+  "name": "Jesion Jasny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4426.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3158",
+  "name": "Jesion Werona",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3158.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3820",
+  "name": "Kasztan Berno",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3820.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4419",
+  "name": "Kasztan Biały",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4419.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3818",
+  "name": "Kasztan Lwów",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3818.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4418",
+  "name": "Kasztan Naturalny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4418.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20130",
+  "name": "Kasztan Spokojny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20130.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20120",
+  "name": "Kasztan Spokojny Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20120.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D375",
+  "name": "Klon Naturalny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D375.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D440",
+  "name": "Klon Vancouver Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D440.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9310",
+  "name": "Olcha",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9310.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9311",
+  "name": "Olcha Górska",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9311.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D722",
+  "name": "Orzech",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D722.webp",
+  "structure": "SE",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4822",
+  "name": "Orzech Ambasador",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4822.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30190",
+  "name": "Orzech Art Deco",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30190.webp",
+  "structure": "VL",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3813",
+  "name": "Orzech Barcelona",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3813.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4409",
+  "name": "Orzech Brązowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4409.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2713",
+  "name": "Orzech California",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2713.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9164",
+  "name": "Orzech Caravaggio",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9164.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9450",
+  "name": "Orzech Ciemny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9450.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4005",
+  "name": "Orzech Ciemny Klepka",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4005.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D9163",
+  "name": "Orzech Ecco",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D9163.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20150",
+  "name": "Orzech Klasyczny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20150.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2841",
+  "name": "Orzech Marino",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2841.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3810",
+  "name": "Orzech Nicea",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3810.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1039",
+  "name": "Orzech Południowy",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1039.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3811",
+  "name": "Orzech Wenecja",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3811.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4410",
+  "name": "Orzech Złoty",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4410.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3168",
+  "name": "Sosna Bielona",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3168.webp",
+  "structure": "MX",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4095",
+  "name": "Sosna Czekoladowa",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4095.webp",
+  "structure": "OW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2226",
+  "name": "Wenge Magia",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2226.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3194",
+  "name": "Wiąz Allegro",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3194.webp",
+  "structure": "SW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3193",
+  "name": "Wiąz Amsterdam (moderato)",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3193.webp",
+  "structure": "SW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4103",
+  "name": "Wiąz Lucerna",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4103.webp",
+  "structure": "SW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4432",
+  "name": "Wiąz Naturalny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4432.webp",
+  "structure": "OV",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3196",
+  "name": "Wiąz Presto",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3196.webp",
+  "structure": "SW",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D2360",
+  "name": "Wiśnia Antyczna",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D2360.webp",
+  "structure": "BS",
+  "group": "drewno"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3274",
+  "name": "Beton",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3274.webp",
+  "structure": "VL / BS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1051",
+  "name": "Beton Biały",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1051.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D6916",
+  "name": "Beton Capella",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D6916.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3265",
+  "name": "Beton Ciemny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3265.webp",
+  "structure": "BT / BS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3963",
+  "name": "Beton Dekada",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3963.webp",
+  "structure": "SK",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1043",
+  "name": "Beton Era",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1043.webp",
+  "structure": "BL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1038",
+  "name": "Beton Millenium",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1038.webp",
+  "structure": "SK / BS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30090",
+  "name": "Beton Szary",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30090.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D6915",
+  "name": "Beton Tephra",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D6915.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D70601",
+  "name": "Calacatta Oro",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D70601.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3269",
+  "name": "Enigma",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3269.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30080",
+  "name": "Filc Szary",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30080.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1046",
+  "name": "Granit Ciemny",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1046.webp",
+  "structure": "KM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1202",
+  "name": "Granit Jasny",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1202.webp",
+  "structure": "SA",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60684",
+  "name": "Kamień Aurum",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60684.webp",
+  "structure": "SA",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1090",
+  "name": "Kamień Galattico",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1090.webp",
+  "structure": "BT",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1085",
+  "name": "Kamień Intrygujący",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1085.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1093",
+  "name": "Kamień Lunare",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1093.webp",
+  "structure": "IS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1091",
+  "name": "Kamień Solare",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1091.webp",
+  "structure": "SK",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1101",
+  "name": "Kamień Stellare",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1101.webp",
+  "structure": "IS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30170",
+  "name": "Kaskada Beżowa",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30170.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30180",
+  "name": "Kaskada Czarna",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30180.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60674",
+  "name": "Kwarcyt Perłowy",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60674.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30220",
+  "name": "Kwarcyt Szary",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30220.webp",
+  "structure": "BT / TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30100",
+  "name": "Len Kremowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30100.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60694",
+  "name": "Marmur Bernini",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60694.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60714",
+  "name": "Marmur Borgese",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60714.webp",
+  "structure": "",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4448",
+  "name": "Marmur Crema",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4448.webp",
+  "structure": "SM / VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1097",
+  "name": "Marmur Dolce",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1097.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60704",
+  "name": "Marmur Feruzzi",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60704.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D60724",
+  "name": "Marmur Fiorentino",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D60724.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1095",
+  "name": "Marmur Gelato",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1095.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4876",
+  "name": "Marmur Sentymentalny",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4876.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4871",
+  "name": "Marmur Subtelny",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4871.webp",
+  "structure": "BS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1099",
+  "name": "Marmur Tartufo",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1099.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1087",
+  "name": "Marmur Torino",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1087.webp",
+  "structure": "PE",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1052",
+  "name": "Melafir",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1052.webp",
+  "structure": "BL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D881",
+  "name": "Metalik",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D881.webp",
+  "structure": "PE",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1032",
+  "name": "Miedziany Zmierzch",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1032.webp",
+  "structure": "SK / BS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4096",
+  "name": "Płótno Oxford",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4096.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1003",
+  "name": "Selena",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1003.webp",
+  "structure": "PE",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1102",
+  "name": "Terrazzo Bianco",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1102.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1104",
+  "name": "Terrazzo Cassata",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1104.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D70060",
+  "name": "Terrazzo Fresco",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D70060.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1103",
+  "name": "Terrazzo Marrone",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1103.webp",
+  "structure": "SM / IS",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D70070",
+  "name": "Tkane Kwiaty",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D70070.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1100",
+  "name": "Trawertyn Biscotto",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1100.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1098",
+  "name": "Trawertyn Tiramisu",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1098.webp",
+  "structure": "SM",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4454",
+  "name": "Tytan Brązowoszary",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4454.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4452",
+  "name": "Tytan Srebrny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4452.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D30160",
+  "name": "Wydmy Beżowe",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D30160.webp",
+  "structure": "TO",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4878",
+  "name": "Wytrawny Szary Kamień",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4878.webp",
+  "structure": "VL",
+  "group": "kamien-materialy"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U10030",
+  "name": "Aloesowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U10030.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D164",
+  "name": "Antracyt",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D164.webp",
+  "structure": "KM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U164",
+  "name": "Antracyt",
+  "products": [
+   "plyty",
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U164.webp",
+  "structure": "VL / PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U10040",
+  "name": "Atramentowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U10040.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U119",
+  "name": "Beż Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U119.webp",
+  "structure": "VL / PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1008",
+  "name": "Bianka",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1008.webp",
+  "structure": "KM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U570",
+  "name": "Biała Porcelana",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U570.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "K101",
+  "name": "Biały",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/K101.webp",
+  "structure": "PE / KM / SE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U511",
+  "name": "Biały",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U511.webp",
+  "structure": "SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "K110",
+  "name": "Biały",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/K110.webp",
+  "structure": "SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U8681",
+  "name": "Biały Alaska",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U8681.webp",
+  "structure": "KM / VL / SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "K300",
+  "name": "Biały Kremowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/K300.webp",
+  "structure": "SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3293",
+  "name": "Biały Polarny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3293.webp",
+  "structure": "SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D8685",
+  "name": "Biel Alpejska",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D8685.webp",
+  "structure": "SQ",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U8685",
+  "name": "Biel Alpejska",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U8685.webp",
+  "structure": "SQ / SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U120",
+  "name": "Błękit Gołębi",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U120.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3271",
+  "name": "Błękit Lodowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3271.webp",
+  "structure": "VL / PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3824",
+  "name": "Błękit Morski",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3824.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3053",
+  "name": "Cappuccino",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3053.webp",
+  "structure": "VL / PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U10020",
+  "name": "Ceglana Czerwień",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U10020.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4436",
+  "name": "Ceglany",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4436.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1007",
+  "name": "Consuela",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1007.webp",
+  "structure": "BZ / SA",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U190",
+  "name": "Czarny",
+  "products": [
+   "blaty",
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U190.webp",
+  "structure": "KM / VL / PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4437",
+  "name": "Czerwone Wino",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4437.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1004",
+  "name": "Dolores",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1004.webp",
+  "structure": "LP",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1047",
+  "name": "Etna",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1047.webp",
+  "structure": "BZ",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3114",
+  "name": "Grafitowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3114.webp",
+  "structure": "PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U162",
+  "name": "Grafitowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U162.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4810",
+  "name": "Granatowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4810.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D3266",
+  "name": "Jaśminowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D3266.webp",
+  "structure": "PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U6933",
+  "name": "Kaszmirowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U6933.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1083",
+  "name": "Kioto",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1083.webp",
+  "structure": "BT",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1078",
+  "name": "Kobe",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1078.webp",
+  "structure": "IS",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4008",
+  "name": "Krypton",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4008.webp",
+  "structure": "PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20210",
+  "name": "Lamele Brązowe",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20210.webp",
+  "structure": "MX",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D20200",
+  "name": "Lamele Kremowe",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D20200.webp",
+  "structure": "MX",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1082",
+  "name": "Mercurio",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1082.webp",
+  "structure": "SM",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4809",
+  "name": "Morski",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4809.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4415",
+  "name": "Neapolis Jasny",
+  "products": [
+   "plyty",
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4415.webp",
+  "structure": "OV",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4435",
+  "name": "Niebieski Przydymiony",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4435.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U2508",
+  "name": "Oliwkowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U2508.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1079",
+  "name": "Osaka",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1079.webp",
+  "structure": "IS",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4439",
+  "name": "Pistacjowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4439.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U112",
+  "name": "Popiel",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U112.webp",
+  "structure": "PE / VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4446",
+  "name": "Pudrowy Róż",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4446.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U141",
+  "name": "Różowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U141.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U10010",
+  "name": "Sezamowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U10010.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U171",
+  "name": "Szary Ciemny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U171.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U2653",
+  "name": "Szary Jasny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U2653.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U540",
+  "name": "Szary Kamienny",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U540.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3057",
+  "name": "Szary Lawa",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3057.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U544",
+  "name": "Szary Łąkowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U544.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3188",
+  "name": "Toffi",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3188.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D4443",
+  "name": "Tokio",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D4443.webp",
+  "structure": "BT",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U6931",
+  "name": "Trawa Cytrynowa",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U6931.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3189",
+  "name": "Truflowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3189.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U1301",
+  "name": "Wanilia",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U1301.webp",
+  "structure": "PE",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U3261",
+  "name": "Waniliowy",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U3261.webp",
+  "structure": "VL",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "D1088",
+  "name": "Wezuwiusz",
+  "products": [
+   "blaty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/D1088.webp",
+  "structure": "SA",
+  "group": "kolory"
+ },
+ {
+  "producer": "SWISS KRONO",
+  "code": "U4438",
+  "name": "Żółty Dijon",
+  "products": [
+   "plyty"
+  ],
+  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
+  "image": "materiały/dekory/swisskrono/U4438.webp",
+  "structure": "VL",
+  "group": "kolory"
+ }
+]

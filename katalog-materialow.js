@@ -8,6 +8,8 @@
     const PRODUCERS = [
         { id: 'egger', name: 'EGGER', file: 'dane/dekory/egger.json' },
         { id: 'kronospan', name: 'Kronospan', file: 'dane/dekory/kronospan.json' },
+        { id: 'pfleiderer', name: 'Pfleiderer', file: 'dane/dekory/pfleiderer.json' },
+        { id: 'swisskrono', name: 'SWISS KRONO', file: 'dane/dekory/swisskrono.json' },
     ];
     const GROUPS = [
         { id: '', name: 'Wszystkie' },
@@ -20,8 +22,8 @@
         { id: 'plyty', name: 'Płyty' },
         { id: 'blaty', name: 'Blaty robocze' },
     ];
-    const FORM_LABEL = { plyty: 'płyta laminowana', perfectsense: 'płyta lakierowana PerfectSense', blaty: 'blat roboczy', kompakt: 'laminat kompaktowy', 'panele-wnekowe': 'panel wnękowy' };
-    const BOARD = ['plyty', 'perfectsense'];   // płyty = laminowane + lakierowane PerfectSense
+    const FORM_LABEL = { plyty: 'płyta laminowana', perfectsense: 'płyta lakierowana PerfectSense', lakierowane: 'płyta lakierowana', blaty: 'blat roboczy', kompakt: 'laminat kompaktowy', 'panele-wnekowe': 'panel wnękowy' };
+    const BOARD = ['plyty', 'perfectsense', 'lakierowane'];   // płyty = laminowane + lakierowane (EGGER PerfectSense, Pfleiderer)
     const shown = (d) => !Array.isArray(d.products) || d.products.some((p) => BOARD.includes(p) || p === 'blaty');
     const hasForm = (d, f) => !f || !Array.isArray(d.products) || (f === 'plyty' ? d.products.some((p) => BOARD.includes(p)) : d.products.includes(f));
 
@@ -101,7 +103,8 @@
         list.map((d) => Object.assign(d, { _p: p.id, _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer} ${(d.tags || []).join(' ')}`) })))))
         .then((lists) => {
             decors = lists.flat().filter(shown);
-            chips($('km-producers'), [{ id: '', name: 'Wszyscy producenci' }].concat(PRODUCERS), 'producer');
+            // przycisk tylko dla producentów, których plik już jest (np. w trakcie dodawania nowego)
+            chips($('km-producers'), [{ id: '', name: 'Wszyscy producenci' }].concat(PRODUCERS.filter((p, i) => lists[i].length)), 'producer');
             chips($('km-forms'), FORMS, 'form');
             chips($('km-groups'), GROUPS, 'group');
             const q = new URLSearchParams(location.search).get('q');
