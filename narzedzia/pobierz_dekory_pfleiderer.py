@@ -10,7 +10,7 @@ Uruchamiać z katalogu głównego repo:  python narzedzia/pobierz_dekory_pfleide
      kwadratowy wariant) i adres zakładki „Dostępność” (EndproduktFinderApi paginate — z cHash
      przypisanym do dekoru, dlatego trzeba wejść na stronę dekoru).
   3. „Dostępność” → pole tgroup (Płyty melaminowane, Blaty robocze, Płyty lakierowane, HPL…) = products.
-Zapisujemy tylko dekory dostępne jako płyta (melaminowana albo lakierowana) lub blat.
+Zapisujemy dekory dostępne jako płyta (melaminowana albo lakierowana), blat lub laminat HPL.
 
 Wynik:
   dane/dekory/pfleiderer.json            — lista dekorów (strona katalogu + konsultant)
@@ -139,7 +139,7 @@ def main():
         except Exception as ex:
             print('  błąd', code, ex)
             continue
-        if not any(p in products for p in ('plyty', 'lakierowane', 'blaty')):
+        if not any(p in products for p in ('plyty', 'lakierowane', 'blaty', 'laminaty')):   # laminaty = HPL (Katalog → Laminaty HPL)
             skipped += 1
             continue
         fv = e.get('filterValues') or {}

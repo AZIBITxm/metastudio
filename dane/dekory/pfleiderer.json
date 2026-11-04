@@ -1,6 +1,21 @@
 [
  {
   "producer": "Pfleiderer",
+  "code": "R20404",
+  "structure": "NW",
+  "name": "Aberdeen ciemny",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20404",
+  "image": "materiały/dekory/pfleiderer/R20404.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R38002",
   "structure": "RT / RU",
   "name": "Akacja",
@@ -14,6 +29,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r38002",
   "image": "materiały/dekory/pfleiderer/R38002.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R38017",
+  "structure": "NW",
+  "name": "Akacja biała szczotkowana",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Akacja"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r38017",
+  "image": "materiały/dekory/pfleiderer/R38017.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -114,6 +144,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R24101",
+  "structure": "FL",
+  "name": "Buk Kajus",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Buk"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r24101",
+  "image": "materiały/dekory/pfleiderer/R24101.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R24006",
   "structure": "VV",
   "name": "Buk Młyński",
@@ -146,6 +191,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R24035",
+  "structure": "VV",
+  "name": "Buk Słoisty",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Buk"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r24035",
+  "image": "materiały/dekory/pfleiderer/R24035.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R30157",
   "structure": "NW / XMRT",
   "name": "Caletta",
@@ -162,6 +222,66 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R20463",
+  "structure": "NW",
+  "name": "Connery Cukinia",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20463",
+  "image": "materiały/dekory/pfleiderer/R20463.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20462",
+  "structure": "NW",
+  "name": "Connery Fiord",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20462",
+  "image": "materiały/dekory/pfleiderer/R20462.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20457",
+  "structure": "NW",
+  "name": "Connery natur",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20457",
+  "image": "materiały/dekory/pfleiderer/R20457.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20458",
+  "structure": "NW",
+  "name": "Connery truflowy",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20458",
+  "image": "materiały/dekory/pfleiderer/R20458.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R20119",
   "structure": "NW",
   "name": "Dąb Amerykański",
@@ -175,6 +295,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20119",
   "image": "materiały/dekory/pfleiderer/R20119.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20409",
+  "structure": "RO / RR",
+  "name": "Dąb Artisan szary",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20409",
+  "image": "materiały/dekory/pfleiderer/R20409.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -279,6 +414,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R20064",
+  "structure": "NW",
+  "name": "Dąb Górski Szary",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20064",
+  "image": "materiały/dekory/pfleiderer/R20064.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R20027",
   "structure": "EM / RT / RU",
   "name": "Dąb Lancelot",
@@ -378,6 +528,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20348",
   "image": "materiały/dekory/pfleiderer/R20348.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20020",
+  "structure": "RO / RR",
+  "name": "Dąb Piemont Mokka",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20020",
+  "image": "materiały/dekory/pfleiderer/R20020.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -492,6 +657,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20351",
   "image": "materiały/dekory/pfleiderer/R20351.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R48052",
+  "structure": "FL",
+  "name": "Garbo",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Drewno fantazyjne"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r48052",
+  "image": "materiały/dekory/pfleiderer/R48052.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -657,6 +837,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R27021",
+  "structure": "VV",
+  "name": "Klon Jasny",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Klon"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r27021",
+  "image": "materiały/dekory/pfleiderer/R27021.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R27043",
   "structure": "FL",
   "name": "Klon Kiruna",
@@ -706,6 +901,36 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R37030",
+  "structure": "FL",
+  "name": "Levisa",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Wiaz"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r37030",
+  "image": "materiały/dekory/pfleiderer/R37030.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R20485",
+  "structure": "RO / RR",
+  "name": "Lucca Natur",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Dąb"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20485",
+  "image": "materiały/dekory/pfleiderer/R20485.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R20410",
   "structure": "RO / RR",
   "name": "Maryland Oak",
@@ -719,6 +944,81 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r20410",
   "image": "materiały/dekory/pfleiderer/R20410.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R55001",
+  "structure": "DU",
+  "name": "Navarra",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Sosna"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r55001",
+  "image": "materiały/dekory/pfleiderer/R55001.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R30158",
+  "structure": "FL",
+  "name": "Noce Giovanelli",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Orzech"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r30158",
+  "image": "materiały/dekory/pfleiderer/R30158.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R50094",
+  "structure": "NW",
+  "name": "Nordic Teak",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Teak"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r50094",
+  "image": "materiały/dekory/pfleiderer/R50094.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R50030",
+  "structure": "FL",
+  "name": "Oliwka Espana",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Oliwka"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r50030",
+  "image": "materiały/dekory/pfleiderer/R50030.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R55089",
+  "structure": "DU",
+  "name": "Oregon Pine",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Sosna"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r55089",
+  "image": "materiały/dekory/pfleiderer/R55089.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -800,6 +1100,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r30135",
   "image": "materiały/dekory/pfleiderer/R30135.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R30001",
+  "structure": "VV",
+  "name": "Orzech Standard",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Orzech"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r30001",
+  "image": "materiały/dekory/pfleiderer/R30001.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -933,6 +1248,36 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "R48058",
+  "structure": "SE",
+  "name": "Strada antracyt",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Drewno fantazyjne"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r48058",
+  "image": "materiały/dekory/pfleiderer/R48058.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R48057",
+  "structure": "SE",
+  "name": "Strada natur",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Drewno fantazyjne"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r48057",
+  "image": "materiały/dekory/pfleiderer/R48057.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "R50084",
   "structure": "EM",
   "name": "Teak Złoty",
@@ -946,6 +1291,21 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r50084",
   "image": "materiały/dekory/pfleiderer/R50084.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "R55087",
+  "structure": "DU",
+  "name": "Valetta Pine",
+  "group": "drewno",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Sosna"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/r55087",
+  "image": "materiały/dekory/pfleiderer/R55087.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1044,6 +1404,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "F76023",
+  "structure": "VV",
+  "name": "Alu Szlifowane",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76023",
+  "image": "materiały/dekory/pfleiderer/F76023.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "M80000",
   "structure": "HG",
   "name": "Aluminium 1, Efekt Stal Nierdzewna",
@@ -1055,6 +1428,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/m80000",
   "image": "materiały/dekory/pfleiderer/M80000.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "M80001",
+  "structure": "HG",
+  "name": "Aluminium 2, Efekt Nikiel",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/m80001",
+  "image": "materiały/dekory/pfleiderer/M80001.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1100,6 +1486,58 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "F76183",
+  "structure": "SE",
+  "name": "Alux dark blue",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76183",
+  "image": "materiały/dekory/pfleiderer/F76183.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76186",
+  "structure": "SE",
+  "name": "Alux dark green",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76186",
+  "image": "materiały/dekory/pfleiderer/F76186.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76158",
+  "structure": "SE",
+  "name": "Alux gold",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76158",
+  "image": "materiały/dekory/pfleiderer/F76158.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76172",
+  "structure": "SE",
+  "name": "Alux rosé",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76172",
+  "image": "materiały/dekory/pfleiderer/F76172.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "F76171",
   "structure": "SE",
   "name": "Alux viola",
@@ -1111,6 +1549,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76171",
   "image": "materiały/dekory/pfleiderer/F76171.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F70014",
+  "structure": "SD",
+  "name": "Antracyt Metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f70014",
+  "image": "materiały/dekory/pfleiderer/F70014.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1195,6 +1646,34 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "S62025",
+  "structure": "XMVO",
+  "name": "Carniglia",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Piaskowiec"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s62025",
+  "image": "materiały/dekory/pfleiderer/S62025.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F70002",
+  "structure": "SD",
+  "name": "Cava Beż",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f70002",
+  "image": "materiały/dekory/pfleiderer/F70002.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "S63044",
   "structure": "SM / XMSM",
   "name": "Caviar Black",
@@ -1208,6 +1687,51 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63044",
   "image": "materiały/dekory/pfleiderer/S63044.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "S63067",
+  "structure": "SM",
+  "name": "Caviar Gold",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Marmur"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63067",
+  "image": "materiały/dekory/pfleiderer/S63067.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "S63068",
+  "structure": "SM",
+  "name": "Caviar Green",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Marmur"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63068",
+  "image": "materiały/dekory/pfleiderer/S63068.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "S63066",
+  "structure": "SM",
+  "name": "Caviar Silver",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Marmur"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63066",
+  "image": "materiały/dekory/pfleiderer/S63066.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1291,6 +1815,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "F79030",
+  "structure": "SD",
+  "name": "Diva",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f79030",
+  "image": "materiały/dekory/pfleiderer/F79030.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "S68055",
+  "structure": "SD",
+  "name": "Dumont",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s68055",
+  "image": "materiały/dekory/pfleiderer/S68055.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "F79934",
   "structure": "CA / CE / CR",
   "name": "Ferro Czarny",
@@ -1364,6 +1914,19 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s61011",
   "image": "materiały/dekory/pfleiderer/S61011.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F79031",
+  "structure": "SD",
+  "name": "Jungle blue",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f79031",
+  "image": "materiały/dekory/pfleiderer/F79031.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1469,6 +2032,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "S63059",
+  "structure": "CA / CE",
+  "name": "Marmur Larsos",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Marmur"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63059",
+  "image": "materiały/dekory/pfleiderer/S63059.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "S63070",
   "structure": "CA / CE / SD",
   "name": "Marmur Lugano",
@@ -1498,6 +2076,58 @@
   ],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63014",
   "image": "materiały/dekory/pfleiderer/S63014.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76185",
+  "structure": "SD",
+  "name": "Mesh bronze",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76185",
+  "image": "materiały/dekory/pfleiderer/F76185.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76184",
+  "structure": "SD",
+  "name": "Mesh silber",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76184",
+  "image": "materiały/dekory/pfleiderer/F76184.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F70008",
+  "structure": "SD",
+  "name": "Metallic Toffee",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f70008",
+  "image": "materiały/dekory/pfleiderer/F70008.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76113",
+  "structure": "SD",
+  "name": "Metex Srebrny",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76113",
+  "image": "materiały/dekory/pfleiderer/F76113.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1605,6 +2235,21 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "S63077",
+  "structure": "CA / CE",
+  "name": "Shiyan",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [
+   "Marmur"
+  ],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/s63077",
+  "image": "materiały/dekory/pfleiderer/S63077.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "S60011",
   "structure": "FG",
   "name": "Smooth Concrete Graphite",
@@ -1648,6 +2293,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f70015",
   "image": "materiały/dekory/pfleiderer/F70015.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "F76142",
+  "structure": "CA / CE / XMVO",
+  "name": "Terracotta",
+  "group": "kamien-materialy",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/f76142",
+  "image": "materiały/dekory/pfleiderer/F76142.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1712,6 +2370,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19007",
+  "structure": "SD",
+  "name": "Agawa",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19007",
+  "image": "materiały/dekory/pfleiderer/U19007.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12083",
+  "structure": "SD",
+  "name": "Alabaster",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12083",
+  "image": "materiały/dekory/pfleiderer/U12083.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U16066",
   "structure": "MP / SD / VV",
   "name": "Amy",
@@ -1723,6 +2407,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16066",
   "image": "materiały/dekory/pfleiderer/U16066.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16012",
+  "structure": "SD",
+  "name": "Antilope",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16012",
+  "image": "materiały/dekory/pfleiderer/U16012.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1813,6 +2510,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U11500",
+  "structure": "SD",
+  "name": "Białoszary",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11500",
+  "image": "materiały/dekory/pfleiderer/U11500.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "W10300",
   "structure": "MP / SD / VV",
   "name": "Biały",
@@ -1851,6 +2561,45 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11506",
   "image": "materiały/dekory/pfleiderer/U11506.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U11525",
+  "structure": "SD",
+  "name": "Biały Office",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11525",
+  "image": "materiały/dekory/pfleiderer/U11525.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "W10227",
+  "structure": "SD",
+  "name": "Biały Satynowy",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/w10227",
+  "image": "materiały/dekory/pfleiderer/W10227.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U11036",
+  "structure": "SD",
+  "name": "Biel Alpejska",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11036",
+  "image": "materiały/dekory/pfleiderer/U11036.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -1916,6 +2665,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19011",
+  "structure": "SD",
+  "name": "Blackgreen",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19011",
+  "image": "materiały/dekory/pfleiderer/U19011.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U15007",
   "structure": "MP / SD / VV",
   "name": "Blossom",
@@ -1958,6 +2720,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U17031",
+  "structure": "SD",
+  "name": "Bordo",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17031",
+  "image": "materiały/dekory/pfleiderer/U17031.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U18502",
   "structure": "MP / SD / VV",
   "name": "Bristol",
@@ -1983,6 +2758,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17010",
   "image": "materiały/dekory/pfleiderer/U17010.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U17054",
+  "structure": "SD",
+  "name": "Burgund",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17054",
+  "image": "materiały/dekory/pfleiderer/U17054.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2029,6 +2817,45 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U12043",
+  "structure": "SD",
+  "name": "Błękit lodowca",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12043",
+  "image": "materiały/dekory/pfleiderer/U12043.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18001",
+  "structure": "SD",
+  "name": "Błękitny",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18001",
+  "image": "materiały/dekory/pfleiderer/U18001.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18068",
+  "structure": "SD",
+  "name": "Błękitny",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18068",
+  "image": "materiały/dekory/pfleiderer/U18068.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U19003",
   "structure": "MP / SD / VV",
   "name": "Cadiz",
@@ -2040,6 +2867,32 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19003",
   "image": "materiały/dekory/pfleiderer/U19003.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U19500",
+  "structure": "SD",
+  "name": "Carambola",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19500",
+  "image": "materiały/dekory/pfleiderer/U19500.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U15008",
+  "structure": "SD",
+  "name": "Caramel",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15008",
+  "image": "materiały/dekory/pfleiderer/U15008.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2072,6 +2925,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U15331",
+  "structure": "SD",
+  "name": "Chłodny beż",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15331",
+  "image": "materiały/dekory/pfleiderer/U15331.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U18010",
   "structure": "MP / SD / VV",
   "name": "Cirrus",
@@ -2086,6 +2952,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19505",
+  "structure": "SD",
+  "name": "Citron",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19505",
+  "image": "materiały/dekory/pfleiderer/U19505.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U16002",
   "structure": "MP / SD / VV",
   "name": "Congo",
@@ -2097,6 +2976,32 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16002",
   "image": "materiały/dekory/pfleiderer/U16002.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U15193",
+  "structure": "SD",
+  "name": "Cuando",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15193",
+  "image": "materiały/dekory/pfleiderer/U15193.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16179",
+  "structure": "SD",
+  "name": "Cuba Libre",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16179",
+  "image": "materiały/dekory/pfleiderer/U16179.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2125,6 +3030,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15190",
   "image": "materiały/dekory/pfleiderer/U15190.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12007",
+  "structure": "SD",
+  "name": "Czarny Grafit",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12007",
+  "image": "materiały/dekory/pfleiderer/U12007.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2168,6 +3086,32 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16051",
   "image": "materiały/dekory/pfleiderer/U16051.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U17271",
+  "structure": "SD",
+  "name": "Czerwień Tlenkowa",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17271",
+  "image": "materiały/dekory/pfleiderer/U17271.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18028",
+  "structure": "SD",
+  "name": "Czerń Błękitna",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18028",
+  "image": "materiały/dekory/pfleiderer/U18028.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2260,6 +3204,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19501",
+  "structure": "SD",
+  "name": "Granny Smith",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19501",
+  "image": "materiały/dekory/pfleiderer/U19501.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12082",
+  "structure": "SD",
+  "name": "Greyhound",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12082",
+  "image": "materiały/dekory/pfleiderer/U12082.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U16068",
   "structure": "SD / XMSM / XPSM",
   "name": "Hazel",
@@ -2318,6 +3288,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U15110",
+  "structure": "SD",
+  "name": "Iguana",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15110",
+  "image": "materiały/dekory/pfleiderer/U15110.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16067",
+  "structure": "SD",
+  "name": "Inka",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16067",
+  "image": "materiały/dekory/pfleiderer/U16067.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "W10100",
   "structure": "MP / SD / VV",
   "name": "Interior White",
@@ -2329,6 +3325,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/w10100",
   "image": "materiały/dekory/pfleiderer/W10100.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U19005",
+  "structure": "SD",
+  "name": "Jadeit",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19005",
+  "image": "materiały/dekory/pfleiderer/U19005.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2401,6 +3410,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17005",
   "image": "materiały/dekory/pfleiderer/U17005.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U11523",
+  "structure": "SD",
+  "name": "Kość Słoniowa",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11523",
+  "image": "materiały/dekory/pfleiderer/U11523.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2478,6 +3500,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19502",
+  "structure": "SD",
+  "name": "Limonka",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19502",
+  "image": "materiały/dekory/pfleiderer/U19502.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U17035",
   "structure": "MP / SD / VV",
   "name": "Lotus",
@@ -2503,6 +3538,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11509",
   "image": "materiały/dekory/pfleiderer/U11509.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U17509",
+  "structure": "SD",
+  "name": "Malwa",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17509",
+  "image": "materiały/dekory/pfleiderer/U17509.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2548,6 +3596,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U19006",
+  "structure": "SD",
+  "name": "Mięta",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19006",
+  "image": "materiały/dekory/pfleiderer/U19006.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U19015",
   "structure": "MP / SD / VV",
   "name": "Mięta zielona",
@@ -2559,6 +3620,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19015",
   "image": "materiały/dekory/pfleiderer/U19015.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U11552",
+  "structure": "SD",
+  "name": "Moongrey",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11552",
+  "image": "materiały/dekory/pfleiderer/U11552.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2604,6 +3678,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U18576",
+  "structure": "SD",
+  "name": "Ocean",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18576",
+  "image": "materiały/dekory/pfleiderer/U18576.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U19509",
+  "structure": "SD",
+  "name": "Oliwkowy",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19509",
+  "image": "materiały/dekory/pfleiderer/U19509.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U16010",
   "structure": "MP / SD / VV",
   "name": "Orange",
@@ -2615,6 +3715,71 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16010",
   "image": "materiały/dekory/pfleiderer/U16010.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U17141",
+  "structure": "SD",
+  "name": "Orchidea",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u17141",
+  "image": "materiały/dekory/pfleiderer/U17141.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18079",
+  "structure": "SD",
+  "name": "Pacyfik",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18079",
+  "image": "materiały/dekory/pfleiderer/U18079.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18011",
+  "structure": "SD",
+  "name": "Palander",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18011",
+  "image": "materiały/dekory/pfleiderer/U18011.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U18500",
+  "structure": "SD",
+  "name": "Patras",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18500",
+  "image": "materiały/dekory/pfleiderer/U18500.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U19522",
+  "structure": "SD",
+  "name": "Pine",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19522",
+  "image": "materiały/dekory/pfleiderer/U19522.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2631,6 +3796,45 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18043",
   "image": "materiały/dekory/pfleiderer/U18043.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U11106",
+  "structure": "SD",
+  "name": "Powderwhite",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u11106",
+  "image": "materiały/dekory/pfleiderer/U11106.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16037",
+  "structure": "SD",
+  "name": "Puder",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16037",
+  "image": "materiały/dekory/pfleiderer/U16037.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U19028",
+  "structure": "SD",
+  "name": "Racing Green",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19028",
+  "image": "materiały/dekory/pfleiderer/U19028.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2673,6 +3877,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19004",
   "image": "materiały/dekory/pfleiderer/U19004.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12146",
+  "structure": "SD",
+  "name": "Shadow",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12146",
+  "image": "materiały/dekory/pfleiderer/U12146.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2763,6 +3980,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U12090",
+  "structure": "SD",
+  "name": "Szary Bora",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12090",
+  "image": "materiały/dekory/pfleiderer/U12090.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U12257",
   "structure": "MP / SD / VV",
   "name": "Szary Grafit",
@@ -2792,17 +4022,16 @@
  },
  {
   "producer": "Pfleiderer",
-  "code": "U12986",
-  "structure": "SD / XMSM / XPSM",
-  "name": "Szary Piaskowy",
+  "code": "U12109",
+  "structure": "SD",
+  "name": "Szary Montana",
   "group": "kolory",
   "products": [
-   "laminaty",
-   "lakierowane"
+   "laminaty"
   ],
   "tags": [],
-  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12986",
-  "image": "materiały/dekory/pfleiderer/U12986.webp"
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12109",
+  "image": "materiały/dekory/pfleiderer/U12109.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2820,6 +4049,20 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U12986",
+  "structure": "SD / XMSM / XPSM",
+  "name": "Szary Piaskowy",
+  "group": "kolory",
+  "products": [
+   "laminaty",
+   "lakierowane"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12986",
+  "image": "materiały/dekory/pfleiderer/U12986.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U12115",
   "structure": "EM / MP / SD",
   "name": "Szary Platynowy",
@@ -2833,6 +4076,32 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12115",
   "image": "materiały/dekory/pfleiderer/U12115.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12091",
+  "structure": "SD",
+  "name": "Szary Sharky",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12091",
+  "image": "materiały/dekory/pfleiderer/U12091.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12231",
+  "structure": "SD",
+  "name": "Szary Skalny",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12231",
+  "image": "materiały/dekory/pfleiderer/U12231.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2880,6 +4149,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U12010",
+  "structure": "SD",
+  "name": "Szary platynowy",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12010",
+  "image": "materiały/dekory/pfleiderer/U12010.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U19014",
   "structure": "MP / SD / VV",
   "name": "Szałwia",
@@ -2922,6 +4204,19 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U15011",
+  "structure": "SD",
+  "name": "Torrone",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15011",
+  "image": "materiały/dekory/pfleiderer/U15011.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U18503",
   "structure": "MP / SD / VV",
   "name": "Trinity",
@@ -2933,6 +4228,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u18503",
   "image": "materiały/dekory/pfleiderer/U18503.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16000",
+  "structure": "SD",
+  "name": "Trufel",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16000",
+  "image": "materiały/dekory/pfleiderer/U16000.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -2950,6 +4258,32 @@
  },
  {
   "producer": "Pfleiderer",
+  "code": "U12081",
+  "structure": "SD",
+  "name": "Whisper",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12081",
+  "image": "materiały/dekory/pfleiderer/U12081.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U12011",
+  "structure": "SD / SM / XMSM",
+  "name": "Wulkaniczny",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u12011",
+  "image": "materiały/dekory/pfleiderer/U12011.webp"
+ },
+ {
+  "producer": "Pfleiderer",
   "code": "U19024",
   "structure": "MP / SD / VV",
   "name": "Zieleń trzcinowa",
@@ -2962,6 +4296,19 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u19024",
   "image": "materiały/dekory/pfleiderer/U19024.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U16009",
+  "structure": "SD",
+  "name": "Złota Pomarańcza",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u16009",
+  "image": "materiały/dekory/pfleiderer/U16009.webp"
  },
  {
   "producer": "Pfleiderer",
@@ -3004,6 +4351,32 @@
   "tags": [],
   "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15579",
   "image": "materiały/dekory/pfleiderer/U15579.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U15115",
+  "structure": "SD",
+  "name": "Żółty Miodowy",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15115",
+  "image": "materiały/dekory/pfleiderer/U15115.webp"
+ },
+ {
+  "producer": "Pfleiderer",
+  "code": "U15559",
+  "structure": "SD",
+  "name": "Żółty Pastelowy",
+  "group": "kolory",
+  "products": [
+   "laminaty"
+  ],
+  "tags": [],
+  "url": "https://www.pfleiderer.com/pl-pl/produkty/dekory/szczegoly/u15559",
+  "image": "materiały/dekory/pfleiderer/U15559.webp"
  },
  {
   "producer": "Pfleiderer",

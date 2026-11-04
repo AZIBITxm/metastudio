@@ -1,10 +1,14 @@
 // Katalog materiałów: wyszukiwarka dekorów producentów (dane/dekory/<producent>.json).
-// Układ (Adam 2026-11-04): 1) rodzaj materiału — Płyty laminowane / Blaty robocze / Fronty meblowe,
-// 2) producent (tylko ci, którzy mają ten rodzaj), 3) przy frontach rodzaj frontu, 4) drewno/kamień/kolory.
+// Układ (Adam 2026-11-04, wersja 2):
+//   1) rodzaj materiału (kafelki): Płyty laminowane / Blaty robocze / Fronty meblowe / Laminaty HPL
+//   2) przy blatach i frontach — pole „Rodzaj blatu” / „Rodzaj frontu”; producent pojawia się DOPIERO po jego wyborze
+//      (przy płytach i HPL producent od razu)
+//   3) producent, 4) wzór (drewno / kamień / kolory) — wszystko jako pola rozwijane.
+// Fronty akrylowe: tylko Niemann, REHAU, Aquafront (z nich korzystamy — Adam).
 // Nowy producent = nowy plik JSON (narzędzie w narzedzia/) + wpis w PRODUCERS.
-// Pole products = w czym dekor jest dostępny: plyty, blaty, front-akryl, front-lakier, front-pet
-// (oraz informacyjnie: obrzeza, laminaty, kompakt, panele-wnekowe…). Dekor bez żadnego z trzech rodzajów
-// nie jest pokazywany. Starsze klucze perfectsense (EGGER) i lakierowane (Pfleiderer) = front lakierowany.
+// Pole products = w czym dekor jest dostępny: plyty, blaty, laminaty (HPL), front-akryl, front-lakier, front-pet,
+// front-hpl, front-dekor (oraz informacyjnie obrzeza, kompakt…). Starsze klucze perfectsense (EGGER) i lakierowane
+// (Pfleiderer) = front lakierowany.
 (function () {
     'use strict';
 
@@ -15,55 +19,76 @@
         { id: 'swisskrono', name: 'SWISS KRONO', file: 'dane/dekory/swisskrono.json' },
         { id: 'aquafront', name: 'Aquafront', file: 'dane/dekory/aquafront.json' },
         { id: 'niemann', name: 'Niemann (Acrylux)', file: 'dane/dekory/niemann.json' },
-        { id: 'rehau', name: 'REHAU', file: 'dane/dekory/rehau.json' },
-    ];
-    const FRONT_KINDS = [
-        { id: 'front-akryl', name: 'Akrylowe' },
-        { id: 'front-lakier', name: 'Lakierowane' },
-        { id: 'front-pet', name: 'Folia PET (mat / połysk)' },
+        { id: 'rehau', name: 'REHAU (RAUVISIO)', file: 'dane/dekory/rehau.json' },
     ];
     const has = (d, k) => Array.isArray(d.products) && d.products.includes(k);
+    // rodzaje w obrębie typu; only = dozwoleni producenci
+    const kindTest = (k) => (d) => has(d, k.id) && (!k.only || k.only.includes(d._p));
     const TYPES = [
-        { id: 'plyty', name: 'Płyty laminowane', hint: 'korpusy, fronty, zabudowy', test: (d) => has(d, 'plyty') },
-        { id: 'blaty', name: 'Blaty robocze', hint: 'kuchnie, biurka, łazienki', test: (d) => has(d, 'blaty') },
-        { id: 'fronty', name: 'Fronty meblowe', hint: 'akrylowe, lakierowane, PET', test: (d) => FRONT_KINDS.some((k) => has(d, k.id)) },
+        { id: 'plyty', name: 'Płyty laminowane', hint: 'korpusy, fronty, zabudowy', kinds: null, test: (d) => has(d, 'plyty') },
+        {
+            id: 'blaty', name: 'Blaty robocze', hint: 'kuchnie, biurka, łazienki', kindLabel: 'Rodzaj blatu',
+            kinds: [   // rodzaje jak w „Kategoriach materiałów” na stronie głównej
+                { id: 'blaty', name: 'Blaty laminowane' },
+                { id: 'blat-spiek', name: 'Spieki kwarcowe' },
+                { id: 'blat-zywica', name: 'Żywica epoksydowa' },
+                { id: 'blat-drewno', name: 'Blaty drewniane' },
+                { id: 'blat-kamien', name: 'Blaty kamienne' },
+                { id: 'blat-solid', name: 'Solid Surface' },
+            ],
+        },
+        {
+            id: 'fronty', name: 'Fronty meblowe', hint: 'akrylowe, lakierowane, PET, HPL', kindLabel: 'Rodzaj frontu',
+            kinds: [
+                { id: 'front-akryl', name: 'Fronty akrylowe', only: ['niemann', 'rehau', 'aquafront'] },
+                { id: 'front-lakier', name: 'Fronty lakierowane' },
+                { id: 'front-pet', name: 'Folia PET (mat / połysk)' },
+                { id: 'front-hpl', name: 'Fronty HPL' },
+                { id: 'front-dekor', name: 'Dekoracyjne (lustro, ryfla, struktura)' },
+            ],
+        },
+        {
+            id: 'hpl', name: 'Laminaty HPL', hint: 'okleiny wysokociśnieniowe', kinds: null,
+            test: (d) => has(d, 'laminaty') && ['egger', 'kronospan', 'pfleiderer', 'swisskrono'].includes(d._p),
+        },
     ];
+    TYPES.forEach((t) => {
+        if (t.kinds) {
+            t.kinds.forEach((k) => { k.test = kindTest(k); });
+            t.test = (d) => t.kinds.some((k) => k.test(d));
+        }
+    });
     const GROUPS = [
-        { id: '', name: 'Wszystkie' },
+        { id: '', name: 'Wszystkie wzory' },
         { id: 'drewno', name: 'Drewno' },
         { id: 'kamien-materialy', name: 'Kamień i materiały' },
         { id: 'kolory', name: 'Kolory jednolite' },
     ];
     const FORM_LABEL = {
-        plyty: 'płyta laminowana', blaty: 'blat roboczy', 'front-akryl': 'front akrylowy',
-        'front-lakier': 'front lakierowany', 'front-pet': 'front MDF z folią PET', kompakt: 'laminat kompaktowy',
-        'panele-wnekowe': 'panel wnękowy',
+        plyty: 'płyta laminowana', blaty: 'blat laminowany', laminaty: 'laminat HPL', 'front-akryl': 'front akrylowy',
+        'front-lakier': 'front lakierowany', 'front-pet': 'front MDF z folią PET', 'front-hpl': 'front HPL',
+        'front-dekor': 'front dekoracyjny', kompakt: 'laminat kompaktowy', 'panele-wnekowe': 'panel wnękowy',
     };
 
     const $ = (id) => document.getElementById(id);
     const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
     const params = new URLSearchParams(location.search);
-    const state = { type: params.get('typ') || '', producer: '', kind: params.get('rodzaj') || '', group: '', q: params.get('q') || '' };
+    const state = { type: params.get('typ') || '', kind: params.get('rodzaj') || '', producer: params.get('producent') || '', group: '', q: params.get('q') || '' };
     let decors = [];
 
-    function chips(container, items, key) {
-        container.innerHTML = '';
-        container.hidden = items.length <= 1;
-        items.forEach((it) => {
-            const b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'km-chip';
-            b.textContent = it.count != null ? `${it.name} (${it.count})` : it.name;
-            b.setAttribute('aria-pressed', String(state[key] === it.id));
-            b.addEventListener('click', () => {
-                state[key] = it.id;
-                render();
-            });
-            container.appendChild(b);
+    // Wypełnia pole rozwijane; opcje z count 0 są wyłączone („wkrótce”)
+    function fillSelect(sel, options, value) {
+        sel.innerHTML = '';
+        options.forEach((o) => {
+            const opt = document.createElement('option');
+            opt.value = o.id;
+            opt.textContent = o.count == null ? o.name : o.count ? `${o.name} (${o.count})` : `${o.name} — wkrótce`;
+            opt.disabled = o.count === 0;
+            sel.appendChild(opt);
         });
+        sel.value = value;
     }
 
-    // Kafelki rodzaju materiału — zdjęcie z pierwszego dekoru danego rodzaju
     function renderTypes() {
         const box = $('km-types');
         box.innerHTML = '';
@@ -81,9 +106,7 @@
             b.querySelector('.km-type-hint').textContent = `${t.hint} · ${list.length}`;
             b.addEventListener('click', () => {
                 if (state.type === t.id) return;
-                state.type = t.id;
-                state.producer = '';
-                state.kind = '';
+                Object.assign(state, { type: t.id, kind: '', producer: '' });
                 render();
             });
             box.appendChild(b);
@@ -94,6 +117,7 @@
         const p = new URLSearchParams();
         p.set('typ', state.type);
         if (state.kind) p.set('rodzaj', state.kind);
+        if (state.producer) p.set('producent', state.producer);
         if (state.q) p.set('q', state.q);
         history.replaceState(null, '', `${location.pathname}?${p}`);
     }
@@ -101,37 +125,45 @@
     function render() {
         const type = TYPES.find((t) => t.id === state.type) || TYPES[0];
         state.type = type.id;
-        const ofType = decors.filter(type.test);
+        let list = decors.filter(type.test);
 
-        // producenci tylko z tym rodzajem materiału
-        const prods = PRODUCERS.map((p) => ({ id: p.id, name: p.name, count: ofType.filter((d) => d._p === p.id).length }))
-            .filter((p) => p.count > 0);
-        if (state.producer && !prods.some((p) => p.id === state.producer)) state.producer = '';
-        const byProducer = ofType.filter((d) => !state.producer || d._p === state.producer);
-
-        // rodzaj frontu (tylko przy frontach)
-        let kinds = [];
-        if (type.id === 'fronty') {
-            kinds = FRONT_KINDS.map((k) => ({ id: k.id, name: k.name, count: byProducer.filter((d) => has(d, k.id)).length }))
-                .filter((k) => k.count > 0);
-            if (state.kind && !kinds.some((k) => k.id === state.kind)) state.kind = '';
-            kinds = [{ id: '', name: 'Wszystkie fronty' }].concat(kinds);
+        // 2) rodzaj blatu / frontu
+        const kindField = $('km-kind-field');
+        let kind = null;
+        if (type.kinds) {
+            kindField.hidden = false;
+            $('km-kind-label').textContent = type.kindLabel;
+            const opts = [{ id: '', name: `Wszystkie (${list.length})` }]
+                .concat(type.kinds.map((k) => ({ id: k.id, name: k.name, count: list.filter(k.test).length })));
+            kind = type.kinds.find((k) => k.id === state.kind && list.some(k.test)) || null;
+            state.kind = kind ? kind.id : '';
+            fillSelect($('km-kind'), opts, state.kind);
+            if (kind) list = list.filter(kind.test);
         } else {
+            kindField.hidden = true;
             state.kind = '';
         }
-        const byKind = byProducer.filter((d) => !state.kind || has(d, state.kind));
 
-        const q = norm(state.q).trim();
-        const words = q.split(/\s+/).filter(Boolean);
-        const list = byKind.filter((d) => (!state.group || d.group === state.group) && words.every((w) => d._s.includes(w)));
+        // 3) producent — przy blatach/frontach dopiero po wyborze rodzaju
+        const prodField = $('km-producer-field');
+        const showProducers = !type.kinds || !!kind;
+        prodField.hidden = !showProducers;
+        if (showProducers) {
+            const prods = PRODUCERS.map((p) => ({ id: p.id, name: p.name, count: list.filter((d) => d._p === p.id).length }))
+                .filter((p) => p.count > 0);
+            if (!prods.some((p) => p.id === state.producer)) state.producer = '';
+            fillSelect($('km-producer'), [{ id: '', name: 'Wszyscy producenci' }].concat(prods), state.producer);
+            if (state.producer) list = list.filter((d) => d._p === state.producer);
+        } else {
+            state.producer = '';
+        }
+
+        // 4) wzór + wyszukiwarka
+        fillSelect($('km-group'), GROUPS, state.group);
+        const words = norm(state.q).split(/\s+/).filter(Boolean);
+        list = list.filter((d) => (!state.group || d.group === state.group) && words.every((w) => d._s.includes(w)));
 
         renderTypes();
-        chips($('km-producers'), [{ id: '', name: 'Wszyscy producenci' }].concat(prods), 'producer');
-        $('km-producers').hidden = false;
-        chips($('km-kinds'), kinds, 'kind');
-        chips($('km-groups'), GROUPS, 'group');
-        $('km-groups').hidden = false;
-
         const grid = $('km-grid');
         grid.innerHTML = '';
         const frag = document.createDocumentFragment();
@@ -151,8 +183,11 @@
             frag.appendChild(b);
         });
         grid.appendChild(frag);
-        $('km-count').textContent = `${type.name}: ${list.length}`;
+        const where = kind ? kind.name : type.name;
+        $('km-count').textContent = `${where}: ${list.length}`;
         $('km-empty').hidden = list.length > 0;
+        $('km-empty').textContent = type.kinds && kind && !decors.some(kind.test)
+            ? 'Ten rodzaj dodamy wkrótce — zapytaj nas o dostępne wzory.' : 'Brak dekorów dla tych kryteriów.';
         syncUrl();
     }
 
@@ -162,7 +197,7 @@
         $('km-modal-producer').textContent = d.producer;
         $('km-modal-name').textContent = d.name;
         $('km-modal-code').textContent = `Kod: ${d.code} ${d.structure || ''}`;
-        const forms = (d.products || []).map((f) => FORM_LABEL[f]).filter(Boolean);
+        const forms = [...new Set((d.products || []).map((f) => FORM_LABEL[f]).filter(Boolean))];
         $('km-modal-forms').textContent = forms.length ? `Dostępny jako: ${forms.join(', ')}` : '';
         $('km-modal-link').href = d.url;
         $('km-modal').hidden = false;
@@ -174,12 +209,14 @@
     $('km-modal').addEventListener('click', (e) => { if (e.target === $('km-modal')) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     $('km-search').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+    $('km-kind').addEventListener('change', (e) => { state.kind = e.target.value; state.producer = ''; render(); });
+    $('km-producer').addEventListener('change', (e) => { state.producer = e.target.value; render(); });
+    $('km-group').addEventListener('change', (e) => { state.group = e.target.value; render(); });
 
     // brak/uszkodzony plik jednego producenta nie blokuje pozostałych
     Promise.all(PRODUCERS.map((p) => fetch(p.file).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) =>
         list.map((d) => {
             const products = (d.products || []).slice();
-            // starsze klucze płyt lakierowanych → front lakierowany
             if ((products.includes('perfectsense') || products.includes('lakierowane')) && !products.includes('front-lakier')) {
                 products.push('front-lakier');
             }

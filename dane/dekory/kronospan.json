@@ -2003,6 +2003,108 @@
  },
  {
   "producer": "Kronospan",
+  "code": "AL01",
+  "name": "Brushed Aluminium",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL01",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Szary",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL01.webp"
+ },
+ {
+  "producer": "Kronospan",
+  "code": "AL06",
+  "name": "Brushed Bronze",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL06",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Brązowy",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL06.webp"
+ },
+ {
+  "producer": "Kronospan",
+  "code": "AL05",
+  "name": "Brushed Copper",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL05",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Pomarańczowy",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL05.webp"
+ },
+ {
+  "producer": "Kronospan",
+  "code": "AL04",
+  "name": "Brushed Gold",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL04",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Żółty",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL04.webp"
+ },
+ {
+  "producer": "Kronospan",
+  "code": "AL03",
+  "name": "Brushed Inox",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL03",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Szary",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL03.webp"
+ },
+ {
+  "producer": "Kronospan",
+  "code": "AL08",
+  "name": "Brushed Titan",
+  "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/metal/AL08",
+  "products": [
+   "obrzeza",
+   "laminaty"
+  ],
+  "group": "kamien-materialy",
+  "tags": [
+   "Brązowy",
+   "Metaliczny"
+  ],
+  "structure": "",
+  "image": "materiały/dekory/kronospan/AL08.webp"
+ },
+ {
+  "producer": "Kronospan",
   "code": "K699",
   "name": "Calacatta Ambrosio",
   "url": "https://kronospan.com/pl_PL/decors/view/kronodesign/trend-designing-reality/K699",

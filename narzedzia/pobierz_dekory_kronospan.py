@@ -138,7 +138,7 @@ def main():
     out = []
     for c, d in by_code.items():
         d['products'] = [k for k in PRODUCTS if c in prod[k]]
-        if not any(p in d['products'] for p in ('plyty', 'blaty') + FRONTS):
+        if not any(p in d['products'] for p in ('plyty', 'blaty', 'laminaty') + FRONTS):
             continue
         d['group'] = next((g for g in GROUPS if c in grp[g]), 'kolory')
         d['tags'] = tags.get(c, [])

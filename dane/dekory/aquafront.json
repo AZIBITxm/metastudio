@@ -1,0 +1,3467 @@
+[
+ {
+  "producer": "Aquafront",
+  "code": "69932",
+  "structure": "Szkło dekor",
+  "name": "Drewno bielone",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-bielone-69932/",
+  "image": "materiały/dekory/aquafront/69932.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M69932",
+  "structure": "Szkło dekor",
+  "name": "Drewno bielone",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-bielone-m69932/",
+  "image": "materiały/dekory/aquafront/M69932.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6855",
+  "structure": "Szkło dekor",
+  "name": "Dąb Canyon",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-canyon-m6855/",
+  "image": "materiały/dekory/aquafront/M6855.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "69962",
+  "structure": "Szkło dekor",
+  "name": "Dąb czarny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-czarny-69962/",
+  "image": "materiały/dekory/aquafront/69962.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M69962",
+  "structure": "Szkło dekor",
+  "name": "Dąb czarny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-czarny-m69962/",
+  "image": "materiały/dekory/aquafront/M69962.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "16504",
+  "structure": "Szkło dekor",
+  "name": "Dąb koniakowy",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-koniakowy-16504/",
+  "image": "materiały/dekory/aquafront/16504.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "6920",
+  "structure": "Szkło dekor",
+  "name": "Dąb królewski",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-krolewski-6920/",
+  "image": "materiały/dekory/aquafront/6920.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6920",
+  "structure": "Szkło dekor",
+  "name": "Dąb królewski",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-krolewski-m6920/",
+  "image": "materiały/dekory/aquafront/M6920.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1302",
+  "structure": "Szkło dekor",
+  "name": "Dąb miodowy",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-miodowy-1302/",
+  "image": "materiały/dekory/aquafront/1302.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6847",
+  "structure": "Szkło dekor",
+  "name": "Dąb szary",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-szary-m6847/",
+  "image": "materiały/dekory/aquafront/M6847.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "6988",
+  "structure": "Szkło dekor",
+  "name": "Dąb złoty",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-zloty-6988/",
+  "image": "materiały/dekory/aquafront/6988.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6988",
+  "structure": "Szkło dekor",
+  "name": "Dąb złoty",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-zloty-m6988/",
+  "image": "materiały/dekory/aquafront/M6988.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6812",
+  "structure": "Szkło dekor",
+  "name": "Jabłoń indyjska",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/jablon-indyjska-m6812/",
+  "image": "materiały/dekory/aquafront/M6812.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "26802",
+  "structure": "Szkło dekor",
+  "name": "Jesion srebrny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/jesion-srebrny-26802/",
+  "image": "materiały/dekory/aquafront/26802.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6811",
+  "structure": "Szkło dekor",
+  "name": "Orzech California",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-california-m6811/",
+  "image": "materiały/dekory/aquafront/M6811.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M26901",
+  "structure": "Szkło dekor",
+  "name": "Orzech Jasny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-jasny-m26901/",
+  "image": "materiały/dekory/aquafront/M26901.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M26502",
+  "structure": "Szkło dekor",
+  "name": "Orzech ciemny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-ciemny-m26502/",
+  "image": "materiały/dekory/aquafront/M26502.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "26502",
+  "structure": "Szkło dekor",
+  "name": "Orzech ciemny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-ciemny-26502/",
+  "image": "materiały/dekory/aquafront/26502.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "26901",
+  "structure": "Szkło dekor",
+  "name": "Orzech jasny",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-jasny-26901/",
+  "image": "materiały/dekory/aquafront/26901.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "25901",
+  "structure": "Szkło dekor",
+  "name": "Topola górska",
+  "group": "drewno",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/topola-gorska-25901/",
+  "image": "materiały/dekory/aquafront/25901.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85387",
+  "structure": "Ultra",
+  "name": "Antracyt metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/antracyt-metalik-85387/",
+  "image": "materiały/dekory/aquafront/85387.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85688",
+  "structure": "Ultra",
+  "name": "Antracyt metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/antracyt-metalik-m85688/",
+  "image": "materiały/dekory/aquafront/M85688.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "69909",
+  "structure": "Szkło dekor",
+  "name": "Beton stemplowany",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-stemplowany-69909/",
+  "image": "materiały/dekory/aquafront/69909.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M69909",
+  "structure": "Szkło dekor",
+  "name": "Beton stemplowany",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-stemplowany-m69909/",
+  "image": "materiały/dekory/aquafront/M69909.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "69925",
+  "structure": "Szkło dekor",
+  "name": "Beton tradycyjny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-tradycyjny-69925/",
+  "image": "materiały/dekory/aquafront/69925.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M69925",
+  "structure": "Szkło dekor",
+  "name": "Beton tradycyjny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-tradycyjny-m69925/",
+  "image": "materiały/dekory/aquafront/M69925.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "11035",
+  "structure": "Ultra",
+  "name": "Biały metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/bialy-metalik-11035/",
+  "image": "materiały/dekory/aquafront/11035.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "69928",
+  "structure": "Szkło dekor",
+  "name": "Blacha brąz",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-braz-69928/",
+  "image": "materiały/dekory/aquafront/69928.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M69928",
+  "structure": "Szkło dekor",
+  "name": "Blacha brąz",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-braz-m69928/",
+  "image": "materiały/dekory/aquafront/M69928.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "8427",
+  "structure": "Ultra",
+  "name": "Czarny metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-metalik-8427/",
+  "image": "materiały/dekory/aquafront/8427.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85813",
+  "structure": "Ultra",
+  "name": "Grafitowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/grafitowy-m85813/",
+  "image": "materiały/dekory/aquafront/M85813.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6871",
+  "structure": "Szkło dekor",
+  "name": "Kamień biały",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-bialy-m6871/",
+  "image": "materiały/dekory/aquafront/M6871.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "6871",
+  "structure": "Szkło dekor",
+  "name": "Kamień biały",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-bialy-6871/",
+  "image": "materiały/dekory/aquafront/6871.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M81048",
+  "structure": "3D",
+  "name": "Kamień czarny metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "3D"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-czarny-metalik-m81048/",
+  "image": "materiały/dekory/aquafront/M81048.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "29501",
+  "structure": "Szkło dekor",
+  "name": "Kamień szary",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-szary-29501/",
+  "image": "materiały/dekory/aquafront/29501.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "7499",
+  "structure": "Ultra",
+  "name": "Kubanit metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/kubanit-metalik-7499/",
+  "image": "materiały/dekory/aquafront/7499.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M7591",
+  "structure": "Ultra",
+  "name": "Kubanit metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/kubanit-metalik-m7591/",
+  "image": "materiały/dekory/aquafront/M7591.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "36601",
+  "structure": "Szkło dekor",
+  "name": "Kwarcyt niebieski",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/kwarcyt-niebieski-36601/",
+  "image": "materiały/dekory/aquafront/36601.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M38602",
+  "structure": "Szkło dekor",
+  "name": "Marmur Calacatta Gold",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-calacatta-gold-m38602/",
+  "image": "materiały/dekory/aquafront/M38602.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "38602",
+  "structure": "Szkło dekor",
+  "name": "Marmur Calacatta Gold",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-calacatta-gold-38602/",
+  "image": "materiały/dekory/aquafront/38602.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M38605",
+  "structure": "Szkło dekor",
+  "name": "Marmur Calacatta Silver",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-calacatta-silver-m38605/",
+  "image": "materiały/dekory/aquafront/M38605.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "38605",
+  "structure": "Szkło dekor",
+  "name": "Marmur Calacatta Silver",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-calacatta-silver-38605/",
+  "image": "materiały/dekory/aquafront/38605.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "38402",
+  "structure": "Szkło dekor",
+  "name": "Marmur biało-złoty",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-bialo-zloty-38402/",
+  "image": "materiały/dekory/aquafront/38402.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M6711",
+  "structure": "Szkło dekor",
+  "name": "Marmur biały",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-bialy-m6711/",
+  "image": "materiały/dekory/aquafront/M6711.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "6711",
+  "structure": "Szkło dekor",
+  "name": "Marmur biały",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-bialy-6711/",
+  "image": "materiały/dekory/aquafront/6711.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "34004",
+  "structure": "Szkło dekor",
+  "name": "Marmur zielono-złoty",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-zielono-zloty-34004/",
+  "image": "materiały/dekory/aquafront/34004.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M1904",
+  "structure": "Ultra",
+  "name": "Miedziany metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/miedziany-metalik-m1904/",
+  "image": "materiały/dekory/aquafront/M1904.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "4562",
+  "structure": "Ultra",
+  "name": "Oxyd metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/oxyd-metalik-4562/",
+  "image": "materiały/dekory/aquafront/4562.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85385",
+  "structure": "Ultra",
+  "name": "Srebrny metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/srebrny-metalik-85385/",
+  "image": "materiały/dekory/aquafront/85385.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85809",
+  "structure": "Ultra",
+  "name": "Srebrny metalik",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/srebrny-metalik-m85809/",
+  "image": "materiały/dekory/aquafront/M85809.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85814",
+  "structure": "Ultra",
+  "name": "Stalowy",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/stalowy-85814/",
+  "image": "materiały/dekory/aquafront/85814.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85735",
+  "structure": "Ultra",
+  "name": "Stalowy",
+  "group": "kamien-materialy",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/stalowy-m85735/",
+  "image": "materiały/dekory/aquafront/M85735.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G85468",
+  "structure": "Grand",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-grand-g85468/",
+  "image": "materiały/dekory/aquafront/G85468.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G2733",
+  "structure": "Grand",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-grand-g2733/",
+  "image": "materiały/dekory/aquafront/G2733.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "2733",
+  "structure": "Standard",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-2733/",
+  "image": "materiały/dekory/aquafront/2733.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "9140",
+  "structure": "Szkło",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-9140/",
+  "image": "materiały/dekory/aquafront/9140.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M9140",
+  "structure": "Szkło",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-m9140/",
+  "image": "materiały/dekory/aquafront/M9140.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85468",
+  "structure": "Ultra",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-85468/",
+  "image": "materiały/dekory/aquafront/85468.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "4850",
+  "structure": "Szkło",
+  "name": "Biały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/bialy-4850/",
+  "image": "materiały/dekory/aquafront/4850.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M4850",
+  "structure": "Szkło",
+  "name": "Biały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/bialy-m4850/",
+  "image": "materiały/dekory/aquafront/M4850.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G5000U",
+  "structure": "Grand",
+  "name": "Biel arktyczna",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/biel-arktyczna-grand-g5000u/",
+  "image": "materiały/dekory/aquafront/G5000U.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G5000B",
+  "structure": "Grand",
+  "name": "Biel arktyczna",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/biel-arktyczna-g5000b/",
+  "image": "materiały/dekory/aquafront/G5000B.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "5000B",
+  "structure": "Standard",
+  "name": "Biel arktyczna",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/biel-arktyczna-5000b/",
+  "image": "materiały/dekory/aquafront/5000B.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "5000U",
+  "structure": "Ultra",
+  "name": "Biel arktyczna",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/biel-arktyczna-5000u/",
+  "image": "materiały/dekory/aquafront/5000U.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM5000",
+  "structure": "Soft (mat)",
+  "name": "Black",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/black-sm5000/",
+  "image": "materiały/dekory/aquafront/SM5000.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM9100",
+  "structure": "Soft (mat)",
+  "name": "Brick",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/brick-sm9100/",
+  "image": "materiały/dekory/aquafront/SM9100.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "9950",
+  "structure": "Szkło",
+  "name": "Brudny róż",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/brudny-roz-9950/",
+  "image": "materiały/dekory/aquafront/9950.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M9950",
+  "structure": "Szkło",
+  "name": "Brudny róż",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/brudny-roz-m9950/",
+  "image": "materiały/dekory/aquafront/M9950.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M5391",
+  "structure": "Ultra",
+  "name": "Butelkowa zieleń",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/butelkowa-zielen-m5391/",
+  "image": "materiały/dekory/aquafront/M5391.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "7498",
+  "structure": "Ultra",
+  "name": "Cappuccino",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/cappuccino-7498/",
+  "image": "materiały/dekory/aquafront/7498.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M7498",
+  "structure": "Ultra",
+  "name": "Cappuccino",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/cappuccino-m7498/",
+  "image": "materiały/dekory/aquafront/M7498.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM3001",
+  "structure": "Soft (mat)",
+  "name": "Cashmir",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/cashmir-sm3001/",
+  "image": "materiały/dekory/aquafront/SM3001.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM9850",
+  "structure": "Soft (mat)",
+  "name": "Chocolate",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/chocolate-sm9850/",
+  "image": "materiały/dekory/aquafront/SM9850.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M2460",
+  "structure": "Ultra",
+  "name": "Ciemna oliwka",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/ciemna-oliwka-m2460/",
+  "image": "materiały/dekory/aquafront/M2460.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "9540",
+  "structure": "Szkło",
+  "name": "Ciemny szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/ciemny-szary-9540/",
+  "image": "materiały/dekory/aquafront/9540.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85382",
+  "structure": "Ultra",
+  "name": "Ciemny szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/ciemny-szary-85382/",
+  "image": "materiały/dekory/aquafront/85382.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85728",
+  "structure": "Ultra",
+  "name": "Ciemny szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/ciemny-szary-m85728/",
+  "image": "materiały/dekory/aquafront/M85728.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM3103",
+  "structure": "Soft (mat)",
+  "name": "Crema Magnolia",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/crema-magnolia-sm3103/",
+  "image": "materiały/dekory/aquafront/SM3103.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "4802",
+  "structure": "Szkło",
+  "name": "Czarny",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-4802/",
+  "image": "materiały/dekory/aquafront/4802.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "8421",
+  "structure": "Ultra",
+  "name": "Czarny",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-8421/",
+  "image": "materiały/dekory/aquafront/8421.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M8421",
+  "structure": "Ultra",
+  "name": "Czarny",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-m8421/",
+  "image": "materiały/dekory/aquafront/M8421.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM4101",
+  "structure": "Soft (mat)",
+  "name": "Dust Grey",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/dust-grey-sm4101/",
+  "image": "materiały/dekory/aquafront/SM4101.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M4702",
+  "structure": "Ultra",
+  "name": "Granatowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/granatowy-m4702/",
+  "image": "materiały/dekory/aquafront/M4702.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM5100",
+  "structure": "Soft (mat)",
+  "name": "Graphite",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/graphite-sm5100/",
+  "image": "materiały/dekory/aquafront/SM5100.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM6002",
+  "structure": "Soft (mat)",
+  "name": "Green",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/green-sm6002/",
+  "image": "materiały/dekory/aquafront/SM6002.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM4313",
+  "structure": "Soft (mat)",
+  "name": "Hellgrau",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/hellgrau-sm4313/",
+  "image": "materiały/dekory/aquafront/SM4313.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8023",
+  "structure": "Soft (mat)",
+  "name": "Jade",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/jade-sm8023/",
+  "image": "materiały/dekory/aquafront/SM8023.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85812",
+  "structure": "Ultra",
+  "name": "Jasny szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/jasny-szary-m85812/",
+  "image": "materiały/dekory/aquafront/M85812.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85384",
+  "structure": "Ultra",
+  "name": "Kaszmir",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/kaszmir-m85384/",
+  "image": "materiały/dekory/aquafront/M85384.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M8347",
+  "structure": "Szkło",
+  "name": "Khaki",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/khaki-m8347/",
+  "image": "materiały/dekory/aquafront/M8347.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "8347",
+  "structure": "Szkło",
+  "name": "Khaki",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/khaki-8347/",
+  "image": "materiały/dekory/aquafront/8347.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G7496",
+  "structure": "Grand",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-grand-g7496/",
+  "image": "materiały/dekory/aquafront/G7496.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G7315",
+  "structure": "Grand",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-grand-g7315/",
+  "image": "materiały/dekory/aquafront/G7315.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "7315",
+  "structure": "Standard",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-7315/",
+  "image": "materiały/dekory/aquafront/7315.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "9130",
+  "structure": "Szkło",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-9130/",
+  "image": "materiały/dekory/aquafront/9130.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M9130",
+  "structure": "Szkło",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-m9130/",
+  "image": "materiały/dekory/aquafront/M9130.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "7496",
+  "structure": "Ultra",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-7496/",
+  "image": "materiały/dekory/aquafront/7496.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M7496",
+  "structure": "Ultra",
+  "name": "Krem",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/krem-m7496/",
+  "image": "materiały/dekory/aquafront/M7496.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "6813",
+  "structure": "Szkło dekor",
+  "name": "Kwiat biały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/kwiat-bialy-6813/",
+  "image": "materiały/dekory/aquafront/6813.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM4000",
+  "structure": "Soft (mat)",
+  "name": "Light Grey",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/light-grey-sm4000/",
+  "image": "materiały/dekory/aquafront/SM4000.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM3105",
+  "structure": "Soft (mat)",
+  "name": "Lux Magnolia",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/lux-magnolia-sm3105/",
+  "image": "materiały/dekory/aquafront/SM3105.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M25601",
+  "structure": "Szkło dekor",
+  "name": "Mahoń afrykański",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/mahon-afrykanski-m25601/",
+  "image": "materiały/dekory/aquafront/M25601.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "25601",
+  "structure": "Szkło dekor",
+  "name": "Mahoń afrykański",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/mahon-afrykanski-25601/",
+  "image": "materiały/dekory/aquafront/25601.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "14801",
+  "structure": "Szkło dekor",
+  "name": "Makassar",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/makassar-14801/",
+  "image": "materiały/dekory/aquafront/14801.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM9900",
+  "structure": "Soft (mat)",
+  "name": "Mint",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/mint-sm9900/",
+  "image": "materiały/dekory/aquafront/SM9900.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8022",
+  "structure": "Soft (mat)",
+  "name": "Mocha Mousse",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/mocha-mousse-sm8022/",
+  "image": "materiały/dekory/aquafront/SM8022.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "9890",
+  "structure": "Szkło",
+  "name": "Morska zieleń",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/morska-zielen-9890/",
+  "image": "materiały/dekory/aquafront/9890.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M9890",
+  "structure": "Szkło",
+  "name": "Morska zieleń",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło"
+  ],
+  "url": "https://aquafront.eu/produkt/morska-zielen-m9890/",
+  "image": "materiały/dekory/aquafront/M9890.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM6150",
+  "structure": "Soft (mat)",
+  "name": "Navy Blue",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/navy-blue-sm6150/",
+  "image": "materiały/dekory/aquafront/SM6150.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M4670",
+  "structure": "Ultra",
+  "name": "Niebieski pastelowy",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/niebieski-pastelowy-m4670/",
+  "image": "materiały/dekory/aquafront/M4670.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8015",
+  "structure": "Soft (mat)",
+  "name": "Old Venice",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/old-venice-sm8015/",
+  "image": "materiały/dekory/aquafront/SM8015.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M5357",
+  "structure": "Ultra",
+  "name": "Oliwka pastelowa",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/oliwka-pastelowa-m5357/",
+  "image": "materiały/dekory/aquafront/M5357.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "35402",
+  "structure": "Szkło dekor",
+  "name": "Onyx czarny",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Szkło dekor"
+  ],
+  "url": "https://aquafront.eu/produkt/onyx-czarny-35402/",
+  "image": "materiały/dekory/aquafront/35402.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM4100",
+  "structure": "Soft (mat)",
+  "name": "Pearl Grey",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/pearl-grey-sm4100/",
+  "image": "materiały/dekory/aquafront/SM4100.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8002",
+  "structure": "Soft (mat)",
+  "name": "Pearlgold",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/pearlgold-sm8002/",
+  "image": "materiały/dekory/aquafront/SM8002.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8021",
+  "structure": "Soft (mat)",
+  "name": "Petrol Green",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/petrol-green-sm8021/",
+  "image": "materiały/dekory/aquafront/SM8021.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM9830",
+  "structure": "Soft (mat)",
+  "name": "Pink",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/pink-sm9830/",
+  "image": "materiały/dekory/aquafront/SM9830.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M11082",
+  "structure": "Ultra",
+  "name": "Polarny",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/polarny-m11082/",
+  "image": "materiały/dekory/aquafront/M11082.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G85384",
+  "structure": "Grand",
+  "name": "Popielaty",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/popielaty-grand-g85384/",
+  "image": "materiały/dekory/aquafront/G85384.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G85336",
+  "structure": "Grand",
+  "name": "Popielaty",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/popielaty-grand-g85336/",
+  "image": "materiały/dekory/aquafront/G85336.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85336",
+  "structure": "Standard",
+  "name": "Popielaty",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/popielaty-85336/",
+  "image": "materiały/dekory/aquafront/85336.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85384",
+  "structure": "Ultra",
+  "name": "Popielaty",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/popielaty-85384/",
+  "image": "materiały/dekory/aquafront/85384.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85468",
+  "structure": "Ultra",
+  "name": "Popielaty",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/popielaty-m85468/",
+  "image": "materiały/dekory/aquafront/M85468.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM3255",
+  "structure": "Soft (mat)",
+  "name": "Sand",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/sand-sm3255/",
+  "image": "materiały/dekory/aquafront/SM3255.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM3300",
+  "structure": "Soft (mat)",
+  "name": "Satin",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/satin-sm3300/",
+  "image": "materiały/dekory/aquafront/SM3300.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8000",
+  "structure": "Soft (mat)",
+  "name": "Shell White",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/shell-white-sm8000/",
+  "image": "materiały/dekory/aquafront/SM8000.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM8010",
+  "structure": "Soft (mat)",
+  "name": "Sky Blue",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/sky-blue-sm8010/",
+  "image": "materiały/dekory/aquafront/SM8010.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "2734",
+  "structure": "Standard",
+  "name": "Super White",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/super-white-2734/",
+  "image": "materiały/dekory/aquafront/2734.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "85383",
+  "structure": "Ultra",
+  "name": "Szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/szary-85383/",
+  "image": "materiały/dekory/aquafront/85383.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M85383",
+  "structure": "Ultra",
+  "name": "Szary",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/szary-m85383/",
+  "image": "materiały/dekory/aquafront/M85383.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM2000",
+  "structure": "Soft (mat)",
+  "name": "White",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/white-sm2000/",
+  "image": "materiały/dekory/aquafront/SM2000.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "SM2101",
+  "structure": "Soft (mat)",
+  "name": "White",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Soft (mat)"
+  ],
+  "url": "https://aquafront.eu/produkt/white-sm2101/",
+  "image": "materiały/dekory/aquafront/SM2101.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G1982",
+  "structure": "Grand",
+  "name": "Śnieżnobiały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/snieznobialy-grand-g1982/",
+  "image": "materiały/dekory/aquafront/G1982.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "G1298",
+  "structure": "Grand",
+  "name": "Śnieżnobiały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Grand"
+  ],
+  "url": "https://aquafront.eu/produkt/snieznobialy-grand-g1298/",
+  "image": "materiały/dekory/aquafront/G1298.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1298",
+  "structure": "Standard",
+  "name": "Śnieżnobiały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Standard"
+  ],
+  "url": "https://aquafront.eu/produkt/snieznobialy-1298/",
+  "image": "materiały/dekory/aquafront/1298.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1982",
+  "structure": "Ultra",
+  "name": "Śnieżnobiały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/snieznobialy-1982/",
+  "image": "materiały/dekory/aquafront/1982.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "M1982",
+  "structure": "Ultra",
+  "name": "Śnieżnobiały",
+  "group": "kolory",
+  "products": [
+   "front-akryl"
+  ],
+  "tags": [
+   "Ultra"
+  ],
+  "url": "https://aquafront.eu/produkt/snieznobialy-m1982/",
+  "image": "materiały/dekory/aquafront/M1982.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "10216",
+  "structure": "Struktura",
+  "name": "Drewno antyczne",
+  "group": "drewno",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-antyczne-10216/",
+  "image": "materiały/dekory/aquafront/10216.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "18165",
+  "structure": "Struktura",
+  "name": "Drewno jedwabne",
+  "group": "drewno",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-jedwabne-18165/",
+  "image": "materiały/dekory/aquafront/18165.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R1302",
+  "structure": "Ryfla",
+  "name": "Dąb miodowy",
+  "group": "drewno",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-miodowy-r1302/",
+  "image": "materiały/dekory/aquafront/R1302.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1021",
+  "structure": "Struktura",
+  "name": "Beton czarny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-czarny-1021/",
+  "image": "materiały/dekory/aquafront/1021.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1741",
+  "structure": "Struktura",
+  "name": "Beton grafitowy",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-grafitowy-1741/",
+  "image": "materiały/dekory/aquafront/1741.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R20307",
+  "structure": "Ryfla",
+  "name": "Beton miedziany",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-miedziany-r20307/",
+  "image": "materiały/dekory/aquafront/R20307.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1285",
+  "structure": "Struktura",
+  "name": "Beton perłowy",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/beton-perlowy-1285/",
+  "image": "materiały/dekory/aquafront/1285.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "12817",
+  "structure": "Struktura",
+  "name": "Blacha różowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-rozowa-12817/",
+  "image": "materiały/dekory/aquafront/12817.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "12112",
+  "structure": "Struktura",
+  "name": "Blacha srebrna",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-srebrna-12112/",
+  "image": "materiały/dekory/aquafront/12112.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "12117",
+  "structure": "Struktura",
+  "name": "Blacha stalowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-stalowa-12117/",
+  "image": "materiały/dekory/aquafront/12117.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "12717",
+  "structure": "Struktura",
+  "name": "Blacha złota",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-zlota-12717/",
+  "image": "materiały/dekory/aquafront/12717.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1217",
+  "structure": "Struktura",
+  "name": "Brąz szczotkowany",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/braz-szczotkowany-1217/",
+  "image": "materiały/dekory/aquafront/1217.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "12171",
+  "structure": "Struktura",
+  "name": "Malta brązowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/malta-brazowa-12171/",
+  "image": "materiały/dekory/aquafront/12171.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R38602",
+  "structure": "Ryfla",
+  "name": "Marmur Calacatta Gold",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-calacatta-gold-r38602/",
+  "image": "materiały/dekory/aquafront/R38602.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R0404",
+  "structure": "Ryfla",
+  "name": "Marmur szaro-złoty",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-szaro-zloty-r0404/",
+  "image": "materiały/dekory/aquafront/R0404.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R34004",
+  "structure": "Ryfla",
+  "name": "Marmur zielono-złoty",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-zielono-zloty-r34004/",
+  "image": "materiały/dekory/aquafront/R34004.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "10104",
+  "structure": "Struktura",
+  "name": "Matrix srebrny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/matrix-srebrny-10104/",
+  "image": "materiały/dekory/aquafront/10104.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1563",
+  "structure": "Struktura",
+  "name": "Miedź szczotkowana",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/miedz-szczotkowana-1563/",
+  "image": "materiały/dekory/aquafront/1563.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "89534",
+  "structure": "Struktura",
+  "name": "Skóra brązowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/skora-brazowa-89534/",
+  "image": "materiały/dekory/aquafront/89534.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "83434",
+  "structure": "Struktura",
+  "name": "Skóra ciemnobrązowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/skora-ciemnobrazowa-83434/",
+  "image": "materiały/dekory/aquafront/83434.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1010",
+  "structure": "Struktura",
+  "name": "Tekstura srebrna",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-srebrna-1010/",
+  "image": "materiały/dekory/aquafront/1010.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "22601",
+  "structure": "Struktura",
+  "name": "Tkanina jasna",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tkanina-jasna-22601/",
+  "image": "materiały/dekory/aquafront/22601.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "2780",
+  "structure": "Struktura",
+  "name": "Złoto szczotkowane",
+  "group": "kamien-materialy",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/zloto-szczotkowane-2780/",
+  "image": "materiały/dekory/aquafront/2780.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R9140",
+  "structure": "Ryfla",
+  "name": "Beżowy",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/bezowy-r9140/",
+  "image": "materiały/dekory/aquafront/R9140.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R4850",
+  "structure": "Ryfla",
+  "name": "Biały",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/bialy-r4850/",
+  "image": "materiały/dekory/aquafront/R4850.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "L605",
+  "structure": "Lustro",
+  "name": "Brown",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Lustro"
+  ],
+  "url": "https://aquafront.eu/produkt/brown-l605/",
+  "image": "materiały/dekory/aquafront/L605.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R9950",
+  "structure": "Ryfla",
+  "name": "Brudny róż",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/brudny-roz-r9950/",
+  "image": "materiały/dekory/aquafront/R9950.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R8211",
+  "structure": "Ryfla",
+  "name": "Cappuccino",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/cappuccino-r8211/",
+  "image": "materiały/dekory/aquafront/R8211.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R4802",
+  "structure": "Ryfla",
+  "name": "Czarny",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-r4802/",
+  "image": "materiały/dekory/aquafront/R4802.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "L201",
+  "structure": "Lustro",
+  "name": "Gold",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Lustro"
+  ],
+  "url": "https://aquafront.eu/produkt/gold-l201/",
+  "image": "materiały/dekory/aquafront/L201.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R9550",
+  "structure": "Ryfla",
+  "name": "Granatowy",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/granatowy-r9550/",
+  "image": "materiały/dekory/aquafront/R9550.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "L402",
+  "structure": "Lustro",
+  "name": "Grey",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Lustro"
+  ],
+  "url": "https://aquafront.eu/produkt/grey-l402/",
+  "image": "materiały/dekory/aquafront/L402.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1816",
+  "structure": "Struktura",
+  "name": "Kameleon",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/kameleon-1816/",
+  "image": "materiały/dekory/aquafront/1816.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "28901",
+  "structure": "Struktura",
+  "name": "Malta kremowa",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/malta-kremowa-28901/",
+  "image": "materiały/dekory/aquafront/28901.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "10242",
+  "structure": "Struktura",
+  "name": "Matrix czarny",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/matrix-czarny-10242/",
+  "image": "materiały/dekory/aquafront/10242.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "289016",
+  "structure": "Struktura",
+  "name": "Matrix kremowy",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/matrix-kremowy-289016/",
+  "image": "materiały/dekory/aquafront/289016.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "28403",
+  "structure": "Struktura",
+  "name": "Matrix szary",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/matrix-szary-28403/",
+  "image": "materiały/dekory/aquafront/28403.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "R9890",
+  "structure": "Ryfla",
+  "name": "Morska zieleń",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Ryfla"
+  ],
+  "url": "https://aquafront.eu/produkt/morska-zielen-r9890/",
+  "image": "materiały/dekory/aquafront/R9890.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1041",
+  "structure": "Struktura",
+  "name": "Mosiądz szczotkowany",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/mosiadz-szczotkowany-1041/",
+  "image": "materiały/dekory/aquafront/1041.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1013",
+  "structure": "Struktura",
+  "name": "Perłowy szczotkowany",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/perlowy-szczotkowany-1013/",
+  "image": "materiały/dekory/aquafront/1013.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "174103",
+  "structure": "Struktura",
+  "name": "Piasek antracytowy",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/piasek-antracytowy-174103/",
+  "image": "materiały/dekory/aquafront/174103.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "L222",
+  "structure": "Lustro",
+  "name": "Pink",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Lustro"
+  ],
+  "url": "https://aquafront.eu/produkt/pink-l222/",
+  "image": "materiały/dekory/aquafront/L222.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "L101",
+  "structure": "Lustro",
+  "name": "Silver",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Lustro"
+  ],
+  "url": "https://aquafront.eu/produkt/silver-l101/",
+  "image": "materiały/dekory/aquafront/L101.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "83634",
+  "structure": "Struktura",
+  "name": "Skóra burgundowa",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/skora-burgundowa-83634/",
+  "image": "materiały/dekory/aquafront/83634.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "83234",
+  "structure": "Struktura",
+  "name": "Skóra naturalna",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/skora-naturalna-83234/",
+  "image": "materiały/dekory/aquafront/83234.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "2120",
+  "structure": "Struktura",
+  "name": "Tekstura Mokka",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-mokka-2120/",
+  "image": "materiały/dekory/aquafront/2120.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "8261",
+  "structure": "Struktura",
+  "name": "Tekstura czarna",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-czarna-8261/",
+  "image": "materiały/dekory/aquafront/8261.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "2800",
+  "structure": "Struktura",
+  "name": "Tekstura granatowa",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-granatowa-2800/",
+  "image": "materiały/dekory/aquafront/2800.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "1440",
+  "structure": "Struktura",
+  "name": "Tekstura oliwkowa",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-oliwkowa-1440/",
+  "image": "materiały/dekory/aquafront/1440.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "4852",
+  "structure": "Struktura",
+  "name": "Tekstura perłowa",
+  "group": "kolory",
+  "products": [
+   "front-dekor"
+  ],
+  "tags": [
+   "Struktura"
+  ],
+  "url": "https://aquafront.eu/produkt/tekstura-perlowa-4852/",
+  "image": "materiały/dekory/aquafront/4852.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HZ017",
+  "structure": "HPL Woods",
+  "name": "Drewno Zingana",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-zingana-hz017/",
+  "image": "materiały/dekory/aquafront/HZ017.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H764",
+  "structure": "HPL Woods",
+  "name": "Drewno barokowe",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-barokowe-h764/",
+  "image": "materiały/dekory/aquafront/H764.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HP135",
+  "structure": "HPL Woods",
+  "name": "Drewno czarne",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/drewno-czarne-hp135/",
+  "image": "materiały/dekory/aquafront/HP135.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HC128",
+  "structure": "HPL Woods",
+  "name": "Dąb Alaska",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-alaska-hc128/",
+  "image": "materiały/dekory/aquafront/HC128.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HC149",
+  "structure": "HPL Woods",
+  "name": "Dąb Colorado",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-colorado-hc149/",
+  "image": "materiały/dekory/aquafront/HC149.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4164",
+  "structure": "HPL Woods",
+  "name": "Dąb Country",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-country-h4164/",
+  "image": "materiały/dekory/aquafront/H4164.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4080",
+  "structure": "HPL Woods",
+  "name": "Dąb Sunday",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-sunday-h4080/",
+  "image": "materiały/dekory/aquafront/H4080.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HC130",
+  "structure": "HPL Woods",
+  "name": "Dąb Topia",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-topia-hc130/",
+  "image": "materiały/dekory/aquafront/HC130.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HC183",
+  "structure": "HPL Woods",
+  "name": "Dąb bielony",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-bielony-hc183/",
+  "image": "materiały/dekory/aquafront/HC183.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HC091",
+  "structure": "HPL Woods",
+  "name": "Dąb brązowy",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-brazowy-hc091/",
+  "image": "materiały/dekory/aquafront/HC091.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4116",
+  "structure": "HPL Woods",
+  "name": "Dąb czekoladowy",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-czekoladowy-h4116/",
+  "image": "materiały/dekory/aquafront/H4116.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4081",
+  "structure": "HPL Woods",
+  "name": "Dąb górski",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-gorski-h4081/",
+  "image": "materiały/dekory/aquafront/H4081.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4344",
+  "structure": "HPL Woods",
+  "name": "Dąb rustykalny",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-rustykalny-h4344/",
+  "image": "materiały/dekory/aquafront/H4344.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4228",
+  "structure": "HPL Woods",
+  "name": "Dąb srebrny",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/dab-srebrny-h4228/",
+  "image": "materiały/dekory/aquafront/H4228.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H3597",
+  "structure": "HPL Woods",
+  "name": "Kamień meteorytu",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-meteorytu-h3597/",
+  "image": "materiały/dekory/aquafront/H3597.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HN113",
+  "structure": "HPL Woods",
+  "name": "Orzech włoski Marbot",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/orzech-wloski-marbot-hn113/",
+  "image": "materiały/dekory/aquafront/HN113.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HB102",
+  "structure": "HPL Woods",
+  "name": "Sklejka",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/sklejka-hb102/",
+  "image": "materiały/dekory/aquafront/HB102.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HM132",
+  "structure": "HPL Woods",
+  "name": "Sklejka tropikalna",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/sklejka-tropikalna-hm132/",
+  "image": "materiały/dekory/aquafront/HM132.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H4134",
+  "structure": "HPL Woods",
+  "name": "Sosna Mississippi",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/sosna-mississippi-h4134/",
+  "image": "materiały/dekory/aquafront/H4134.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HW017",
+  "structure": "HPL Woods",
+  "name": "Wenge bielone",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/wenge-bielone-hw017/",
+  "image": "materiały/dekory/aquafront/HW017.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H0079",
+  "structure": "HPL Woods",
+  "name": "Wiąz armaniakowy",
+  "group": "drewno",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Woods"
+  ],
+  "url": "https://aquafront.eu/produkt/wiaz-armaniakowy-h0079/",
+  "image": "materiały/dekory/aquafront/H0079.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HB117",
+  "structure": "HPL Minerals",
+  "name": "Biały kryształ",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/bialy-krysztal-hb117/",
+  "image": "materiały/dekory/aquafront/HB117.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H1210",
+  "structure": "HPL Minerals",
+  "name": "Biel",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/biel-h1210/",
+  "image": "materiały/dekory/aquafront/H1210.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HU191",
+  "structure": "HPL Metallics",
+  "name": "Blacha rdzawa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Metallics"
+  ],
+  "url": "https://aquafront.eu/produkt/blacha-rdzawa-hu191/",
+  "image": "materiały/dekory/aquafront/HU191.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HB041",
+  "structure": "HPL Minerals",
+  "name": "Cement ciemny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/cement-ciemny-hb041/",
+  "image": "materiały/dekory/aquafront/HB041.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H3447",
+  "structure": "HPL Minerals",
+  "name": "Cement jasny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/cement-jasny-h3447/",
+  "image": "materiały/dekory/aquafront/H3447.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H1214",
+  "structure": "HPL Minerals",
+  "name": "Ciemna czekolada",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/ciemna-czekolada-h1214/",
+  "image": "materiały/dekory/aquafront/H1214.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H1205",
+  "structure": "HPL Minerals",
+  "name": "Czarny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-h1205/",
+  "image": "materiały/dekory/aquafront/H1205.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HN005",
+  "structure": "HPL Minerals",
+  "name": "Czarny kryształ",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/czarny-krysztal-hn005/",
+  "image": "materiały/dekory/aquafront/HN005.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HF059",
+  "structure": "HPL Minerals",
+  "name": "Kamień Fonte",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/kamien-fonte-hf059/",
+  "image": "materiały/dekory/aquafront/HF059.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H1212",
+  "structure": "HPL Minerals",
+  "name": "Kaszmir naturalny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/kaszmir-naturalny-h1212/",
+  "image": "materiały/dekory/aquafront/H1212.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H1211",
+  "structure": "HPL Minerals",
+  "name": "Kość słoniowa",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/kosc-sloniowa-h1211/",
+  "image": "materiały/dekory/aquafront/H1211.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HB199",
+  "structure": "HPL Minerals",
+  "name": "Lastryko ciemne",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/lastryko-ciemne-hb199/",
+  "image": "materiały/dekory/aquafront/HB199.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HT107",
+  "structure": "HPL Minerals",
+  "name": "Lastryko jasne",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/lastryko-jasne-ht107/",
+  "image": "materiały/dekory/aquafront/HT107.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H3570",
+  "structure": "HPL Minerals",
+  "name": "Marmur",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-h3570/",
+  "image": "materiały/dekory/aquafront/H3570.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HM134",
+  "structure": "HPL Minerals",
+  "name": "Marmur Sirocco",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-sirocco-hm134/",
+  "image": "materiały/dekory/aquafront/HM134.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HM135",
+  "structure": "HPL Minerals",
+  "name": "Marmur brązowy",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-brazowy-hm135/",
+  "image": "materiały/dekory/aquafront/HM135.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H3577",
+  "structure": "HPL Minerals",
+  "name": "Marmur czarny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-czarny-h3577/",
+  "image": "materiały/dekory/aquafront/H3577.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H6089",
+  "structure": "HPL Minerals",
+  "name": "Marmur szary",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/marmur-szary-h6089/",
+  "image": "materiały/dekory/aquafront/H6089.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H5071",
+  "structure": "HPL Metallics",
+  "name": "Plisowane złoto",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Metallics"
+  ],
+  "url": "https://aquafront.eu/produkt/plisowane-zloto-h5071/",
+  "image": "materiały/dekory/aquafront/H5071.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "H5072",
+  "structure": "HPL Metallics",
+  "name": "Plisowany brąz",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Metallics"
+  ],
+  "url": "https://aquafront.eu/produkt/plisowany-braz-h5072/",
+  "image": "materiały/dekory/aquafront/H5072.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HR049",
+  "structure": "HPL Metallics",
+  "name": "Rdza",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Metallics"
+  ],
+  "url": "https://aquafront.eu/produkt/rdza-hr049/",
+  "image": "materiały/dekory/aquafront/HR049.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HU193",
+  "structure": "HPL Metallics",
+  "name": "Ziemista rdza",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Metallics"
+  ],
+  "url": "https://aquafront.eu/produkt/ziemista-rdza-hu193/",
+  "image": "materiały/dekory/aquafront/HU193.webp"
+ },
+ {
+  "producer": "Aquafront",
+  "code": "HS124",
+  "structure": "HPL Minerals",
+  "name": "Łupek jasny",
+  "group": "kamien-materialy",
+  "products": [
+   "front-hpl"
+  ],
+  "tags": [
+   "HPL Minerals"
+  ],
+  "url": "https://aquafront.eu/produkt/lupek-jasny-hs124/",
+  "image": "materiały/dekory/aquafront/HS124.webp"
+ }
+]

@@ -113,14 +113,14 @@
   {
    "name": "Aquafront — AQUAAKRYL",
    "desc": {
-    "pl": "AQUAAKRYL — ponad 120 kolorów i dekorów akrylu: połysk, mat, metalik; wzornik kolorów online.",
-    "de": "AQUAAKRYL — über 120 Acrylfarben und -dekore: Hochglanz, Matt, Metallic; Farbmuster online.",
-    "en": "AQUAAKRYL — over 120 acrylic colours and decors: gloss, matt, metallic; colour chart online."
+    "pl": "AQUAAKRYL — ponad 120 kolorów i dekorów akrylu: połysk, mat, metalik; kolory online.",
+    "de": "AQUAAKRYL — über 120 Acrylfarben und -dekore: Hochglanz, Matt, Metallic; Farben online.",
+    "en": "AQUAAKRYL — over 120 acrylic colours and decors: gloss, matt, metallic; colours online."
    },
    "links": [
     {
      "type": "sampler",
-     "url": "https://aquafront.eu/wzornik/"
+     "url": "https://aquafront.eu/kategoria-produktu/aquaakryl-soft-cat/"
     },
     {
      "type": "page",
