@@ -46,7 +46,8 @@ UA = {'User-Agent': 'ZandersAtelierMaterialCatalog/1.0 (zandersatelier.com)'}
 THUMB = (480, 360)
 BIG = 1600
 
-PAGES = {'pl': 'index-pl.html', 'de': 'index-de.html', 'en': 'index-en.html'}
+PAGES = {'pl': 'dane/kategorie-materialow-zrodlo.html',   # PL: strona główna ma od 2026-11-04 sam pokaz 3 kafelków
+         'de': 'index-de.html', 'en': 'index-en.html'}
 TXT = {
     'pl': {'title': 'Odmiany — zdjęcia', 'note': 'Zdjęcia poglądowe — kliknij, aby powiększyć (autor i licencja w podpisie).',
            'photo': 'Fot.'},

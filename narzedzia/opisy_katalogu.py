@@ -2,9 +2,9 @@
 Zanders Atelier — opisy materiałów ze strony głównej do Katalogu materiałów.
 
 Uruchamiać z katalogu głównego repo:  python narzedzia/opisy_katalogu.py
-(po każdej zmianie opisów w „Kategoriach materiałów” w index-pl.html — strona główna jest jedynym źródłem tekstu).
+(po każdej zmianie opisów w dane/kategorie-materialow-zrodlo.html — dawna sekcja „Kategorie materiałów” strony głównej, jedyne źródło tekstu).
 
-Bierze z index-pl.html każdy blok <div class="material-info" id="<id>-info">:
+Bierze z dane/kategorie-materialow-zrodlo.html każdy blok <div class="material-info" id="<id>-info">:
   - tytuł (h3), treść opisu (HTML bez wygenerowanych bloków KATALOG/PRODUCENCI i bez zdjęcia),
   - zdjęcie kategorii (.material-image img) — dla płyt/frontów/blatów (zdjęcia z pokazu na stronie głównej).
 Galerie odmian dokłada strona katalogu z dane/katalog-zrodla.json.
@@ -18,7 +18,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
-SRC = 'index-pl.html'
+SRC = os.path.join('dane', 'kategorie-materialow-zrodlo.html')   # dawna sekcja ze strony głównej
 OUT = os.path.join('dane', 'opisy-materialow.json')
 
 

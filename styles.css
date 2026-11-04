@@ -4441,3 +4441,76 @@ section:first-of-type {
     #project .material-info.showcase-enter,
     #project .material-info.showcase-enter .material-image img { animation: none; }
 }
+
+/* ==========================================
+   KATEGORIE MATERIAŁÓW — pokaz 3 kafelków 3D (od 2026-11-04; dawne loga + podkategorie przeniesione do katalogu)
+   ========================================== */
+#project .mat-flow-wrap { position: relative; z-index: 2; margin-top: 1rem; padding: 0 1rem; overflow: hidden; }
+#project .mat-flow {
+    --cw: 340px; --shift: 72%; --tilt: 40deg;
+    position: relative; height: calc(var(--cw) * 0.75 + 150px); max-width: 1100px; margin: 0 auto;
+    perspective: 1100px; perspective-origin: 50% 40%; touch-action: pan-y; outline: none;
+}
+#project .mat-card {
+    position: absolute; top: 14px; left: 50%; width: var(--cw); margin-left: calc(var(--cw) / -2);
+    display: block; color: #1A1A1A; text-decoration: none; transform-style: preserve-3d;
+    transform: translateX(calc(var(--d, 0) * var(--shift))) translateZ(calc(var(--ad, 0) * -170px)) rotateY(calc(var(--d, 0) * var(--tilt) * -1));
+    z-index: calc(10 - var(--ad, 0));
+    transition: transform 0.6s cubic-bezier(0.2, 0.75, 0.2, 1), filter 0.6s ease;
+    filter: brightness(calc(1 - var(--ad, 0) * 0.1));
+    -webkit-tap-highlight-color: transparent;
+}
+#project .mat-card-in {
+    display: flex; flex-direction: column; background: #fff; border: 1px solid #ecdcc3;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+#project .mat-card-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #f3efe8; }
+#project .mat-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+#project .mat-card-text { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; border-top: 3px solid transparent; text-align: left; }
+#project .mat-card-name { font-size: 1.45rem; font-weight: 700; line-height: 1.15; }
+#project .mat-card-hint { font-size: 0.95rem; color: #6b5a3a; }
+#project .mat-card-go { margin-top: 4px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6d2c; opacity: 0; transition: opacity 0.4s ease; }
+#project .mat-card.is-active .mat-card-in { border-color: #B4943C; box-shadow: 0 0 0 2px #B4943C, 0 22px 44px rgba(0, 0, 0, 0.22); }
+#project .mat-card.is-active .mat-card-text { border-top-color: #B4943C; }
+#project .mat-card.is-active .mat-card-go { opacity: 1; }
+@media (hover: hover) {
+    #project .mat-card.is-active:hover .mat-card-in { transform: translateY(-6px); }
+    #project .mat-card.is-active:hover .mat-card-img img { transform: scale(1.05); }
+}
+#project .mat-card:focus-visible { outline: none; }
+#project .mat-card:focus-visible .mat-card-in { outline: 2px solid #B4943C; outline-offset: 3px; }
+
+/* wjazd z lewej przy przewinięciu do sekcji */
+#project .mat-flow .mat-card-in { opacity: 0; transform: translateX(-120vw) rotateY(55deg); }
+#project .mat-flow.is-in .mat-card-in {
+    opacity: 1; transform: none;
+    transition: transform 1s cubic-bezier(0.16, 0.8, 0.24, 1) calc(var(--i) * 0.18s), opacity 0.7s ease calc(var(--i) * 0.18s), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+#project .mat-flow.is-in.is-ready .mat-card-in { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+
+#project .mat-dots { display: flex; justify-content: center; gap: 10px; margin: 0.4rem 0 1.2rem; }
+#project .mat-dot { width: 26px; height: 3px; background: #e4d6bd; transition: background 0.3s ease; }
+#project .mat-dot.is-active { background: #B4943C; }
+
+#project .mat-descs { max-width: 900px; margin: 0 auto; padding: 0 1rem 1rem; }
+#project .mat-desc h3 { color: #000; font-size: 1.6rem; margin: 0 0 1rem; border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; }
+#project .mat-desc p { color: #000; line-height: 1.6; margin: 0 0 1rem; }
+#project .mat-desc.mat-desc-in { animation: matDescIn 0.5s ease; }
+@keyframes matDescIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 768px) {
+    #project .mat-flow-wrap { padding: 0; margin-top: -110px; }   /* nagłówek na telefonie jest przesunięty o -100px */
+    #project .mat-flow { --cw: min(62vw, 300px); --shift: 58%; --tilt: 45deg; height: calc(var(--cw) * 0.75 + 128px); perspective: 800px; }
+    #project .mat-card-name { font-size: 1.15rem; }
+    #project .mat-card-hint { font-size: 0.8rem; }
+    #project .mat-card-text { padding: 8px 10px 10px; }
+    #project .mat-card-go { font-size: 0.72rem; }
+    #project .mat-descs { padding: 0 1.25rem 1rem; }
+    #project .mat-desc h3 { font-size: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #project .mat-card, #project .mat-flow .mat-card-in, #project .mat-flow.is-in .mat-card-in { transition: none; }
+    #project .mat-flow .mat-card-in { opacity: 1; transform: none; }
+    #project .mat-desc.mat-desc-in { animation: none; }
+}

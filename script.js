@@ -485,9 +485,11 @@ function initializeApp() {
         initializeMenuHandlers();
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
-        initializeSubBanners();
-        initializeMaterialShowcase(); // pokaz kategorii (zastąpił initializeCyclicBannerAnimation)
-        initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
+        if (!initializeMaterialFlow()) {   // PL: 3 kafelki 3D; DE/EN: dawna sekcja z podkategoriami
+            initializeSubBanners();
+            initializeMaterialShowcase(); // pokaz kategorii (zastąpił initializeCyclicBannerAnimation)
+            initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
+        }
         initializeGalleryToggle();
         initializeGalleryTitleFit();
         initializeGalleryScrollReveal();
@@ -1323,3 +1325,92 @@ function initializeMarquees() {
     });
 }
 document.addEventListener('DOMContentLoaded', initializeMarquees);
+
+// ==========================================
+// KATEGORIE MATERIAŁÓW — 3 kafelki 3D (wjazd z lewej, najechanie / przesunięcie palcem = wybór,
+// klik w środkowy = Katalog materiałów; pod spodem opis środkowego). Zwraca false, gdy sekcji nie ma (DE/EN).
+// ==========================================
+function initializeMaterialFlow() {
+    const flow = document.querySelector('#project .mat-flow');
+    if (!flow) return false;
+    const cards = Array.from(flow.querySelectorAll('.mat-card'));
+    const descs = Array.from(document.querySelectorAll('#project .mat-desc'));
+    const dots = Array.from(document.querySelectorAll('#project .mat-dot'));
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    let active = Math.floor(cards.length / 2);
+    let lockUntil = 0;
+    let swiped = false;
+
+    function layout(animateDesc) {
+        cards.forEach((c, i) => {
+            const d = i - active;
+            c.style.setProperty('--d', d);
+            c.style.setProperty('--ad', Math.abs(d));
+            c.classList.toggle('is-active', d === 0);
+            c.setAttribute('aria-current', d === 0 ? 'true' : 'false');
+        });
+        dots.forEach((el, i) => el.classList.toggle('is-active', i === active));
+        descs.forEach((el, i) => {
+            el.hidden = i !== active;
+            if (i === active && animateDesc) {
+                el.classList.remove('mat-desc-in');
+                void el.offsetWidth;
+                el.classList.add('mat-desc-in');
+            }
+        });
+    }
+    function go(i) {
+        i = Math.max(0, Math.min(cards.length - 1, i));
+        if (i === active) return;
+        active = i;
+        lockUntil = Date.now() + 550;   // kafelek w ruchu nie przejmuje kursora
+        layout(true);
+    }
+
+    cards.forEach((c, i) => {
+        c.addEventListener('click', (e) => {
+            if (swiped || i !== active) { e.preventDefault(); if (!swiped) go(i); }
+        });
+        if (canHover) c.addEventListener('mousemove', () => { if (i !== active && Date.now() > lockUntil) go(i); });
+        c.addEventListener('focus', () => go(i));
+    });
+    flow.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { go(active - 1); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { go(active + 1); e.preventDefault(); }
+    });
+
+    // telefon: przesunięcie palcem w lewo / prawo
+    let sx = 0, sy = 0, tracking = false;
+    flow.addEventListener('touchstart', (e) => {
+        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; tracking = true; swiped = false;
+    }, { passive: true });
+    flow.addEventListener('touchend', (e) => {
+        if (!tracking) return;
+        tracking = false;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - sx, dy = t.clientY - sy;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+            swiped = true;
+            go(active + (dx < 0 ? 1 : -1));
+            setTimeout(() => { swiped = false; }, 400);
+        }
+    }, { passive: true });
+
+    layout(false);
+
+    // wjazd z lewej, gdy sekcja pojawi się na ekranie (raz)
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const enter = () => {
+        flow.classList.add('is-in');
+        setTimeout(() => flow.classList.add('is-ready'), reduce ? 0 : 1500);
+    };
+    if (reduce || !('IntersectionObserver' in window)) {
+        enter();
+    } else {
+        const io = new IntersectionObserver((entries) => {
+            if (entries.some((en) => en.isIntersecting)) { io.disconnect(); enter(); }
+        }, { threshold: 0.3 });
+        io.observe(flow);
+    }
+    return true;
+}
