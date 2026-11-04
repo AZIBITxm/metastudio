@@ -4731,3 +4731,8 @@ section:first-of-type {
 @media (min-width: 1201px) {
     .contact-info { grid-template-columns: 1.35fr 1.2fr 1fr 1fr; }
 }
+/* telefon: adres zawsze w jednej linii (na wąskich ekranach ~360 px łamał się i kafelek był wyższy) */
+@media (max-width: 768px) {
+    .contact-addr { white-space: nowrap; font-size: min(0.9rem, 3.3vw); }
+    .contact-item { gap: 0.6rem; }
+}
