@@ -4723,3 +4723,11 @@ section:first-of-type {
 @media (max-width: 768px) {
     #project h2 { text-align: left; margin-left: 1.25rem; margin-right: 1.25rem; }
 }
+
+/* Kontakt: wszystkie kafelki tej samej wysokości — bez pustej linii pod nagłówkiem (strong jest blokiem, <br> dawał pustą linię) */
+.contact-details strong + br { display: none; }
+.contact-details strong { margin-bottom: 0.2rem; }
+/* komputer (4 w rzędzie): adres i e-mail dostają więcej miejsca, żeby mieściły się w jednej linii jak telefony */
+@media (min-width: 1201px) {
+    .contact-info { grid-template-columns: 1.35fr 1.2fr 1fr 1fr; }
+}
