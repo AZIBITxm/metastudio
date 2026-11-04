@@ -11,7 +11,7 @@
     const T = {
         pl: {
             title: 'Konsultant Zanders Atelier', sub: 'Odpowiadamy od razu',
-            hello: 'Dzień dobry! Jestem wirtualnym konsultantem AI Zanders Atelier. Chętnie opowiem o meblach na wymiar, materiałach i bezpłatnym spotkaniu online z wizualizacją 3D. W czym mogę pomóc?',
+            hello: 'Dzień dobry! Jestem wirtualnym konsultantem Zanders Atelier. Chętnie opowiem o meblach na wymiar, materiałach i bezpłatnym spotkaniu online z wizualizacją 3D. W czym mogę pomóc?',
             placeholder: 'Napisz wiadomość…', send: 'Wyślij', close: 'Zamknij', contact: 'Poproś o kontakt telefoniczny',
             typing: 'Konsultant pisze…', reset: 'Nowa rozmowa',
             askConsent: 'Chętnie przekażę sprawę dalej. Czy wyraża Pan/Pani zgodę na kontakt w sprawie zapytania?',
@@ -33,7 +33,7 @@
         },
         de: {
             title: 'Zanders Atelier Berater', sub: 'Wir antworten sofort',
-            hello: 'Guten Tag! Ich bin der virtuelle KI-Berater von Zanders Atelier. Gerne erzähle ich Ihnen von Möbeln nach Maß, Materialien und unserem kostenlosen Online-Termin mit 3D-Visualisierung. Wie kann ich helfen?',
+            hello: 'Guten Tag! Ich bin der virtuelle Berater von Zanders Atelier. Gerne erzähle ich Ihnen von Möbeln nach Maß, Materialien und unserem kostenlosen Online-Termin mit 3D-Visualisierung. Wie kann ich helfen?',
             placeholder: 'Nachricht schreiben…', send: 'Senden', close: 'Schließen', contact: 'Telefonischen Rückruf anfordern',
             typing: 'Der Berater schreibt…', reset: 'Neues Gespräch',
             askConsent: 'Gerne leite ich Ihr Anliegen weiter. Sind Sie mit einer Kontaktaufnahme wegen Ihrer Anfrage einverstanden?',
@@ -55,7 +55,7 @@
         },
         en: {
             title: 'Zanders Atelier Consultant', sub: 'We reply instantly',
-            hello: 'Hello! I am the virtual AI consultant of Zanders Atelier. I am happy to tell you about bespoke furniture, materials and our free online consultation with 3D visualisation. How can I help?',
+            hello: 'Hello! I am the virtual consultant of Zanders Atelier. I am happy to tell you about bespoke furniture, materials and our free online consultation with 3D visualisation. How can I help?',
             placeholder: 'Type a message…', send: 'Send', close: 'Close', contact: 'Request a phone call',
             typing: 'The consultant is typing…', reset: 'New conversation',
             askConsent: 'I will gladly pass your enquiry on. Do you agree to be contacted about it?',
