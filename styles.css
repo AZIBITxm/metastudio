@@ -4530,12 +4530,12 @@ section:first-of-type {
 }
 /* odkreślenie od „Naszych realizacji” */
 #inspiracje::after {
-    content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+    content: ''; position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
     width: min(1200px, calc(100% - 4rem)); height: 1px;
     background: linear-gradient(90deg, transparent, #B4943C 20%, #B4943C 80%, transparent);
 }
 #inspiracje::before {
-    content: ''; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; z-index: 1;
+    content: ''; position: absolute; left: 50%; bottom: 13px; width: 10px; height: 10px; z-index: 1;
     background: #fff; border: 1px solid #B4943C; transform: translateX(-50%) rotate(45deg);
 }
 #inspiracje h2 { color: #1A1A1A; margin-top: 0; }
