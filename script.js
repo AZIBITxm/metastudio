@@ -1443,15 +1443,15 @@ function initializeSectionScrollFx() {
         const r = el.getBoundingClientRect();
         // sekcja przy końcu strony może nie dojechać wysoko — wtedy wejście kończy się na samym dole strony
         const topAtEnd = r.top - (document.documentElement.scrollHeight - vh - window.scrollY);
-        const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.8, vh - topAtEnd)));
-        const x = clamp((vh * 0.45 - r.bottom) / (vh * 0.4));
+        const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.4, vh - topAtEnd)));
+        const x = clamp((vh * 0.22 - r.bottom) / (vh * 0.22));   // rozjeżdża się dopiero, gdy dół sekcji prawie znika u góry
         return { p, x, far: r.bottom < -vh || r.top > vh * 2 };
     }
     function apply(it) {
         const part = (d) => ease(clamp((it.p - d) / (1 - d))).toFixed(4);
         const st = it.el.style;
         st.setProperty('--sfx-a', part(0));
-        st.setProperty('--sfx-b', part(0.15));
+        st.setProperty('--sfx-b', part(0.1));
         st.setProperty('--sfx-x', ease(it.x).toFixed(4));
     }
     function frame() {
