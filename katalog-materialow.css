@@ -42,7 +42,8 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 .km-desc-head { display: flex; gap: 24px; align-items: flex-start; }
 .km-desc-img { width: 260px; flex: 0 0 260px; aspect-ratio: 1; object-fit: cover; }
 .km-desc-body { flex: 1; min-width: 0; }
-.km-desc-body h2 { margin: 0 0 8px; font-size: 30px; border-bottom: 2px solid #ecd2ad; padding-bottom: 6px; }
+.km-desc-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 0 0 8px; border-bottom: 2px solid #ecd2ad; padding-bottom: 8px; }
+.km-desc-body h2 { margin: 0; font-size: 30px; }
 .km-desc-text p { margin: 0 0 10px; }
 .km-desc-text h4 { margin: 14px 0 4px; font-size: 20px; }
 .km-desc-text h5 { margin: 10px 0 2px; font-size: 17px; }
@@ -58,7 +59,7 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 .km-desc-track span { display: block; padding: 5px 7px 7px; }
 .km-desc-actions { margin-top: 18px; }
 .km-desc-hint { margin: 0; font-style: italic; color: #6b5a3a; }
-.km-browse-btn { font: inherit; font-size: 19px; font-weight: 700; padding: 10px 26px; border: 0; border-radius: 999px; background: #1A1A1A; color: #fff; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transition: background 0.2s ease, transform 0.2s ease; }
+.km-browse-btn { flex: 0 0 auto; font: inherit; font-size: 18px; font-weight: 700; padding: 8px 22px; border: 0; border-radius: 999px; background: #1A1A1A; color: #fff; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transition: background 0.2s ease, transform 0.2s ease; }
 .km-browse-btn:hover, .km-browse-btn:focus-visible { background: #B4943C; transform: translateY(-1px); }
 
 /* Krok 3: dekory */

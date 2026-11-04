@@ -135,16 +135,34 @@
         const op = matId && opisy[matId];
         if (!op && !(kind && count)) { box.hidden = true; box.innerHTML = ''; return; }
         box.hidden = false;
-        const pic = type.pic && opisy[type.pic] && opisy[type.pic].image;
+        const gal = matId ? photos.filter((p) => p.material === matId) : [];
+        // zdjęcie przy opisie = pierwsza odmiana danego materiału (różne dla każdego rodzaju), inaczej zdjęcie kafelka
+        const pic = gal.length ? `materiały/katalog/${gal[0].slug}-480.webp`
+            : (type.pic && opisy[type.pic] && opisy[type.pic].image);
         box.innerHTML = '';
         const head = document.createElement('div');
         head.className = 'km-desc-head';
         if (pic) head.innerHTML = `<img class="km-desc-img" src="${encodeURI(pic)}" alt="" loading="lazy">`;
         const body = document.createElement('div');
         body.className = 'km-desc-body';
+        const titleRow = document.createElement('div');
+        titleRow.className = 'km-desc-title';
         const h = document.createElement('h2');
         h.textContent = op ? op.title : kind.name;
-        body.appendChild(h);
+        titleRow.appendChild(h);
+        if (count && (!type.kinds || kind)) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'km-browse-btn';
+            btn.textContent = `Sprawdź dekory (${count}) ↓`;
+            btn.addEventListener('click', () => {
+                state.browse = true;
+                render();
+                $('km-browse').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            titleRow.appendChild(btn);
+        }
+        body.appendChild(titleRow);
         if (op) {
             const txt = document.createElement('div');
             txt.className = 'km-desc-text';
@@ -154,7 +172,6 @@
         head.appendChild(body);
         box.appendChild(head);
 
-        const gal = matId ? photos.filter((p) => p.material === matId) : [];
         if (gal.length) {
             const g = document.createElement('div');
             g.className = 'km-desc-gallery';
@@ -181,21 +198,10 @@
         act.className = 'km-desc-actions';
         if (type.kinds && !kind) {
             act.innerHTML = `<p class="km-desc-hint">Wybierz ${type.kindLabel.toLowerCase()} powyżej, aby zobaczyć jego opis i dostępne dekory.</p>`;
-        } else if (count) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'km-browse-btn';
-            btn.textContent = state.browse ? `Dekory poniżej (${count}) ↓` : `Przeglądaj dekory (${count}) →`;
-            btn.addEventListener('click', () => {
-                state.browse = true;
-                render();
-                $('km-browse').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-            act.appendChild(btn);
-        } else {
+        } else if (!count) {
             act.innerHTML = '<p class="km-desc-hint">Dekorów tego materiału nie ma jeszcze w katalogu — zapytaj nas o dostępne wzory i próbki.</p>';
         }
-        box.appendChild(act);
+        if (act.innerHTML) box.appendChild(act);
     }
 
     function syncUrl() {
