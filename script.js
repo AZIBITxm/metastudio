@@ -19,22 +19,35 @@ let globalUserInteractionTimeout = null;
 let globalCyclicAnimationActive = false; // Flaga dla cyklicznej animacji
 let heightAdjustmentPaused = false; // Flaga do pauzowania zmiany wysokości sekcji
 
+/**
+ * Czy użytkownik ma coś wybranego w „Kategoriach materiałów”: rozwinięty baner główny
+ * albo zaznaczony pod-baner (konkretny materiał). Dopóki tak jest, animacja cykliczna stoi —
+ * wcześniej wracała po 8 s / po przewinięciu strony i podmieniała wybrany opis (skakanie strony).
+ */
+function materialSelectionActive() {
+    return !!document.querySelector('#project .material-logo.expanded, #project .sub-banner.active');
+}
+
 // Funkcja do zatrzymywania animacji cyklicznych (dostępna globalnie)
 function stopCyclicAnimation() {
     globalUserInteracting = true;
     globalCyclicAnimationActive = false; // Wyłącz flagę animacji
     clearTimeout(globalUserInteractionTimeout);
-    
+
     // Zatrzymaj interval jeśli istnieje
     if (globalAnimationInterval) {
         clearInterval(globalAnimationInterval);
         globalAnimationInterval = null;
     }
-    
-    // Wznów automatyczną animację po 8 sekundach od ostatniej interakcji
+    document.querySelectorAll('#project .material-logo.pulse').forEach(l => l.classList.remove('pulse'));
+
+    // Wznów animację 8 s po ostatniej interakcji — ale TYLKO gdy nic nie jest wybrane
+    // (użytkownik wrócił do widoku trzech banerów). Przy wybranym materiale animacja stoi,
+    // aż użytkownik sam wróci (zwinie baner / kliknie w pusty obszar sekcji).
     globalUserInteractionTimeout = setTimeout(() => {
+        if (materialSelectionActive()) return;
         globalUserInteracting = false;
-        // Nie uruchamiamy ponownie interwału automatycznie - to będzie obsłużone przez IntersectionObserver
+        if (window.restartCyclicAnimation) window.restartCyclicAnimation();
     }, 8000);
 }
 
@@ -753,7 +766,11 @@ function initializeSubBanners() {
             
             const subBannersContainer = this.querySelector('.sub-banners');
             const isExpanded = subBannersContainer && subBannersContainer.querySelector('.sub-banner.show');
-            
+
+            // Klik w baner główny = powrót do poziomu kategorii: zwalniamy wybrany materiał.
+            // Animacja ruszy znów 8 s po zwinięciu banera (stopCyclicAnimation sprawdza stan).
+            subBanners.forEach(sb => sb.classList.remove('active'));
+
             // Zamknij wszystkie inne banery
             materialLogos.forEach(otherLogo => {
                 if (otherLogo !== this) {
@@ -804,11 +821,18 @@ function initializeSubBanners() {
     
     // Obsługa kliknięć poza banerami - zamykanie wszystkich rozwinięych banerów (mobile i desktop)
     document.addEventListener('click', function(e) {
+        // Reset tylko po kliknięciu w PUSTY obszar samej sekcji materiałów. Wcześniej każdy klik
+        // gdziekolwiek na stronie (menu, czat, powiększenie zdjęcia w PhotoSwipe) kasował wybór
+        // i przywracał „Płyty meblowe”.
+        if (!e.target.closest('#project') || e.target.closest('.pswp')) return;
+        if (!materialSelectionActive()) return;
         // Sprawdź czy kliknięty element nie jest częścią material-logo ani materials-info
         const clickedInsideMaterialLogo = e.target.closest('.material-logo');
         const clickedInsideMaterialsInfo = e.target.closest('.materials-info');
-        
+
         if (!clickedInsideMaterialLogo && !clickedInsideMaterialsInfo) {
+            subBanners.forEach(sb => sb.classList.remove('active'));
+            stopCyclicAnimation();   // odlicza 8 s i wznawia animację (nic już nie jest wybrane)
             // Pauzuj zmianę wysokości sekcji podczas zamykania banerów
             heightAdjustmentPaused = true;
             
@@ -964,6 +988,11 @@ function initializeCyclicBannerAnimation() {
 
     // Funkcja do automatycznego przełączania
     function autoSwitchMaterial() {
+        // Bezpiecznik: przy wybranym materiale animacja nie może niczego podmienić
+        if (materialSelectionActive()) {
+            stopCycle();
+            return;
+        }
         if (!globalUserInteracting && !isUserInteracting) {
             // Ustaw flagę cyklicznej animacji
             globalCyclicAnimationActive = true;
@@ -978,22 +1007,27 @@ function initializeCyclicBannerAnimation() {
         }
     }
 
+    // Jeden interwał animacji (wcześniej były dwie zmienne — lokalna i globalna — które się
+    // rozjeżdżały: po przewinięciu strony IntersectionObserver uruchamiał animację mimo wyboru)
+    function startCycle() {
+        if (!globalAnimationInterval && !globalUserInteracting && !materialSelectionActive()) {
+            globalAnimationInterval = setInterval(autoSwitchMaterial, 4000);
+        }
+    }
+    function stopCycle() {
+        if (globalAnimationInterval) {
+            clearInterval(globalAnimationInterval);
+            globalAnimationInterval = null;
+        }
+    }
+    let sectionVisible = true;
+    window.restartCyclicAnimation = () => { if (sectionVisible) startCycle(); };
+
     // Funkcja do zatrzymywania animacji podczas interakcji użytkownika
+    // (wznowienie — tylko w stopCyclicAnimation, gdy nic nie jest wybrane)
     function handleUserInteraction() {
-        // Wywołaj globalną funkcję
         stopCyclicAnimation();
-        
-        // Wyłącz flagę cyklicznej animacji przy manualnej interakcji
         globalCyclicAnimationActive = false;
-        
-        // Lokalne zatrzymanie
-        isUserInteracting = true;
-        clearTimeout(userInteractionTimeout);
-        
-        // Wznów automatyczną animację po 8 sekundach od ostatniej interakcji
-        userInteractionTimeout = setTimeout(() => {
-            isUserInteracting = false;
-        }, 8000);
     }
 
     // Dodaj obsługę zdarzeń dla każdego bannera
@@ -1046,30 +1080,19 @@ function initializeCyclicBannerAnimation() {
     switchToMaterial(0);
 
     // Uruchom cykliczną animację co 4 sekundy
-    animationInterval = setInterval(autoSwitchMaterial, 4000);
-    globalAnimationInterval = animationInterval; // Zapisz globalnie
+    startCycle();
 
-    // Zatrzymaj animację gdy użytkownik opuści sekcję
+    // Zatrzymaj animację gdy użytkownik opuści sekcję; po powrocie wznów tylko,
+    // gdy nic nie jest wybrane (startCycle to sprawdza)
     const projectSection = document.getElementById('project');
     if (projectSection) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                sectionVisible = entry.isIntersecting;
                 if (entry.isIntersecting) {
-                    // Sekcja jest widoczna - uruchom animację tylko jeśli user nie interaguje
-                    if (!animationInterval && !globalUserInteracting) {
-                        animationInterval = setInterval(autoSwitchMaterial, 4000);
-                        globalAnimationInterval = animationInterval; // Zapisz globalnie
-                    }
+                    startCycle();
                 } else {
-                    // Sekcja nie jest widoczna - zatrzymaj animację
-                    if (animationInterval) {
-                        clearInterval(animationInterval);
-                        animationInterval = null;
-                    }
-                    if (globalAnimationInterval) {
-                        clearInterval(globalAnimationInterval);
-                        globalAnimationInterval = null;
-                    }
+                    stopCycle();
                 }
             });
         }, { threshold: 0.3 });
@@ -1078,17 +1101,7 @@ function initializeCyclicBannerAnimation() {
     }
 
     // Czyść interwał przy odświeżeniu strony
-    window.addEventListener('beforeunload', () => {
-        if (globalAnimationInterval) {
-            clearInterval(globalAnimationInterval);
-        }
-        if (animationInterval) {
-            clearInterval(animationInterval);
-        }
-        if (userInteractionTimeout) {
-            clearTimeout(userInteractionTimeout);
-        }
-    });
+    window.addEventListener('beforeunload', stopCycle);
 }
 
 // ==========================================
