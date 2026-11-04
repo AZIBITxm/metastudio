@@ -278,16 +278,23 @@
         const clamp = (t) => Math.max(0, Math.min(1, t));
         const ease = (t) => t * t * (3 - 2 * t);
         const part = (t, from) => ease(clamp((t - from) / (1 - from)));
-        let ticking = false;
+        let running = false;
+        let ce = null, cx = null;   // wygładzone wartości: płynnie „doganiają” przewijanie zamiast skakać za kółkiem myszy
 
         function frame() {
-            ticking = false;
             const r = root.getBoundingClientRect();
             const vh = window.innerHeight || 800;
-            if (r.bottom < -100 || r.top > vh + 100) return;
+            const te = clamp((vh - r.top) / (vh * 0.8));                  // wejście: 0 → 1
+            const tx = clamp((vh * 0.45 - r.bottom) / (vh * 0.4));        // wyjście: 0 → 1
+            const far = r.bottom < -100 || r.top > vh + 100;
+            if (ce === null || far) { ce = te; cx = tx; }
+            else { ce += (te - ce) * 0.16; cx += (tx - cx) * 0.16; if (Math.abs(te - ce) < 0.002) ce = te; if (Math.abs(tx - cx) < 0.002) cx = tx; }
+            running = ce !== te || cx !== tx;
+            if (running) requestAnimationFrame(frame);
+            if (far) return;
             const mobile = !window.matchMedia('(min-width: 900px)').matches;
-            const e = clamp((vh - r.top) / (vh * 0.8));                  // wejście: 0 → 1
-            const x = ease(clamp((vh * 0.45 - r.bottom) / (vh * 0.4)));  // wyjście: 0 → 1
+            const e = ce;
+            const x = ease(cx);
             const set = (el, tf, v) => { el.style.transform = tf; el.style.opacity = v.toFixed(3); };
 
             const eh = part(e, 0);
@@ -302,7 +309,7 @@
                 set(t, mobile ? `translate3d(${120 * (1 - et)}px, ${-30 * x}px, 0)` : `translate3d(${180 * (1 - et) + 100 * x}px, 0, 0) rotate(${4 * (1 - et)}deg)`, et * (1 - x));
             });
         }
-        const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+        const req = () => { if (!running) { running = true; requestAnimationFrame(frame); } };
         window.addEventListener('scroll', req, { passive: true });
         window.addEventListener('resize', req);
         rail.addEventListener('inspiracje:render', req);

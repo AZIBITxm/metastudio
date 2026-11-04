@@ -1418,39 +1418,73 @@ function initializeMaterialFlow() {
 // Realizacje: liczone od nagłówka (kafelki galerii zostają na miejscu).
 // ==========================================
 function initializeSectionScrollFx() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const list = [['realizations', '.realizations-header'], ['about', null], ['project', null], ['foundation-support', null], ['contact', null]]
+    // Wjazd/wyjazd sekcji razem z przewijaniem. Wartości nie skaczą za kółkiem myszy — płynnie „doganiają” przewijanie
+    // (wygładzanie w każdej klatce). Zmienne wpisujemy na element-kotwicę: Realizacje = nagłówek (galeria stoi),
+    // O nas / Kategorie = sekcja. Fundacja i Kontakt nie jeżdżą (Kontakt: kafelki pojawiają się raz, initializeContactTiles).
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    initializeContactTiles(reduce);
+    if (reduce) return;
+    const list = [['realizations', '.realizations-header'], ['about', null], ['project', null]]
         .map(([id, sel]) => {
             const s = document.getElementById(id);
             if (!s) return null;
-            return { s, anchor: (sel && s.querySelector(sel)) || s };
+            const el = (sel && s.querySelector(sel)) || s;
+            return { el, p: null, x: null };
         })
         .filter(Boolean);
     if (!list.length) return;
     const clamp = (t) => Math.max(0, Math.min(1, t));
     const ease = (t) => t * t * (3 - 2 * t);
-    let ticking = false;
+    const SMOOTH = 0.16;   // ile drogi do celu pokonujemy w jednej klatce
+    let running = false;
 
-    function frame() {
-        ticking = false;
+    function targets(el) {
         const vh = window.innerHeight || 800;
-        list.forEach(({ s, anchor }) => {
-            const r = anchor.getBoundingClientRect();
-            if (r.bottom < -vh || r.top > vh * 2) return;
-            // sekcja przy końcu strony może nie dojechać wysoko — wtedy wejście kończy się na samym dole strony
-            const topAtEnd = r.top - (document.documentElement.scrollHeight - vh - window.scrollY);
-            const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.8, vh - topAtEnd)));
-            const x = ease(clamp((vh * 0.45 - r.bottom) / (vh * 0.4)));
-            const part = (d) => ease(clamp((p - d) / (1 - d))).toFixed(3);
-            s.style.setProperty('--sfx-p', p.toFixed(3));
-            s.style.setProperty('--sfx-a', part(0));
-            s.style.setProperty('--sfx-b', part(0.15));
-            s.style.setProperty('--sfx-c', part(0.3));
-            s.style.setProperty('--sfx-x', x.toFixed(3));
-        });
+        const r = el.getBoundingClientRect();
+        // sekcja przy końcu strony może nie dojechać wysoko — wtedy wejście kończy się na samym dole strony
+        const topAtEnd = r.top - (document.documentElement.scrollHeight - vh - window.scrollY);
+        const p = clamp((vh - r.top) / Math.max(80, Math.min(vh * 0.8, vh - topAtEnd)));
+        const x = clamp((vh * 0.45 - r.bottom) / (vh * 0.4));
+        return { p, x, far: r.bottom < -vh || r.top > vh * 2 };
     }
-    const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
-    window.addEventListener('scroll', req, { passive: true });
-    window.addEventListener('resize', req);
+    function apply(it) {
+        const part = (d) => ease(clamp((it.p - d) / (1 - d))).toFixed(4);
+        const st = it.el.style;
+        st.setProperty('--sfx-a', part(0));
+        st.setProperty('--sfx-b', part(0.15));
+        st.setProperty('--sfx-x', ease(it.x).toFixed(4));
+    }
+    function frame() {
+        let moving = false;
+        list.forEach((it) => {
+            const t = targets(it.el);
+            if (it.p === null || t.far) { it.p = t.p; it.x = t.x; apply(it); return; }
+            const dp = t.p - it.p, dx = t.x - it.x;
+            if (Math.abs(dp) < 0.0005 && Math.abs(dx) < 0.0005) return;
+            it.p += dp * SMOOTH;
+            it.x += dx * SMOOTH;
+            if (Math.abs(dp) < 0.002) it.p = t.p;
+            if (Math.abs(dx) < 0.002) it.x = t.x;
+            apply(it);
+            moving = true;
+        });
+        running = moving;
+        if (moving) requestAnimationFrame(frame);
+    }
+    const kick = () => { if (!running) { running = true; requestAnimationFrame(frame); } };
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', kick);
     frame();
+}
+
+// Kontakt: kafelki pojawiają się po kolei, raz, gdy sekcja wejdzie na ekran (bez znikania)
+function initializeContactTiles(reduce) {
+    const box = document.querySelector('#contact .contact-info');
+    if (!box) return;
+    if (reduce || !('IntersectionObserver' in window)) { box.classList.add('tiles-in'); return; }
+    box.classList.add('tiles-wait');
+    const io = new IntersectionObserver((en) => {
+        if (en.some((e) => e.isIntersecting)) { io.disconnect(); box.classList.add('tiles-in'); }
+    }, { threshold: 0.35 });
+    io.observe(box);
 }

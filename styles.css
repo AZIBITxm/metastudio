@@ -4670,54 +4670,46 @@ section:first-of-type {
 }
 
 /* ==========================================
-   SEKCJE — wjazd i wyjazd razem z przewijaniem (2026-11-05, jak „Inspiracje”)
-   Postęp liczy initializeSectionScrollFx() w script.js i wpisuje do zmiennych sekcji:
-   --sfx-a / --sfx-b / --sfx-c = wejście (0→1, kolejne z opóźnieniem), --sfx-p = wejście liniowe, --sfx-x = wyjście (0→1).
-   Używamy osobnych własności `translate` / `scale` (nie `transform`), żeby nie psuć istniejących transformów elementów.
-   Bez JS (albo przy ograniczonym ruchu) zmienne mają wartości domyślne = wszystko na miejscu.
+   SEKCJE — wjazd i wyjazd razem z przewijaniem (2026-11-05, poprawione wg Adama)
+   initializeSectionScrollFx() w script.js wpisuje wygładzony postęp do zmiennych:
+   --sfx-a / --sfx-b = wejście (0→1), --sfx-x = wyjście (0→1).
+   Osobne własności `translate` (nie `transform`), żeby nie psuć istniejących transformów.
+   Bez JS / przy ograniczonym ruchu: wartości domyślne = wszystko na miejscu.
+   Na stałe (bez ruchu): przycisk „Pokaż więcej”, kafelki galerii, sekcja Fundacji. Kontakt: tylko kafelki, raz.
    ========================================== */
-/* z lewej — napisy */
 #realizations .realizations-header h2,
 #about > h2,
 #about .mobile-about-labels,
-#project > h2,
-#foundation-support .foundation-header h2,
-#contact > h2 {
+#project > h2 {
     translate: calc((1 - var(--sfx-a, 1)) * -160px - var(--sfx-x, 0) * 100px) 0;
     opacity: calc(var(--sfx-a, 1) * (1 - var(--sfx-x, 0)));
+    will-change: translate, opacity;
 }
 #realizations .realizations-description,
 #about .about-content,
 #project .mat-dots,
-#project .mat-descs,
-#contact .contact-intro {
+#project .mat-descs {
     translate: calc((1 - var(--sfx-b, 1)) * -200px - var(--sfx-x, 0) * 120px) 0;
     opacity: calc(var(--sfx-b, 1) * (1 - var(--sfx-x, 0)));
+    will-change: translate, opacity;
 }
-#realizations .show-all-btn {
-    translate: calc((1 - var(--sfx-c, 1)) * -200px - var(--sfx-x, 0) * 120px) 0;
-    opacity: calc(var(--sfx-c, 1) * (1 - var(--sfx-x, 0)));
+/* z prawej: zdjęcie „O nas” wjeżdża w pełni widoczne (bez przezroczystości) */
+#about::after {
+    translate: calc((1 - var(--sfx-b, 1)) * 110% + var(--sfx-x, 0) * 110%) 0;
+    will-change: translate;
 }
-/* z prawej — obrazy i kafelki */
-#about::after,
-#project .mat-flow,
-#foundation-support .foundation-header p {
+#project .mat-flow {
     translate: calc((1 - var(--sfx-b, 1)) * 260px + var(--sfx-x, 0) * 140px) 0;
     opacity: calc(var(--sfx-b, 1) * (1 - var(--sfx-x, 0)));
+    will-change: translate, opacity;
 }
-#foundation-support .foundation-separator {
-    scale: var(--sfx-c, 1) 1;
-    opacity: calc(var(--sfx-c, 1) * (1 - var(--sfx-x, 0)));
+/* Kontakt: cztery kafelki pojawiają się po kolei, raz (initializeContactTiles) */
+#contact .contact-info.tiles-wait .contact-item { opacity: 0; translate: 0 18px; scale: 0.96; }
+#contact .contact-info.tiles-in .contact-item {
+    opacity: 1; translate: 0 0; scale: 1;
+    transition: opacity 0.8s ease, translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), scale 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-/* kontakt — kafelki po kolei z prawej */
-#contact .contact-item { --k: 0; }
-#contact .contact-item:nth-child(2) { --k: 1; }
-#contact .contact-item:nth-child(3) { --k: 2; }
-#contact .contact-item:nth-child(4) { --k: 3; }
-#contact .contact-item:nth-child(5) { --k: 4; }
-#contact .contact-item:nth-child(6) { --k: 5; }
-#contact .contact-item {
-    --sfx-k: clamp(0, (var(--sfx-p, 1) - 0.25 - var(--k) * 0.1) / 0.45, 1);
-    translate: calc((1 - var(--sfx-k)) * 220px + var(--sfx-x, 0) * 140px) 0;
-    opacity: calc(var(--sfx-k) * (1 - var(--sfx-x, 0)));
-}
+#contact .contact-info.tiles-in .contact-item:nth-child(2) { transition-delay: 0.25s; }
+#contact .contact-info.tiles-in .contact-item:nth-child(3) { transition-delay: 0.5s; }
+#contact .contact-info.tiles-in .contact-item:nth-child(4) { transition-delay: 0.75s; }
+#contact .contact-info.tiles-in .contact-item:nth-child(5) { transition-delay: 1s; }
