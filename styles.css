@@ -4392,3 +4392,52 @@ section:first-of-type {
 }
 .material-catalog-link:hover,
 .material-catalog-link:focus-visible { background: #b8975a; }
+
+/* ===== Pokaz kategorii materiałów (script.js initializeMaterialShowcase, 2026-11-04) =====
+   Bieżący baner: złota ramka + pasek postępu u dołu (5 s = czas do następnej kategorii).
+   Zmiana kategorii: opis wjeżdża łagodnie, zdjęcie powoli „oddala się” (efekt Ken Burns). */
+#project .material-logo .showcase-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 0;
+    background: var(--color-primary);
+    box-shadow: 0 0 8px rgba(237, 210, 173, 0.8);
+    z-index: 5;
+    pointer-events: none;
+}
+#project .material-logo.showcase-current {
+    box-shadow: 0 0 0 2px var(--color-primary), 0 6px 32px 0 rgba(0, 0, 0, 0.25);
+}
+#project .material-logo.showcase-current .showcase-bar {
+    animation: showcaseBar 5s linear forwards;
+}
+@keyframes showcaseBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+#project .material-info.showcase-enter {
+    animation: showcaseEnter 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+/* Na PC opisy leżą jeden na drugim (absolute) i przenikały się 0,3 s — przez chwilę było widać
+   dwa teksty naraz. Poprzedni opis znika od razu, nowy (active) pojawia się płynnie. */
+#project .material-info:not(.active) {
+    transition: none !important;
+}
+#project .material-info.showcase-enter .material-image img {
+    animation: showcaseZoom 5.5s ease-out;
+}
+@keyframes showcaseEnter {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+}
+@keyframes showcaseZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+    #project .material-logo.showcase-current .showcase-bar,
+    #project .material-info.showcase-enter,
+    #project .material-info.showcase-enter .material-image img { animation: none; }
+}

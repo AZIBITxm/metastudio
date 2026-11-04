@@ -13,9 +13,6 @@
 // GLOBALNE ZMIENNE DLA ANIMACJI CYKLICZNYCH
 // ==========================================
 
-let globalAnimationInterval = null;
-let globalUserInteracting = false;
-let globalUserInteractionTimeout = null;
 let globalCyclicAnimationActive = false; // Flaga dla cyklicznej animacji
 let heightAdjustmentPaused = false; // Flaga do pauzowania zmiany wysokości sekcji
 
@@ -28,27 +25,9 @@ function materialSelectionActive() {
     return !!document.querySelector('#project .material-logo.expanded, #project .sub-banner.active');
 }
 
-// Funkcja do zatrzymywania animacji cyklicznych (dostępna globalnie)
+// Zatrzymanie pokazu kategorii (wołane przy wyborze materiału); logika w initializeMaterialShowcase
 function stopCyclicAnimation() {
-    globalUserInteracting = true;
-    globalCyclicAnimationActive = false; // Wyłącz flagę animacji
-    clearTimeout(globalUserInteractionTimeout);
-
-    // Zatrzymaj interval jeśli istnieje
-    if (globalAnimationInterval) {
-        clearInterval(globalAnimationInterval);
-        globalAnimationInterval = null;
-    }
-    document.querySelectorAll('#project .material-logo.pulse').forEach(l => l.classList.remove('pulse'));
-
-    // Wznów animację 8 s po ostatniej interakcji — ale TYLKO gdy nic nie jest wybrane
-    // (użytkownik wrócił do widoku trzech banerów). Przy wybranym materiale animacja stoi,
-    // aż użytkownik sam wróci (zwinie baner / kliknie w pusty obszar sekcji).
-    globalUserInteractionTimeout = setTimeout(() => {
-        if (materialSelectionActive()) return;
-        globalUserInteracting = false;
-        if (window.restartCyclicAnimation) window.restartCyclicAnimation();
-    }, 8000);
+    if (window.materialShowcase) window.materialShowcase.userAction();
 }
 
 // ==========================================
@@ -506,8 +485,8 @@ function initializeApp() {
         initializeMenuHandlers();
         initializeAboutSectionScroll();
         initializeContentRevealAnimations();
-        initializeCyclicBannerAnimation(); // Zastąpienie initializeMaterialsSection()
         initializeSubBanners();
+        initializeMaterialShowcase(); // pokaz kategorii (zastąpił initializeCyclicBannerAnimation)
         initializeProjectHeightObserver(); // Dodanie obserwatora wysokości sekcji project
         initializeGalleryToggle();
         initializeGalleryTitleFit();
@@ -902,206 +881,114 @@ function toggleProducerDetails(producerId) {
 }
 
 // ==========================================
-// CYKLICZNA ANIMACJA BANERÓW MATERIAŁÓW
+// POKAZ KATEGORII MATERIAŁÓW (napisany od nowa 2026-11-04)
 // ==========================================
 
 /**
- * Funkcja inicjalizująca cykliczną animację banerów materiałów
- * Co 4 sekundy zmienia aktywny baner z ładnymi animacjami
+ * Automatyczny pokaz trzech kategorii (Płyty meblowe → Fronty meblowe → Blaty) co 5 s,
+ * z płynnym przejściem zdjęcia i paskiem postępu pod bieżącym banerem.
+ *
+ * Jedna zasada: KAŻDE dotknięcie/kliknięcie w sekcji materiałów zatrzymuje pokaz od razu
+ * i na stałe. Pokaz wraca dopiero, gdy użytkownik sam wróci do widoku trzech banerów
+ * (nic rozwiniętego ani wybranego) i przez 6 s niczego w sekcji nie dotknie.
+ * Pokaz nie reaguje na najechanie myszą i nic nie przełącza, gdy sekcji nie widać.
  */
-function initializeCyclicBannerAnimation() {
-    const materialLogos = document.querySelectorAll('.material-logo');
-    const materialInfos = document.querySelectorAll('.material-info');
-    
-    if (materialLogos.length === 0 || materialInfos.length === 0) {
-        console.warn('Material banners not found for cyclic animation');
-        return;
-    }
+function initializeMaterialShowcase() {
+    const section = document.getElementById('project');
+    const logos = Array.from(document.querySelectorAll('#project .material-logo'));
+    if (!section || logos.length === 0) return;
 
-    let currentIndex = 0;
-    let animationInterval;
-    let isUserInteracting = false;
-    let userInteractionTimeout;
+    const STEP_MS = 5000;     // co ile zmienia się kategoria
+    const RESUME_MS = 6000;   // po ilu ms spokoju (i bez wyboru) pokaz wraca
+    let index = 0;
+    let timer = null;
+    let resumeTimer = null;
+    let visible = false;
+    let userMode = false;     // true = użytkownik przejął sterowanie
 
-    // Funkcja do zmiany aktywnego bannera
-    function switchToMaterial(index) {
-        // Ustaw flagę animacji żeby MutationObserver nie reagował
-        globalCyclicAnimationActive = true;
-        
-        // Usuń klasy pulsowania z logo
-        materialLogos.forEach((logo, i) => {
-            logo.classList.remove('active', 'pulse');
-            if (i !== index) {
-                logo.style.transform = '';
-                logo.style.boxShadow = '';
-                logo.style.background = '';
-                logo.style.borderColor = '';
-            }
-        });
+    const canRun = () => !userMode && visible && !materialSelectionActive();
 
-        // Znajdź aktualnie aktywny baner (stary)
-        const currentActiveInfo = document.querySelector('.material-info.active');
-        
-        // Znajdź nowy baner do pokazania
-        const activeLogo = materialLogos[index];
-        const activeInfo = document.getElementById(`${activeLogo.dataset.material}-info`);
-        
-        if (activeLogo && activeInfo) {
-            // Dodaj animację pulsowania do bannera
-            activeLogo.classList.add('pulse', 'active');
-            
-            // KLUCZOWE: Najpierw pokaż nowy baner, potem ukryj stary
-            // Pokaż nowy baner natychmiast
-            activeInfo.style.display = 'block';
-            setTimeout(() => {
-                activeInfo.classList.add('active', 'fade-in');
-                
-                // Ukryj stary baner DOPIERO PO pokazaniu nowego
-                if (currentActiveInfo && currentActiveInfo !== activeInfo) {
-                    setTimeout(() => {
-                        currentActiveInfo.classList.remove('active', 'fade-in');
-                        currentActiveInfo.style.display = 'none';
-                    }, 100); // Krótkie opóźnienie, aby nowy baner był już widoczny
-                }
-                
-                // Ukryj wszystkie inne banery (oprócz starego i nowego)
-                materialInfos.forEach(info => {
-                    if (info !== activeInfo && info !== currentActiveInfo) {
-                        info.classList.remove('active', 'fade-in');
-                        info.style.display = 'none';
-                    }
-                });
-                
-                // NIE dostosowuj wysokości podczas cyklicznej zmiany banerów
-                // To powoduje skakanie sekcji Fundacja
-                // Wysokość zostanie dostosowana tylko przy manualnej interakcji użytkownika
-            }, 50);
-            
-            // Wyłącz flagę po zakończeniu animacji
-            setTimeout(() => {
-                globalCyclicAnimationActive = false;
-            }, 200);
+    // Pasek postępu jako osobny element (tło banera rysuje ::before, które zasłoniłoby tło-pasek)
+    logos.forEach(l => {
+        if (!l.querySelector('.showcase-bar')) {
+            const bar = document.createElement('span');
+            bar.className = 'showcase-bar';
+            bar.setAttribute('aria-hidden', 'true');
+            l.appendChild(bar);
         }
-
-        currentIndex = index;
-    }
-
-    // Funkcja do automatycznego przełączania
-    function autoSwitchMaterial() {
-        // Bezpiecznik: przy wybranym materiale animacja nie może niczego podmienić
-        if (materialSelectionActive()) {
-            stopCycle();
-            return;
-        }
-        if (!globalUserInteracting && !isUserInteracting) {
-            // Ustaw flagę cyklicznej animacji
-            globalCyclicAnimationActive = true;
-            
-            const nextIndex = (currentIndex + 1) % materialLogos.length;
-            switchToMaterial(nextIndex);
-            
-            // Wyłącz flagę po zakończeniu animacji (850ms)
-            setTimeout(() => {
-                globalCyclicAnimationActive = false;
-            }, 850);
-        }
-    }
-
-    // Jeden interwał animacji (wcześniej były dwie zmienne — lokalna i globalna — które się
-    // rozjeżdżały: po przewinięciu strony IntersectionObserver uruchamiał animację mimo wyboru)
-    function startCycle() {
-        if (!globalAnimationInterval && !globalUserInteracting && !materialSelectionActive()) {
-            globalAnimationInterval = setInterval(autoSwitchMaterial, 4000);
-        }
-    }
-    function stopCycle() {
-        if (globalAnimationInterval) {
-            clearInterval(globalAnimationInterval);
-            globalAnimationInterval = null;
-        }
-    }
-    let sectionVisible = true;
-    window.restartCyclicAnimation = () => { if (sectionVisible) startCycle(); };
-
-    // Funkcja do zatrzymywania animacji podczas interakcji użytkownika
-    // (wznowienie — tylko w stopCyclicAnimation, gdy nic nie jest wybrane)
-    function handleUserInteraction() {
-        stopCyclicAnimation();
-        globalCyclicAnimationActive = false;
-    }
-
-    // Dodaj obsługę zdarzeń dla każdego bannera
-    materialLogos.forEach((logo, index) => {
-        // Tylko w wersji desktop dodaj obsługę hover (wyłączona dla PC 1025px+)
-        if (window.innerWidth > 768 && window.innerWidth < 1025) {
-            logo.addEventListener('mouseenter', function() {
-                handleUserInteraction();
-                
-                // Usuń animacje cykliczne
-                materialLogos.forEach(l => l.classList.remove('pulse'));
-                
-                // Aktywuj baner najechany
-                switchToMaterial(index);
-            });
-        }
-
-        logo.addEventListener('click', function() {
-            handleUserInteraction();
-            switchToMaterial(index);
-        });
     });
 
-    // Dodaj obsługę hover również dla banerów material-info (wyłączona dla PC 1025px+)
-    if (window.innerWidth > 768 && window.innerWidth < 1025) {
-        materialInfos.forEach((info, index) => {
-            info.addEventListener('mouseenter', function() {
-                handleUserInteraction();
-                
-                // Usuń animacje cykliczne
-                materialLogos.forEach(l => l.classList.remove('pulse'));
-            });
+    function markCurrent(i) {
+        logos.forEach(l => l.classList.remove('showcase-current'));
+        if (i === null) return;
+        void logos[i].offsetWidth;            // restart paska postępu
+        logos[i].classList.add('showcase-current');
+    }
 
-            info.addEventListener('mouseleave', function() {
-                // Gdy mysz opuści baner, wznów animacje po krótkim czasie
-                setTimeout(() => {
-                    if (!isUserInteracting) {
-                        // Dodaj animację pulsowania do aktywnego logo
-                        const activeLogo = materialLogos[currentIndex];
-                        if (activeLogo) {
-                            activeLogo.classList.add('pulse');
-                        }
-                    }
-                }, 500);
-            });
+    function show(i) {
+        const logo = logos[i];
+        const info = document.getElementById(logo.dataset.material + '-info');
+        if (!info) return;
+        globalCyclicAnimationActive = true;   // obserwatory wysokości nie ruszają sekcji (bez skakania strony)
+        document.querySelectorAll('#project .material-info').forEach(el => {
+            if (el !== info) {
+                el.classList.remove('active', 'fade-in', 'showcase-enter');
+                el.style.display = 'none';
+            }
         });
+        info.style.display = 'block';
+        info.classList.add('active');
+        info.classList.remove('showcase-enter');
+        void info.offsetWidth;
+        info.classList.add('showcase-enter');
+        section.setAttribute('data-active-material', logo.dataset.material);
+        index = i;
+        markCurrent(i);
+        setTimeout(() => { globalCyclicAnimationActive = false; }, 400);
     }
 
-    // Uruchom pierwszy baner
-    switchToMaterial(0);
-
-    // Uruchom cykliczną animację co 4 sekundy
-    startCycle();
-
-    // Zatrzymaj animację gdy użytkownik opuści sekcję; po powrocie wznów tylko,
-    // gdy nic nie jest wybrane (startCycle to sprawdza)
-    const projectSection = document.getElementById('project');
-    if (projectSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                sectionVisible = entry.isIntersecting;
-                if (entry.isIntersecting) {
-                    startCycle();
-                } else {
-                    stopCycle();
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(projectSection);
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+        markCurrent(null);
     }
 
-    // Czyść interwał przy odświeżeniu strony
-    window.addEventListener('beforeunload', stopCycle);
+    function start() {
+        if (timer || !canRun()) return;
+        // kontynuuj od kategorii, która jest teraz na ekranie (np. ostatnio kliknięte „Blaty”)
+        const shown = logos.findIndex(l => l.dataset.material === section.getAttribute('data-active-material'));
+        if (shown >= 0) index = shown;
+        markCurrent(index);
+        timer = setInterval(() => {
+            if (!canRun()) { stop(); return; }
+            show((index + 1) % logos.length);
+        }, STEP_MS);
+    }
+
+    // Użytkownik dotknął sekcji: stop od razu; za RESUME_MS sprawdź, czy wrócił do widoku banerów.
+    function userAction() {
+        userMode = true;
+        stop();
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => {
+            if (materialSelectionActive()) return;    // coś wybrane — czekamy na kolejną akcję
+            userMode = false;
+            start();
+        }, RESUME_MS);
+    }
+
+    // „capture”, żeby zadziałało przed innymi obsługami (np. stopPropagation w pod-banerach)
+    section.addEventListener('pointerdown', userAction, true);
+    section.addEventListener('keydown', userAction, true);
+
+    new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            visible = entry.isIntersecting;
+            if (visible) start(); else stop();
+        });
+    }, { threshold: 0.15 }).observe(section);
+
+    window.materialShowcase = { userAction, stop };
 }
 
 // ==========================================
