@@ -147,8 +147,8 @@ PROD_TXT = {
 
 # Przycisk do pełnego katalogu dekorów (katalog-materialow.html) — na razie tylko wersja PL
 CATALOG_LINK = {
-    'plyty-laminowane': {'pl': ('katalog-materialow.html?typ=plyty', 'Przeglądaj dekory płyt laminowanych w naszym katalogu →')},
-    'fronty-akrylowe': {'pl': ('katalog-materialow.html?typ=fronty&amp;rodzaj=front-akryl', 'Przeglądaj kolory frontów akrylowych w naszym katalogu →')},
+    'plyty-laminowane': {'pl': ('katalog-materialow.html?typ=plyty&amp;dekory=1', 'Przeglądaj dekory płyt laminowanych w naszym katalogu →')},
+    'fronty-akrylowe': {'pl': ('katalog-materialow.html?typ=fronty&amp;rodzaj=front-akryl&amp;dekory=1', 'Przeglądaj kolory frontów akrylowych w naszym katalogu →')},
 }
 
 

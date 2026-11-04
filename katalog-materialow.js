@@ -1,14 +1,12 @@
-// Katalog materiałów: wyszukiwarka dekorów producentów (dane/dekory/<producent>.json).
-// Układ (Adam 2026-11-04, wersja 2):
-//   1) rodzaj materiału (kafelki): Płyty laminowane / Blaty robocze / Fronty meblowe / Laminaty HPL
-//   2) przy blatach i frontach — pole „Rodzaj blatu” / „Rodzaj frontu”; producent pojawia się DOPIERO po jego wyborze
-//      (przy płytach i HPL producent od razu)
-//   3) producent, 4) wzór (drewno / kamień / kolory) — wszystko jako pola rozwijane.
-// Fronty akrylowe: tylko Niemann, REHAU, Aquafront (z nich korzystamy — Adam).
-// Nowy producent = nowy plik JSON (narzędzie w narzedzia/) + wpis w PRODUCERS.
-// Pole products = w czym dekor jest dostępny: plyty, blaty, laminaty (HPL), front-akryl, front-lakier, front-pet,
-// front-hpl, front-dekor (oraz informacyjnie obrzeza, kompakt…). Starsze klucze perfectsense (EGGER) i lakierowane
-// (Pfleiderer) = front lakierowany.
+// Katalog materiałów (Adam 2026-11-04, wersja 3):
+//   1) kafelki rodzaju (zdjęcia z pokazu na stronie głównej): Płyty laminowane / Blaty robocze / Fronty meblowe / Laminaty HPL
+//   2) przy blatach i frontach pole „Rodzaj blatu” / „Rodzaj frontu” — wszystkie rodzaje ze strony głównej
+//   3) OPIS wybranego materiału (tekst ze strony głównej — dane/opisy-materialow.json, narzędzie narzedzia/opisy_katalogu.py)
+//      + galeria odmian (dane/katalog-zrodla.json) + przycisk „Przeglądaj dekory”
+//   4) dopiero po przycisku: producent → wzór → wyszukiwarka → próbki (pola rozwijane).
+// Fronty akrylowe: tylko Niemann, REHAU, Aquafront (Adam). Dekory: dane/dekory/<producent>.json, pole products:
+// plyty, blaty, laminaty (HPL), front-akryl, front-lakier, front-pet, front-hpl, front-dekor
+// (perfectsense / lakierowane = front lakierowany).
 (function () {
     'use strict';
 
@@ -22,33 +20,42 @@
         { id: 'rehau', name: 'REHAU (RAUVISIO)', file: 'dane/dekory/rehau.json' },
     ];
     const has = (d, k) => Array.isArray(d.products) && d.products.includes(k);
-    // rodzaje w obrębie typu; only = dozwoleni producenci
     const kindTest = (k) => (d) => has(d, k.id) && (!k.only || k.only.includes(d._p));
+    // mat = id opisu na stronie głównej (…-info); pic = opis, z którego bierzemy zdjęcie kafelka
     const TYPES = [
-        { id: 'plyty', name: 'Płyty laminowane', hint: 'korpusy, fronty, zabudowy', kinds: null, test: (d) => has(d, 'plyty') },
+        { id: 'plyty', name: 'Płyty laminowane', hint: 'korpusy, fronty, zabudowy', mat: 'plyty-laminowane', pic: 'plyty-meblowe', test: (d) => has(d, 'plyty') },
         {
-            id: 'blaty', name: 'Blaty robocze', hint: 'kuchnie, biurka, łazienki', kindLabel: 'Rodzaj blatu',
-            kinds: [   // rodzaje jak w „Kategoriach materiałów” na stronie głównej
-                { id: 'blaty', name: 'Blaty laminowane' },
-                { id: 'blat-spiek', name: 'Spieki kwarcowe' },
-                { id: 'blat-zywica', name: 'Żywica epoksydowa' },
-                { id: 'blat-drewno', name: 'Blaty drewniane' },
-                { id: 'blat-kamien', name: 'Blaty kamienne' },
-                { id: 'blat-solid', name: 'Solid Surface' },
-            ],
-        },
-        {
-            id: 'fronty', name: 'Fronty meblowe', hint: 'akrylowe, lakierowane, PET, HPL', kindLabel: 'Rodzaj frontu',
+            id: 'blaty', name: 'Blaty robocze', hint: 'kuchnie, biurka, łazienki', mat: 'blaty', pic: 'blaty', kindLabel: 'Rodzaj blatu',
             kinds: [
-                { id: 'front-akryl', name: 'Fronty akrylowe', only: ['niemann', 'rehau', 'aquafront'] },
-                { id: 'front-lakier', name: 'Fronty lakierowane' },
-                { id: 'front-pet', name: 'Folia PET (mat / połysk)' },
-                { id: 'front-hpl', name: 'Fronty HPL' },
-                { id: 'front-dekor', name: 'Dekoracyjne (lustro, ryfla, struktura)' },
+                { id: 'blaty', name: 'Blaty laminowane', mat: 'blaty-laminowane' },
+                { id: 'blat-spiek', name: 'Spieki kwarcowe', mat: 'blaty-spieki-kwarcowe' },
+                { id: 'blat-zywica', name: 'Żywica epoksydowa', mat: 'blaty-zywica-epoksydowa' },
+                { id: 'blat-drewno', name: 'Blaty drewniane', mat: 'blaty-drewniane' },
+                { id: 'blat-kamien', name: 'Blaty kamienne', mat: 'blaty-kamienne' },
+                { id: 'blat-solid', name: 'Solid Surface', mat: 'blaty-solid-surface' },
             ],
         },
         {
-            id: 'hpl', name: 'Laminaty HPL', hint: 'okleiny wysokociśnieniowe', kinds: null,
+            id: 'fronty', name: 'Fronty meblowe', hint: 'akrylowe, lakierowane, fornirowane i inne', mat: 'fronty-meblowe', pic: 'fronty-meblowe', kindLabel: 'Rodzaj frontu',
+            kinds: [
+                { id: 'front-akryl', name: 'Fronty akrylowe', mat: 'fronty-akrylowe', only: ['niemann', 'rehau', 'aquafront'] },
+                { id: 'front-lakier', name: 'Fronty lakierowane', mat: 'fronty-lakierowane' },
+                { id: 'front-pet', name: 'Fronty z folią PET (mat / połysk)' },
+                { id: 'front-hpl', name: 'Fronty HPL' },
+                { id: 'front-dekor', name: 'Fronty dekoracyjne (lustro, ryfla, struktura)' },
+                { id: 'front-fornir', name: 'Fronty fornirowane', mat: 'fronty-fornirowane' },
+                { id: 'front-drewno', name: 'Fronty drewniane', mat: 'fronty-drewniane' },
+                { id: 'front-szklo', name: 'Fronty szklane', mat: 'fronty-szklane' },
+                { id: 'front-giete', name: 'Fronty gięte', mat: 'fronty-giete' },
+                { id: 'front-frez', name: 'Fronty frezowane', mat: 'fronty-frezowane' },
+                { id: 'front-frez-lam', name: 'Fronty frezowane laminowane', mat: 'fronty-frezowane-laminowane' },
+                { id: 'front-frez-lak', name: 'Fronty frezowane lakierowane', mat: 'fronty-frezowane-lakierowane' },
+                { id: 'front-art', name: 'Wykończenia artystyczne', mat: 'wykonczenia-artystyczne' },
+                { id: 'front-sztuk', name: 'Sztukateria', mat: 'sztukateria' },
+            ],
+        },
+        {
+            id: 'hpl', name: 'Laminaty HPL', hint: 'okleiny wysokociśnieniowe', mat: null, pic: null,
             test: (d) => has(d, 'laminaty') && ['egger', 'kronospan', 'pfleiderer', 'swisskrono'].includes(d._p),
         },
     ];
@@ -73,17 +80,21 @@
     const $ = (id) => document.getElementById(id);
     const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
     const params = new URLSearchParams(location.search);
-    const state = { type: params.get('typ') || '', kind: params.get('rodzaj') || '', producer: params.get('producent') || '', group: '', q: params.get('q') || '' };
+    const state = {
+        type: params.get('typ') || '', kind: params.get('rodzaj') || '', producer: params.get('producent') || '',
+        group: '', q: params.get('q') || '', browse: params.get('dekory') === '1' || !!params.get('q') || !!params.get('producent'),
+    };
     let decors = [];
+    let opisy = {};
+    let photos = [];   // galerie odmian (katalog-zrodla.json)
 
-    // Wypełnia pole rozwijane; opcje z count 0 są wyłączone („wkrótce”)
     function fillSelect(sel, options, value) {
         sel.innerHTML = '';
         options.forEach((o) => {
             const opt = document.createElement('option');
             opt.value = o.id;
-            opt.textContent = o.count == null ? o.name : o.count ? `${o.name} (${o.count})` : `${o.name} — wkrótce`;
-            opt.disabled = o.count === 0;
+            opt.textContent = o.count ? `${o.name} (${o.count})` : o.name;
+            opt.disabled = !!o.disabled;
             sel.appendChild(opt);
         });
         sel.value = value;
@@ -98,25 +109,100 @@
             b.type = 'button';
             b.className = 'km-type';
             b.setAttribute('aria-pressed', String(state.type === t.id));
-            b.disabled = list.length === 0;
-            const pic = list.find((d) => d.group === 'drewno') || list[0];
-            b.innerHTML = `<span class="km-type-img"${pic ? ` style="background-image:url('${encodeURI(pic.image)}')"` : ''}></span>` +
-                `<span class="km-type-name"></span><span class="km-type-hint"></span>`;
+            let img = t.pic && opisy[t.pic] && opisy[t.pic].image;
+            if (!img) {
+                const d = list.find((x) => x.group === 'drewno') || list[0];
+                img = d ? d.image : '';
+            }
+            b.innerHTML = `<span class="km-type-img"><img src="${encodeURI(img)}" alt="" loading="lazy" decoding="async"></span>` +
+                `<span class="km-type-text"><span class="km-type-name"></span><span class="km-type-hint"></span></span>`;
             b.querySelector('.km-type-name').textContent = t.name;
-            b.querySelector('.km-type-hint').textContent = `${t.hint} · ${list.length}`;
+            b.querySelector('.km-type-hint').textContent = list.length ? `${t.hint} · ${list.length} dekorów` : t.hint;
             b.addEventListener('click', () => {
                 if (state.type === t.id) return;
-                Object.assign(state, { type: t.id, kind: '', producer: '' });
+                Object.assign(state, { type: t.id, kind: '', producer: '', browse: !t.mat && !t.kinds });
                 render();
+                $('km-step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
             box.appendChild(b);
         });
+    }
+
+    // Opis materiału ze strony głównej + galeria odmian + przycisk „Przeglądaj dekory”
+    function renderDesc(type, kind, count) {
+        const box = $('km-desc');
+        const matId = kind ? kind.mat : type.mat;
+        const op = matId && opisy[matId];
+        if (!op && !(kind && count)) { box.hidden = true; box.innerHTML = ''; return; }
+        box.hidden = false;
+        const pic = type.pic && opisy[type.pic] && opisy[type.pic].image;
+        box.innerHTML = '';
+        const head = document.createElement('div');
+        head.className = 'km-desc-head';
+        if (pic) head.innerHTML = `<img class="km-desc-img" src="${encodeURI(pic)}" alt="" loading="lazy">`;
+        const body = document.createElement('div');
+        body.className = 'km-desc-body';
+        const h = document.createElement('h2');
+        h.textContent = op ? op.title : kind.name;
+        body.appendChild(h);
+        if (op) {
+            const txt = document.createElement('div');
+            txt.className = 'km-desc-text';
+            txt.innerHTML = op.html;           // treść z naszej strony głównej
+            body.appendChild(txt);
+        }
+        head.appendChild(body);
+        box.appendChild(head);
+
+        const gal = matId ? photos.filter((p) => p.material === matId) : [];
+        if (gal.length) {
+            const g = document.createElement('div');
+            g.className = 'km-desc-gallery';
+            g.innerHTML = '<h3>Odmiany — zdjęcia</h3>';
+            const track = document.createElement('div');
+            track.className = 'km-desc-track';
+            gal.forEach((p) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.innerHTML = `<img src="${encodeURI(`materiały/katalog/${p.slug}-480.webp`)}" alt="" loading="lazy"><span></span>`;
+                b.querySelector('img').alt = p.pl;
+                b.querySelector('span').textContent = p.pl;
+                b.addEventListener('click', () => openModal({
+                    image: `materiały/katalog/${p.slug}-1600.webp`, producer: 'Zdjęcie poglądowe', name: p.pl,
+                    code: [p.author, p.license].filter(Boolean).join(' · '), url: p.page, _photo: true,
+                }));
+                track.appendChild(b);
+            });
+            g.appendChild(track);
+            box.appendChild(g);
+        }
+
+        const act = document.createElement('div');
+        act.className = 'km-desc-actions';
+        if (type.kinds && !kind) {
+            act.innerHTML = `<p class="km-desc-hint">Wybierz ${type.kindLabel.toLowerCase()} powyżej, aby zobaczyć jego opis i dostępne dekory.</p>`;
+        } else if (count) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'km-browse-btn';
+            btn.textContent = state.browse ? `Dekory poniżej (${count}) ↓` : `Przeglądaj dekory (${count}) →`;
+            btn.addEventListener('click', () => {
+                state.browse = true;
+                render();
+                $('km-browse').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            act.appendChild(btn);
+        } else {
+            act.innerHTML = '<p class="km-desc-hint">Dekorów tego materiału nie ma jeszcze w katalogu — zapytaj nas o dostępne wzory i próbki.</p>';
+        }
+        box.appendChild(act);
     }
 
     function syncUrl() {
         const p = new URLSearchParams();
         p.set('typ', state.type);
         if (state.kind) p.set('rodzaj', state.kind);
+        if (state.browse) p.set('dekory', '1');
         if (state.producer) p.set('producent', state.producer);
         if (state.q) p.set('q', state.q);
         history.replaceState(null, '', `${location.pathname}?${p}`);
@@ -125,45 +211,49 @@
     function render() {
         const type = TYPES.find((t) => t.id === state.type) || TYPES[0];
         state.type = type.id;
+        if (!type.mat && !type.kinds) state.browse = true;   // HPL: bez opisu — od razu dekory
         let list = decors.filter(type.test);
 
-        // 2) rodzaj blatu / frontu
-        const kindField = $('km-kind-field');
+        // rodzaj blatu / frontu
         let kind = null;
+        $('km-kind-field').hidden = !type.kinds;
         if (type.kinds) {
-            kindField.hidden = false;
             $('km-kind-label').textContent = type.kindLabel;
-            const opts = [{ id: '', name: `Wszystkie (${list.length})` }]
-                .concat(type.kinds.map((k) => ({ id: k.id, name: k.name, count: list.filter(k.test).length })));
-            kind = type.kinds.find((k) => k.id === state.kind && list.some(k.test)) || null;
+            kind = type.kinds.find((k) => k.id === state.kind) || null;
             state.kind = kind ? kind.id : '';
+            const opts = [{ id: '', name: `— wybierz ${type.kindLabel.toLowerCase()} —` }].concat(type.kinds.map((k) => {
+                const c = list.filter(k.test).length;
+                return { id: k.id, name: k.name, count: c, disabled: !c && !(k.mat && opisy[k.mat]) };
+            }));
             fillSelect($('km-kind'), opts, state.kind);
-            if (kind) list = list.filter(kind.test);
+            list = kind ? list.filter(kind.test) : [];
         } else {
-            kindField.hidden = true;
             state.kind = '';
         }
 
-        // 3) producent — przy blatach/frontach dopiero po wyborze rodzaju
-        const prodField = $('km-producer-field');
-        const showProducers = !type.kinds || !!kind;
-        prodField.hidden = !showProducers;
-        if (showProducers) {
+        renderTypes();
+        renderDesc(type, kind, list.length);
+
+        // przeglądanie dekorów — dopiero po „Przeglądaj dekory” (HPL bez opisu: od razu)
+        const browse = state.browse && list.length > 0;
+        $('km-browse').hidden = !browse;
+        if (browse) {
             const prods = PRODUCERS.map((p) => ({ id: p.id, name: p.name, count: list.filter((d) => d._p === p.id).length }))
                 .filter((p) => p.count > 0);
             if (!prods.some((p) => p.id === state.producer)) state.producer = '';
             fillSelect($('km-producer'), [{ id: '', name: 'Wszyscy producenci' }].concat(prods), state.producer);
             if (state.producer) list = list.filter((d) => d._p === state.producer);
-        } else {
-            state.producer = '';
+            fillSelect($('km-group'), GROUPS, state.group);
+            const words = norm(state.q).split(/\s+/).filter(Boolean);
+            list = list.filter((d) => (!state.group || d.group === state.group) && words.every((w) => d._s.includes(w)));
+            renderGrid(type, list);
+            $('km-count').textContent = `${kind ? kind.name : type.name}: ${list.length}`;
+            $('km-empty').hidden = list.length > 0;
         }
+        syncUrl();
+    }
 
-        // 4) wzór + wyszukiwarka
-        fillSelect($('km-group'), GROUPS, state.group);
-        const words = norm(state.q).split(/\s+/).filter(Boolean);
-        list = list.filter((d) => (!state.group || d.group === state.group) && words.every((w) => d._s.includes(w)));
-
-        renderTypes();
+    function renderGrid(type, list) {
         const grid = $('km-grid');
         grid.innerHTML = '';
         const frag = document.createDocumentFragment();
@@ -183,23 +273,18 @@
             frag.appendChild(b);
         });
         grid.appendChild(frag);
-        const where = kind ? kind.name : type.name;
-        $('km-count').textContent = `${where}: ${list.length}`;
-        $('km-empty').hidden = list.length > 0;
-        $('km-empty').textContent = type.kinds && kind && !decors.some(kind.test)
-            ? 'Ten rodzaj dodamy wkrótce — zapytaj nas o dostępne wzory.' : 'Brak dekorów dla tych kryteriów.';
-        syncUrl();
     }
 
     function openModal(d) {
         $('km-modal-img').src = encodeURI(d.image);
-        $('km-modal-img').alt = `${d.producer} ${d.code} ${d.name}`;
+        $('km-modal-img').alt = `${d.name}`;
         $('km-modal-producer').textContent = d.producer;
         $('km-modal-name').textContent = d.name;
-        $('km-modal-code').textContent = `Kod: ${d.code} ${d.structure || ''}`;
+        $('km-modal-code').textContent = d._photo ? d.code : `Kod: ${d.code} ${d.structure || ''}`;
         const forms = [...new Set((d.products || []).map((f) => FORM_LABEL[f]).filter(Boolean))];
         $('km-modal-forms').textContent = forms.length ? `Dostępny jako: ${forms.join(', ')}` : '';
         $('km-modal-link').href = d.url;
+        $('km-modal-link').textContent = d._photo ? 'Źródło zdjęcia ↗' : 'Zobacz dekor u producenta ↗';
         $('km-modal').hidden = false;
         $('km-modal-close').focus();
     }
@@ -209,13 +294,15 @@
     $('km-modal').addEventListener('click', (e) => { if (e.target === $('km-modal')) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     $('km-search').addEventListener('input', (e) => { state.q = e.target.value; render(); });
-    $('km-kind').addEventListener('change', (e) => { state.kind = e.target.value; state.producer = ''; render(); });
+    $('km-kind').addEventListener('change', (e) => { state.kind = e.target.value; state.producer = ''; state.browse = false; render(); });
     $('km-producer').addEventListener('change', (e) => { state.producer = e.target.value; render(); });
     $('km-group').addEventListener('change', (e) => { state.group = e.target.value; render(); });
 
-    // brak/uszkodzony plik jednego producenta nie blokuje pozostałych
-    Promise.all(PRODUCERS.map((p) => fetch(p.file).then((r) => (r.ok ? r.json() : [])).catch(() => []).then((list) =>
-        list.map((d) => {
+    const getJson = (f) => fetch(f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    Promise.all([
+        getJson('dane/opisy-materialow.json'),
+        getJson('dane/katalog-zrodla.json'),
+        Promise.all(PRODUCERS.map((p) => getJson(p.file).then((list) => (list || []).map((d) => {
             const products = (d.products || []).slice();
             if ((products.includes('perfectsense') || products.includes('lakierowane')) && !products.includes('front-lakier')) {
                 products.push('front-lakier');
@@ -224,17 +311,20 @@
                 products, _p: p.id,
                 _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer} ${(d.tags || []).join(' ')}`),
             });
-        }))))
-        .then((lists) => {
-            decors = lists.flat().filter((d) => TYPES.some((t) => t.test(d)));
-            if (state.q) $('km-search').value = state.q;
-            // link z kodem (np. od konsultanta) bez rodzaju → pierwszy rodzaj, w którym ten dekor jest
-            if (!TYPES.some((t) => t.id === state.type)) {
-                const words = norm(state.q).split(/\s+/).filter(Boolean);
-                const hit = words.length && decors.find((d) => words.every((w) => d._s.includes(w)));
-                state.type = hit ? (TYPES.find((t) => t.test(hit)) || TYPES[0]).id : TYPES[0].id;
-            }
-            render();
-        })
-        .catch((err) => { $('km-count').textContent = 'Nie udało się wczytać katalogu.'; console.error(err); });
+        })))),
+    ]).then(([op, ph, lists]) => {
+        opisy = op || {};
+        photos = ph || [];
+        decors = lists.flat().filter((d) => TYPES.some((t) => t.test(d)));
+        if (state.q) $('km-search').value = state.q;
+        if (!TYPES.some((t) => t.id === state.type)) {
+            // link z kodem (np. od konsultanta) bez rodzaju → rodzaj, w którym ten dekor jest
+            const words = norm(state.q).split(/\s+/).filter(Boolean);
+            const hit = words.length && decors.find((d) => words.every((w) => d._s.includes(w)));
+            const t = hit ? (TYPES.find((x) => x.test(hit)) || TYPES[0]) : TYPES[0];
+            state.type = t.id;
+            if (hit && t.kinds) state.kind = (t.kinds.find((k) => k.test(hit)) || {}).id || '';
+        }
+        render();
+    }).catch((err) => { $('km-desc').hidden = false; $('km-desc').textContent = 'Nie udało się wczytać katalogu.'; console.error(err); });
 })();

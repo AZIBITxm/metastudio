@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="katalog-materialow.css?v=5">
+  <link rel="stylesheet" href="katalog-materialow.css?v=6">
 </head>
 <body>
   <header class="km-header">
@@ -22,23 +22,30 @@
 
   <main class="km-main">
     <h1>Katalog materiałów</h1>
-    <p class="km-intro">Wybierz rodzaj materiału, a przy blatach i frontach także ich rodzaj — potem producenta i wzór. Możesz też wyszukać dekor po nazwie lub kodzie,
-      kliknij próbkę, aby ją powiększyć. Wybrany dekor wystarczy podać nam z nazwy i kodu — dobierzemy go do projektu.</p>
+    <p class="km-intro">Wybierz rodzaj materiału, przeczytaj, czym się wyróżnia, i przejrzyj dostępne dekory od producentów,
+      z których wykonujemy meble. Wybrany dekor wystarczy podać nam z nazwy i kodu — dobierzemy go do projektu.</p>
 
     <div class="km-types" id="km-types" aria-label="Rodzaj materiału"></div>
 
-    <div class="km-controls">
-      <input type="search" id="km-search" placeholder="Szukaj: np. dąb, beton, U646…" autocomplete="off" aria-label="Szukaj dekoru">
+    <section class="km-step2" id="km-step2">
       <div class="km-filters">
-        <label class="km-field" id="km-kind-field" hidden><span id="km-kind-label">Rodzaj</span><select id="km-kind"></select></label>
-        <label class="km-field" id="km-producer-field"><span>Producent</span><select id="km-producer"></select></label>
-        <label class="km-field"><span>Wzór</span><select id="km-group"></select></label>
+        <label class="km-field km-field-kind" id="km-kind-field" hidden><span id="km-kind-label">Rodzaj</span><select id="km-kind"></select></label>
       </div>
-      <p class="km-count" id="km-count" aria-live="polite"></p>
-    </div>
+      <article class="km-desc" id="km-desc" hidden></article>
+    </section>
 
-    <div class="km-grid" id="km-grid"></div>
-    <p class="km-empty" id="km-empty" hidden>Brak dekorów dla tych kryteriów.</p>
+    <section class="km-browse" id="km-browse" hidden>
+      <div class="km-controls">
+        <div class="km-filters">
+          <label class="km-field"><span>Producent</span><select id="km-producer"></select></label>
+          <label class="km-field"><span>Wzór</span><select id="km-group"></select></label>
+          <label class="km-field km-field-search"><span>Szukaj</span><input type="search" id="km-search" placeholder="np. dąb, beton, U646…" autocomplete="off"></label>
+        </div>
+        <p class="km-count" id="km-count" aria-live="polite"></p>
+      </div>
+      <div class="km-grid" id="km-grid"></div>
+      <p class="km-empty" id="km-empty" hidden>Brak dekorów dla tych kryteriów.</p>
+    </section>
 
     <p class="km-note">Zdjęcia dekorów pochodzą z materiałów producentów (© EGGER, © Kronospan, © Pfleiderer, © SWISS KRONO, © Aquafront, © Niemann Polska). Kolory na ekranie
       mogą różnić się od rzeczywistych — przed zamówieniem pokażemy próbkę na żywo.</p>
@@ -60,6 +67,6 @@
 
   <footer class="km-footer">&copy; Zanders Atelier · <a href="index-pl.html">Strona główna</a></footer>
 
-  <script src="katalog-materialow.js?v=7"></script>
+  <script src="katalog-materialow.js?v=8"></script>
 </body>
 </html>

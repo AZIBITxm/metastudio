@@ -1,6 +1,6 @@
-/* Katalog materiałów (katalog-materialow.html) — styl jak strona polityki prywatności */
+/* Katalog materiałów (katalog-materialow.html) — białe tło, czarny nagłówek ze złotą linią */
 * { box-sizing: border-box; }
-body { margin: 0; background: #fbf6ee; color: #1A1A1A; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; }
+body { margin: 0; background: #fff; color: #1A1A1A; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; }
 a { color: #8a6d2c; }
 
 .km-header { position: sticky; top: 0; z-index: 10; background: #1A1A1A; border-bottom: 2px solid #B4943C; padding: 12px 16px; text-align: center; }
@@ -8,43 +8,67 @@ a { color: #8a6d2c; }
 .km-back { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #d4b58c; text-decoration: none; font-size: 26px; }
 
 .km-main { max-width: 1240px; margin: 0 auto; padding: 8px 16px 48px; }
-h1 { font-size: 34px; margin: 18px 0 4px; }
-.km-intro { margin: 0 0 14px; max-width: 760px; }
+h1 { font-size: 36px; margin: 18px 0 4px; }
+.km-intro { margin: 0 0 18px; max-width: 780px; }
 
-.km-controls { position: sticky; top: 64px; z-index: 5; background: #fbf6ee; padding: 10px 0 6px; border-bottom: 1px solid #ecdcc3; }
-#km-search { width: 100%; max-width: 520px; padding: 10px 14px; font: inherit; border: 1px solid #d4b58c; border-radius: 999px; background: #fff; }
-#km-search:focus { outline: 2px solid #B4943C; outline-offset: 1px; }
-.km-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.km-chip { font: inherit; font-weight: 700; font-size: 16px; color: #8a6d2c; border: 1px solid #d4b58c; border-radius: 999px; padding: 3px 14px; background: #fff; cursor: pointer; }
-.km-chip[aria-pressed="true"] { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
-.km-chips[hidden] { display: none; }
+/* Krok 1: rodzaj materiału — duże kafelki: zdjęcie u góry, podpis pod spodem */
+.km-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 6px 0 8px; }
+.km-type { display: flex; flex-direction: column; padding: 0; border: 1px solid #ecdcc3; background: #fff; color: #1A1A1A; font: inherit; text-align: left; cursor: pointer; overflow: hidden; transition: border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+.km-type-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #f3efe8; }
+.km-type-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.km-type-text { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; border-top: 3px solid transparent; transition: border-color 0.2s ease; }
+.km-type-name { font-size: 23px; font-weight: 700; line-height: 1.15; }
+.km-type-hint { font-size: 15px; color: #6b5a3a; }
+.km-type:hover, .km-type:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12); }
+.km-type:hover .km-type-img img, .km-type:focus-visible .km-type-img img { transform: scale(1.05); }
+.km-type[aria-pressed="true"] { border-color: #B4943C; box-shadow: 0 0 0 2px #B4943C; }
+.km-type[aria-pressed="true"] .km-type-text { border-top-color: #B4943C; }
 
-/* Pola rozwijane: rodzaj blatu/frontu → producent → wzór */
-.km-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 10px; }
-.km-field { display: flex; flex-direction: column; gap: 2px; min-width: 210px; flex: 1 1 210px; max-width: 320px; }
+/* Pola rozwijane */
+.km-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+.km-field { display: flex; flex-direction: column; gap: 2px; min-width: 210px; flex: 1 1 210px; max-width: 340px; }
 .km-field[hidden] { display: none; }
 .km-field > span { font-size: 14px; font-weight: 700; color: #8a6d2c; letter-spacing: 0.03em; }
-.km-field select { font: inherit; font-size: 17px; padding: 8px 36px 8px 12px; border: 1px solid #d4b58c; border-radius: 6px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a6d2c' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; color: #1A1A1A; cursor: pointer; }
-.km-field select:focus { outline: 2px solid #B4943C; outline-offset: 1px; }
+.km-field select, .km-field input { font: inherit; font-size: 17px; padding: 8px 12px; border: 1px solid #d4b58c; border-radius: 6px; background: #fff; color: #1A1A1A; }
+.km-field select { padding-right: 36px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a6d2c' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.km-field select:focus, .km-field input:focus { outline: 2px solid #B4943C; outline-offset: 1px; }
+.km-field-kind { max-width: 420px; }
 
-/* Krok 1: rodzaj materiału — trzy duże kafelki ze zdjęciem */
-.km-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 6px 0 4px; }
-.km-type { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 128px; padding: 12px 14px; border: 2px solid #ecdcc3; background: #1A1A1A; color: #fff; font: inherit; text-align: left; cursor: pointer; overflow: hidden; transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
-.km-type-img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.55; transition: opacity 0.3s ease, transform 0.6s ease; }
-.km-type-name, .km-type-hint { position: relative; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
-.km-type-name { font-size: 22px; font-weight: 700; line-height: 1.15; }
-.km-type-hint { font-size: 14px; opacity: 0.9; }
-.km-type:hover .km-type-img, .km-type:focus-visible .km-type-img { opacity: 0.7; transform: scale(1.04); }
-.km-type:hover, .km-type:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); }
-.km-type[aria-pressed="true"] { border-color: #B4943C; box-shadow: 0 0 0 2px #B4943C inset; }
-.km-type[aria-pressed="true"] .km-type-img { opacity: 0.8; }
-.km-type:disabled { cursor: default; opacity: 0.45; }
+/* Krok 2: opis materiału ze strony głównej */
+.km-step2 { margin-top: 18px; scroll-margin-top: 80px; }
+.km-desc { margin-top: 14px; padding: 22px; border: 1px solid #ecdcc3; background: #fff; animation: kmIn 0.45s ease; }
+.km-desc[hidden] { display: none; }
+@keyframes kmIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.km-desc-head { display: flex; gap: 24px; align-items: flex-start; }
+.km-desc-img { width: 260px; flex: 0 0 260px; aspect-ratio: 1; object-fit: cover; }
+.km-desc-body { flex: 1; min-width: 0; }
+.km-desc-body h2 { margin: 0 0 8px; font-size: 30px; border-bottom: 2px solid #ecd2ad; padding-bottom: 6px; }
+.km-desc-text p { margin: 0 0 10px; }
+.km-desc-text h4 { margin: 14px 0 4px; font-size: 20px; }
+.km-desc-text h5 { margin: 10px 0 2px; font-size: 17px; }
+.km-desc-text ul { margin: 0 0 8px; padding-left: 20px; }
+.km-desc-text li { margin: 2px 0; }
+.km-desc-text .material-modules-container, .km-desc-text .material-module { display: block; }
+.km-desc-gallery { margin-top: 16px; }
+.km-desc-gallery h3 { margin: 0 0 8px; font-size: 20px; }
+.km-desc-track { display: flex; flex-wrap: wrap; gap: 10px; }
+.km-desc-track button { width: 132px; padding: 0; border: 1px solid #ecdcc3; background: #fff; font: inherit; font-size: 14px; line-height: 1.2; text-align: left; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.km-desc-track button:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12); }
+.km-desc-track img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.km-desc-track span { display: block; padding: 5px 7px 7px; }
+.km-desc-actions { margin-top: 18px; }
+.km-desc-hint { margin: 0; font-style: italic; color: #6b5a3a; }
+.km-browse-btn { font: inherit; font-size: 19px; font-weight: 700; padding: 10px 26px; border: 0; border-radius: 999px; background: #1A1A1A; color: #fff; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transition: background 0.2s ease, transform 0.2s ease; }
+.km-browse-btn:hover, .km-browse-btn:focus-visible { background: #B4943C; transform: translateY(-1px); }
+
+/* Krok 3: dekory */
+.km-browse { margin-top: 26px; scroll-margin-top: 70px; }
+.km-browse[hidden] { display: none; }
+.km-controls { position: sticky; top: 64px; z-index: 5; background: #fff; padding: 10px 0 8px; border-bottom: 1px solid #ecdcc3; }
 .km-count { margin: 8px 0 0; font-size: 15px; opacity: 0.75; }
-
 .km-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 16px; }
-.km-card { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ecdcc3; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.km-card { position: relative; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; text-align: left; font: inherit; color: inherit; background: #fff; border: 1px solid #ecdcc3; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .km-card:hover, .km-card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
-.km-card { position: relative; }
 .km-card-badge { position: absolute; top: 6px; left: 6px; background: #1A1A1A; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 8px; border-radius: 999px; }
 .km-card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: #eee; }
 .km-card-name { display: block; padding: 6px 8px 0; font-weight: 700; font-size: 15px; line-height: 1.25; }
@@ -63,14 +87,25 @@ h1 { font-size: 34px; margin: 18px 0 4px; }
 .km-modal-code { margin: 0 0 4px; }
 .km-modal-forms { margin: 0 0 16px; font-size: 16px; opacity: 0.8; }
 .km-modal-close { position: absolute; top: 6px; right: 10px; border: 0; background: none; font-size: 32px; line-height: 1; cursor: pointer; color: #1A1A1A; }
+
+@media (max-width: 900px) {
+  .km-types { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .km-desc-head { flex-direction: column; }
+  .km-desc-img { width: 100%; flex-basis: auto; aspect-ratio: 16 / 9; }
+}
 @media (max-width: 640px) {
   .km-modal-box { flex-direction: column; }
   .km-modal-box img { width: 100%; }
   .km-controls { position: static; }
-  .km-types { gap: 8px; grid-template-columns: repeat(2, 1fr); }
   .km-field { max-width: none; flex-basis: 100%; }
-  .km-type { min-height: 96px; padding: 8px 9px; }
-  .km-type-name { font-size: 16px; }
-  .km-type-hint { font-size: 12px; }
+  .km-type-text { padding: 8px 10px 10px; }
+  .km-type-name { font-size: 18px; }
+  .km-type-hint { font-size: 13px; }
+  .km-desc { padding: 14px; }
+  .km-desc-body h2 { font-size: 25px; }
+  .km-desc-track button { width: calc(50% - 5px); }
   .km-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .km-desc { animation: none; }
 }
