@@ -4738,3 +4738,5 @@ section:first-of-type {
 }
 /* pasek z hasłami pod głównym zdjęciem: kliknięcie otwiera konsultanta */
 .scroll-banner[role="button"] { cursor: pointer; }
+/* pasek z hasłami: cyfry pełnej wysokości (Cormorant domyślnie ma cyfry nautyczne — małe, opadające) */
+.scroll-banner .mq { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
