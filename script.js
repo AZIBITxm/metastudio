@@ -1431,22 +1431,25 @@ function initFlowPane(pane) {
     window.addEventListener('resize', () => layout(false));
 }
 
-// Przełącznik „Katalog Materiałów ⇄ Katalog Akcesoriów” w nagłówku sekcji
+// Przełącznik „Katalog Materiałów ⇄ Katalog Akcesoriów” (2026-11-05, wg Adama): duży czarny nagłówek + obok (telefon: pod nim)
+// szary napis ze strzałkami. Kliknięcie: 1) duży napis zjeżdża w lewo, 2) szary ze strzałkami zjeżdża w lewo,
+// 3) z prawej wjeżdża nowy duży napis, 4) na koniec z prawej wjeżdża szary napis ze strzałkami. Kafelki zmieniają się w tym samym czasie.
 function initCatalogSwitch(panes) {
     const btn = document.querySelector('#project .cat-switch');
     const title = document.querySelector('#project > h2');
-    if (!btn || panes.length < 2) return;
+    if (!btn || !title || panes.length < 2) return;
+    const label = btn.querySelector('.cat-switch-label');
     let cur = 0;
-    const set = (i) => {
-        const p = panes[i];
-        title.textContent = p.dataset.title;
-        btn.querySelector('.cat-switch-label').textContent = panes[1 - i].dataset.title;
-        btn.setAttribute('aria-label', 'Przełącz na: ' + panes[1 - i].dataset.title);
+    let busy = false;
+    const OUT = '-110vw', IN = '110vw';
+    const move = (el, x, animate) => {
+        if (!animate) el.classList.add('cat-no-anim');
+        el.style.setProperty('--catx', x);
+        if (!animate) { void el.offsetWidth; el.classList.remove('cat-no-anim'); }
     };
-    btn.addEventListener('click', () => {
-        const next = 1 - cur;
-        const toAcc = next === 1;                 // akcesoria wjeżdżają z prawej, materiały wracają z lewej
-        const out = panes[cur], inn = panes[next];
+    const swapPanes = (from, to) => {
+        const toAcc = to === 1;                       // akcesoria wjeżdżają z prawej, materiały wracają z lewej
+        const out = panes[from], inn = panes[to];
         out.classList.remove('is-current');
         out.classList.add(toAcc ? 'is-out-left' : 'is-out-right');
         inn.style.transition = 'none';
@@ -1456,10 +1459,35 @@ function initCatalogSwitch(panes) {
         inn.style.transition = '';
         inn.classList.remove('is-out-left', 'is-out-right');
         inn.classList.add('is-current');
-        cur = next;
-        set(cur);
+    };
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    btn.addEventListener('click', () => {
+        if (busy) return;
+        busy = true;
+        const from = cur, to = 1 - cur;
+        cur = to;
+        swapPanes(from, to);
+        btn.setAttribute('aria-label', 'Przełącz na: ' + panes[from].dataset.title);
+        if (reduce) {
+            title.textContent = panes[to].dataset.title;
+            label.textContent = panes[from].dataset.title;
+            busy = false;
+            return;
+        }
+        move(title, OUT, true);                                              // 1. duży napis w lewo
+        setTimeout(() => move(btn, OUT, true), 180);                         // 2. szary ze strzałkami w lewo
+        setTimeout(() => {                                                   // 3. nowy duży napis z prawej
+            title.textContent = panes[to].dataset.title;
+            move(title, IN, false);
+            move(title, '0px', true);
+        }, 520);
+        setTimeout(() => {                                                   // 4. na koniec szary napis ze strzałkami z prawej
+            label.textContent = panes[from].dataset.title;
+            move(btn, IN, false);
+            move(btn, '0px', true);
+        }, 800);
+        setTimeout(() => { busy = false; }, 1300);
     });
-    set(0);
 }
 
 // ==========================================

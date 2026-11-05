@@ -4807,3 +4807,25 @@ section:first-of-type {
 @media (prefers-reduced-motion: reduce) {
     #project .cat-pane, #project .cat-pane.is-current { transition: none; }
 }
+
+/* przełącznik katalogów — szary napis ze strzałkami obok nagłówka (telefon: pod nim), bez ramki; animacja przez --catx */
+#project > h2 {
+    transform: translateY(var(--h2y, 0px)) translateX(var(--catx, 0px));
+    transition: transform 0.45s cubic-bezier(0.55, 0, 0.25, 1);
+}
+#project .cat-switch {
+    display: inline-flex; align-items: baseline; gap: 12px; vertical-align: baseline; margin: 0 0 0 1.8rem;
+    padding: 0; border: 0; background: none; cursor: pointer;
+    font-family: inherit; font-size: 1.75rem; font-weight: 600; line-height: 1.1; letter-spacing: 0; text-transform: none; color: #a3a3a3;
+    transform: translateY(var(--h2y, 0px)) translateX(var(--catx, 0px));
+    transition: transform 0.45s cubic-bezier(0.55, 0, 0.25, 1), color 0.25s ease;
+}
+#project .cat-switch:hover, #project .cat-switch:focus-visible { background: none; color: #5c5c5c; outline: none; }
+#project .cat-switch-icon { color: #B4943C; font-size: 1.5rem; transition: transform 0.4s ease; }
+#project .cat-switch:hover .cat-switch-icon, #project .cat-switch:focus-visible .cat-switch-icon { color: #B4943C; transform: rotate(180deg); }
+#project .cat-no-anim { transition: none !important; }
+@media (max-width: 768px) {
+    #project > h2, #project .cat-switch { --h2y: -100px; }
+    #project .cat-switch { display: flex; width: max-content; margin: 0 1.25rem; padding: 0; font-size: 1.35rem; position: relative; z-index: 50; }
+    #project .cat-switch-icon { font-size: 1.2rem; }
+}
