@@ -4867,3 +4867,19 @@ section:first-of-type {
     #project > h2 { margin-bottom: 10px; }
     #project .cat-switch + .mat-flow-wrap { margin-top: -46px; }
 }
+/* „O nas” na telefonie (2026-11-05): po „Rozwiń” napisy z lewej odjeżdżają w lewo i znikają (animacja przewijania nadpisywała ich ukrycie) */
+@media (max-width: 768px) {
+    #about .mobile-about-labels.labels-hidden { opacity: 0; translate: -140% 0; pointer-events: none; }
+    #about .mobile-about-labels.labels-moving { transition: opacity 0.6s ease, translate 0.6s cubic-bezier(0.55, 0, 0.25, 1); }
+}
+
+/* Flagi języków w nagłówku (2026-11-05, zamiast logo ZA): PL / DE / EN, bieżący język w złotej ramce */
+.lang-flags { align-items: center; gap: 9px; margin-top: 0; margin-bottom: 0; }
+.lang-flag { display: block; line-height: 0; border: 1px solid rgba(255, 255, 255, 0.35); opacity: 0.75; transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+.lang-flag svg { display: block; width: 28px; height: 19px; }
+.lang-flag:hover, .lang-flag:focus-visible { opacity: 1; border-color: #B4943C; transform: translateY(-1px); outline: none; }
+.lang-flag.is-current { opacity: 1; border: 2px solid #B4943C; }
+@media (max-width: 768px) {
+    .lang-flags { gap: 7px; transform: none; }
+    .lang-flag svg { width: 22px; height: 15px; }
+}

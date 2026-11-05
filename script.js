@@ -540,10 +540,18 @@ function initializeMobileAboutAnimation() {
     if (!expandButton || !aboutSection || !mobileLabels || !collapseButton) return;
     
     let isExpanded = false;
+    // napisy „O Nas → ROZWIŃ” odjeżdżają w lewo / wracają z animacją tylko na czas przełączenia
+    // (na co dzień ich położenie steruje animacja przewijania — tam przejście CSS by ją opóźniało)
+    function animateLabels() {
+        mobileLabels.classList.add('labels-moving');
+        clearTimeout(animateLabels.t);
+        animateLabels.t = setTimeout(() => mobileLabels.classList.remove('labels-moving'), 750);
+    }
     
     // Funkcja do rozwijania sekcji
     function expandSection() {
         aboutSection.classList.add('about-expanded');
+        animateLabels();
         mobileLabels.classList.add('labels-hidden');
         
         // Dodanie klasy do pokazania tekstu z opóźnieniem (po zakończeniu animacji prostokąta)
@@ -558,6 +566,7 @@ function initializeMobileAboutAnimation() {
     function collapseSection() {
         aboutSection.classList.remove('about-expanded');
         aboutSection.classList.remove('content-visible');
+        animateLabels();
         mobileLabels.classList.remove('labels-hidden');
         isExpanded = false;
     }
@@ -1465,7 +1474,6 @@ function initCatalogSwitch(panes) {
     const label = btn.querySelector('.cat-switch-label');
     let cur = 0;
     let busy = false;
-    const OUT = '-110vw', IN = '110vw';
     const move = (el, x, animate) => {
         if (!animate) el.classList.add('cat-no-anim');
         el.style.setProperty('--catx', x);
@@ -1520,6 +1528,8 @@ function initCatalogSwitch(panes) {
         cur = to;
         swapPanes(from, to);
         btn.setAttribute('aria-label', 'Przełącz na: ' + panes[from].dataset.title);
+        // do akcesoriów: napisy zjeżdżają w lewo i wjeżdżają z prawej; z powrotem do materiałów — odwrotnie (jak kafelki)
+        const OUT = to === 1 ? '-110vw' : '110vw', IN = to === 1 ? '110vw' : '-110vw';
         if (reduce) {
             titleTxt.textContent = panes[to].dataset.title;
             label.textContent = panes[from].dataset.title;
