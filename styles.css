@@ -4936,3 +4936,8 @@ section:first-of-type {
 /* płynna zmiana wysokości sekcji przy przełączaniu katalogów (JS ustawia height na czas przejścia) */
 #project .cat-panes { transition: height 0.65s cubic-bezier(0.4, 0, 0.2, 1); }
 #project .cat-pane { align-self: start; }   /* panel nie rozciąga się do wysokości sekcji — pomiar nowej wysokości jest prawdziwy */
+/* komputer: wyższe pole tekstu kafelków akcesoriów (ostatni napis „Otwórz katalog” mieści się w całości); telefon bez zmian */
+@media (min-width: 769px) {
+    #project .mat-flow[data-flow="packed"] .mat-card-text { height: 132px; }
+    #project .mat-flow[data-flow="packed"] { height: calc(var(--cw) * 0.75 + 172px); }
+}
