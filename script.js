@@ -1493,6 +1493,9 @@ function initCatalogSwitch(panes) {
             inn.classList.add('is-current');
             return;
         }
+        // wysokość sekcji zmienia się płynnie (bez skoku sekcji poniżej): blokada obecnej wysokości, potem przejście do nowej
+        const box = out.parentElement;
+        box.style.height = box.offsetHeight + 'px';
         const stepOut = Math.min(90, 520 / Math.max(1, outCards.length));
         const stepIn = Math.min(90, 520 / Math.max(1, inCards.length));
         // kolejność: przy wyjeździe w lewo pierwszy rusza skrajny lewy; przy wyjeździe w prawo — skrajny prawy
@@ -1518,6 +1521,10 @@ function initCatalogSwitch(panes) {
             outFlow.classList.remove('cards-out-left', 'cards-out-right');
             void outFlow.offsetWidth;
             outFlow.classList.remove('cat-no-anim-cards');
+            const target = inn.offsetHeight;
+            box.style.height = target + 'px';
+            clearTimeout(box._hT);
+            box._hT = setTimeout(() => { box.style.height = ''; }, 750);
         }, outTime + 60);
     }
 

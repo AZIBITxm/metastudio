@@ -4933,3 +4933,6 @@ section:first-of-type {
     #project .mat-flow[data-flow="packed"] .mat-card-text { height: 116px; }
 }
 @media (max-width: 768px) { #project .mat-flow[data-flow="packed"] { height: calc(var(--cw) * 0.75 + 150px); } }
+/* płynna zmiana wysokości sekcji przy przełączaniu katalogów (JS ustawia height na czas przejścia) */
+#project .cat-panes { transition: height 0.65s cubic-bezier(0.4, 0, 0.2, 1); }
+#project .cat-pane { align-self: start; }   /* panel nie rozciąga się do wysokości sekcji — pomiar nowej wysokości jest prawdziwy */
