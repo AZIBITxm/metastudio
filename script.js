@@ -1332,19 +1332,50 @@ document.addEventListener('DOMContentLoaded', initializeMarquees);
 // klik w środkowy = Katalog materiałów; pod spodem opis środkowego). Zwraca false, gdy sekcji nie ma (DE/EN).
 // ==========================================
 function initializeMaterialFlow() {
-    const flow = document.querySelector('#project .mat-flow');
-    if (!flow) return false;
+    // KATALOG MATERIAŁÓW / AKCESORIÓW na stronie głównej (2026-11-05): dwa pokazy kafelków 3D w sekcji #project,
+    // przełącznik w nagłówku (materiały odjeżdżają w lewo, akcesoria wjeżdżają z prawej i odwrotnie).
+    // Każdy pokaz: 1. klik w boczny / przesunięcie palcem / strzałka = na środek, klik w środkowy = katalog;
+    // pod spodem opis środkowego kafelka. Akcesoria (14 grup) ułożone ciasno: boczne pod większym kątem, wszystkie widoczne.
+    const panes = Array.from(document.querySelectorAll('#project .cat-pane'));
+    if (!panes.length) return false;
+    panes.forEach(initFlowPane);
+    initCatalogSwitch(panes);
+    return true;
+}
+
+function initFlowPane(pane) {
+    const flow = pane.querySelector('.mat-flow');
+    if (!flow) return;
     const cards = Array.from(flow.querySelectorAll('.mat-card'));
-    const descs = Array.from(document.querySelectorAll('#project .mat-desc'));
-    const dots = Array.from(document.querySelectorAll('#project .mat-dot'));
-    let active = Math.floor(cards.length / 2);
+    const descs = Array.from(pane.querySelectorAll('.mat-desc'));
+    const dots = Array.from(pane.querySelectorAll('.mat-dot'));
+    const packed = flow.dataset.flow === 'packed';
+    let active = Math.floor(cards.length / 2);   // start od środka — wachlarz widoczny z obu stron
     let swiped = false;
 
     function layout(animateDesc) {
+        const mobile = window.matchMedia('(max-width: 768px)').matches;
         cards.forEach((c, i) => {
             const d = i - active;
-            c.style.setProperty('--d', d);
-            c.style.setProperty('--ad', Math.abs(d));
+            const ad = Math.abs(d);
+            const s = Math.sign(d);
+            let tx, tz, rot;
+            if (packed) {
+                // ciasno: pierwszy boczny wyraźnie odsunięty, kolejne co kawałek, wszystkie pod tym samym, większym kątem
+                const base = mobile ? 58 : 62, step = mobile ? 16 : 21;
+                tx = ad === 0 ? 0 : s * (base + (ad - 1) * step);
+                tz = ad === 0 ? 0 : -(200 + (ad - 1) * 45);
+                rot = ad === 0 ? 0 : -s * (mobile ? 60 : 58);
+            } else {
+                const shift = mobile ? 58 : 72, tilt = mobile ? 45 : 40;
+                tx = d * shift;
+                tz = -ad * 170;
+                rot = -d * tilt;
+            }
+            c.style.setProperty('--tx', tx + '%');
+            c.style.setProperty('--tz', tz + 'px');
+            c.style.setProperty('--rot', rot + 'deg');
+            c.style.setProperty('--ad', ad);
             c.classList.toggle('is-active', d === 0);
             c.setAttribute('aria-current', d === 0 ? 'true' : 'false');
         });
@@ -1364,6 +1395,7 @@ function initializeMaterialFlow() {
         active = i;
         layout(true);
     }
+    pane.goBy = (n) => go(active + n);
 
     cards.forEach((c, i) => {
         c.addEventListener('click', (e) => {
@@ -1373,6 +1405,9 @@ function initializeMaterialFlow() {
     flow.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') { go(active - 1); e.preventDefault(); }
         if (e.key === 'ArrowRight') { go(active + 1); e.preventDefault(); }
+    });
+    pane.querySelectorAll('.cat-arrow').forEach((b) => {
+        b.addEventListener('click', () => go(active + (b.classList.contains('cat-arrow-next') ? 1 : -1)));
     });
 
     // telefon: przesunięcie palcem w lewo / prawo
@@ -1393,22 +1428,38 @@ function initializeMaterialFlow() {
     }, { passive: true });
 
     layout(false);
+    window.addEventListener('resize', () => layout(false));
+}
 
-    // wjazd z lewej, gdy sekcja pojawi się na ekranie (raz)
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const enter = () => {
-        flow.classList.add('is-in');
-        setTimeout(() => flow.classList.add('is-ready'), reduce ? 0 : 1500);
+// Przełącznik „Katalog Materiałów ⇄ Katalog Akcesoriów” w nagłówku sekcji
+function initCatalogSwitch(panes) {
+    const btn = document.querySelector('#project .cat-switch');
+    const title = document.querySelector('#project > h2');
+    if (!btn || panes.length < 2) return;
+    let cur = 0;
+    const set = (i) => {
+        const p = panes[i];
+        title.textContent = p.dataset.title;
+        btn.querySelector('.cat-switch-label').textContent = panes[1 - i].dataset.title;
+        btn.setAttribute('aria-label', 'Przełącz na: ' + panes[1 - i].dataset.title);
     };
-    if (reduce || !('IntersectionObserver' in window)) {
-        enter();
-    } else {
-        const io = new IntersectionObserver((entries) => {
-            if (entries.some((en) => en.isIntersecting)) { io.disconnect(); enter(); }
-        }, { threshold: 0.3 });
-        io.observe(flow);
-    }
-    return true;
+    btn.addEventListener('click', () => {
+        const next = 1 - cur;
+        const toAcc = next === 1;                 // akcesoria wjeżdżają z prawej, materiały wracają z lewej
+        const out = panes[cur], inn = panes[next];
+        out.classList.remove('is-current');
+        out.classList.add(toAcc ? 'is-out-left' : 'is-out-right');
+        inn.style.transition = 'none';
+        inn.classList.remove('is-out-left', 'is-out-right');
+        inn.classList.add(toAcc ? 'is-out-right' : 'is-out-left');
+        void inn.offsetWidth;
+        inn.style.transition = '';
+        inn.classList.remove('is-out-left', 'is-out-right');
+        inn.classList.add('is-current');
+        cur = next;
+        set(cur);
+    });
+    set(0);
 }
 
 // ==========================================

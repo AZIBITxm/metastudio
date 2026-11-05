@@ -1,0 +1,114 @@
+/* Katalog akcesoriów (katalog-akcesoriow.html) — wzór: katalog-materialow.css; białe tło, czarny nagłówek ze złotą linią, bez zaokrągleń */
+* { box-sizing: border-box; }
+body { margin: 0; background: #fff; color: #1A1A1A; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.5; font-variant-numeric: lining-nums; }
+a { color: #8a6d2c; }
+[hidden] { display: none !important; }
+
+.ka-header { position: sticky; top: 0; z-index: 10; background: #1A1A1A; border-bottom: 2px solid #B4943C; padding: 12px 16px; text-align: center; }
+.ka-header img { height: 38px; width: auto; vertical-align: middle; }
+.ka-back { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #d4b58c; text-decoration: none; font-size: 26px; }
+
+.ka-main { max-width: 1240px; margin: 0 auto; padding: 8px 16px 48px; }
+h1 { font-size: 36px; margin: 18px 0 4px; }
+.ka-intro { margin: 0 0 18px; max-width: 780px; }
+
+/* Krok 1: kafelki grup — miniatura filmu u góry, podpis pod spodem */
+.ka-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 6px 0 8px; }
+.ka-cat { position: relative; display: flex; flex-direction: column; padding: 0; border: 1px solid #ecdcc3; background: #fff; color: #1A1A1A; font: inherit; text-align: left; cursor: pointer; overflow: hidden; transition: border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+.ka-cat-img { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #f3efe8; }
+.ka-cat-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.ka-cat-text { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; border-top: 3px solid transparent; transition: border-color 0.2s ease; }
+.ka-cat-name { font-size: 23px; font-weight: 700; line-height: 1.15; }
+.ka-cat-hint { font-size: 15px; color: #6b5a3a; }
+.ka-cat:hover, .ka-cat:focus-visible { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12); }
+.ka-cat:hover .ka-cat-img img, .ka-cat:focus-visible .ka-cat-img img { transform: scale(1.05); }
+.ka-cat[aria-pressed="true"] { border-color: #B4943C; box-shadow: 0 0 0 2px #B4943C; }
+.ka-cat[aria-pressed="true"] .ka-cat-text { border-top-color: #B4943C; }
+/* „Sprytne rozwiązania” — kafelek wyróżniony: czarny ze złotą ramką i etykietą */
+.ka-cat-special { background: #1A1A1A; color: #fff; border-color: #B4943C; }
+.ka-cat-special .ka-cat-hint { color: #d4b58c; }
+.ka-cat-badge { position: absolute; top: 10px; left: 10px; z-index: 1; background: #B4943C; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 10px; }
+
+/* Krok 2: grupa → pole rozwijane „Rodzaj” → opis i filmy */
+.ka-step2 { margin-top: 26px; scroll-margin-top: 80px; }
+.ka-cat-head h2 { margin: 0 0 4px; font-size: 30px; border-bottom: 2px solid #ecd2ad; padding-bottom: 6px; }
+.ka-cat-head p { margin: 6px 0 14px; max-width: 860px; }
+.ka-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+.ka-field { display: flex; flex-direction: column; gap: 2px; flex: 1 1 210px; max-width: 560px; }
+.ka-field > span { font-size: 14px; font-weight: 700; color: #8a6d2c; letter-spacing: 0.03em; }
+.ka-field select { font: inherit; font-size: 17px; padding: 8px 36px 8px 12px; border: 1px solid #d4b58c; border-radius: 0; color: #1A1A1A; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a6d2c' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.ka-field select:focus { outline: 2px solid #B4943C; outline-offset: 1px; }
+
+.ka-desc { margin-top: 14px; padding: 22px; border: 1px solid #ecdcc3; background: #fff; animation: kaIn 0.45s ease; }
+@keyframes kaIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.ka-desc h3 { margin: 0 0 8px; font-size: 27px; line-height: 1.2; }
+.ka-desc-text { margin: 0 0 8px; max-width: 900px; }
+.ka-prod { margin: 0 0 18px; font-size: 16px; color: #6b5a3a; }
+.ka-prod b { color: #8a6d2c; letter-spacing: 0.03em; }
+.ka-films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.ka-films.ka-one { grid-template-columns: minmax(0, 760px); }
+
+/* „Wszystkie”: wszystkie rodzaje grupy po kolei — komputer 2 kolumny kart, telefon 1 */
+.ka-desc-all { padding: 0; border: 0; }
+.ka-all { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.ka-all .ka-item { padding: 18px 18px 14px; border: 1px solid #ecdcc3; border-top: 3px solid #B4943C; background: #fff; scroll-margin-top: 80px; }
+.ka-all .ka-item-title { font-size: 23px; }
+.ka-all .ka-desc-text { font-size: 17px; }
+.ka-all .ka-prod { font-size: 15px; margin-bottom: 12px; }
+.ka-all .ka-films { gap: 14px; }
+.ka-all .ka-films.ka-one { grid-template-columns: minmax(0, 1fr); }
+.ka-all .ka-film figcaption { font-size: 14px; }
+.ka-all .ka-film-pion .ka-player { max-width: 100%; }
+.ka-all .ka-films.ka-one .ka-film-pion .ka-player { max-width: 300px; }
+.ka-only { margin-top: 12px; padding: 0; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #8a6d2c; cursor: pointer; }
+.ka-only:hover, .ka-only:focus-visible { color: #1A1A1A; text-decoration: underline; }
+.ka-desc-all .ka-ask { border-top: 0; padding-top: 0; }
+
+/* Film: najpierw miniatura z przyciskiem, po kliknięciu odtwarzacz */
+.ka-film { margin: 0; }
+.ka-player { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.ka-film-pion .ka-player { aspect-ratio: 9 / 16; max-width: 320px; }
+.ka-play { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; font: inherit; }
+.ka-play img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.2s ease, transform 0.5s ease; }
+.ka-play:hover img, .ka-play:focus-visible img { opacity: 1; transform: scale(1.03); }
+.ka-play-icon { position: absolute; left: 50%; top: 50%; width: 74px; height: 52px; transform: translate(-50%, -50%); background: rgba(26, 26, 26, 0.85); border: 2px solid #B4943C; transition: background 0.2s ease; }
+.ka-play-icon::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%); border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent #fff; }
+.ka-play:hover .ka-play-icon, .ka-play:focus-visible .ka-play-icon { background: #B4943C; }
+.ka-play-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.75)); color: #fff; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; }
+.ka-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ka-film figcaption { padding: 8px 0 0; font-size: 16px; line-height: 1.35; }
+.ka-film-title { display: block; font-weight: 700; }
+.ka-film-meta { display: block; color: #6b5a3a; }
+.ka-film-meta a { white-space: nowrap; }
+
+.ka-ask { margin: 22px 0 0; padding-top: 14px; border-top: 1px solid #ecdcc3; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.ka-ask p { margin: 0; font-style: italic; color: #6b5a3a; }
+.ka-btn { display: inline-flex; align-items: center; gap: 10px; font: inherit; font-size: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 9px 18px; border: 1px solid #B4943C; border-radius: 0; background: #fff; color: #1A1A1A; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.ka-btn:hover, .ka-btn:focus-visible { background: #B4943C; color: #fff; }
+
+.ka-note { margin-top: 32px; font-size: 14px; opacity: 0.75; }
+.ka-footer { text-align: center; padding: 18px; font-size: 15px; border-top: 1px solid #ecdcc3; }
+
+@media (max-width: 1000px) {
+  .ka-cats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .ka-cats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ka-films { grid-template-columns: minmax(0, 1fr); }
+  .ka-all { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .ka-all .ka-item { padding: 14px 14px 12px; }
+  .ka-all .ka-item-title { font-size: 21px; }
+  .ka-all .ka-film-pion .ka-player, .ka-film-pion .ka-player { max-width: 260px; }
+  .ka-field { max-width: none; flex-basis: 100%; }
+  .ka-cat-text { padding: 8px 10px 10px; }
+  .ka-cat-name { font-size: 18px; }
+  .ka-cat-hint { font-size: 13px; }
+  .ka-cat-badge { font-size: 11px; padding: 1px 7px; top: 6px; left: 6px; }
+  .ka-desc { padding: 14px; }
+  .ka-desc h3 { font-size: 23px; }
+  .ka-cat-head h2 { font-size: 26px; }
+  h1 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ka-desc { animation: none; }
+}

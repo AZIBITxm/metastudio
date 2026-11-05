@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog akcesoriów — Zanders Atelier</title>
+  <meta name="description" content="Katalog akcesoriów meblowych, które montujemy: zawiasy, otwieranie bez uchwytów, szuflady, podnośniki, cargo, narożniki, gniazdka, oświetlenie LED, garderoby i drzwi przesuwne. Każdy system pokazany na filmie producenta.">
+  <link rel="canonical" href="https://zandersatelier.com/katalog-akcesoriow.html">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1A1A1A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog-akcesoriow.css?v=2">
+</head>
+<body>
+  <header class="ka-header">
+    <a href="index-pl.html" class="ka-back" aria-label="Strona główna">←</a>
+    <a href="index-pl.html"><img src="logo/web/zanders-napis-400.webp" width="400" height="63" alt="Zanders Atelier — pracownia meblarska"></a>
+  </header>
+
+  <main class="ka-main">
+    <h1>Katalog akcesoriów</h1>
+    <p class="ka-intro">Wybierz grupę akcesoriów, a następnie rodzaj rozwiązania — przeczytaj, jak działa, i zobacz je na filmie.
+      Przykładowych producentów podajemy orientacyjnie; konkretny system dobierzemy do projektu i budżetu.</p>
+
+    <div class="ka-cats" id="ka-cats" aria-label="Grupa akcesoriów"></div>
+
+    <section class="ka-step2" id="ka-step2" hidden>
+      <div class="ka-cat-head">
+        <h2 id="ka-cat-name"></h2>
+        <p id="ka-cat-desc"></p>
+      </div>
+      <div class="ka-filters">
+        <label class="ka-field"><span>Rodzaj</span><select id="ka-kind"></select></label>
+      </div>
+      <article class="ka-desc" id="ka-desc" hidden></article>
+    </section>
+
+    <p class="ka-note">Filmy osadzone z serwisów ich autorów (YouTube, TikTok…) — prawa należą do autorów. Pod każdym filmem podajemy
+      autora i odnośnik do oryginału. Nazwy produktów i znaki towarowe należą do ich właścicieli.</p>
+  </main>
+
+  <footer class="ka-footer">&copy; Zanders Atelier · <a href="index-pl.html">Strona główna</a> · <a href="katalog-materialow.html">Katalog płyt i blatów</a></footer>
+
+  <script src="katalog-akcesoriow.js?v=3"></script>
+</body>
+</html>

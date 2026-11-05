@@ -1,0 +1,1588 @@
+{
+ "zaktualizowano": "2026-11-05",
+ "kategorie": [
+  {
+   "id": "zawiasy",
+   "nazwa": "Zawiasy",
+   "opis": "Zawiasy decydują o tym, jak otwierają się drzwi szafek: z cichym domykiem, szeroko w narożniku, bez blokowania szuflad wewnętrznych, całkiem niewidocznie albo z frontem chowanym w bok korpusu.",
+   "rodzaje": [
+    {
+     "id": "standardowy",
+     "nazwa": "Zawias standardowy z cichym domykiem",
+     "opis": "Zwykły zawias puszkowy do drzwi szafek z wbudowanym tłumikiem — drzwi domykają się same, cicho i miękko, niezależnie od siły pchnięcia. Występuje w wersjach nakładanej, bliźniaczej i wpuszczanej.",
+     "producenci": "Blum (CLIP top BLUMOTION), Hettich (Sensys), GTV",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "L7vcbtAq1u0",
+       "url": "https://www.youtube.com/watch?v=L7vcbtAq1u0",
+       "tytul": "CLIP top BLUMOTION in the daily kitchen work | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "170",
+     "nazwa": "Zawias 170°/175° do szafek narożnych + zawias uzupełniający",
+     "opis": "Zawias szerokokątny (ok. 170°) pozwala otworzyć drzwi szafki narożnej na pełną szerokość, dzięki czemu wnętrze jest dostępne bez przeszkód. W narożniku łamanym lub przy drzwiach składanych stosuje się dodatkowo zawias uzupełniający łączący dwa skrzydła.",
+     "producenci": "Blum (CLIP top 170° + zawias do drzwi łamanych), Hettich, GTV",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "4PeVw6nVYWc",
+       "url": "https://www.youtube.com/watch?v=4PeVw6nVYWc",
+       "tytul": "An Easy Walk Through of Using and Installing Blum 170° Hinges",
+       "autor": "Woodworker's Hardware",
+       "autorUrl": "https://www.youtube.com/@WoodworkersHardware",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "uskok",
+     "nazwa": "Zawias z uskokiem („zero protrusion”, ok. 155°) do szafek z szufladami wewnętrznymi",
+     "opis": "Po otwarciu front i zawias nie wchodzą w światło szafki, więc szuflady wewnętrzne za drzwiami wysuwają się bez blokowania. Kąt otwarcia ok. 155°; dla grubych frontów wersja 125°.",
+     "producenci": "Blum (CLIP top BLUMOTION 155° / 125° zero protrusion), Hettich, GRASS",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "-J3A1Oi1DuQ",
+       "url": "https://www.youtube.com/watch?v=-J3A1Oi1DuQ",
+       "tytul": "CLIP top BLUMOTION 155° with Integrated Soft Close",
+       "autor": "Blum USA",
+       "autorUrl": "https://www.youtube.com/@BlumInc",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "rHdtrPoksdw",
+       "url": "https://www.youtube.com/watch?v=rHdtrPoksdw",
+       "tytul": "What are 0 protrusion hinges? Blum has the answer",
+       "autor": "Blum Canada",
+       "autorUrl": "https://www.youtube.com/@BlumCanada",
+       "pion": true,
+       "mini": "hqdefault"
+      }
+     ]
+    },
+    {
+     "id": "ukryty",
+     "nazwa": "Zawias ukryty — wpuszczony w grubość frontu",
+     "opis": "Zawias schowany w grubości frontu i boku szafki: ani przy zamkniętych, ani przy otwartych drzwiach nie widać puszki ani ramienia. Salice Conecta jest całkowicie ukryty i ma cichy domyk (do drzwi drewnianych); Salice Air ma ok. 10 mm i współpracuje z frontami w profilach aluminiowych Salice.",
+     "producenci": "Salice (Conecta, Air)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "UBL2u1LQxRU",
+       "url": "https://www.youtube.com/watch?v=UBL2u1LQxRU",
+       "tytul": "Introducing Salice Conecta Hinges",
+       "autor": "Berenson Hardware Canada",
+       "autorUrl": "https://www.youtube.com/@berensonhardwarecanada",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "FC6X8C7YMHk",
+       "url": "https://www.youtube.com/watch?v=FC6X8C7YMHk",
+       "tytul": "Salice Air: The Fully Concealed Cabinet Hinge",
+       "autor": "Berenson Hardware Canada",
+       "autorUrl": "https://www.youtube.com/@berensonhardwarecanada",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "kieszeniowy",
+     "nazwa": "Zawias z frontem chowanym w bok szafki (system kieszeniowy)",
+     "opis": "Drzwi po otwarciu wsuwają się na prowadnicach w boczną kieszeń szafki i nie zajmują miejsca przed zabudową. Sprawdza się przy ukrytej kuchni, barku, „garażu” na AGD czy telewizorze w zabudowie.",
+     "producenci": "Blum (REVEGO), Häfele / HAWA (Concepta, Folding Concepta), Hettich",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "wOHlkacrruU",
+       "url": "https://www.youtube.com/watch?v=wOHlkacrruU",
+       "tytul": "REVEGO uno - Pocket system for single door applications | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "Av0KrriELuY",
+       "url": "https://www.youtube.com/watch?v=Av0KrriELuY",
+       "tytul": "REVEGO duo - Pocket system for double door applications | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "L7vcbtAq1u0"
+  },
+  {
+   "id": "bez-uchwytow",
+   "nazwa": "Otwieranie bez uchwytów",
+   "opis": "Fronty bez uchwytów otwiera się naciśnięciem, dotykiem z pomocą silniczka albo przez wnękę na palce w profilu aluminiowym. Meble wyglądają spokojniej i są łatwiejsze w utrzymaniu czystości.",
+   "rodzaje": [
+    {
+     "id": "nacisniecie",
+     "nazwa": "Otwieranie przez naciśnięcie (mechaniczne)",
+     "opis": "Lekkie naciśnięcie frontu uwalnia mechanizm, który wypycha drzwi lub szufladę — bez prądu i bez uchwytu.",
+     "producenci": "Blum (TIP-ON), Hettich (Push to open), GRASS",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "IrFWf_INUuI",
+       "url": "https://www.youtube.com/watch?v=IrFWf_INUuI",
+       "tytul": "TIP-ON for doors: Mechanical opening system for handleless doors | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "elektryczne",
+     "nazwa": "Otwieranie elektryczne (dotyk)",
+     "opis": "Silniczek otwiera szufladę lub podnośnik po lekkim dotknięciu frontu, a zamykanie odbywa się z cichym domykiem. Stosowane także przy zabudowanej lodówce i zmywarce.",
+     "producenci": "Blum (SERVO-DRIVE), Hettich (Easys), Häfele (Sensomatic)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "pbvUl125PAk",
+       "url": "https://www.youtube.com/watch?v=pbvUl125PAk",
+       "tytul": "SERVO-DRIVE – Open Sesame | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "fox_FreEuhM",
+       "url": "https://www.youtube.com/watch?v=fox_FreEuhM",
+       "tytul": "SERVO-DRIVE for AVENTOS: Electrical motion support system for lift systems | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "gola",
+     "nazwa": "Profil uchwytowy (Gola)",
+     "opis": "Aluminiowa wnęka na palce biegnąca wzdłuż frontów zastępuje uchwyty — w układzie poziomym lub pionowym. Front chwyta się od góry lub z boku, a zabudowa pozostaje gładka.",
+     "producenci": "Emuca (Gola-e), Häfele i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "bYHk928qVW4",
+       "url": "https://www.youtube.com/watch?v=bYHk928qVW4",
+       "tytul": "Cómo montar una cocina con el sistema de perfiles Gola-e - Emuca",
+       "autor": "emuca",
+       "autorUrl": "https://www.youtube.com/@Emuca-Group",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "-1w82mAMeZg",
+       "url": "https://www.youtube.com/watch?v=-1w82mAMeZg",
+       "tytul": "GOLA Profiles",
+       "autor": "Richelieu Hardware - HQ",
+       "autorUrl": "https://www.youtube.com/@RichelieuHardware",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "IrFWf_INUuI"
+  },
+  {
+   "id": "szuflady",
+   "nazwa": "Szuflady",
+   "opis": "Systemy szuflad różnią się grubością i kształtem boków, wysokością oraz wykończeniem. Każdy z nich może mieć cichy domyk albo otwieranie przez naciśnięcie (zob. „Szuflady — opcje”).",
+   "rodzaje": [
+    {
+     "id": "cienkoscienne",
+     "nazwa": "Szuflady cienkościenne",
+     "opis": "Nowoczesne szuflady z bardzo cienkimi, prostymi bokami metalowymi. Lekki wygląd, pełny wysuw i cichy domyk.",
+     "producenci": "Blum (LEGRABOX), GTV (Axis Pro), Hettich (AvanTech YOU), GRASS (Vionaro)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "UtfRqerLw48",
+       "url": "https://www.youtube.com/watch?v=UtfRqerLw48",
+       "tytul": "LEGRABOX - Experience Elegance | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "lln1L2JEeh4",
+       "url": "https://www.youtube.com/watch?v=lln1L2JEeh4",
+       "tytul": "AXIS PRO – instrukcja montażu / assembly instruction",
+       "autor": "GTV",
+       "autorUrl": "https://www.youtube.com/@gtv2062",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "standardowe",
+     "nazwa": "Szuflady standardowe (szersza ścianka)",
+     "opis": "Klasyczne szuflady metalowe z grubszym, podwójnym bokiem — sprawdzone rozwiązanie w korzystniejszej cenie, w kilku wysokościach i kolorach.",
+     "producenci": "Blum (TANDEMBOX), GTV (Modern Box), Hettich (InnoTech), GRASS (Nova Pro Scala)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "dV7lyvgZqq4",
+       "url": "https://www.youtube.com/watch?v=dV7lyvgZqq4",
+       "tytul": "TANDEMBOX Antaro Overview – Heights, Colours & Design Options",
+       "autor": "Interfit Furniture Components",
+       "autorUrl": "https://www.youtube.com/@interfitfurniturecomponent",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "wysokie",
+     "nazwa": "Szuflady cienkościenne wysokie",
+     "opis": "Wysokie szuflady na garnki, butelki i zapasy: cienki bok podniesiony relingiem albo ścianką szklaną lub metalową, która zatrzymuje zawartość.",
+     "producenci": "Blum (LEGRABOX — wysokie boki, relingi), GTV (Axis Pro Glass), Hettich",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "P-mTgIZvyTo",
+       "url": "https://www.youtube.com/watch?v=P-mTgIZvyTo",
+       "tytul": "LEGRABOX free: Design option for LEGRABOX box system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "dpLNuF2GjYA",
+       "url": "https://www.youtube.com/watch?v=dpLNuF2GjYA",
+       "tytul": "AXIS PRO GLASS",
+       "autor": "GTV",
+       "autorUrl": "https://www.youtube.com/@gtv2062",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "UtfRqerLw48"
+  },
+  {
+   "id": "szuflady-opcje",
+   "nazwa": "Szuflady — opcje",
+   "opis": "Dodatki, które można dobrać do każdego rodzaju szuflad: sposób otwierania, cichy domyk, wysokości i wyposażenie wnętrza.",
+   "rodzaje": [
+    {
+     "id": "tip-on",
+     "nazwa": "TIP-ON — otwieranie przez naciśnięcie",
+     "opis": "Szuflada bez uchwytu otwiera się po naciśnięciu frontu. TIP-ON BLUMOTION łączy otwieranie naciśnięciem z cichym domykiem; wersja elektryczna to SERVO-DRIVE.",
+     "producenci": "Blum (TIP-ON, TIP-ON BLUMOTION), Hettich (Push to open Silent), GRASS",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "bGRkZT22qpA",
+       "url": "https://www.youtube.com/watch?v=bGRkZT22qpA",
+       "tytul": "TIP-ON BLUMOTION for drawers: two functions - fascinatingly combined | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "_gv-unRqoKg",
+       "url": "https://www.youtube.com/watch?v=_gv-unRqoKg",
+       "tytul": "TIP-ON for LEGRABOX: Push to open for handleless box system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "cichy-domyk",
+     "nazwa": "Cichy domyk (BLUMOTION)",
+     "opis": "Tłumik w prowadnicy wyhamowuje szufladę na końcu drogi i dociąga ją do zamknięcia — bezgłośnie, także przy mocnym pchnięciu i ciężkiej zawartości.",
+     "producenci": "Blum (BLUMOTION), Hettich (Silent System), GTV",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "lRQQYQ13FoI",
+       "url": "https://www.youtube.com/watch?v=lRQQYQ13FoI",
+       "tytul": "TANDEM plus BLUMOTION Overview",
+       "autor": "Blum USA",
+       "autorUrl": "https://www.youtube.com/@BlumInc",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "wyposazenie",
+     "nazwa": "Różne wysokości + wyposażenie wnętrza",
+     "opis": "Szuflady niskie, średnie i wysokie oraz szuflady wewnętrzne ukryte za drzwiami. Wnętrze porządkują wkłady na sztućce, noże, przyprawy i talerze oraz przegrody na garnki i pokrywki.",
+     "producenci": "Blum (AMBIA-LINE, ORGA-LINE), Hettich, Kesseböhmer",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "71FSx8ofgdU",
+       "url": "https://www.youtube.com/watch?v=71FSx8ofgdU",
+       "tytul": "AMBIA-LINE - Organisation at its best | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "CdbQIPZBVKs",
+       "url": "https://www.youtube.com/watch?v=CdbQIPZBVKs",
+       "tytul": "AMBIA-LINE drawer frame: Inner dividing system for drawers | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "sztucce",
+     "nazwa": "Wkład na sztućce",
+     "opis": "Wkład z przegródkami dopasowany do szerokości szuflady — sztućce i drobne przybory mają stałe miejsca; są wersje do szuflad płytkich i szerokich.",
+     "producenci": "Blum (ORGA-LINE), Hettich, GTV, Peka",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "yryQ98AePwA",
+       "url": "https://www.youtube.com/watch?v=yryQ98AePwA",
+       "tytul": "Blum ORGA-LINE cutlery inserts",
+       "autor": "Clutterfree Kitchens",
+       "autorUrl": "https://www.youtube.com/@ClutterFreeKitchens",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "cP7OUcHZA3s",
+       "url": "https://www.youtube.com/watch?v=cP7OUcHZA3s",
+       "tytul": "Blum ORGA-LINE cutlery insert for wider drawers",
+       "autor": "Clutterfree Kitchens",
+       "autorUrl": "https://www.youtube.com/@ClutterFreeKitchens",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "noze",
+     "nazwa": "Uchwyt na noże w szufladzie",
+     "opis": "Wkład z gniazdami na noże montowany w szufladzie — ostrza są bezpieczne i nie zajmują blatu.",
+     "producenci": "Blum (ORGA-LINE), Hettich i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "FtnEC3z0VrE",
+       "url": "https://www.youtube.com/watch?v=FtnEC3z0VrE",
+       "tytul": "ORGA-LINE knife holder in the daily kitchen work | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "2Vr2DfEV8Ls",
+       "url": "https://www.youtube.com/watch?v=2Vr2DfEV8Ls",
+       "tytul": "Blum ORGA-LINE Knife Block",
+       "autor": "Peter Hay Kitchens Ltd",
+       "autorUrl": "https://www.youtube.com/@peterhaykitchensltd1568",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "przyprawy-talerze",
+     "nazwa": "Wkłady na talerze, przyprawy i folie",
+     "opis": "Uchwyt na talerze z przestawianymi kołkami (talerze w szufladzie zamiast w szafce górnej), wkład na przyprawy oraz podajnik folii i papieru do pieczenia.",
+     "producenci": "Blum (ORGA-LINE), Häfele",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "A7eXCrsZwMY",
+       "url": "https://www.youtube.com/watch?v=A7eXCrsZwMY",
+       "tytul": "ORGA-LINE kitchen accessories | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "vqldhFGoybM",
+       "url": "https://www.youtube.com/watch?v=vqldhFGoybM",
+       "tytul": "How to keep your plates organised in your Kichen Drawer | Häfele Australia",
+       "autor": "Häfele Australia",
+       "autorUrl": "https://www.youtube.com/@HafeleAus",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "syfon",
+     "nazwa": "Szuflada wokół syfonu (kuchnia, łazienka)",
+     "opis": "Szuflada w kształcie litery U omija syfon i rury pod zlewem lub umywalką, więc cała szafka zlewowa jest użyteczna i otwiera się jak zwykła szuflada.",
+     "producenci": "Blum, Hettich, Rev-A-Shelf (organizery w kształcie U)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "KLAiLkPWhzM",
+       "url": "https://www.youtube.com/watch?v=KLAiLkPWhzM",
+       "tytul": "More space and organisation in the sink cabinet | Blum Inspirations",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "cjX2XrqLU94",
+       "url": "https://www.youtube.com/watch?v=cjX2XrqLU94",
+       "tytul": "486 Series U-Shaped Vanity Pullout Organizer",
+       "autor": "REVASHELF",
+       "autorUrl": "https://www.youtube.com/@REVASHELF",
+       "mini": "mqdefault"
+      }
+     ]
+    }
+   ],
+   "miniatura": "bGRkZT22qpA"
+  },
+  {
+   "id": "podnosniki",
+   "nazwa": "Podnośniki szafek górnych",
+   "opis": "Podnośniki unoszą fronty szafek górnych do góry zamiast otwierać je na bok. Rodzaj ruchu dobiera się do wielkości frontu i wysokości szafki.",
+   "rodzaje": [
+    {
+     "id": "mala-klapa",
+     "nazwa": "Mała klapa uchylna (np. nad lodówką)",
+     "opis": "Niewielki front unosi się do góry na mechanizmie zamocowanym u góry szafki. Kompaktowe okucie mieści się nawet w płytkich szafkach, np. nad okapem.",
+     "producenci": "Blum (AVENTOS HK-XS, HK-S), Kesseböhmer",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "xP-ijqHWGb0",
+       "url": "https://www.youtube.com/watch?v=xP-ijqHWGb0",
+       "tytul": "AVENTOS HK-XS: Small stay lift system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "A_o4qONf5dA",
+       "url": "https://www.youtube.com/watch?v=A_o4qONf5dA",
+       "tytul": "AVENTOS HK-S: Small stay lift system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "klapa",
+     "nazwa": "Klapa uchylna",
+     "opis": "Front unosi się do góry i zatrzymuje w dowolnym położeniu; potrzebuje mało miejsca nad szafką.",
+     "producenci": "Blum (AVENTOS HK top), Hettich (Lift Advanced HK), GRASS (Kinvaro T-Slim)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "nJUFR_2j3R0",
+       "url": "https://www.youtube.com/watch?v=nJUFR_2j3R0",
+       "tytul": "AVENTOS HK top: lift system for stay lift fronts | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "nad-szafke",
+     "nazwa": "Front „do góry i nad szafkę”",
+     "opis": "Duży, jednoczęściowy front unosi się łukiem ponad korpus i nie zasłania wnętrza.",
+     "producenci": "Blum (AVENTOS HS), Hettich (Lift Advanced HS)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "YttO51ryjdk",
+       "url": "https://www.youtube.com/watch?v=YttO51ryjdk",
+       "tytul": "AVENTOS HS: Up & over lift system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "pionowy",
+     "nazwa": "Front podnoszony pionowo",
+     "opis": "Front jedzie równolegle do góry. Dobre rozwiązanie przy niskim suficie albo nad blatem z urządzeniami.",
+     "producenci": "Blum (AVENTOS HL), Hettich (Lift Advanced HL), GRASS (Kinvaro L-80)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "L5IYwpcycdw",
+       "url": "https://www.youtube.com/watch?v=L5IYwpcycdw",
+       "tytul": "AVENTOS HL: Lift up system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "skladany",
+     "nazwa": "Front składany (harmonijka)",
+     "opis": "Dwuczęściowy front składa się na pół i unosi do góry — do wysokich szafek górnych.",
+     "producenci": "Blum (AVENTOS HF), Hettich (Lift Advanced HF), GRASS (Kinvaro F-20)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "f60tZNHT-ME",
+       "url": "https://www.youtube.com/watch?v=f60tZNHT-ME",
+       "tytul": "AVENTOS HF: Bi-fold lift system | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "xP-ijqHWGb0"
+  },
+  {
+   "id": "cargo",
+   "nazwa": "Cargo, spiżarnie i kosze",
+   "opis": "Wysuwane kosze i półki wykorzystują każdy centymetr szafki — od wąskich wysuwów na przyprawy po wysokie spiżarnie i segregację odpadów pod zlewem.",
+   "rodzaje": [
+    {
+     "id": "cargo-waskie",
+     "nazwa": "Cargo dolne wąskie (15–30 cm)",
+     "opis": "Wąski wysuw z koszami na butelki, przyprawy i oleje — wykorzystuje resztki miejsca w zabudowie.",
+     "producenci": "Kesseböhmer, Peka (Snello), Rejs, GTV",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "378uWkKT6dQ",
+       "url": "https://www.youtube.com/watch?v=378uWkKT6dQ",
+       "tytul": "Kesseböhmer No 15 base unit pull out assembly",
+       "autor": "Kesseböhmer International",
+       "autorUrl": "https://www.youtube.com/@kessebohmerinternational1977",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "O047YvXbpcc",
+       "url": "https://www.youtube.com/watch?v=O047YvXbpcc",
+       "tytul": "Kessebohmer 150 mm Bottle Pull out Click-Fixx",
+       "autor": "Flanagan Fittings",
+       "autorUrl": "https://www.youtube.com/@flanaganfittings7667",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "cargo-wysokie",
+     "nazwa": "Cargo wysokie (spiżarnia wysuwana)",
+     "opis": "Cała zawartość wysokiej szafki wyjeżdża na zewnątrz razem z frontem; półki z relingami widać z obu stron.",
+     "producenci": "Kesseböhmer (DISPENSA), Peka (Pleno)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "pFw9DeGM5ZE",
+       "url": "https://www.youtube.com/watch?v=pFw9DeGM5ZE",
+       "tytul": "Kessebohmer Dispensa product video",
+       "autor": "Elraco Distributors",
+       "autorUrl": "https://www.youtube.com/@elracodistributors1094",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "qS9bMbO-vFo",
+       "url": "https://www.youtube.com/watch?v=qS9bMbO-vFo",
+       "tytul": "Kessebohmer Dispensa Tall Pull Out Video",
+       "autor": "Eastcoast Kitchens & Bedrooms",
+       "autorUrl": "https://www.youtube.com/@eastcoastkitchensbedrooms1937",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "tandem",
+     "nazwa": "Spiżarnia z koszami wyjeżdżającymi z drzwiami",
+     "opis": "Po otwarciu drzwi kosze zamocowane na drzwiach i kosze z wnętrza wysuwają się razem do przodu.",
+     "producenci": "Kesseböhmer (TANDEM)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "lqbtJpS7pGE",
+       "url": "https://www.youtube.com/watch?v=lqbtJpS7pGE",
+       "tytul": "Tandem Pantry - The Kesseboehmers",
+       "autor": "Häfele New Zealand",
+       "autorUrl": "https://www.youtube.com/@H%C3%A4feleNewZealand",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "z-sRTrd-E_g",
+       "url": "https://www.youtube.com/watch?v=z-sRTrd-E_g",
+       "tytul": "Kesseböhmer Tandem Larder",
+       "autor": "PWS Distributors Ltd",
+       "autorUrl": "https://www.youtube.com/@PwsUk",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "space-tower",
+     "nazwa": "Spiżarnia z szufladami wewnętrznymi",
+     "opis": "Wysoka szafka z drzwiami, za którymi są szuflady na pełnym wysuwie — każdą otwiera się osobno, z dostępem do zawartości z góry i z boków.",
+     "producenci": "Blum (SPACE TOWER), Hettich",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "XAh2U4QS7n8",
+       "url": "https://www.youtube.com/watch?v=XAh2U4QS7n8",
+       "tytul": "SPACE TOWER in the daily kitchen work | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "oA8xpdN_ay4",
+       "url": "https://www.youtube.com/watch?v=oA8xpdN_ay4",
+       "tytul": "SPACE TOWER | L'armoire à provisions ergonomique et modulable Blum",
+       "autor": "Blum France",
+       "autorUrl": "https://www.youtube.com/@BlumFrance",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "odpady",
+     "nazwa": "Pod zlew: segregacja odpadów",
+     "opis": "Wysuwane kosze do segregacji w szafce zlewowej, z cichym domykiem; opcjonalnie otwierane kolanem lub dotykiem.",
+     "producenci": "Hailo (Cargo Synchro), Peka (Oeko), Blanco (Select), GTV",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Fq6sKJ2IZYQ",
+       "url": "https://www.youtube.com/watch?v=Fq6sKJ2IZYQ",
+       "tytul": "Hailo Abfalltrennsystem Cargo Synchro mit elektrischer Öffnungsunterstützung Libero",
+       "autor": "kuechenkonsum",
+       "autorUrl": "https://www.youtube.com/@kuechenkonsum",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "reczniki",
+     "nazwa": "Wysuwany uchwyt na ręczniki",
+     "opis": "Wąski wysuw z prętami na ściereczki i ręczniki kuchenne, montowany w szafce dolnej albo w szczelinie ok. 15 cm — ręczniki schną poza zasięgiem wzroku.",
+     "producenci": "Kesseböhmer, Peka, Häfele i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "BGYRHB14rzw",
+       "url": "https://www.youtube.com/watch?v=BGYRHB14rzw",
+       "tytul": "Pull out unit for kitchen base cabinets with towel rails and soft close",
+       "autor": "Buller Ltd",
+       "autorUrl": "https://www.youtube.com/@bullerltd",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "qLmQUdxktKM",
+       "url": "https://www.youtube.com/watch?v=qLmQUdxktKM",
+       "tytul": "DIY Kitchens - 150mm pull out towel rail",
+       "autor": "DIY Kitchens",
+       "autorUrl": "https://www.youtube.com/@DIYKitchensUK",
+       "mini": "mqdefault"
+      }
+     ]
+    }
+   ],
+   "miniatura": "378uWkKT6dQ"
+  },
+  {
+   "id": "narozniki",
+   "nazwa": "Rozwiązania narożne",
+   "opis": "Narożnik to najtrudniejsze miejsce w kuchni. Okucia wyciągają zawartość z głębi szafki do użytkownika.",
+   "rodzaje": [
+    {
+     "id": "lemans",
+     "nazwa": "Narożnik z wyjeżdżającymi półkami (LeMans)",
+     "opis": "Półki o zaokrąglonym kształcie wyjeżdżają z narożnika jedna po drugiej, dając dostęp do całej zawartości.",
+     "producenci": "Kesseböhmer (LeMans)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "9ftkquZnu8k",
+       "url": "https://www.youtube.com/watch?v=9ftkquZnu8k",
+       "tytul": "Kesseböhmer LeMans corner unit",
+       "autor": "Kesseböhmer International",
+       "autorUrl": "https://www.youtube.com/@kessebohmerinternational1977",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "7gZayE8XasU",
+       "url": "https://www.youtube.com/watch?v=7gZayE8XasU",
+       "tytul": "Häfele Kesseböhmer LeMans II Corner System",
+       "autor": "Häfele New Zealand",
+       "autorUrl": "https://www.youtube.com/@H%C3%A4feleNewZealand",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "magic-corner",
+     "nazwa": "Magic Corner",
+     "opis": "Po otwarciu drzwi przednie kosze wyjeżdżają z szafki, a tylne przesuwają się z głębi narożnika do przodu.",
+     "producenci": "Kesseböhmer, Peka, Vauth-Sagel (VS COR), Rejs",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "EQHGQj5dbY8",
+       "url": "https://www.youtube.com/watch?v=EQHGQj5dbY8",
+       "tytul": "Kessebohmer Magic Corner product video",
+       "autor": "Elraco Distributors",
+       "autorUrl": "https://www.youtube.com/@elracodistributors1094",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "DZHVduf5uEg",
+       "url": "https://www.youtube.com/watch?v=DZHVduf5uEg",
+       "tytul": "Eckschrank Magic Corner Comfort - Bis in die hinterste Ecke von peka",
+       "autor": "Peka ",
+       "autorUrl": "https://www.youtube.com/@pekaswitzerland",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "karuzela",
+     "nazwa": "Karuzela narożna",
+     "opis": "Obrotowe półki w narożniku w kształcie litery L — zawartość podjeżdża do drzwi po obróceniu półki.",
+     "producenci": "Kesseböhmer (REVO) i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Hw8OfLLeG1k",
+       "url": "https://www.youtube.com/watch?v=Hw8OfLLeG1k",
+       "tytul": "Mechanizm do szafki kuchennej narożnej Kesseböhmer REVO 90",
+       "autor": "Zdrowe Kuchnie - meble kuchenne na wymiar",
+       "autorUrl": "https://www.youtube.com/@zdrowekuchnie-meblekuchenn1323",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "9ftkquZnu8k"
+  },
+  {
+   "id": "cokoly",
+   "nazwa": "Cokoły",
+   "opis": "Przestrzeń za cokołem pod szafkami dolnymi zwykle się marnuje — można w niej zmieścić płaską szufladę albo wysuwany stopień.",
+   "rodzaje": [
+    {
+     "id": "szuflada-cokol",
+     "nazwa": "Szuflada w cokole",
+     "opis": "Płaska szuflada w miejscu cokołu na blachy, ręczniki czy karmę; zwykle bez uchwytu, z otwieraniem przez naciśnięcie.",
+     "producenci": "Blum, Hettich, GTV; gotowe szuflady cokołowe różnych firm",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "3rwrRM8VG_4",
+       "url": "https://www.youtube.com/watch?v=3rwrRM8VG_4",
+       "tytul": "Plinth Pod in use in a kitchen. Perfect way to use the wasted space under your kitchen base units.",
+       "autor": "drawerboxes.co.uk",
+       "autorUrl": "https://www.youtube.com/@DrawerboxesCoUk-DIY",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "stopien",
+     "nazwa": "Wysuwany stopień w cokole",
+     "opis": "Stopień wysuwa się z cokołu po lekkim dotknięciu (nośność do 150 kg) i ułatwia sięgnięcie do górnych szafek; pod nim jest miejsce do przechowywania.",
+     "producenci": "Blum (SPACE STEP)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "8AwBk2nXeB0",
+       "url": "https://www.youtube.com/watch?v=8AwBk2nXeB0",
+       "tytul": "SPACE STEP – the plinth solution | Blum",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "T8DLi5ouRgs",
+       "url": "https://www.youtube.com/watch?v=T8DLi5ouRgs",
+       "tytul": "SPACE STEP: hidden helper in the plinth  | Blum Inspirations",
+       "autor": "Blum Group",
+       "autorUrl": "https://www.youtube.com/@BlumFurniturefittings",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "3rwrRM8VG_4"
+  },
+  {
+   "id": "windy",
+   "nazwa": "Opuszczane półki, windy i stoły",
+   "opis": "Mechanizmy, które przenoszą zawartość mebla na wygodną wysokość albo wyciągają z niego dodatkowy blat.",
+   "rodzaje": [
+    {
+     "id": "kosz-opuszczany",
+     "nazwa": "Opuszczany kosz w szafce górnej (ręczny lub elektryczny)",
+     "opis": "Kosz z półkami wychodzi z szafki górnej i zjeżdża na wysokość rąk — mechanicznie na sprężynie albo silnikiem.",
+     "producenci": "Kesseböhmer (iMove), Richelieu (Verti, elektryczny), Evolift (elektryczny)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "X10JNzf5AGU",
+       "url": "https://www.youtube.com/watch?v=X10JNzf5AGU",
+       "tytul": "iMove Pull-down Shelf for Wall Cabinets: Features and Benefits",
+       "autor": "Kesseböhmer USA",
+       "autorUrl": "https://www.youtube.com/@KesseboehmerUSA",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "SDuS0btbu5A",
+       "url": "https://www.youtube.com/watch?v=SDuS0btbu5A",
+       "tytul": "iMove pull-down system by Kesseboehmer",
+       "autor": "Kinetic Hardware Ltd健力裝飾五金",
+       "autorUrl": "https://www.youtube.com/@kinetichardwareltd1736",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "winda-agd",
+     "nazwa": "Winda na robot kuchenny (AGD)",
+     "opis": "Półka z ciężkim urządzeniem, np. mikserem planetarnym, wyjeżdża z szafki dolnej i unosi się na wysokość blatu.",
+     "producenci": "Rev-A-Shelf, Kesseböhmer (ChefsTable)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "To7JPhuVGFo",
+       "url": "https://www.youtube.com/watch?v=To7JPhuVGFo",
+       "tytul": "Mixer Lift Model # ML-MPHDSCCR-18 by Rev-A-Shelf",
+       "autor": "Straw and Co. Fine Woodwork",
+       "autorUrl": "https://www.youtube.com/@strawandco.finewoodwork1945",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "tv",
+     "nazwa": "Podnośnik telewizora w meblu",
+     "opis": "Telewizor chowa się w komodzie lub ławie (np. w nogach łóżka) i wyjeżdża elektrycznie na pilota.",
+     "producenci": "Firgelli, Häfele, Cabinet Tronix",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "xs5hr5oT1LU",
+       "url": "https://www.youtube.com/watch?v=xs5hr5oT1LU",
+       "tytul": "DIY TV Lift Cabinet - Build for End of Bed & Against Walls",
+       "autor": "Warren Nash",
+       "autorUrl": "https://www.youtube.com/@WarrenNash",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "4TDq98qK35U",
+       "url": "https://www.youtube.com/watch?v=4TDq98qK35U",
+       "tytul": "DIY Network - House Crashers with FIRGELLI® Automations TV Lift used - TV lift mechanism",
+       "autor": "FIRGELLI Automations",
+       "autorUrl": "https://www.youtube.com/@FirgelliAutogroup",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "stol",
+     "nazwa": "Stół / blat wysuwany z szafki",
+     "opis": "Blat stołu wysuwa się z miejsca szuflady lub szafki — dodatkowe miejsce do jedzenia i pracy, które po użyciu znika.",
+     "producenci": "Häfele (Top Flex, Rapid)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "LuzQeOVh-F0",
+       "url": "https://www.youtube.com/watch?v=LuzQeOVh-F0",
+       "tytul": "Meet Häfele's Pull-Out Table Fitting",
+       "autor": "HäfeleAmericaCo",
+       "autorUrl": "https://www.youtube.com/@h%C3%A4feleamerica",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "SDuS0btbu5A"
+  },
+  {
+   "id": "gniazdka",
+   "nazwa": "Gniazdka i ładowanie",
+   "opis": "Prąd tam, gdzie jest potrzebny, bez gniazd na widoku i kabli na blacie.",
+   "rodzaje": [
+    {
+     "id": "gniazdo-blat",
+     "nazwa": "Gniazdo wysuwane z blatu",
+     "opis": "Kolumna z gniazdami i USB chowa się w blacie i wysuwa ręcznie albo silnikiem; po schowaniu widać tylko pokrywkę.",
+     "producenci": "Evoline (Port), Bachmann (Twist 2)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "EIEm7-5supk",
+       "url": "https://www.youtube.com/watch?v=EIEm7-5supk",
+       "tytul": "EvolineStore   Port",
+       "autor": "EVOlineStore",
+       "autorUrl": "https://www.youtube.com/@evolinestore",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "6k6OJ4Vddm0",
+       "url": "https://www.youtube.com/watch?v=6k6OJ4Vddm0",
+       "tytul": "Kitchen pop up Power sockets EVOline Power Ports",
+       "autor": "surethom",
+       "autorUrl": "https://www.youtube.com/@surethom",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "gniazdo-szuflada",
+     "nazwa": "Gniazdo w szufladzie / pod szafką górną",
+     "opis": "Ładowanie telefonów i drobnego AGD w szufladzie albo z listwy pod szafką górną — bez kabli na blacie.",
+     "producenci": "Docking Drawer; listwy podszafkowe różnych firm",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Zfq16PELsWk",
+       "url": "https://www.youtube.com/watch?v=Zfq16PELsWk",
+       "tytul": "Docking Drawer Power Outlets",
+       "autor": "Hardware Hut",
+       "autorUrl": "https://www.youtube.com/@TheHardwareHut",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "cCr3Kfa3hLU",
+       "url": "https://www.youtube.com/watch?v=cCr3Kfa3hLU",
+       "tytul": "Power Outlets In a Drawer? Easier Than I Thought!",
+       "autor": "Fine Line Joinery",
+       "autorUrl": "https://www.youtube.com/@FineLineJoinery",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "qi",
+     "nazwa": "Ładowarka bezprzewodowa w blacie / pod blatem",
+     "opis": "Telefon ładuje się po położeniu na blacie: ładowarka montowana pod spodem działa przez kamień lub spiek do ok. 25 mm; są też wersje na pokrywce gniazda.",
+     "producenci": "Kew Labs, FreePower, Evoline (Square80 Qi)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "IrDnKjFuYfI",
+       "url": "https://www.youtube.com/watch?v=IrDnKjFuYfI",
+       "tytul": "Invisible wireless charging for kitchen countertops - Kew Labs",
+       "autor": "Kew Labs Wireless Charging",
+       "autorUrl": "https://www.youtube.com/@kewlabs",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "lazienka-gniazdo",
+     "nazwa": "Wysuwany organizer łazienkowy z gniazdem",
+     "opis": "Wąski wysuw w szafce łazienkowej z gniazdem elektrycznym i uchwytami na suszarkę, prostownicę czy golarkę — urządzenia zostają podłączone, a kable schowane.",
+     "producenci": "Rev-A-Shelf, Docking Drawer",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Bkjq6i7Ma_o",
+       "url": "https://www.youtube.com/watch?v=Bkjq6i7Ma_o",
+       "tytul": "445 VB Series Vanity Outlet Grooming Organizer | Overview",
+       "autor": "REVASHELF",
+       "autorUrl": "https://www.youtube.com/@REVASHELF",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "EIEm7-5supk"
+  },
+  {
+   "id": "led",
+   "nazwa": "Oświetlenie LED",
+   "opis": "Światło w meblach: nad blatem, na półkach, w witrynach oraz we wnętrzu szuflad i szaf.",
+   "rodzaje": [
+    {
+     "id": "profile-led",
+     "nazwa": "Profile LED pod szafkami i w meblach",
+     "opis": "Taśmy LED w profilach aluminiowych, nawierzchniowych i wpuszczanych, oświetlają blat, półki i witryny.",
+     "producenci": "Häfele (Loox5) i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "fR_ByhTslXo",
+       "url": "https://www.youtube.com/watch?v=fR_ByhTslXo",
+       "tytul": "Loox5 | Components and advantages",
+       "autor": "Häfele SE & Co KG",
+       "autorUrl": "https://www.youtube.com/@HaefeleDE",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "pHhVqwqg9NI",
+       "url": "https://www.youtube.com/watch?v=pHhVqwqg9NI",
+       "tytul": "Häfele Loox - the LED lighting system for furniture",
+       "autor": "Häfele Malaysia",
+       "autorUrl": "https://www.youtube.com/@H%C3%A4feleMalaysia-d6g",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "led-czujnik",
+     "nazwa": "Oświetlenie z czujnikiem (szuflady, szafy)",
+     "opis": "Światło zapala się samo po otwarciu szuflady lub drzwi i gaśnie po zamknięciu.",
+     "producenci": "Häfele (Loox5), Hettich (AvanTech YOU Illumination)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "nSdvsK9-qzU",
+       "url": "https://www.youtube.com/watch?v=nSdvsK9-qzU",
+       "tytul": "AvanTech YOU drawer system with light | Hettich",
+       "autor": "Hettich Group",
+       "autorUrl": "https://www.youtube.com/@HettichEnglish",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "fR_ByhTslXo"
+  },
+  {
+   "id": "garderoba",
+   "nazwa": "Garderoba",
+   "opis": "Okucia i wyposażenie, które porządkują szafę i garderobę: drążki, wysuwane wieszaki, wkłady do szuflad, buciarki, kosze na pranie, lustra, witryny i oświetlenie.",
+   "rodzaje": [
+    {
+     "id": "pantograf",
+     "nazwa": "Drążek opuszczany (pantograf) — ręczny lub elektryczny",
+     "opis": "Drążek w wysokiej szafie zjeżdża do wysokości rąk; dostępne wersje ręczne, elektryczne i z oświetleniem LED.",
+     "producenci": "Häfele, Servetto, Dacter (PL, elektryczny)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "YWeHIskd3PI",
+       "url": "https://www.youtube.com/watch?v=YWeHIskd3PI",
+       "tytul": "Meet Häfele's Pull Down Closet Rod",
+       "autor": "HäfeleAmericaCo",
+       "autorUrl": "https://www.youtube.com/@h%C3%A4feleamerica",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "5DKEhJ0TRJc",
+       "url": "https://www.youtube.com/watch?v=5DKEhJ0TRJc",
+       "tytul": "Meet Häfele's Motorized Closet Rod",
+       "autor": "HäfeleAmericaCo",
+       "autorUrl": "https://www.youtube.com/@h%C3%A4feleamerica",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "drazek-wysuwany",
+     "nazwa": "Drążek wysuwany do przodu",
+     "opis": "Krótki drążek na prowadnicy montowany w szafie prostopadle do frontu; wysuwa się do przodu, by przygotować ubrania na następny dzień albo odwiesić rzeczy na chwilę.",
+     "producenci": "Häfele, Rev-A-Shelf, systemy szaf różnych firm",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "19pzW6Une_8",
+       "url": "https://www.youtube.com/watch?v=19pzW6Une_8",
+       "tytul": "Closet Storage Idea - Slideout Valet Rod",
+       "autor": "EasyClosets",
+       "autorUrl": "https://www.youtube.com/@EasyClosets",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "spodniarka",
+     "nazwa": "Spodniarka wysuwana",
+     "opis": "Rama z rzędem prętów na prowadnicach z pełnym wysuwem — spodnie wiszą płasko, nie gniotą się i każdą parę widać po wysunięciu.",
+     "producenci": "Häfele (TAG Synergy), Peka, Kesseböhmer",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Wn_YcA6iLss",
+       "url": "https://www.youtube.com/watch?v=Wn_YcA6iLss",
+       "tytul": "Create More Closet Space | Hafele Synergy Pants Rack",
+       "autor": "ClosetMasters1",
+       "autorUrl": "https://www.youtube.com/@ClosetMasters1",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "sOBcobglTcQ",
+       "url": "https://www.youtube.com/watch?v=sOBcobglTcQ",
+       "tytul": "Tencon : Hafele Pull out Trouser Rack 600mm",
+       "autor": "Tencon Hardware Trading",
+       "autorUrl": "https://www.youtube.com/@tenconhardwaretrading3710",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "krawaty-paski",
+     "nazwa": "Wieszak wysuwany na krawaty i paski",
+     "opis": "Wąski wysuw z hakami lub przegródkami na krawaty, paski i apaszki, montowany z boku szafy lub pod półką.",
+     "producenci": "Häfele (TAG Synergy), Peka",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "_MpbjLy-brU",
+       "url": "https://www.youtube.com/watch?v=_MpbjLy-brU",
+       "tytul": "Easy Access to Ties and Accessories | Hafele Synergy Tie Rack",
+       "autor": "ClosetMasters1",
+       "autorUrl": "https://www.youtube.com/@ClosetMasters1",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "wklady-garderoba",
+     "nazwa": "Wkłady do szuflad: biżuteria, okulary, zegarki, skarpety",
+     "opis": "Wkłady z przegródkami (często wyłożone welurem) dzielą szufladę na pola na biżuterię, okulary, spinki, zegarki, skarpety czy bieliznę; bywają dwupoziomowe, z przesuwną tacą.",
+     "producenci": "Häfele, Peka, Closet Factory i producenci systemów garderób",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "JzsHf6qDBwo",
+       "url": "https://www.youtube.com/watch?v=JzsHf6qDBwo",
+       "tytul": "Custom Jewelry Drawers for Closet Systems",
+       "autor": "ClosetFactoryVideo",
+       "autorUrl": "https://www.youtube.com/@ClosetFactoryVideo",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "kTf4_IcI6Tc",
+       "url": "https://www.youtube.com/watch?v=kTf4_IcI6Tc",
+       "tytul": "Hafele   Organizer Tray |  Wardrobe💍 Jewellery Drawer | Wardrobe  Pullout Drawer Organizer |",
+       "autor": "GyanTechnical5",
+       "autorUrl": "https://www.youtube.com/@GyanTechnical5",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "buty-wysuwane",
+     "nazwa": "Buciarka wysuwana",
+     "opis": "Półki lub ramy na buty na prowadnicach z pełnym wysuwem — wszystkie pary widać od razu, nawet w głębokiej szafie.",
+     "producenci": "Häfele, Peka (Extendo), Kesseböhmer",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "G-WXPpwZcVU",
+       "url": "https://www.youtube.com/watch?v=G-WXPpwZcVU",
+       "tytul": "Extendo systems for living areas, shoes or wardrobes from peka",
+       "autor": "Peka ",
+       "autorUrl": "https://www.youtube.com/@pekaswitzerland",
+       "mini": "mqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "djSluRKo9EE",
+       "url": "https://www.youtube.com/watch?v=djSluRKo9EE",
+       "tytul": "HAFELE PULL-OUT SHOE RACK AND ROTATING SHOE RACK - 807.95.361",
+       "autor": "Hardware on wheels",
+       "autorUrl": "https://www.youtube.com/@hardwareonwheels1789",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "buty-obrotowe",
+     "nazwa": "Buciarka obrotowa",
+     "opis": "Obrotowa kolumna z półkami na buty montowana w szafie: po obróceniu każda para podjeżdża do drzwi, a w wąskiej szafie mieści się dużo obuwia.",
+     "producenci": "Häfele i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "6aaSHaIoeNk",
+       "url": "https://www.youtube.com/watch?v=6aaSHaIoeNk",
+       "tytul": "Hafele Revolving Shoe Rack",
+       "autor": "Design Indian Kitchen - Top Modular Kitchen Brand ",
+       "autorUrl": "https://www.youtube.com/@designindiankitchen",
+       "pion": true,
+       "mini": "hqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "mcaJPWGZkeo",
+       "url": "https://www.youtube.com/watch?v=mcaJPWGZkeo",
+       "tytul": "Hafele revolve shoe rack",
+       "autor": "Punit Patel",
+       "autorUrl": "https://www.youtube.com/@punitpatel1949",
+       "pion": true,
+       "mini": "hqdefault"
+      }
+     ]
+    },
+    {
+     "id": "kosz-pranie",
+     "nazwa": "Wysuwany kosz na pranie",
+     "opis": "Kosz lub worek na brudne ubrania na prowadnicach — wysuwany albo odchylany — schowany w szafie, garderobie lub szafce łazienkowej.",
+     "producenci": "Rev-A-Shelf, Häfele, Peka",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "HlX7-khT3tA",
+       "url": "https://www.youtube.com/watch?v=HlX7-khT3tA",
+       "tytul": "CSOHSL Hamper Pullout | Overview",
+       "autor": "REVASHELF",
+       "autorUrl": "https://www.youtube.com/@REVASHELF",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "deska",
+     "nazwa": "Deska do prasowania chowana w szufladzie",
+     "opis": "Pełnowymiarowa deska do prasowania rozkładana z szuflady lub zza frontu; po użyciu składa się i znika w meblu.",
+     "producenci": "Häfele (Ironfix), Rev-A-Shelf",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "Hif_0IGo2xk",
+       "url": "https://www.youtube.com/watch?v=Hif_0IGo2xk",
+       "tytul": "Hafele Ironfix Pull Out Ironing Board",
+       "autor": "superiorcabinets",
+       "autorUrl": "https://www.youtube.com/@superiorcabinets",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "oFNEzptXOXs",
+       "url": "https://www.youtube.com/watch?v=oFNEzptXOXs",
+       "tytul": "Häfele Ironfix Ironing Board",
+       "autor": "KitchenSource",
+       "autorUrl": "https://www.youtube.com/@KitchenSource",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "lustro",
+     "nazwa": "Wysuwane, obrotowe lustro",
+     "opis": "Lustro schowane w szafie wysuwa się i obraca, a po użyciu znika we wnętrzu.",
+     "producenci": "Häfele i inni",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "mCmB2bw6028",
+       "url": "https://www.youtube.com/watch?v=mCmB2bw6028",
+       "tytul": "Wardrobe Mirror Pull-out | Elegant, Minimalistic and Convenient",
+       "autor": "Ebco Solutions",
+       "autorUrl": "https://www.youtube.com/@EbcoSolutions",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "OYbDR-Wmcks",
+       "url": "https://www.youtube.com/watch?v=OYbDR-Wmcks",
+       "tytul": "The Premier and 3-Way Closet Mirrors | Overview",
+       "autor": "REVASHELF",
+       "autorUrl": "https://www.youtube.com/@REVASHELF",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "witryna",
+     "nazwa": "Szafa z frontami szklanymi (witryna w garderobie)",
+     "opis": "Drzwi szklane w ramach aluminiowych z oświetleniem wnętrza — ubrania, torebki czy buty są widoczne jak w butiku, a jednocześnie chronione przed kurzem.",
+     "producenci": "Ramy aluminiowe do frontów szklanych różnych producentów + oświetlenie LED",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "9vaf5JREfAU",
+       "url": "https://www.youtube.com/watch?v=9vaf5JREfAU",
+       "tytul": "Glass Profile door wardrobe with LED lights inside with sensor . #wardrobedesign #interiordesign",
+       "autor": "Elysian Design Studdio",
+       "autorUrl": "https://www.youtube.com/@elysiandesignstuddio",
+       "pion": true,
+       "mini": "hqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "OzuAESFf6Mc",
+       "url": "https://www.youtube.com/watch?v=OzuAESFf6Mc",
+       "tytul": "Lighted Glass Shelves and Extra Deep Drawers for the Perfect Closet",
+       "autor": "The1ClosetDoctor",
+       "autorUrl": "https://www.youtube.com/@The1ClosetDoctor",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "led-garderoba",
+     "nazwa": "Oświetlenie garderoby (drążki i profile z LED)",
+     "opis": "Drążek z wbudowaną taśmą LED albo profile świetlne przy bokach szafy, włączane czujnikiem ruchu lub otwarcia drzwi — ubrania dobrze widać w każdym zakątku.",
+     "producenci": "Hettich (Wardrobe Tube), Häfele (Loox5)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "9zyqv71u_44",
+       "url": "https://www.youtube.com/watch?v=9zyqv71u_44",
+       "tytul": "HETTICH WARDROBE TUBE (INTEGRATED LED LIGHT SYSTEM)",
+       "autor": "Hardware on wheels",
+       "autorUrl": "https://www.youtube.com/@hardwareonwheels1789",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "ILvshdjfxLc",
+       "url": "https://www.youtube.com/watch?v=ILvshdjfxLc",
+       "tytul": "Hafele Horizontal Linear Lights for Wardrobe - Installation",
+       "autor": "Hafele India",
+       "autorUrl": "https://www.youtube.com/@HafeleInd",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "YWeHIskd3PI"
+  },
+  {
+   "id": "drzwi",
+   "nazwa": "Drzwi przesuwne, składane i chowane",
+   "opis": "Systemy drzwi do szaf i zabudów wnękowych, które nie potrzebują miejsca na otwarcie skrzydła.",
+   "rodzaje": [
+    {
+     "id": "przesuwne",
+     "nazwa": "Drzwi przesuwne (szafy)",
+     "opis": "Drzwi jadą po prowadnicy górnej lub dolnej i nie potrzebują miejsca przed szafą.",
+     "producenci": "Hettich (TopLine, SlideLine), Häfele (Slido)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "N4z09G9pD1E",
+       "url": "https://www.youtube.com/watch?v=N4z09G9pD1E",
+       "tytul": "Sliding door system TopLine L: The new convenience generation",
+       "autor": "Hettich Group",
+       "autorUrl": "https://www.youtube.com/@HettichEnglish",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "harmonijka",
+     "nazwa": "Drzwi składane (harmonijka)",
+     "opis": "Skrzydła składają się przy otwieraniu i odsłaniają prawie całą szerokość szafy.",
+     "producenci": "Hettich (WingLine), Häfele",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "fj9RMAr-ibE",
+       "url": "https://www.youtube.com/watch?v=fj9RMAr-ibE",
+       "tytul": "Folding door system WingLine L: The new folding experience",
+       "autor": "Hettich Group",
+       "autorUrl": "https://www.youtube.com/@HettichEnglish",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "kieszen",
+     "nazwa": "Duże drzwi chowane w kieszeń (wnęki, ukryte kuchnie)",
+     "opis": "Wysokie skrzydła otwierają się i wsuwają w boczne kieszenie zabudowy — rozwinięcie systemu kieszeniowego z działu „Zawiasy”.",
+     "producenci": "Häfele / HAWA (Concepta, Folding Concepta), Blum (REVEGO)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "oLh6BPfZvQ0",
+       "url": "https://www.youtube.com/watch?v=oLh6BPfZvQ0",
+       "tytul": "Product Spotlight: Hawa Concepta & Folding Concepta from Häfele",
+       "autor": "HäfeleAmericaCo",
+       "autorUrl": "https://www.youtube.com/@h%C3%A4feleamerica",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "8Np4f9DQ_g0",
+       "url": "https://www.youtube.com/watch?v=8Np4f9DQ_g0",
+       "tytul": "Hawa Concepta | Folding Door Technology",
+       "autor": "Häfele UK Ltd",
+       "autorUrl": "https://www.youtube.com/@HafeleUKLimited",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "oLh6BPfZvQ0"
+  },
+  {
+   "id": "sprytne",
+   "nazwa": "Sprytne rozwiązania",
+   "opis": "Wybór ciekawych i nowych rozwiązań — także produkty z Chin bez znanej marki. Pokazujemy je jako inspirację; przed montażem sprawdzamy dostępność i zgodność z normami (CE).",
+   "rodzaje": [
+    {
+     "id": "kosz-elektryczny",
+     "nazwa": "Elektryczny kosz opuszczany do szafki górnej",
+     "opis": "Kosz zjeżdża z szafki górnej silnikiem po dotknięciu przycisku. Rozwiązanie popularne w Chinach; według jednej z ofert przy braku prądu nie da się go opuścić ręcznie.",
+     "producenci": "Oferty bez marki (Chiny), np. NUOMI — do sprawdzenia CE",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "tUEjCDEDoak",
+       "url": "https://www.youtube.com/watch?v=tUEjCDEDoak",
+       "tytul": "Professional Kitchen Hardware Electric Pull Down Storage Basket Automatic Cabinet Elevator Organizer",
+       "autor": "Carpenter Li",
+       "autorUrl": "https://www.youtube.com/@carpenterli",
+       "pion": true,
+       "mini": "hqdefault"
+      }
+     ]
+    },
+    {
+     "id": "gniazdo-qi",
+     "nazwa": "Gniazdo w blacie wysuwane silnikiem + ładowarka Qi",
+     "opis": "Kolumna z gniazdami wysuwa się sama po dotknięciu, a na pokrywce można bezprzewodowo ładować telefon.",
+     "producenci": "Produkty bez marki i dystrybutorzy (np. Simple Lighting, BOX15) — do sprawdzenia zgodności z normą PL",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "iVHr31iweFY",
+       "url": "https://www.youtube.com/watch?v=iVHr31iweFY",
+       "tytul": "Automatic Motorised Pop Up Plug Socket with Wireless QI Charger",
+       "autor": "Simple Lighting",
+       "autorUrl": "https://www.youtube.com/@Simplelightingcouk",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "YOIbQcxxFjA",
+       "url": "https://www.youtube.com/watch?v=YOIbQcxxFjA",
+       "tytul": "Motorised Pop Up Kitchen Socket with USB & Wireless Charging | BOX15",
+       "autor": "BOX15 a division of BPF",
+       "autorUrl": "https://www.youtube.com/@BOX15UK",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "gniazda-szynowe",
+     "nazwa": "Gniazda szynowe",
+     "opis": "Szyna montowana na ścianie, do której w dowolnym miejscu wpina się i przesuwa gniazda. W kuchni tylko wersje odporne na tłuszcz i wodę.",
+     "producenci": "Produkty bez marki (Chiny)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "uonFU5CVZ7s",
+       "url": "https://www.youtube.com/watch?v=uonFU5CVZ7s",
+       "tytul": "Track Socket Electric Power Extender Wall Slide Outlet Rail for Living Room kitchen",
+       "autor": "Toolsamazing Service",
+       "autorUrl": "https://www.youtube.com/@toolsamazingservice7313",
+       "mini": "mqdefault"
+      }
+     ]
+    },
+    {
+     "id": "garaz-agd",
+     "nazwa": "Garaż na AGD",
+     "opis": "Wnęka na blacie zamykana roletą, klapą albo frontem chowanym w bok — czajnik, ekspres i toster znikają z widoku.",
+     "producenci": "Rozwiązanie stolarskie + okucia (np. AVENTOS HL, REVEGO)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "vlZ75XCWpoM",
+       "url": "https://www.youtube.com/watch?v=vlZ75XCWpoM",
+       "tytul": "Pocket Door Appliance Garage",
+       "autor": "Granite State Cabinetry",
+       "autorUrl": "https://www.youtube.com/@GraniteStateCabinetry",
+       "mini": "hq720"
+      },
+      {
+       "platforma": "youtube",
+       "id": "YjKmEvX3nP0",
+       "url": "https://www.youtube.com/watch?v=YjKmEvX3nP0",
+       "tytul": "Make Your Kitchen Disappear! - Pocket Doors",
+       "autor": "Alisha Akhtar",
+       "autorUrl": "https://www.youtube.com/@_alishaakhtar",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "sejf",
+     "nazwa": "Ukryta szuflada-sejf na odcisk palca",
+     "opis": "Szuflada otwiera się dopiero po przyłożeniu palca do czytnika; z zewnątrz widać tylko czytnik.",
+     "producenci": "Diamond Cabinets (USA), Barska, Mycube",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "-V-lPp3-4lg",
+       "url": "https://www.youtube.com/watch?v=-V-lPp3-4lg",
+       "tytul": "Add a Fingerprint, Biometric Lock to Your Furniture",
+       "autor": "AmbGun",
+       "autorUrl": "https://www.youtube.com/@AmbGun",
+       "mini": "hq720"
+      }
+     ]
+    },
+    {
+     "id": "roomspin",
+     "nazwa": "Meble obrotowe Hettich RoomSpin",
+     "opis": "Okucie obrotowo-wychylne, dzięki któremu element mebla zmienia funkcję, np. biurko obraca się w regał — do małych mieszkań i wnętrz wielofunkcyjnych.",
+     "producenci": "Hettich (RoomSpin, seria SpinLine)",
+     "filmy": [
+      {
+       "platforma": "youtube",
+       "id": "zn5iAEMkVwQ",
+       "url": "https://www.youtube.com/watch?v=zn5iAEMkVwQ",
+       "tytul": "Hettich RoomSpin | Spin Your Space",
+       "autor": "Hettich India",
+       "autorUrl": "https://www.youtube.com/@HettichIndia",
+       "pion": true,
+       "mini": "hqdefault"
+      },
+      {
+       "platforma": "youtube",
+       "id": "-Evz7_BC7KM",
+       "url": "https://www.youtube.com/watch?v=-Evz7_BC7KM",
+       "tytul": "RoomSpin   Your Room Changer! Raumtransformation neu gedacht   Hettich",
+       "autor": "Schreinersicht",
+       "autorUrl": "https://www.youtube.com/@schreinersicht6739",
+       "mini": "hq720"
+      }
+     ]
+    }
+   ],
+   "miniatura": "iVHr31iweFY"
+  }
+ ]
+}

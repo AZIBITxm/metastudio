@@ -4740,3 +4740,70 @@ section:first-of-type {
 .scroll-banner[role="button"] { cursor: pointer; }
 /* pasek z hasłami: cyfry pełnej wysokości (Cormorant domyślnie ma cyfry nautyczne — małe, opadające) */
 .scroll-banner .mq { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+
+/* ==========================================
+   KATALOG MATERIAŁÓW ⇄ AKCESORIÓW (2026-11-05): dwa pokazy w #project, przełącznik w nagłówku, strzałki na komputerze.
+   Położenie kafelków liczy initFlowPane() w script.js (--tx, --tz, --rot, --ad).
+   ========================================== */
+#project .mat-card {
+    transform: translateX(var(--tx, 0%)) translateZ(var(--tz, 0px)) rotateY(var(--rot, 0deg));
+    z-index: calc(30 - var(--ad, 0));
+}
+/* przełącznik obok nagłówka */
+#project .cat-switch {
+    display: inline-flex; align-items: center; gap: 10px; vertical-align: middle; margin: 0 0 0 1.4rem;
+    padding: 9px 16px; border: 1px solid #B4943C; background: #fff; color: #1A1A1A; cursor: pointer;
+    font: inherit; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    translate: calc((1 - var(--sfx-a, 1)) * -160px - var(--sfx-x, 0) * 100px) 0;
+    opacity: calc(var(--sfx-a, 1) * (1 - var(--sfx-x, 0)));
+    transition: background 0.25s ease, color 0.25s ease;
+}
+#project .cat-switch-icon { color: #B4943C; font-size: 1.2rem; line-height: 1; transition: transform 0.4s ease, color 0.25s ease; }
+#project .cat-switch:hover, #project .cat-switch:focus-visible { background: #B4943C; color: #fff; outline: none; }
+#project .cat-switch:hover .cat-switch-icon { color: #fff; transform: rotate(180deg); }
+
+/* dwa pokazy jeden na drugim; przełączenie = odjazd w bok jednego i wjazd drugiego */
+#project .cat-panes { display: grid; }
+#project .cat-pane {
+    grid-area: 1 / 1; min-width: 0;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s ease, visibility 0s linear 0.7s;
+    transform: translateX(110%); opacity: 0; visibility: hidden;
+}
+#project .cat-pane.is-out-left { transform: translateX(-110%); }
+#project .cat-pane.is-out-right { transform: translateX(110%); }
+#project .cat-pane.is-current {
+    transform: none; opacity: 1; visibility: visible;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s ease, visibility 0s;
+}
+/* akcesoria: 14 kafelków ciasno, mniejsze karty */
+#project .mat-flow[data-flow="packed"] { --cw: 280px; height: calc(var(--cw) * 0.75 + 150px); perspective: 1300px; }
+#project .mat-flow[data-flow="packed"] .mat-card-name { font-size: 1.3rem; }
+/* dalsze kafelki tylko lekko przygaszone (inaczej przy 14 robiły się czarne) */
+#project .mat-flow[data-flow="packed"] .mat-card { filter: brightness(max(0.62, calc(1 - var(--ad, 0) * 0.07))); }
+/* miniatury YouTube (4:3 z czarnymi pasami) przycięte do samego kadru filmu */
+#project .mat-flow[data-flow="packed"] .mat-card-img img { scale: 1.34; }
+
+/* strzałki po bokach — tylko komputer (mysz) */
+#project .cat-stage { position: relative; }
+#project .cat-arrow {
+    display: none; position: absolute; top: calc(var(--cw, 340px) * 0.375 + 14px); z-index: 40; transform: translateY(-50%);
+    width: 48px; height: 48px; border: 1px solid #B4943C; background: rgba(255, 255, 255, 0.92); color: #8a6d2c;
+    font-size: 1.4rem; line-height: 1; cursor: pointer; transition: background 0.25s ease, color 0.25s ease;
+}
+#project .cat-arrow-prev { left: 0; }
+#project .cat-arrow-next { right: 0; }
+#project .cat-arrow:hover, #project .cat-arrow:focus-visible { background: #B4943C; color: #fff; outline: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+    #project .cat-arrow { display: block; }
+}
+#project .cat-stage-packed .cat-arrow { top: calc(280px * 0.375 + 14px); }
+
+@media (max-width: 768px) {
+    /* nagłówek sekcji na telefonie jest podniesiony o 100 px (translateY) — przycisk razem z nim, kafelki tuż pod przyciskiem */
+    #project .cat-switch { position: relative; z-index: 50; transform: translateY(-100px); margin: 0 1.25rem; font-size: 0.85rem; padding: 8px 14px; }
+    #project .cat-switch + .mat-flow-wrap { margin-top: -84px; }
+    #project .mat-flow[data-flow="packed"] { --cw: min(58vw, 260px); height: calc(var(--cw) * 0.75 + 128px); perspective: 900px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #project .cat-pane, #project .cat-pane.is-current { transition: none; }
+}

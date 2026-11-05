@@ -27,7 +27,7 @@
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Zanders Atelier", "url": "https://zandersatelier.com/", "logo": "https://zandersatelier.com/logo/web/icon-512.png", "image": "https://zandersatelier.com/tlo/web/og-1200x630.jpg", "email": "zandersatelier@gmail.com", "telephone": ["+48605126918", "+4915212403091"], "address": {"@type": "PostalAddress", "streetAddress": "Staromiejska 17e", "postalCode": "84-300", "addressLocality": "Lębork", "addressCountry": "PL"}, "areaServed": ["PL", "DE"], "description": "Zanders Atelier — projektowanie wnętrz i meble na wymiar do domów, restauracji i obiektów publicznych. Kompleksowo od koncepcji po realizację, bezpłatne spotkanie online z wizualizacją 3D."}</script>
-  <link rel="stylesheet" href="styles.css?v=20261105m">
+  <link rel="stylesheet" href="styles.css?v=20261105p">
   <link rel="stylesheet" href="modale/gallery-modal.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -381,42 +381,202 @@
 </section>
   <section id="project">
     <h2>Katalog Materiałów</h2>
+    <button type="button" class="cat-switch" aria-label="Przełącz na: Katalog Akcesoriów"><span class="cat-switch-icon" aria-hidden="true">⇄</span><span class="cat-switch-label">Katalog Akcesoriów</span></button>
     <div class="mat-flow-wrap">
-        <div class="mat-flow is-in is-ready" tabindex="0" aria-label="Katalog materiałów — przesuń, aby wybrać">
-            <a class="mat-card" href="katalog-materialow.html?typ=plyty" data-material="plyty-meblowe" style="--i:0">
-                <span class="mat-card-in">
-                    <span class="mat-card-img"><img src="materiały/fronty/web/płyty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Płyty laminowane"></span>
-                    <span class="mat-card-text"><span class="mat-card-name">Płyty laminowane</span><span class="mat-card-hint">korpusy, fronty, zabudowy</span><span class="mat-card-go">Otwórz katalog →</span></span>
-                </span>
-            </a>
-            <a class="mat-card" href="katalog-materialow.html?typ=fronty" data-material="fronty-meblowe" style="--i:1">
-                <span class="mat-card-in">
-                    <span class="mat-card-img"><img src="materiały/fronty/web/fronty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Fronty meblowe"></span>
-                    <span class="mat-card-text"><span class="mat-card-name">Fronty meblowe</span><span class="mat-card-hint">akrylowe, lakierowane, fornirowane i inne</span><span class="mat-card-go">Otwórz katalog →</span></span>
-                </span>
-            </a>
-            <a class="mat-card" href="katalog-materialow.html?typ=blaty" data-material="blaty" style="--i:2">
-                <span class="mat-card-in">
-                    <span class="mat-card-img"><img src="materiały/fronty/web/blaty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Blaty robocze"></span>
-                    <span class="mat-card-text"><span class="mat-card-name">Blaty robocze</span><span class="mat-card-hint">kuchnie, biurka, łazienki</span><span class="mat-card-go">Otwórz katalog →</span></span>
-                </span>
-            </a>
+      <div class="cat-panes">
+        <div class="cat-pane is-current" data-title="Katalog Materiałów">
+            <div class="cat-stage">
+            <div class="mat-flow is-in is-ready" data-flow="linear" tabindex="0" aria-label="Katalog materiałów — przesuń, aby wybrać">
+                        <a class="mat-card" href="katalog-materialow.html?typ=plyty" data-material="plyty-meblowe" style="--i:0">
+                            <span class="mat-card-in">
+                                <span class="mat-card-img"><img src="materiały/fronty/web/płyty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Płyty laminowane"></span>
+                                <span class="mat-card-text"><span class="mat-card-name">Płyty laminowane</span><span class="mat-card-hint">korpusy, fronty, zabudowy</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                            </span>
+                        </a>
+                        <a class="mat-card" href="katalog-materialow.html?typ=fronty" data-material="fronty-meblowe" style="--i:1">
+                            <span class="mat-card-in">
+                                <span class="mat-card-img"><img src="materiały/fronty/web/fronty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Fronty meblowe"></span>
+                                <span class="mat-card-text"><span class="mat-card-name">Fronty meblowe</span><span class="mat-card-hint">akrylowe, lakierowane, fornirowane i inne</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                            </span>
+                        </a>
+                        <a class="mat-card" href="katalog-materialow.html?typ=blaty" data-material="blaty" style="--i:2">
+                            <span class="mat-card-in">
+                                <span class="mat-card-img"><img src="materiały/fronty/web/blaty-800.webp" width="800" height="800" loading="lazy" decoding="async" alt="Blaty robocze"></span>
+                                <span class="mat-card-text"><span class="mat-card-name">Blaty robocze</span><span class="mat-card-hint">kuchnie, biurka, łazienki</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                            </span>
+                        </a>
+                    </div>
+            <button type="button" class="cat-arrow cat-arrow-prev" aria-label="Poprzedni">←</button>
+            <button type="button" class="cat-arrow cat-arrow-next" aria-label="Następny">→</button>
+            </div>
+    <div class="mat-dots" aria-hidden="true"><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span></div>
+            <div class="mat-descs" aria-live="polite">
+                <div class="mat-desc" id="plyty-meblowe-opis">
+                    <h3>Płyty Meblowe</h3>
+                    <p>Wszechstronne materiały kompozytowe od czołowych europejskich producentów takich jak Pfleiderer, Swiss Krono, Kronospan i Egger. Oferujemy płyty laminowane z wysoką odpornością na zarysowania, wilgoć i wysoką temperaturę oraz płyty HDF o zwiększonej gęstości z gładką powierzchnią idealną do dalszej obróbki. Każda płyta gwarantuje stabilność wymiarową i długotrwałą funkcjonalność.</p>
+                </div>
+                <div class="mat-desc" id="fronty-meblowe-opis">
+                    <h3>Fronty Meblowe</h3>
+                    <p>Elementy wykończeniowe szafek i mebli, które decydują o ich wyglądzie estetycznym i funkcjonalności. Oferujemy pełną gamę rozwiązań: fronty akrylowe z wyjątkową odpornością na uszkodzenia mechaniczne, lakierowane z możliwością pełnej personalizacji kolorów, fornirowane łączące piękno naturalnego drewna ze stabilnością, drewniane z litego drewna, szklane z ramkami aluminiowymi, gięte o zaokrąglonych krawędziach oraz frezowane z precyzyjnymi wzorami. Wszystkie fronty dostosowane do specyficznych wymagań każdego pomieszczenia.</p>
+                </div>
+                <div class="mat-desc" id="blaty-opis">
+                    <h3>Blaty</h3>
+                    <p>Funkcjonalne powierzchnie robocze, które są również kluczowym elementem dekoracyjnym nadającym charakter całemu wnętrzu. Oferujemy blaty laminowane z wysokociśnieniowym laminatem HPL imitującym fakturę drewna, kamienia czy betonu, spieki kwarcowe o niezwykłej twardości składające się w 90-95% z naturalnych kwarcytów, artystyczne blaty z żywicy epoksydowej z nieograniczonymi możliwościami personalizacji, blaty drewniane z litego drewna tworzące ciepłą atmosferę, luksusowe blaty kamienne z granitu i marmuru oraz innowacyjne blaty Solid Surface umożliwiające bezspoinowe połączenia. Każdy materiał gwarantuje trwałość, łatwość utrzymania i wyjątkowy efekt wizualny.</p>
+                </div>
+            </div>
         </div>
-        <div class="mat-dots" aria-hidden="true"><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span></div>
-        <div class="mat-descs" aria-live="polite">
-            <div class="mat-desc" id="plyty-meblowe-opis">
-                <h3>Płyty Meblowe</h3>
-                <p>Wszechstronne materiały kompozytowe od czołowych europejskich producentów takich jak Pfleiderer, Swiss Krono, Kronospan i Egger. Oferujemy płyty laminowane z wysoką odpornością na zarysowania, wilgoć i wysoką temperaturę oraz płyty HDF o zwiększonej gęstości z gładką powierzchnią idealną do dalszej obróbki. Każda płyta gwarantuje stabilność wymiarową i długotrwałą funkcjonalność.</p>
+        <div class="cat-pane" data-title="Katalog Akcesoriów">
+            <div class="cat-stage cat-stage-packed">
+            <div class="mat-flow is-in is-ready" data-flow="packed" tabindex="0" aria-label="Katalog akcesoriów — przesuń, aby wybrać">
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=zawiasy" data-kat="zawiasy" style="--i:0">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/L7vcbtAq1u0/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Zawiasy" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Zawiasy</span><span class="mat-card-hint">5 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=bez-uchwytow" data-kat="bez-uchwytow" style="--i:1">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/IrFWf_INUuI/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Otwieranie bez uchwytów" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Otwieranie bez uchwytów</span><span class="mat-card-hint">3 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=szuflady" data-kat="szuflady" style="--i:2">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/UtfRqerLw48/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Szuflady" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Szuflady</span><span class="mat-card-hint">3 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=szuflady-opcje" data-kat="szuflady-opcje" style="--i:3">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/bGRkZT22qpA/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Szuflady — opcje" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Szuflady — opcje</span><span class="mat-card-hint">7 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=podnosniki" data-kat="podnosniki" style="--i:4">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/xP-ijqHWGb0/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Podnośniki szafek górnych" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Podnośniki szafek górnych</span><span class="mat-card-hint">5 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=cargo" data-kat="cargo" style="--i:5">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/378uWkKT6dQ/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Cargo, spiżarnie i kosze" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Cargo, spiżarnie i kosze</span><span class="mat-card-hint">6 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=narozniki" data-kat="narozniki" style="--i:6">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/9ftkquZnu8k/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Rozwiązania narożne" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Rozwiązania narożne</span><span class="mat-card-hint">3 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=cokoly" data-kat="cokoly" style="--i:7">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/3rwrRM8VG_4/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Cokoły" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Cokoły</span><span class="mat-card-hint">2 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=windy" data-kat="windy" style="--i:8">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/SDuS0btbu5A/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Opuszczane półki, windy i stoły" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Opuszczane półki, windy i stoły</span><span class="mat-card-hint">4 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=gniazdka" data-kat="gniazdka" style="--i:9">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/EIEm7-5supk/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Gniazdka i ładowanie" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Gniazdka i ładowanie</span><span class="mat-card-hint">4 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=led" data-kat="led" style="--i:10">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/fR_ByhTslXo/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Oświetlenie LED" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Oświetlenie LED</span><span class="mat-card-hint">2 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=garderoba" data-kat="garderoba" style="--i:11">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/YWeHIskd3PI/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Garderoba" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Garderoba</span><span class="mat-card-hint">12 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card" href="katalog-akcesoriow.html?kat=drzwi" data-kat="drzwi" style="--i:12">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/oLh6BPfZvQ0/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Drzwi przesuwne, składane i chowane" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Drzwi przesuwne, składane i chowane</span><span class="mat-card-hint">3 rozwiązania</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
+                <a class="mat-card mat-card-smart" href="katalog-akcesoriow.html?kat=sprytne" data-kat="sprytne" style="--i:13">
+                    <span class="mat-card-in">
+                        <span class="mat-card-img"><img src="https://i.ytimg.com/vi/iVHr31iweFY/hqdefault.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Sprytne rozwiązania" referrerpolicy="no-referrer"></span>
+                        <span class="mat-card-text"><span class="mat-card-name">Sprytne rozwiązania</span><span class="mat-card-hint">6 rozwiązań</span><span class="mat-card-go">Otwórz katalog →</span></span>
+                    </span>
+                </a>
             </div>
-            <div class="mat-desc" id="fronty-meblowe-opis">
-                <h3>Fronty Meblowe</h3>
-                <p>Elementy wykończeniowe szafek i mebli, które decydują o ich wyglądzie estetycznym i funkcjonalności. Oferujemy pełną gamę rozwiązań: fronty akrylowe z wyjątkową odpornością na uszkodzenia mechaniczne, lakierowane z możliwością pełnej personalizacji kolorów, fornirowane łączące piękno naturalnego drewna ze stabilnością, drewniane z litego drewna, szklane z ramkami aluminiowymi, gięte o zaokrąglonych krawędziach oraz frezowane z precyzyjnymi wzorami. Wszystkie fronty dostosowane do specyficznych wymagań każdego pomieszczenia.</p>
+            <button type="button" class="cat-arrow cat-arrow-prev" aria-label="Poprzedni">←</button>
+            <button type="button" class="cat-arrow cat-arrow-next" aria-label="Następny">→</button>
             </div>
-            <div class="mat-desc" id="blaty-opis">
-                <h3>Blaty</h3>
-                <p>Funkcjonalne powierzchnie robocze, które są również kluczowym elementem dekoracyjnym nadającym charakter całemu wnętrzu. Oferujemy blaty laminowane z wysokociśnieniowym laminatem HPL imitującym fakturę drewna, kamienia czy betonu, spieki kwarcowe o niezwykłej twardości składające się w 90-95% z naturalnych kwarcytów, artystyczne blaty z żywicy epoksydowej z nieograniczonymi możliwościami personalizacji, blaty drewniane z litego drewna tworzące ciepłą atmosferę, luksusowe blaty kamienne z granitu i marmuru oraz innowacyjne blaty Solid Surface umożliwiające bezspoinowe połączenia. Każdy materiał gwarantuje trwałość, łatwość utrzymania i wyjątkowy efekt wizualny.</p>
+            <div class="mat-dots" aria-hidden="true"><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span><span class="mat-dot"></span></div>
+            <div class="mat-descs" aria-live="polite">
+                <div class="mat-desc" id="akc-zawiasy-opis">
+                    <h3>Zawiasy</h3>
+                    <p>Zawiasy decydują o tym, jak otwierają się drzwi szafek: z cichym domykiem, szeroko w narożniku, bez blokowania szuflad wewnętrznych, całkiem niewidocznie albo z frontem chowanym w bok korpusu.</p>
+                </div>
+                <div class="mat-desc" id="akc-bez-uchwytow-opis">
+                    <h3>Otwieranie bez uchwytów</h3>
+                    <p>Fronty bez uchwytów otwiera się naciśnięciem, dotykiem z pomocą silniczka albo przez wnękę na palce w profilu aluminiowym. Meble wyglądają spokojniej i są łatwiejsze w utrzymaniu czystości.</p>
+                </div>
+                <div class="mat-desc" id="akc-szuflady-opis">
+                    <h3>Szuflady</h3>
+                    <p>Systemy szuflad różnią się grubością i kształtem boków, wysokością oraz wykończeniem. Każdy z nich może mieć cichy domyk albo otwieranie przez naciśnięcie (zob. „Szuflady — opcje”).</p>
+                </div>
+                <div class="mat-desc" id="akc-szuflady-opcje-opis">
+                    <h3>Szuflady — opcje</h3>
+                    <p>Dodatki, które można dobrać do każdego rodzaju szuflad: sposób otwierania, cichy domyk, wysokości i wyposażenie wnętrza.</p>
+                </div>
+                <div class="mat-desc" id="akc-podnosniki-opis">
+                    <h3>Podnośniki szafek górnych</h3>
+                    <p>Podnośniki unoszą fronty szafek górnych do góry zamiast otwierać je na bok. Rodzaj ruchu dobiera się do wielkości frontu i wysokości szafki.</p>
+                </div>
+                <div class="mat-desc" id="akc-cargo-opis">
+                    <h3>Cargo, spiżarnie i kosze</h3>
+                    <p>Wysuwane kosze i półki wykorzystują każdy centymetr szafki — od wąskich wysuwów na przyprawy po wysokie spiżarnie i segregację odpadów pod zlewem.</p>
+                </div>
+                <div class="mat-desc" id="akc-narozniki-opis">
+                    <h3>Rozwiązania narożne</h3>
+                    <p>Narożnik to najtrudniejsze miejsce w kuchni. Okucia wyciągają zawartość z głębi szafki do użytkownika.</p>
+                </div>
+                <div class="mat-desc" id="akc-cokoly-opis">
+                    <h3>Cokoły</h3>
+                    <p>Przestrzeń za cokołem pod szafkami dolnymi zwykle się marnuje — można w niej zmieścić płaską szufladę albo wysuwany stopień.</p>
+                </div>
+                <div class="mat-desc" id="akc-windy-opis">
+                    <h3>Opuszczane półki, windy i stoły</h3>
+                    <p>Mechanizmy, które przenoszą zawartość mebla na wygodną wysokość albo wyciągają z niego dodatkowy blat.</p>
+                </div>
+                <div class="mat-desc" id="akc-gniazdka-opis">
+                    <h3>Gniazdka i ładowanie</h3>
+                    <p>Prąd tam, gdzie jest potrzebny, bez gniazd na widoku i kabli na blacie.</p>
+                </div>
+                <div class="mat-desc" id="akc-led-opis">
+                    <h3>Oświetlenie LED</h3>
+                    <p>Światło w meblach: nad blatem, na półkach, w witrynach oraz we wnętrzu szuflad i szaf.</p>
+                </div>
+                <div class="mat-desc" id="akc-garderoba-opis">
+                    <h3>Garderoba</h3>
+                    <p>Okucia i wyposażenie, które porządkują szafę i garderobę: drążki, wysuwane wieszaki, wkłady do szuflad, buciarki, kosze na pranie, lustra, witryny i oświetlenie.</p>
+                </div>
+                <div class="mat-desc" id="akc-drzwi-opis">
+                    <h3>Drzwi przesuwne, składane i chowane</h3>
+                    <p>Systemy drzwi do szaf i zabudów wnękowych, które nie potrzebują miejsca na otwarcie skrzydła.</p>
+                </div>
+                <div class="mat-desc" id="akc-sprytne-opis">
+                    <h3>Sprytne rozwiązania</h3>
+                    <p>Wybór ciekawych i nowych rozwiązań — także produkty z Chin bez znanej marki. Pokazujemy je jako inspirację; przed montażem sprawdzamy dostępność i zgodność z normami (CE).</p>
+                </div>
             </div>
         </div>
+      </div>
     </div>
   </section>
 
@@ -552,7 +712,7 @@
 
 
 
-  <script src="script.js?v=20261105g"></script>
+  <script src="script.js?v=20261105i"></script>
   <script src="inspiracje.js?v=4" defer></script>
   <script src="modale/gallery-modal.js?v=20261103f"></script>
   <script src="modale/katalog-materialow.js?v=1"></script>
