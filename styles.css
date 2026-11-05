@@ -4941,3 +4941,6 @@ section:first-of-type {
     #project .mat-flow[data-flow="packed"] .mat-card-text { height: 132px; }
     #project .mat-flow[data-flow="packed"] { height: calc(var(--cw) * 0.75 + 172px); }
 }
+/* płynna zmiana wysokości opisu przy przechodzeniu między kafelkami (sekcja poniżej przesuwa się łagodnie) */
+#project .mat-descs.desc-resizing { overflow: hidden; transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+#project .mat-descs { display: flow-root; box-sizing: border-box; }   /* marginesy opisu zawsze wewnątrz — animacja wysokości startuje bez podskoku */

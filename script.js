@@ -1390,6 +1390,9 @@ function initFlowPane(pane) {
             c.setAttribute('aria-current', i === near ? 'true' : 'false');
         });
         dots.forEach((el, i) => el.classList.toggle('is-active', i === active));
+        // przy zmianie kafelka wysokość opisu (i sekcji pod nim) zmienia się płynnie, nie skokiem
+        const descBox = descs.length ? descs[0].parentElement : null;
+        const oldH = animateDesc && descBox ? descBox.offsetHeight : 0;
         descs.forEach((el, i) => {
             el.hidden = i !== active;
             if (i === active && animateDesc) {
@@ -1398,6 +1401,21 @@ function initFlowPane(pane) {
                 el.classList.add('mat-desc-in');
             }
         });
+        if (animateDesc && descBox && oldH) {
+            descBox.style.height = '';
+            const newH = descBox.offsetHeight;
+            if (Math.abs(newH - oldH) > 2) {
+                descBox.style.height = oldH + 'px';
+                void descBox.offsetHeight;
+                descBox.classList.add('desc-resizing');
+                descBox.style.height = newH + 'px';
+                clearTimeout(descBox._t);
+                const done = () => { clearTimeout(descBox._t); descBox.removeEventListener('transitionend', onEnd); descBox.style.height = ''; descBox.classList.remove('desc-resizing'); };
+                const onEnd = (e) => { if (e.target === descBox && e.propertyName === 'height') done(); };
+                descBox.addEventListener('transitionend', onEnd);
+                descBox._t = setTimeout(done, 1200);   // zapas, gdyby zdarzenie końca nie przyszło
+            }
+        }
     }
     function go(i) {
         i = Math.max(0, Math.min(cards.length - 1, i));
