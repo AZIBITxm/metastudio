@@ -4831,3 +4831,39 @@ section:first-of-type {
 }
 /* przeciąganie palcem: kafelki idą za palcem bez opóźnienia */
 #project .mat-flow.is-dragging .mat-card { transition: none; }
+
+/* (2026-11-05, wg Adama) nagłówek: jeździ tylko napis, złota kreska (h2::after) zostaje */
+#project > h2 { transform: translateY(var(--h2y, 0px)); transition: none; }
+#project .cat-title-txt {
+    display: inline-block;
+    transform: translateX(var(--catx, 0px));
+    transition: transform 0.45s cubic-bezier(0.55, 0, 0.25, 1);
+}
+/* panele nie jeżdżą całe — jeżdżą pojedyncze kafelki */
+#project .cat-pane, #project .cat-pane.is-out-left, #project .cat-pane.is-out-right, #project .cat-pane.is-current {
+    transform: none; transition: none;
+}
+#project .cat-pane { opacity: 0; visibility: hidden; }
+#project .cat-pane.is-current { opacity: 1; visibility: visible; }
+#project .cat-pane .mat-dots, #project .cat-pane .mat-descs, #project .cat-pane .cat-arrow { transition: opacity 0.35s ease; }
+#project .cat-pane.pane-leaving .mat-dots, #project .cat-pane.pane-leaving .mat-descs, #project .cat-pane.pane-leaving .cat-arrow,
+#project .cat-pane.pane-entering .mat-dots, #project .cat-pane.pane-entering .mat-descs, #project .cat-pane.pane-entering .cat-arrow { opacity: 0; }
+#project .mat-flow.is-in.is-ready.cards-out-left .mat-card-in,
+#project .mat-flow.is-in.is-ready.cards-out-right .mat-card-in {
+    opacity: 0;
+    transition: transform 0.42s cubic-bezier(0.55, 0, 0.75, 0.3) calc(var(--o, 0) * var(--ostep, 60ms)),
+                opacity 0.25s ease calc(var(--o, 0) * var(--ostep, 60ms) + 0.17s);
+}
+#project .mat-flow.is-in.is-ready.cards-out-left .mat-card-in { transform: translateX(-120vw) rotateY(40deg); }
+#project .mat-flow.is-in.is-ready.cards-out-right .mat-card-in { transform: translateX(120vw) rotateY(-40deg); }
+/* wjazd: z pozycji poza ekranem na miejsce, po kolei */
+#project .mat-flow.is-in.is-ready .mat-card-in {
+    transition: transform 0.6s cubic-bezier(0.16, 0.8, 0.24, 1) calc(var(--o, 0) * var(--ostep, 0ms)),
+                opacity 0.4s ease calc(var(--o, 0) * var(--ostep, 0ms)), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+#project .mat-flow.cat-no-anim-cards .mat-card-in { transition: none !important; }
+@media (max-width: 768px) {
+    /* telefon: szary napis bliżej kreski (jak odstęp napis–kreska), kafelki w tym samym miejscu co wcześniej */
+    #project > h2 { margin-bottom: 10px; }
+    #project .cat-switch + .mat-flow-wrap { margin-top: -46px; }
+}

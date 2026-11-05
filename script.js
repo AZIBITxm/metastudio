@@ -1454,12 +1454,14 @@ function initFlowPane(pane) {
 }
 
 // Przełącznik „Katalog Materiałów ⇄ Katalog Akcesoriów” (2026-11-05, wg Adama): duży czarny nagłówek + obok (telefon: pod nim)
-// szary napis ze strzałkami. Kliknięcie: 1) duży napis zjeżdża w lewo, 2) szary ze strzałkami zjeżdża w lewo,
-// 3) z prawej wjeżdża nowy duży napis, 4) na koniec z prawej wjeżdża szary napis ze strzałkami. Kafelki zmieniają się w tym samym czasie.
+// szary napis ze strzałkami. Kliknięcie: 1) duży napis zjeżdża w lewo (złota kreska pod nim ZOSTAJE), 2) szary ze strzałkami w lewo,
+// 3) z prawej wjeżdża nowy duży napis, 4) na koniec z prawej szary ze strzałkami.
+// Kafelki: stare odjeżdżają pojedynczo, jeden za drugim; nowe wjeżdżają pojedynczo z drugiej strony.
 function initCatalogSwitch(panes) {
     const btn = document.querySelector('#project .cat-switch');
     const title = document.querySelector('#project > h2');
     if (!btn || !title || panes.length < 2) return;
+    const titleTxt = title.querySelector('.cat-title-txt') || title;
     const label = btn.querySelector('.cat-switch-label');
     let cur = 0;
     let busy = false;
@@ -1469,20 +1471,48 @@ function initCatalogSwitch(panes) {
         el.style.setProperty('--catx', x);
         if (!animate) { void el.offsetWidth; el.classList.remove('cat-no-anim'); }
     };
-    const swapPanes = (from, to) => {
-        const toAcc = to === 1;                       // akcesoria wjeżdżają z prawej, materiały wracają z lewej
-        const out = panes[from], inn = panes[to];
-        out.classList.remove('is-current');
-        out.classList.add(toAcc ? 'is-out-left' : 'is-out-right');
-        inn.style.transition = 'none';
-        inn.classList.remove('is-out-left', 'is-out-right');
-        inn.classList.add(toAcc ? 'is-out-right' : 'is-out-left');
-        void inn.offsetWidth;
-        inn.style.transition = '';
-        inn.classList.remove('is-out-left', 'is-out-right');
-        inn.classList.add('is-current');
-    };
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // kafelki: wyjazd pojedynczo (dir = 'left' | 'right'), potem wjazd pojedynczo z przeciwnej strony
+    function swapPanes(from, to) {
+        const toAcc = to === 1;
+        const out = panes[from], inn = panes[to];
+        const outFlow = out.querySelector('.mat-flow'), inFlow = inn.querySelector('.mat-flow');
+        const outCards = Array.from(outFlow.querySelectorAll('.mat-card'));
+        const inCards = Array.from(inFlow.querySelectorAll('.mat-card'));
+        if (reduce) {
+            out.classList.remove('is-current');
+            inn.classList.add('is-current');
+            return;
+        }
+        const stepOut = Math.min(90, 520 / Math.max(1, outCards.length));
+        const stepIn = Math.min(90, 520 / Math.max(1, inCards.length));
+        // kolejność: przy wyjeździe w lewo pierwszy rusza skrajny lewy; przy wyjeździe w prawo — skrajny prawy
+        outCards.forEach((c, i) => c.style.setProperty('--o', toAcc ? i : outCards.length - 1 - i));
+        inCards.forEach((c, i) => c.style.setProperty('--o', toAcc ? i : inCards.length - 1 - i));
+        outFlow.style.setProperty('--ostep', stepOut + 'ms');
+        inFlow.style.setProperty('--ostep', stepIn + 'ms');
+        out.classList.add('pane-leaving');
+        outFlow.classList.add(toAcc ? 'cards-out-left' : 'cards-out-right');
+        const outTime = (outCards.length - 1) * stepOut + 420;
+        setTimeout(() => {
+            // nowe kafelki ustawione poza ekranem po drugiej stronie, bez animacji
+            inFlow.classList.add('cat-no-anim-cards', toAcc ? 'cards-out-right' : 'cards-out-left');
+            inn.classList.add('is-current', 'pane-entering');
+            void inFlow.offsetWidth;
+            inFlow.classList.remove('cat-no-anim-cards', 'cards-out-left', 'cards-out-right');
+            requestAnimationFrame(() => inn.classList.remove('pane-entering'));
+            setTimeout(() => inFlow.style.removeProperty('--ostep'), (inCards.length - 1) * stepIn + 800);   // potem bez opóźnień (najechanie itp.)
+        }, Math.max(0, outTime - 180));
+        setTimeout(() => {
+            out.classList.remove('is-current', 'pane-leaving');
+            outFlow.classList.add('cat-no-anim-cards');
+            outFlow.classList.remove('cards-out-left', 'cards-out-right');
+            void outFlow.offsetWidth;
+            outFlow.classList.remove('cat-no-anim-cards');
+        }, outTime + 60);
+    }
+
     btn.addEventListener('click', () => {
         if (busy) return;
         busy = true;
@@ -1491,24 +1521,24 @@ function initCatalogSwitch(panes) {
         swapPanes(from, to);
         btn.setAttribute('aria-label', 'Przełącz na: ' + panes[from].dataset.title);
         if (reduce) {
-            title.textContent = panes[to].dataset.title;
+            titleTxt.textContent = panes[to].dataset.title;
             label.textContent = panes[from].dataset.title;
             busy = false;
             return;
         }
-        move(title, OUT, true);                                              // 1. duży napis w lewo
+        move(titleTxt, OUT, true);                                           // 1. duży napis w lewo (kreska zostaje)
         setTimeout(() => move(btn, OUT, true), 180);                         // 2. szary ze strzałkami w lewo
         setTimeout(() => {                                                   // 3. nowy duży napis z prawej
-            title.textContent = panes[to].dataset.title;
-            move(title, IN, false);
-            move(title, '0px', true);
+            titleTxt.textContent = panes[to].dataset.title;
+            move(titleTxt, IN, false);
+            move(titleTxt, '0px', true);
         }, 520);
         setTimeout(() => {                                                   // 4. na koniec szary napis ze strzałkami z prawej
             label.textContent = panes[from].dataset.title;
             move(btn, IN, false);
             move(btn, '0px', true);
         }, 800);
-        setTimeout(() => { busy = false; }, 1300);
+        setTimeout(() => { busy = false; }, 1500);
     });
 }
 
