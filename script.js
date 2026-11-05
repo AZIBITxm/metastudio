@@ -1353,19 +1353,20 @@ function initFlowPane(pane) {
     let active = Math.floor(cards.length / 2);   // start od środka — wachlarz widoczny z obu stron
     let swiped = false;
 
-    function layout(animateDesc) {
+    // pos = położenie (może być ułamkowe w trakcie przeciągania palcem)
+    function layout(animateDesc, pos = active) {
         const mobile = window.matchMedia('(max-width: 768px)').matches;
+        const near = Math.round(pos);
         cards.forEach((c, i) => {
-            const d = i - active;
+            const d = i - pos;
             const ad = Math.abs(d);
             const s = Math.sign(d);
             let tx, tz, rot;
             if (packed) {
                 // ciasno: pierwszy boczny wyraźnie odsunięty, kolejne co kawałek, wszystkie pod tym samym, większym kątem
-                const base = mobile ? 58 : 62, step = mobile ? 16 : 21;
-                tx = ad === 0 ? 0 : s * (base + (ad - 1) * step);
-                tz = ad === 0 ? 0 : -(200 + (ad - 1) * 45);
-                rot = ad === 0 ? 0 : -s * (mobile ? 60 : 58);
+                const base = mobile ? 58 : 62, step = mobile ? 16 : 21, ang = mobile ? 60 : 58;
+                if (ad < 1) { tx = d * base; tz = -200 * ad; rot = -d * ang; }
+                else { tx = s * (base + (ad - 1) * step); tz = -(200 + (ad - 1) * 45); rot = -s * ang; }
             } else {
                 const shift = mobile ? 58 : 72, tilt = mobile ? 45 : 40;
                 tx = d * shift;
@@ -1375,9 +1376,9 @@ function initFlowPane(pane) {
             c.style.setProperty('--tx', tx + '%');
             c.style.setProperty('--tz', tz + 'px');
             c.style.setProperty('--rot', rot + 'deg');
-            c.style.setProperty('--ad', ad);
-            c.classList.toggle('is-active', d === 0);
-            c.setAttribute('aria-current', d === 0 ? 'true' : 'false');
+            c.style.setProperty('--ad', Math.round(ad * 100) / 100);
+            c.classList.toggle('is-active', i === near);
+            c.setAttribute('aria-current', i === near ? 'true' : 'false');
         });
         dots.forEach((el, i) => el.classList.toggle('is-active', i === active));
         descs.forEach((el, i) => {
@@ -1410,21 +1411,42 @@ function initFlowPane(pane) {
         b.addEventListener('click', () => go(active + (b.classList.contains('cat-arrow-next') ? 1 : -1)));
     });
 
-    // telefon: przesunięcie palcem w lewo / prawo
-    let sx = 0, sy = 0, tracking = false;
+    // telefon: kafelki jadą za palcem (można przeciągnąć o kilka naraz), po puszczeniu lecą jeszcze rozpędem i zatrzymują się na najbliższym
+    let sx = 0, sy = 0, startPos = 0, pos = 0, lastX = 0, lastT = 0, vel = 0, decided = false, horiz = false, perTile = 1;
+    const clampPos = (v) => Math.max(-0.35, Math.min(cards.length - 1 + 0.35, v));
     flow.addEventListener('touchstart', (e) => {
-        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; tracking = true; swiped = false;
+        const t = e.touches[0];
+        sx = lastX = t.clientX; sy = t.clientY; lastT = performance.now();
+        startPos = pos = active; vel = 0; decided = false; horiz = false; swiped = false;
+        perTile = Math.max(40, (cards[0] ? cards[0].offsetWidth : 240) * (packed ? 0.36 : 0.55));
     }, { passive: true });
-    flow.addEventListener('touchend', (e) => {
-        if (!tracking) return;
-        tracking = false;
-        const t = e.changedTouches[0];
+    flow.addEventListener('touchmove', (e) => {
+        const t = e.touches[0];
         const dx = t.clientX - sx, dy = t.clientY - sy;
-        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-            swiped = true;
-            go(active + (dx < 0 ? 1 : -1));
-            setTimeout(() => { swiped = false; }, 400);
+        if (!decided && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+            decided = true;
+            horiz = Math.abs(dx) > Math.abs(dy) * 1.1;
+            if (horiz) flow.classList.add('is-dragging');
         }
+        if (!horiz) return;
+        const now = performance.now();
+        const v = (t.clientX - lastX) / Math.max(1, now - lastT);      // px/ms
+        vel = vel * 0.6 + v * 0.4;
+        lastX = t.clientX; lastT = now;
+        pos = clampPos(startPos - dx / perTile);
+        layout(false, pos);
+    }, { passive: true });
+    flow.addEventListener('touchend', () => {
+        if (!horiz) return;
+        horiz = false;
+        flow.classList.remove('is-dragging');
+        swiped = true;
+        const fling = performance.now() - lastT < 120 ? -vel * 190 / perTile : 0;   // szybkie machnięcie = dalej
+        const target = Math.max(0, Math.min(cards.length - 1, Math.round(pos + fling)));
+        const changed = target !== active;
+        active = target;
+        layout(changed);
+        setTimeout(() => { swiped = false; }, 350);
     }, { passive: true });
 
     layout(false);

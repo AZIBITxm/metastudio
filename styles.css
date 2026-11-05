@@ -4829,3 +4829,5 @@ section:first-of-type {
     #project .cat-switch { display: flex; width: max-content; margin: 0 1.25rem; padding: 0; font-size: 1.35rem; position: relative; z-index: 50; }
     #project .cat-switch-icon { font-size: 1.2rem; }
 }
+/* przeciąganie palcem: kafelki idą za palcem bez opóźnienia */
+#project .mat-flow.is-dragging .mat-card { transition: none; }
