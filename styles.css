@@ -4922,3 +4922,14 @@ section:first-of-type {
     translate: calc((1 - var(--kin)) * 75vw - var(--kx) * 75vw) 0;
     opacity: calc(var(--kin) * (1 - var(--kx)));
 }
+
+/* Katalogi: sekcja ma wysokość AKTUALNEGO panelu (ukryty panel nie zajmuje miejsca — fundacja bliżej przy krótszym opisie akcesoriów) */
+#project .cat-panes { position: relative; }
+#project .cat-pane:not(.is-current) { position: absolute; top: 0; left: 0; right: 0; }
+/* akcesoria: wszystkie kafelki tej samej wysokości (nazwa do 2 linijek, pole tekstu stałej wysokości) */
+#project .mat-flow[data-flow="packed"] .mat-card-text { height: 112px; box-sizing: border-box; overflow: hidden; }
+#project .mat-flow[data-flow="packed"] .mat-card-name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.3em; }
+@media (max-width: 768px) {
+    #project .mat-flow[data-flow="packed"] .mat-card-text { height: 116px; }
+}
+@media (max-width: 768px) { #project .mat-flow[data-flow="packed"] { height: calc(var(--cw) * 0.75 + 150px); } }
