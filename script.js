@@ -1604,6 +1604,8 @@ function initializeSectionScrollFx() {
         st.setProperty('--sfx-a', part(0));
         st.setProperty('--sfx-b', part(it.about && phone.matches ? 0.1 : 0.15));
         st.setProperty('--sfx-x', ease(it.x).toFixed(4));
+        st.setProperty('--sfx-p', it.p.toFixed(4));   // liniowe wejście — kafelki katalogów wjeżdżają po kolei
+        st.setProperty('--sfx-xl', it.x.toFixed(4));  // liniowe wyjście — kafelki wyjeżdżają po kolei
     }
     function frame() {
         let moving = false;

@@ -4910,3 +4910,15 @@ section:first-of-type {
 #project .cat-switch:hover .cat-switch-icon { animation: none; }
 @media (max-width: 768px) { #project .cat-switch-hint { font-size: 0.72rem; } }
 @media (prefers-reduced-motion: reduce) { #project .cat-switch-icon { animation: none; } }
+
+/* Katalogi (2026-11-05, wg Adama): przy przewijaniu kafelki wjeżdżają z prawej i wyjeżdżają w lewo POJEDYNCZO, jeden za drugim
+   (zamiast całego pasa naraz). Postęp: --sfx-p / --sfx-xl z initializeSectionScrollFx; --i = numer kafelka; --st = odstęp, --du = czas jednego. */
+#project .mat-flow { translate: none; opacity: 1; }
+#project .mat-flow[data-flow="linear"] { --st: 0.2; --du: 0.55; }
+#project .mat-flow[data-flow="packed"] { --st: 0.034; --du: 0.5; }
+#project .mat-flow.is-in.is-ready .mat-card-in {
+    --kin: clamp(0, calc((var(--sfx-p, 1) - var(--i, 0) * var(--st, 0.1)) / var(--du, 0.6)), 1);
+    --kx: clamp(0, calc((var(--sfx-xl, 0) - var(--i, 0) * var(--st, 0.1)) / var(--du, 0.6)), 1);
+    translate: calc((1 - var(--kin)) * 75vw - var(--kx) * 75vw) 0;
+    opacity: calc(var(--kin) * (1 - var(--kx)));
+}
