@@ -280,16 +280,23 @@
         const part = (t, from) => ease(clamp((t - from) / (1 - from)));
         let running = false;
         let ce = null, cx = null;   // wygładzone wartości: płynnie „doganiają” przewijanie zamiast skakać za kółkiem myszy
+        // Tablet / rozłożony Fold: baner kończy się wyżej niż na ¾ ekranu, więc sekcja jest widoczna od razu po wczytaniu.
+        // Wtedy nagłówek stoi od razu, a reszta wjeżdża sama (czasowo, po starcie strony), nie czeka na przewinięcie.
+        const ABOVE_FOLD = 0.75, INTRO_MS = 1300;
+        let t0 = null;
 
         function frame() {
             const r = root.getBoundingClientRect();
             const vh = window.innerHeight || 800;
-            const te = clamp((vh - r.top) / (vh * 0.8));                  // wejście: 0 → 1
+            const above = r.top + window.scrollY < vh * ABOVE_FOLD;      // sekcja widoczna bez przewijania
+            if (above && t0 === null) t0 = performance.now();
+            const intro = above ? ease(clamp((performance.now() - t0) / INTRO_MS)) : 0;
+            const te = Math.max(clamp((vh - r.top) / (vh * 0.8)), intro);  // wejście: 0 → 1
             const tx = clamp((vh * 0.45 - r.bottom) / (vh * 0.4));        // wyjście: 0 → 1
             const far = r.bottom < -100 || r.top > vh + 100;
             if (ce === null || far) { ce = te; cx = tx; }
             else { ce += (te - ce) * 0.16; cx += (tx - cx) * 0.16; if (Math.abs(te - ce) < 0.002) ce = te; if (Math.abs(tx - cx) < 0.002) cx = tx; }
-            running = ce !== te || cx !== tx;
+            running = ce !== te || cx !== tx || (above && intro < 1);
             if (running) requestAnimationFrame(frame);
             if (far) return;
             const mobile = !window.matchMedia('(min-width: 900px)').matches;
@@ -297,7 +304,7 @@
             const x = ease(cx);
             const set = (el, tf, v) => { el.style.transform = tf; el.style.opacity = v.toFixed(3); };
 
-            const eh = part(e, 0);
+            const eh = above ? 1 : part(e, 0);   // nagłówek sekcji widocznej od razu — bez wjazdu
             set(head, `translate3d(${-90 * (1 - eh)}px, ${-40 * x}px, 0)`, eh * (1 - x));
             const ei = part(e, 0.15);
             set(info, mobile ? `translate3d(0, ${50 * (1 - ei) - 40 * x}px, 0)` : `translate3d(${-160 * (1 - ei) - 80 * x}px, 0, 0)`, ei * (1 - x));
