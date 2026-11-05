@@ -123,7 +123,8 @@
     let autoShown = false; // zbieranie kontaktu startuje samo najwyżej raz na rozmowę
 
     // Zbieranie kontaktu: null = zwykła rozmowa z konsultantem.
-    let collect = null; // { phone, name, email }
+    let collect = null; // { phone, name, email, when, whenDay }
+    let lastPicked = null; // ostatni dzień wybrany w kalendarzu: { day: 'YYYY-MM-DD', text }
     let chipsEl = null;
 
     function bubble(role, text, extraClass) {
@@ -237,6 +238,7 @@
                 if (!dateInp.value) return;
                 const d = new Date(dateInp.value + 'T12:00:00');
                 inp.value = d.toLocaleDateString(T.dateLocale, { weekday: 'long', day: 'numeric', month: 'long' }) + ', ';
+                lastPicked = { day: dateInp.value, text: inp.value.replace(/,\s*$/, '') };
                 err.textContent = '';
                 inp.focus();
                 inp.setSelectionRange(inp.value.length, inp.value.length);
@@ -256,6 +258,8 @@
                     collect.email = m;
                     askField(T.askWhen, T.fWhen, 'text', () => '', (w) => {
                         collect.when = w.slice(0, 120);
+                        // dzień z kalendarza wysyłamy osobno (dokładna data do przypomnienia), jeśli klient go nie skasował
+                        collect.whenDay = lastPicked && w.startsWith(lastPicked.text) ? lastPicked.day : '';
                         submitLead();
                     }, true, T.whenQuick);
                 }, true);
@@ -271,7 +275,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    lang: LANG, name: collect.name, phone: collect.phone, email: collect.email || '', termin: collect.when || '',
+                    lang: LANG, name: collect.name, phone: collect.phone, email: collect.email || '', termin: collect.when || '', termin_dzien: collect.whenDay || '',
                     need, consent: true, website: hp.value, messages: msgs,
                 }),
             });
