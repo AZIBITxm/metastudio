@@ -1639,3 +1639,15 @@ function initializeContactTiles(reduce) {
     }, { threshold: 0.35 });
     io.observe(box);
 }
+
+// Wybór języka w nagłówku: jedna flaga, po kliknięciu lista języków; zamyka kliknięcie poza listą i Esc
+(function () {
+    const box = document.querySelector('.lang-switch');
+    if (!box) return;
+    const btn = box.querySelector('.lang-current');
+    const menu = box.querySelector('.lang-menu');
+    const set = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', (e) => { e.stopPropagation(); set(menu.hidden); });
+    document.addEventListener('click', (e) => { if (!box.contains(e.target)) set(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+})();
