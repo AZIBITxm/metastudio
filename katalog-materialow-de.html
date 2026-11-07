@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materialkatalog — Zanders Atelier</title>
+  <meta name="description" content="Katalog der Materialien, aus denen wir Möbel fertigen: melaminbeschichtete Platten, Arbeitsplatten, Möbelfronten und HPL-Schichtstoffe von EGGER, Kronospan, Pfleiderer, SWISS KRONO, Aquafront und Niemann. Suche nach Dekorname und -code.">
+  <link rel="canonical" href="https://zandersatelier.com/katalog-materialow-de.html">
+  <link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-materialow.html">
+  <link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-materialow-de.html">
+  <link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-materialow-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-materialow-en.html">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1A1A1A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog-materialow.css?v=9">
+  <link rel="stylesheet" href="katalog-jezyk.css?v=2">
+</head>
+<body>
+  <header class="km-header">
+    <a href="index-de.html" class="km-back" aria-label="Startseite">←</a>
+    <a href="index-de.html"><img src="logo/web/zanders-napis-400.webp" width="400" height="63" alt="Zanders Atelier — Möbelwerkstatt"></a>
+    <div class="cat-lang" role="navigation" aria-label="Sprache der Seite"><button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false" aria-label="Sprache der Seite: Deutsch"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg><span class="lang-caret" aria-hidden="true">▾</span></button><div class="lang-menu" hidden><a href="katalog-materialow.html" hreflang="pl" lang="pl" class="lang-item"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#dc143c"/></svg><span>Polski</span></a><a href="katalog-materialow-de.html" hreflang="de" lang="de" class="lang-item is-current" aria-current="page"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg><span>Deutsch</span></a><a href="katalog-materialow-en.html" hreflang="en" lang="en" class="lang-item"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="flag-gb-m"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#flag-gb-m)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span>English</span></a></div></div>
+  </header>
+
+  <main class="km-main">
+    <h1>Materialkatalog</h1>
+    <p class="km-intro">Wählen Sie die Materialart, lesen Sie, was sie auszeichnet, und sehen Sie sich die verfügbaren Dekore der Hersteller an,
+      mit denen wir arbeiten. Nennen Sie uns einfach Name und Code des gewählten Dekors — wir stimmen es auf Ihr Projekt ab.</p>
+
+    <div class="km-types" id="km-types" aria-label="Materialart"></div>
+
+    <section class="km-step2" id="km-step2">
+      <div class="km-filters">
+        <label class="km-field km-field-kind" id="km-kind-field" hidden><span id="km-kind-label">Art</span><select id="km-kind"></select></label>
+      </div>
+      <article class="km-desc" id="km-desc" hidden></article>
+    </section>
+
+    <section class="km-browse" id="km-browse" hidden>
+      <div class="km-controls">
+        <div class="km-filters">
+          <label class="km-field"><span>Hersteller</span><select id="km-producer"></select></label>
+          <label class="km-field"><span>Dekor</span><select id="km-group"></select></label>
+          <label class="km-field km-field-search"><span>Suchen</span><input type="search" id="km-search" placeholder="z. B. Eiche, Beton, U646…" autocomplete="off"></label>
+        </div>
+        <p class="km-count" id="km-count" aria-live="polite"></p>
+      </div>
+      <div class="km-grid" id="km-grid"></div>
+      <p class="km-empty" id="km-empty" hidden>Keine Dekore für diese Kriterien.</p>
+    </section>
+
+    <p class="km-note">Die Dekorbilder stammen aus den Unterlagen der Hersteller (© EGGER, © Kronospan, © Pfleiderer, © SWISS KRONO, © Aquafront, © Niemann Polska). Farben auf dem Bildschirm
+      können von der Wirklichkeit abweichen — vor der Bestellung zeigen wir Ihnen ein echtes Muster.</p>
+  </main>
+
+  <div class="km-modal" id="km-modal" hidden>
+    <div class="km-modal-box" role="dialog" aria-modal="true" aria-labelledby="km-modal-name">
+      <button class="km-modal-close" id="km-modal-close" aria-label="Schließen">×</button>
+      <img id="km-modal-img" alt="">
+      <div class="km-modal-info">
+        <p class="km-modal-producer" id="km-modal-producer"></p>
+        <h2 id="km-modal-name"></h2>
+        <p class="km-modal-code" id="km-modal-code"></p>
+        <p class="km-modal-forms" id="km-modal-forms"></p>
+        <a id="km-modal-link" target="_blank" rel="noopener">Dekor beim Hersteller ansehen ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="km-footer">&copy; Zanders Atelier · <a href="index-de.html">Startseite</a> · <a href="katalog-akcesoriow-de.html">Zubehörkatalog</a></footer>
+
+  <script src="katalog-materialow.js?v=11"></script>
+  <script src="katalog-jezyk.js?v=1"></script>
+</body>
+</html>

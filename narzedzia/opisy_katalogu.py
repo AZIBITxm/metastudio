@@ -9,7 +9,8 @@ Bierze z dane/kategorie-materialow-zrodlo.html każdy blok <div class="material-
   - zdjęcie kategorii (.material-image img) — dla płyt/frontów/blatów (zdjęcia z pokazu na stronie głównej).
 Galerie odmian dokłada strona katalogu z dane/katalog-zrodla.json.
 
-Wynik: dane/opisy-materialow.json  {id: {"title", "html", "image"}}
+Wynik: dane/opisy-materialow.json (PL), -de.json, -en.json  {id: {"title", "html", "image"}}
+Źródła DE/EN: dane/kategorie-materialow-zrodlo-de.html / -en.html (dawne sekcje index-de/en).
 """
 import json
 import os
@@ -18,8 +19,12 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
-SRC = os.path.join('dane', 'kategorie-materialow-zrodlo.html')   # dawna sekcja ze strony głównej
-OUT = os.path.join('dane', 'opisy-materialow.json')
+# język → (źródło = dawna sekcja ze strony głównej, wynik)
+LANGS = {
+    'pl': ('dane/kategorie-materialow-zrodlo.html', 'dane/opisy-materialow.json'),
+    'de': ('dane/kategorie-materialow-zrodlo-de.html', 'dane/opisy-materialow-de.json'),
+    'en': ('dane/kategorie-materialow-zrodlo-en.html', 'dane/opisy-materialow-en.json'),
+}
 
 
 def block_end(doc, start):
@@ -32,8 +37,8 @@ def block_end(doc, start):
     return len(doc)
 
 
-def main():
-    doc = open(SRC, encoding='utf-8').read()
+def build(src, dst):
+    doc = open(src, encoding='utf-8').read()
     out = {}
     for m in re.finditer(r'<div class="material-info" id="([a-z0-9-]+)-info"[^>]*>', doc):
         mid = m.group(1)
@@ -52,8 +57,13 @@ def main():
             'html': html,
             'image': img.group(1) if img else '',
         }
-    json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print('opisów:', len(out), '| ze zdjęciem:', [k for k, v in out.items() if v['image']])
+    json.dump(out, open(dst, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print(dst, '— opisów:', len(out), '| ze zdjęciem:', [k for k, v in out.items() if v['image']])
+
+
+def main():
+    for src, dst in LANGS.values():
+        build(src, dst)
 
 
 if __name__ == '__main__':

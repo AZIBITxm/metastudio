@@ -47,7 +47,8 @@ THUMB = (480, 360)
 BIG = 1600
 
 PAGES = {'pl': 'dane/kategorie-materialow-zrodlo.html',   # PL: strona główna ma od 2026-11-04 sam pokaz 3 kafelków
-         'de': 'index-de.html', 'en': 'index-en.html'}
+         'de': 'dane/kategorie-materialow-zrodlo-de.html',   # DE/EN: od 2026-11-07 strony główne mają pokaz kafelków jak PL
+         'en': 'dane/kategorie-materialow-zrodlo-en.html'}
 TXT = {
     'pl': {'title': 'Odmiany — zdjęcia', 'note': 'Zdjęcia poglądowe — kliknij, aby powiększyć (autor i licencja w podpisie).',
            'photo': 'Fot.'},

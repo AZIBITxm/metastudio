@@ -6,8 +6,51 @@
 // Filmy ładowane leniwie: najpierw miniatura z przyciskiem, iframe dopiero po kliknięciu (szybkość strony).
 // Osadzamy oficjalnym odtwarzaczem platformy — nic nie pobieramy ani nie wgrywamy u siebie. Cen nie pokazujemy.
 // Parametry adresu: ?kat=<id grupy>&rodzaj=<id rodzaju> (bez „rodzaj” = Wszystkie)
+// Języki (2026-11-07): katalog-akcesoriow.html (PL), -de.html, -en.html — ten sam skrypt, język z <html lang>.
+// Teksty DE/EN: dane/akcesoria-de.json / -en.json (nakładka na akcesoria.json po tych samych id — generator jej nie nadpisuje).
 (function () {
     'use strict';
+
+    const LANG = ['de', 'en'].includes(document.documentElement.lang) ? document.documentElement.lang : 'pl';
+    const plural = (n) => `${n} ${n === 1 ? 'rodzaj' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'rodzaje' : 'rodzajów'}`;
+    const I18N = {
+        pl: {
+            badge: 'Nowości', kinds: plural, play: (t) => `Odtwórz film: ${t}`, playLab: (p) => `Odtwórz · ${p}`, author: 'Autor',
+            seeOn: (p) => `Zobacz na ${p} ↗`, producers: 'Przykładowi producenci:', noFilm: 'Film z tym rozwiązaniem pokażemy podczas spotkania.',
+            onlyThis: 'Pokaż tylko ten rodzaj →', askOne: 'Chcą Państwo takie rozwiązanie', askAll: 'Chcą Państwo któreś z tych rozwiązań',
+            askTail: 'w swoich meblach? Dobierzemy system do projektu.', askBtn: 'Zapytaj o to rozwiązanie', all: (n) => `Wszystkie (${n})`,
+            loadError: 'Nie udało się wczytać katalogu akcesoriów.', home: 'index-pl.html',
+        },
+        de: {
+            badge: 'Neuheiten', kinds: (n) => `${n} ${n === 1 ? 'Art' : 'Arten'}`, play: (t) => `Video abspielen: ${t}`, playLab: (p) => `Abspielen · ${p}`,
+            author: 'Autor', seeOn: (p) => `Auf ${p} ansehen ↗`, producers: 'Beispielhafte Hersteller:',
+            noFilm: 'Ein Video zu dieser Lösung zeigen wir Ihnen beim Termin.', onlyThis: 'Nur diese Art anzeigen →',
+            askOne: 'Möchten Sie diese Lösung', askAll: 'Möchten Sie eine dieser Lösungen', askTail: 'in Ihren Möbeln? Wir wählen das passende System für Ihr Projekt.',
+            askBtn: 'Nach dieser Lösung fragen', all: (n) => `Alle (${n})`, loadError: 'Der Zubehörkatalog konnte nicht geladen werden.', home: 'index-de.html',
+        },
+        en: {
+            badge: 'New', kinds: (n) => `${n} ${n === 1 ? 'type' : 'types'}`, play: (t) => `Play video: ${t}`, playLab: (p) => `Play · ${p}`,
+            author: 'Author', seeOn: (p) => `Watch on ${p} ↗`, producers: 'Example manufacturers:',
+            noFilm: 'We will show you a video of this solution at our meeting.', onlyThis: 'Show only this type →',
+            askOne: 'Would you like this solution', askAll: 'Would you like one of these solutions', askTail: 'in your furniture? We will choose the right system for your project.',
+            askBtn: 'Ask about this solution', all: (n) => `All (${n})`, loadError: 'The accessories catalogue could not be loaded.', home: 'index-en.html',
+        },
+    };
+    const T = I18N[LANG];
+
+    // Nakładka językowa: nazwy/opisy grup i rodzajów (filmy, id i miniatury bez zmian)
+    function applyLang(kat, tr) {
+        if (!tr) return kat;
+        kat.forEach((k) => {
+            const c = tr.kategorie && tr.kategorie[k.id];
+            if (c) { k.nazwa = c[0]; k.opis = c[1]; }
+            k.rodzaje.forEach((r) => {
+                const x = tr.rodzaje && tr.rodzaje[`${k.id}/${r.id}`];
+                if (x) { r.nazwa = x[0]; r.opis = x[1]; if (x[2]) r.producenci = x[2]; }
+            });
+        });
+        return kat;
+    }
 
     const $ = (id) => document.getElementById(id);
     const params = new URLSearchParams(location.search);
@@ -42,7 +85,7 @@
             b.type = 'button';
             b.className = 'ka-cat' + (k.id === 'sprytne' ? ' ka-cat-special' : '');
             b.setAttribute('aria-pressed', String(state.kat === k.id));
-            if (k.id === 'sprytne') b.insertAdjacentHTML('beforeend', '<span class="ka-cat-badge">Nowości</span>');
+            if (k.id === 'sprytne') b.insertAdjacentHTML('beforeend', `<span class="ka-cat-badge">${T.badge}</span>`);
             const pic = document.createElement('span');
             pic.className = 'ka-cat-img';
             const mf = k.rodzaje.flatMap((r) => r.filmy || []).find((f) => f.id === k.miniatura);
@@ -51,7 +94,7 @@
             b.insertAdjacentHTML('beforeend', '<span class="ka-cat-text"><span class="ka-cat-name"></span><span class="ka-cat-hint"></span></span>');
             b.querySelector('.ka-cat-name').textContent = k.nazwa;
             const n = k.rodzaje.length;
-            b.querySelector('.ka-cat-hint').textContent = `${n} ${n === 1 ? 'rodzaj' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'rodzaje' : 'rodzajów'}`;
+            b.querySelector('.ka-cat-hint').textContent = T.kinds(n);
             b.addEventListener('click', () => {
                 if (state.kat === k.id) { $('ka-step2').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
                 state.kat = k.id;
@@ -71,12 +114,12 @@
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'ka-play';
-        btn.setAttribute('aria-label', `Odtwórz film: ${f.tytul}`);
+        btn.setAttribute('aria-label', T.play(f.tytul));
         btn.appendChild(thumbImg(f));
         btn.insertAdjacentHTML('beforeend', '<span class="ka-play-icon" aria-hidden="true"></span>');
         const lab = document.createElement('span');
         lab.className = 'ka-play-label';
-        lab.textContent = `Odtwórz · ${PLATFORMA[f.platforma] || f.platforma}`;
+        lab.textContent = T.playLab(PLATFORMA[f.platforma] || f.platforma);
         btn.appendChild(lab);
         btn.addEventListener('click', () => {
             const ifr = document.createElement('iframe');
@@ -92,13 +135,13 @@
         fig.appendChild(player);
 
         const cap = document.createElement('figcaption');
-        cap.innerHTML = '<span class="ka-film-title"></span><span class="ka-film-meta">Autor: <a class="ka-film-author" target="_blank" rel="noopener"></a> · <a class="ka-film-src" target="_blank" rel="noopener"></a></span>';
+        cap.innerHTML = '<span class="ka-film-title"></span><span class="ka-film-meta">${T.author}: <a class="ka-film-author" target="_blank" rel="noopener"></a> · <a class="ka-film-src" target="_blank" rel="noopener"></a></span>';
         cap.querySelector('.ka-film-title').textContent = f.tytul;
         const a = cap.querySelector('.ka-film-author');
         a.textContent = f.autor;
         a.href = f.autorUrl || f.url;
         const s = cap.querySelector('.ka-film-src');
-        s.textContent = `Zobacz na ${PLATFORMA[f.platforma] || f.platforma} ↗`;
+        s.textContent = T.seeOn(PLATFORMA[f.platforma] || f.platforma);
         s.href = f.url;
         fig.appendChild(cap);
         return fig;
@@ -120,7 +163,7 @@
         if (r.producenci) {
             const pr = document.createElement('p');
             pr.className = 'ka-prod';
-            pr.innerHTML = '<b>Przykładowi producenci:</b> <span></span>';
+            pr.innerHTML = `<b>${T.producers}</b> <span></span>`;
             pr.querySelector('span').textContent = r.producenci;
             art.appendChild(pr);
         }
@@ -130,13 +173,13 @@
             r.filmy.forEach((f) => films.appendChild(filmEl(f)));
             art.appendChild(films);
         } else {
-            art.insertAdjacentHTML('beforeend', '<p class="ka-prod">Film z tym rozwiązaniem pokażemy podczas spotkania.</p>');
+            art.insertAdjacentHTML('beforeend', `<p class="ka-prod">${T.noFilm}</p>`);
         }
         if (onlyLink) {
             const a = document.createElement('button');
             a.type = 'button';
             a.className = 'ka-only';
-            a.textContent = 'Pokaż tylko ten rodzaj →';
+            a.textContent = T.onlyThis;
             a.addEventListener('click', () => {
                 state.rodzaj = r.id;
                 render();
@@ -163,8 +206,8 @@
         }
         const ask = document.createElement('div');
         ask.className = 'ka-ask';
-        ask.innerHTML = `<p>${r ? 'Chcą Państwo takie rozwiązanie' : 'Chcą Państwo któreś z tych rozwiązań'} w swoich meblach? Dobierzemy system do projektu.</p>` +
-            '<a class="ka-btn" href="index-pl.html#contact">Zapytaj o to rozwiązanie <span aria-hidden="true">→</span></a>';
+        ask.innerHTML = `<p>${r ? T.askOne : T.askAll} ${T.askTail}</p>` +
+            `<a class="ka-btn" href="${T.home}#contact">${T.askBtn} <span aria-hidden="true">→</span></a>`;
         box.appendChild(ask);
     }
 
@@ -191,7 +234,7 @@
             sel.innerHTML = '';
             const all = document.createElement('option');
             all.value = '';
-            all.textContent = `Wszystkie (${kat.rodzaje.length})`;
+            all.textContent = T.all(kat.rodzaje.length);
             sel.appendChild(all);
             kat.rodzaje.forEach((x) => {
                 const o = document.createElement('option');
@@ -209,10 +252,13 @@
 
     $('ka-kind').addEventListener('change', (e) => { state.rodzaj = e.target.value; render(); });
 
-    fetch('dane/akcesoria.json?v=3')
-        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
-        .then((d) => {
-            kategorie = d.kategorie || [];
+    const getJson = (f) => fetch(f).then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))));
+    Promise.all([
+        getJson('dane/akcesoria.json?v=3'),
+        LANG === 'pl' ? null : getJson(`dane/akcesoria-${LANG}.json?v=1`).catch(() => null),
+    ])
+        .then(([d, tr]) => {
+            kategorie = applyLang(d.kategorie || [], tr);
             // link bezpośrednio do rodzaju bez grupy (?rodzaj=…) → znajdź grupę
             if (!state.kat && state.rodzaj) {
                 const k = kategorie.find((x) => x.rodzaje.some((r) => r.id === state.rodzaj));
@@ -222,7 +268,7 @@
             if (state.kat) requestAnimationFrame(() => $('ka-step2').scrollIntoView({ block: 'start' }));
         })
         .catch((err) => {
-            $('ka-cats').textContent = 'Nie udało się wczytać katalogu akcesoriów.';
+            $('ka-cats').textContent = T.loadError;
             console.error(err);
         });
 })();

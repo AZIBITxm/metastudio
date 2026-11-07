@@ -1552,7 +1552,7 @@ function initCatalogSwitch(panes) {
         const from = cur, to = 1 - cur;
         cur = to;
         swapPanes(from, to);
-        btn.setAttribute('aria-label', 'Przełącz na: ' + panes[from].dataset.title);
+        btn.setAttribute('aria-label', ({ de: 'Wechseln zu: ', en: 'Switch to: ' }[document.documentElement.lang] || 'Przełącz na: ') + panes[from].dataset.title);
         // do akcesoriów: napisy zjeżdżają w lewo i wjeżdżają z prawej; z powrotem do materiałów — odwrotnie (jak kafelki)
         const OUT = to === 1 ? '-110vw' : '110vw', IN = to === 1 ? '110vw' : '-110vw';
         if (reduce) {

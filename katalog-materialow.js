@@ -7,8 +7,85 @@
 // Fronty akrylowe: tylko Niemann, REHAU, Aquafront (Adam). Dekory: dane/dekory/<producent>.json, pole products:
 // plyty, blaty, laminaty (HPL), front-akryl, front-lakier, front-pet, front-hpl, front-dekor
 // (perfectsense / lakierowane = front lakierowany).
+// Języki (2026-11-07): katalog-materialow.html (PL), -de.html, -en.html — ten sam skrypt, język z <html lang>.
+// Napisy w I18N poniżej, opisy z dane/opisy-materialow[-de|-en].json, podpisy odmian z pól pl/de/en katalog-zrodla.json.
 (function () {
     'use strict';
+
+    const LANG = ['de', 'en'].includes(document.documentElement.lang) ? document.documentElement.lang : 'pl';
+    const I18N = {
+        pl: {
+            types: {
+                plyty: ['Płyty laminowane', 'korpusy, fronty, zabudowy'], blaty: ['Blaty robocze', 'kuchnie, biurka, łazienki', 'Rodzaj blatu'],
+                fronty: ['Fronty meblowe', 'akrylowe, lakierowane, fornirowane i inne', 'Rodzaj frontu'], hpl: ['Laminaty HPL', 'okleiny wysokociśnieniowe'],
+            },
+            kinds: {},
+            groups: ['Wszystkie wzory', 'Drewno', 'Kamień i materiały', 'Kolory jednolite'],
+            forms: {},
+            decors: (n) => `${n} dekorów`, browse: (n) => `Sprawdź dekory (${n})`, gallery: 'Odmiany — zdjęcia', photo: 'Zdjęcie poglądowe',
+            pickKind: (l) => `Wybierz ${l.toLowerCase()} powyżej, aby zobaczyć jego opis i dostępne dekory.`,
+            noDecors: 'Dekorów tego materiału nie ma jeszcze w katalogu — zapytaj nas o dostępne wzory i próbki.',
+            choose: (l) => `— wybierz ${l.toLowerCase()} —`, allProducers: 'Wszyscy producenci',
+            alsoTop: 'też blat', alsoBoard: 'też płyta', code: 'Kod', availableAs: 'Dostępny jako', source: 'Źródło zdjęcia ↗',
+            atProducer: 'Zobacz dekor u producenta ↗', loadError: 'Nie udało się wczytać katalogu.',
+        },
+        de: {
+            types: {
+                plyty: ['Melaminbeschichtete Platten', 'Korpusse, Fronten, Einbauten'], blaty: ['Arbeitsplatten', 'Küchen, Schreibtische, Bäder', 'Art der Arbeitsplatte'],
+                fronty: ['Möbelfronten', 'Acryl, lackiert, furniert und mehr', 'Art der Front'], hpl: ['HPL-Schichtstoffe', 'Hochdruck-Schichtstoffplatten'],
+            },
+            kinds: {
+                blaty: 'Laminierte Arbeitsplatten', 'blat-spiek': 'Quarzkeramik (Sinterstein)', 'blat-zywica': 'Epoxidharz',
+                'blat-drewno': 'Holzarbeitsplatten', 'blat-kamien': 'Steinarbeitsplatten', 'blat-solid': 'Solid Surface',
+                'front-akryl': 'Acrylfronten', 'front-lakier': 'Lackierte Fronten', 'front-pet': 'Fronten mit PET-Folie (matt / Hochglanz)',
+                'front-hpl': 'HPL-Fronten', 'front-dekor': 'Dekorative Fronten (Spiegel, Rillen, Struktur)', 'front-fornir': 'Furnierte Fronten',
+                'front-drewno': 'Massivholzfronten', 'front-szklo': 'Glasfronten', 'front-giete': 'Gebogene Fronten', 'front-frez': 'Gefräste Fronten',
+                'front-frez-lam': 'Gefräste beschichtete Fronten', 'front-frez-lak': 'Gefräste lackierte Fronten',
+                'front-art': 'Künstlerische Oberflächen', 'front-sztuk': 'Stuckelemente',
+            },
+            groups: ['Alle Dekore', 'Holz', 'Stein und Materialien', 'Unifarben'],
+            forms: {
+                plyty: 'melaminbeschichtete Platte', blaty: 'laminierte Arbeitsplatte', laminaty: 'HPL-Schichtstoff', 'front-akryl': 'Acrylfront',
+                'front-lakier': 'lackierte Front', 'front-pet': 'MDF-Front mit PET-Folie', 'front-hpl': 'HPL-Front',
+                'front-dekor': 'dekorative Front', kompakt: 'Kompaktplatte', 'panele-wnekowe': 'Nischenrückwand',
+            },
+            decors: (n) => `${n} Dekore`, browse: (n) => `Dekore ansehen (${n})`, gallery: 'Varianten — Fotos', photo: 'Beispielfoto',
+            pickKind: (l) => `Wählen Sie oben: ${l}, um Beschreibung und verfügbare Dekore zu sehen.`,
+            noDecors: 'Dekore dieses Materials sind noch nicht im Katalog — fragen Sie uns nach verfügbaren Mustern und Proben.',
+            choose: (l) => `— ${l} wählen —`, allProducers: 'Alle Hersteller',
+            alsoTop: 'auch Arbeitsplatte', alsoBoard: 'auch Platte', code: 'Code', availableAs: 'Erhältlich als', source: 'Bildquelle ↗',
+            atProducer: 'Dekor beim Hersteller ansehen ↗', loadError: 'Der Katalog konnte nicht geladen werden.',
+        },
+        en: {
+            types: {
+                plyty: ['Laminated boards', 'carcasses, fronts, built-ins'], blaty: ['Worktops', 'kitchens, desks, bathrooms', 'Worktop type'],
+                fronty: ['Furniture fronts', 'acrylic, lacquered, veneered and more', 'Front type'], hpl: ['HPL laminates', 'high-pressure laminates'],
+            },
+            kinds: {
+                blaty: 'Laminated worktops', 'blat-spiek': 'Sintered quartz', 'blat-zywica': 'Epoxy resin',
+                'blat-drewno': 'Wooden worktops', 'blat-kamien': 'Stone worktops', 'blat-solid': 'Solid Surface',
+                'front-akryl': 'Acrylic fronts', 'front-lakier': 'Lacquered fronts', 'front-pet': 'PET foil fronts (matt / gloss)',
+                'front-hpl': 'HPL fronts', 'front-dekor': 'Decorative fronts (mirror, fluted, textured)', 'front-fornir': 'Veneered fronts',
+                'front-drewno': 'Solid wood fronts', 'front-szklo': 'Glass fronts', 'front-giete': 'Curved fronts', 'front-frez': 'Milled fronts',
+                'front-frez-lam': 'Milled laminated fronts', 'front-frez-lak': 'Milled lacquered fronts',
+                'front-art': 'Artistic finishes', 'front-sztuk': 'Mouldings',
+            },
+            groups: ['All patterns', 'Wood', 'Stone and materials', 'Plain colours'],
+            forms: {
+                plyty: 'laminated board', blaty: 'laminated worktop', laminaty: 'HPL laminate', 'front-akryl': 'acrylic front',
+                'front-lakier': 'lacquered front', 'front-pet': 'MDF front with PET foil', 'front-hpl': 'HPL front',
+                'front-dekor': 'decorative front', kompakt: 'compact laminate', 'panele-wnekowe': 'splashback panel',
+            },
+            decors: (n) => `${n} decors`, browse: (n) => `See decors (${n})`, gallery: 'Variants — photos', photo: 'Illustrative photo',
+            pickKind: (l) => `Choose the ${l.toLowerCase()} above to see its description and available decors.`,
+            noDecors: 'Decors of this material are not in the catalogue yet — ask us about available patterns and samples.',
+            choose: (l) => `— choose ${l.toLowerCase()} —`, allProducers: 'All manufacturers',
+            alsoTop: 'also worktop', alsoBoard: 'also board', code: 'Code', availableAs: 'Available as', source: 'Photo source ↗',
+            atProducer: 'See the decor at the manufacturer ↗', loadError: 'The catalogue could not be loaded.',
+        },
+    };
+    const T = I18N[LANG];
+    const OPISY_FILE = LANG === 'pl' ? 'dane/opisy-materialow.json' : `dane/opisy-materialow-${LANG}.json`;
 
     const PRODUCERS = [
         { id: 'egger', name: 'EGGER', file: 'dane/dekory/egger.json' },
@@ -60,6 +137,9 @@
         },
     ];
     TYPES.forEach((t) => {
+        const tr = T.types[t.id];
+        if (tr) { t.name = tr[0]; t.hint = tr[1]; if (tr[2]) t.kindLabel = tr[2]; }
+        if (t.kinds) t.kinds.forEach((k) => { if (T.kinds[k.id]) k.name = T.kinds[k.id]; });
         if (t.kinds) {
             t.kinds.forEach((k) => { k.test = kindTest(k); });
             t.test = (d) => t.kinds.some((k) => k.test(d));
@@ -71,11 +151,13 @@
         { id: 'kamien-materialy', name: 'Kamień i materiały' },
         { id: 'kolory', name: 'Kolory jednolite' },
     ];
+    GROUPS.forEach((g, i) => { g.name = T.groups[i]; });
     const FORM_LABEL = {
         plyty: 'płyta laminowana', blaty: 'blat laminowany', laminaty: 'laminat HPL', 'front-akryl': 'front akrylowy',
         'front-lakier': 'front lakierowany', 'front-pet': 'front MDF z folią PET', 'front-hpl': 'front HPL',
         'front-dekor': 'front dekoracyjny', kompakt: 'laminat kompaktowy', 'panele-wnekowe': 'panel wnękowy',
     };
+    Object.assign(FORM_LABEL, T.forms);
 
     const $ = (id) => document.getElementById(id);
     const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
@@ -117,7 +199,7 @@
             b.innerHTML = `<span class="km-type-img"><img src="${encodeURI(img)}" alt="" loading="lazy" decoding="async"></span>` +
                 `<span class="km-type-text"><span class="km-type-name"></span><span class="km-type-hint"></span></span>`;
             b.querySelector('.km-type-name').textContent = t.name;
-            b.querySelector('.km-type-hint').textContent = list.length ? `${t.hint} · ${list.length} dekorów` : t.hint;
+            b.querySelector('.km-type-hint').textContent = list.length ? `${t.hint} · ${T.decors(list.length)}` : t.hint;
             b.addEventListener('click', () => {
                 if (state.type === t.id) return;
                 Object.assign(state, { type: t.id, kind: '', producer: '', browse: !t.mat && !t.kinds });
@@ -154,7 +236,7 @@
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'km-browse-btn';
-            btn.innerHTML = `Sprawdź dekory (${count}) <span aria-hidden="true">↓</span>`;
+            btn.innerHTML = `${T.browse(count)} <span aria-hidden="true">↓</span>`;
             btn.addEventListener('click', () => {
                 state.browse = true;
                 render();
@@ -175,17 +257,18 @@
         if (gal.length) {
             const g = document.createElement('div');
             g.className = 'km-desc-gallery';
-            g.innerHTML = '<h3>Odmiany — zdjęcia</h3>';
+            g.innerHTML = `<h3>${T.gallery}</h3>`;
             const track = document.createElement('div');
             track.className = 'km-desc-track';
             gal.forEach((p) => {
                 const b = document.createElement('button');
                 b.type = 'button';
                 b.innerHTML = `<img src="${encodeURI(`materiały/katalog/${p.slug}-480.webp`)}" alt="" loading="lazy"><span></span>`;
-                b.querySelector('img').alt = p.pl;
-                b.querySelector('span').textContent = p.pl;
+                const cap = p[LANG] || p.pl;
+                b.querySelector('img').alt = cap;
+                b.querySelector('span').textContent = cap;
                 b.addEventListener('click', () => openModal({
-                    image: `materiały/katalog/${p.slug}-1600.webp`, producer: 'Zdjęcie poglądowe', name: p.pl,
+                    image: `materiały/katalog/${p.slug}-1600.webp`, producer: T.photo, name: cap,
                     code: [p.author, p.license].filter(Boolean).join(' · '), url: p.page, _photo: true,
                 }));
                 track.appendChild(b);
@@ -197,9 +280,9 @@
         const act = document.createElement('div');
         act.className = 'km-desc-actions';
         if (type.kinds && !kind) {
-            act.innerHTML = `<p class="km-desc-hint">Wybierz ${type.kindLabel.toLowerCase()} powyżej, aby zobaczyć jego opis i dostępne dekory.</p>`;
+            act.innerHTML = `<p class="km-desc-hint">${T.pickKind(type.kindLabel)}</p>`;
         } else if (!count) {
-            act.innerHTML = '<p class="km-desc-hint">Dekorów tego materiału nie ma jeszcze w katalogu — zapytaj nas o dostępne wzory i próbki.</p>';
+            act.innerHTML = `<p class="km-desc-hint">${T.noDecors}</p>`;
         }
         if (act.innerHTML) box.appendChild(act);
     }
@@ -227,7 +310,7 @@
             $('km-kind-label').textContent = type.kindLabel;
             kind = type.kinds.find((k) => k.id === state.kind) || null;
             state.kind = kind ? kind.id : '';
-            const opts = [{ id: '', name: `— wybierz ${type.kindLabel.toLowerCase()} —` }].concat(type.kinds.map((k) => {
+            const opts = [{ id: '', name: T.choose(type.kindLabel) }].concat(type.kinds.map((k) => {
                 const c = list.filter(k.test).length;
                 return { id: k.id, name: k.name, count: c, disabled: !c && !(k.mat && opisy[k.mat]) };
             }));
@@ -247,7 +330,7 @@
             const prods = PRODUCERS.map((p) => ({ id: p.id, name: p.name, count: list.filter((d) => d._p === p.id).length }))
                 .filter((p) => p.count > 0);
             if (!prods.some((p) => p.id === state.producer)) state.producer = '';
-            fillSelect($('km-producer'), [{ id: '', name: 'Wszyscy producenci' }].concat(prods), state.producer);
+            fillSelect($('km-producer'), [{ id: '', name: T.allProducers }].concat(prods), state.producer);
             if (state.producer) list = list.filter((d) => d._p === state.producer);
             fillSelect($('km-group'), GROUPS, state.group);
             const words = norm(state.q).split(/\s+/).filter(Boolean);
@@ -267,8 +350,8 @@
             const b = document.createElement('button');
             b.type = 'button';
             b.className = 'km-card';
-            const badge = type.id === 'plyty' && has(d, 'blaty') ? 'też blat'
-                : type.id === 'blaty' && has(d, 'plyty') ? 'też płyta' : '';
+            const badge = type.id === 'plyty' && has(d, 'blaty') ? T.alsoTop
+                : type.id === 'blaty' && has(d, 'plyty') ? T.alsoBoard : '';
             b.innerHTML = `<img src="${encodeURI(d.image)}" width="600" height="600" loading="lazy" decoding="async" alt="">` +
                 (badge ? `<span class="km-card-badge">${badge}</span>` : '') +
                 `<span class="km-card-name"></span><span class="km-card-code"></span>`;
@@ -286,11 +369,11 @@
         $('km-modal-img').alt = `${d.name}`;
         $('km-modal-producer').textContent = d.producer;
         $('km-modal-name').textContent = d.name;
-        $('km-modal-code').textContent = d._photo ? d.code : `Kod: ${d.code} ${d.structure || ''}`;
+        $('km-modal-code').textContent = d._photo ? d.code : `${T.code}: ${d.code} ${d.structure || ''}`;
         const forms = [...new Set((d.products || []).map((f) => FORM_LABEL[f]).filter(Boolean))];
-        $('km-modal-forms').textContent = forms.length ? `Dostępny jako: ${forms.join(', ')}` : '';
+        $('km-modal-forms').textContent = forms.length ? `${T.availableAs}: ${forms.join(', ')}` : '';
         $('km-modal-link').href = d.url;
-        $('km-modal-link').textContent = d._photo ? 'Źródło zdjęcia ↗' : 'Zobacz dekor u producenta ↗';
+        $('km-modal-link').textContent = d._photo ? T.source : T.atProducer;
         $('km-modal').hidden = false;
         $('km-modal-close').focus();
     }
@@ -306,7 +389,7 @@
 
     const getJson = (f) => fetch(f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
     Promise.all([
-        getJson('dane/opisy-materialow.json'),
+        getJson(OPISY_FILE),
         getJson('dane/katalog-zrodla.json'),
         Promise.all(PRODUCERS.map((p) => getJson(p.file).then((list) => (list || []).map((d) => {
             const products = (d.products || []).slice();
@@ -332,5 +415,5 @@
             if (hit && t.kinds) state.kind = (t.kinds.find((k) => k.test(hit)) || {}).id || '';
         }
         render();
-    }).catch((err) => { $('km-desc').hidden = false; $('km-desc').textContent = 'Nie udało się wczytać katalogu.'; console.error(err); });
+    }).catch((err) => { $('km-desc').hidden = false; $('km-desc').textContent = T.loadError; console.error(err); });
 })();

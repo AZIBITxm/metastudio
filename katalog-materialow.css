@@ -26,7 +26,8 @@ h1 { font-size: 36px; margin: 18px 0 4px; }
 
 /* Pola rozwijane */
 .km-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; }
-.km-field { display: flex; flex-direction: column; gap: 2px; min-width: 210px; flex: 1 1 210px; max-width: 340px; }
+.km-field { display: flex; flex-direction: column; gap: 2px; min-width: min(210px, 100%); flex: 1 1 210px; max-width: 340px; }
+.km-field select { width: 100%; min-width: 0; text-overflow: ellipsis; }   /* długie nazwy nie poszerzają strony na telefonie */
 .km-field[hidden] { display: none; }
 .km-field > span { font-size: 14px; font-weight: 700; color: #8a6d2c; letter-spacing: 0.03em; }
 .km-field select, .km-field input { font: inherit; font-size: 17px; padding: 8px 12px; border: 1px solid #d4b58c; border-radius: 0; background: #fff; color: #1A1A1A; }

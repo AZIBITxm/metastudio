@@ -1,0 +1,29 @@
+/* Wybór języka w nagłówku katalogów (2026-11-07) — ten sam wygląd co na stronie głównej (styles.css .lang-switch),
+   flaga po prawej stronie paska, lista rozwija się w lewo od prawej krawędzi. */
+.cat-lang { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); }
+.cat-lang .lang-current {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px; border: 1px solid rgba(180, 148, 60, 0.6); background: none; cursor: pointer; color: #d4b58c;
+}
+.cat-lang .lang-current svg { display: block; width: 26px; height: 17px; }
+.cat-lang .lang-caret { font-size: 0.8rem; line-height: 1; transition: transform 0.25s ease; }
+.cat-lang .lang-current[aria-expanded="true"] .lang-caret { transform: rotate(180deg); }
+.cat-lang .lang-current:hover, .cat-lang .lang-current:focus-visible { border-color: #B4943C; outline: none; }
+.cat-lang .lang-menu {
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 200; min-width: 150px; text-align: left;
+    display: flex; flex-direction: column; padding: 6px; background: #1A1A1A; border: 1px solid #B4943C; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    animation: catLangIn 0.2s ease;
+}
+.cat-lang .lang-menu[hidden] { display: none; }
+@keyframes catLangIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.cat-lang .lang-item { display: flex; align-items: center; gap: 10px; padding: 7px 10px; color: #f5e4cc; text-decoration: none; font-size: 1.05rem; }
+.cat-lang .lang-item svg { display: block; width: 24px; height: 16px; flex: none; border: 1px solid rgba(255, 255, 255, 0.3); }
+.cat-lang .lang-item:hover, .cat-lang .lang-item:focus-visible { background: rgba(180, 148, 60, 0.2); outline: none; }
+.cat-lang .lang-item.is-current { color: #B4943C; font-weight: 700; }
+@media (max-width: 768px) {
+    .cat-lang .lang-current { padding: 3px 5px; }
+    .cat-lang .lang-current svg { width: 22px; height: 15px; }
+}
+@media (max-width: 560px) {
+    /* napis w środku paska nie może wejść pod flagę */
+    .km-header img, .ka-header img { max-width: calc(100vw - 150px); height: auto; }
+}

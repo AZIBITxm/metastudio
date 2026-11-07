@@ -24,4 +24,52 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/index-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/"/>
   </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-materialow.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-materialow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-materialow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-materialow-de.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-materialow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-materialow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-materialow-en.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-materialow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-materialow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-materialow-en.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-akcesoriow.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-akcesoriow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-akcesoriow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-akcesoriow-de.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-akcesoriow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-akcesoriow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+  </url>
+  <url>
+    <loc>https://zandersatelier.com/katalog-akcesoriow-en.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://zandersatelier.com/katalog-akcesoriow.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://zandersatelier.com/katalog-akcesoriow-de.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zandersatelier.com/katalog-akcesoriow-en.html"/>
+  </url>
 </urlset>
