@@ -196,6 +196,8 @@ def backfill_names():
             name = (e.get('subtitle') or '').strip()
             if name:
                 d['name_' + lang] = name
+            if (e.get('detail_link') or '').startswith('https://'):
+                d['url_' + lang] = e['detail_link']          # link „u producenta” na stronie DE/EN
             fv = e.get('filterValues') or {}
             tags = [t for t in (fv.get('wood', []) + fv.get('stone', [])) if t not in OTHER]
             if tags:

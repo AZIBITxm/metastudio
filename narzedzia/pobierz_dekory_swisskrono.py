@@ -90,10 +90,49 @@ def lines(page):
     return res
 
 
+def cap(w):
+    """„(CARMEN)” → „(Carmen)” — capitalize() zostawiłby małą literę po nawiasie."""
+    i = next((k for k, ch in enumerate(w) if ch.isalpha()), 0)
+    return w[:i] + w[i:].capitalize()
+
+
 def nice(name):
     name = name.strip().strip('*').strip()
-    return ' '.join(w if w.isupper() and len(w) <= 3 and w in ('II', 'III') else w.capitalize() for w in name.split()) \
+    return ' '.join(w if w.isupper() and len(w) <= 3 and w in ('II', 'III') else cap(w) for w in name.split()) \
         if name.isupper() else name
+
+
+# Literówki w samym katalogu PDF SWISS KRONO 2025 (sprawdzone 2026-11-07 z kontekstem strony katalogu):
+#   kod błędny → kod właściwy (wpis błędny jest scalany z właściwym i usuwany razem ze zdjęciem)
+KOD_LITEROWKA = {
+    'D19': 'D1972',     # str. 55: „D19Z72 SE Jabłoń Locarno” = D1972
+    'U4428': 'D4428',   # str. 42: „U4428* OV Dąb Naturalny” — U = kolory jednolite, dąb to D4428
+    'D3901': 'D3801',   # str. 19: „D3901 CL Dąb Madryt” — seria miast D3798 Londyn / D3799 Paryż / D3801 Madryt
+}
+#   kod → (nazwa PL, nazwa EN): błędne podpisy w PDF
+NAZWA_POPRAWKA = {
+    'D3190': ('Wiąz Largo', 'Largo Elm'),               # na części stron podpis „Dąb Odwieczny” (to D1041) nachodzi na próbkę
+    'D1861': ('Akacja Księżycowa', 'Moon Acacia'),      # str. 56: literówka „KSĘŻYCOWA”
+}
+
+
+def poprawki(data):
+    """Stosuje KOD_LITEROWKA i NAZWA_POPRAWKA do listy dekorów (po każdym pobraniu i po --nazwy)."""
+    by = {d['code']: d for d in data}
+    for zly, dobry in KOD_LITEROWKA.items():
+        if zly in by and dobry in by:
+            by[dobry]['products'] = sorted(set(by[dobry].get('products', [])) | set(by[zly].get('products', [])))
+            img = os.path.join(OUT_IMG, zly + '.webp')
+            if os.path.exists(img):
+                os.remove(img)
+            data.remove(by.pop(zly))
+        elif zly in by:
+            by[zly]['code'] = dobry
+    for code, (pl, en) in NAZWA_POPRAWKA.items():
+        if code in by:
+            by[code]['name'], by[code]['name_en'] = pl, en
+            by[code]['group'] = group_of(pl)
+    return data
 
 
 def group_of(name):
@@ -175,6 +214,7 @@ def main():
         d['structure'] = ' / '.join(d.pop('structures')[:3])
         d['group'] = group_of(d['name'])
         out.append(d)
+    poprawki(out)
     out.sort(key=lambda d: (d['group'], d['name']))
     json.dump(out, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('GOTOWE — dekorów:', len(out), '| płyty', sum('plyty' in d['products'] for d in out),
@@ -218,6 +258,7 @@ def backfill_names():
             d['name_en'] = en
         else:
             d.pop('name_en', None)
+    poprawki(data)
     json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'name_en: {sum(1 for d in data if d.get("name_en"))}/{len(data)}; brak:',
           [d['code'] for d in data if not d.get('name_en')])

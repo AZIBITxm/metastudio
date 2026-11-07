@@ -2,7 +2,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D1861",
-  "name": "Akacja Ksężycowa",
+  "name": "Akacja Księżycowa",
   "products": [
    "plyty"
   ],
@@ -258,7 +258,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D3316",
-  "name": "Dąb Helsinki (carmen)",
+  "name": "Dąb Helsinki (Carmen)",
   "products": [
    "plyty"
   ],
@@ -266,7 +266,7 @@
   "image": "materiały/dekory/swisskrono/D3316.webp",
   "structure": "SD",
   "group": "drewno",
-  "name_en": "Helsinki Oak (carmen)"
+  "name_en": "Helsinki Oak (Carmen)"
  },
  {
   "producer": "SWISS KRONO",
@@ -391,19 +391,6 @@
  },
  {
   "producer": "SWISS KRONO",
-  "code": "D3901",
-  "name": "Dąb Madryt",
-  "products": [
-   "plyty"
-  ],
-  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
-  "image": "materiały/dekory/swisskrono/D3901.webp",
-  "structure": "CL",
-  "group": "drewno",
-  "name_en": "Madrid Oak"
- },
- {
-  "producer": "SWISS KRONO",
   "code": "D1092",
   "name": "Dąb Mocha",
   "products": [
@@ -439,20 +426,6 @@
   ],
   "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
   "image": "materiały/dekory/swisskrono/D4428.webp",
-  "structure": "OV",
-  "group": "drewno",
-  "name_en": "Oak Natural"
- },
- {
-  "producer": "SWISS KRONO",
-  "code": "U4428",
-  "name": "Dąb Naturalny",
-  "products": [
-   "plyty",
-   "blaty"
-  ],
-  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
-  "image": "materiały/dekory/swisskrono/U4428.webp",
   "structure": "OV",
   "group": "drewno",
   "name_en": "Oak Natural"
@@ -502,7 +475,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D3190",
-  "name": "Dąb Odwieczny",
+  "name": "Wiąz Largo",
   "products": [
    "blaty",
    "plyty"
@@ -510,12 +483,13 @@
   "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
   "image": "materiały/dekory/swisskrono/D3190.webp",
   "structure": "SW",
-  "group": "drewno"
+  "group": "drewno",
+  "name_en": "Largo Elm"
  },
  {
   "producer": "SWISS KRONO",
   "code": "D3315",
-  "name": "Dąb Oslo (figaro)",
+  "name": "Dąb Oslo (Figaro)",
   "products": [
    "plyty"
   ],
@@ -523,7 +497,7 @@
   "image": "materiały/dekory/swisskrono/D3315.webp",
   "structure": "SD",
   "group": "drewno",
-  "name_en": "Oslo Oak (figaro)"
+  "name_en": "Oslo Oak (Figaro)"
  },
  {
   "producer": "SWISS KRONO",
@@ -567,7 +541,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D3313",
-  "name": "Dąb Petersburg (nabucco)",
+  "name": "Dąb Petersburg (Nabucco)",
   "products": [
    "plyty"
   ],
@@ -575,7 +549,7 @@
   "image": "materiały/dekory/swisskrono/D3313.webp",
   "structure": "SD",
   "group": "drewno",
-  "name_en": "St. Petersburg Oak (nabucco)"
+  "name_en": "St. Petersburg Oak (Nabucco)"
  },
  {
   "producer": "SWISS KRONO",
@@ -714,7 +688,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D3312",
-  "name": "Dąb Warszawa (tosca)",
+  "name": "Dąb Warszawa (Tosca)",
   "products": [
    "plyty"
   ],
@@ -722,7 +696,7 @@
   "image": "materiały/dekory/swisskrono/D3312.webp",
   "structure": "SD",
   "group": "drewno",
-  "name_en": "Warsaw Oak (tosca)"
+  "name_en": "Warsaw Oak (Tosca)"
  },
  {
   "producer": "SWISS KRONO",
@@ -776,19 +750,6 @@
   "structure": "PE",
   "group": "drewno",
   "name_en": "Wild Pear"
- },
- {
-  "producer": "SWISS KRONO",
-  "code": "D19",
-  "name": "Jabłoń Locarno",
-  "products": [
-   "plyty"
-  ],
-  "url": "https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/",
-  "image": "materiały/dekory/swisskrono/D19.webp",
-  "structure": "SE",
-  "group": "drewno",
-  "name_en": "Locarno Apple"
  },
  {
   "producer": "SWISS KRONO",
@@ -1239,7 +1200,7 @@
  {
   "producer": "SWISS KRONO",
   "code": "D3193",
-  "name": "Wiąz Amsterdam (moderato)",
+  "name": "Wiąz Amsterdam (Moderato)",
   "products": [
    "plyty"
   ],
@@ -1247,7 +1208,7 @@
   "image": "materiały/dekory/swisskrono/D3193.webp",
   "structure": "SW",
   "group": "drewno",
-  "name_en": "Amsterdam Elm (moderato)"
+  "name_en": "Amsterdam Elm (Moderato)"
  },
  {
   "producer": "SWISS KRONO",

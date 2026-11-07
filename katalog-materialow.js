@@ -402,6 +402,7 @@
                 products, _p: p.id,
                 name: d[`name_${LANG}`] || d.name,
                 structure: d[`structure_${LANG}`] || d.structure,
+                url: d[`url_${LANG}`] || d.url,   // strona dekoru u producenta w języku katalogu (EGGER, Pfleiderer, Kronospan), inaczej PL
                 _s: norm(`${names} ${d.code} ${d.producer} ${[].concat(d.tags || [], d.tags_de || [], d.tags_en || []).join(' ')}`),
             });
         })))),

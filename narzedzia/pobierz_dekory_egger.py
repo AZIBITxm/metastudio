@@ -235,6 +235,7 @@ def backfill_names():
                 m = re.match(r'([A-Z]\d+)\s+(\S+)\s+(.+)', html.unescape(title.group(1)).strip() if title else '')
                 if m and m.group(1) == d['code']:
                     d['name_' + lang] = m.group(3).strip()
+                    d['url_' + lang] = url                      # link „u producenta” na stronie DE/EN
                     break
         if n % 25 == 0:
             print(f'  {n}/{len(data)}')
