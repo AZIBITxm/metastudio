@@ -2,6 +2,7 @@
 Zanders Atelier — kolory frontów akrylowych Niemann Polska ACRYLUX (połysk i mat) do katalogu materiałów.
 
 Uruchamiać z katalogu głównego repo:  python narzedzia/pobierz_dekory_niemann.py
+Opisy serii po niemiecku/angielsku (structure_de/_en, bez pobierania):  python narzedzia/pobierz_dekory_niemann.py --nazwy
 
 Źródło: publiczne strony produktów Niemann Polska — galeria kolorów pod opisem produktu
 (<img alt="Nazwa KOD"> z /files/gallery/<id>/...). Pobieramy większy wariant miniatury (/img2/w800-h600/...).
@@ -97,5 +98,27 @@ def main():
     print('GOTOWE — kolorów:', len(data))
 
 
+# Opisowe nazwy serii po niemiecku / angielsku (strony DE/EN katalogu; --nazwy). Niemann Polska ma tylko
+# stronę polską, więc nazw kolorów nie tłumaczymy.
+STRUCTURE_LANG = {
+    'Acrylux połysk': ('Acrylux Hochglanz', 'Acrylux high gloss'),
+    'Acrylux mat anti-fingerprint': ('Acrylux matt Anti-Fingerprint', 'Acrylux matt anti-fingerprint'),
+}
+def backfill_names():
+    """Uzupełnia structure_de/structure_en w istniejącym pliku — tylko słowa opisowe serii (słownik
+    STRUCTURE_LANG, tłumaczenie własne). Nazw kolorów NIE tłumaczymy: producent ma tylko stronę polską,
+    a nazwa własna dekoru bez oficjalnej wersji zostaje po polsku (strona DE/EN pokazuje pole name)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for d in data:
+        tr = STRUCTURE_LANG.get(d.get('structure'))
+        for i, lang in enumerate(('de', 'en')):
+            if tr:
+                d['structure_' + lang] = tr[i]
+            else:
+                d.pop('structure_' + lang, None)
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print('structure_de/en:', sum(1 for d in data if d.get('structure_en')), '/', len(data))
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_names() if '--nazwy' in sys.argv else main())
