@@ -16,6 +16,11 @@ Wynik:
   dane/dekory/pfleiderer.json            — lista dekorów (strona katalogu + konsultant)
   materiały/dekory/pfleiderer/<KOD>.webp — próbka 600 px (kwadrat)
 Ponowne uruchomienie pomija już pobrane grafiki (ale odświeża listę i dostępność).
+
+Nazwy niemieckie i angielskie (strony DE/EN katalogu):  python narzedzia/pobierz_dekory_pfleiderer.py --nazwy
+  — ta sama wyszukiwarka w wersji /dach-de/ i /global-en/ (robots.txt blokuje /de/* i /en/*, te nie):
+  name_de/name_en (pole subtitle) i tags_de/tags_en (gatunek drewna/kamienia — do wyszukiwania).
+  Kilka zapytań, bez stron dekorów i grafik; pól PL nie zmienia.
 """
 import html
 import io
@@ -78,8 +83,8 @@ def get(url, binary=False):
     raise RuntimeError('nie udało się: ' + url)
 
 
-def finder_entities():
-    page = get(FINDER)
+def finder_entities(finder=FINDER):
+    page = get(finder)
     api = html.unescape(re.search(r"PRODUCTFINDER_API = '([^']+)'", page).group(1))
     p = 'tx_epim_productfinder'
     ents, start, total = [], 0, None
@@ -172,5 +177,33 @@ def main():
           '| blaty', sum('blaty' in d['products'] for d in out), '| pominięte', skipped)
 
 
+FINDERS = {
+    'de': BASE + '/dach-de/produkte/produktfinder/dekore',
+    'en': BASE + '/global-en/products/product-finder/decors',
+}
+OTHER = ('Sonstige', 'Andere', 'Other', 'Others')
+
+
+def backfill_names():
+    """Uzupełnia name_de/name_en i tags_de/tags_en w istniejącym pfleiderer.json (po kodzie dekoru)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for lang, finder in FINDERS.items():
+        ents = {e['title'].strip(): e for e in finder_entities(finder)}
+        for d in data:
+            e = ents.get(d['code'])
+            if not e:
+                continue
+            name = (e.get('subtitle') or '').strip()
+            if name:
+                d['name_' + lang] = name
+            fv = e.get('filterValues') or {}
+            tags = [t for t in (fv.get('wood', []) + fv.get('stone', [])) if t not in OTHER]
+            if tags:
+                d['tags_' + lang] = tags
+        print(f'{lang}: nazwy {sum(1 for d in data if d.get("name_" + lang))}/{len(data)}; brak:',
+              [d['code'] for d in data if not d.get('name_' + lang)])
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_names() if '--nazwy' in sys.argv else main())
