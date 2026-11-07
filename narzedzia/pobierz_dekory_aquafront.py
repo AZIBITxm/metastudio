@@ -2,6 +2,7 @@
 Zanders Atelier — kolory frontów AQUAFRONT (AQUAAKRYL, AQUAHPL, AQUADECOR) do katalogu materiałów.
 
 Uruchamiać z katalogu głównego repo:  python narzedzia/pobierz_dekory_aquafront.py
+Opisy serii po niemiecku/angielsku (structure_de/_en, bez pobierania):  python narzedzia/pobierz_dekory_aquafront.py --nazwy
 
 Źródło: publiczne API sklepu z próbkami Aquafront (WooCommerce Store API,
 https://aquafront.eu/wp-json/wc/store/v1/products) — każdy kolor to produkt „próbka/listek” z kategorią
@@ -131,5 +132,28 @@ def main():
     print('GOTOWE — kolorów:', len(out), {k: sum(k in d['products'] for d in out) for k in set(KIND.values())})
 
 
+# Opisowe nazwy serii po niemiecku / angielsku (strony DE/EN katalogu; --nazwy). Aquafront ma tylko
+# stronę polską (wersje DE/EN = automatyczny tłumacz Google), więc nazw kolorów nie tłumaczymy.
+STRUCTURE_LANG = {
+    'Szkło dekor': ('Glas Dekor', 'Glass Decor'), 'Szkło': ('Glas', 'Glass'),
+    'Soft (mat)': ('Soft (matt)', 'Soft (matt)'), 'Struktura': ('Struktur', 'Texture'),
+    'Ryfla': ('Riffel', 'Fluted'), 'Lustro': ('Spiegel', 'Mirror'),
+}
+def backfill_names():
+    """Uzupełnia structure_de/structure_en w istniejącym pliku — tylko słowa opisowe serii (słownik
+    STRUCTURE_LANG, tłumaczenie własne). Nazw kolorów NIE tłumaczymy: producent ma tylko stronę polską,
+    a nazwa własna dekoru bez oficjalnej wersji zostaje po polsku (strona DE/EN pokazuje pole name)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for d in data:
+        tr = STRUCTURE_LANG.get(d.get('structure'))
+        for i, lang in enumerate(('de', 'en')):
+            if tr:
+                d['structure_' + lang] = tr[i]
+            else:
+                d.pop('structure_' + lang, None)
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print('structure_de/en:', sum(1 for d in data if d.get('structure_en')), '/', len(data))
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_names() if '--nazwy' in sys.argv else main())
