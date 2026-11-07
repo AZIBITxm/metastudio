@@ -396,9 +396,13 @@
             if ((products.includes('perfectsense') || products.includes('lakierowane')) && !products.includes('front-lakier')) {
                 products.push('front-lakier');
             }
+            // nazwy DE/EN od producenta (name_de/name_en); brak = nazwa PL. Szukanie po wszystkich wariantach.
+            const names = [d.name, d.name_de, d.name_en, d.structure, d.structure_de, d.structure_en].filter(Boolean).join(' ');
             return Object.assign(d, {
                 products, _p: p.id,
-                _s: norm(`${d.name} ${d.code} ${d.structure} ${d.producer} ${(d.tags || []).join(' ')}`),
+                name: d[`name_${LANG}`] || d.name,
+                structure: d[`structure_${LANG}`] || d.structure,
+                _s: norm(`${names} ${d.code} ${d.producer} ${[].concat(d.tags || [], d.tags_de || [], d.tags_en || []).join(' ')}`),
             });
         })))),
     ]).then(([op, ph, lists]) => {

@@ -14,6 +14,11 @@ Zapisujemy dekory dostępne jako płyta laminowana, blat albo front (akrylowy, l
 Wynik:
   dane/dekory/kronospan.json            — lista dekorów (strona katalogu + konsultant)
   materiały/dekory/kronospan/<KOD>.webp — próbka 600 px (kwadrat)
+
+Nazwy i tagi niemieckie/angielskie (strony DE/EN katalogu):  python narzedzia/pobierz_dekory_kronospan.py --nazwy
+  — ten sam endpoint w wersji /de_DE/ i /en_GB/: name_de/name_en (Kronospan używa tych samych
+  angielskich nazw we wszystkich językach) i tags_de/tags_en (filtr „Odwzorowanie materiału”, np. Eiche/Oak)
+  — do wyszukiwania. Pól PL i grafik nie zmienia.
 """
 import io
 import json
@@ -61,14 +66,14 @@ jar = http.cookiejar.CookieJar()
 opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
 
 
-def req(url, data=None, binary=False):
+def req(url, data=None, binary=False, page=PAGE):
     for attempt in range(5):
         try:
             headers = {'User-Agent': UA}
             body = None
             if data is not None:
                 body = json.dumps(data).encode()
-                headers.update({'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'Referer': PAGE})
+                headers.update({'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'Referer': page})
             with opener.open(urllib.request.Request(url, data=body, headers=headers), timeout=60) as r:
                 out = r.read()
             time.sleep(PAUSE)
@@ -79,8 +84,8 @@ def req(url, data=None, binary=False):
     raise RuntimeError('nie udało się: ' + url)
 
 
-def query(**filters):
-    return json.loads(req(API, dict(EMPTY, **filters)))
+def query(api=API, page=PAGE, **filters):
+    return json.loads(req(api, dict(EMPTY, **filters), page=page))
 
 
 def items(**filters):
@@ -157,5 +162,39 @@ def main():
           '| blaty', sum('blaty' in d['products'] for d in out))
 
 
+LOCALES = {'de': 'de_DE', 'en': 'en_GB'}
+
+
+def backfill_names():
+    """Uzupełnia name_de/name_en i tags_de/tags_en w istniejącym kronospan.json (po kodzie dekoru)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for lang, loc in LOCALES.items():
+        page = BASE + '/%s/decors/by_collection/kronodesign/' % loc
+        api = BASE + '/%s/ajax/decors/init_decores' % loc
+        jar.clear()                            # sesja pamięta język — osobna dla każdej wersji
+        req(page)                              # ciasteczko sesji dla tej wersji językowej
+        first = query(api, page)
+        names = {it['decor_number']: it['decor_title'].strip()
+                 for c in first['data'] for it in (c.get('items') or [])}
+        tags = {}
+        for mg in first['filters']['material_reproduction']:
+            for opt in mg.get('options') or []:
+                res = query(api, page, material_reproduction=[opt['id']])
+                for c in {it['decor_number'] for x in res['data'] for it in (x.get('items') or [])}:
+                    t = opt['title'].strip()
+                    if t and t not in tags.setdefault(c, []) and t.lower() not in ('other', 'others', 'sonstige', 'andere'):
+                        tags[c].append(t)
+        n = 0
+        for d in data:
+            if names.get(d['code']):
+                d['name_' + lang] = names[d['code']]
+                n += 1
+            if tags.get(d['code']):
+                d['tags_' + lang] = tags[d['code']]
+        print(f'{lang}: nazwy {n}/{len(data)}, tagi {sum(1 for d in data if d.get("tags_" + lang))}; brak nazwy:',
+              [d['code'] for d in data if not d.get('name_' + lang)])
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_names() if '--nazwy' in sys.argv else main())

@@ -14,7 +14,17 @@
    "Olcha"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/1912.webp"
+  "image": "materiały/dekory/kronospan/1912.webp",
+  "name_de": "Alder",
+  "tags_de": [
+   "Rot",
+   "Erle"
+  ],
+  "name_en": "Alder",
+  "tags_en": [
+   "Red",
+   "Alder"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -31,7 +41,17 @@
    "Orzech"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/9614.webp"
+  "image": "materiały/dekory/kronospan/9614.webp",
+  "name_de": "Alpine Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Alpine Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -51,7 +71,17 @@
    "Dąb"
   ],
   "structure": "HU",
-  "image": "materiały/dekory/kronospan/K530.webp"
+  "image": "materiały/dekory/kronospan/K530.webp",
+  "name_de": "Amaretto Hudson Oak",
+  "tags_de": [
+   "Orange",
+   "Eiche"
+  ],
+  "name_en": "Amaretto Hudson Oak",
+  "tags_en": [
+   "Orange",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -71,7 +101,17 @@
    "Dąb"
   ],
   "structure": "RW / PE",
-  "image": "materiały/dekory/kronospan/K536.webp"
+  "image": "materiały/dekory/kronospan/K536.webp",
+  "name_de": "Amber Baroque Oak",
+  "tags_de": [
+   "Orange",
+   "Eiche"
+  ],
+  "name_en": "Amber Baroque Oak",
+  "tags_en": [
+   "Orange",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -88,7 +128,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K006.webp"
+  "image": "materiały/dekory/kronospan/K006.webp",
+  "name_de": "Amber Urban Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Amber Urban Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -104,7 +154,15 @@
    "Żółty"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K021.webp"
+  "image": "materiały/dekory/kronospan/K021.webp",
+  "name_de": "Barley Blackwood",
+  "tags_de": [
+   "Gelb"
+  ],
+  "name_en": "Barley Blackwood",
+  "tags_en": [
+   "Yellow"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -121,7 +179,17 @@
    "Brzoza"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/1715.webp"
+  "image": "materiały/dekory/kronospan/1715.webp",
+  "name_de": "Birch",
+  "tags_de": [
+   "Beige",
+   "Birke"
+  ],
+  "name_en": "Birch",
+  "tags_en": [
+   "Beige",
+   "Birch"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -139,7 +207,17 @@
    "Dąb"
   ],
   "structure": "HU",
-  "image": "materiały/dekory/kronospan/K527.webp"
+  "image": "materiały/dekory/kronospan/K527.webp",
+  "name_de": "Biscotti Hudson Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Biscotti Hudson Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -156,7 +234,17 @@
    "Wiąz"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K017.webp"
+  "image": "materiały/dekory/kronospan/K017.webp",
+  "name_de": "Blonde Liberty Elm",
+  "tags_de": [
+   "Beige",
+   "Ulme"
+  ],
+  "name_en": "Blonde Liberty Elm",
+  "tags_en": [
+   "Beige",
+   "Elm"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -174,7 +262,17 @@
    "Jesion"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K525.webp"
+  "image": "materiały/dekory/kronospan/K525.webp",
+  "name_de": "Blonde Surfside Ash",
+  "tags_de": [
+   "Beige",
+   "Esche"
+  ],
+  "name_en": "Blonde Surfside Ash",
+  "tags_en": [
+   "Beige",
+   "Ash"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -191,7 +289,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K082.webp"
+  "image": "materiały/dekory/kronospan/K082.webp",
+  "name_de": "Bourbon Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Bourbon Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -210,7 +318,17 @@
    "Dąb"
   ],
   "structure": "XG / PW",
-  "image": "materiały/dekory/kronospan/K359.webp"
+  "image": "materiały/dekory/kronospan/K359.webp",
+  "name_de": "Brandy Castello Oak",
+  "tags_de": [
+   "Rot",
+   "Eiche"
+  ],
+  "name_en": "Brandy Castello Oak",
+  "tags_en": [
+   "Red",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -227,7 +345,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K090.webp"
+  "image": "materiały/dekory/kronospan/K090.webp",
+  "name_de": "Bronze Expressive Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Bronze Expressive Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -245,7 +373,17 @@
    "Dąb"
   ],
   "structure": "PW / BS",
-  "image": "materiały/dekory/kronospan/K2739.webp"
+  "image": "materiały/dekory/kronospan/K2739.webp",
+  "name_de": "Cannolo Cremona Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Cannolo Cremona Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -263,7 +401,17 @@
    "Orzech"
   ],
   "structure": "RW",
-  "image": "materiały/dekory/kronospan/K546.webp"
+  "image": "materiały/dekory/kronospan/K546.webp",
+  "name_de": "Caramel Franklin Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Caramel Franklin Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -283,7 +431,17 @@
    "Teczyna"
   ],
   "structure": "PW / SU",
-  "image": "materiały/dekory/kronospan/K016.webp"
+  "image": "materiały/dekory/kronospan/K016.webp",
+  "name_de": "Carbon Marine Wood",
+  "tags_de": [
+   "Schwarz",
+   "Teak"
+  ],
+  "name_en": "Carbon Marine Wood",
+  "tags_en": [
+   "Black",
+   "Teak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -301,7 +459,17 @@
    "Dąb"
   ],
   "structure": "HU",
-  "image": "materiały/dekory/kronospan/K528.webp"
+  "image": "materiały/dekory/kronospan/K528.webp",
+  "name_de": "Cashmere Hudson Oak",
+  "tags_de": [
+   "Grau",
+   "Eiche"
+  ],
+  "name_en": "Cashmere Hudson Oak",
+  "tags_en": [
+   "Grey",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -319,7 +487,17 @@
    "Kasztan"
   ],
   "structure": "AD",
-  "image": "materiały/dekory/kronospan/K534.webp"
+  "image": "materiały/dekory/kronospan/K534.webp",
+  "name_de": "Charcoal Arvadonna Chestnut",
+  "tags_de": [
+   "Schwarz",
+   "Kastanie"
+  ],
+  "name_en": "Charcoal Arvadonna Chestnut",
+  "tags_en": [
+   "Black",
+   "Chestnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -336,7 +514,17 @@
    "Wiśnia"
   ],
   "structure": "BS / PE",
-  "image": "materiały/dekory/kronospan/0344.webp"
+  "image": "materiały/dekory/kronospan/0344.webp",
+  "name_de": "Cherry",
+  "tags_de": [
+   "Rot",
+   "Kirsche"
+  ],
+  "name_en": "Cherry",
+  "tags_en": [
+   "Red",
+   "Cherry"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -354,7 +542,17 @@
    "Dąb"
   ],
   "structure": "HU",
-  "image": "materiały/dekory/kronospan/K554.webp"
+  "image": "materiały/dekory/kronospan/K554.webp",
+  "name_de": "Chocolate Hudson Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Chocolate Hudson Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -371,7 +569,17 @@
    "Buk"
   ],
   "structure": "BS / PE",
-  "image": "materiały/dekory/kronospan/0381.webp"
+  "image": "materiały/dekory/kronospan/0381.webp",
+  "name_de": "Classic Beech",
+  "tags_de": [
+   "Rot",
+   "Buche"
+  ],
+  "name_en": "Classic Beech",
+  "tags_en": [
+   "Red",
+   "Beech"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -391,7 +599,17 @@
    "Dąb"
   ],
   "structure": "PW / FP",
-  "image": "materiały/dekory/kronospan/K365.webp"
+  "image": "materiały/dekory/kronospan/K365.webp",
+  "name_de": "Coast Evoke Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Coast Evoke Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -407,7 +625,15 @@
    "Beżowy"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/8995.webp"
+  "image": "materiały/dekory/kronospan/8995.webp",
+  "name_de": "Coco Bolo",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Coco Bolo",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -425,7 +651,17 @@
    "Dąb"
   ],
   "structure": "PV",
-  "image": "materiały/dekory/kronospan/K697.webp"
+  "image": "materiały/dekory/kronospan/K697.webp",
+  "name_de": "Cocoa Primavera Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Cocoa Primavera Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -442,7 +678,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K007.webp"
+  "image": "materiały/dekory/kronospan/K007.webp",
+  "name_de": "Coffee Urban Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Coffee Urban Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -460,7 +706,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K354.webp"
+  "image": "materiały/dekory/kronospan/K354.webp",
+  "name_de": "Colonial Grange Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Colonial Grange Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -479,7 +735,17 @@
    "Dąb"
   ],
   "structure": "PW / XG",
-  "image": "materiały/dekory/kronospan/K2737.webp"
+  "image": "materiały/dekory/kronospan/K2737.webp",
+  "name_de": "Cotta Cremona Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Cotta Cremona Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -495,7 +761,15 @@
    "Szary"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K084.webp"
+  "image": "materiały/dekory/kronospan/K084.webp",
+  "name_de": "Dark Artwood",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Dark Artwood",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -513,7 +787,17 @@
    "Dąb"
   ],
   "structure": "FP",
-  "image": "materiały/dekory/kronospan/K092.webp"
+  "image": "materiały/dekory/kronospan/K092.webp",
+  "name_de": "Dark Porterhouse Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Dark Porterhouse Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -530,7 +814,17 @@
    "Wiśnia"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K078.webp"
+  "image": "materiały/dekory/kronospan/K078.webp",
+  "name_de": "Dark Riverside Cherry",
+  "tags_de": [
+   "Rot",
+   "Kirsche"
+  ],
+  "name_en": "Dark Riverside Cherry",
+  "tags_en": [
+   "Red",
+   "Cherry"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -547,7 +841,17 @@
    "Hikora"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K087.webp"
+  "image": "materiały/dekory/kronospan/K087.webp",
+  "name_de": "Dark Rockford Hickory",
+  "tags_de": [
+   "Braun",
+   "Hickory"
+  ],
+  "name_en": "Dark Rockford Hickory",
+  "tags_en": [
+   "Brown",
+   "Hickory"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -564,7 +868,17 @@
    "Orzech"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K009.webp"
+  "image": "materiały/dekory/kronospan/K009.webp",
+  "name_de": "Dark Select Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Dark Select Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -584,7 +898,17 @@
    "Dąb"
   ],
   "structure": "PW / FP",
-  "image": "materiały/dekory/kronospan/K107.webp"
+  "image": "materiały/dekory/kronospan/K107.webp",
+  "name_de": "Elegance Endgrain Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Elegance Endgrain Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -601,7 +925,17 @@
    "Dąb"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/8921.webp"
+  "image": "materiały/dekory/kronospan/8921.webp",
+  "name_de": "Ferrara Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Ferrara Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -618,7 +952,17 @@
    "Dąb"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/8431.webp"
+  "image": "materiały/dekory/kronospan/8431.webp",
+  "name_de": "Fine Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Fine Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -634,7 +978,15 @@
    "Brązowy"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/8548.webp"
+  "image": "materiały/dekory/kronospan/8548.webp",
+  "name_de": "Fineline Mocca",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Fineline Mocca",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -651,7 +1003,17 @@
    "Orzech"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K020.webp"
+  "image": "materiały/dekory/kronospan/K020.webp",
+  "name_de": "Fireside Select Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Fireside Select Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -669,7 +1031,17 @@
    "Kasztan"
   ],
   "structure": "AD",
-  "image": "materiały/dekory/kronospan/K532.webp"
+  "image": "materiały/dekory/kronospan/K532.webp",
+  "name_de": "Flamed Arvadonna Chestnut",
+  "tags_de": [
+   "Braun",
+   "Kastanie"
+  ],
+  "name_en": "Flamed Arvadonna Chestnut",
+  "tags_en": [
+   "Brown",
+   "Chestnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -687,7 +1059,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K366.webp"
+  "image": "materiały/dekory/kronospan/K366.webp",
+  "name_de": "Fossil Evoke Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Fossil Evoke Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -707,7 +1089,17 @@
    "Dąb"
   ],
   "structure": "RW / PE",
-  "image": "materiały/dekory/kronospan/K535.webp"
+  "image": "materiały/dekory/kronospan/K535.webp",
+  "name_de": "Gold Baroque Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Gold Baroque Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -727,7 +1119,17 @@
    "Dąb"
   ],
   "structure": "PW / FP",
-  "image": "materiały/dekory/kronospan/K003.webp"
+  "image": "materiały/dekory/kronospan/K003.webp",
+  "name_de": "Gold Craft Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Gold Craft Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -745,7 +1147,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K361.webp"
+  "image": "materiały/dekory/kronospan/K361.webp",
+  "name_de": "Gold Harbor Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Gold Harbor Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -765,7 +1177,17 @@
    "Dąb"
   ],
   "structure": "HU",
-  "image": "materiały/dekory/kronospan/K529.webp"
+  "image": "materiały/dekory/kronospan/K529.webp",
+  "name_de": "Gold Hudson Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Gold Hudson Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -783,7 +1205,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K357.webp"
+  "image": "materiały/dekory/kronospan/K357.webp",
+  "name_de": "Greige Castello Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Greige Castello Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -800,7 +1232,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K079.webp"
+  "image": "materiały/dekory/kronospan/K079.webp",
+  "name_de": "Grey Clubhouse Oak",
+  "tags_de": [
+   "Grau",
+   "Eiche"
+  ],
+  "name_en": "Grey Clubhouse Oak",
+  "tags_en": [
+   "Grey",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -820,7 +1262,17 @@
    "Dąb"
   ],
   "structure": "PW / FP",
-  "image": "materiały/dekory/kronospan/K002.webp"
+  "image": "materiały/dekory/kronospan/K002.webp",
+  "name_de": "Grey Craft Oak",
+  "tags_de": [
+   "Grau",
+   "Eiche"
+  ],
+  "name_en": "Grey Craft Oak",
+  "tags_en": [
+   "Grey",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -836,7 +1288,15 @@
    "Szary"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K089.webp"
+  "image": "materiały/dekory/kronospan/K089.webp",
+  "name_de": "Grey Nordic Wood",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Grey Nordic Wood",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -856,7 +1316,17 @@
    "Dąb"
   ],
   "structure": "RW",
-  "image": "materiały/dekory/kronospan/K544.webp"
+  "image": "materiały/dekory/kronospan/K544.webp",
+  "name_de": "Hazel Silverjack Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Hazel Silverjack Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -874,7 +1344,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K358.webp"
+  "image": "materiały/dekory/kronospan/K358.webp",
+  "name_de": "Honey Castello Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Honey Castello Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -892,7 +1372,17 @@
    "Jesion"
   ],
   "structure": "SN / RW",
-  "image": "materiały/dekory/kronospan/K526.webp"
+  "image": "materiały/dekory/kronospan/K526.webp",
+  "name_de": "Iron Surfside Ash",
+  "tags_de": [
+   "Schwarz",
+   "Esche"
+  ],
+  "name_en": "Iron Surfside Ash",
+  "tags_en": [
+   "Black",
+   "Ash"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -909,7 +1399,15 @@
    "Szary"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K030.webp"
+  "image": "materiały/dekory/kronospan/K030.webp",
+  "name_de": "Java Block Wood",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Java Block Wood",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -925,7 +1423,15 @@
    "Biały"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K083.webp"
+  "image": "materiały/dekory/kronospan/K083.webp",
+  "name_de": "Light Artwood",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "Light Artwood",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -943,7 +1449,17 @@
    "Dąb"
   ],
   "structure": "FP",
-  "image": "materiały/dekory/kronospan/K091.webp"
+  "image": "materiały/dekory/kronospan/K091.webp",
+  "name_de": "Light Porterhouse Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Light Porterhouse Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -960,7 +1476,17 @@
    "Hikora"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K085.webp"
+  "image": "materiały/dekory/kronospan/K085.webp",
+  "name_de": "Light Rockford Hickory",
+  "tags_de": [
+   "Beige",
+   "Hickory"
+  ],
+  "name_en": "Light Rockford Hickory",
+  "tags_en": [
+   "Beige",
+   "Hickory"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -977,7 +1503,17 @@
    "Orzech"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K008.webp"
+  "image": "materiały/dekory/kronospan/K008.webp",
+  "name_de": "Light Select Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Light Select Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -994,7 +1530,17 @@
    "Dąb"
   ],
   "structure": "SN / PE",
-  "image": "materiały/dekory/kronospan/3025.webp"
+  "image": "materiały/dekory/kronospan/3025.webp",
+  "name_de": "Light Vintage Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Light Vintage Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1011,7 +1557,15 @@
    "Beżowy"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K029.webp"
+  "image": "materiały/dekory/kronospan/K029.webp",
+  "name_de": "Linen Block Wood",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Linen Block Wood",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1028,7 +1582,17 @@
    "Wenge"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/9763.webp"
+  "image": "materiały/dekory/kronospan/9763.webp",
+  "name_de": "Louisiana Wenge",
+  "tags_de": [
+   "Braun",
+   "Wenge"
+  ],
+  "name_en": "Louisiana Wenge",
+  "tags_en": [
+   "Brown",
+   "Wenge"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1045,7 +1609,17 @@
    "Klon"
   ],
   "structure": "BS / PE",
-  "image": "materiały/dekory/kronospan/0375.webp"
+  "image": "materiały/dekory/kronospan/0375.webp",
+  "name_de": "Maple",
+  "tags_de": [
+   "Beige",
+   "Ahorn"
+  ],
+  "name_en": "Maple",
+  "tags_en": [
+   "Beige",
+   "Maple"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1063,7 +1637,17 @@
    "Kasztan"
   ],
   "structure": "AD",
-  "image": "materiały/dekory/kronospan/K533.webp"
+  "image": "materiały/dekory/kronospan/K533.webp",
+  "name_de": "Mink Arvadonna Chestnut",
+  "tags_de": [
+   "Braun",
+   "Kastanie"
+  ],
+  "name_en": "Mink Arvadonna Chestnut",
+  "tags_en": [
+   "Brown",
+   "Chestnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1081,7 +1665,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K688.webp"
+  "image": "materiały/dekory/kronospan/K688.webp",
+  "name_de": "Natural Canella Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Natural Canella Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1099,7 +1693,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K689.webp"
+  "image": "materiały/dekory/kronospan/K689.webp",
+  "name_de": "Natural Canella Strata",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Natural Canella Strata",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1116,7 +1720,17 @@
    "Wiąz"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/5500.webp"
+  "image": "materiały/dekory/kronospan/5500.webp",
+  "name_de": "Natural Noble Elm",
+  "tags_de": [
+   "Beige",
+   "Ulme"
+  ],
+  "name_en": "Natural Noble Elm",
+  "tags_en": [
+   "Beige",
+   "Elm"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1133,7 +1747,17 @@
    "Hikora"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K086.webp"
+  "image": "materiały/dekory/kronospan/K086.webp",
+  "name_de": "Natural Rockford Hickory",
+  "tags_de": [
+   "Gelb",
+   "Hickory"
+  ],
+  "name_en": "Natural Rockford Hickory",
+  "tags_en": [
+   "Yellow",
+   "Hickory"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1150,7 +1774,17 @@
    "Dąb"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/5529.webp"
+  "image": "materiały/dekory/kronospan/5529.webp",
+  "name_de": "Oregon",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Oregon",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1167,7 +1801,17 @@
    "Dąb"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/5194.webp"
+  "image": "materiały/dekory/kronospan/5194.webp",
+  "name_de": "Oxide Vintage Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Oxide Vintage Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1184,7 +1828,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K005.webp"
+  "image": "materiały/dekory/kronospan/K005.webp",
+  "name_de": "Oyster Urban Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Oyster Urban Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1201,7 +1855,17 @@
    "Buk"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K012.webp"
+  "image": "materiały/dekory/kronospan/K012.webp",
+  "name_de": "Pearl Artisan Beech",
+  "tags_de": [
+   "Beige",
+   "Buche"
+  ],
+  "name_en": "Pearl Artisan Beech",
+  "tags_en": [
+   "Beige",
+   "Beech"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1219,7 +1883,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K355.webp"
+  "image": "materiały/dekory/kronospan/K355.webp",
+  "name_de": "Platinum Grange Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Platinum Grange Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1237,7 +1911,17 @@
    "Orzech"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K206.webp"
+  "image": "materiały/dekory/kronospan/K206.webp",
+  "name_de": "Porterhouse Walnut",
+  "tags_de": [
+   "Gelb",
+   "Walnuss"
+  ],
+  "name_en": "Porterhouse Walnut",
+  "tags_en": [
+   "Yellow",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1255,7 +1939,17 @@
    "Jesion"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K524.webp"
+  "image": "materiały/dekory/kronospan/K524.webp",
+  "name_de": "Pure Surfside Ash",
+  "tags_de": [
+   "Weiß",
+   "Esche"
+  ],
+  "name_en": "Pure Surfside Ash",
+  "tags_en": [
+   "White",
+   "Ash"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1275,7 +1969,17 @@
    "Dąb"
   ],
   "structure": "PW / FP",
-  "image": "materiały/dekory/kronospan/K105.webp"
+  "image": "materiały/dekory/kronospan/K105.webp",
+  "name_de": "Raw Endgrain Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Raw Endgrain Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1295,7 +1999,17 @@
    "Dąb"
   ],
   "structure": "RW / PE",
-  "image": "materiały/dekory/kronospan/K537.webp"
+  "image": "materiały/dekory/kronospan/K537.webp",
+  "name_de": "Ristretto Baroque Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Ristretto Baroque Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1315,7 +2029,17 @@
    "Buk"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K013.webp"
+  "image": "materiały/dekory/kronospan/K013.webp",
+  "name_de": "Sand Artisan Beech",
+  "tags_de": [
+   "Beige",
+   "Buche"
+  ],
+  "name_en": "Sand Artisan Beech",
+  "tags_en": [
+   "Beige",
+   "Beech"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1333,7 +2057,17 @@
    "Dąb"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K543.webp"
+  "image": "materiały/dekory/kronospan/K543.webp",
+  "name_de": "Sand Barbera Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Sand Barbera Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1350,7 +2084,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K076.webp"
+  "image": "materiały/dekory/kronospan/K076.webp",
+  "name_de": "Sand Expressive Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Sand Expressive Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1368,7 +2112,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K356.webp"
+  "image": "materiały/dekory/kronospan/K356.webp",
+  "name_de": "Sand Grange Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Sand Grange Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1384,7 +2138,15 @@
    "Beżowy"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K022.webp"
+  "image": "materiały/dekory/kronospan/K022.webp",
+  "name_de": "Satin Blackwood",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Satin Blackwood",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1401,7 +2163,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K081.webp"
+  "image": "materiały/dekory/kronospan/K081.webp",
+  "name_de": "Satin Coastland Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Satin Coastland Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1419,7 +2191,17 @@
    "Dąb"
   ],
   "structure": "PV",
-  "image": "materiały/dekory/kronospan/K694.webp"
+  "image": "materiały/dekory/kronospan/K694.webp",
+  "name_de": "Silk Primavera Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Silk Primavera Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1436,7 +2218,17 @@
    "Wiąz"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K019.webp"
+  "image": "materiały/dekory/kronospan/K019.webp",
+  "name_de": "Silver Liberty Elm",
+  "tags_de": [
+   "Grau",
+   "Ulme"
+  ],
+  "name_en": "Silver Liberty Elm",
+  "tags_en": [
+   "Grey",
+   "Elm"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1453,7 +2245,17 @@
    "Dąb"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/5501.webp"
+  "image": "materiały/dekory/kronospan/5501.webp",
+  "name_de": "Slavonia Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Slavonia Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1471,7 +2273,17 @@
    "Jesion"
   ],
   "structure": "RW",
-  "image": "materiały/dekory/kronospan/K548.webp"
+  "image": "materiały/dekory/kronospan/K548.webp",
+  "name_de": "Smoked Kala Ash",
+  "tags_de": [
+   "Braun",
+   "Esche"
+  ],
+  "name_en": "Smoked Kala Ash",
+  "tags_en": [
+   "Brown",
+   "Ash"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1488,7 +2300,17 @@
    "Wiąz"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K018.webp"
+  "image": "materiały/dekory/kronospan/K018.webp",
+  "name_de": "Smoked Liberty Elm",
+  "tags_de": [
+   "Grau",
+   "Ulme"
+  ],
+  "name_en": "Smoked Liberty Elm",
+  "tags_en": [
+   "Grey",
+   "Elm"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1506,7 +2328,17 @@
    "Kasztan"
   ],
   "structure": "AD",
-  "image": "materiały/dekory/kronospan/K531.webp"
+  "image": "materiały/dekory/kronospan/K531.webp",
+  "name_de": "Stone Arvadonna Chestnut",
+  "tags_de": [
+   "Grau",
+   "Kastanie"
+  ],
+  "name_en": "Stone Arvadonna Chestnut",
+  "tags_en": [
+   "Grey",
+   "Chestnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1526,7 +2358,17 @@
    "Dąb"
   ],
   "structure": "SN / FP",
-  "image": "materiały/dekory/kronospan/5527.webp"
+  "image": "materiały/dekory/kronospan/5527.webp",
+  "name_de": "Stone Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Stone Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1546,7 +2388,17 @@
    "Dąb"
   ],
   "structure": "PV",
-  "image": "materiały/dekory/kronospan/K695.webp"
+  "image": "materiały/dekory/kronospan/K695.webp",
+  "name_de": "Straw Primavera Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Straw Primavera Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1563,7 +2415,17 @@
    "Orzech"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/8953.webp"
+  "image": "materiały/dekory/kronospan/8953.webp",
+  "name_de": "Tiepolo Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Tiepolo Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1580,7 +2442,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K004.webp"
+  "image": "materiały/dekory/kronospan/K004.webp",
+  "name_de": "Tobacco Craft Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Tobacco Craft Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1599,7 +2471,17 @@
    "Orzech"
   ],
   "structure": "XG / RW",
-  "image": "materiały/dekory/kronospan/K547.webp"
+  "image": "materiały/dekory/kronospan/K547.webp",
+  "name_de": "Tobacco Franklin Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Tobacco Franklin Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1619,7 +2501,17 @@
    "Dąb"
   ],
   "structure": "PW / FP / PE",
-  "image": "materiały/dekory/kronospan/K2738.webp"
+  "image": "materiały/dekory/kronospan/K2738.webp",
+  "name_de": "Torro Cremona Oak",
+  "tags_de": [
+   "Beige",
+   "Eiche"
+  ],
+  "name_en": "Torro Cremona Oak",
+  "tags_en": [
+   "Beige",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1639,7 +2531,17 @@
    "Dąb"
   ],
   "structure": "PV",
-  "image": "materiały/dekory/kronospan/K696.webp"
+  "image": "materiały/dekory/kronospan/K696.webp",
+  "name_de": "Umber Primavera Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Umber Primavera Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1657,7 +2559,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K360.webp"
+  "image": "materiały/dekory/kronospan/K360.webp",
+  "name_de": "Vintage Harbor Oak",
+  "tags_de": [
+   "Gelb",
+   "Eiche"
+  ],
+  "name_en": "Vintage Harbor Oak",
+  "tags_en": [
+   "Yellow",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1674,7 +2586,17 @@
    "Teczyna"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K015.webp"
+  "image": "materiały/dekory/kronospan/K015.webp",
+  "name_de": "Vintage Marine Wood",
+  "tags_de": [
+   "Braun",
+   "Teak"
+  ],
+  "name_en": "Vintage Marine Wood",
+  "tags_en": [
+   "Brown",
+   "Teak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1694,7 +2616,17 @@
    "Dąb"
   ],
   "structure": "RW",
-  "image": "materiały/dekory/kronospan/K545.webp"
+  "image": "materiały/dekory/kronospan/K545.webp",
+  "name_de": "Vintage Silverjack Oak",
+  "tags_de": [
+   "Braun",
+   "Eiche"
+  ],
+  "name_en": "Vintage Silverjack Oak",
+  "tags_en": [
+   "Brown",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1711,7 +2643,17 @@
    "Wenge"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/7648.webp"
+  "image": "materiały/dekory/kronospan/7648.webp",
+  "name_de": "Vintage Wenge",
+  "tags_de": [
+   "Braun",
+   "Wenge"
+  ],
+  "name_en": "Vintage Wenge",
+  "tags_en": [
+   "Brown",
+   "Wenge"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1728,7 +2670,17 @@
    "Orzech"
   ],
   "structure": "BS / PE",
-  "image": "materiały/dekory/kronospan/0729.webp"
+  "image": "materiały/dekory/kronospan/0729.webp",
+  "name_de": "Walnut",
+  "tags_de": [
+   "Braun",
+   "Walnuss"
+  ],
+  "name_en": "Walnut",
+  "tags_en": [
+   "Brown",
+   "Walnut"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1745,7 +2697,17 @@
    "Wenge"
   ],
   "structure": "BS / PE",
-  "image": "materiały/dekory/kronospan/0854.webp"
+  "image": "materiały/dekory/kronospan/0854.webp",
+  "name_de": "Wenge",
+  "tags_de": [
+   "Braun",
+   "Wenge"
+  ],
+  "name_en": "Wenge",
+  "tags_en": [
+   "Brown",
+   "Wenge"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1762,7 +2724,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K080.webp"
+  "image": "materiały/dekory/kronospan/K080.webp",
+  "name_de": "White Coastland Oak",
+  "tags_de": [
+   "Weiß",
+   "Eiche"
+  ],
+  "name_en": "White Coastland Oak",
+  "tags_en": [
+   "White",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1779,7 +2751,17 @@
    "Dąb"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K001.webp"
+  "image": "materiały/dekory/kronospan/K001.webp",
+  "name_de": "White Craft Oak",
+  "tags_de": [
+   "Weiß",
+   "Eiche"
+  ],
+  "name_en": "White Craft Oak",
+  "tags_en": [
+   "White",
+   "Oak"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1796,7 +2778,17 @@
    "Sosna"
   ],
   "structure": "SN",
-  "image": "materiały/dekory/kronospan/K010.webp"
+  "image": "materiały/dekory/kronospan/K010.webp",
+  "name_de": "White Loft Pine",
+  "tags_de": [
+   "Weiß",
+   "Pinie"
+  ],
+  "name_en": "White Loft Pine",
+  "tags_en": [
+   "White",
+   "Pine"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1812,7 +2804,15 @@
    "Biały"
   ],
   "structure": "PW",
-  "image": "materiały/dekory/kronospan/K088.webp"
+  "image": "materiały/dekory/kronospan/K088.webp",
+  "name_de": "White Nordic Wood",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "White Nordic Wood",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1828,7 +2828,17 @@
    "Trawertyn"
   ],
   "structure": "LV",
-  "image": "materiały/dekory/kronospan/K750.webp"
+  "image": "materiały/dekory/kronospan/K750.webp",
+  "name_de": "Agra Travertine",
+  "tags_de": [
+   "Beige",
+   "Travertin"
+  ],
+  "name_en": "Agra Travertine",
+  "tags_en": [
+   "Beige",
+   "Travertine"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1845,7 +2855,15 @@
    "Beżowy"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K691.webp"
+  "image": "materiały/dekory/kronospan/K691.webp",
+  "name_de": "Almond Granada",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Almond Granada",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1863,7 +2881,17 @@
    "Granit"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K203.webp"
+  "image": "materiały/dekory/kronospan/K203.webp",
+  "name_de": "Anthracite Granite",
+  "tags_de": [
+   "Schwarz",
+   "Granit"
+  ],
+  "name_en": "Anthracite Granite",
+  "tags_en": [
+   "Black",
+   "Granite"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1879,7 +2907,17 @@
    "Łupek"
   ],
   "structure": "LV",
-  "image": "materiały/dekory/kronospan/K749.webp"
+  "image": "materiały/dekory/kronospan/K749.webp",
+  "name_de": "Babylon Slate",
+  "tags_de": [
+   "Beige",
+   "Schiefer"
+  ],
+  "name_en": "Babylon Slate",
+  "tags_en": [
+   "Beige",
+   "Slate"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1897,7 +2935,17 @@
    "Marmur"
   ],
   "structure": "PA",
-  "image": "materiały/dekory/kronospan/K212.webp"
+  "image": "materiały/dekory/kronospan/K212.webp",
+  "name_de": "Beige Royal Marble",
+  "tags_de": [
+   "Beige",
+   "Marmor"
+  ],
+  "name_en": "Beige Royal Marble",
+  "tags_en": [
+   "Beige",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1915,7 +2963,17 @@
    "Kreatywny"
   ],
   "structure": "GG / GM",
-  "image": "materiały/dekory/kronospan/K218.webp"
+  "image": "materiały/dekory/kronospan/K218.webp",
+  "name_de": "Black Andromeda",
+  "tags_de": [
+   "Schwarz",
+   "Kreativ"
+  ],
+  "name_en": "Black Andromeda",
+  "tags_en": [
+   "Black",
+   "Creative"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1933,7 +2991,17 @@
    "Beton"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K205.webp"
+  "image": "materiały/dekory/kronospan/K205.webp",
+  "name_de": "Black Concrete",
+  "tags_de": [
+   "Schwarz",
+   "Beton"
+  ],
+  "name_en": "Black Concrete",
+  "tags_en": [
+   "Black",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1950,7 +3018,15 @@
    "Czarny"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K210.webp"
+  "image": "materiały/dekory/kronospan/K210.webp",
+  "name_de": "Black Flint",
+  "tags_de": [
+   "Schwarz"
+  ],
+  "name_en": "Black Flint",
+  "tags_en": [
+   "Black"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1966,7 +3042,17 @@
    "Marmur"
   ],
   "structure": "XG / XM / BS",
-  "image": "materiały/dekory/kronospan/K409.webp"
+  "image": "materiały/dekory/kronospan/K409.webp",
+  "name_de": "Black Pietra Marble",
+  "tags_de": [
+   "Schwarz",
+   "Marmor"
+  ],
+  "name_en": "Black Pietra Marble",
+  "tags_en": [
+   "Black",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1982,7 +3068,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K594.webp"
+  "image": "materiały/dekory/kronospan/K594.webp",
+  "name_de": "Breccia Vivaldo",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Breccia Vivaldo",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -1999,7 +3095,15 @@
    "Brązowy"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K693.webp"
+  "image": "materiały/dekory/kronospan/K693.webp",
+  "name_de": "Bronze Granada",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Bronze Granada",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2016,7 +3120,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL01.webp"
+  "image": "materiały/dekory/kronospan/AL01.webp",
+  "name_de": "Brushed Aluminium",
+  "tags_de": [
+   "Grau",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Aluminium",
+  "tags_en": [
+   "Grey",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2033,7 +3147,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL06.webp"
+  "image": "materiały/dekory/kronospan/AL06.webp",
+  "name_de": "Brushed Bronze",
+  "tags_de": [
+   "Braun",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Bronze",
+  "tags_en": [
+   "Brown",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2050,7 +3174,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL05.webp"
+  "image": "materiały/dekory/kronospan/AL05.webp",
+  "name_de": "Brushed Copper",
+  "tags_de": [
+   "Orange",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Copper",
+  "tags_en": [
+   "Orange",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2067,7 +3201,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL04.webp"
+  "image": "materiały/dekory/kronospan/AL04.webp",
+  "name_de": "Brushed Gold",
+  "tags_de": [
+   "Gelb",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Gold",
+  "tags_en": [
+   "Yellow",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2084,7 +3228,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL03.webp"
+  "image": "materiały/dekory/kronospan/AL03.webp",
+  "name_de": "Brushed Inox",
+  "tags_de": [
+   "Grau",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Inox",
+  "tags_en": [
+   "Grey",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2101,7 +3255,17 @@
    "Metaliczny"
   ],
   "structure": "",
-  "image": "materiały/dekory/kronospan/AL08.webp"
+  "image": "materiały/dekory/kronospan/AL08.webp",
+  "name_de": "Brushed Titan",
+  "tags_de": [
+   "Braun",
+   "Metallisch"
+  ],
+  "name_en": "Brushed Titan",
+  "tags_en": [
+   "Brown",
+   "Metallic"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2119,7 +3283,17 @@
    "Marmur"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K699.webp"
+  "image": "materiały/dekory/kronospan/K699.webp",
+  "name_de": "Calacatta Ambrosio",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Calacatta Ambrosio",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2137,7 +3311,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K551.webp"
+  "image": "materiały/dekory/kronospan/K551.webp",
+  "name_de": "Calacatta Olympus",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Calacatta Olympus",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2157,7 +3341,17 @@
    "Beton"
   ],
   "structure": "RT / BS",
-  "image": "materiały/dekory/kronospan/K353.webp"
+  "image": "materiały/dekory/kronospan/K353.webp",
+  "name_de": "Charcoal Flow",
+  "tags_de": [
+   "Schwarz",
+   "Beton"
+  ],
+  "name_en": "Charcoal Flow",
+  "tags_en": [
+   "Black",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2175,7 +3369,17 @@
    "Granit"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K204.webp"
+  "image": "materiały/dekory/kronospan/K204.webp",
+  "name_de": "Classic Granite",
+  "tags_de": [
+   "Grau",
+   "Granit"
+  ],
+  "name_en": "Classic Granite",
+  "tags_en": [
+   "Grey",
+   "Granite"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2192,7 +3396,15 @@
    "Szary"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K692.webp"
+  "image": "materiały/dekory/kronospan/K692.webp",
+  "name_de": "Cloud Granada",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Cloud Granada",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2210,7 +3422,17 @@
    "Marmur"
   ],
   "structure": "PH",
-  "image": "materiały/dekory/kronospan/K369.webp"
+  "image": "materiały/dekory/kronospan/K369.webp",
+  "name_de": "Cloud Nebula",
+  "tags_de": [
+   "Grau",
+   "Marmor"
+  ],
+  "name_en": "Cloud Nebula",
+  "tags_en": [
+   "Grey",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2230,7 +3452,17 @@
    "Beton"
   ],
   "structure": "RT / BS",
-  "image": "materiały/dekory/kronospan/K350.webp"
+  "image": "materiały/dekory/kronospan/K350.webp",
+  "name_de": "Concrete Flow",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Concrete Flow",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2248,7 +3480,17 @@
    "Marmur"
   ],
   "structure": "PH",
-  "image": "materiały/dekory/kronospan/K367.webp"
+  "image": "materiały/dekory/kronospan/K367.webp",
+  "name_de": "Cream Navona",
+  "tags_de": [
+   "Beige",
+   "Marmor"
+  ],
+  "name_en": "Cream Navona",
+  "tags_en": [
+   "Beige",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2266,7 +3508,17 @@
    "Wapień"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K209.webp"
+  "image": "materiały/dekory/kronospan/K209.webp",
+  "name_de": "Crema Limestone",
+  "tags_de": [
+   "Beige",
+   "Kalkstein"
+  ],
+  "name_en": "Crema Limestone",
+  "tags_en": [
+   "Beige",
+   "Limestone"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2286,7 +3538,17 @@
    "Beton"
   ],
   "structure": "SU / UE",
-  "image": "materiały/dekory/kronospan/4299.webp"
+  "image": "materiały/dekory/kronospan/4299.webp",
+  "name_de": "Dark Atelier",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Dark Atelier",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2304,7 +3566,17 @@
    "Beton"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K201.webp"
+  "image": "materiały/dekory/kronospan/K201.webp",
+  "name_de": "Dark Grey Concrete",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Dark Grey Concrete",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2322,7 +3594,17 @@
    "Trawertyn"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K213.webp"
+  "image": "materiały/dekory/kronospan/K213.webp",
+  "name_de": "Dark Tivoli",
+  "tags_de": [
+   "Braun",
+   "Travertin"
+  ],
+  "name_en": "Dark Tivoli",
+  "tags_en": [
+   "Brown",
+   "Travertine"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2340,7 +3622,17 @@
    "Łupek"
   ],
   "structure": "SL",
-  "image": "materiały/dekory/kronospan/K550.webp"
+  "image": "materiały/dekory/kronospan/K550.webp",
+  "name_de": "Dove Venera",
+  "tags_de": [
+   "Grau",
+   "Schiefer"
+  ],
+  "name_en": "Dove Venera",
+  "tags_en": [
+   "Grey",
+   "Slate"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2360,7 +3652,17 @@
    "Beton"
   ],
   "structure": "PN / PH",
-  "image": "materiały/dekory/kronospan/K538.webp"
+  "image": "materiały/dekory/kronospan/K538.webp",
+  "name_de": "Dovetail Arosa",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Dovetail Arosa",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2380,7 +3682,17 @@
    "Beton"
   ],
   "structure": "PN / PH",
-  "image": "materiały/dekory/kronospan/K539.webp"
+  "image": "materiały/dekory/kronospan/K539.webp",
+  "name_de": "Fossil Arosa",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Fossil Arosa",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2398,7 +3710,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K553.webp"
+  "image": "materiały/dekory/kronospan/K553.webp",
+  "name_de": "Galaxus",
+  "tags_de": [
+   "Schwarz",
+   "Marmor"
+  ],
+  "name_en": "Galaxus",
+  "tags_en": [
+   "Black",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2416,7 +3738,17 @@
    "Tkanina"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K541.webp"
+  "image": "materiały/dekory/kronospan/K541.webp",
+  "name_de": "Greige Tessea",
+  "tags_de": [
+   "Beige",
+   "Textil"
+  ],
+  "name_en": "Greige Tessea",
+  "tags_en": [
+   "Beige",
+   "Textile"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2437,7 +3769,19 @@
    "Wapień"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K540.webp"
+  "image": "materiały/dekory/kronospan/K540.webp",
+  "name_de": "Grey Albus",
+  "tags_de": [
+   "Grau",
+   "Beton",
+   "Kalkstein"
+  ],
+  "name_en": "Grey Albus",
+  "tags_en": [
+   "Grey",
+   "Concrete",
+   "Limestone"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2455,7 +3799,17 @@
    "Marmur"
   ],
   "structure": "PH",
-  "image": "materiały/dekory/kronospan/K368.webp"
+  "image": "materiały/dekory/kronospan/K368.webp",
+  "name_de": "Grey Atlantic Marble",
+  "tags_de": [
+   "Grau",
+   "Marmor"
+  ],
+  "name_en": "Grey Atlantic Marble",
+  "tags_en": [
+   "Grey",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2473,7 +3827,17 @@
    "Marmur"
   ],
   "structure": "SL",
-  "image": "materiały/dekory/kronospan/K093.webp"
+  "image": "materiały/dekory/kronospan/K093.webp",
+  "name_de": "Grey Emperador Marble",
+  "tags_de": [
+   "Grau",
+   "Marmor"
+  ],
+  "name_en": "Grey Emperador Marble",
+  "tags_en": [
+   "Grey",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2490,7 +3854,15 @@
    "Szary"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K207.webp"
+  "image": "materiały/dekory/kronospan/K207.webp",
+  "name_de": "Grey Galaxy",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Grey Galaxy",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2510,7 +3882,17 @@
    "Beton"
   ],
   "structure": "RT / BS",
-  "image": "materiały/dekory/kronospan/K352.webp"
+  "image": "materiały/dekory/kronospan/K352.webp",
+  "name_de": "Iron Flow",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Iron Flow",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2526,7 +3908,17 @@
    "Trawertyn"
   ],
   "structure": "XG / XM",
-  "image": "materiały/dekory/kronospan/K865.webp"
+  "image": "materiały/dekory/kronospan/K865.webp",
+  "name_de": "Ivory Agra Travertine",
+  "tags_de": [
+   "Beige",
+   "Travertin"
+  ],
+  "name_en": "Ivory Agra Travertine",
+  "tags_en": [
+   "Beige",
+   "Travertine"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2546,7 +3938,17 @@
    "Beton"
   ],
   "structure": "SU / UE",
-  "image": "materiały/dekory/kronospan/4298.webp"
+  "image": "materiały/dekory/kronospan/4298.webp",
+  "name_de": "Light Atelier",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Light Atelier",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2564,7 +3966,17 @@
    "Beton"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K200.webp"
+  "image": "materiały/dekory/kronospan/K200.webp",
+  "name_de": "Light Grey Concrete",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Light Grey Concrete",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2582,7 +3994,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K095.webp"
+  "image": "materiały/dekory/kronospan/K095.webp",
+  "name_de": "Light Terrazzo Marble",
+  "tags_de": [
+   "Grau",
+   "Marmor"
+  ],
+  "name_en": "Light Terrazzo Marble",
+  "tags_en": [
+   "Grey",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2600,7 +4022,17 @@
    "Trawertyn"
   ],
   "structure": "RS",
-  "image": "materiały/dekory/kronospan/K214.webp"
+  "image": "materiały/dekory/kronospan/K214.webp",
+  "name_de": "Light Tivoli",
+  "tags_de": [
+   "Beige",
+   "Travertin"
+  ],
+  "name_en": "Light Tivoli",
+  "tags_en": [
+   "Beige",
+   "Travertine"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2618,7 +4050,17 @@
    "Tkanina"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K542.webp"
+  "image": "materiały/dekory/kronospan/K542.webp",
+  "name_de": "Mocha Tessea",
+  "tags_de": [
+   "Beige",
+   "Textil"
+  ],
+  "name_en": "Mocha Tessea",
+  "tags_en": [
+   "Beige",
+   "Textile"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2637,7 +4079,17 @@
    "Marmur"
   ],
   "structure": "PN / XG / XM",
-  "image": "materiały/dekory/kronospan/K698.webp"
+  "image": "materiały/dekory/kronospan/K698.webp",
+  "name_de": "Nero Bronzo",
+  "tags_de": [
+   "Schwarz",
+   "Marmor"
+  ],
+  "name_en": "Nero Bronzo",
+  "tags_en": [
+   "Black",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2653,7 +4105,17 @@
    "Marmur"
   ],
   "structure": "XG / XM",
-  "image": "materiały/dekory/kronospan/K863.webp"
+  "image": "materiały/dekory/kronospan/K863.webp",
+  "name_de": "Pearl Calacatta Ambrosio",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Pearl Calacatta Ambrosio",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2671,7 +4133,17 @@
    "Marmur"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K704.webp"
+  "image": "materiały/dekory/kronospan/K704.webp",
+  "name_de": "Perlino Sabbia",
+  "tags_de": [
+   "Beige",
+   "Marmor"
+  ],
+  "name_en": "Perlino Sabbia",
+  "tags_en": [
+   "Beige",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2687,7 +4159,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K595.webp"
+  "image": "materiały/dekory/kronospan/K595.webp",
+  "name_de": "Pietra Belvedere",
+  "tags_de": [
+   "Grau",
+   "Marmor"
+  ],
+  "name_en": "Pietra Belvedere",
+  "tags_en": [
+   "Grey",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2705,7 +4187,17 @@
    "Beton"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K028.webp"
+  "image": "materiały/dekory/kronospan/K028.webp",
+  "name_de": "Portland",
+  "tags_de": [
+   "Grau",
+   "Beton"
+  ],
+  "name_en": "Portland",
+  "tags_en": [
+   "Grey",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2723,7 +4215,17 @@
    "Marmur"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K703.webp"
+  "image": "materiały/dekory/kronospan/K703.webp",
+  "name_de": "Portobello Elegante",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Portobello Elegante",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2743,7 +4245,17 @@
    "Beton"
   ],
   "structure": "RT",
-  "image": "materiały/dekory/kronospan/K351.webp"
+  "image": "materiały/dekory/kronospan/K351.webp",
+  "name_de": "Rusty Flow",
+  "tags_de": [
+   "Rot",
+   "Beton"
+  ],
+  "name_en": "Rusty Flow",
+  "tags_en": [
+   "Red",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2761,7 +4273,17 @@
    "Łupek"
   ],
   "structure": "SL",
-  "image": "materiały/dekory/kronospan/K549.webp"
+  "image": "materiały/dekory/kronospan/K549.webp",
+  "name_de": "Sand Venera",
+  "tags_de": [
+   "Grau",
+   "Schiefer"
+  ],
+  "name_en": "Sand Venera",
+  "tags_en": [
+   "Grey",
+   "Slate"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2781,7 +4303,17 @@
    "Beton"
   ],
   "structure": "RT / BS",
-  "image": "materiały/dekory/kronospan/K349.webp"
+  "image": "materiały/dekory/kronospan/K349.webp",
+  "name_de": "Silk Flow",
+  "tags_de": [
+   "Weiß",
+   "Beton"
+  ],
+  "name_en": "Silk Flow",
+  "tags_en": [
+   "White",
+   "Concrete"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2798,7 +4330,15 @@
    "Beżowy"
   ],
   "structure": "PN",
-  "image": "materiały/dekory/kronospan/K705.webp"
+  "image": "materiały/dekory/kronospan/K705.webp",
+  "name_de": "Stonehaven Sand",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Stonehaven Sand",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2814,7 +4354,17 @@
    "Marmur"
   ],
   "structure": "XG / XM",
-  "image": "materiały/dekory/kronospan/2991.webp"
+  "image": "materiały/dekory/kronospan/2991.webp",
+  "name_de": "Storm Onyx",
+  "tags_de": [
+   "Braun",
+   "Marmor"
+  ],
+  "name_en": "Storm Onyx",
+  "tags_en": [
+   "Brown",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2833,7 +4383,17 @@
    "Marmur"
   ],
   "structure": "XG / XM / SU",
-  "image": "materiały/dekory/kronospan/K023.webp"
+  "image": "materiały/dekory/kronospan/K023.webp",
+  "name_de": "Venato",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "Venato",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2851,7 +4411,17 @@
    "Kreatywny"
   ],
   "structure": "GG / GM",
-  "image": "materiały/dekory/kronospan/K217.webp"
+  "image": "materiały/dekory/kronospan/K217.webp",
+  "name_de": "White Andromeda",
+  "tags_de": [
+   "Weiß",
+   "Kreativ"
+  ],
+  "name_en": "White Andromeda",
+  "tags_en": [
+   "White",
+   "Creative"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2868,7 +4438,15 @@
    "Biały"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K215.webp"
+  "image": "materiały/dekory/kronospan/K215.webp",
+  "name_de": "White Dunes",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "White Dunes",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2886,7 +4464,17 @@
    "Marmur"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K552.webp"
+  "image": "materiały/dekory/kronospan/K552.webp",
+  "name_de": "White Iceberg Marble",
+  "tags_de": [
+   "Weiß",
+   "Marmor"
+  ],
+  "name_en": "White Iceberg Marble",
+  "tags_en": [
+   "White",
+   "Marble"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2904,7 +4492,15 @@
    "Niebieski"
   ],
   "structure": "UM / SU",
-  "image": "materiały/dekory/kronospan/K5994.webp"
+  "image": "materiały/dekory/kronospan/K5994.webp",
+  "name_de": "Alby Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Alby Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2923,7 +4519,15 @@
    "Beżowy"
   ],
   "structure": "XG / XM / UM",
-  "image": "materiały/dekory/kronospan/K564.webp"
+  "image": "materiały/dekory/kronospan/K564.webp",
+  "name_de": "Almond",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Almond",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2941,7 +4545,15 @@
    "Pomarańczowy"
   ],
   "structure": "PD / UM",
-  "image": "materiały/dekory/kronospan/K682.webp"
+  "image": "materiały/dekory/kronospan/K682.webp",
+  "name_de": "Alpaca",
+  "tags_de": [
+   "Orange"
+  ],
+  "name_en": "Alpaca",
+  "tags_en": [
+   "Orange"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2958,7 +4570,15 @@
    "Szary"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K522.webp"
+  "image": "materiały/dekory/kronospan/K522.webp",
+  "name_de": "Aluminium Flash",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Aluminium Flash",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2979,7 +4599,15 @@
    "Szary"
   ],
   "structure": "PD / PE / AM",
-  "image": "materiały/dekory/kronospan/K164.webp"
+  "image": "materiały/dekory/kronospan/K164.webp",
+  "name_de": "Anthracite",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Anthracite",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -2996,7 +4624,15 @@
    "Niebieski"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K517.webp"
+  "image": "materiały/dekory/kronospan/K517.webp",
+  "name_de": "Azure Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Azure Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3015,7 +4651,15 @@
    "Szary"
   ],
   "structure": "UM / AF / BS",
-  "image": "materiały/dekory/kronospan/K166.webp"
+  "image": "materiały/dekory/kronospan/K166.webp",
+  "name_de": "Basalt",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Basalt",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3031,7 +4675,15 @@
    "Beżowy"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/0522.webp"
+  "image": "materiały/dekory/kronospan/0522.webp",
+  "name_de": "Beige",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Beige",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3053,7 +4705,15 @@
    "Czarny"
   ],
   "structure": "PD / PE / AM",
-  "image": "materiały/dekory/kronospan/K190.webp"
+  "image": "materiały/dekory/kronospan/K190.webp",
+  "name_de": "Black",
+  "tags_de": [
+   "Schwarz"
+  ],
+  "name_en": "Black",
+  "tags_en": [
+   "Black"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3071,7 +4731,15 @@
    "Brązowy"
   ],
   "structure": "PD / UM",
-  "image": "materiały/dekory/kronospan/K684.webp"
+  "image": "materiały/dekory/kronospan/K684.webp",
+  "name_de": "Black Truffle",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Black Truffle",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3087,7 +4755,15 @@
    "Biały"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K8681.webp"
+  "image": "materiały/dekory/kronospan/K8681.webp",
+  "name_de": "Brilliant White",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "Brilliant White",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3105,7 +4781,15 @@
    "Brązowy"
   ],
   "structure": "PD / UM",
-  "image": "materiały/dekory/kronospan/K683.webp"
+  "image": "materiały/dekory/kronospan/K683.webp",
+  "name_de": "Cajun",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Cajun",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3122,7 +4806,15 @@
    "Brązowy"
   ],
   "structure": "XG / XM / SU",
-  "image": "materiały/dekory/kronospan/K301.webp"
+  "image": "materiały/dekory/kronospan/K301.webp",
+  "name_de": "Cappuccino",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Cappuccino",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3141,7 +4833,15 @@
    "Beżowy"
   ],
   "structure": "PD / BS / XG",
-  "image": "materiały/dekory/kronospan/K5981.webp"
+  "image": "materiały/dekory/kronospan/K5981.webp",
+  "name_de": "Cashmere",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Cashmere",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3159,7 +4859,15 @@
    "Czerwony"
   ],
   "structure": "UM / SU",
-  "image": "materiały/dekory/kronospan/K098.webp"
+  "image": "materiały/dekory/kronospan/K098.webp",
+  "name_de": "Ceramic Red",
+  "tags_de": [
+   "Rot"
+  ],
+  "name_en": "Ceramic Red",
+  "tags_en": [
+   "Red"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3176,7 +4884,15 @@
    "Czerwony"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K7113.webp"
+  "image": "materiały/dekory/kronospan/K7113.webp",
+  "name_de": "Chilli Red",
+  "tags_de": [
+   "Rot"
+  ],
+  "name_en": "Chilli Red",
+  "tags_en": [
+   "Red"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3192,7 +4908,15 @@
    "Szary"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K197.webp"
+  "image": "materiały/dekory/kronospan/K197.webp",
+  "name_de": "Chinchilla Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Chinchilla Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3210,7 +4934,15 @@
    "Brązowy"
   ],
   "structure": "XG / XM / AF",
-  "image": "materiały/dekory/kronospan/K096.webp"
+  "image": "materiały/dekory/kronospan/K096.webp",
+  "name_de": "Clay Grey",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Clay Grey",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3229,7 +4961,15 @@
    "Szary"
   ],
   "structure": "AM / UM / HG",
-  "image": "materiały/dekory/kronospan/K6299.webp"
+  "image": "materiały/dekory/kronospan/K6299.webp",
+  "name_de": "Cobalt Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Cobalt Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3249,7 +4989,15 @@
    "Szary"
   ],
   "structure": "XG / XM / MG",
-  "image": "materiały/dekory/kronospan/K191.webp"
+  "image": "materiały/dekory/kronospan/K191.webp",
+  "name_de": "Cool Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Cool Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3266,7 +5014,15 @@
    "Zielony"
   ],
   "structure": "PV",
-  "image": "materiały/dekory/kronospan/K2223.webp"
+  "image": "materiały/dekory/kronospan/K2223.webp",
+  "name_de": "Corymbia Green",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Corymbia Green",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3282,7 +5038,15 @@
    "Beżowy"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K7031.webp"
+  "image": "materiały/dekory/kronospan/K7031.webp",
+  "name_de": "Crème",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Crème",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3299,7 +5063,15 @@
    "Brązowy"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K7181.webp"
+  "image": "materiały/dekory/kronospan/K7181.webp",
+  "name_de": "Dark Chocolate",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Dark Chocolate",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3317,7 +5089,15 @@
    "Zielony"
   ],
   "structure": "SU / BS",
-  "image": "materiały/dekory/kronospan/K520.webp"
+  "image": "materiały/dekory/kronospan/K520.webp",
+  "name_de": "Dark Emerald",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Dark Emerald",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3334,7 +5114,15 @@
    "Zielony"
   ],
   "structure": "PD",
-  "image": "materiały/dekory/kronospan/K687.webp"
+  "image": "materiały/dekory/kronospan/K687.webp",
+  "name_de": "Dark Forest",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Dark Forest",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3351,7 +5139,15 @@
    "Pomarańczowy"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K514.webp"
+  "image": "materiały/dekory/kronospan/K514.webp",
+  "name_de": "Deep Sahara",
+  "tags_de": [
+   "Orange"
+  ],
+  "name_en": "Deep Sahara",
+  "tags_en": [
+   "Orange"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3369,7 +5165,15 @@
    "Niebieski"
   ],
   "structure": "UM / SU",
-  "image": "materiały/dekory/kronospan/K097.webp"
+  "image": "materiały/dekory/kronospan/K097.webp",
+  "name_de": "Dusk Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Dusk Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3386,7 +5190,15 @@
    "Biały"
   ],
   "structure": "PE / BS",
-  "image": "materiały/dekory/kronospan/K101.webp"
+  "image": "materiały/dekory/kronospan/K101.webp",
+  "name_de": "Front White",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "Front White",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3404,7 +5216,15 @@
    "Szary"
   ],
   "structure": "AF / PE / BS",
-  "image": "materiały/dekory/kronospan/K162.webp"
+  "image": "materiały/dekory/kronospan/K162.webp",
+  "name_de": "Graphite Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Graphite Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3422,7 +5242,15 @@
    "Beżowy"
   ],
   "structure": "AG / PE",
-  "image": "materiały/dekory/kronospan/0514.webp"
+  "image": "materiały/dekory/kronospan/0514.webp",
+  "name_de": "Ivory",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Ivory",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3442,7 +5270,15 @@
    "Brązowy"
   ],
   "structure": "XG / XM / UM",
-  "image": "materiały/dekory/kronospan/K7166.webp"
+  "image": "materiały/dekory/kronospan/K7166.webp",
+  "name_de": "Latté",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Latté",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3460,7 +5296,15 @@
    "Beżowy"
   ],
   "structure": "PD / UM",
-  "image": "materiały/dekory/kronospan/K681.webp"
+  "image": "materiały/dekory/kronospan/K681.webp",
+  "name_de": "Macadamia",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Macadamia",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3476,7 +5320,15 @@
    "Brązowy"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K8533.webp"
+  "image": "materiały/dekory/kronospan/K8533.webp",
+  "name_de": "Macchiato",
+  "tags_de": [
+   "Braun"
+  ],
+  "name_en": "Macchiato",
+  "tags_en": [
+   "Brown"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3493,7 +5345,15 @@
    "Zielony"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K7190.webp"
+  "image": "materiały/dekory/kronospan/K7190.webp",
+  "name_de": "Mamba Green",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Mamba Green",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3509,7 +5369,15 @@
    "Szary"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/0540.webp"
+  "image": "materiały/dekory/kronospan/0540.webp",
+  "name_de": "Manhattan Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Manhattan Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3526,7 +5394,15 @@
    "Różowy"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K513.webp"
+  "image": "materiały/dekory/kronospan/K513.webp",
+  "name_de": "Marshmallow",
+  "tags_de": [
+   "Pink"
+  ],
+  "name_en": "Marshmallow",
+  "tags_en": [
+   "Pink"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3543,7 +5419,15 @@
    "Szary"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K519.webp"
+  "image": "materiały/dekory/kronospan/K519.webp",
+  "name_de": "Mouse Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Mouse Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3559,7 +5443,15 @@
    "Beżowy"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K5982.webp"
+  "image": "materiały/dekory/kronospan/K5982.webp",
+  "name_de": "Mussel",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Mussel",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3576,7 +5468,15 @@
    "Różowy"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K512.webp"
+  "image": "materiały/dekory/kronospan/K512.webp",
+  "name_de": "Native Pink",
+  "tags_de": [
+   "Pink"
+  ],
+  "name_en": "Native Pink",
+  "tags_en": [
+   "Pink"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3593,7 +5493,15 @@
    "Niebieski"
   ],
   "structure": "AF / BS",
-  "image": "materiały/dekory/kronospan/K8984.webp"
+  "image": "materiały/dekory/kronospan/K8984.webp",
+  "name_de": "Navy Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Navy Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3610,7 +5518,15 @@
    "Pomarańczowy"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K132.webp"
+  "image": "materiały/dekory/kronospan/K132.webp",
+  "name_de": "Orange",
+  "tags_de": [
+   "Orange"
+  ],
+  "name_en": "Orange",
+  "tags_en": [
+   "Orange"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3626,7 +5542,15 @@
    "Zielony"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K9561.webp"
+  "image": "materiały/dekory/kronospan/K9561.webp",
+  "name_de": "Oxide Green",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Oxide Green",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3642,7 +5566,15 @@
    "Czerwony"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K9551.webp"
+  "image": "materiały/dekory/kronospan/K9551.webp",
+  "name_de": "Oxide Red",
+  "tags_de": [
+   "Rot"
+  ],
+  "name_en": "Oxide Red",
+  "tags_en": [
+   "Red"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3659,7 +5591,15 @@
    "Zielony"
   ],
   "structure": "XG / XM / SU",
-  "image": "materiały/dekory/kronospan/K7063.webp"
+  "image": "materiały/dekory/kronospan/K7063.webp",
+  "name_de": "Pastel Green",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Pastel Green",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3675,7 +5615,15 @@
    "Biały"
   ],
   "structure": "SM",
-  "image": "materiały/dekory/kronospan/K8100.webp"
+  "image": "materiały/dekory/kronospan/K8100.webp",
+  "name_de": "Pearl White",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "Pearl White",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3692,7 +5640,15 @@
    "Zielony"
   ],
   "structure": "AF / SU",
-  "image": "materiały/dekory/kronospan/0244.webp"
+  "image": "materiały/dekory/kronospan/0244.webp",
+  "name_de": "Petrol",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Petrol",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3711,7 +5667,15 @@
    "Szary"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K523.webp"
+  "image": "materiały/dekory/kronospan/K523.webp",
+  "name_de": "Platinium Disk",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Platinium Disk",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3728,7 +5692,15 @@
    "Różowy"
   ],
   "structure": "PD",
-  "image": "materiały/dekory/kronospan/K686.webp"
+  "image": "materiały/dekory/kronospan/K686.webp",
+  "name_de": "Powder Pink",
+  "tags_de": [
+   "Pink"
+  ],
+  "name_en": "Powder Pink",
+  "tags_en": [
+   "Pink"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3745,7 +5717,15 @@
    "Niebieski"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K125.webp"
+  "image": "materiały/dekory/kronospan/K125.webp",
+  "name_de": "Royal Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Royal Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3761,7 +5741,15 @@
    "Beżowy"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/0515.webp"
+  "image": "materiały/dekory/kronospan/0515.webp",
+  "name_de": "Sand",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Sand",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3783,7 +5771,15 @@
    "Beżowy"
   ],
   "structure": "AM / AG / XG",
-  "image": "materiały/dekory/kronospan/K7045.webp"
+  "image": "materiały/dekory/kronospan/K7045.webp",
+  "name_de": "Satin",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Satin",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3803,7 +5799,15 @@
    "Szary"
   ],
   "structure": "XG / XM / UM",
-  "image": "materiały/dekory/kronospan/K171.webp"
+  "image": "materiały/dekory/kronospan/K171.webp",
+  "name_de": "Slate Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Slate Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3821,7 +5825,15 @@
    "Zielony"
   ],
   "structure": "UM / SU",
-  "image": "materiały/dekory/kronospan/K521.webp"
+  "image": "materiały/dekory/kronospan/K521.webp",
+  "name_de": "Smoke Green",
+  "tags_de": [
+   "Grün"
+  ],
+  "name_en": "Smoke Green",
+  "tags_en": [
+   "Green"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3844,7 +5856,15 @@
    "Biały"
   ],
   "structure": "PD / BS / AM",
-  "image": "materiały/dekory/kronospan/K8685.webp"
+  "image": "materiały/dekory/kronospan/K8685.webp",
+  "name_de": "Snow White",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "Snow White",
+  "tags_en": [
+   "White"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3861,7 +5881,15 @@
    "Fioletowy"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K515.webp"
+  "image": "materiały/dekory/kronospan/K515.webp",
+  "name_de": "Spice Red",
+  "tags_de": [
+   "Violett"
+  ],
+  "name_en": "Spice Red",
+  "tags_en": [
+   "Violet"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3878,7 +5906,15 @@
    "Niebieski"
   ],
   "structure": "PD",
-  "image": "materiały/dekory/kronospan/K685.webp"
+  "image": "materiały/dekory/kronospan/K685.webp",
+  "name_de": "Steel Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Steel Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3894,7 +5930,15 @@
    "Szary"
   ],
   "structure": "PE",
-  "image": "materiały/dekory/kronospan/K1700.webp"
+  "image": "materiały/dekory/kronospan/K1700.webp",
+  "name_de": "Steel Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Steel Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3913,7 +5957,15 @@
    "Beżowy"
   ],
   "structure": "PD / UM / XG",
-  "image": "materiały/dekory/kronospan/K680.webp"
+  "image": "materiały/dekory/kronospan/K680.webp",
+  "name_de": "Stone Beige",
+  "tags_de": [
+   "Beige"
+  ],
+  "name_en": "Stone Beige",
+  "tags_en": [
+   "Beige"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3934,7 +5986,15 @@
    "Szary"
   ],
   "structure": "AM / AG / XG",
-  "image": "materiały/dekory/kronospan/K112.webp"
+  "image": "materiały/dekory/kronospan/K112.webp",
+  "name_de": "Stone Grey",
+  "tags_de": [
+   "Grau"
+  ],
+  "name_en": "Stone Grey",
+  "tags_en": [
+   "Grey"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3951,7 +6011,15 @@
    "Żółty"
   ],
   "structure": "BS",
-  "image": "materiały/dekory/kronospan/K134.webp"
+  "image": "materiały/dekory/kronospan/K134.webp",
+  "name_de": "Sunshine",
+  "tags_de": [
+   "Gelb"
+  ],
+  "name_en": "Sunshine",
+  "tags_en": [
+   "Yellow"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3968,7 +6036,15 @@
    "Niebieski"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K518.webp"
+  "image": "materiały/dekory/kronospan/K518.webp",
+  "name_de": "Surf Blue",
+  "tags_de": [
+   "Blau"
+  ],
+  "name_en": "Surf Blue",
+  "tags_en": [
+   "Blue"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -3985,7 +6061,15 @@
    "Żółty"
   ],
   "structure": "SU",
-  "image": "materiały/dekory/kronospan/K516.webp"
+  "image": "materiały/dekory/kronospan/K516.webp",
+  "name_de": "Toffee",
+  "tags_de": [
+   "Gelb"
+  ],
+  "name_en": "Toffee",
+  "tags_en": [
+   "Yellow"
+  ]
  },
  {
   "producer": "Kronospan",
@@ -4001,6 +6085,14 @@
    "Biały"
   ],
   "structure": "SM",
-  "image": "materiały/dekory/kronospan/K110.webp"
+  "image": "materiały/dekory/kronospan/K110.webp",
+  "name_de": "White",
+  "tags_de": [
+   "Weiß"
+  ],
+  "name_en": "White",
+  "tags_en": [
+   "White"
+  ]
  }
 ]
