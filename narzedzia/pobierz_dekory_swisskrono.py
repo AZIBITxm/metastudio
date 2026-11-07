@@ -19,6 +19,13 @@ Strony z siatkami rozpoznajemy po treści (stopka „PŁYTY MEBLOWE” / „BLAT
 Wynik:
   dane/dekory/swisskrono.json            — lista dekorów
   materiały/dekory/swisskrono/<KOD>.webp — próbka 600 px
+
+Nazwy angielskie (strona EN katalogu):  python narzedzia/pobierz_dekory_swisskrono.py --nazwy [katalog.pdf]
+  — z angielskiej wersji tego samego katalogu („Catalogue - Laminated boards and Worktops 2025 EN”,
+  centrum pobierania na stronie pl-en): pod kodem stoi nazwa PL, a pod nią nazwa EN (WIELKIMI literami)
+  → pole name_en (po kodzie). Pól PL i grafik nie zmienia. Niemieckiej wersji katalogu SWISS KRONO
+  nie wydaje (strona pl-de daje ten sam katalog EN; strona niemiecka SWISS KRONO ma inną kolekcję),
+  więc name_de nie ma — strona DE pokazuje wtedy nazwę PL (pole name).
 """
 import io
 import json
@@ -45,19 +52,23 @@ STONE = ('MARMUR', 'MAMRMUR', 'BETON', 'GRANIT', 'KAMIEŃ', 'TRAWERTYN', 'TERRAZ
          'MELAFIR', 'ENIGMA')
 
 
-def catalog_pdf():
-    if len(sys.argv) > 1:
-        return sys.argv[1]
-    page = urllib.request.urlopen(urllib.request.Request(BOARDS_PAGE, headers=UA), timeout=60).read().decode('utf-8', 'ignore')
+BOARDS_PAGE_EN = 'https://www.swisskrono.com/pl-en/products/furniture-products/melamine-faced-boards/'
+
+
+def catalog_pdf(page_url=BOARDS_PAGE, title='Płyty laminowane i Blaty kuchenne', fname='swisskrono-katalog.pdf'):
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    if args:
+        return args[0]
+    page = urllib.request.urlopen(urllib.request.Request(page_url, headers=UA), timeout=60).read().decode('utf-8', 'ignore')
     for m in re.finditer(r'href="([^"]*tx_downloadcenter[^"]*)"', page):
         after = re.sub(r'<[^>]+>', ' ', page[m.end():m.end() + 600])
-        if 'Płyty laminowane i Blaty kuchenne' in after:
+        if title in after:
             url = 'https://www.swisskrono.com' + m.group(1).replace('&amp;', '&')
-            path = os.path.join(os.environ.get('TEMP', '.'), 'swisskrono-katalog.pdf')
+            path = os.path.join(os.environ.get('TEMP', '.'), fname)
             with open(path, 'wb') as f:
                 f.write(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120).read())
             return path
-    raise RuntimeError('nie znalazłem katalogu „Płyty laminowane i Blaty kuchenne” na ' + BOARDS_PAGE)
+    raise RuntimeError('nie znalazłem katalogu „%s” na %s' % (title, page_url))
 
 
 def tiles(page):
@@ -170,5 +181,47 @@ def main():
           '| blaty', sum('blaty' in d['products'] for d in out))
 
 
+def backfill_names():
+    """name_en z katalogu EN (pod kodem: nazwa PL, pod nią nazwa EN) — po kodzie, tylko pola siatek próbek."""
+    pdf = fitz.open(catalog_pdf(BOARDS_PAGE_EN, 'Laminated boards and Worktops', 'swisskrono-katalog-en.pdf'))
+    names = {}
+    for pno in range(pdf.page_count):
+        page = pdf[pno]
+        foot = re.sub(r'\s+', '', page.get_text().upper())[-40:]
+        if not ('BLATYKUCHENNE' in foot or 'PŁYTYMEBLOWE' in foot) or not tiles(page):
+            continue
+        ts, ls = tiles(page), lines(page)
+        for rect, t in ls:
+            m = CODE_RE.match(t)
+            c = fitz.Point((rect.x0 + rect.x1) / 2, (rect.y0 + rect.y1) / 2)
+            if not m or not any(r.contains(c) for r in ts):
+                continue
+
+            def under(r0, upper=False):
+                b = [(r, s) for r, s in ls if 0 <= r.y0 - r0.y1 + 2 <= 8 and r.x0 < r0.x1 and r.x1 > r0.x0
+                     and not CODE_RE.match(s) and (not upper or s.isupper())]
+                # dwa różne podpisy pod jednym kodem (nakładające się warstwy strony) = niepewne → pomijamy
+                return b[0] if len({x[1] for x in b}) == 1 else None
+            pl = under(rect)
+            if not pl or not pl[1].replace('(', '').replace(')', '').isupper():
+                continue                       # podpis zdjęcia wnętrza, nie próbka
+            en = under(pl[0], upper=True)     # nazwa EN = jedyna linia WIELKIMI literami pod nazwą PL
+            if not en or not en[1].replace('(', '').replace(')', '').isupper() or not re.search('[A-Z]', en[1]) \
+                    or en[1].startswith('NCS') or re.match(r'^[\d/ ]', en[1]):
+                continue
+            names.setdefault(m.group(1), {}).setdefault(nice(pl[1]).upper(), re.sub(r'\.(\w)', lambda x: '. ' + x.group(1).upper(), nice(en[1])))
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    for d in data:
+        # tylko gdy nazwa PL nad nazwą EN zgadza się z naszą — pewność, że to podpis tej samej próbki
+        en = names.get(d['code'], {}).get(d['name'].upper())
+        if en:
+            d['name_en'] = en
+        else:
+            d.pop('name_en', None)
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print(f'name_en: {sum(1 for d in data if d.get("name_en"))}/{len(data)}; brak:',
+          [d['code'] for d in data if not d.get('name_en')])
+
+
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(backfill_names() if '--nazwy' in sys.argv else main())
