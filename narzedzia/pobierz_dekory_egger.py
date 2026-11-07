@@ -12,6 +12,9 @@ Wynik:
   dane/dekory/egger.json            — lista dekorów (do strony katalogu i bazy wiedzy konsultanta)
   materiały/dekory/egger/<KOD>.webp — próbka dekoru 600 px (kwadrat)
 Uzupełnienie samego pola products:  python narzedzia/pobierz_dekory_egger.py --products
+Nazwy niemieckie i angielskie (pola name_de, name_en; dla stron DE/EN katalogu):
+                                    python narzedzia/pobierz_dekory_egger.py --nazwy
+  — strony tego samego dekoru w wersji /de/ i /en/ (tytuł „KOD STRUKTURA Nazwa”), bez grafik.
 Pobieranie jest grzeczne (przerwa między zapytaniami); już pobrane grafiki są pomijane.
 """
 import html
@@ -66,6 +69,8 @@ def get(url, binary=False):
             time.sleep(PAUSE)
             return data if binary else data.decode('utf-8', 'ignore')
         except Exception as e:
+            if getattr(e, 'code', None) == 404:
+                raise
             print('  ponawiam', url[:80], e)
             time.sleep(10 * (attempt + 1))
     raise RuntimeError('nie udało się: ' + url)
@@ -195,5 +200,52 @@ def backfill_products():
     print('GOTOWE — uzupełniono', len(data))
 
 
+LANG_PATHS = {
+    'de': 'https://www.egger.com/de/moebel-innenausbau/dekore/',
+    'en': 'https://www.egger.com/en/furniture-interior-design/decors/',
+}
+
+
+def lang_urls(lang, slug, _cache={}):
+    """Adresy strony dekoru w danym języku: najpierw bez regionu, potem warianty z mapy strony (lci=region)
+    — część dekorów (np. F486) EGGER publikuje tylko w wybranych regionach."""
+    if 'sm' not in _cache:
+        _cache['sm'] = re.findall(r'<loc>([^<]+)', get('https://www.egger.com/sitemap/s/pimedp-0.xml'))
+    base = LANG_PATHS[lang]
+    return [base + slug] + [u for u in _cache['sm'] if u.startswith(base + slug + '?')]
+
+
+def backfill_names():
+    """Uzupełnia name_de / name_en w istniejącym egger.json — po kodzie dekoru (z tytułu strony
+    „KOD STRUKTURA Nazwa”); pól PL i grafik nie zmienia. Dekory, które już mają nazwę, pomija
+    (--wszystkie = pobierz od nowa). Brak strony = brak pola (strona pokaże PL)."""
+    data = json.load(open(OUT_JSON, encoding='utf-8'))
+    redo = '--wszystkie' in sys.argv
+    for n, d in enumerate(data, 1):
+        slug = d['url'].rstrip('/').split('/')[-1]            # np. H1277_9
+        for lang in LANG_PATHS:
+            if d.get('name_' + lang) and not redo:
+                continue
+            for url in lang_urls(lang, slug):
+                try:
+                    page = get(url)
+                except Exception:
+                    continue
+                title = re.search(r'<title>([^<]*)</title>', page)
+                m = re.match(r'([A-Z]\d+)\s+(\S+)\s+(.+)', html.unescape(title.group(1)).strip() if title else '')
+                if m and m.group(1) == d['code']:
+                    d['name_' + lang] = m.group(3).strip()
+                    break
+        if n % 25 == 0:
+            print(f'  {n}/{len(data)}')
+            json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    json.dump(data, open(OUT_JSON, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    for lang in LANG_PATHS:
+        print(f'GOTOWE {lang}: {sum(1 for d in data if d.get("name_" + lang))}/{len(data)}; brak:',
+              [d['code'] for d in data if not d.get('name_' + lang)])
+
+
 if __name__ == '__main__':
+    if '--nazwy' in sys.argv:
+        sys.exit(backfill_names())
     sys.exit(backfill_products() if '--products' in sys.argv else main())

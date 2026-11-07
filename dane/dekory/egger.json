@@ -13,7 +13,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lakeland Akazie hell",
+  "name_en": "Light Lakeland Acacia"
  },
  {
   "producer": "EGGER",
@@ -28,7 +30,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sheffield Akazie graphit",
+  "name_en": "Graphite Sheffield Acacia"
  },
  {
   "producer": "EGGER",
@@ -44,7 +48,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sheffield Akazie natur",
+  "name_en": "Natural Sheffield Acacia"
  },
  {
   "producer": "EGGER",
@@ -57,7 +63,9 @@
   "image": "materiały/dekory/egger/H8913.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Dreischicht Berglärche",
+  "name_en": "Three Layer Mountain Larch"
  },
  {
   "producer": "EGGER",
@@ -70,7 +78,9 @@
   "image": "materiały/dekory/egger/H8906.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Dreischicht thermobraun",
+  "name_en": "Three Layer Thermo Brown"
  },
  {
   "producer": "EGGER",
@@ -83,7 +93,9 @@
   "image": "materiały/dekory/egger/H8914.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Multiplex Birke",
+  "name_en": "Multiplex Birch"
  },
  {
   "producer": "EGGER",
@@ -99,7 +111,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sandbirke",
+  "name_en": "Sand Birch"
  },
  {
   "producer": "EGGER",
@@ -115,7 +129,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Weidbuche",
+  "name_en": "Willow Beech"
  },
  {
   "producer": "EGGER",
@@ -131,7 +147,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Coco Bolo natur",
+  "name_en": "Coco Bolo"
  },
  {
   "producer": "EGGER",
@@ -146,7 +164,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Bolivar Wood braun",
+  "name_en": "Brown Bolivar Wood"
  },
  {
   "producer": "EGGER",
@@ -161,7 +181,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Bolivar Wood natur",
+  "name_en": "Natural Bolivar Wood"
  },
  {
   "producer": "EGGER",
@@ -178,7 +200,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Altholz natur",
+  "name_en": "Natural Vintage Wood"
  },
  {
   "producer": "EGGER",
@@ -197,7 +221,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Bardolino Eiche natur",
+  "name_en": "Natural Bardolino Oak"
  },
  {
   "producer": "EGGER",
@@ -212,7 +238,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Baronia Eiche hell",
+  "name_en": "Light Baronia Oak"
  },
  {
   "producer": "EGGER",
@@ -230,7 +258,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Belmont Eiche braun",
+  "name_en": "Brown Belmont Oak"
  },
  {
   "producer": "EGGER",
@@ -246,7 +276,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Bookmatch Eiche",
+  "name_en": "Bookmatch Oak"
  },
  {
   "producer": "EGGER",
@@ -263,7 +295,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Eiche Butcherblock",
+  "name_en": "Oak Butcherblock"
  },
  {
   "producer": "EGGER",
@@ -280,7 +314,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Cardiff Eiche braun",
+  "name_en": "Brown Cardiff Oak"
  },
  {
   "producer": "EGGER",
@@ -293,7 +329,9 @@
   "image": "materiały/dekory/egger/H1384.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Casella Eiche weiss",
+  "name_en": "White Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -306,7 +344,9 @@
   "image": "materiały/dekory/egger/Q1384.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche weiss",
+  "name_en": "White Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -319,7 +359,9 @@
   "image": "materiały/dekory/egger/H384.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Casella Eiche weiss quer",
+  "name_en": "White Casella Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -337,7 +379,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Casella Eiche braun",
+  "name_en": "Brown Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -350,7 +394,9 @@
   "image": "materiały/dekory/egger/Q1386.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche braun",
+  "name_en": "Brown Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -363,7 +409,9 @@
   "image": "materiały/dekory/egger/H386.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Casella Eiche braun quer",
+  "name_en": "Brown Casella Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -381,7 +429,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Casella Eiche natur",
+  "name_en": "Natural Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -394,7 +444,9 @@
   "image": "materiały/dekory/egger/Q1385.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche natur",
+  "name_en": "Natural Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -407,7 +459,9 @@
   "image": "materiały/dekory/egger/H1367.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Casella Eiche naturhell",
+  "name_en": "Light Natural Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -420,7 +474,9 @@
   "image": "materiały/dekory/egger/Q1367.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche naturhell",
+  "name_en": "Light Natural Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -433,7 +489,9 @@
   "image": "materiały/dekory/egger/H367.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Casella Eiche naturhell quer",
+  "name_en": "Light Natural Casella Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -446,7 +504,9 @@
   "image": "materiały/dekory/egger/H385.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Casella Eiche natur quer",
+  "name_en": "Natural Casella Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -459,7 +519,9 @@
   "image": "materiały/dekory/egger/H1388.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Casella Eiche sand",
+  "name_en": "Sand Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -472,7 +534,9 @@
   "image": "materiały/dekory/egger/Q1388.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche sand",
+  "name_en": "Sand Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -487,7 +551,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Charleston Eiche dunkelbraun",
+  "name_en": "Dark Brown Charleston Oak"
  },
  {
   "producer": "EGGER",
@@ -500,7 +566,9 @@
   "image": "materiały/dekory/egger/H3395.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Corbridge Eiche natur",
+  "name_en": "Natural Corbridge Oak"
  },
  {
   "producer": "EGGER",
@@ -513,7 +581,9 @@
   "image": "materiały/dekory/egger/H3156.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Corbridge Eiche grau",
+  "name_en": "Grey Corbridge Oak"
  },
  {
   "producer": "EGGER",
@@ -528,7 +598,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cuneo Eiche gebleicht",
+  "name_en": "Bleached Cuneo Oak"
  },
  {
   "producer": "EGGER",
@@ -541,7 +613,9 @@
   "image": "materiały/dekory/egger/Q3311.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Cuneo Eiche gebleicht",
+  "name_en": "Bleached Cuneo Oak"
  },
  {
   "producer": "EGGER",
@@ -556,7 +630,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cuneo Eiche braun",
+  "name_en": "Brown Cuneo Oak"
  },
  {
   "producer": "EGGER",
@@ -569,7 +645,9 @@
   "image": "materiały/dekory/egger/Q3317.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Cuneo Eiche braun",
+  "name_en": "Brown Cuneo Oak"
  },
  {
   "producer": "EGGER",
@@ -587,7 +665,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Davenport Eiche naturhell",
+  "name_en": "Light Natural Davenport Oak"
  },
  {
   "producer": "EGGER",
@@ -600,7 +680,9 @@
   "image": "materiały/dekory/egger/Q3359.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Davenport Eiche naturhell",
+  "name_en": "Light Natural Davenport Oak"
  },
  {
   "producer": "EGGER",
@@ -615,7 +697,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Davos Eiche natur",
+  "name_en": "Natural Davos Oak"
  },
  {
   "producer": "EGGER",
@@ -633,7 +717,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Davos Eiche trüffelbraun",
+  "name_en": "Truffle Brown Davos Oak"
  },
  {
   "producer": "EGGER",
@@ -648,7 +734,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Denver Eiche trüffelbraun",
+  "name_en": "Truffle Brown Denver Oak"
  },
  {
   "producer": "EGGER",
@@ -663,7 +751,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Gladstone Eiche sandbeige",
+  "name_en": "Sand Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -676,7 +766,9 @@
   "image": "materiały/dekory/egger/Q3309.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Gladstone Eiche sandbeige",
+  "name_en": "Sand Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -690,7 +782,9 @@
   "products": [
    "obrzeza",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Gladstone Eiche sepia",
+  "name_en": "Sepia Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -705,7 +799,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Gladstone Eiche greige",
+  "name_en": "Grey-Beige Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -718,7 +814,9 @@
   "image": "materiały/dekory/egger/Q3326.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Gladstone Eiche greige",
+  "name_en": "Grey-Beige Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -733,7 +831,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Gladstone Eiche tabak",
+  "name_en": "Tobacco Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -746,7 +846,9 @@
   "image": "materiały/dekory/egger/Q3325.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Gladstone Eiche tabak",
+  "name_en": "Tobacco Gladstone Oak"
  },
  {
   "producer": "EGGER",
@@ -761,7 +863,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Halifax Eiche weiss",
+  "name_en": "White Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -774,7 +878,9 @@
   "image": "materiały/dekory/egger/Q1176.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Halifax Eiche weiss",
+  "name_en": "White Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -787,7 +893,9 @@
   "image": "materiały/dekory/egger/H3180.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Halifax Eiche braun",
+  "name_en": "Brown Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -805,7 +913,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Halifax Eiche Zinn",
+  "name_en": "Pewter Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -818,7 +928,9 @@
   "image": "materiały/dekory/egger/Q3176.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Halifax Eiche Zinn",
+  "name_en": "Pewter Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -837,7 +949,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Halifax Eiche natur",
+  "name_en": "Natural Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -850,7 +964,9 @@
   "image": "materiały/dekory/egger/Q1180.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Halifax Eiche natur",
+  "name_en": "Natural Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -863,7 +979,9 @@
   "image": "materiały/dekory/egger/H180.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Halifax Eiche natur quer",
+  "name_en": "Natural Halifax Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -881,7 +999,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Halifax Eiche tabak",
+  "name_en": "Tobacco Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -894,7 +1014,9 @@
   "image": "materiały/dekory/egger/Q1181.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Halifax Eiche tabak",
+  "name_en": "Tobacco Halifax Oak"
  },
  {
   "producer": "EGGER",
@@ -913,7 +1035,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Hamilton Eiche natur",
+  "name_en": "Natural Hamilton Oak"
  },
  {
   "producer": "EGGER",
@@ -926,7 +1050,9 @@
   "image": "materiały/dekory/egger/H1133.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Hamilton Eiche natur quer",
+  "name_en": "Natural Hamilton Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -945,7 +1071,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Hunton Eiche dunkel",
+  "name_en": "Dark Hunton Oak"
  },
  {
   "producer": "EGGER",
@@ -962,7 +1090,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Hunton Eiche hell",
+  "name_en": "Light Hunton Oak"
  },
  {
   "producer": "EGGER",
@@ -977,7 +1107,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kaisersberg Eiche",
+  "name_en": "Kaisersberg Oak"
  },
  {
   "producer": "EGGER",
@@ -993,7 +1125,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kansas Eiche braun",
+  "name_en": "Brown Kansas Oak"
  },
  {
   "producer": "EGGER",
@@ -1008,7 +1142,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kendal Eiche cognac",
+  "name_en": "Cognac Kendal Oak"
  },
  {
   "producer": "EGGER",
@@ -1023,7 +1159,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kendal Eiche natur",
+  "name_en": "Natural Kendal Oak"
  },
  {
   "producer": "EGGER",
@@ -1038,7 +1176,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kendal Eiche geölt",
+  "name_en": "Oiled Kendal Oak"
  },
  {
   "producer": "EGGER",
@@ -1054,7 +1194,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lancaster Eiche natur",
+  "name_en": "Natural Lancaster Oak"
  },
  {
   "producer": "EGGER",
@@ -1069,7 +1211,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lorenzo Eiche beigegrau",
+  "name_en": "Beige Grey Lorenzo Oak"
  },
  {
   "producer": "EGGER",
@@ -1084,7 +1228,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Casella Eiche marone",
+  "name_en": "Marone Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -1097,7 +1243,9 @@
   "image": "materiały/dekory/egger/Q1369.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Casella Eiche marone",
+  "name_en": "Marone Casella Oak"
  },
  {
   "producer": "EGGER",
@@ -1110,7 +1258,9 @@
   "image": "materiały/dekory/egger/H8911.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Multiplex Eiche",
+  "name_en": "Multiplex Oak"
  },
  {
   "producer": "EGGER",
@@ -1129,7 +1279,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Nebraska Eiche natur",
+  "name_en": "Natural Nebraska Oak"
  },
  {
   "producer": "EGGER",
@@ -1145,7 +1297,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nebraska Eiche grau",
+  "name_en": "Grey Nebraska Oak"
  },
  {
   "producer": "EGGER",
@@ -1160,7 +1314,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Norwich Eiche",
+  "name_en": "Norwich Oak"
  },
  {
   "producer": "EGGER",
@@ -1175,7 +1331,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Orleans Eiche braun",
+  "name_en": "Brown Orleans Oak"
  },
  {
   "producer": "EGGER",
@@ -1190,7 +1348,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Orleans Eiche sandbeige",
+  "name_en": "Sand Orleans Oak"
  },
  {
   "producer": "EGGER",
@@ -1206,7 +1366,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Rovato Eiche naturhell",
+  "name_en": "Light Natural Rovato Oak"
  },
  {
   "producer": "EGGER",
@@ -1221,7 +1383,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sacramento Eiche braun",
+  "name_en": "Brown Sacramento Oak"
  },
  {
   "producer": "EGGER",
@@ -1236,7 +1400,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sacramento Eiche grau",
+  "name_en": "Grey Sacramento Oak"
  },
  {
   "producer": "EGGER",
@@ -1254,7 +1420,9 @@
    "plyty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Santa Fe Eiche vintage",
+  "name_en": "Vintage Santa Fe Oak"
  },
  {
   "producer": "EGGER",
@@ -1269,7 +1437,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sherman Eiche anthrazit",
+  "name_en": "Anthracite Sherman Oak"
  },
  {
   "producer": "EGGER",
@@ -1282,7 +1452,9 @@
   "image": "materiały/dekory/egger/Q1346.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Sherman Eiche anthrazit",
+  "name_en": "Anthracite Sherman Oak"
  },
  {
   "producer": "EGGER",
@@ -1300,7 +1472,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Sherman Eiche cognacbraun",
+  "name_en": "Cognac Brown Sherman Oak"
  },
  {
   "producer": "EGGER",
@@ -1313,7 +1487,9 @@
   "image": "materiały/dekory/egger/Q1344.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Sherman Eiche cognacbraun",
+  "name_en": "Cognac Brown Sherman Oak"
  },
  {
   "producer": "EGGER",
@@ -1332,7 +1508,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Spree Eiche greige",
+  "name_en": "Grey Beige Spree Oak"
  },
  {
   "producer": "EGGER",
@@ -1347,7 +1525,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Thermo Eiche schwarzbraun",
+  "name_en": "Black-Brown Thermo Oak"
  },
  {
   "producer": "EGGER",
@@ -1362,7 +1542,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Tonsberg Eiche braun",
+  "name_en": "Brown Tonsberg Oak"
  },
  {
   "producer": "EGGER",
@@ -1380,7 +1562,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Tonsberg Eiche natur",
+  "name_en": "Natural Tonsberg Oak"
  },
  {
   "producer": "EGGER",
@@ -1393,7 +1577,9 @@
   "image": "materiały/dekory/egger/H3157.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Vicenza Eiche",
+  "name_en": "Vicenza Oak"
  },
  {
   "producer": "EGGER",
@@ -1408,7 +1594,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Vicenza Eiche gebleicht",
+  "name_en": "Bleached Vicenza Oak"
  },
  {
   "producer": "EGGER",
@@ -1423,7 +1611,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Vicenza Eiche hell",
+  "name_en": "Light Vicenza Oak"
  },
  {
   "producer": "EGGER",
@@ -1436,7 +1626,9 @@
   "image": "materiały/dekory/egger/H357.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Vicenza Eiche quer",
+  "name_en": "Vicenza Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -1451,7 +1643,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Vicenza Eiche grau",
+  "name_en": "Grey Vicenza Oak"
  },
  {
   "producer": "EGGER",
@@ -1464,7 +1658,9 @@
   "image": "materiały/dekory/egger/H358.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Vicenza Eiche grau quer",
+  "name_en": "Grey Vicenza Oak Horizontal"
  },
  {
   "producer": "EGGER",
@@ -1480,7 +1676,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Whiteriver Eiche sandbeige",
+  "name_en": "Sand Beige Whiteriver Oak"
  },
  {
   "producer": "EGGER",
@@ -1499,7 +1697,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Whiteriver Eiche graubraun",
+  "name_en": "Grey Brown Whiteriver Oak"
  },
  {
   "producer": "EGGER",
@@ -1512,7 +1712,9 @@
   "image": "materiały/dekory/egger/H8916.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Handscraped Eiche",
+  "name_en": "Handscraped Oak"
  },
  {
   "producer": "EGGER",
@@ -1531,7 +1733,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Wildeiche natur",
+  "name_en": "Natural Wild Oak"
  },
  {
   "producer": "EGGER",
@@ -1546,7 +1750,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Eukalyptus dunkelbraun",
+  "name_en": "Dark Brown Eucalyptus"
  },
  {
   "producer": "EGGER",
@@ -1561,7 +1767,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Eukalyptus natur",
+  "name_en": "Natural Eucalyptus"
  },
  {
   "producer": "EGGER",
@@ -1576,7 +1784,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fineline Metallic anthrazit",
+  "name_en": "Anthracite Fineline Metallic"
  },
  {
   "producer": "EGGER",
@@ -1591,7 +1801,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fineline weiss",
+  "name_en": "White Fineline"
  },
  {
   "producer": "EGGER",
@@ -1606,7 +1818,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fineline dunkelgrau",
+  "name_en": "Dark Grey Fineline"
  },
  {
   "producer": "EGGER",
@@ -1621,7 +1835,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fineline mittelgrau",
+  "name_en": "Medium Grey Fineline"
  },
  {
   "producer": "EGGER",
@@ -1637,7 +1853,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fleetwood weiss",
+  "name_en": "White Fleetwood"
  },
  {
   "producer": "EGGER",
@@ -1656,7 +1874,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Hickory natur",
+  "name_en": "Natural Hickory"
  },
  {
   "producer": "EGGER",
@@ -1671,7 +1891,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Abano Esche anthrazit",
+  "name_en": "Anthracite Abano Ash"
  },
  {
   "producer": "EGGER",
@@ -1686,7 +1908,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Abano Esche braun",
+  "name_en": "Brown Abano Ash"
  },
  {
   "producer": "EGGER",
@@ -1701,7 +1925,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Lugano Esche naturhell",
+  "name_en": "Light Natural Lugano Ash"
  },
  {
   "producer": "EGGER",
@@ -1716,7 +1942,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Esche Navarra",
+  "name_en": "Navarra Ash"
  },
  {
   "producer": "EGGER",
@@ -1731,7 +1959,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sevilla Esche",
+  "name_en": "Sevilla Ash"
  },
  {
   "producer": "EGGER",
@@ -1744,7 +1974,9 @@
   "image": "materiały/dekory/egger/H1225.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Trondheim Esche",
+  "name_en": "Trondheim Ash"
  },
  {
   "producer": "EGGER",
@@ -1760,7 +1992,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Brighton Chestnut",
+  "name_en": "Brighton Chestnut"
  },
  {
   "producer": "EGGER",
@@ -1776,7 +2010,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kentucky Chestnut sand",
+  "name_en": "Sand Kentucky Chestnut"
  },
  {
   "producer": "EGGER",
@@ -1791,7 +2027,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Hard Maple champagne",
+  "name_en": "Champagne Hard Maple"
  },
  {
   "producer": "EGGER",
@@ -1806,7 +2044,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Mandal Ahorn natur",
+  "name_en": "Natural Mandal Maple"
  },
  {
   "producer": "EGGER",
@@ -1821,7 +2061,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Berglärche thermobraun",
+  "name_en": "Thermo Brown Mountain Larch"
  },
  {
   "producer": "EGGER",
@@ -1836,7 +2078,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Berglärche anthrazit",
+  "name_en": "Anthracite Mountain Larch"
  },
  {
   "producer": "EGGER",
@@ -1851,7 +2095,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Berglärche natur",
+  "name_en": "Natural Mountain Larch"
  },
  {
   "producer": "EGGER",
@@ -1864,7 +2110,9 @@
   "image": "materiały/dekory/egger/H8955.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Multiplex schwarz",
+  "name_en": "Multiplex Black"
  },
  {
   "producer": "EGGER",
@@ -1877,7 +2125,9 @@
   "image": "materiały/dekory/egger/H8915.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Multiplex Color",
+  "name_en": "Multiplex Color"
  },
  {
   "producer": "EGGER",
@@ -1892,7 +2142,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Noce Alba tabak",
+  "name_en": "Tobacco Alba Walnut"
  },
  {
   "producer": "EGGER",
@@ -1907,7 +2159,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Carini Nussbaum natur",
+  "name_en": "Natural Carini Walnut"
  },
  {
   "producer": "EGGER",
@@ -1923,7 +2177,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Dijon Nussbaum natur",
+  "name_en": "Natural Dijon Walnut"
  },
  {
   "producer": "EGGER",
@@ -1939,7 +2195,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Noce Dimaro natur",
+  "name_en": "Natural Dimaro Walnut"
  },
  {
   "producer": "EGGER",
@@ -1954,7 +2212,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lincoln Nussbaum",
+  "name_en": "Lincoln Walnut"
  },
  {
   "producer": "EGGER",
@@ -1967,7 +2227,9 @@
   "image": "materiały/dekory/egger/H8106.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Linea Nussbaum",
+  "name_en": "Linea Walnut"
  },
  {
   "producer": "EGGER",
@@ -1980,7 +2242,9 @@
   "image": "materiały/dekory/egger/H8912.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Multiplex Walnuss",
+  "name_en": "Multiplex Walnut"
  },
  {
   "producer": "EGGER",
@@ -1996,7 +2260,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Pacific Nussbaum natur",
+  "name_en": "Natural Pacific Walnut"
  },
  {
   "producer": "EGGER",
@@ -2011,7 +2277,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Pacific Nussbaum tabak",
+  "name_en": "Tobacco Pacific Walnut"
  },
  {
   "producer": "EGGER",
@@ -2026,7 +2294,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Parona Nussbaum",
+  "name_en": "Parona Walnut"
  },
  {
   "producer": "EGGER",
@@ -2041,7 +2311,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Warmia Nussbaum braun",
+  "name_en": "Brown Warmia Walnut"
  },
  {
   "producer": "EGGER",
@@ -2054,7 +2326,9 @@
   "image": "materiały/dekory/egger/H307.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Warmia Nussbaum braun quer",
+  "name_en": "Brown Warmia Walnut Horizontal"
  },
  {
   "producer": "EGGER",
@@ -2070,7 +2344,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Aland Pinie weiss",
+  "name_en": "White Aland Pine"
  },
  {
   "producer": "EGGER",
@@ -2086,7 +2362,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Aland Pinie polar",
+  "name_en": "Polar Aland Pine"
  },
  {
   "producer": "EGGER",
@@ -2099,7 +2377,9 @@
   "image": "materiały/dekory/egger/H433.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Aland Pinie polar quer",
+  "name_en": "Polar Aland Pine Horizontal"
  },
  {
   "producer": "EGGER",
@@ -2115,7 +2395,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Bramberg Fichte",
+  "name_en": "Bramberg Pine"
  },
  {
   "producer": "EGGER",
@@ -2134,7 +2416,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Cascina Pinie",
+  "name_en": "Cascina Pine"
  },
  {
   "producer": "EGGER",
@@ -2147,7 +2431,9 @@
   "image": "materiały/dekory/egger/H1636.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Locarno Kirschbaum",
+  "name_en": "Locarno Cherry"
  },
  {
   "producer": "EGGER",
@@ -2164,7 +2450,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Nebrodi Fichte rustikal",
+  "name_en": "Rustic Nebrodi Spruce"
  },
  {
   "producer": "EGGER",
@@ -2180,7 +2468,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Acapulco",
+  "name_en": "Acapulco"
  },
  {
   "producer": "EGGER",
@@ -2197,7 +2487,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Basaltino terra",
+  "name_en": "Terra Basaltino"
  },
  {
   "producer": "EGGER",
@@ -2211,7 +2503,9 @@
   "products": [
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Mountain Basalt anthrazit",
+  "name_en": "Anthracite Mountain Basalt"
  },
  {
   "producer": "EGGER",
@@ -2230,7 +2524,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Chicago Concrete dunkelgrau",
+  "name_en": "Dark Grey Chicago Concrete"
  },
  {
   "producer": "EGGER",
@@ -2249,7 +2545,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Chicago Concrete hellgrau",
+  "name_en": "Light Grey Chicago Concrete"
  },
  {
   "producer": "EGGER",
@@ -2264,7 +2562,9 @@
    "laminaty",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Solid Chicago Concrete hellgrau",
+  "name_en": "Solid Light Grey Chicago Concrete"
  },
  {
   "producer": "EGGER",
@@ -2277,7 +2577,9 @@
   "image": "materiały/dekory/egger/F8930.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Kreuzschliff Bronze",
+  "name_en": "Diamond Brushed Bronze"
  },
  {
   "producer": "EGGER",
@@ -2293,7 +2595,9 @@
    "laminaty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Ceramic anthrazit",
+  "name_en": "Ceramic Anthracite"
  },
  {
   "producer": "EGGER",
@@ -2309,7 +2613,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Chromix weiss",
+  "name_en": "White Chromix"
  },
  {
   "producer": "EGGER",
@@ -2328,7 +2634,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Chromix silber",
+  "name_en": "Chromix Silver"
  },
  {
   "producer": "EGGER",
@@ -2346,7 +2654,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Ferro bronze",
+  "name_en": "Ferro Bronze"
  },
  {
   "producer": "EGGER",
@@ -2363,7 +2673,9 @@
    "perfectsense",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Ambiance Granite beige",
+  "name_en": "Beige Ambiance Granite"
  },
  {
   "producer": "EGGER",
@@ -2380,7 +2692,9 @@
    "perfectsense",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Ambiance Granite schwarz",
+  "name_en": "Black Ambiance Granite"
  },
  {
   "producer": "EGGER",
@@ -2397,7 +2711,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Cascia Granit hellgrau",
+  "name_en": "Light Grey Cascia Granite"
  },
  {
   "producer": "EGGER",
@@ -2414,7 +2730,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Cascia Granit grau",
+  "name_en": "Grey Cascia Granite"
  },
  {
   "producer": "EGGER",
@@ -2448,7 +2766,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Pietra Grigia anthrazit",
+  "name_en": "Anthracite Pietra Grigia"
  },
  {
   "producer": "EGGER",
@@ -2466,7 +2786,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Pietra Grigia schwarz",
+  "name_en": "Black Pietra Grigia"
  },
  {
   "producer": "EGGER",
@@ -2479,7 +2801,9 @@
   "image": "materiały/dekory/egger/F8931.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Kreuzschliff Inox",
+  "name_en": "Diamond Brushed Inox"
  },
  {
   "producer": "EGGER",
@@ -2494,7 +2818,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Inox metallic",
+  "name_en": "Metallic Inox"
  },
  {
   "producer": "EGGER",
@@ -2509,7 +2835,9 @@
    "laminaty",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Bellisara Stone lavagrau",
+  "name_en": "Lava Grey Bellisara Stone"
  },
  {
   "producer": "EGGER",
@@ -2527,7 +2855,9 @@
    "plyty",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Calcit Stone sandbeige",
+  "name_en": "Sand Beige Calcit Stone"
  },
  {
   "producer": "EGGER",
@@ -2545,7 +2875,9 @@
    "plyty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Calcit Stone kieselgrau",
+  "name_en": "Pebble Grey Calcit Stone"
  },
  {
   "producer": "EGGER",
@@ -2562,7 +2894,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Calvia Stein hellgrau",
+  "name_en": "Light Grey Calvia Stone"
  },
  {
   "producer": "EGGER",
@@ -2579,7 +2913,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Calvia Stein sandgrau",
+  "name_en": "Sand Grey Calvia Stone"
  },
  {
   "producer": "EGGER",
@@ -2596,7 +2932,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Gavi Stein taupe",
+  "name_en": "Taupe Gavi Stone"
  },
  {
   "producer": "EGGER",
@@ -2611,7 +2949,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cobra bronze",
+  "name_en": "Cobra Bronze"
  },
  {
   "producer": "EGGER",
@@ -2626,7 +2966,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Steelbrush cubanit",
+  "name_en": "Cubanite Steelbrush"
  },
  {
   "producer": "EGGER",
@@ -2642,7 +2984,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Leinen anthrazit",
+  "name_en": "Anthracite Linen"
  },
  {
   "producer": "EGGER",
@@ -2658,7 +3002,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Leinen weiss",
+  "name_en": "White Linen"
  },
  {
   "producer": "EGGER",
@@ -2674,7 +3020,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Leinen terra",
+  "name_en": "Brown Linen"
  },
  {
   "producer": "EGGER",
@@ -2687,7 +3035,9 @@
   "image": "materiały/dekory/egger/F8980.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Linea schwarz",
+  "name_en": "Linea Black"
  },
  {
   "producer": "EGGER",
@@ -2703,7 +3053,9 @@
    "laminaty",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Ambiance Marble schwarz",
+  "name_en": "Black Ambiance Marble"
  },
  {
   "producer": "EGGER",
@@ -2721,7 +3073,9 @@
    "plyty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Candela Marmor anthrazit",
+  "name_en": "Anthracite Candela Marble"
  },
  {
   "producer": "EGGER",
@@ -2740,7 +3094,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Candela Marmor hellgrau",
+  "name_en": "Light Grey Candela Marble"
  },
  {
   "producer": "EGGER",
@@ -2757,7 +3113,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Cipollino Marmor grau",
+  "name_en": "Grey Cipollino Marble"
  },
  {
   "producer": "EGGER",
@@ -2774,7 +3132,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Cremona Marmor",
+  "name_en": "Cremona Marble"
  },
  {
   "producer": "EGGER",
@@ -2793,7 +3153,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Kristallmarmor",
+  "name_en": "Crystal Marble"
  },
  {
   "producer": "EGGER",
@@ -2807,7 +3169,9 @@
   "products": [
    "laminaty",
    "blaty"
-  ]
+  ],
+  "name_de": "Solid Kristallmarmor",
+  "name_en": "Solid Crystal Marble"
  },
  {
   "producer": "EGGER",
@@ -2823,7 +3187,9 @@
    "laminaty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Formello Marmor weiss",
+  "name_en": "White Formello Marble"
  },
  {
   "producer": "EGGER",
@@ -2840,7 +3206,9 @@
    "laminaty",
    "plyty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Levanto Marmor weiss",
+  "name_en": "White Levanto Marble"
  },
  {
   "producer": "EGGER",
@@ -2857,7 +3225,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "San Luca Marmor",
+  "name_en": "San Luca Marble"
  },
  {
   "producer": "EGGER",
@@ -2874,7 +3244,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Siena Marmor grau",
+  "name_en": "Grey Siena Marble"
  },
  {
   "producer": "EGGER",
@@ -2891,7 +3263,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Metal Rock anthrazit",
+  "name_en": "Anthracite Metal Rock"
  },
  {
   "producer": "EGGER",
@@ -2906,7 +3280,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Crossed Metal champagner",
+  "name_en": "Champagne Crossed Metal"
  },
  {
   "producer": "EGGER",
@@ -2921,7 +3297,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Silbergrau gebürstet",
+  "name_en": "Brushed Silvergrey"
  },
  {
   "producer": "EGGER",
@@ -2936,7 +3314,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Brushed Metal bronze",
+  "name_en": "Bronze Brushed Metal"
  },
  {
   "producer": "EGGER",
@@ -2951,7 +3331,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Brushed Metal gold",
+  "name_en": "Golden Brushed Metal"
  },
  {
   "producer": "EGGER",
@@ -2968,7 +3350,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Pietra Fanano hellgrau",
+  "name_en": "Light Grey Pietra Fanano"
  },
  {
   "producer": "EGGER",
@@ -2985,7 +3369,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Pietra Fanano grau",
+  "name_en": "Grey Pietra Fanano"
  },
  {
   "producer": "EGGER",
@@ -3001,7 +3387,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Canvas anthrazit",
+  "name_en": "Anthracite Canvas"
  },
  {
   "producer": "EGGER",
@@ -3017,7 +3405,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Textil beige",
+  "name_en": "Beige Textile"
  },
  {
   "producer": "EGGER",
@@ -3033,7 +3423,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Textil grau",
+  "name_en": "Grey Textile"
  },
  {
   "producer": "EGGER",
@@ -3050,7 +3442,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Steel Grey anthrazit",
+  "name_en": "Anthracite Steel Grey"
  },
  {
   "producer": "EGGER",
@@ -3066,7 +3460,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Canvas grau",
+  "name_en": "Grey Canvas"
  },
  {
   "producer": "EGGER",
@@ -3083,7 +3479,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Aluminium feingebürstet",
+  "name_en": "Finely Brushed Aluminium"
  },
  {
   "producer": "EGGER",
@@ -3100,7 +3498,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Triestino Terrazzo grau",
+  "name_en": "Grey Triestino Terrazzo"
  },
  {
   "producer": "EGGER",
@@ -3115,7 +3515,9 @@
    "laminaty",
    "panele-wnekowe",
    "blaty"
-  ]
+  ],
+  "name_de": "Tessina Ceramic creme",
+  "name_en": "Cream Tessina Ceramic"
  },
  {
   "producer": "EGGER",
@@ -3132,7 +3534,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Calais Travertin",
+  "name_en": "Calais Travertine"
  },
  {
   "producer": "EGGER",
@@ -3149,7 +3553,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Margalida Travertin",
+  "name_en": "Margalida Travertine"
  },
  {
   "producer": "EGGER",
@@ -3165,7 +3571,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Taormina Travertin",
+  "name_en": "Taormina Travertine"
  },
  {
   "producer": "EGGER",
@@ -3178,7 +3586,9 @@
   "image": "materiały/dekory/egger/F228.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Titanit anthrazit",
+  "name_en": "Anthracite Titanite"
  },
  {
   "producer": "EGGER",
@@ -3191,7 +3601,9 @@
   "image": "materiały/dekory/egger/F226.webp",
   "products": [
    "kompakt"
-  ]
+  ],
+  "name_de": "Titanit sandbeige",
+  "name_en": "Sand Beige Titanite"
  },
  {
   "producer": "EGGER",
@@ -3208,7 +3620,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Titanit grau",
+  "name_en": "Grey Titanite"
  },
  {
   "producer": "EGGER",
@@ -3227,7 +3641,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Cupria Slate",
+  "name_en": "Cupria Slate"
  },
  {
   "producer": "EGGER",
@@ -3245,7 +3661,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Scivaro Schiefer",
+  "name_en": "Scivaro Slate"
  },
  {
   "producer": "EGGER",
@@ -3262,7 +3680,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Scivaro Schiefer hellgrau",
+  "name_en": "Light Grey Scivaro Slate"
  },
  {
   "producer": "EGGER",
@@ -3278,7 +3698,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Alabasterweiss",
+  "name_en": "Alabaster White"
  },
  {
   "producer": "EGGER",
@@ -3293,7 +3715,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Antikrosa",
+  "name_en": "Antique Rose"
  },
  {
   "producer": "EGGER",
@@ -3308,7 +3732,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cottonbeige",
+  "name_en": "Cotton Beige"
  },
  {
   "producer": "EGGER",
@@ -3323,7 +3749,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Camebeige",
+  "name_en": "Camè Beige"
  },
  {
   "producer": "EGGER",
@@ -3339,7 +3767,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Softbeige",
+  "name_en": "Soft Beige"
  },
  {
   "producer": "EGGER",
@@ -3354,7 +3784,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cremabeige",
+  "name_en": "Crema Beige"
  },
  {
   "producer": "EGGER",
@@ -3369,7 +3801,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Mandelbeige",
+  "name_en": "Almond Beige"
  },
  {
   "producer": "EGGER",
@@ -3384,7 +3818,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sandbeige",
+  "name_en": "Sand Beige"
  },
  {
   "producer": "EGGER",
@@ -3397,7 +3833,9 @@
   "image": "materiały/dekory/egger/W1100.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Alpinweiss",
+  "name_en": "Alpine White"
  },
  {
   "producer": "EGGER",
@@ -3411,7 +3849,9 @@
   "products": [
    "kompakt",
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Alpinweiss",
+  "name_en": "Solid Alpine White"
  },
  {
   "producer": "EGGER",
@@ -3426,7 +3866,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Classic Weiss",
+  "name_en": "Classic White"
  },
  {
   "producer": "EGGER",
@@ -3442,7 +3884,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kristall Weiss",
+  "name_en": "Crystal White"
  },
  {
   "producer": "EGGER",
@@ -3457,7 +3901,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Platinweiss",
+  "name_en": "Platinum White"
  },
  {
   "producer": "EGGER",
@@ -3473,7 +3919,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Porzellanweiss",
+  "name_en": "Porcelain White"
  },
  {
   "producer": "EGGER",
@@ -3490,7 +3938,9 @@
    "akcesoria-blatow",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Premiumweiss",
+  "name_en": "Premium White"
  },
  {
   "producer": "EGGER",
@@ -3503,7 +3953,9 @@
   "image": "materiały/dekory/egger/W1001.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Premiumweiss",
+  "name_en": "Solid Premium White"
  },
  {
   "producer": "EGGER",
@@ -3519,7 +3971,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Trüffelbraun",
+  "name_en": "Truffle Brown"
  },
  {
   "producer": "EGGER",
@@ -3534,7 +3988,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Terrabraun",
+  "name_en": "Brown Terra"
  },
  {
   "producer": "EGGER",
@@ -3550,7 +4006,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Burgundrot",
+  "name_en": "Burgundy Red"
  },
  {
   "producer": "EGGER",
@@ -3565,7 +4023,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Caratbeige",
+  "name_en": "Carat Beige"
  },
  {
   "producer": "EGGER",
@@ -3580,7 +4040,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Dark Berry",
+  "name_en": "Dark Berry"
  },
  {
   "producer": "EGGER",
@@ -3596,7 +4058,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Dunkelbraun",
+  "name_en": "Dark Brown"
  },
  {
   "producer": "EGGER",
@@ -3611,7 +4075,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Tiefblau",
+  "name_en": "Deep Blue"
  },
  {
   "producer": "EGGER",
@@ -3624,7 +4090,9 @@
   "image": "materiały/dekory/egger/U999.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Schwarz",
+  "name_en": "Black"
  },
  {
   "producer": "EGGER",
@@ -3639,7 +4107,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Shadow Black",
+  "name_en": "Shadow Black"
  },
  {
   "producer": "EGGER",
@@ -3652,7 +4122,9 @@
   "image": "materiały/dekory/egger/U9991.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Schwarz",
+  "name_en": "Solid Black"
  },
  {
   "producer": "EGGER",
@@ -3668,7 +4140,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Signalrot",
+  "name_en": "Chilli Red"
  },
  {
   "producer": "EGGER",
@@ -3683,7 +4157,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Chinarot",
+  "name_en": "China Red"
  },
  {
   "producer": "EGGER",
@@ -3698,7 +4174,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Granatrot",
+  "name_en": "Garnet Red"
  },
  {
   "producer": "EGGER",
@@ -3714,7 +4192,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Rostrot",
+  "name_en": "Rusty Red"
  },
  {
   "producer": "EGGER",
@@ -3730,7 +4210,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Softschwarz",
+  "name_en": "Soft Black"
  },
  {
   "producer": "EGGER",
@@ -3743,7 +4225,9 @@
   "image": "materiały/dekory/egger/U8991.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Softschwarz",
+  "name_en": "Solid Soft Black"
  },
  {
   "producer": "EGGER",
@@ -3759,7 +4243,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Schwarzbraun",
+  "name_en": "Black Brown"
  },
  {
   "producer": "EGGER",
@@ -3772,7 +4258,9 @@
   "image": "materiały/dekory/egger/W8904.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Doppia Alpinweiss-Alu",
+  "name_en": "Doppia Alpine White-Alu"
  },
  {
   "producer": "EGGER",
@@ -3785,7 +4273,9 @@
   "image": "materiały/dekory/egger/U8922.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Doppia Schwarz Gloss/Matt",
+  "name_en": "Doppia Black Gloss/Matt"
  },
  {
   "producer": "EGGER",
@@ -3798,7 +4288,9 @@
   "image": "materiały/dekory/egger/U8921.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Doppia Schwarz Matt/Gloss",
+  "name_en": "Doppia Black Matt/Gloss"
  },
  {
   "producer": "EGGER",
@@ -3811,7 +4303,9 @@
   "image": "materiały/dekory/egger/U8920.webp",
   "products": [
    "obrzeza"
-  ]
+  ],
+  "name_de": "Doppia Schwarz-Alu",
+  "name_en": "Doppia Black-Alu"
  },
  {
   "producer": "EGGER",
@@ -3826,7 +4320,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Violett",
+  "name_en": "Violet"
  },
  {
   "producer": "EGGER",
@@ -3842,7 +4338,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Havannagrau",
+  "name_en": "Havanna Grey"
  },
  {
   "producer": "EGGER",
@@ -3858,7 +4356,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Tannengrün",
+  "name_en": "Fir Green"
  },
  {
   "producer": "EGGER",
@@ -3873,7 +4373,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nude karamell",
+  "name_en": "Caramel Nude"
  },
  {
   "producer": "EGGER",
@@ -3889,7 +4391,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Caramelbeige",
+  "name_en": "Caramel Beige"
  },
  {
   "producer": "EGGER",
@@ -3906,7 +4410,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Kaschmirgrau",
+  "name_en": "Cashmere Grey"
  },
  {
   "producer": "EGGER",
@@ -3919,7 +4425,9 @@
   "image": "materiały/dekory/egger/U7021.webp",
   "products": [
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Kaschmirgrau",
+  "name_en": "Solid Cashmere Grey"
  },
  {
   "producer": "EGGER",
@@ -3934,7 +4442,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lila",
+  "name_en": "Purple"
  },
  {
   "producer": "EGGER",
@@ -3949,7 +4459,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nude apricot",
+  "name_en": "Apricot Nude"
  },
  {
   "producer": "EGGER",
@@ -3964,7 +4476,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Horizontblau",
+  "name_en": "Horizon Blue"
  },
  {
   "producer": "EGGER",
@@ -3979,7 +4493,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Baltic Blau",
+  "name_en": "Baltic Blue"
  },
  {
   "producer": "EGGER",
@@ -3995,7 +4511,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Denimblau",
+  "name_en": "Denim Blue"
  },
  {
   "producer": "EGGER",
@@ -4011,7 +4529,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Delftblau",
+  "name_en": "Delft Blue"
  },
  {
   "producer": "EGGER",
@@ -4026,7 +4546,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Tiefseeblau",
+  "name_en": "Deep Sea Blue"
  },
  {
   "producer": "EGGER",
@@ -4041,7 +4563,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Indigoblau",
+  "name_en": "Indigo Blue"
  },
  {
   "producer": "EGGER",
@@ -4056,7 +4580,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kosmosblau",
+  "name_en": "Cosmos Blue"
  },
  {
   "producer": "EGGER",
@@ -4071,7 +4597,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Gletscherblau",
+  "name_en": "Glacier Blue"
  },
  {
   "producer": "EGGER",
@@ -4086,7 +4614,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nebelblau",
+  "name_en": "Misty Blue"
  },
  {
   "producer": "EGGER",
@@ -4101,7 +4631,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nachtblau",
+  "name_en": "Midnight Blue"
  },
  {
   "producer": "EGGER",
@@ -4116,7 +4648,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Nordisch Blau",
+  "name_en": "Nordic Blue"
  },
  {
   "producer": "EGGER",
@@ -4131,7 +4665,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Ozeanblau",
+  "name_en": "Ocean Blue"
  },
  {
   "producer": "EGGER",
@@ -4147,7 +4683,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Alpenseeblau",
+  "name_en": "Tyrolean Blue"
  },
  {
   "producer": "EGGER",
@@ -4160,7 +4698,9 @@
   "image": "materiały/dekory/egger/U960.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Onyxgrau",
+  "name_en": "Onyx Grey"
  },
  {
   "producer": "EGGER",
@@ -4175,7 +4715,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Orange",
+  "name_en": "Orange"
  },
  {
   "producer": "EGGER",
@@ -4190,7 +4732,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sienaorange",
+  "name_en": "Siena Orange"
  },
  {
   "producer": "EGGER",
@@ -4206,7 +4750,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cassis",
+  "name_en": "Cassis"
  },
  {
   "producer": "EGGER",
@@ -4221,7 +4767,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Flamingopink",
+  "name_en": "Flamingo Pink"
  },
  {
   "producer": "EGGER",
@@ -4234,7 +4782,9 @@
   "image": "materiały/dekory/egger/U669.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Estate Grün",
+  "name_en": "Estate Green"
  },
  {
   "producer": "EGGER",
@@ -4250,7 +4800,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Angoragrau",
+  "name_en": "Angora Grey"
  },
  {
   "producer": "EGGER",
@@ -4263,7 +4815,9 @@
   "image": "materiały/dekory/egger/U968.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Karbongrau",
+  "name_en": "Carbon Grey"
  },
  {
   "producer": "EGGER",
@@ -4279,7 +4833,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Monumentgrau",
+  "name_en": "Monument Grey"
  },
  {
   "producer": "EGGER",
@@ -4294,7 +4850,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Lichtgrau",
+  "name_en": "Taupe Grey"
  },
  {
   "producer": "EGGER",
@@ -4310,7 +4868,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Arktisgrau",
+  "name_en": "Arctic Grey"
  },
  {
   "producer": "EGGER",
@@ -4326,7 +4886,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Weissgrau",
+  "name_en": "White Grey"
  },
  {
   "producer": "EGGER",
@@ -4342,7 +4904,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Diamantgrau",
+  "name_en": "Diamond Grey"
  },
  {
   "producer": "EGGER",
@@ -4356,7 +4920,9 @@
   "products": [
    "kompakt",
    "laminaty"
-  ]
+  ],
+  "name_de": "Solid Diamantgrau",
+  "name_en": "Solid Diamond Grey"
  },
  {
   "producer": "EGGER",
@@ -4372,7 +4938,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Graphitschwarz",
+  "name_en": "Graphite Grey"
  },
  {
   "producer": "EGGER",
@@ -4387,7 +4955,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Hellgrau",
+  "name_en": "Light Grey"
  },
  {
   "producer": "EGGER",
@@ -4402,7 +4972,9 @@
    "laminaty",
    "blaty",
    "panele-wnekowe"
-  ]
+  ],
+  "name_de": "Solid Hellgrau",
+  "name_en": "Solid Light Grey"
  },
  {
   "producer": "EGGER",
@@ -4418,7 +4990,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Seidengrau",
+  "name_en": "Silk Grey"
  },
  {
   "producer": "EGGER",
@@ -4434,7 +5008,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Steingrau",
+  "name_en": "Stone Grey"
  },
  {
   "producer": "EGGER",
@@ -4450,7 +5026,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kieselgrau",
+  "name_en": "Pebble Grey"
  },
  {
   "producer": "EGGER",
@@ -4466,7 +5044,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Cubanitgrau",
+  "name_en": "Cubanit Grey"
  },
  {
   "producer": "EGGER",
@@ -4482,7 +5062,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Lavagrau",
+  "name_en": "Lava Grey"
  },
  {
   "producer": "EGGER",
@@ -4499,7 +5081,9 @@
    "panele-wnekowe",
    "akcesoria-blatow",
    "blaty"
-  ]
+  ],
+  "name_de": "Perlgrau",
+  "name_en": "Pearl Grey"
  },
  {
   "producer": "EGGER",
@@ -4514,7 +5098,9 @@
    "obrzeza",
    "laminaty",
    "perfectsense"
-  ]
+  ],
+  "name_de": "Staubgrau",
+  "name_en": "Dust Grey"
  },
  {
   "producer": "EGGER",
@@ -4527,7 +5113,9 @@
   "image": "materiały/dekory/egger/U740.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Taupe Dunkel",
+  "name_en": "Dark Taupe"
  },
  {
   "producer": "EGGER",
@@ -4542,7 +5130,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Fjordgrün",
+  "name_en": "Fjord Green"
  },
  {
   "producer": "EGGER",
@@ -4558,7 +5148,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Niagaragrün",
+  "name_en": "Niagara Green"
  },
  {
   "producer": "EGGER",
@@ -4571,7 +5163,9 @@
   "image": "materiały/dekory/egger/U604.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Eukalyptusgrün",
+  "name_en": "Reed Green"
  },
  {
   "producer": "EGGER",
@@ -4586,7 +5180,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Kiwigrün",
+  "name_en": "Kiwi Green"
  },
  {
   "producer": "EGGER",
@@ -4601,7 +5197,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Waldgrün",
+  "name_en": "Forest Green"
  },
  {
   "producer": "EGGER",
@@ -4616,7 +5214,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Limonengrün",
+  "name_en": "Lime Green"
  },
  {
   "producer": "EGGER",
@@ -4631,7 +5231,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Türkisgrün",
+  "name_en": "Turquoise Blue"
  },
  {
   "producer": "EGGER",
@@ -4646,7 +5248,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Pistaziengrün",
+  "name_en": "Pistachio Green"
  },
  {
   "producer": "EGGER",
@@ -4661,7 +5265,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Agavengrün",
+  "name_en": "Agave Green"
  },
  {
   "producer": "EGGER",
@@ -4674,7 +5280,9 @@
   "image": "materiały/dekory/egger/U665.webp",
   "products": [
    "perfectsense"
-  ]
+  ],
+  "name_de": "Steingrün",
+  "name_en": "Stone Green"
  },
  {
   "producer": "EGGER",
@@ -4689,7 +5297,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Olivgrün",
+  "name_en": "Olive Green"
  },
  {
   "producer": "EGGER",
@@ -4705,7 +5315,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Salbeigrün",
+  "name_en": "Sage Green"
  },
  {
   "producer": "EGGER",
@@ -4720,7 +5332,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Currygelb",
+  "name_en": "Curry Yellow"
  },
  {
   "producer": "EGGER",
@@ -4735,7 +5349,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Zitrusgelb",
+  "name_en": "Citrus Yellow"
  },
  {
   "producer": "EGGER",
@@ -4751,7 +5367,9 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Brillantgelb",
+  "name_en": "Brilliant Yellow"
  },
  {
   "producer": "EGGER",
@@ -4767,6 +5385,8 @@
    "obrzeza",
    "laminaty",
    "plyty"
-  ]
+  ],
+  "name_de": "Sandgelb",
+  "name_en": "Sand Yellow"
  }
 ]
