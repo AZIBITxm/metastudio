@@ -81,7 +81,10 @@
             return `<iframe src="https://www.youtube-nocookie.com/embed/${id}?${q}" title="${esc(f.autor)} · YouTube" allow="${allow}"></iframe>`;
         }
         if (f.platforma === 'facebook') {
-            return `<iframe src="https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(f.url)}&show_text=false&autoplay=true" allow="${allow}" allowfullscreen scrolling="no"></iframe>`;
+            // oficjalny odtwarzacz Facebooka przez jego skrypt (FB SDK) — daje polecenia play/pause/mute;
+            // zwykła ramka video.php sama nie startuje i czekała na kliknięcie, które nasza warstwa blokuje
+            const w = Math.round(screen.clientWidth || 340);
+            return `<div class="fb-video" data-href="${esc(f.url)}" data-width="${w}" data-show-text="false" data-autoplay="true" data-allowfullscreen="false" data-lazy="false"></div>`;
         }
         if (f.platforma === 'pinterest' && f.id) {
             return `<iframe src="https://assets.pinterest.com/ext/embed.html?id=${id}" scrolling="no" allow="${allow}"></iframe>`;
@@ -135,9 +138,71 @@
         touchIcon.classList.add('is-on');
     }
     function frame() { return screen.querySelector('iframe'); }
+
+    // ===== Facebook: skrypt SDK ładowany raz, przy pierwszym ▶ rolki z Facebooka =====
+    let fbPlayer = null, fbToken = 0, fbSdk = null;
+    function loadFbSdk() {
+        if (fbSdk) return fbSdk;
+        fbSdk = new Promise((resolve, reject) => {
+            if (window.FB && window.FB.XFBML) { resolve(window.FB); return; }
+            window.fbAsyncInit = () => {
+                window.FB.init({ xfbml: false, version: 'v21.0' });
+                resolve(window.FB);
+            };
+            const sc = document.createElement('script');
+            sc.async = true;
+            sc.crossOrigin = 'anonymous';
+            sc.src = `https://connect.facebook.net/${LANG === 'de' ? 'de_DE' : LANG === 'en' ? 'en_GB' : 'pl_PL'}/sdk.js`;
+            sc.onerror = () => { fbSdk = null; reject(new Error('sdk')); };
+            document.head.appendChild(sc);
+        });
+        return fbSdk;
+    }
+    function playFacebook(f) {
+        const token = ++fbToken;
+        fbPlayer = null;
+        // zapas, gdyby skrypt Facebooka się nie wczytał albo odtwarzacz nie zgłosił gotowości:
+        // zwykła ramka, ▶ Facebooka odsłonięty, po kliknięciu w nią nasza warstwa z samym ■
+        const fallback = () => {
+            if (token !== fbToken || state !== 'play' || fbPlayer) return;
+            screen.innerHTML = `<iframe src="https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(f.url)}&show_text=false" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            ctrl.style.setProperty('--mask-top', '0px');
+            ctrl.style.setProperty('--mask-bottom', '0px');
+            setState('wait');
+            window.focus();
+        };
+        const timer = setTimeout(fallback, 7000);
+        loadFbSdk().then((FB) => {
+            if (token !== fbToken) return;
+            const onReady = (msg) => {
+                if (msg.type !== 'video' || token !== fbToken || !screen.contains(document.getElementById(msg.id))) return;
+                FB.Event.unsubscribe('xfbml.ready', onReady);
+                clearTimeout(timer);
+                fbPlayer = msg.instance;
+                fbPlayer.subscribe('startedPlaying', () => { started = true; });
+                fbPlayer.subscribe('finishedPlaying', () => { if (token === fbToken && fbPlayer) fbPlayer.play(); });   // w pętli jak TikTok
+                fbPlayer.mute();
+                fbPlayer.play();
+                setTimeout(() => { if (token === fbToken && fbPlayer && state === 'play') { fbPlayer.unmute(); muted = false; setState('play'); } }, 700);
+                setState('play');
+            };
+            FB.Event.subscribe('xfbml.ready', onReady);
+            const el = screen.querySelector('.fb-video');
+            if (el) { el.id = 'insp-fb-' + token; FB.XFBML.parse(screen); }
+        }).catch(fallback);
+    }
+
     function send(cmd) {
-        const fr = frame();
         const f = films[current];
+        if (f && f.platforma === 'facebook') {
+            if (!fbPlayer) return;
+            if (cmd === 'play') fbPlayer.play();
+            else if (cmd === 'pause') fbPlayer.pause();
+            else if (cmd === 'mute') fbPlayer.mute();
+            else if (cmd === 'unMute') fbPlayer.unmute();
+            return;
+        }
+        const fr = frame();
         if (!fr || !fr.contentWindow || !f) return;
         if (f.platforma === 'tiktok') {
             fr.contentWindow.postMessage({ type: cmd, value: null, 'x-tiktok-player': true }, '*');
@@ -146,10 +211,11 @@
             fr.contentWindow.postMessage(JSON.stringify({ event: 'command', func, args: [] }), '*');
         }
     }
-    const steerable = (f) => !!f && (f.platforma === 'tiktok' || f.platforma === 'youtube');
+    const steerable = (f) => !!f && (f.platforma === 'tiktok' || f.platforma === 'youtube' || (f.platforma === 'facebook' && !!fbPlayer));
 
     function cover() {
         clearTimeout(startTimer);
+        fbToken++; fbPlayer = null;
         ctrl.classList.remove('is-open-bottom');
         const f = films[current];
         if (!f) return;
@@ -176,6 +242,7 @@
             return;
         }
         setState('play');
+        if (f.platforma === 'facebook') { playFacebook(f); return; }
         if (steerable(f)) {
             // start bez dźwięku jest zawsze dozwolony; zaraz po starcie włączamy dźwięk (kliknięcie ▶ na to pozwala)
             frame().addEventListener('load', () => {
@@ -330,7 +397,7 @@
     function stopDrift() { driftStopped = true; }
     function drift() {
         if (!driftOn) return;
-        const vertical = window.matchMedia('(min-width: 900px)').matches;
+        const vertical = window.matchMedia('(min-width: 700px)').matches;
         const max = vertical ? rail.scrollHeight - rail.clientHeight : rail.scrollWidth - rail.clientWidth;
         if (!driftPaused && !driftStopped && max > 4) {
             const cur = vertical ? rail.scrollTop : rail.scrollLeft;
@@ -424,7 +491,7 @@
             running = ce !== te || cx !== tx || (above && intro < 1);
             if (running) requestAnimationFrame(frame);
             if (far) return;
-            const mobile = !window.matchMedia('(min-width: 900px)').matches;
+            const mobile = !window.matchMedia('(min-width: 700px)').matches;
             const e = ce;
             const x = ease(cx);
             const set = (el, tf, v) => { el.style.transform = tf; el.style.opacity = v.toFixed(3); };

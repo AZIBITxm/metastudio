@@ -4613,7 +4613,7 @@ section:first-of-type {
 #inspiracje .insp-thumb.is-active .insp-thumb-play::after { border-left-color: #fff; }
 #inspiracje .insp-thumb:focus-visible { outline: 2px solid #B4943C; outline-offset: 2px; }
 
-@media (max-width: 899px) {
+@media (max-width: 699px) {
     #inspiracje { padding: 40px 1.25rem 60px; }
     #inspiracje::after { width: calc(100% - 2.5rem); }
     #inspiracje .insp-stage { grid-template-columns: 1fr; gap: 1.4rem; justify-items: center; margin-top: 1rem; }
@@ -4640,7 +4640,7 @@ section:first-of-type {
 #inspiracje .insp-screen.is-changing.come-left { transform: translateX(70px) rotateY(-14deg) scale(0.95); }
 #inspiracje .insp-screen.is-changing.come-right { transform: translateX(-70px) rotateY(14deg) scale(0.95); }
 #inspiracje .insp-touch { display: none; }
-@media (max-width: 899px) {
+@media (max-width: 699px) {
     /* warstwa dotyku: górne ~70% ekranu (dół zostaje dla przycisków odtwarzacza i okna zgody TikToka) */
     #inspiracje .insp-touch {
         display: flex; align-items: center; justify-content: center;
@@ -5021,8 +5021,11 @@ section:first-of-type {
 #inspiracje .insp-ctrl[data-state="play"] .insp-big-play { display: none; }
 #inspiracje .insp-ctrl[data-state="play"] { cursor: default; }
 /* pauza i dźwięk tylko tam, gdzie odtwarzacz przyjmuje polecenia (TikTok, YouTube) */
-#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]) .insp-pause,
-#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]) .insp-sound { display: none; }
+#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]):not([data-platform="facebook"]) .insp-pause,
+#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]):not([data-platform="facebook"]) .insp-sound { display: none; }
+/* odtwarzacz Facebooka (SDK) wypełnia ekran i jest wyśrodkowany */
+#inspiracje .insp-screen .fb-video, #inspiracje .insp-screen .fb-video > span { display: block; width: 100% !important; }
+#inspiracje .insp-screen .fb-video iframe { width: 100% !important; }
 /* Instagram / Pinterest przed kliknięciem: warstwa przepuszcza kliknięcie w ▶ odtwarzacza, paski z linkami zakryte */
 #inspiracje .insp-ctrl[data-state="wait"] { pointer-events: none; }
 #inspiracje .insp-ctrl[data-state="wait"] .insp-big-play { display: none; }
@@ -5032,3 +5035,19 @@ section:first-of-type {
 /* okno zgody TikToka: dół ekranu chwilowo odsłonięty */
 #inspiracje .insp-ctrl.is-open-bottom { bottom: 35%; }
 #inspiracje .insp-ctrl.is-open-bottom .insp-bar { bottom: 8px; }
+
+/* Inspiracje — tablet (700–1099 px): układ jak na komputerze (opis | ekran | pas miniatur), ściśnięty (2026-11-11) */
+@media (min-width: 700px) and (max-width: 1099px) {
+    #inspiracje { padding: 48px 1.25rem 70px; }
+    #inspiracje .insp-stage { gap: 1.25rem; }
+    #inspiracje .insp-screen { width: clamp(250px, 36vw, 320px); }
+    #inspiracje .insp-rail { width: clamp(130px, 18vw, 170px); max-height: calc(clamp(250px, 36vw, 320px) * 16 / 9); padding: 6px 8px 6px 4px; gap: 10px; }
+    #inspiracje .insp-thumb-card { padding: 8px; }
+    #inspiracje .insp-thumb-platform { font-size: 0.6rem; letter-spacing: 0.14em; }
+    #inspiracje .insp-thumb-text { font-size: 0.8rem; }
+    #inspiracje .insp-thumb-play { top: 8px; right: 8px; width: 24px; height: 24px; }
+    #inspiracje .insp-thumb-play::after { left: 8px; top: 5px; border-width: 6px 0 6px 9px; }
+    #inspiracje .insp-info { gap: 0.7rem; }
+    #inspiracje .insp-author { font-size: 0.95rem; }
+    #inspiracje .insp-nav button { width: 42px; height: 42px; }
+}
