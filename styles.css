@@ -4966,3 +4966,69 @@ section:first-of-type {
 }
 @media (max-width: 768px) { #project .cat-switch-hint { padding: 10px 18px; font-size: 0.9rem; margin-left: 8px; } }
 @media (prefers-reduced-motion: reduce) { #project .cat-switch-hint { animation: none; } }
+
+/* ===== Inspiracje — nasza nakładka na odtwarzacz (2026-11-11) =====
+   okładka z pierwszym kadrem + duży ▶; podczas odtwarzania warstwa blokuje odtwarzacz platformy,
+   działają tylko nasze przyciski (pauza / stop / dźwięk) i przesunięcie w bok */
+#inspiracje .insp-touch { display: none !important; }
+#inspiracje .insp-title { display: none; }
+#inspiracje .insp-author, #inspiracje .insp-author:hover { margin: 0; color: #8a6d2c; border-bottom: 0; cursor: default; }
+#inspiracje .insp-cover { position: absolute; inset: 0; background: linear-gradient(160deg, #2a2418, #111); }
+#inspiracje .insp-cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#inspiracje .insp-cover-name {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 14px; color: #fff; font-size: 0.95rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)); text-align: center;
+}
+#inspiracje .insp-ctrl {
+    position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: pan-y; cursor: pointer;
+}
+#inspiracje .insp-big-play {
+    width: 84px; height: 84px; border-radius: 50%; border: 2px solid #B4943C; background: rgba(0, 0, 0, 0.5);
+    cursor: pointer; position: relative; transition: transform 0.2s ease, background 0.2s ease;
+}
+#inspiracje .insp-big-play::after {
+    content: ''; position: absolute; left: 33px; top: 24px; border-style: solid; border-width: 18px 0 18px 28px;
+    border-color: transparent transparent transparent #fff;
+}
+#inspiracje .insp-big-play:hover { transform: scale(1.06); background: rgba(180, 148, 60, 0.85); }
+#inspiracje .insp-bar {
+    position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 12px; pointer-events: none;
+}
+#inspiracje .insp-bar .insp-btn { pointer-events: auto; }
+#inspiracje .insp-btn {
+    width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(180, 148, 60, 0.9); background: rgba(0, 0, 0, 0.55);
+    color: #fff; cursor: pointer; position: relative; font-size: 1.1rem; line-height: 1;
+}
+#inspiracje .insp-btn:hover { background: rgba(180, 148, 60, 0.85); }
+#inspiracje .insp-pause::after { content: '❚❚'; letter-spacing: -0.1em; }
+#inspiracje .insp-pause.is-paused::after { content: '▶'; letter-spacing: 0; }
+#inspiracje .insp-stop::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #fff; }
+#inspiracje .insp-sound::after { content: '🔊'; }
+#inspiracje .insp-sound.is-muted::after { content: '🔇'; }
+#inspiracje .insp-touch-icon {
+    position: absolute; min-width: 64px; height: 64px; padding: 0 12px; display: flex; align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 1.6rem; letter-spacing: -0.1em; opacity: 0; pointer-events: none;
+}
+#inspiracje .insp-touch-icon.is-on { animation: inspFlash 0.9s ease; }
+@keyframes inspFlash { 0% { opacity: 0; transform: scale(0.7); } 25% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.15); } }
+#inspiracje .insp-mask { display: none; position: absolute; left: 0; right: 0; pointer-events: auto; cursor: default; }
+#inspiracje .insp-mask-top { top: 0; height: var(--mask-top, 0); }
+#inspiracje .insp-mask-bottom { bottom: 0; height: var(--mask-bottom, 0); }
+
+/* stany warstwy */
+#inspiracje .insp-ctrl[data-state="cover"] .insp-bar { display: none; }
+#inspiracje .insp-ctrl[data-state="play"] .insp-big-play { display: none; }
+#inspiracje .insp-ctrl[data-state="play"] { cursor: default; }
+/* pauza i dźwięk tylko tam, gdzie odtwarzacz przyjmuje polecenia (TikTok, YouTube) */
+#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]) .insp-pause,
+#inspiracje .insp-ctrl:not([data-platform="tiktok"]):not([data-platform="youtube"]) .insp-sound { display: none; }
+/* Instagram / Pinterest przed kliknięciem: warstwa przepuszcza kliknięcie w ▶ odtwarzacza, paski z linkami zakryte */
+#inspiracje .insp-ctrl[data-state="wait"] { pointer-events: none; }
+#inspiracje .insp-ctrl[data-state="wait"] .insp-big-play { display: none; }
+#inspiracje .insp-ctrl[data-state="wait"] .insp-bar { display: flex; }
+#inspiracje .insp-ctrl[data-state="wait"] .insp-pause, #inspiracje .insp-ctrl[data-state="wait"] .insp-sound { display: none; }
+#inspiracje .insp-ctrl[data-state="wait"] .insp-mask { display: block; }
+/* okno zgody TikToka: dół ekranu chwilowo odsłonięty */
+#inspiracje .insp-ctrl.is-open-bottom { bottom: 35%; }
+#inspiracje .insp-ctrl.is-open-bottom .insp-bar { bottom: 8px; }

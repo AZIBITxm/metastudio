@@ -17,7 +17,6 @@
     if (!root) return;
     const screen = root.querySelector('.insp-screen');
     const rail = root.querySelector('.insp-rail');
-    const titleEl = root.querySelector('.insp-title');
     const authorEl = root.querySelector('.insp-author');
     const countEl = root.querySelector('.insp-count');
     const prevBtn = root.querySelector('.insp-prev');
@@ -55,34 +54,186 @@
         return out;
     }
 
-    function playerHtml(f) {
-        const id = esc(f.id);
-        if (f.platforma === 'tiktok' && f.id) {
-            return `<iframe src="https://www.tiktok.com/player/v1/${id}?music_info=1&description=1&rel=0&autoplay=1&muted=1" title="${esc(f.autor)} · TikTok" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; web-share" allowfullscreen></iframe>`;
-        }
-        if (f.platforma === 'youtube' && f.id) {
-            return `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&autoplay=1&mute=1&playsinline=1" title="${esc(f.opis)}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
-        }
-        if (f.platforma === 'facebook') {
-            return `<iframe src="https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(f.url)}&show_text=false" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>`;
-        }
-        if (f.platforma === 'pinterest' && f.id) {
-            return `<iframe src="https://assets.pinterest.com/ext/embed.html?id=${id}" scrolling="no"></iframe>`;
-        }
-        if (f.platforma === 'instagram') {
-            return `<div class="insp-scroll"><blockquote class="instagram-media" data-instgrm-permalink="${esc(f.url)}" data-instgrm-version="14" style="margin:0 auto;max-width:100%;min-width:0"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.autor || 'Instagram')}</a></blockquote></div>`;
-        }
-        return `<a class="insp-screen-msg" href="${esc(f.url)}" target="_blank" rel="noopener">${TXT.watch} ${esc(f.nazwa)} ↗</a>`;
+    // ===== odtwarzanie przez NASZĄ nakładkę (2026-11-11, wymóg Adama) =====
+    // Na ekranie najpierw nasza okładka (pierwszy kadr z aplikacji Inspiracje) z dużym ▶. Po ▶ wstawiamy odtwarzacz
+    // platformy, a nad nim leży nasza warstwa: w odtwarzacz nie da się kliknąć (logo, profil, linki), działają tylko
+    // nasze przyciski i przesunięcie w bok. TikTok i YouTube: pauza + dźwięk przez polecenia do odtwarzacza;
+    // Facebook: tylko stop. Instagram / Pinterest nie przyjmują poleceń — ich ▶ klika się w ich odtwarzaczu
+    // (górny i dolny pasek z linkami zakryty), a po kliknięciu kładziemy warstwę z samym ■.
+    // ■ = usunięcie odtwarzacza i powrót do okładki.
+    const MASK = { instagram: { top: 64, bottom: 150 }, pinterest: { top: 0, bottom: 0 } };   // do strojenia po próbie Adama
+
+    function igKod(url) {
+        const m = String(url).match(/instagram\.com\/(?:[\w.]+\/)?(p|reel|reels|tv)\/([\w-]+)/);
+        return m ? { rodzaj: m[1] === 'reels' ? 'reel' : m[1], kod: m[2] } : null;
     }
 
-    function loadInstagram() {
-        if (window.instgrm) { window.instgrm.Embeds.process(); return; }
-        if (document.querySelector('script[src*="instagram.com/embed.js"]')) return;
-        const sc = document.createElement('script');
-        sc.async = true;
-        sc.src = 'https://www.instagram.com/embed.js';
-        document.head.appendChild(sc);
+    function playerHtml(f) {
+        const id = esc(f.id);
+        const allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; web-share';
+        if (f.platforma === 'tiktok' && f.id) {
+            const q = 'autoplay=1&muted=1&loop=1&controls=0&progress_bar=0&play_button=0&volume_control=0&fullscreen_button=0'
+                + '&timestamp=0&music_info=0&description=0&rel=0&native_context_menu=0&closed_caption=0';
+            return `<iframe src="https://www.tiktok.com/player/v1/${id}?${q}" title="${esc(f.autor)} · TikTok" allow="${allow}" allowfullscreen></iframe>`;
+        }
+        if (f.platforma === 'youtube' && f.id) {
+            const q = `autoplay=1&mute=1&playsinline=1&controls=0&disablekb=1&fs=0&rel=0&iv_load_policy=3&loop=1&playlist=${id}&enablejsapi=1`;
+            return `<iframe src="https://www.youtube-nocookie.com/embed/${id}?${q}" title="${esc(f.autor)} · YouTube" allow="${allow}"></iframe>`;
+        }
+        if (f.platforma === 'facebook') {
+            return `<iframe src="https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(f.url)}&show_text=false&autoplay=true" allow="${allow}" allowfullscreen scrolling="no"></iframe>`;
+        }
+        if (f.platforma === 'pinterest' && f.id) {
+            return `<iframe src="https://assets.pinterest.com/ext/embed.html?id=${id}" scrolling="no" allow="${allow}"></iframe>`;
+        }
+        if (f.platforma === 'instagram') {
+            const ig = igKod(f.url);
+            if (ig) return `<iframe src="https://www.instagram.com/${ig.rodzaj}/${esc(ig.kod)}/embed/" scrolling="no" allow="${allow}" allowfullscreen></iframe>`;
+        }
+        return '';
     }
+
+    function coverHtml(f) {
+        const img = f.miniatura ? `<img class="insp-cover-img" src="${esc(f.miniatura)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+        return `<div class="insp-cover">${img}<span class="insp-cover-name">${esc(f.autor || f.nazwa)}</span></div>`;
+    }
+
+    // warstwa nad ekranem: okładka (▶) / odtwarzanie (przyciski) / czekanie na kliknięcie w odtwarzacz IG-Pinterest (paski)
+    const wrapEl = root.querySelector('.insp-screen-wrap');
+    const ctrl = document.createElement('div');
+    ctrl.className = 'insp-ctrl';
+    ctrl.dataset.state = 'cover';
+    ctrl.innerHTML =
+        `<button type="button" class="insp-big-play" aria-label="${TXT.play}"></button>` +
+        `<span class="insp-touch-icon" aria-hidden="true"></span>` +
+        `<div class="insp-bar">` +
+        `<button type="button" class="insp-btn insp-pause" aria-label="Pauza"></button>` +
+        `<button type="button" class="insp-btn insp-stop" aria-label="Stop"></button>` +
+        `<button type="button" class="insp-btn insp-sound" aria-label="Dźwięk"></button>` +
+        `</div>` +
+        `<div class="insp-mask insp-mask-top"></div><div class="insp-mask insp-mask-bottom"></div>`;
+    wrapEl.appendChild(ctrl);
+    const touchIcon = ctrl.querySelector('.insp-touch-icon');
+    const pauseBtn = ctrl.querySelector('.insp-pause');
+    const soundBtn = ctrl.querySelector('.insp-sound');
+
+    let state = 'cover';            // cover | play | wait
+    let muted = true, paused = false, started = false, startTimer = null;
+
+    function setState(st) {
+        state = st;
+        ctrl.dataset.state = st;
+        const f = films[current] || {};
+        ctrl.dataset.platform = f.platforma || '';
+        pauseBtn.classList.toggle('is-paused', paused);
+        soundBtn.classList.toggle('is-muted', muted);
+    }
+    function flash(symbol) {
+        touchIcon.textContent = symbol;
+        touchIcon.classList.remove('is-on');
+        void touchIcon.offsetWidth;
+        touchIcon.classList.add('is-on');
+    }
+    function frame() { return screen.querySelector('iframe'); }
+    function send(cmd) {
+        const fr = frame();
+        const f = films[current];
+        if (!fr || !fr.contentWindow || !f) return;
+        if (f.platforma === 'tiktok') {
+            fr.contentWindow.postMessage({ type: cmd, value: null, 'x-tiktok-player': true }, '*');
+        } else if (f.platforma === 'youtube') {
+            const func = { play: 'playVideo', pause: 'pauseVideo', mute: 'mute', unMute: 'unMute' }[cmd];
+            fr.contentWindow.postMessage(JSON.stringify({ event: 'command', func, args: [] }), '*');
+        }
+    }
+    const steerable = (f) => !!f && (f.platforma === 'tiktok' || f.platforma === 'youtube');
+
+    function cover() {
+        clearTimeout(startTimer);
+        ctrl.classList.remove('is-open-bottom');
+        const f = films[current];
+        if (!f) return;
+        screen.innerHTML = coverHtml(f);
+        muted = true; paused = false;
+        setState('cover');
+    }
+
+    function play() {
+        const f = films[current];
+        if (!f) return;
+        const html = playerHtml(f);
+        if (!html) { cover(); return; }
+        screen.innerHTML = html;
+        muted = true; paused = false; started = false;
+        clearTimeout(startTimer);
+        ctrl.classList.remove('is-open-bottom');
+        if (f.platforma === 'instagram' || f.platforma === 'pinterest') {
+            const m = MASK[f.platforma];
+            ctrl.style.setProperty('--mask-top', m.top + 'px');
+            ctrl.style.setProperty('--mask-bottom', m.bottom + 'px');
+            setState('wait');
+            window.focus();
+            return;
+        }
+        setState('play');
+        if (steerable(f)) {
+            // start bez dźwięku jest zawsze dozwolony; zaraz po starcie włączamy dźwięk (kliknięcie ▶ na to pozwala)
+            frame().addEventListener('load', () => {
+                setTimeout(() => { if (state !== 'play') return; send('play'); send('unMute'); muted = false; setState('play'); }, 700);
+            }, { once: true });
+        }
+        if (f.platforma === 'tiktok') {
+            // TikTok w części krajów pokazuje w odtwarzaczu okno zgody na pliki cookie — gdy film nie ruszy,
+            // odsłaniamy dół ekranu, żeby dało się je kliknąć (po kliknięciu warstwa wraca w całości)
+            startTimer = setTimeout(() => {
+                if (state === 'play' && !started) { ctrl.classList.add('is-open-bottom'); window.focus(); }
+            }, 4500);
+        }
+    }
+
+    // sygnały z odtwarzaczy: stan odtwarzania (1 = gra)
+    window.addEventListener('message', (e) => {
+        const fr = frame();
+        if (!fr || e.source !== fr.contentWindow) return;
+        let d = e.data;
+        if (typeof d === 'string') { try { d = JSON.parse(d); } catch (x) { return; } }
+        if (!d) return;
+        if ((d['x-tiktok-player'] && d.type === 'onStateChange' && d.value === 1) || (d.event === 'onStateChange' && d.info === 1)) {
+            started = true;
+            clearTimeout(startTimer);
+            ctrl.classList.remove('is-open-bottom');
+        }
+    });
+
+    // kliknięcie w ramkę odtwarzacza zabiera fokus naszej stronie — jedyny sygnał, że ktoś kliknął ▶ Instagrama
+    // (albo okno zgody TikToka); wtedy kładziemy warstwę z powrotem
+    window.addEventListener('blur', () => {
+        setTimeout(() => {
+            const fr = frame();
+            if (!fr || document.activeElement !== fr) return;
+            if (state === 'wait') setState('play');
+            else if (ctrl.classList.contains('is-open-bottom')) { started = true; ctrl.classList.remove('is-open-bottom'); }
+            window.focus();
+        }, 0);
+    });
+
+    function togglePause() {
+        if (!steerable(films[current])) return;
+        if (paused) { send('play'); paused = false; flash('▶'); }
+        else { send('pause'); paused = true; flash('❚❚'); }
+        setState('play');
+    }
+    function toggleSound() {
+        if (!steerable(films[current])) return;
+        if (muted) { send('unMute'); send('play'); muted = false; paused = false; flash('🔊'); }
+        else { send('mute'); muted = true; flash('🔇'); }
+        setState('play');
+    }
+
+    ctrl.querySelector('.insp-big-play').addEventListener('click', (e) => { e.stopPropagation(); play(); });
+    pauseBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePause(); });
+    soundBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleSound(); });
+    ctrl.querySelector('.insp-stop').addEventListener('click', (e) => { e.stopPropagation(); cover(); });
 
     function show(i, focusRail, dir) {
         if (!films.length) return;
@@ -101,21 +252,17 @@
                 behavior: 'smooth',
             });
         }
-        titleEl.textContent = f.opis || f.nazwa;
-        authorEl.textContent = `${f.autor ? f.autor + ' · ' : ''}${TXT.watch} ${f.nazwa} ↗`;
-        authorEl.href = f.url;
+        // bez opisu filmu (decyzja Adama) — tylko twórca jako zwykły napis, bez odnośnika
+        authorEl.textContent = f.autor ? `${f.autor} · ${f.nazwa}` : f.nazwa;
         countEl.textContent = `${String(i + 1).padStart(2, '0')} ${TXT.of} ${String(films.length).padStart(2, '0')}`;
         root.querySelector('.insp-info').classList.remove('insp-swap');
         void root.offsetWidth;
         root.querySelector('.insp-info').classList.add('insp-swap');
-        if (!visible) return;   // odtwarzacz dopiero, gdy sekcja jest na ekranie
-        muted = true;
-        paused = false;
+        clearTimeout(startTimer);
         screen.classList.add('is-changing');
         if (dir) screen.classList.add('go-' + dir);
         setTimeout(() => {
-            screen.innerHTML = playerHtml(f);
-            if (f.platforma === 'instagram') loadInstagram();
+            cover();
             // nowy film wjeżdża z przeciwnej strony niż odjechał stary
             screen.style.transition = 'none';
             screen.classList.remove('go-left', 'go-right');
@@ -126,64 +273,42 @@
         }, 260);
     }
 
-    // ===== telefon: przesunięcie palcem po ekranie = następny / poprzedni film =====
-    // Odtwarzacz jest w ramce (iframe), która przejmuje dotyk — dlatego nad nim leży przezroczysta warstwa:
-    // przesunięcie w bok zmienia film, stuknięcie steruje odtwarzaczem TikToka (dźwięk → pauza/odtwarzanie).
-    let muted = true, paused = false;
-    const wrapEl = root.querySelector('.insp-screen-wrap');
-    const touchLayer = document.createElement('div');
-    touchLayer.className = 'insp-touch';
-    const touchIcon = document.createElement('span');
-    touchIcon.className = 'insp-touch-icon';
-    touchLayer.appendChild(touchIcon);
-    wrapEl.appendChild(touchLayer);
-
-    function flash(symbol) {
-        touchIcon.textContent = symbol;
-        touchIcon.classList.remove('is-on');
-        void touchIcon.offsetWidth;
-        touchIcon.classList.add('is-on');
-    }
-    function tiktok(type) {
-        const fr = screen.querySelector('iframe');
-        if (fr && fr.contentWindow) fr.contentWindow.postMessage({ type, value: null, 'x-tiktok-player': true }, '*');
-    }
-    function tap() {
-        const f = films[current];
-        if (!f) return;
-        if (f.platforma === 'tiktok') {
-            if (muted) { tiktok('unMute'); tiktok('play'); muted = false; paused = false; flash('🔊'); }
-            else if (paused) { tiktok('play'); paused = false; flash('▶'); }
-            else { tiktok('pause'); paused = true; flash('❚❚'); }
-        } else {
-            // inne serwisy nie mają sterowania z zewnątrz — na chwilę oddajemy dotyk odtwarzaczowi
-            touchLayer.style.pointerEvents = 'none';
-            setTimeout(() => { touchLayer.style.pointerEvents = ''; }, 8000);
-        }
-    }
-    let sx = 0, sy = 0, st = 0;
-    touchLayer.addEventListener('touchstart', (e) => {
-        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; st = Date.now();
+    // przesunięcie palcem po ekranie = następny / poprzedni film; stuknięcie: okładka → odtwórz, film → pauza
+    let sx = 0, sy = 0;
+    ctrl.addEventListener('touchstart', (e) => {
+        const t = e.touches[0]; sx = t.clientX; sy = t.clientY;
     }, { passive: true });
-    touchLayer.addEventListener('touchend', (e) => {
+    ctrl.addEventListener('touchend', (e) => {
         const t = e.changedTouches[0];
         const dx = t.clientX - sx, dy = t.clientY - sy;
-        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-            if (films.length > 1) { stopDrift(); show(current + (dx < 0 ? 1 : -1), true, dx < 0 ? 'left' : 'right'); }
-        } else if (Math.abs(dx) < 12 && Math.abs(dy) < 12 && Date.now() - st < 450) {
-            tap();
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2 && films.length > 1) {
+            e.preventDefault();   // bez „kliknięcia” po przesunięciu
+            stopDrift();
+            show(current + (dx < 0 ? 1 : -1), true, dx < 0 ? 'left' : 'right');
         }
-    }, { passive: true });
+    });
+    ctrl.addEventListener('click', (e) => {
+        if (e.target !== ctrl) return;
+        if (state === 'cover') play();
+        else if (state === 'play') togglePause();
+    });
+
+    // film nie gra dalej, gdy sekcja zniknie z ekranu
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver((en) => {
+            if (en.every((x) => !x.isIntersecting) && state !== 'cover') cover();
+        }, { threshold: 0 }).observe(wrapEl);
+    }
 
     function thumb(f, i) {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'insp-thumb';
         b.style.setProperty('--i', i);
-        b.setAttribute('aria-label', `${TXT.play}: ${f.opis || f.nazwa}`);
+        b.setAttribute('aria-label', `${TXT.play}: ${f.autor || f.nazwa}`);
         b.innerHTML =
             `<span class="insp-thumb-card"><span class="insp-thumb-platform">${esc(f.nazwa)}</span>` +
-            `<span class="insp-thumb-text">${esc(f.opis || f.autor)}</span></span>` +
+            `<span class="insp-thumb-text">${esc(f.autor)}</span></span>` +
             `<span class="insp-thumb-play" aria-hidden="true"></span>`;
         if (f.miniatura) {
             const img = new Image();
